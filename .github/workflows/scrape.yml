@@ -1,0 +1,43 @@
+name: Scrape DHC Cases
+
+on:
+  schedule:
+    # 11 PM IST = 5:30 PM UTC
+    - cron: '30 17 * * *'
+  workflow_dispatch:
+    # Allow manual trigger from GitHub UI
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Chromium for Puppeteer
+        run: npx puppeteer browsers install chrome
+
+      - name: Run scraper
+        env:
+          TWO_CAPTCHA_API_KEY: ${{ secrets.TWO_CAPTCHA_API_KEY }}
+        run: node src/scraper.js
+
+      - name: Commit updated data
+        run: |
+          git config --local user.email "scraper@lextrack"
+          git config --local user.name "LexTrack Scraper"
+          git add data/scraped.json
+          git diff --staged --quiet && echo "No changes to commit" || \
+            git commit -m "chore: update scraped case data $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
