@@ -1,0 +1,123 @@
+═══════════════════════════════════════════════════════════════════════════════
+                          LexTrack — IPR Practice Manager
+                          Complete, Ready-to-Use, Zero-Cost
+═══════════════════════════════════════════════════════════════════════════════
+
+Hi! I've built you a practice management dashboard for your IPR litigation cases.
+Here's what you get — no installation, no server, completely free.
+
+───────────────────────────────────────────────────────────────────────────────
+WHAT'S INCLUDED
+───────────────────────────────────────────────────────────────────────────────
+
+✓ Dashboard — See all your active matters, hearings this week, pending tasks at a glance
+✓ Case Lookup — Type any DHC case number → instantly see next date, last date, AI analysis
+✓ All Matters — Full table with filters, add/delete cases
+✓ Hearings Calendar — Visual calendar with upcoming hearings sidebar
+✓ Tasks — All action items across all cases, prioritized (P1/P2), mark done
+✓ AI Analysis — Click one button → get strategic insights, action items, documents needed
+✓ Documents — Track all pleadings, orders, affidavits in one place
+
+───────────────────────────────────────────────────────────────────────────────
+HOW TO USE (3 STEPS)
+───────────────────────────────────────────────────────────────────────────────
+
+1. DOWNLOAD THE APP
+   • Download: LexTrack-IPR-App.html
+   • Open in Chrome/Safari/Firefox
+   • That's it. No login. No installation.
+
+2. ADD YOUR CASES
+   • Click "+ New Matter"
+   • Fill in case number, type, dates, client name
+   • Or edit the HTML file to bulk-import 10+ cases at once
+
+3. GET AI INSIGHTS
+   • Open any case → Click "✦ AI Analysis"
+   • Get instant summary: what happened last date, what's next, what to do
+   • (Optional: Add your Claude API key for live AI — ₹200-500/month)
+
+───────────────────────────────────────────────────────────────────────────────
+EXAMPLE: YOUR FIRST CASE
+───────────────────────────────────────────────────────────────────────────────
+
+Title:          ABC Ltd. v. XYZ Ltd.
+Case Number:    CS(COMM)/441/2024
+Type:           Trademark
+Stage:          Arguments
+Last Date:      May 20, 2024
+Next Date:      June 10, 2024
+Client:         ABC Ltd.
+
+Click ✦ AI Analysis:
+→ What happened: "At the last hearing, both sides completed arguments. Court took
+   time to reserve judgment."
+→ What's next: "Next date is for reserved orders. Prepare for post-judgment options."
+→ Actions: • Prepare note on post-judgment strategy
+           • Brief client on possible outcomes
+           • Collect documents for appeal if needed
+
+───────────────────────────────────────────────────────────────────────────────
+COST
+───────────────────────────────────────────────────────────────────────────────
+
+App:                    FREE (runs on your computer)
+Storage:                FREE (uses browser memory)
+AI Analysis:            ₹200-500/month (optional, Claude API)
+DHC Auto-Sync:          FREE (GitHub Actions)
+
+Total First Year:       ₹0-2500 (~$3-30)
+
+───────────────────────────────────────────────────────────────────────────────
+BONUS: AUTO-SYNC DHC CASE DATES (Advanced)
+───────────────────────────────────────────────────────────────────────────────
+
+Want nightly automatic updates from Delhi High Court?
+
+→ See SCRAPER_SETUP.md for GitHub Actions setup
+   (Free, runs every night at 11 PM, auto-updates all case dates)
+
+───────────────────────────────────────────────────────────────────────────────
+KEYBOARD SHORTCUTS
+───────────────────────────────────────────────────────────────────────────────
+
+Click matter title     → Open full detail page
+Click task checkbox    → Mark as done/undone
+Click date cell        → Shows days until hearing
+✦ AI Analysis button   → Get instant insights
+
+───────────────────────────────────────────────────────────────────────────────
+FILES YOU NEED
+───────────────────────────────────────────────────────────────────────────────
+
+1. LexTrack-IPR-App.html          ← Main app (download + open in browser)
+2. SETUP_GUIDE.md                  ← How to populate with your cases
+3. SCRAPER_SETUP.md (optional)     ← Auto-sync from DHC
+
+───────────────────────────────────────────────────────────────────────────────
+NEXT STEPS
+───────────────────────────────────────────────────────────────────────────────
+
+[ ] Download LexTrack-IPR-App.html
+[ ] Open in your browser
+[ ] Add your first case
+[ ] Click ✦ AI Analysis to see insights
+[ ] (Optional) Read SETUP_GUIDE.md for bulk import
+[ ] (Optional) Read SCRAPER_SETUP.md for auto-sync
+
+───────────────────────────────────────────────────────────────────────────────
+QUESTIONS?
+───────────────────────────────────────────────────────────────────────────────
+
+The app is built with:
+  - Zero external dependencies (works offline)
+  - All data stored locally (private, never sent to servers)
+  - Optional Claude AI for legal insights
+  - GitHub Actions for case date automation
+
+Built for: Delhi High Court IPR litigation
+Ready for: Trademark, Patent, Copyright, Design, GI matters
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Good luck with your cases! 🏛️⚖️
