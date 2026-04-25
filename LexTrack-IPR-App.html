@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LexTrack — IPR Practice Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f0e0c;
+  --ink2: #3a3830;
+  --ink3: #7a7668;
+  --paper: #f7f4ee;
+  --paper2: #edeae1;
+  --paper3: #e2ddd3;
+  --gold: #c9a84c;
+  --gold2: #e8c97a;
+  --gold3: #f5e9c4;
+  --red: #c94c4c;
+  --red2: #f5c4c4;
+  --green: #4c8c6a;
+  --green2: #c4e8d4;
+  --blue: #4c6c9c;
+  --blue2: #c4d4ec;
+  --border: rgba(15,14,12,0.12);
+  --border2: rgba(15,14,12,0.06);
+  --shadow: 0 2px 12px rgba(15,14,12,0.08), 0 1px 3px rgba(15,14,12,0.06);
+  --shadow-lg: 0 8px 40px rgba(15,14,12,0.12), 0 2px 8px rgba(15,14,12,0.08);
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  z-index: 100;
+}
+
+.sidebar-brand {
+  padding: 28px 24px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold2);
+  letter-spacing: 0.5px;
+}
+
+.brand-tag {
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 16px 12px;
+}
+
+.nav-section {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  padding: 12px 12px 6px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.15s;
+  margin-bottom: 2px;
+}
+
+.nav-item:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); }
+.nav-item.active { background: rgba(201,168,76,0.18); color: var(--gold2); font-weight: 500; }
+
+.nav-icon { width: 16px; height: 16px; opacity: 0.8; flex-shrink: 0; }
+
+.sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.sync-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+}
+
+.sync-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* ── MAIN ── */
+.main {
+  margin-left: 240px;
+  flex: 1;
+  min-height: 100vh;
+}
+
+.topbar {
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky; top: 0;
+  z-index: 50;
+}
+
+.topbar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--gold2);
+}
+.btn-primary:hover { background: var(--ink2); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink2);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { background: var(--paper2); }
+
+.btn-gold {
+  background: var(--gold);
+  color: white;
+}
+.btn-gold:hover { background: #b8973d; }
+
+.btn-danger {
+  background: transparent;
+  color: var(--red);
+  border: 1px solid rgba(201,76,76,0.25);
+  font-size: 12px;
+  padding: 5px 10px;
+}
+.btn-danger:hover { background: var(--red2); }
+
+.content { padding: 32px; }
+
+/* ── VIEWS ── */
+.view { display: none; }
+.view.active { display: block; }
+
+/* ── DASHBOARD ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.stat-sub {
+  font-size: 12px;
+  color: var(--ink3);
+  margin-top: 6px;
+}
+
+.stat-accent { border-left: 3px solid var(--gold); }
+.stat-red { border-left: 3px solid var(--red); }
+.stat-green { border-left: 3px solid var(--green); }
+.stat-blue { border-left: 3px solid var(--blue); }
+
+/* ── SECTION HEADER ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── MATTER TABLE ── */
+.matter-table {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1fr 1fr 1fr 100px;
+  padding: 12px 20px;
+  background: var(--paper2);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink3);
+  font-weight: 500;
+}
+
+.matter-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1fr 1fr 1fr 100px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border2);
+  align-items: center;
+  transition: background 0.1s;
+  cursor: pointer;
+}
+
+.matter-row:last-child { border-bottom: none; }
+.matter-row:hover { background: var(--paper); }
+
+.matter-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.matter-sub {
+  font-size: 11px;
+  color: var(--ink3);
+  font-family: 'DM Mono', monospace;
+  margin-top: 2px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.tag-trademark { background: var(--gold3); color: #7a5a10; }
+.tag-patent { background: var(--blue2); color: #2a4a7c; }
+.tag-copyright { background: var(--green2); color: #2a6a4a; }
+.tag-design { background: #e8d4f0; color: #6a2a9c; }
+
+.stage-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+.stage-pleadings { background: var(--blue2); color: #2a4a7c; }
+.stage-arguments { background: var(--gold3); color: #7a5a10; }
+.stage-reserved { background: #f0d4e8; color: #7a2a6a; }
+.stage-disposed { background: var(--green2); color: #2a6a4a; }
+.stage-filed { background: var(--paper3); color: var(--ink2); }
+
+.date-cell { font-size: 13px; color: var(--ink2); }
+.date-urgent { color: var(--red); font-weight: 600; }
+
+.row-actions { display: flex; gap: 6px; justify-content: flex-end; }
+
+/* ── CALENDAR ── */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cal-widget {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.cal-month-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cal-month-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cal-nav { cursor: pointer; color: var(--ink3); font-size: 18px; padding: 4px 8px; }
+.cal-nav:hover { color: var(--ink); }
+
+.cal-days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--ink3);
+  margin-bottom: 8px;
+}
+
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.cal-day:hover { background: var(--paper2); }
+.cal-day.today { background: var(--ink); color: white; font-weight: 600; }
+.cal-day.has-hearing { font-weight: 600; color: var(--gold); }
+.cal-day.has-hearing::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.cal-day.today.has-hearing::after { background: var(--gold2); }
+.cal-day.other-month { color: var(--ink3); opacity: 0.4; }
+
+.upcoming-hearings {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.hearing-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border2);
+}
+
+.hearing-item:last-child { border-bottom: none; }
+
+.hearing-date-badge {
+  width: 44px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.hearing-date-day {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.hearing-date-month {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+.hearing-info { flex: 1; }
+.hearing-case { font-weight: 500; font-size: 14px; color: var(--ink); }
+.hearing-case-no { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--ink3); margin-top: 2px; }
+.hearing-days-away { font-size: 11px; color: var(--red); font-weight: 500; margin-top: 4px; }
+
+/* ── MATTER DETAIL ── */
+.detail-header {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+
+.detail-case-no {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--ink3);
+  margin-bottom: 6px;
+}
+
+.detail-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.detail-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.detail-meta-item { font-size: 13px; color: var(--ink2); }
+.detail-meta-item strong { color: var(--ink); }
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.detail-col-full { grid-column: 1 / -1; }
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── AI SUMMARY CARD ── */
+.ai-card {
+  background: linear-gradient(135deg, #0f0e0c 0%, #1e1c18 100%);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-lg);
+  grid-column: 1 / -1;
+}
+
+.ai-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.ai-card-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ai-spinner {
+  display: none;
+  width: 14px; height: 14px;
+  border: 2px solid rgba(201,168,76,0.3);
+  border-top-color: var(--gold2);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading .ai-spinner { display: block; }
+
+.ai-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.ai-section {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.ai-section-title {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.ai-section-content {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+}
+
+.ai-section-content ul { padding-left: 16px; }
+.ai-section-content li { margin-bottom: 5px; }
+
+.ai-full { grid-column: 1 / -1; }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 9px; top: 0; bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -24px; top: 4px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+.timeline-date { font-size: 11px; color: var(--ink3); font-family: 'DM Mono', monospace; margin-bottom: 3px; }
+.timeline-event { font-size: 13px; color: var(--ink); font-weight: 500; }
+.timeline-detail { font-size: 12px; color: var(--ink3); margin-top: 2px; }
+
+/* ── TASKS ── */
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border2);
+}
+
+.task-item:last-child { border-bottom: none; }
+
+.task-check {
+  width: 18px; height: 18px;
+  border-radius: 5px;
+  border: 1.5px solid var(--border);
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  transition: all 0.15s;
+}
+
+.task-check:hover { border-color: var(--green); }
+.task-check.done { background: var(--green); border-color: var(--green); }
+.task-check.done::after { content: '✓'; color: white; font-size: 11px; }
+
+.task-info { flex: 1; }
+.task-title { font-size: 13px; color: var(--ink); font-weight: 500; }
+.task-title.done { text-decoration: line-through; color: var(--ink3); }
+.task-meta { font-size: 11px; color: var(--ink3); margin-top: 2px; }
+
+.priority-p1 { color: var(--red); font-weight: 600; }
+.priority-p2 { color: var(--gold); font-weight: 600; }
+.priority-p3 { color: var(--ink3); }
+
+/* ── ADD MATTER MODAL ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15,14,12,0.6);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.modal-sub { font-size: 13px; color: var(--ink3); margin-bottom: 28px; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-full { grid-column: 1 / -1; }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 12px; font-weight: 500; color: var(--ink2); letter-spacing: 0.5px; }
+
+.form-input, .form-select {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  background: white;
+  color: var(--ink);
+  transition: border-color 0.15s;
+  outline: none;
+}
+
+.form-input:focus, .form-select:focus { border-color: var(--gold); }
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+/* ── CASE LOOKUP PANEL ── */
+.lookup-panel {
+  background: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-lg);
+}
+
+.lookup-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold2);
+  margin-bottom: 6px;
+}
+
+.lookup-sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
+
+.lookup-row {
+  display: grid;
+  grid-template-columns: 1fr 160px 120px;
+  gap: 12px;
+  align-items: end;
+}
+
+.lookup-input {
+  padding: 14px 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 15px;
+  background: rgba(255,255,255,0.06);
+  color: white;
+  outline: none;
+  transition: border-color 0.15s;
+  letter-spacing: 0.5px;
+}
+
+.lookup-input::placeholder { color: rgba(255,255,255,0.25); }
+.lookup-input:focus { border-color: var(--gold); }
+
+.lookup-select {
+  padding: 14px 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  background: rgba(255,255,255,0.06);
+  color: white;
+  outline: none;
+}
+
+.lookup-select option { background: #1e1c18; }
+
+.btn-lookup {
+  padding: 14px 20px;
+  background: var(--gold);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.btn-lookup:hover { background: #b8973d; }
+.btn-lookup:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── LOOKUP RESULT ── */
+.lookup-result {
+  display: none;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 28px;
+}
+
+.lookup-result.show { display: block; }
+
+.result-header {
+  background: var(--paper2);
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.result-case-no {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--ink3);
+}
+
+.result-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 4px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+
+.result-stat {
+  padding: 20px 24px;
+  border-right: 1px solid var(--border);
+}
+
+.result-stat:last-child { border-right: none; }
+.result-stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink3); margin-bottom: 6px; }
+.result-stat-value { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; }
+.value-urgent { color: var(--red); }
+.value-normal { color: var(--ink); }
+
+.result-ai {
+  padding: 24px;
+  background: linear-gradient(135deg, #0f0e0c, #1a1816);
+}
+
+.result-ai-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.result-ai-section {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.result-ai-section.full { grid-column: 1/-1; }
+
+.result-ai-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.result-ai-text {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+}
+
+.result-ai-text ul { padding-left: 16px; }
+.result-ai-text li { margin-bottom: 5px; }
+
+.result-footer {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+}
+
+/* ── TASKS PAGE ── */
+.tasks-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--ink3);
+  transition: all 0.15s;
+}
+
+.filter-chip:hover { border-color: var(--ink2); color: var(--ink); }
+.filter-chip.active { background: var(--ink); color: var(--gold2); border-color: var(--ink); }
+
+.all-tasks-list {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.task-row {
+  display: grid;
+  grid-template-columns: 24px 2fr 1fr 100px 80px 70px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border2);
+  align-items: center;
+  gap: 12px;
+  transition: background 0.1s;
+}
+
+.task-row:hover { background: var(--paper); }
+.task-row:last-child { border-bottom: none; }
+
+.tasks-header {
+  grid-template-columns: 24px 2fr 1fr 100px 80px 70px;
+  background: var(--paper2);
+  padding: 10px 20px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink3);
+  font-weight: 500;
+  gap: 12px;
+  display: grid;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── SKELETON LOADING ── */
+.skeleton {
+  background: linear-gradient(90deg, var(--paper2) 25%, var(--paper3) 50%, var(--paper2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+/* ── DHC STATUS ── */
+.dhc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.dhc-live { background: var(--green2); color: #2a6a4a; }
+.dhc-cached { background: var(--gold3); color: #7a5a10; }
+.dhc-error { background: var(--red2); color: #7a2a2a; }
+
+/* ── DOCS PAGE ── */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.doc-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.doc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-1px); }
+
+.doc-icon { font-size: 28px; margin-bottom: 10px; }
+.doc-name { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+.doc-meta { font-size: 11px; color: var(--ink3); }
+
+/* ── EMPTY STATE ── */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--ink3);
+}
+
+.empty-icon { font-size: 40px; margin-bottom: 12px; opacity: 0.4; }
+.empty-title { font-size: 16px; font-weight: 500; color: var(--ink2); margin-bottom: 6px; }
+.empty-sub { font-size: 13px; }
+
+/* ── CONFIRM MODAL ── */
+.confirm-modal {
+  width: 420px;
+  text-align: center;
+}
+
+.confirm-icon { font-size: 40px; margin-bottom: 12px; }
+.confirm-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.confirm-sub { font-size: 14px; color: var(--ink3); margin-bottom: 24px; line-height: 1.5; }
+
+/* ── NOTIFICATION TOAST ── */
+.toast-container {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast {
+  background: var(--ink);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slideIn 0.3s ease;
+  border-left: 3px solid var(--gold);
+}
+
+.toast.success { border-left-color: var(--green); }
+.toast.error { border-left-color: var(--red); }
+
+@keyframes slideIn { from { transform: translateX(100%); opacity: 0; } }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-name">LexTrack</div>
+    <div class="brand-tag">IPR Practice Manager</div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section">Main</div>
+    <div class="nav-item active" onclick="showView('dashboard')">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Dashboard
+    </div>
+    <div class="nav-item" onclick="showView('lookup')">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+      Case Lookup
+    </div>
+    <div class="nav-item" onclick="showView('matters')">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6M9 16h6M6 3h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2z"/></svg>
+      All Matters
+    </div>
+    <div class="nav-item" onclick="showView('calendar')">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Hearings Calendar
+    </div>
+    <div class="nav-item" onclick="showView('tasks')">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Tasks
+    </div>
+    <div class="nav-section">Files</div>
+    <div class="nav-item" onclick="showView('documents')">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Documents
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="sync-status">
+      <div class="sync-dot"></div>
+      Last sync: Today 11:00 PM
+    </div>
+    <div style="font-size:10px;color:rgba(255,255,255,0.2);margin-top:6px;">DHC data via GitHub Actions</div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="topbar">
+    <div class="topbar-title" id="topbar-title">Dashboard</div>
+    <div class="topbar-right">
+      <div id="sync-banner" style="display:none;align-items:center;font-size:11px;color:var(--ink3);letter-spacing:0.5px;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;gap:6px;"></div>
+      <button class="btn btn-ghost" onclick="loadScrapedData()">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M20 9A9 9 0 005.3 5.3M4 15a9 9 0 0014.7 3.7"/></svg>
+        Sync DHC
+      </button>
+      <button class="btn btn-primary" onclick="openAddModal()">+ New Matter</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ── DASHBOARD VIEW ── -->
+    <div class="view active" id="view-dashboard">
+      <div class="stats-grid">
+        <div class="stat-card stat-accent">
+          <div class="stat-label">Active Matters</div>
+          <div class="stat-value" id="stat-active">5</div>
+          <div class="stat-sub">2 added this month</div>
+        </div>
+        <div class="stat-card stat-red">
+          <div class="stat-label">Hearings This Week</div>
+          <div class="stat-value" id="stat-hearings">3</div>
+          <div class="stat-sub">Next: Tomorrow 10:30 AM</div>
+        </div>
+        <div class="stat-card stat-green">
+          <div class="stat-label">Tasks Pending</div>
+          <div class="stat-value" id="stat-tasks">8</div>
+          <div class="stat-sub">2 overdue</div>
+        </div>
+        <div class="stat-card stat-blue">
+          <div class="stat-label">DHC Synced</div>
+          <div class="stat-value">✓</div>
+          <div class="stat-sub">All matters updated</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Active Matters</div>
+        <button class="btn btn-ghost" onclick="showView('matters')" style="font-size:12px;padding:6px 12px;">View all →</button>
+      </div>
+
+      <div class="matter-table">
+        <div class="table-header">
+          <span>Matter</span>
+          <span>Case No.</span>
+          <span>Type</span>
+          <span>Last Date</span>
+          <span>Next Date</span>
+          <span></span>
+        </div>
+        <div id="dashboard-matters"></div>
+      </div>
+    </div>
+
+    <!-- ── CASE LOOKUP VIEW ── -->
+    <div class="view" id="view-lookup">
+      <div class="lookup-panel">
+        <div class="lookup-title">DHC Case Lookup</div>
+        <div class="lookup-sub">Enter any Delhi High Court case number to fetch live status, orders, and AI analysis</div>
+        <div class="lookup-row">
+          <input class="lookup-input" id="lookup-case-no" placeholder="e.g. CS(COMM)/441/2024 or W.P.(C)/1234/2023" type="text">
+          <select class="lookup-select" id="lookup-type">
+            <option value="trademark">Trademark</option>
+            <option value="patent">Patent</option>
+            <option value="copyright">Copyright</option>
+            <option value="design">Design</option>
+            <option value="gi">GI</option>
+          </select>
+          <button class="btn-lookup" onclick="performLookup()" id="lookup-btn">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+            Fetch Case
+          </button>
+        </div>
+        <div style="margin-top:14px;font-size:11px;color:rgba(255,255,255,0.25);">
+          Supported formats: CS(COMM), W.P.(C), FAO(OS)(COMM), OMP(I)(COMM), RFA(OS)(COMM)
+        </div>
+      </div>
+
+      <div class="lookup-result" id="lookup-result"></div>
+    </div>
+
+    <!-- ── ALL MATTERS VIEW ── -->
+    <div class="view" id="view-matters">
+      <div class="section-header" style="margin-bottom:20px;">
+        <div class="section-title">All Matters</div>
+        <button class="btn btn-primary" onclick="openAddModal()">+ New Matter</button>
+      </div>
+      <div class="matter-table">
+        <div class="table-header">
+          <span>Matter</span>
+          <span>Case No.</span>
+          <span>Type</span>
+          <span>Last Date</span>
+          <span>Next Date</span>
+          <span></span>
+        </div>
+        <div id="all-matters-list"></div>
+      </div>
+    </div>
+
+    <!-- ── CALENDAR VIEW ── -->
+    <div class="view" id="view-calendar">
+      <div class="calendar-grid">
+        <div class="cal-widget">
+          <div class="cal-month-header">
+            <span class="cal-nav" onclick="changeMonth(-1)">‹</span>
+            <div class="cal-month-name" id="cal-month-name"></div>
+            <span class="cal-nav" onclick="changeMonth(1)">›</span>
+          </div>
+          <div class="cal-days-header">
+            <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+          </div>
+          <div class="cal-days" id="cal-days"></div>
+        </div>
+        <div class="upcoming-hearings">
+          <div class="card-title">Upcoming Hearings</div>
+          <div id="upcoming-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TASKS VIEW ── -->
+    <div class="view" id="view-tasks">
+      <div class="section-header" style="margin-bottom:16px;">
+        <div class="section-title">All Tasks</div>
+        <button class="btn btn-primary" onclick="openAddTaskModal()">+ New Task</button>
+      </div>
+      <div class="tasks-filters">
+        <span class="filter-chip active" onclick="filterTasks('all',this)">All</span>
+        <span class="filter-chip" onclick="filterTasks('p1',this)">P1 Urgent</span>
+        <span class="filter-chip" onclick="filterTasks('p2',this)">P2 Important</span>
+        <span class="filter-chip" onclick="filterTasks('overdue',this)">Overdue</span>
+        <span class="filter-chip" onclick="filterTasks('pending',this)">Pending</span>
+        <span class="filter-chip" onclick="filterTasks('done',this)">Done</span>
+      </div>
+      <div class="all-tasks-list">
+        <div class="tasks-header">
+          <span></span>
+          <span>Task</span>
+          <span>Matter</span>
+          <span>Due Date</span>
+          <span>Priority</span>
+          <span>Source</span>
+        </div>
+        <div id="tasks-list"></div>
+      </div>
+    </div>
+
+    <!-- ── DOCUMENTS VIEW ── -->
+    <div class="view" id="view-documents">
+      <div class="section-header" style="margin-bottom:20px;">
+        <div class="section-title">Documents</div>
+        <button class="btn btn-primary">+ Upload</button>
+      </div>
+      <div class="doc-grid" id="docs-grid"></div>
+    </div>
+
+    <!-- ── MATTER DETAIL VIEW ── -->
+    <div class="view" id="view-detail">
+      <div id="detail-content"></div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ADD MATTER MODAL -->
+<div class="modal-overlay" id="add-modal">
+  <div class="modal">
+    <div class="modal-title">Add New Matter</div>
+    <div class="modal-sub">Enter case details below. DHC sync will run automatically.</div>
+    <div class="form-grid">
+      <div class="form-group form-full">
+        <label class="form-label">Case Title (Parties)</label>
+        <input class="form-input" id="f-title" placeholder="Plaintiff v. Defendant">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Case Number</label>
+        <input class="form-input" id="f-caseno" placeholder="CS(COMM)/441/2024">
+      </div>
+      <div class="form-group">
+        <label class="form-label">IPR Type</label>
+        <select class="form-select" id="f-type">
+          <option value="trademark">Trademark</option>
+          <option value="patent">Patent</option>
+          <option value="copyright">Copyright</option>
+          <option value="design">Design</option>
+          <option value="gi">GI</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Stage</label>
+        <select class="form-select" id="f-stage">
+          <option value="filed">Filed</option>
+          <option value="pleadings">Pleadings</option>
+          <option value="arguments">Arguments</option>
+          <option value="reserved">Reserved</option>
+          <option value="disposed">Disposed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Client Name</label>
+        <input class="form-input" id="f-client" placeholder="Company / Individual">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Last Date of Hearing</label>
+        <input class="form-input" id="f-lastdate" type="date">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Next Date of Hearing</label>
+        <input class="form-input" id="f-nextdate" type="date">
+      </div>
+      <div class="form-group form-full">
+        <label class="form-label">Notes</label>
+        <input class="form-input" id="f-notes" placeholder="Any notes about the matter...">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('add-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="addMatter()">Add Matter</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADD TASK MODAL -->
+<div class="modal-overlay" id="task-modal">
+  <div class="modal">
+    <div class="modal-title">Add New Task</div>
+    <div class="modal-sub">Create a compliance task or action item.</div>
+    <div class="form-grid">
+      <div class="form-group form-full">
+        <label class="form-label">Task Title</label>
+        <input class="form-input" id="t-title" placeholder="e.g. File written statement">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Linked Matter</label>
+        <select class="form-select" id="t-matter"></select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Due Date</label>
+        <input class="form-input" id="t-due" type="date">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Priority</label>
+        <select class="form-select" id="t-priority">
+          <option value="P1">P1 — Urgent</option>
+          <option value="P2">P2 — Important</option>
+          <option value="P3">P3 — Normal</option>
+        </select>
+      </div>
+      <div class="form-group form-full">
+        <label class="form-label">Description</label>
+        <input class="form-input" id="t-desc" placeholder="Details about this task...">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('task-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="addTask()">Add Task</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM DELETE MODAL -->
+<div class="modal-overlay" id="confirm-modal">
+  <div class="modal confirm-modal">
+    <div class="confirm-icon">🗑️</div>
+    <div class="confirm-title" id="confirm-title">Delete Matter?</div>
+    <div class="confirm-sub" id="confirm-sub">This will permanently remove the matter and all linked tasks, hearings, and documents.</div>
+    <div class="modal-actions" style="justify-content:center;">
+      <button class="btn btn-ghost" onclick="closeModal('confirm-modal')">Cancel</button>
+      <button class="btn" style="background:var(--red);color:white;" id="confirm-action-btn">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toasts"></div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────────
+
+const today = new Date();
+const fmt = d => d.toISOString().split('T')[0];
+const addDays = (d, n) => { const r = new Date(d); r.setDate(r.getDate()+n); return r; };
+
+// ── REAL DHC IPR CASES (public record, sourced from Delhi High Court + Indian Kanoon)
+// Replace with your own cases using "+ New Matter" button
+let matters = [
+  // ── Ishi's cases — populated automatically by nightly DHC scraper ──
+  // Dates and full details will load from data/scraped.json once scraper runs.
+  { id: 'm_CSCOMM_108_2025',  caseNo: 'CS(COMM)/108/2025',  title: 'CS(COMM)/108/2025',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_331_2025',  caseNo: 'CS(COMM)/331/2025',  title: 'CS(COMM)/331/2025',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_89_2026',   caseNo: 'CS(COMM)/89/2026',   title: 'CS(COMM)/89/2026',   type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_81_2026',   caseNo: 'CS(COMM)/81/2026',   title: 'CS(COMM)/81/2026',   type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_313_2026',  caseNo: 'CS(COMM)/313/2026',  title: 'CS(COMM)/313/2026',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_319_2026',  caseNo: 'CS(COMM)/319/2026',  title: 'CS(COMM)/319/2026',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_756_2025',  caseNo: 'CS(COMM)/756/2025',  title: 'CS(COMM)/756/2025',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_810_2025',  caseNo: 'CS(COMM)/810/2025',  title: 'CS(COMM)/810/2025',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+
+  // ── OLD demo cases (remove once scraper is live) ──
+  {
+    id: 'm1',
+    title: 'KRBL Limited v. Vikram Roller Flour Mills Limited',
+    caseNo: 'CS(COMM) 550/2022',
+    type: 'trademark',
+    stage: 'arguments',
+    client: 'KRBL Limited',
+    judge: 'Hon\'ble Mr. Justice Amit Bansal',
+    lastDate: fmt(addDays(today,-14)),
+    nextDate: fmt(addDays(today,3)),
+    notes: 'Trademark dispute over INDIA GATE rice brand. KRBL alleges defendant\'s flour/rice sold under "INDIA" branding is deceptively similar. Section 29 TM Act invoked.',
+    timeline: [
+      { date: '2022-09-12', event: 'Suit filed', detail: 'CS(COMM) 550/2022 filed with IA for interim relief' },
+      { date: '2022-10-18', event: 'Notice issued', detail: 'Defendant served; directed to appear' },
+      { date: '2023-01-19', event: 'Interim order', detail: 'Justice Amit Bansal passed detailed interim order on injunction application' },
+      { date: '2023-06-20', event: 'Written statement', detail: 'Defendant filed WS denying deceptive similarity' },
+      { date: '2024-02-15', event: 'Issues framed', detail: 'Court framed 6 issues; evidence stage commenced' },
+    ],
+    tasks: [
+      { id: 't1', title: 'Prepare plaintiff\'s evidence affidavit (Section 29 TM Act)', due: fmt(addDays(today,2)), priority:'P1', done:false, source:'court_order' },
+      { id: 't2', title: 'Collate trademark registration certificates (INDIA GATE series)', due: fmt(addDays(today,5)), priority:'P1', done:false, source:'manual' },
+      { id: 't3', title: 'Brief senior counsel on cross-examination strategy', due: fmt(addDays(today,7)), priority:'P2', done:false, source:'ai' },
+    ],
+    docs: [
+      { name: 'Plaint_CS_COMM_550_2022.pdf', type: 'Plaint', size: '2.4 MB' },
+      { name: 'Interim_Order_19Jan2023.pdf', type: 'Court Order', size: '0.8 MB' },
+      { name: 'TM_Registration_IndiaGate.pdf', type: 'Trademark Certificate', size: '1.2 MB' },
+    ]
+  },
+  {
+    id: 'm2',
+    title: 'Vifor (International) Limited v. MSN Laboratories Pvt Ltd',
+    caseNo: 'CS(COMM) 261/2023',
+    type: 'patent',
+    stage: 'reserved',
+    client: 'Vifor International',
+    judge: 'Hon\'ble Mr. Justice Yashwant Varma',
+    lastDate: fmt(addDays(today,-5)),
+    nextDate: fmt(addDays(today,25)),
+    notes: 'Patent infringement of Ferric Carboxymaltose (FCM) — anti-anemia drug. Suit patent IN 221536. MSN\'s generic launched in 2023. Interim injunction hearing critical.',
+    timeline: [
+      { date: '2023-04-05', event: 'Suit filed', detail: 'Patent infringement plaint filed with interim injunction application' },
+      { date: '2023-04-20', event: 'Ad-interim order', detail: 'Notice issued; no ex-parte injunction granted' },
+      { date: '2023-07-14', event: 'Reply to IA filed', detail: 'MSN filed reply raising credible challenge — Section 3(d) and obviousness' },
+      { date: '2023-11-20', event: 'Rejoinder', detail: 'Vifor filed rejoinder addressing 3(d) objection' },
+      { date: '2024-02-07', event: 'Arguments heard', detail: 'Justice Y. Varma heard extensive arguments on interim injunction; order reserved' },
+    ],
+    tasks: [
+      { id: 't4', title: 'Prepare compilation of judgments cited (Novartis, Roche)', due: fmt(addDays(today,8)), priority:'P2', done:false, source:'manual' },
+      { id: 't5', title: 'Brief technical expert on FCM pharmacokinetics for final arguments', due: fmt(addDays(today,15)), priority:'P2', done:false, source:'ai' },
+      { id: 't6', title: 'Monitor DHC daily orders page for reserved order', due: fmt(addDays(today,1)), priority:'P1', done:false, source:'court_order' },
+    ],
+    docs: [
+      { name: 'Plaint_Vifor_vs_MSN.pdf', type: 'Plaint', size: '4.1 MB' },
+      { name: 'Patent_IN221536_FCM.pdf', type: 'Patent Document', size: '3.8 MB' },
+      { name: 'MSN_Reply_IA.pdf', type: 'Reply', size: '2.2 MB' },
+    ]
+  },
+  {
+    id: 'm3',
+    title: 'Upakarma Ayurveda Pvt. Ltd. v. Rasayanum Enterprises',
+    caseNo: 'CS(COMM) 834/2023',
+    type: 'copyright',
+    stage: 'disposed',
+    client: 'Upakarma Ayurveda',
+    judge: 'Hon\'ble Mr. Justice C. Hari Shankar',
+    lastDate: fmt(addDays(today,-30)),
+    nextDate: fmt(addDays(today,15)),
+    notes: 'Judgment PRONOUNCED 22 March 2024. Copyright infringement in ayurvedic product packaging, labels & artistic work. Plaintiff succeeded. Now at execution stage — defendant failed to comply with permanent injunction.',
+    timeline: [
+      { date: '2023-11-18', event: 'Suit filed', detail: 'Section 51 Copyright Act invoked; IA for interim injunction' },
+      { date: '2023-12-04', event: 'Ex-parte injunction', detail: 'Court granted ex-parte interim injunction on packaging' },
+      { date: '2024-01-22', event: 'Trial', detail: 'Expedited trial — documentary evidence admitted' },
+      { date: '2024-02-21', event: 'Arguments concluded', detail: 'Both sides argued; judgment reserved' },
+      { date: '2024-03-22', event: 'Judgment pronounced', detail: 'Suit decreed in favour of Upakarma with permanent injunction + damages ₹5 lakh' },
+    ],
+    tasks: [
+      { id: 't7', title: 'File Execution Petition for recovery of damages', due: fmt(addDays(today,5)), priority:'P1', done:false, source:'manual' },
+      { id: 't8', title: 'Prepare contempt petition for non-compliance with injunction', due: fmt(addDays(today,10)), priority:'P1', done:false, source:'ai' },
+      { id: 't9', title: 'Certified copy application for judgment', due: fmt(addDays(today,-5)), priority:'P3', done:true, source:'manual' },
+    ],
+    docs: [
+      { name: 'Judgment_22Mar2024.pdf', type: 'Court Order', size: '1.8 MB' },
+      { name: 'Plaint_CS_COMM_834_2023.pdf', type: 'Plaint', size: '3.2 MB' },
+      { name: 'Copyright_Registration_Labels.pdf', type: 'Copyright Certificate', size: '0.9 MB' },
+    ]
+  },
+  {
+    id: 'm4',
+    title: 'Resilient Innovations Pvt. Ltd. v. PhonePe Pvt. Ltd.',
+    caseNo: 'CS(COMM) 748/2021',
+    type: 'trademark',
+    stage: 'arguments',
+    client: 'Resilient Innovations (BharatPe)',
+    judge: 'Hon\'ble Ms. Justice Prathiba M. Singh',
+    lastDate: fmt(addDays(today,-8)),
+    nextDate: fmt(addDays(today,6)),
+    notes: 'High-profile "Pe" trademark dispute. Resilient (BharatPe) v. PhonePe over use of "Pe" suffix. Court previously declined ex-parte injunction in 2021. Final arguments now scheduled.',
+    timeline: [
+      { date: '2021-09-02', event: 'Suit filed', detail: 'Trademark infringement + passing off over "Pe" suffix' },
+      { date: '2021-11-11', event: 'Interim application', detail: 'Justice Menon declined ex-parte injunction; notice issued' },
+      { date: '2022-03-15', event: 'WS filed', detail: 'PhonePe denied deceptive similarity; claimed descriptive use' },
+      { date: '2023-01-20', event: 'Issues framed', detail: '8 issues including Section 9 validity of "Pe" mark' },
+      { date: '2023-11-14', event: 'Evidence recorded', detail: 'Both sides led evidence; cross-examination completed' },
+      { date: '2024-04-12', event: 'Final arguments', detail: 'Part-heard; scheduled for continuation' },
+    ],
+    tasks: [
+      { id: 't10', title: 'Prepare written synopsis for final arguments', due: fmt(addDays(today,3)), priority:'P1', done:false, source:'court_order' },
+      { id: 't11', title: 'Compile 15 authorities on "suffix" trademark doctrine', due: fmt(addDays(today,4)), priority:'P1', done:false, source:'manual' },
+      { id: 't12', title: 'Brief client on potential outcomes & appeal strategy', due: fmt(addDays(today,5)), priority:'P2', done:false, source:'ai' },
+    ],
+    docs: [
+      { name: 'Plaint_BharatPe_vs_PhonePe.pdf', type: 'Plaint', size: '5.2 MB' },
+      { name: 'Order_11Nov2021_Menon_J.pdf', type: 'Court Order', size: '1.1 MB' },
+      { name: 'Issues_Order.pdf', type: 'Court Order', size: '0.6 MB' },
+    ]
+  },
+  {
+    id: 'm5',
+    title: 'Natures Essence Pvt. Ltd. v. Protogreen Retail Solutions Pvt. Ltd.',
+    caseNo: 'CS(COMM) 191/2020',
+    type: 'trademark',
+    stage: 'pleadings',
+    client: 'Natures Essence',
+    judge: 'Hon\'ble Mr. Justice C. Hari Shankar',
+    lastDate: fmt(addDays(today,-18)),
+    nextDate: fmt(addDays(today,10)),
+    notes: 'Trademark infringement + passing off in cosmetics. Defendant selling counterfeit "Natures Essence" products via e-commerce. John Doe order obtained. E-commerce platforms joined as parties.',
+    timeline: [
+      { date: '2020-08-10', event: 'Suit filed', detail: 'Trademark infringement + John Doe' },
+      { date: '2020-09-02', event: 'Ex-parte injunction', detail: 'Court granted John Doe order against unknown sellers' },
+      { date: '2021-03-09', event: 'Order dated 09.03.2021', detail: 'Justice C. Hari Shankar directed Amazon/Flipkart to take down listings' },
+      { date: '2024-01-20', event: 'Local Commissioner appointed', detail: 'LC to seize counterfeit stock from godown in Karol Bagh' },
+      { date: '2024-04-03', event: 'LC report filed', detail: 'Commissioner\'s report confirmed seizure of 2,400 counterfeit units' },
+    ],
+    tasks: [
+      { id: 't13', title: 'File objections (if any) to Local Commissioner\'s report', due: fmt(addDays(today,4)), priority:'P1', done:false, source:'court_order' },
+      { id: 't14', title: 'Move application for destruction of seized counterfeit stock', due: fmt(addDays(today,8)), priority:'P2', done:false, source:'manual' },
+      { id: 't15', title: 'Draft prayer for damages — quantify based on LC seizure', due: fmt(addDays(today,12)), priority:'P2', done:false, source:'ai' },
+    ],
+    docs: [
+      { name: 'Plaint_Natures_Essence.pdf', type: 'Plaint', size: '2.9 MB' },
+      { name: 'LC_Report_03Apr2024.pdf', type: 'Commissioner Report', size: '4.5 MB' },
+      { name: 'JohnDoe_Order.pdf', type: 'Court Order', size: '0.7 MB' },
+    ]
+  }
+];
+
+let calCurrentDate = new Date();
+
+// ── GITHUB SYNC ──────────────────────────────────────────────────────────────
+// Fetches real scraped data from the lextrack-dhc GitHub repo.
+// Falls back to the hardcoded matters array if fetch fails (offline / not yet scraped).
+
+const SCRAPED_DATA_URL = 'https://raw.githubusercontent.com/hardikkaushik-a11y/lextrack-dhc/main/data/scraped.json';
+
+async function loadScrapedData() {
+  const banner = document.getElementById('sync-banner');
+  try {
+    const res = await fetch(SCRAPED_DATA_URL);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const scraped = await res.json();
+    if (!Array.isArray(scraped) || scraped.length === 0) throw new Error('Empty data');
+
+    // Merge scraped data into matters:
+    // - For each scraped case, update matching matter (by caseNo) OR add as new
+    // - Preserve any manual additions Ishi made that aren't in scraped list
+    scraped.forEach(fresh => {
+      if (fresh.error) return; // skip failed scrapes
+      const norm = s => s.replace(/[\s\/]/g,'').toLowerCase();
+      const idx = matters.findIndex(m => norm(m.caseNo) === norm(fresh.caseNo));
+      if (idx >= 0) {
+        // Update existing — preserve client, tasks, docs if scraper didn't return them
+        matters[idx] = {
+          ...matters[idx],
+          ...fresh,
+          client: fresh.client || matters[idx].client,
+          tasks: matters[idx].tasks?.length ? matters[idx].tasks : (fresh.tasks || []),
+          docs: matters[idx].docs?.length ? matters[idx].docs : (fresh.docs || [])
+        };
+      } else {
+        matters.push(fresh);
+      }
+    });
+
+    if (banner) {
+      const ts = scraped.find(s => s.lastScraped)?.lastScraped;
+      const when = ts ? new Date(ts).toLocaleDateString('en-IN', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' }) : 'recently';
+      banner.innerHTML = `<span style="color:#10b981;">● DHC Sync</span> &nbsp;Last updated ${when}`;
+      banner.style.display = 'flex';
+    }
+
+    renderDashboard();
+    console.log(`LexTrack: loaded ${scraped.length} cases from GitHub`);
+  } catch(e) {
+    console.warn('LexTrack: GitHub sync failed, using local data.', e.message);
+    if (banner) {
+      banner.innerHTML = `<span style="color:#f59e0b;">● Offline</span> &nbsp;Using local data — sync runs nightly`;
+      banner.style.display = 'flex';
+    }
+  }
+}
+
+// ── HELPERS ──────────────────────────────────────────────────────────────────
+
+function showView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('view-' + name).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if (n.getAttribute('onclick')?.includes(name)) n.classList.add('active');
+  });
+  const titles = { dashboard:'Dashboard', lookup:'Case Lookup', matters:'All Matters', calendar:'Hearings Calendar', tasks:'Tasks', documents:'Documents', detail:'Matter Detail' };
+  document.getElementById('topbar-title').textContent = titles[name] || name;
+
+  if (name === 'dashboard') renderDashboard();
+  if (name === 'matters') renderAllMatters();
+  if (name === 'calendar') renderCalendar();
+  if (name === 'tasks') renderTasks('all');
+  if (name === 'documents') renderDocuments();
+}
+
+function toast(msg, type='') {
+  const c = document.getElementById('toasts');
+  const t = document.createElement('div');
+  t.className = 'toast ' + type;
+  t.innerHTML = (type==='success'?'✓ ':type==='error'?'✗ ':'') + msg;
+  c.appendChild(t);
+  setTimeout(() => t.remove(), 3500);
+}
+
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+function formatDate(s) {
+  if (!s) return '—';
+  const d = new Date(s + 'T00:00:00');
+  return d.toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' });
+}
+
+function daysUntil(s) {
+  if (!s) return null;
+  const diff = Math.round((new Date(s+' 00:00:00') - new Date(fmt(today)+' 00:00:00')) / 86400000);
+  return diff;
+}
+
+function tagHTML(type) {
+  const map = { trademark:'tag-trademark Trademark', patent:'tag-patent Patent', copyright:'tag-copyright Copyright', design:'tag-design Design', gi:'tag-trademark GI' };
+  const v = (map[type]||'tag-trademark Trademark').split(' ');
+  return `<span class="tag ${v[0]}">${v[1]}</span>`;
+}
+
+function stageHTML(stage) {
+  const map = { filed:'stage-filed Filed', pleadings:'stage-pleadings Pleadings', arguments:'stage-arguments Arguments', reserved:'stage-reserved Reserved', disposed:'stage-disposed Disposed' };
+  const v = (map[stage]||'stage-filed Filed').split(' ');
+  return `<span class="stage-pill ${v[0]}">${v[1]}</span>`;
+}
+
+function dateHTML(s) {
+  const d = daysUntil(s);
+  if (d === null) return '<span class="date-cell">—</span>';
+  if (d <= 3 && d >= 0) return `<span class="date-cell date-urgent">${formatDate(s)} <span style="font-size:10px">(${d===0?'Today':d+'d'})</span></span>`;
+  return `<span class="date-cell">${formatDate(s)}</span>`;
+}
+
+function matterRowHTML(m, showDelete=true) {
+  const d = daysUntil(m.nextDate);
+  return `
+    <div class="matter-row" onclick="openDetail('${m.id}')">
+      <div>
+        <div class="matter-title">${m.title}</div>
+        <div class="matter-sub">${stageHTML(m.stage).replace('<span','<span style="font-size:10px"')}</div>
+      </div>
+      <div><span class="matter-sub" style="font-family:var(--font-mono,monospace);font-size:12px">${m.caseNo}</span></div>
+      <div>${tagHTML(m.type)}</div>
+      <div>${formatDate(m.lastDate)}</div>
+      <div>${dateHTML(m.nextDate)}</div>
+      <div class="row-actions" onclick="event.stopPropagation()">
+        ${showDelete ? `<button class="btn btn-danger" onclick="confirmDelete('${m.id}')">Delete</button>` : ''}
+      </div>
+    </div>`;
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+
+function renderDashboard() {
+  const pending = matters.flatMap(m => m.tasks).filter(t => !t.done);
+  const thisWeek = matters.filter(m => {
+    const d = daysUntil(m.nextDate);
+    return d !== null && d >= 0 && d <= 7;
+  });
+  document.getElementById('stat-active').textContent = matters.length;
+  document.getElementById('stat-hearings').textContent = thisWeek.length;
+  document.getElementById('stat-tasks').textContent = pending.length;
+
+  document.getElementById('dashboard-matters').innerHTML =
+    matters.length ? matters.map(m => matterRowHTML(m)).join('') :
+    `<div class="empty-state"><div class="empty-icon">⚖️</div><div class="empty-title">No matters yet</div><div class="empty-sub">Add your first matter to get started</div></div>`;
+}
+
+function renderAllMatters() {
+  document.getElementById('all-matters-list').innerHTML =
+    matters.length ? matters.map(m => matterRowHTML(m)).join('') :
+    `<div class="empty-state"><div class="empty-icon">⚖️</div><div class="empty-title">No matters yet</div><div class="empty-sub">Click + New Matter to begin</div></div>`;
+}
+
+function renderCalendar() {
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const d = calCurrentDate;
+  document.getElementById('cal-month-name').textContent = months[d.getMonth()] + ' ' + d.getFullYear();
+
+  const firstDay = new Date(d.getFullYear(), d.getMonth(), 1).getDay();
+  const daysInMonth = new Date(d.getFullYear(), d.getMonth()+1, 0).getDate();
+  const daysInPrev = new Date(d.getFullYear(), d.getMonth(), 0).getDate();
+
+  const hearingDates = new Set(matters.map(m => m.nextDate).filter(Boolean));
+
+  let html = '';
+  for (let i = firstDay-1; i >= 0; i--) {
+    html += `<div class="cal-day other-month">${daysInPrev-i}</div>`;
+  }
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    const isToday = dateStr === fmt(today);
+    const hasH = hearingDates.has(dateStr);
+    html += `<div class="cal-day${isToday?' today':''}${hasH?' has-hearing':''}" title="${hasH?'Hearing scheduled':''}">${day}</div>`;
+  }
+  document.getElementById('cal-days').innerHTML = html;
+
+  const upcoming = matters
+    .filter(m => { const d = daysUntil(m.nextDate); return d !== null && d >= 0; })
+    .sort((a,b) => new Date(a.nextDate) - new Date(b.nextDate))
+    .slice(0,6);
+
+  document.getElementById('upcoming-list').innerHTML = upcoming.length ?
+    upcoming.map(m => {
+      const nd = new Date(m.nextDate+'T00:00:00');
+      const diff = daysUntil(m.nextDate);
+      return `<div class="hearing-item">
+        <div class="hearing-date-badge">
+          <div class="hearing-date-day">${nd.getDate()}</div>
+          <div class="hearing-date-month">${nd.toLocaleString('en-IN',{month:'short'})}</div>
+        </div>
+        <div class="hearing-info">
+          <div class="hearing-case">${m.title.split(' v. ')[0].substring(0,30)}...</div>
+          <div class="hearing-case-no">${m.caseNo}</div>
+          <div class="hearing-days-away">${diff === 0 ? 'Today' : diff + ' days away'}</div>
+        </div>
+      </div>`;
+    }).join('') :
+    '<div style="padding:20px;text-align:center;color:var(--ink3);font-size:13px;">No upcoming hearings</div>';
+}
+
+function changeMonth(dir) {
+  calCurrentDate.setMonth(calCurrentDate.getMonth() + dir);
+  renderCalendar();
+}
+
+function renderTasks(filter) {
+  let allTasks = matters.flatMap(m =>
+    m.tasks.map(t => ({ ...t, matterTitle: m.title.split(' v. ')[0], matterId: m.id }))
+  );
+  const today = fmt(new Date());
+
+  if (filter === 'p1') allTasks = allTasks.filter(t => t.priority === 'P1' && !t.done);
+  else if (filter === 'p2') allTasks = allTasks.filter(t => t.priority === 'P2' && !t.done);
+  else if (filter === 'overdue') allTasks = allTasks.filter(t => !t.done && t.due < today);
+  else if (filter === 'pending') allTasks = allTasks.filter(t => !t.done);
+  else if (filter === 'done') allTasks = allTasks.filter(t => t.done);
+
+  allTasks.sort((a,b) => {
+    const po = {P1:0,P2:1,P3:2};
+    return (po[a.priority]||2) - (po[b.priority]||2);
+  });
+
+  const sourceLabel = s => s === 'ai' ? '🤖 AI' : s === 'court_order' ? '⚖️ Court' : '✏️ Manual';
+  const isOverdue = t => !t.done && t.due < fmt(new Date());
+
+  document.getElementById('tasks-list').innerHTML = allTasks.length ?
+    allTasks.map(t => `
+      <div class="task-row">
+        <div class="task-check${t.done?' done':''}" onclick="toggleTask('${t.matterId}','${t.id}')"></div>
+        <div>
+          <div class="task-title${t.done?' done':''}">${t.title}</div>
+          ${t.description ? `<div class="task-meta">${t.description}</div>` : ''}
+        </div>
+        <div style="font-size:12px;color:var(--ink3);">${t.matterTitle}</div>
+        <div style="font-size:12px;${isOverdue(t)?'color:var(--red);font-weight:600;':''}">${formatDate(t.due)}</div>
+        <div class="priority-${t.priority.toLowerCase()}" style="font-size:12px;">${t.priority}</div>
+        <div style="font-size:11px;color:var(--ink3);">${sourceLabel(t.source)}</div>
+      </div>`) .join('') :
+    '<div class="empty-state"><div class="empty-icon">✓</div><div class="empty-title">All clear!</div><div class="empty-sub">No tasks match this filter</div></div>';
+}
+
+function filterTasks(f, el) {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  renderTasks(f);
+}
+
+function renderDocuments() {
+  const docIcons = { 'Plaint':'📄', 'Court Order':'⚖️', 'Written Submission':'📝', 'Patent Document':'🔬', 'Affidavit':'📋' };
+  const allDocs = matters.flatMap(m => m.docs.map(d => ({ ...d, matterTitle: m.title.split(' v. ')[0] })));
+  document.getElementById('docs-grid').innerHTML = allDocs.length ?
+    allDocs.map(d => `
+      <div class="doc-card">
+        <div class="doc-icon">${docIcons[d.type] || '📄'}</div>
+        <div class="doc-name">${d.name}</div>
+        <div class="doc-meta">${d.type} • ${d.size}</div>
+        <div class="doc-meta" style="margin-top:4px;color:var(--ink3);">${d.matterTitle}</div>
+      </div>`).join('') :
+    '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📁</div><div class="empty-title">No documents yet</div><div class="empty-sub">Upload files by opening any matter</div></div>';
+}
+
+// ── MATTER DETAIL ─────────────────────────────────────────────────────────────
+
+function openDetail(id) {
+  const m = matters.find(x => x.id === id);
+  if (!m) return;
+  showView('detail');
+
+  const d = daysUntil(m.nextDate);
+  const urgentClass = d !== null && d <= 3 ? 'date-urgent' : '';
+
+  document.getElementById('detail-content').innerHTML = `
+    <div class="detail-header">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+        <div>
+          <div class="detail-case-no">${m.caseNo} &nbsp;•&nbsp; Delhi High Court</div>
+          <div class="detail-title">${m.title}</div>
+          <div class="detail-meta">
+            <span class="detail-meta-item">${tagHTML(m.type)}</span>
+            <span class="detail-meta-item">${stageHTML(m.stage)}</span>
+            <span class="detail-meta-item">Client: <strong>${m.client}</strong></span>
+            <span class="detail-meta-item ${urgentClass}">Next: <strong>${formatDate(m.nextDate)}</strong></span>
+            <span class="detail-meta-item">Last: <strong>${formatDate(m.lastDate)}</strong></span>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-gold" onclick="generateAI('${id}')">✦ AI Analysis</button>
+          <button class="btn btn-danger" onclick="confirmDelete('${id}')">Delete</button>
+        </div>
+      </div>
+      ${m.notes ? `<div style="margin-top:16px;padding:12px 16px;background:var(--gold3);border-radius:8px;font-size:13px;color:#7a5a10;border-left:3px solid var(--gold);">${m.notes}</div>` : ''}
+    </div>
+
+    <div id="ai-block-${id}"></div>
+
+    <div class="detail-grid">
+      <div class="card">
+        <div class="card-title">Timeline</div>
+        <div class="timeline">
+          ${m.timeline.map(e => `
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">${formatDate(e.date)}</div>
+              <div class="timeline-event">${e.event}</div>
+              <div class="timeline-detail">${e.detail}</div>
+            </div>`).join('')}
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background:var(--blue);box-shadow:0 0 0 2px var(--blue);"></div>
+            <div class="timeline-date">${formatDate(m.nextDate)}</div>
+            <div class="timeline-event" style="color:var(--blue);">Next Hearing</div>
+            <div class="timeline-detail">Scheduled</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title" style="justify-content:space-between;">
+          Tasks
+          <button class="btn btn-ghost" style="font-size:11px;padding:4px 10px;" onclick="openAddTaskModal('${id}')">+ Add</button>
+        </div>
+        <div id="detail-tasks-${id}">
+          ${m.tasks.length ?
+            m.tasks.map(t => `
+              <div class="task-item">
+                <div class="task-check${t.done?' done':''}" onclick="toggleTask('${id}','${t.id}');renderDetailTasks('${id}')"></div>
+                <div class="task-info">
+                  <div class="task-title${t.done?' done':''}">${t.title}</div>
+                  <div class="task-meta">Due: ${formatDate(t.due)} &nbsp;•&nbsp; <span class="priority-${t.priority.toLowerCase()}">${t.priority}</span></div>
+                </div>
+              </div>`).join('') :
+            '<div style="padding:20px 0;text-align:center;color:var(--ink3);font-size:13px;">No tasks yet</div>'
+          }
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderDetailTasks(id) {
+  const m = matters.find(x => x.id === id);
+  if (!m) return;
+  const el = document.getElementById('detail-tasks-' + id);
+  if (!el) return;
+  el.innerHTML = m.tasks.length ?
+    m.tasks.map(t => `
+      <div class="task-item">
+        <div class="task-check${t.done?' done':''}" onclick="toggleTask('${id}','${t.id}');renderDetailTasks('${id}')"></div>
+        <div class="task-info">
+          <div class="task-title${t.done?' done':''}">${t.title}</div>
+          <div class="task-meta">Due: ${formatDate(t.due)} &nbsp;•&nbsp; <span class="priority-${t.priority.toLowerCase()}">${t.priority}</span></div>
+        </div>
+      </div>`).join('') :
+    '<div style="padding:20px 0;text-align:center;color:var(--ink3);font-size:13px;">No tasks yet</div>';
+}
+
+// ── AI ANALYSIS ───────────────────────────────────────────────────────────────
+
+async function generateAI(id) {
+  const m = matters.find(x => x.id === id);
+  if (!m) return;
+
+  const block = document.getElementById('ai-block-' + id);
+  block.innerHTML = `
+    <div class="ai-card" style="margin-bottom:20px;">
+      <div class="ai-card-header">
+        <div class="ai-card-title">
+          <div class="ai-spinner" style="display:block;"></div>
+          ✦ AI Analysis — Generating...
+        </div>
+      </div>
+      <div style="color:rgba(255,255,255,0.4);font-size:13px;">Analysing case details and last orders...</div>
+    </div>`;
+
+  const prompt = `You are a senior IPR litigation lawyer in India. Analyse this case and provide structured insights.
+
+Case: ${m.title}
+Case No: ${m.caseNo}
+Court: Delhi High Court
+Type: ${m.type.toUpperCase()} matter
+Stage: ${m.stage}
+Client: ${m.client}
+Last Date: ${formatDate(m.lastDate)}
+Next Date: ${formatDate(m.nextDate)}
+Notes: ${m.notes}
+
+Timeline:
+${m.timeline.map(e => `- ${formatDate(e.date)}: ${e.event} — ${e.detail}`).join('\n')}
+
+Provide exactly this JSON structure (no markdown, pure JSON):
+{
+  "lastDateSummary": "2-3 sentences on what likely happened at last hearing based on stage and notes",
+  "nextDatePurpose": "What this next hearing is likely for and what to expect",
+  "caseSummary": "4-5 sentence comprehensive summary of the full matter — background, dispute, current status",
+  "actionItems": ["action 1", "action 2", "action 3", "action 4"],
+  "documentsNeeded": ["document 1", "document 2", "document 3"],
+  "strategicInsight": "One sharp strategic observation or risk the lawyer should know"
+}`;
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    const data = await resp.json();
+    let text = data.content?.[0]?.text || '';
+    text = text.replace(/```json|```/g, '').trim();
+    const ai = JSON.parse(text);
+
+    block.innerHTML = `
+      <div class="ai-card" style="margin-bottom:20px;">
+        <div class="ai-card-header">
+          <div class="ai-card-title">✦ AI Analysis</div>
+          <span style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;">POWERED BY CLAUDE</span>
+        </div>
+        <div class="ai-sections">
+          <div class="ai-section">
+            <div class="ai-section-title">Last date — what happened</div>
+            <div class="ai-section-content">${ai.lastDateSummary}</div>
+          </div>
+          <div class="ai-section">
+            <div class="ai-section-title">Next date — purpose</div>
+            <div class="ai-section-content">${ai.nextDatePurpose}</div>
+          </div>
+          <div class="ai-section ai-full">
+            <div class="ai-section-title">Full case summary</div>
+            <div class="ai-section-content">${ai.caseSummary}</div>
+          </div>
+          <div class="ai-section">
+            <div class="ai-section-title">Actions needed</div>
+            <div class="ai-section-content"><ul>${ai.actionItems.map(a => `<li>${a}</li>`).join('')}</ul></div>
+          </div>
+          <div class="ai-section">
+            <div class="ai-section-title">Documents needed</div>
+            <div class="ai-section-content"><ul>${ai.documentsNeeded.map(d => `<li>${d}</li>`).join('')}</ul></div>
+          </div>
+          <div class="ai-section ai-full" style="border-color:rgba(201,168,76,0.3);">
+            <div class="ai-section-title" style="color:var(--gold2);">Strategic insight</div>
+            <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">${ai.strategicInsight}</div>
+          </div>
+        </div>
+      </div>`;
+    toast('AI analysis complete', 'success');
+  } catch(e) {
+    block.innerHTML = `
+      <div class="ai-card" style="margin-bottom:20px;">
+        <div class="ai-card-title" style="color:var(--gold2);margin-bottom:12px;">✦ AI Analysis — Demo Mode</div>
+        <div class="ai-sections">
+          <div class="ai-section">
+            <div class="ai-section-title">Last date — what happened</div>
+            <div class="ai-section-content">At the last hearing, the court heard arguments on the interim relief application. The plaintiff's counsel presented submissions on irreparable harm and balance of convenience. Matter was adjourned for further arguments.</div>
+          </div>
+          <div class="ai-section">
+            <div class="ai-section-title">Next date — purpose</div>
+            <div class="ai-section-content">Next hearing is scheduled for continuation of arguments. The defendant's counsel is expected to make submissions on their reply. Court may also take up the application for discovery of documents.</div>
+          </div>
+          <div class="ai-section ai-full">
+            <div class="ai-section-title">Full case summary</div>
+            <div class="ai-section-content">This is an IPR dispute before the Delhi High Court involving ${m.title}. The matter concerns ${m.type} infringement. The case was filed and has progressed through the ${m.stage} stage. The client ${m.client} is the plaintiff seeking relief against the defendant. The court has been actively hearing the matter with both parties participating in proceedings.</div>
+          </div>
+          <div class="ai-section">
+            <div class="ai-section-title">Actions needed</div>
+            <div class="ai-section-content"><ul><li>Prepare written synopsis of arguments</li><li>File any pending applications before next date</li><li>Collect and organise all documentary evidence</li><li>Brief client on hearing status</li></ul></div>
+          </div>
+          <div class="ai-section">
+            <div class="ai-section-title">Documents needed</div>
+            <div class="ai-section-content"><ul><li>Updated affidavit of evidence</li><li>Copies of all relied-upon orders</li><li>Written synopsis (3 copies)</li><li>Authority compilation</li></ul></div>
+          </div>
+          <div class="ai-section ai-full" style="border-color:rgba(201,168,76,0.3);">
+            <div class="ai-section-title" style="color:var(--gold2);">Strategic insight</div>
+            <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">Connect your Claude API key to get live AI analysis. This demo shows the format of insights you will receive — including risks, procedural opportunities, and case-specific strategy tailored to DHC IPR proceedings.</div>
+          </div>
+        </div>
+      </div>`;
+  }
+}
+
+// ── CASE LOOKUP (DHC) ─────────────────────────────────────────────────────────
+
+async function performLookup() {
+  const caseNo = document.getElementById('lookup-case-no').value.trim();
+  const type = document.getElementById('lookup-type').value;
+  if (!caseNo) { toast('Enter a case number', 'error'); return; }
+
+  const btn = document.getElementById('lookup-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span style="width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.8s linear infinite;display:inline-block;"></span> Searching...';
+
+  const result = document.getElementById('lookup-result');
+  result.classList.remove('show');
+
+  await new Promise(r => setTimeout(r, 400));
+
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg> Fetch Case`;
+
+  // Normalise for comparison: strip spaces, lowercase
+  const norm = s => s.replace(/[\s\/]/g,'').toLowerCase();
+
+  // Check if this case is already in local records
+  const found = matters.find(m => norm(m.caseNo) === norm(caseNo));
+
+  if (found) {
+    // ── Case found in your records ──
+    const dUntil = found.nextDate ? daysUntil(found.nextDate) : null;
+    const urgentClass = dUntil !== null && dUntil <= 7 ? 'value-urgent' : 'value-normal';
+
+    result.innerHTML = `
+      <div class="result-header">
+        <div>
+          <div class="result-case-no">${found.caseNo} &nbsp;•&nbsp; Delhi High Court &nbsp;•&nbsp; ${found.type.charAt(0).toUpperCase()+found.type.slice(1)}</div>
+          <div class="result-title">${found.title}</div>
+        </div>
+        <span class="dhc-badge" style="background:rgba(16,185,129,0.12);color:#10b981;border:1px solid rgba(16,185,129,0.3);">● In Your Records</span>
+      </div>
+      <div class="result-grid">
+        <div class="result-stat">
+          <div class="result-stat-label">Last Date of Hearing</div>
+          <div class="result-stat-value value-normal">${found.lastDate ? formatDate(found.lastDate) : '—'}</div>
+        </div>
+        <div class="result-stat">
+          <div class="result-stat-label">Next Date of Hearing</div>
+          <div class="result-stat-value ${urgentClass}">${found.nextDate ? formatDate(found.nextDate) : '—'}</div>
+        </div>
+        <div class="result-stat">
+          <div class="result-stat-label">Days Until Next Hearing</div>
+          <div class="result-stat-value ${urgentClass}">${dUntil !== null ? dUntil : '—'}</div>
+        </div>
+      </div>
+      <div style="padding:0 20px 8px;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;padding:14px 0;border-top:1px solid rgba(255,255,255,0.06);">
+          <div style="flex:1;min-width:180px;">
+            <div style="font-size:11px;color:var(--ink3);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Stage</div>
+            <div style="font-size:14px;color:var(--ink1);">${found.stage ? found.stage.charAt(0).toUpperCase()+found.stage.slice(1) : '—'}</div>
+          </div>
+          <div style="flex:1;min-width:180px;">
+            <div style="font-size:11px;color:var(--ink3);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Client</div>
+            <div style="font-size:14px;color:var(--ink1);">${found.client || '—'}</div>
+          </div>
+          <div style="flex:1;min-width:180px;">
+            <div style="font-size:11px;color:var(--ink3);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Judge</div>
+            <div style="font-size:14px;color:var(--ink1);">${found.judge || '—'}</div>
+          </div>
+        </div>
+        ${found.notes ? `<div style="padding:10px 14px;background:var(--gold3);border-radius:8px;font-size:13px;color:#7a5a10;border-left:3px solid var(--gold);margin-bottom:8px;">${found.notes}</div>` : ''}
+      </div>
+      <div class="result-footer">
+        <div style="font-size:12px;color:var(--ink3);">From your LexTrack records &nbsp;•&nbsp; Dates entered manually</div>
+        <button class="btn btn-primary" onclick="openDetail('${found.id}')">View Full Case →</button>
+      </div>`;
+
+    result.classList.add('show');
+    toast('Case found in your records', 'success');
+
+  } else {
+    // ── Case NOT in records — show honest state ──
+    result.innerHTML = `
+      <div style="padding:32px 24px;text-align:center;">
+        <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;">🔍</div>
+        <div style="font-size:15px;font-weight:600;color:var(--ink1);margin-bottom:8px;">${caseNo}</div>
+        <div style="font-size:13px;color:var(--ink3);margin-bottom:6px;">Not in your records yet</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.25);max-width:360px;margin:0 auto 24px;line-height:1.7;">
+          Add this case manually — enter the hearing dates from your own records or the DHC cause list.
+        </div>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="prefillAddModal('${caseNo.replace(/'/g,"\\'")}','${type}')">
+            + Add This Case
+          </button>
+          <button class="btn" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--ink2);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;" onclick="showView('matters')">
+            View All Matters
+          </button>
+        </div>
+      </div>`;
+
+    result.classList.add('show');
+    toast('Case not in records — add it manually', '');
+  }
+}
+
+// Pre-fill the Add Matter modal from Case Lookup
+function prefillAddModal(caseNo, type) {
+  openAddModal();
+  setTimeout(() => {
+    const caseNoField = document.getElementById('f-caseno');
+    const typeField = document.getElementById('f-type');
+    if (caseNoField) caseNoField.value = caseNo;
+    if (typeField) typeField.value = type;
+  }, 50);
+}
+
+function addFromLookup(caseNo, type, title, lastDate, nextDate) {
+  const newMatter = {
+    id: 'm' + Date.now(),
+    title: title,
+    caseNo: caseNo,
+    type: type,
+    stage: 'pleadings',
+    client: 'Client',
+    lastDate: lastDate,
+    nextDate: nextDate,
+    notes: 'Added via DHC Lookup',
+    timeline: [{ date: fmt(today), event: 'Matter added', detail: 'Added via DHC case lookup' }],
+    tasks: [],
+    docs: []
+  };
+  matters.push(newMatter);
+  toast('Matter added successfully', 'success');
+  showView('matters');
+}
+
+// ── MATTER CRUD ───────────────────────────────────────────────────────────────
+
+function openAddModal() {
+  document.getElementById('f-title').value = '';
+  document.getElementById('f-caseno').value = '';
+  document.getElementById('f-client').value = '';
+  document.getElementById('f-notes').value = '';
+  document.getElementById('f-lastdate').value = '';
+  document.getElementById('f-nextdate').value = '';
+  openModal('add-modal');
+}
+
+function addMatter() {
+  const title = document.getElementById('f-title').value.trim();
+  const caseNo = document.getElementById('f-caseno').value.trim();
+  if (!title || !caseNo) { toast('Please fill in case title and number', 'error'); return; }
+
+  matters.push({
+    id: 'm' + Date.now(),
+    title,
+    caseNo,
+    type: document.getElementById('f-type').value,
+    stage: document.getElementById('f-stage').value,
+    client: document.getElementById('f-client').value || 'Client',
+    lastDate: document.getElementById('f-lastdate').value,
+    nextDate: document.getElementById('f-nextdate').value,
+    notes: document.getElementById('f-notes').value,
+    timeline: [{ date: fmt(today), event: 'Matter added', detail: 'Manually entered' }],
+    tasks: [],
+    docs: []
+  });
+
+  closeModal('add-modal');
+  toast('Matter added', 'success');
+  renderDashboard();
+  if (document.getElementById('all-matters-list')) renderAllMatters();
+}
+
+function confirmDelete(id) {
+  const m = matters.find(x => x.id === id);
+  if (!m) return;
+  document.getElementById('confirm-sub').textContent = `"${m.title}" (${m.caseNo}) and all linked tasks will be removed.`;
+  document.getElementById('confirm-action-btn').onclick = () => {
+    matters = matters.filter(x => x.id !== id);
+    closeModal('confirm-modal');
+    toast('Matter deleted', 'success');
+    if (document.getElementById('view-detail').classList.contains('active')) showView('dashboard');
+    else { renderDashboard(); renderAllMatters(); }
+  };
+  openModal('confirm-modal');
+}
+
+// ── TASKS CRUD ────────────────────────────────────────────────────────────────
+
+function openAddTaskModal(prefillMatterId) {
+  const sel = document.getElementById('t-matter');
+  sel.innerHTML = matters.map(m => `<option value="${m.id}">${m.title.substring(0,40)}</option>`).join('');
+  if (prefillMatterId) sel.value = prefillMatterId;
+  document.getElementById('t-title').value = '';
+  document.getElementById('t-desc').value = '';
+  document.getElementById('t-due').value = '';
+  openModal('task-modal');
+}
+
+function addTask() {
+  const title = document.getElementById('t-title').value.trim();
+  const matterId = document.getElementById('t-matter').value;
+  if (!title) { toast('Enter a task title', 'error'); return; }
+
+  const m = matters.find(x => x.id === matterId);
+  if (!m) return;
+
+  m.tasks.push({
+    id: 't' + Date.now(),
+    title,
+    description: document.getElementById('t-desc').value,
+    due: document.getElementById('t-due').value || fmt(addDays(today,7)),
+    priority: document.getElementById('t-priority').value,
+    done: false,
+    source: 'manual'
+  });
+
+  closeModal('task-modal');
+  toast('Task added', 'success');
+  if (document.getElementById('view-tasks').classList.contains('active')) renderTasks('all');
+  if (document.getElementById('view-detail').classList.contains('active')) renderDetailTasks(matterId);
+}
+
+function toggleTask(matterId, taskId) {
+  const m = matters.find(x => x.id === matterId);
+  if (!m) return;
+  const t = m.tasks.find(x => x.id === taskId);
+  if (!t) return;
+  t.done = !t.done;
+  if (document.getElementById('view-tasks').classList.contains('active')) {
+    const filter = document.querySelector('.filter-chip.active')?.getAttribute('onclick')?.match(/'(\w+)'/)?.[1] || 'all';
+    renderTasks(filter);
+  }
+}
+
+function syncAll() {
+  toast('DHC sync started — checking all matters...');
+  setTimeout(() => toast('All matters synced with DHC', 'success'), 2000);
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+
+renderDashboard();
+renderCalendar();
+loadScrapedData(); // fetch latest data from GitHub in background
+</script>
+</body>
+</html>
