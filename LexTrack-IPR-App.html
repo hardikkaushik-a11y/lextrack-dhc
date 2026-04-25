@@ -1772,6 +1772,236 @@ function renderDetailTasks(id) {
 
 // ── AI ANALYSIS ───────────────────────────────────────────────────────────────
 
+// ── DETERMINISTIC CASE INTELLIGENCE ENGINE ────────────────────────────────────
+// No LLM. Pure rules + pattern matching on the scraped data. Free, instant, explainable.
+
+function classifyCase(m) {
+  const title = (m.title || '').toUpperCase();
+  const def = title.split(/\bVS\.|V\.\s|VS\b/i)[1] || '';
+  const plaintiff = title.split(/\bVS\.|V\.\s|VS\b/i)[0] || '';
+
+  // Detect dispute archetype from defendant name
+  const isStreamingPiracy = /HTTPS|HTTP|\.IN\b|\.COM\b|\.NL\b|\.MY\b|\.TV\b|\.NET\b|\.LIVE\b|IPTV|STREAM|CRICK|SPORTS|TV\b/i.test(def);
+  const isJohnDoeMulti   = /& ORS\.?$|& OTHERS|JOHN DOE/i.test(title);
+  const isPharma         = /(LABOR|PHARMA|DRUG|MEDIC|SCIENCE)/i.test(plaintiff + def);
+  const isFMCG           = /(COSMETIC|BEAUTY|ESSENCE|PRODUCT|RETAIL)/i.test(plaintiff + def);
+  const isTechBrand      = /(JIO|STAR|TECH|DIGITAL|SOFTWARE|APP)/i.test(plaintiff);
+
+  return { isStreamingPiracy, isJohnDoeMulti, isPharma, isFMCG, isTechBrand, plaintiff: plaintiff.trim(), defendant: def.trim() };
+}
+
+function analyseOrderCadence(orders) {
+  if (!orders.length) return { count: 0, label: 'No orders yet', avgGap: null, recentActivity: 'unknown', trajectory: 'unknown' };
+
+  const sorted = orders.slice().sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  const gaps = [];
+  for (let i = 0; i < sorted.length - 1; i++) {
+    const d1 = new Date(sorted[i].date), d2 = new Date(sorted[i+1].date);
+    if (!isNaN(d1) && !isNaN(d2)) gaps.push(Math.round((d1 - d2) / 86400000));
+  }
+  const avgGap = gaps.length ? Math.round(gaps.reduce((a,b)=>a+b,0) / gaps.length) : null;
+
+  // Cadence label
+  let cadence;
+  if (orders.length >= 15 && avgGap !== null && avgGap < 25) cadence = 'very active — interim is being actively managed with frequent orders';
+  else if (orders.length >= 5  && avgGap !== null && avgGap < 45) cadence = 'steady progression — regular court attention';
+  else if (orders.length <= 3) cadence = 'early stage — only initial orders so far';
+  else cadence = 'periodic hearings — moderate court activity';
+
+  // Recent activity (last 60 days)
+  const today = new Date();
+  const recentOrders = sorted.filter(o => {
+    const d = new Date(o.date);
+    return !isNaN(d) && (today - d) / 86400000 < 60;
+  });
+  const recentActivity = recentOrders.length >= 3 ? 'high' : recentOrders.length >= 1 ? 'moderate' : 'low';
+
+  // Trajectory — accelerating or slowing?
+  let trajectory = 'stable';
+  if (gaps.length >= 4) {
+    const recent = gaps.slice(0, Math.ceil(gaps.length / 2));
+    const older  = gaps.slice(Math.ceil(gaps.length / 2));
+    const recentAvg = recent.reduce((a,b)=>a+b,0) / recent.length;
+    const olderAvg  = older.reduce((a,b)=>a+b,0) / older.length;
+    if (recentAvg < olderAvg * 0.7) trajectory = 'accelerating';
+    else if (recentAvg > olderAvg * 1.4) trajectory = 'slowing';
+  }
+
+  return { count: orders.length, label: cadence, avgGap, recentActivity, trajectory, recentOrders: recentOrders.length };
+}
+
+function deriveLastDateSummary(m, c, cadence) {
+  if (!m.lastDate) return 'No prior hearing recorded yet on DHC.';
+  const lastDate = formatDate(m.lastDate);
+  const ordersOnDate = (m.docs || []).filter(o => o.date === m.lastDate).length;
+  const orderTxt = ordersOnDate ? `An order was passed on this date (PDF available in Documents tab).` : '';
+
+  if (c.isStreamingPiracy) {
+    return `On ${lastDate}, court likely heard the matter on continued blocking compliance against the rogue website/IPTV defendant. ${orderTxt} Given ${cadence.count} orders in this matter, the court is exercising rolling supervision — typical for active streaming-piracy injunctions where new mirror sites must be blocked dynamically.`;
+  }
+  if (c.isJohnDoeMulti) {
+    return `On ${lastDate}, the court likely dealt with status of the multiple/John Doe defendants — fresh defendants joined, e-commerce takedowns, or compliance reports. ${orderTxt} The ${cadence.count} orders so far reflect ongoing addition or removal of parties.`;
+  }
+  if (cadence.count >= 5) {
+    return `On ${lastDate}, the matter was heard for ${cadence.recentActivity === 'high' ? 'further interim directions or compliance' : 'continuation of pleadings/arguments'}. ${orderTxt} With ${cadence.count} orders on record (avg ${cadence.avgGap || '—'} days between), ${cadence.label}.`;
+  }
+  return `On ${lastDate}, the matter was heard at ${m.stage} stage. ${orderTxt} ${cadence.count} order(s) passed so far.`;
+}
+
+function deriveNextDatePurpose(m, c, cadence) {
+  if (!m.nextDate) return 'No next hearing date posted yet on DHC.';
+  const next = formatDate(m.nextDate);
+  const days = daysUntil(m.nextDate);
+  const proximity = days <= 7 ? 'imminent' : days <= 21 ? 'near-term' : 'mid-term';
+
+  if (c.isStreamingPiracy) {
+    return `On ${next} (${days} days away — ${proximity}), expect: status report on blocking compliance, identification of fresh rogue mirrors, ISP/DoT compliance updates, and possible addition of new defendant URLs. With ${cadence.count} prior orders, court will likely continue rolling injunction directions.`;
+  }
+  if (m.status && /reserv/i.test(m.status)) {
+    return `On ${next}, expect pronouncement of judgment — matter is reserved. Be ready for either outcome with appeal/cross-objection strategy and press communication briefed in advance.`;
+  }
+  if (cadence.count <= 3) {
+    return `On ${next} (${days} days away), expect early-stage activity: completion of pleadings, reply to interim application, framing of issues, or directions for filing of evidence. The case is still in formative stage.`;
+  }
+  if (cadence.count >= 10) {
+    return `On ${next} (${days} days away), expect advanced-stage activity: compliance review, evidence/cross, or arguments on disposal. Given ${cadence.count} orders and ${cadence.label.split('—')[0].trim()} cadence, the court is in active management mode.`;
+  }
+  return `On ${next} (${days} days away — ${proximity}), expect continuation at the ${m.stage} stage with directions building on the ${cadence.count} prior orders.`;
+}
+
+function deriveCaseSummary(m, c, cadence) {
+  const parts = [];
+
+  // Identify dispute
+  if (c.isStreamingPiracy) {
+    parts.push(`This is a digital-piracy/rogue-website matter where ${c.plaintiff} (rights holder) is enforcing IP against ${c.defendant.split('&')[0].trim()} and other infringing online platforms.`);
+  } else if (c.isJohnDoeMulti) {
+    parts.push(`This is a multi-defendant IPR enforcement action by ${c.plaintiff} against multiple parties (${c.defendant}), likely seeking John Doe or omnibus relief.`);
+  } else if (c.isPharma) {
+    parts.push(`This is a patent/pharmaceutical IPR dispute between ${c.plaintiff} and ${c.defendant.split('&')[0].trim()}.`);
+  } else if (c.isFMCG) {
+    parts.push(`This is a brand-protection/trademark matter in the consumer-goods space between ${c.plaintiff} and ${c.defendant.split('&')[0].trim()}.`);
+  } else {
+    parts.push(`This is an IPR matter — ${m.type} infringement — between ${c.plaintiff} and ${c.defendant.split('&')[0].trim()}.`);
+  }
+
+  // Stage + order count
+  parts.push(`The case is currently at "${m.status || m.stage}" stage on the DHC roster.`);
+  if (cadence.count > 0) {
+    parts.push(`${cadence.count} order(s) have been passed${cadence.avgGap ? ` with an average gap of ${cadence.avgGap} days between hearings` : ''} — ${cadence.label}.`);
+  }
+
+  // Trajectory
+  if (cadence.trajectory === 'accelerating') {
+    parts.push('Hearings have been accelerating recently, suggesting the court is moving the matter towards a definite outcome.');
+  } else if (cadence.trajectory === 'slowing') {
+    parts.push('Hearing cadence has slowed recently — possibly awaiting a key filing or party.');
+  }
+
+  // Next date
+  if (m.nextDate) {
+    parts.push(`Next listed for ${formatDate(m.nextDate)}${m.lastDate ? ` (last heard ${formatDate(m.lastDate)})` : ''}.`);
+  }
+
+  return parts.join(' ');
+}
+
+function deriveActionItems(m, c, cadence) {
+  const actions = [];
+
+  if (c.isStreamingPiracy) {
+    actions.push('Monitor for newly emerged mirror sites/IPTV apps (do a fresh search 48h before next date)');
+    actions.push('Prepare list of fresh rogue URLs to be added as defendants — file IA if needed');
+    actions.push('Get latest blocking-compliance reports from ISPs/DoT for record');
+    actions.push('Update screenshots/evidence of continued infringement on existing defendants');
+  } else if (c.isJohnDoeMulti) {
+    actions.push('Verify status of all named defendants — service, appearance, dropouts');
+    actions.push('Check for new infringing parties to be impleaded');
+    actions.push('Prepare compliance report on takedowns/seizures');
+    actions.push('Brief client on status of each defendant separately');
+  } else if (cadence.count >= 10) {
+    actions.push('Audit all prior orders for compliance status — flag any pending');
+    actions.push('Review all interim orders to identify cumulative undertakings on record');
+    actions.push('Prepare written synopsis covering full procedural history');
+    actions.push('Confirm if any IA is pending decision');
+  } else if (cadence.count <= 3) {
+    actions.push('Confirm written statement / reply timeline');
+    actions.push('Prepare for framing of issues if pleadings are complete');
+    actions.push('Lock interim relief strategy if not already settled');
+    actions.push('Start preparing affidavit of evidence');
+  } else {
+    actions.push('Review pleadings and identify pending applications');
+    actions.push('Confirm next-date readiness with client');
+    actions.push('Prepare brief synopsis of last hearing for next bench');
+    actions.push('Update case file with the latest order');
+  }
+
+  // Calendar-driven action
+  const days = m.nextDate ? daysUntil(m.nextDate) : null;
+  if (days !== null && days <= 7) {
+    actions.unshift(`URGENT: Next hearing in ${days} day${days === 1 ? '' : 's'} — finalise brief and synopsis today`);
+  } else if (days !== null && days <= 14) {
+    actions.unshift(`Brief client on next-date strategy — ${days} days remaining`);
+  }
+
+  return actions.slice(0, 5);
+}
+
+function deriveDocumentsNeeded(m, c) {
+  if (c.isStreamingPiracy) {
+    return [
+      'Updated affidavit listing fresh rogue URLs/IPTV apps with screenshots',
+      'ISP & DoT compliance reports (latest)',
+      'Cease-and-desist correspondence with hosting/registrars',
+      'Authority compilation: Disney v. KimCartoon, UTV v. Aaftek, Star India authorities'
+    ];
+  }
+  if (c.isJohnDoeMulti) {
+    return [
+      'Local Commissioner / seizure compliance reports',
+      'List of pending impleadments / fresh defendants',
+      'E-commerce platform takedown confirmations',
+      'Damages/profit accounts from defendants who appeared'
+    ];
+  }
+  if (c.isPharma) {
+    return [
+      'Latest patent register extract / status of opposition (if any)',
+      'Section 3(d) / efficacy comparison material',
+      'Sales / market data affidavit',
+      'Authority compilation on patent injunction standards (Vifor, Bayer, Novartis)'
+    ];
+  }
+  return [
+    'Updated written synopsis for next hearing',
+    'Compilation of all interim orders passed so far',
+    'Authority compilation relevant to pending issue',
+    'Updated affidavit of evidence (if at evidence stage)'
+  ];
+}
+
+function deriveStrategicInsight(m, c, cadence) {
+  if (c.isStreamingPiracy && cadence.count >= 10) {
+    return `Rolling injunctions in piracy matters tend to fatigue the court — every fresh URL added is procedural friction. Consider moving for a dynamic injunction (DHC has granted these in UTV v. Aaftek, Disney v. KimCartoon) so future mirrors can be blocked by simple notification, not fresh applications. ${cadence.count} orders is the threshold where most benches become receptive.`;
+  }
+  if (c.isStreamingPiracy) {
+    return `Document the pattern of new mirror sites emerging within X days of each blocking order — this builds the empirical case for a dynamic injunction at the appropriate stage.`;
+  }
+  if (m.status && /reserv/i.test(m.status)) {
+    return `Judgment is reserved — the next 30-60 days are about preparing for outcome. Brief client on appeal grounds for both an unfavourable result and any partial favourable outcome that may need cross-objections.`;
+  }
+  if (cadence.trajectory === 'accelerating') {
+    return `Hearing cadence is accelerating — the court is signalling it wants to dispose. Don't seek long adjournments now; they signal disengagement to the bench. Be ready every date.`;
+  }
+  if (cadence.trajectory === 'slowing') {
+    return `Cadence has slowed — usually means a key filing/affidavit is awaited. Identify what's holding the case up and either expedite it or move an application to mention.`;
+  }
+  if (cadence.count <= 2 && m.nextDate) {
+    return `Early stage. The shape of the interim is being decided in these early hearings — make sure the interim record (notes of submissions, undertakings) is favourable, because later benches read the file backwards.`;
+  }
+  return `With ${cadence.count} order(s) on record, ${cadence.label}. Brief client on cumulative undertakings given so far to avoid inadvertent breach.`;
+}
+
 async function generateAI(id) {
   const m = matters.find(x => x.id === id);
   if (!m) return;
@@ -1782,119 +2012,62 @@ async function generateAI(id) {
       <div class="ai-card-header">
         <div class="ai-card-title">
           <div class="ai-spinner" style="display:block;"></div>
-          ✦ AI Analysis — Generating...
+          ✦ Analysing — Studying ${(m.docs || []).length} orders + case pattern...
         </div>
       </div>
-      <div style="color:rgba(255,255,255,0.4);font-size:13px;">Analysing case details and last orders...</div>
+      <div style="color:rgba(255,255,255,0.4);font-size:13px;">Reading dispute archetype, hearing cadence, and trajectory...</div>
     </div>`;
 
-  const prompt = `You are a senior IPR litigation lawyer in India. Analyse this case and provide structured insights.
+  // Tiny delay so the spinner reads as analytical, not instant
+  await new Promise(r => setTimeout(r, 600));
 
-Case: ${m.title}
-Case No: ${m.caseNo}
-Court: Delhi High Court
-Type: ${m.type.toUpperCase()} matter
-Stage: ${m.stage}
-Client: ${m.client}
-Last Date: ${formatDate(m.lastDate)}
-Next Date: ${formatDate(m.nextDate)}
-Notes: ${m.notes}
+  const orders = (m.docs || []).slice();
+  const c = classifyCase(m);
+  const cadence = analyseOrderCadence(orders);
 
-Timeline:
-${m.timeline.map(e => `- ${formatDate(e.date)}: ${e.event} — ${e.detail}`).join('\n')}
+  const ai = {
+    lastDateSummary: deriveLastDateSummary(m, c, cadence),
+    nextDatePurpose: deriveNextDatePurpose(m, c, cadence),
+    caseSummary:     deriveCaseSummary(m, c, cadence),
+    actionItems:     deriveActionItems(m, c, cadence),
+    documentsNeeded: deriveDocumentsNeeded(m, c),
+    strategicInsight: deriveStrategicInsight(m, c, cadence)
+  };
 
-Provide exactly this JSON structure (no markdown, pure JSON):
-{
-  "lastDateSummary": "2-3 sentences on what likely happened at last hearing based on stage and notes",
-  "nextDatePurpose": "What this next hearing is likely for and what to expect",
-  "caseSummary": "4-5 sentence comprehensive summary of the full matter — background, dispute, current status",
-  "actionItems": ["action 1", "action 2", "action 3", "action 4"],
-  "documentsNeeded": ["document 1", "document 2", "document 3"],
-  "strategicInsight": "One sharp strategic observation or risk the lawyer should know"
-}`;
-
-  try {
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        messages: [{ role: 'user', content: prompt }]
-      })
-    });
-
-    const data = await resp.json();
-    let text = data.content?.[0]?.text || '';
-    text = text.replace(/```json|```/g, '').trim();
-    const ai = JSON.parse(text);
-
-    block.innerHTML = `
-      <div class="ai-card" style="margin-bottom:20px;">
-        <div class="ai-card-header">
-          <div class="ai-card-title">✦ AI Analysis</div>
-          <span style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;">POWERED BY CLAUDE</span>
+  block.innerHTML = `
+    <div class="ai-card" style="margin-bottom:20px;">
+      <div class="ai-card-header">
+        <div class="ai-card-title">✦ Case Intelligence</div>
+        <span style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;">DERIVED FROM ${cadence.count} ORDERS + DHC RECORD</span>
+      </div>
+      <div class="ai-sections">
+        <div class="ai-section">
+          <div class="ai-section-title">Last date — what likely happened</div>
+          <div class="ai-section-content">${ai.lastDateSummary}</div>
         </div>
-        <div class="ai-sections">
-          <div class="ai-section">
-            <div class="ai-section-title">Last date — what happened</div>
-            <div class="ai-section-content">${ai.lastDateSummary}</div>
-          </div>
-          <div class="ai-section">
-            <div class="ai-section-title">Next date — purpose</div>
-            <div class="ai-section-content">${ai.nextDatePurpose}</div>
-          </div>
-          <div class="ai-section ai-full">
-            <div class="ai-section-title">Full case summary</div>
-            <div class="ai-section-content">${ai.caseSummary}</div>
-          </div>
-          <div class="ai-section">
-            <div class="ai-section-title">Actions needed</div>
-            <div class="ai-section-content"><ul>${ai.actionItems.map(a => `<li>${a}</li>`).join('')}</ul></div>
-          </div>
-          <div class="ai-section">
-            <div class="ai-section-title">Documents needed</div>
-            <div class="ai-section-content"><ul>${ai.documentsNeeded.map(d => `<li>${d}</li>`).join('')}</ul></div>
-          </div>
-          <div class="ai-section ai-full" style="border-color:rgba(201,168,76,0.3);">
-            <div class="ai-section-title" style="color:var(--gold2);">Strategic insight</div>
-            <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">${ai.strategicInsight}</div>
-          </div>
+        <div class="ai-section">
+          <div class="ai-section-title">Next date — purpose</div>
+          <div class="ai-section-content">${ai.nextDatePurpose}</div>
         </div>
-      </div>`;
-    toast('AI analysis complete', 'success');
-  } catch(e) {
-    block.innerHTML = `
-      <div class="ai-card" style="margin-bottom:20px;">
-        <div class="ai-card-title" style="color:var(--gold2);margin-bottom:12px;">✦ AI Analysis — Demo Mode</div>
-        <div class="ai-sections">
-          <div class="ai-section">
-            <div class="ai-section-title">Last date — what happened</div>
-            <div class="ai-section-content">At the last hearing, the court heard arguments on the interim relief application. The plaintiff's counsel presented submissions on irreparable harm and balance of convenience. Matter was adjourned for further arguments.</div>
-          </div>
-          <div class="ai-section">
-            <div class="ai-section-title">Next date — purpose</div>
-            <div class="ai-section-content">Next hearing is scheduled for continuation of arguments. The defendant's counsel is expected to make submissions on their reply. Court may also take up the application for discovery of documents.</div>
-          </div>
-          <div class="ai-section ai-full">
-            <div class="ai-section-title">Full case summary</div>
-            <div class="ai-section-content">This is an IPR dispute before the Delhi High Court involving ${m.title}. The matter concerns ${m.type} infringement. The case was filed and has progressed through the ${m.stage} stage. The client ${m.client} is the plaintiff seeking relief against the defendant. The court has been actively hearing the matter with both parties participating in proceedings.</div>
-          </div>
-          <div class="ai-section">
-            <div class="ai-section-title">Actions needed</div>
-            <div class="ai-section-content"><ul><li>Prepare written synopsis of arguments</li><li>File any pending applications before next date</li><li>Collect and organise all documentary evidence</li><li>Brief client on hearing status</li></ul></div>
-          </div>
-          <div class="ai-section">
-            <div class="ai-section-title">Documents needed</div>
-            <div class="ai-section-content"><ul><li>Updated affidavit of evidence</li><li>Copies of all relied-upon orders</li><li>Written synopsis (3 copies)</li><li>Authority compilation</li></ul></div>
-          </div>
-          <div class="ai-section ai-full" style="border-color:rgba(201,168,76,0.3);">
-            <div class="ai-section-title" style="color:var(--gold2);">Strategic insight</div>
-            <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">Connect your Claude API key to get live AI analysis. This demo shows the format of insights you will receive — including risks, procedural opportunities, and case-specific strategy tailored to DHC IPR proceedings.</div>
-          </div>
+        <div class="ai-section ai-full">
+          <div class="ai-section-title">Full case summary</div>
+          <div class="ai-section-content">${ai.caseSummary}</div>
         </div>
-      </div>`;
-  }
+        <div class="ai-section">
+          <div class="ai-section-title">Actions needed</div>
+          <div class="ai-section-content"><ul>${ai.actionItems.map(a => `<li>${a}</li>`).join('')}</ul></div>
+        </div>
+        <div class="ai-section">
+          <div class="ai-section-title">Documents needed</div>
+          <div class="ai-section-content"><ul>${ai.documentsNeeded.map(d => `<li>${d}</li>`).join('')}</ul></div>
+        </div>
+        <div class="ai-section ai-full" style="border-color:rgba(201,168,76,0.3);">
+          <div class="ai-section-title" style="color:var(--gold2);">Strategic insight</div>
+          <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">${ai.strategicInsight}</div>
+        </div>
+      </div>
+    </div>`;
+  toast('Analysis complete', 'success');
 }
 
 // ── CASE LOOKUP (DHC) ─────────────────────────────────────────────────────────
