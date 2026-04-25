@@ -2088,9 +2088,86 @@ function setupDeepSeekKey() {
   return null;
 }
 
-async function generateDeepAnalysis(id) {
+// Build a fingerprint that changes only when case data actually changes.
+// If the fingerprint matches a cached analysis, no API call is made.
+function caseFingerprint(m) {
+  const orderCount = (m.docs || []).length;
+  const latestOrder = (m.docs || [])[0]?.date || '';
+  const sig = [m.caseNo, m.nextDate, m.lastDate, m.status, m.stage, orderCount, latestOrder, m.lastScraped || ''].join('|');
+  return sig;
+}
+
+function getCachedAnalysis(id, fingerprint) {
+  try {
+    const cached = JSON.parse(localStorage.getItem('lextrack_deep_cache_' + id) || 'null');
+    if (cached && cached.fingerprint === fingerprint) return cached;
+  } catch(_) {}
+  return null;
+}
+
+function saveCachedAnalysis(id, fingerprint, ai) {
+  localStorage.setItem('lextrack_deep_cache_' + id, JSON.stringify({
+    fingerprint, ai, generatedAt: new Date().toISOString()
+  }));
+}
+
+function renderDeepAnalysis(id, ai, ordersCount, cachedAt) {
+  const block = document.getElementById('ai-block-' + id);
+  const cachedLabel = cachedAt
+    ? `<button onclick="generateDeepAnalysis('${id}', true)" style="background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:11px;margin-left:8px;">↻ Re-run</button>`
+    : '';
+  const cacheInfo = cachedAt
+    ? `<span style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;">CACHED · ${new Date(cachedAt).toLocaleString('en-IN', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' })}${cachedLabel}</span>`
+    : `<span style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;">DEEPSEEK V4 · ${ordersCount} ORDERS REASONED</span>`;
+  block.innerHTML = `
+    <div class="ai-card" style="margin-bottom:20px;">
+      <div class="ai-card-header">
+        <div class="ai-card-title">⚡ Deep Analysis</div>
+        ${cacheInfo}
+      </div>
+      <div class="ai-sections">
+        <div class="ai-section">
+          <div class="ai-section-title">Last date — what happened</div>
+          <div class="ai-section-content">${ai.lastDateSummary}</div>
+        </div>
+        <div class="ai-section">
+          <div class="ai-section-title">Next date — purpose</div>
+          <div class="ai-section-content">${ai.nextDatePurpose}</div>
+        </div>
+        <div class="ai-section ai-full">
+          <div class="ai-section-title">Full case summary</div>
+          <div class="ai-section-content">${ai.caseSummary}</div>
+        </div>
+        <div class="ai-section">
+          <div class="ai-section-title">Actions needed</div>
+          <div class="ai-section-content"><ul>${(ai.actionItems || []).map(a => `<li>${a}</li>`).join('')}</ul></div>
+        </div>
+        <div class="ai-section">
+          <div class="ai-section-title">Documents needed</div>
+          <div class="ai-section-content"><ul>${(ai.documentsNeeded || []).map(d => `<li>${d}</li>`).join('')}</ul></div>
+        </div>
+        <div class="ai-section ai-full" style="border-color:rgba(201,168,76,0.3);">
+          <div class="ai-section-title" style="color:var(--gold2);">Strategic insight</div>
+          <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">${ai.strategicInsight}</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+async function generateDeepAnalysis(id, forceRefresh = false) {
   const m = matters.find(x => x.id === id);
   if (!m) return;
+
+  // ── Cache check — if data unchanged, return cached result without API call ──
+  const fingerprint = caseFingerprint(m);
+  if (!forceRefresh) {
+    const cached = getCachedAnalysis(id, fingerprint);
+    if (cached) {
+      renderDeepAnalysis(id, cached.ai, (m.docs || []).length, cached.generatedAt);
+      toast('Loaded from cache (no API charge)', 'success');
+      return;
+    }
+  }
 
   let apiKey = getDeepSeekKey();
   if (!apiKey) {
@@ -2104,7 +2181,7 @@ async function generateDeepAnalysis(id) {
       <div class="ai-card-header">
         <div class="ai-card-title">
           <div class="ai-spinner" style="display:block;"></div>
-          ⚡ Deep Analysis — Reasoning over ${(m.docs || []).length} orders...
+          ⚡ Deep Analysis — ${forceRefresh ? 'Re-analysing' : 'Reasoning over ' + (m.docs || []).length + ' orders'}...
         </div>
       </div>
       <div style="color:rgba(255,255,255,0.4);font-size:13px;">DeepSeek V4 is studying the case pattern, identifying the dispute archetype, and drafting strategy...</div>
@@ -2189,40 +2266,10 @@ Return EXACTLY this JSON (no markdown, no preamble, pure JSON):
     const content = data.choices?.[0]?.message?.content || '';
     const ai = JSON.parse(content.replace(/```json|```/g, '').trim());
 
-    block.innerHTML = `
-      <div class="ai-card" style="margin-bottom:20px;">
-        <div class="ai-card-header">
-          <div class="ai-card-title">⚡ Deep Analysis</div>
-          <span style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;">DEEPSEEK V4 · ${cadence.count} ORDERS REASONED</span>
-        </div>
-        <div class="ai-sections">
-          <div class="ai-section">
-            <div class="ai-section-title">Last date — what happened</div>
-            <div class="ai-section-content">${ai.lastDateSummary}</div>
-          </div>
-          <div class="ai-section">
-            <div class="ai-section-title">Next date — purpose</div>
-            <div class="ai-section-content">${ai.nextDatePurpose}</div>
-          </div>
-          <div class="ai-section ai-full">
-            <div class="ai-section-title">Full case summary</div>
-            <div class="ai-section-content">${ai.caseSummary}</div>
-          </div>
-          <div class="ai-section">
-            <div class="ai-section-title">Actions needed</div>
-            <div class="ai-section-content"><ul>${(ai.actionItems || []).map(a => `<li>${a}</li>`).join('')}</ul></div>
-          </div>
-          <div class="ai-section">
-            <div class="ai-section-title">Documents needed</div>
-            <div class="ai-section-content"><ul>${(ai.documentsNeeded || []).map(d => `<li>${d}</li>`).join('')}</ul></div>
-          </div>
-          <div class="ai-section ai-full" style="border-color:rgba(201,168,76,0.3);">
-            <div class="ai-section-title" style="color:var(--gold2);">Strategic insight</div>
-            <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">${ai.strategicInsight}</div>
-          </div>
-        </div>
-      </div>`;
-    toast('Deep analysis complete', 'success');
+    // Cache the result so future clicks don't re-charge
+    saveCachedAnalysis(id, fingerprint, ai);
+    renderDeepAnalysis(id, ai, cadence.count, null);
+    toast('Deep analysis complete · saved to cache', 'success');
 
   } catch (err) {
     block.innerHTML = `
