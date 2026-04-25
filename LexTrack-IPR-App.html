@@ -1703,8 +1703,7 @@ function openDetail(id) {
         </div>
         <div style="display:flex;gap:8px;align-items:center;">
           <button class="btn" onclick="showView('matters')" style="background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.1);color:var(--ink2);padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;">← Back</button>
-          <button class="btn btn-gold" onclick="generateAI('${id}')">✦ AI Analysis</button>
-          <button class="btn" onclick="generateDeepAnalysis('${id}')" style="background:#1f2937;border:1px solid rgba(255,255,255,0.1);color:#e5e7eb;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;">⚡ Deep Analysis</button>
+          <button class="btn btn-gold" onclick="runAnalysis('${id}')">✦ AI Analysis</button>
           <button class="btn btn-danger" onclick="confirmDelete('${id}')">Delete</button>
         </div>
       </div>
@@ -1773,6 +1772,18 @@ function renderDetailTasks(id) {
 }
 
 // ── AI ANALYSIS ───────────────────────────────────────────────────────────────
+
+// ── ANALYSIS ROUTER ───────────────────────────────────────────────────────────
+// Single entry point. Uses DeepSeek API if a key is configured (cached so no
+// repeat charges), falls back to the free deterministic engine otherwise.
+async function runAnalysis(id) {
+  const apiKey = getDeepSeekKey();
+  if (apiKey) {
+    return generateDeepAnalysis(id);
+  } else {
+    return generateAI(id);
+  }
+}
 
 // ── DETERMINISTIC CASE INTELLIGENCE ENGINE ────────────────────────────────────
 // No LLM. Pure rules + pattern matching on the scraped data. Free, instant, explainable.
