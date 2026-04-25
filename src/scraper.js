@@ -4,7 +4,10 @@
  * Uses 2Captcha to solve CAPTCHAs automatically
  */
 
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+puppeteer.use(StealthPlugin());
+
 const { Solver } = require('2captcha');
 const fs = require('fs');
 const path = require('path');
