@@ -27,10 +27,12 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
         run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Install Chromium for Puppeteer
-        run: npx puppeteer browsers install chrome
+        run: npx puppeteer browsers install chrome --path /home/runner/.cache/puppeteer
 
       - name: Run scraper
         env:
