@@ -1975,27 +1975,123 @@ async function performLookup() {
     toast('Case found in your records', 'success');
 
   } else {
-    // ── Case NOT in records — show honest state ──
+    // ── Case NOT in records — offer to add it to daily sync ──
     result.innerHTML = `
       <div style="padding:32px 24px;text-align:center;">
         <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;">🔍</div>
         <div style="font-size:15px;font-weight:600;color:var(--ink1);margin-bottom:8px;">${caseNo}</div>
         <div style="font-size:13px;color:var(--ink3);margin-bottom:6px;">Not in your records yet</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.25);max-width:360px;margin:0 auto 24px;line-height:1.7;">
-          Add this case manually — enter the hearing dates from your own records or the DHC cause list.
+        <div style="font-size:12px;color:rgba(255,255,255,0.25);max-width:380px;margin:0 auto 24px;line-height:1.7;">
+          Add this case to your nightly DHC sync — the scraper will fetch all hearing dates, orders, and history automatically.
         </div>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-          <button class="btn btn-primary" onclick="prefillAddModal('${caseNo.replace(/'/g,"\\'")}','${type}')">
-            + Add This Case
+          <button class="btn btn-primary" onclick="addToScraper('${caseNo.replace(/'/g,"\\'")}')">
+            ✦ Add to Daily Sync
           </button>
-          <button class="btn" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--ink2);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;" onclick="showView('matters')">
-            View All Matters
+          <button class="btn" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--ink2);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;" onclick="prefillAddModal('${caseNo.replace(/'/g,"\\'")}','${type}')">
+            Add Manually
           </button>
         </div>
       </div>`;
 
     result.classList.add('show');
-    toast('Case not in records — add it manually', '');
+  }
+}
+
+// ── ADD CASE TO GITHUB SCRAPER CONFIG ─────────────────────────────────────────
+// Adds a case number to config/cases.json via GitHub API and triggers the scraper.
+
+const GH_REPO = 'hardikkaushik-a11y/lextrack-dhc';
+const GH_BRANCH = 'main';
+const GH_CONFIG_PATH = 'config/cases.json';
+
+function getGitHubToken() {
+  return localStorage.getItem('lextrack_gh_token');
+}
+
+function setupGitHubToken() {
+  const existing = getGitHubToken();
+  const msg = existing
+    ? 'Update your GitHub Personal Access Token (PAT):\n\nNeeds "Contents: Read and write" + "Actions: Read and write" on the lextrack-dhc repo.\n\nCreate one at: github.com/settings/personal-access-tokens'
+    : 'To add cases to the daily scraper, paste your GitHub Personal Access Token (PAT).\n\n1. Go to: github.com/settings/personal-access-tokens\n2. Generate fine-grained token\n3. Repo: lextrack-dhc only\n4. Permissions: Contents = Read+Write, Actions = Read+Write\n5. Paste the token below.\n\nThis stays only in your browser — never sent anywhere except GitHub.';
+  const token = prompt(msg, existing || '');
+  if (token === null) return null;
+  if (token.trim()) {
+    localStorage.setItem('lextrack_gh_token', token.trim());
+    return token.trim();
+  }
+  return null;
+}
+
+async function addToScraper(caseNo) {
+  let token = getGitHubToken();
+  if (!token) {
+    token = setupGitHubToken();
+    if (!token) return;
+  }
+
+  toast('Adding case to scraper config...', '');
+
+  try {
+    // 1. Read current cases.json (need its sha to update)
+    const ghHeaders = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' };
+    const fileRes = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_CONFIG_PATH}?ref=${GH_BRANCH}`, { headers: ghHeaders });
+    if (!fileRes.ok) {
+      if (fileRes.status === 401) { localStorage.removeItem('lextrack_gh_token'); throw new Error('Invalid token — re-enter it'); }
+      throw new Error(`GitHub read failed (${fileRes.status})`);
+    }
+    const fileData = await fileRes.json();
+    const cases = JSON.parse(atob(fileData.content.replace(/\n/g,'')));
+
+    // 2. Check duplicates
+    const norm = s => s.replace(/[\s\/]/g,'').toLowerCase();
+    if (cases.some(c => norm(c) === norm(caseNo))) {
+      toast('Already in daily sync', '');
+      return;
+    }
+
+    // 3. Append + write back
+    cases.push(caseNo);
+    const newContent = btoa(JSON.stringify(cases, null, 2) + '\n');
+    const writeRes = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_CONFIG_PATH}`, {
+      method: 'PUT',
+      headers: { ...ghHeaders, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: `feat: add ${caseNo} to scraper config (via app)`,
+        content: newContent,
+        sha: fileData.sha,
+        branch: GH_BRANCH
+      })
+    });
+    if (!writeRes.ok) throw new Error(`GitHub write failed (${writeRes.status})`);
+
+    // 4. Trigger the scraper workflow immediately
+    const triggerRes = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/scrape.yml/dispatches`, {
+      method: 'POST',
+      headers: { ...ghHeaders, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ref: GH_BRANCH })
+    });
+    if (!triggerRes.ok) console.warn('Workflow dispatch failed', triggerRes.status);
+
+    toast(`✓ ${caseNo} added — scraper running, data appears in ~3 min`, 'success');
+
+    // Add a placeholder so it shows up immediately
+    const parsed = caseNo.match(/^(.+?)\/(\d+)\/(\d{4})$/);
+    if (parsed) {
+      const id = `m_${parsed[1].replace(/[^a-z0-9]/gi,'')}_${parsed[2]}_${parsed[3]}`;
+      if (!matters.find(m => m.id === id)) {
+        matters.push({
+          id, caseNo, title: caseNo, type: 'trademark', stage: 'filed',
+          client: null, judge: null, lastDate: null, nextDate: null, notes: null,
+          timeline: [], tasks: [], docs: []
+        });
+      }
+    }
+
+    showView('matters');
+  } catch(err) {
+    toast(`Failed: ${err.message}`, 'error');
+    console.error(err);
   }
 }
 
