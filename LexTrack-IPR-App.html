@@ -1835,7 +1835,7 @@ function openDetail(id) {
           <div class="detail-meta">
             <span class="detail-meta-item">${tagHTML(m.type)}</span>
             <span class="detail-meta-item">${stageHTML(m.stage)}</span>
-            <span class="detail-meta-item">Client: <strong>${m.client}</strong></span>
+            <span class="detail-meta-item">Client: <strong>${m.client || '—'}</strong></span>
             <span class="detail-meta-item ${urgentClass}">Next: <strong>${formatDate(m.nextDate)}</strong></span>
             <span class="detail-meta-item">Last: <strong>${formatDate(m.lastDate)}</strong></span>
           </div>

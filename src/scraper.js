@@ -128,12 +128,17 @@ function buildCaseObject(parsed, row) {
   const statusMatch = row.caseNo.match(/\[([^\]]+)\]/);
   const statusText  = statusMatch ? statusMatch[1] : '';
 
-  // row.listingDate is like "15-05-2026\n(Court No. 5)"
-  const dateMatch = row.listingDate.match(/(\d{1,2}-\d{1,2}-\d{4})/);
+  // row.listingDate is like "15-05-2026\n(Court No. 5)" or "15/05/2026 Court No. 5"
+  const dateMatch = row.listingDate.match(/(\d{1,2}[-\/]\d{1,2}[-\/]\d{4})/);
   const nextDate  = dateMatch ? normaliseDate(dateMatch[1]) : null;
+  if (!nextDate) console.log(`  [debug] listingDate raw: "${row.listingDate}"`);
 
-  // row.parties is like "PLAINTIFF NAME\nv/s\nDEFENDANT NAME"
-  const title = row.parties.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim() || parsed.raw;
+  // row.parties is like "PLAINTIFF NAME VS. DEFENDANT NAME" — ensure space before VS.
+  const title = row.parties
+    .replace(/\n+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .replace(/(\S)(VS\.)/gi, '$1 $2')
+    .trim() || parsed.raw;
 
   return {
     id:          `m_${parsed.type.replace(/[^a-z0-9]/gi,'')}_${parsed.number}_${parsed.year}`,
