@@ -1701,8 +1701,10 @@ function openDetail(id) {
             <span class="detail-meta-item">Last: <strong>${formatDate(m.lastDate)}</strong></span>
           </div>
         </div>
-        <div style="display:flex;gap:8px;">
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button class="btn" onclick="showView('matters')" style="background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.1);color:var(--ink2);padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;">← Back</button>
           <button class="btn btn-gold" onclick="generateAI('${id}')">✦ AI Analysis</button>
+          <button class="btn" onclick="generateDeepAnalysis('${id}')" style="background:#1f2937;border:1px solid rgba(255,255,255,0.1);color:#e5e7eb;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;">⚡ Deep Analysis</button>
           <button class="btn btn-danger" onclick="confirmDelete('${id}')">Delete</button>
         </div>
       </div>
@@ -2068,6 +2070,168 @@ async function generateAI(id) {
       </div>
     </div>`;
   toast('Analysis complete', 'success');
+}
+
+// ── DEEP ANALYSIS (DeepSeek API) ──────────────────────────────────────────────
+// Optional layer on top of the deterministic engine. Reasons over full case +
+// orders + cadence with an LLM. Costs ~₹0.05-0.20 per call (DeepSeek V4).
+
+function getDeepSeekKey() { return localStorage.getItem('lextrack_deepseek_key'); }
+function setupDeepSeekKey() {
+  const existing = getDeepSeekKey();
+  const msg = existing
+    ? 'Update your DeepSeek API key:\n\nGet one at platform.deepseek.com → API Keys'
+    : 'Paste your DeepSeek API key for deeper case analysis.\n\n1. Go to platform.deepseek.com\n2. Sign up (free trial credit included)\n3. API Keys → Create new key\n4. Paste below.\n\n~₹0.05-0.20 per analysis. Key stays only in your browser.';
+  const k = prompt(msg, existing || '');
+  if (k === null) return null;
+  if (k.trim()) { localStorage.setItem('lextrack_deepseek_key', k.trim()); return k.trim(); }
+  return null;
+}
+
+async function generateDeepAnalysis(id) {
+  const m = matters.find(x => x.id === id);
+  if (!m) return;
+
+  let apiKey = getDeepSeekKey();
+  if (!apiKey) {
+    apiKey = setupDeepSeekKey();
+    if (!apiKey) { toast('DeepSeek API key required for deep analysis', 'error'); return; }
+  }
+
+  const block = document.getElementById('ai-block-' + id);
+  block.innerHTML = `
+    <div class="ai-card" style="margin-bottom:20px;">
+      <div class="ai-card-header">
+        <div class="ai-card-title">
+          <div class="ai-spinner" style="display:block;"></div>
+          ⚡ Deep Analysis — Reasoning over ${(m.docs || []).length} orders...
+        </div>
+      </div>
+      <div style="color:rgba(255,255,255,0.4);font-size:13px;">DeepSeek V4 is studying the case pattern, identifying the dispute archetype, and drafting strategy...</div>
+    </div>`;
+
+  // Build rich prompt with all available data (same data the deterministic engine uses)
+  const orders = (m.docs || []).slice().sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  const c = classifyCase(m);
+  const cadence = analyseOrderCadence(orders);
+
+  const ordersList = orders.length
+    ? orders.slice(0, 30).map((o,i) => `${i+1}. ${formatDate(o.date)}${o.url ? ' — ' + o.url : ''}`).join('\n')
+    : '(none)';
+
+  const prompt = `You are a senior IPR litigation lawyer practising at the Delhi High Court. You are advising on this specific case based on the actual DHC record. Be specific to THIS case — do not give generic templates.
+
+═══════════════════════════════════
+CASE: ${m.title}
+Case No: ${m.caseNo} | Delhi High Court | ${m.type.toUpperCase()}
+Status: ${m.status || m.stage}
+Client: ${m.client || 'not specified'}
+Last hearing: ${m.lastDate ? formatDate(m.lastDate) : '—'}
+Next hearing: ${m.nextDate ? formatDate(m.nextDate) : '—'}
+Notes: ${m.notes || '(none)'}
+
+ORDER HISTORY — ${orders.length} orders (newest first, up to 30 shown):
+${ordersList}
+
+PATTERN OBSERVATIONS:
+- Total orders passed: ${orders.length}
+- ${cadence.avgGap ? `Average gap between hearings: ${cadence.avgGap} days` : 'Insufficient data'}
+- Cadence: ${cadence.label}
+- Recent activity (last 60d): ${cadence.recentActivity}
+- Trajectory: ${cadence.trajectory}
+
+DISPUTE SIGNALS (from parties' names):
+${c.isStreamingPiracy ? '- IPTV/streaming piracy (defendant has URLs/domains/streaming markers)' : ''}
+${c.isJohnDoeMulti ? '- Multi-defendant / John Doe action (& ORS in title)' : ''}
+${c.isPharma ? '- Pharma/patent matter' : ''}
+${c.isFMCG ? '- Brand-protection / consumer goods' : ''}
+═══════════════════════════════════
+
+Reason carefully:
+1. What is this dispute REALLY about? Identify the IPR issue from parties' names.
+2. What does ${orders.length} orders in this cadence tell you about the court's posture?
+3. What's the next hearing genuinely going to be about? Be specific.
+4. What are the failure modes Ishi (the lawyer) should pre-empt?
+
+Return EXACTLY this JSON (no markdown, no preamble, pure JSON):
+{
+  "lastDateSummary": "What likely happened on ${m.lastDate ? formatDate(m.lastDate) : 'the most recent date'} — specific to THIS case, refer to parties by name where relevant.",
+  "nextDatePurpose": "What ${m.nextDate ? formatDate(m.nextDate) : 'the next hearing'} will be for. Reference the case stage and order pattern.",
+  "caseSummary": "5-6 sentence summary of THIS case — dispute, current trajectory, key inflection points. Be specific.",
+  "actionItems": ["specific action 1", "action 2", "action 3", "action 4", "action 5"],
+  "documentsNeeded": ["specific doc 1 for next date", "doc 2", "doc 3", "doc 4"],
+  "strategicInsight": "One sharp, case-specific tactical observation. What's the bench likely to be sensitive to? What's the failure mode? What should be pre-empted?"
+}`;
+
+  try {
+    const resp = await fetch('https://api.deepseek.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages: [{ role: 'user', content: prompt }],
+        max_tokens: 1500,
+        temperature: 0.3,
+        response_format: { type: 'json_object' }
+      })
+    });
+
+    if (!resp.ok) {
+      const errTxt = await resp.text();
+      if (resp.status === 401) { localStorage.removeItem('lextrack_deepseek_key'); throw new Error('Invalid API key — re-enter it'); }
+      throw new Error(`DeepSeek error (${resp.status}): ${errTxt.slice(0,200)}`);
+    }
+
+    const data = await resp.json();
+    const content = data.choices?.[0]?.message?.content || '';
+    const ai = JSON.parse(content.replace(/```json|```/g, '').trim());
+
+    block.innerHTML = `
+      <div class="ai-card" style="margin-bottom:20px;">
+        <div class="ai-card-header">
+          <div class="ai-card-title">⚡ Deep Analysis</div>
+          <span style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;">DEEPSEEK V4 · ${cadence.count} ORDERS REASONED</span>
+        </div>
+        <div class="ai-sections">
+          <div class="ai-section">
+            <div class="ai-section-title">Last date — what happened</div>
+            <div class="ai-section-content">${ai.lastDateSummary}</div>
+          </div>
+          <div class="ai-section">
+            <div class="ai-section-title">Next date — purpose</div>
+            <div class="ai-section-content">${ai.nextDatePurpose}</div>
+          </div>
+          <div class="ai-section ai-full">
+            <div class="ai-section-title">Full case summary</div>
+            <div class="ai-section-content">${ai.caseSummary}</div>
+          </div>
+          <div class="ai-section">
+            <div class="ai-section-title">Actions needed</div>
+            <div class="ai-section-content"><ul>${(ai.actionItems || []).map(a => `<li>${a}</li>`).join('')}</ul></div>
+          </div>
+          <div class="ai-section">
+            <div class="ai-section-title">Documents needed</div>
+            <div class="ai-section-content"><ul>${(ai.documentsNeeded || []).map(d => `<li>${d}</li>`).join('')}</ul></div>
+          </div>
+          <div class="ai-section ai-full" style="border-color:rgba(201,168,76,0.3);">
+            <div class="ai-section-title" style="color:var(--gold2);">Strategic insight</div>
+            <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">${ai.strategicInsight}</div>
+          </div>
+        </div>
+      </div>`;
+    toast('Deep analysis complete', 'success');
+
+  } catch (err) {
+    block.innerHTML = `
+      <div class="ai-card" style="margin-bottom:20px;border-color:rgba(239,68,68,0.3);">
+        <div class="ai-card-title" style="color:#ef4444;margin-bottom:8px;">Deep analysis failed</div>
+        <div style="color:var(--ink3);font-size:13px;">${err.message}</div>
+      </div>`;
+    toast(`Failed: ${err.message}`, 'error');
+  }
 }
 
 // ── CASE LOOKUP (DHC) ─────────────────────────────────────────────────────────
