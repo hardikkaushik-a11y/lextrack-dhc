@@ -2099,12 +2099,13 @@ function setupDeepSeekKey() {
   return null;
 }
 
-// Build a fingerprint that changes only when case data actually changes.
-// If the fingerprint matches a cached analysis, no API call is made.
+// Build a fingerprint that changes ONLY when actual case content changes —
+// not when the scraper runs without finding anything new.
+// Excludes lastScraped intentionally (scraper writes that every night even on no-op).
 function caseFingerprint(m) {
   const orderCount = (m.docs || []).length;
   const latestOrder = (m.docs || [])[0]?.date || '';
-  const sig = [m.caseNo, m.nextDate, m.lastDate, m.status, m.stage, orderCount, latestOrder, m.lastScraped || ''].join('|');
+  const sig = [m.caseNo, m.nextDate, m.lastDate, m.status, m.stage, orderCount, latestOrder].join('|');
   return sig;
 }
 
