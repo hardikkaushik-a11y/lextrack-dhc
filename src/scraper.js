@@ -132,24 +132,87 @@ async function scrapeCase(browser, caseInput, attempt = 1) {
   }
 }
 
-// Try to extract case history link from result row and fetch full timeline
+// Navigate to the case detail page and extract all orders
 async function fetchCaseHistory(page, caseNoHtml) {
-  // Look for a link/onclick in the case number cell that opens history
-  const linkMatch = caseNoHtml.match(/href=["']([^"']+)["']/i);
-  const onclickMatch = caseNoHtml.match(/onclick=["']([^"']+)["']/i);
+  const linkMatch = caseNoHtml.match(/href=["']([^"']+case-type-status-details[^"']+)["']/i);
+  if (!linkMatch) return null;
 
-  if (!linkMatch && !onclickMatch) return null;
+  const detailUrl = linkMatch[1].replace(/&amp;/g, '&');
+  console.log(`  [history] fetching detail page...`);
 
-  // For now, just log what we found — full history extraction needs more research
-  console.log(`  [history] link found: ${linkMatch?.[1] || onclickMatch?.[1] || 'none'}`);
-  return null;
+  try {
+    await page.goto(detailUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+
+    // Wait for orders DataTable to populate
+    await page.waitForFunction(() => {
+      const tbody = document.querySelector('#caseTable tbody');
+      if (!tbody) return false;
+      const rows = tbody.querySelectorAll('tr');
+      if (rows.length === 0) return false;
+      const text = tbody.textContent;
+      return text.includes('No data') || rows[0].querySelectorAll('td').length >= 3;
+    }, { timeout: 20000 }).catch(() => null);
+
+    await new Promise(r => setTimeout(r, 1500));
+
+    const orders = await page.evaluate(() => {
+      const rows = document.querySelectorAll('#caseTable tbody tr');
+      return Array.from(rows).map(row => {
+        const tds = row.querySelectorAll('td');
+        const linkEl = tds[1]?.querySelector('a');
+        return {
+          caseNoText: tds[1]?.textContent.trim() || '',
+          orderLink:  linkEl?.href || '',
+          orderDate:  tds[2]?.textContent.trim() || '',
+          corrigendum: tds[3]?.textContent.trim() || '',
+          hindiOrder:  tds[4]?.textContent.trim() || ''
+        };
+      }).filter(o => o.orderDate && o.orderDate.match(/\d/));
+    });
+
+    console.log(`  [history] ${orders.length} orders found`);
+    return orders;
+
+  } catch (err) {
+    console.log(`  [history] error: ${err.message}`);
+    return null;
+  }
 }
 
 function buildCaseObject(parsed, row, history) {
-  // row.caseNoText is like "CS(COMM)/108/2025\n[PENDING]"
   const caseNoSrc   = row.caseNoText || row.caseNo || '';
   const statusMatch = caseNoSrc.match(/\[([^\]]+)\]/);
   const statusText  = statusMatch ? statusMatch[1] : '';
+
+  // Build timeline + docs from order history
+  const orders = (history || []).map(o => {
+    const dateMatch = o.orderDate.match(/(\d{1,2}[-\/]\d{1,2}[-\/]\d{4})/);
+    return {
+      date: dateMatch ? normaliseDate(dateMatch[1]) : null,
+      orderLink: o.orderLink || null,
+      hindiOrderLink: o.hindiOrder?.includes('http') ? o.hindiOrder : null
+    };
+  }).filter(o => o.date);
+
+  // Sort orders newest first
+  orders.sort((a, b) => b.date.localeCompare(a.date));
+
+  const lastDate = orders[0]?.date || null;
+
+  const timeline = orders.map(o => ({
+    date: o.date,
+    event: 'Court Order',
+    detail: 'Order passed by court',
+    orderLink: o.orderLink
+  }));
+
+  const docs = orders.map((o, i) => ({
+    name: `Order_${o.date}.pdf`,
+    type: 'Court Order',
+    date: o.date,
+    url: o.orderLink,
+    size: '—'
+  }));
 
   // row.listingDate is like "15-05-2026\n(Court No. 5)" or "15/05/2026 Court No. 5"
   const dateMatch = row.listingDate.match(/(\d{1,2}[-\/]\d{1,2}[-\/]\d{4})/);
@@ -170,14 +233,14 @@ function buildCaseObject(parsed, row, history) {
     type:        'trademark',   // All Ishi's cases are CS(COMM) — IPR commercial
     stage:       guessStage(statusText),
     status:      statusText,
-    judge:       null,          // Not available on listing page
+    judge:       null,
     client:      null,          // Ishi fills this in the app
-    lastDate:    null,          // Not available on listing page
+    lastDate,
     nextDate,
     notes:       null,
-    timeline:    [],
+    timeline,
     tasks:       [],
-    docs:        [],
+    docs,
     lastScraped: new Date().toISOString()
   };
 }

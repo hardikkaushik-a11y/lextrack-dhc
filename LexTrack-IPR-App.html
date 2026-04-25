@@ -1401,153 +1401,6 @@ let matters = [
   { id: 'm_CSCOMM_756_2025',  caseNo: 'CS(COMM)/756/2025',  title: 'CS(COMM)/756/2025',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
   { id: 'm_CSCOMM_810_2025',  caseNo: 'CS(COMM)/810/2025',  title: 'CS(COMM)/810/2025',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
 
-  // ── OLD demo cases (remove once scraper is live) ──
-  {
-    id: 'm1',
-    title: 'KRBL Limited v. Vikram Roller Flour Mills Limited',
-    caseNo: 'CS(COMM) 550/2022',
-    type: 'trademark',
-    stage: 'arguments',
-    client: 'KRBL Limited',
-    judge: 'Hon\'ble Mr. Justice Amit Bansal',
-    lastDate: fmt(addDays(today,-14)),
-    nextDate: fmt(addDays(today,3)),
-    notes: 'Trademark dispute over INDIA GATE rice brand. KRBL alleges defendant\'s flour/rice sold under "INDIA" branding is deceptively similar. Section 29 TM Act invoked.',
-    timeline: [
-      { date: '2022-09-12', event: 'Suit filed', detail: 'CS(COMM) 550/2022 filed with IA for interim relief' },
-      { date: '2022-10-18', event: 'Notice issued', detail: 'Defendant served; directed to appear' },
-      { date: '2023-01-19', event: 'Interim order', detail: 'Justice Amit Bansal passed detailed interim order on injunction application' },
-      { date: '2023-06-20', event: 'Written statement', detail: 'Defendant filed WS denying deceptive similarity' },
-      { date: '2024-02-15', event: 'Issues framed', detail: 'Court framed 6 issues; evidence stage commenced' },
-    ],
-    tasks: [
-      { id: 't1', title: 'Prepare plaintiff\'s evidence affidavit (Section 29 TM Act)', due: fmt(addDays(today,2)), priority:'P1', done:false, source:'court_order' },
-      { id: 't2', title: 'Collate trademark registration certificates (INDIA GATE series)', due: fmt(addDays(today,5)), priority:'P1', done:false, source:'manual' },
-      { id: 't3', title: 'Brief senior counsel on cross-examination strategy', due: fmt(addDays(today,7)), priority:'P2', done:false, source:'ai' },
-    ],
-    docs: [
-      { name: 'Plaint_CS_COMM_550_2022.pdf', type: 'Plaint', size: '2.4 MB' },
-      { name: 'Interim_Order_19Jan2023.pdf', type: 'Court Order', size: '0.8 MB' },
-      { name: 'TM_Registration_IndiaGate.pdf', type: 'Trademark Certificate', size: '1.2 MB' },
-    ]
-  },
-  {
-    id: 'm2',
-    title: 'Vifor (International) Limited v. MSN Laboratories Pvt Ltd',
-    caseNo: 'CS(COMM) 261/2023',
-    type: 'patent',
-    stage: 'reserved',
-    client: 'Vifor International',
-    judge: 'Hon\'ble Mr. Justice Yashwant Varma',
-    lastDate: fmt(addDays(today,-5)),
-    nextDate: fmt(addDays(today,25)),
-    notes: 'Patent infringement of Ferric Carboxymaltose (FCM) — anti-anemia drug. Suit patent IN 221536. MSN\'s generic launched in 2023. Interim injunction hearing critical.',
-    timeline: [
-      { date: '2023-04-05', event: 'Suit filed', detail: 'Patent infringement plaint filed with interim injunction application' },
-      { date: '2023-04-20', event: 'Ad-interim order', detail: 'Notice issued; no ex-parte injunction granted' },
-      { date: '2023-07-14', event: 'Reply to IA filed', detail: 'MSN filed reply raising credible challenge — Section 3(d) and obviousness' },
-      { date: '2023-11-20', event: 'Rejoinder', detail: 'Vifor filed rejoinder addressing 3(d) objection' },
-      { date: '2024-02-07', event: 'Arguments heard', detail: 'Justice Y. Varma heard extensive arguments on interim injunction; order reserved' },
-    ],
-    tasks: [
-      { id: 't4', title: 'Prepare compilation of judgments cited (Novartis, Roche)', due: fmt(addDays(today,8)), priority:'P2', done:false, source:'manual' },
-      { id: 't5', title: 'Brief technical expert on FCM pharmacokinetics for final arguments', due: fmt(addDays(today,15)), priority:'P2', done:false, source:'ai' },
-      { id: 't6', title: 'Monitor DHC daily orders page for reserved order', due: fmt(addDays(today,1)), priority:'P1', done:false, source:'court_order' },
-    ],
-    docs: [
-      { name: 'Plaint_Vifor_vs_MSN.pdf', type: 'Plaint', size: '4.1 MB' },
-      { name: 'Patent_IN221536_FCM.pdf', type: 'Patent Document', size: '3.8 MB' },
-      { name: 'MSN_Reply_IA.pdf', type: 'Reply', size: '2.2 MB' },
-    ]
-  },
-  {
-    id: 'm3',
-    title: 'Upakarma Ayurveda Pvt. Ltd. v. Rasayanum Enterprises',
-    caseNo: 'CS(COMM) 834/2023',
-    type: 'copyright',
-    stage: 'disposed',
-    client: 'Upakarma Ayurveda',
-    judge: 'Hon\'ble Mr. Justice C. Hari Shankar',
-    lastDate: fmt(addDays(today,-30)),
-    nextDate: fmt(addDays(today,15)),
-    notes: 'Judgment PRONOUNCED 22 March 2024. Copyright infringement in ayurvedic product packaging, labels & artistic work. Plaintiff succeeded. Now at execution stage — defendant failed to comply with permanent injunction.',
-    timeline: [
-      { date: '2023-11-18', event: 'Suit filed', detail: 'Section 51 Copyright Act invoked; IA for interim injunction' },
-      { date: '2023-12-04', event: 'Ex-parte injunction', detail: 'Court granted ex-parte interim injunction on packaging' },
-      { date: '2024-01-22', event: 'Trial', detail: 'Expedited trial — documentary evidence admitted' },
-      { date: '2024-02-21', event: 'Arguments concluded', detail: 'Both sides argued; judgment reserved' },
-      { date: '2024-03-22', event: 'Judgment pronounced', detail: 'Suit decreed in favour of Upakarma with permanent injunction + damages ₹5 lakh' },
-    ],
-    tasks: [
-      { id: 't7', title: 'File Execution Petition for recovery of damages', due: fmt(addDays(today,5)), priority:'P1', done:false, source:'manual' },
-      { id: 't8', title: 'Prepare contempt petition for non-compliance with injunction', due: fmt(addDays(today,10)), priority:'P1', done:false, source:'ai' },
-      { id: 't9', title: 'Certified copy application for judgment', due: fmt(addDays(today,-5)), priority:'P3', done:true, source:'manual' },
-    ],
-    docs: [
-      { name: 'Judgment_22Mar2024.pdf', type: 'Court Order', size: '1.8 MB' },
-      { name: 'Plaint_CS_COMM_834_2023.pdf', type: 'Plaint', size: '3.2 MB' },
-      { name: 'Copyright_Registration_Labels.pdf', type: 'Copyright Certificate', size: '0.9 MB' },
-    ]
-  },
-  {
-    id: 'm4',
-    title: 'Resilient Innovations Pvt. Ltd. v. PhonePe Pvt. Ltd.',
-    caseNo: 'CS(COMM) 748/2021',
-    type: 'trademark',
-    stage: 'arguments',
-    client: 'Resilient Innovations (BharatPe)',
-    judge: 'Hon\'ble Ms. Justice Prathiba M. Singh',
-    lastDate: fmt(addDays(today,-8)),
-    nextDate: fmt(addDays(today,6)),
-    notes: 'High-profile "Pe" trademark dispute. Resilient (BharatPe) v. PhonePe over use of "Pe" suffix. Court previously declined ex-parte injunction in 2021. Final arguments now scheduled.',
-    timeline: [
-      { date: '2021-09-02', event: 'Suit filed', detail: 'Trademark infringement + passing off over "Pe" suffix' },
-      { date: '2021-11-11', event: 'Interim application', detail: 'Justice Menon declined ex-parte injunction; notice issued' },
-      { date: '2022-03-15', event: 'WS filed', detail: 'PhonePe denied deceptive similarity; claimed descriptive use' },
-      { date: '2023-01-20', event: 'Issues framed', detail: '8 issues including Section 9 validity of "Pe" mark' },
-      { date: '2023-11-14', event: 'Evidence recorded', detail: 'Both sides led evidence; cross-examination completed' },
-      { date: '2024-04-12', event: 'Final arguments', detail: 'Part-heard; scheduled for continuation' },
-    ],
-    tasks: [
-      { id: 't10', title: 'Prepare written synopsis for final arguments', due: fmt(addDays(today,3)), priority:'P1', done:false, source:'court_order' },
-      { id: 't11', title: 'Compile 15 authorities on "suffix" trademark doctrine', due: fmt(addDays(today,4)), priority:'P1', done:false, source:'manual' },
-      { id: 't12', title: 'Brief client on potential outcomes & appeal strategy', due: fmt(addDays(today,5)), priority:'P2', done:false, source:'ai' },
-    ],
-    docs: [
-      { name: 'Plaint_BharatPe_vs_PhonePe.pdf', type: 'Plaint', size: '5.2 MB' },
-      { name: 'Order_11Nov2021_Menon_J.pdf', type: 'Court Order', size: '1.1 MB' },
-      { name: 'Issues_Order.pdf', type: 'Court Order', size: '0.6 MB' },
-    ]
-  },
-  {
-    id: 'm5',
-    title: 'Natures Essence Pvt. Ltd. v. Protogreen Retail Solutions Pvt. Ltd.',
-    caseNo: 'CS(COMM) 191/2020',
-    type: 'trademark',
-    stage: 'pleadings',
-    client: 'Natures Essence',
-    judge: 'Hon\'ble Mr. Justice C. Hari Shankar',
-    lastDate: fmt(addDays(today,-18)),
-    nextDate: fmt(addDays(today,10)),
-    notes: 'Trademark infringement + passing off in cosmetics. Defendant selling counterfeit "Natures Essence" products via e-commerce. John Doe order obtained. E-commerce platforms joined as parties.',
-    timeline: [
-      { date: '2020-08-10', event: 'Suit filed', detail: 'Trademark infringement + John Doe' },
-      { date: '2020-09-02', event: 'Ex-parte injunction', detail: 'Court granted John Doe order against unknown sellers' },
-      { date: '2021-03-09', event: 'Order dated 09.03.2021', detail: 'Justice C. Hari Shankar directed Amazon/Flipkart to take down listings' },
-      { date: '2024-01-20', event: 'Local Commissioner appointed', detail: 'LC to seize counterfeit stock from godown in Karol Bagh' },
-      { date: '2024-04-03', event: 'LC report filed', detail: 'Commissioner\'s report confirmed seizure of 2,400 counterfeit units' },
-    ],
-    tasks: [
-      { id: 't13', title: 'File objections (if any) to Local Commissioner\'s report', due: fmt(addDays(today,4)), priority:'P1', done:false, source:'court_order' },
-      { id: 't14', title: 'Move application for destruction of seized counterfeit stock', due: fmt(addDays(today,8)), priority:'P2', done:false, source:'manual' },
-      { id: 't15', title: 'Draft prayer for damages — quantify based on LC seizure', due: fmt(addDays(today,12)), priority:'P2', done:false, source:'ai' },
-    ],
-    docs: [
-      { name: 'Plaint_Natures_Essence.pdf', type: 'Plaint', size: '2.9 MB' },
-      { name: 'LC_Report_03Apr2024.pdf', type: 'Commissioner Report', size: '4.5 MB' },
-      { name: 'JohnDoe_Order.pdf', type: 'Court Order', size: '0.7 MB' },
-    ]
-  }
 ];
 
 let calCurrentDate = new Date();
@@ -1804,16 +1657,24 @@ function filterTasks(f, el) {
 
 function renderDocuments() {
   const docIcons = { 'Plaint':'📄', 'Court Order':'⚖️', 'Written Submission':'📝', 'Patent Document':'🔬', 'Affidavit':'📋' };
-  const allDocs = matters.flatMap(m => m.docs.map(d => ({ ...d, matterTitle: m.title.split(' v. ')[0] })));
+  const allDocs = matters.flatMap(m => (m.docs || []).map(d => ({ ...d, matterTitle: m.title.split(' VS.')[0].split(' v. ')[0] })));
+
+  // Sort newest first by date
+  allDocs.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
   document.getElementById('docs-grid').innerHTML = allDocs.length ?
-    allDocs.map(d => `
-      <div class="doc-card">
+    allDocs.map(d => {
+      const dateStr = d.date ? formatDate(d.date) : '';
+      const inner = `
         <div class="doc-icon">${docIcons[d.type] || '📄'}</div>
         <div class="doc-name">${d.name}</div>
-        <div class="doc-meta">${d.type} • ${d.size}</div>
-        <div class="doc-meta" style="margin-top:4px;color:var(--ink3);">${d.matterTitle}</div>
-      </div>`).join('') :
-    '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📁</div><div class="empty-title">No documents yet</div><div class="empty-sub">Upload files by opening any matter</div></div>';
+        <div class="doc-meta">${d.type}${dateStr ? ' • ' + dateStr : ''}</div>
+        <div class="doc-meta" style="margin-top:4px;color:var(--ink3);">${d.matterTitle}</div>`;
+      return d.url
+        ? `<a class="doc-card" href="${d.url}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;cursor:pointer;">${inner}</a>`
+        : `<div class="doc-card">${inner}</div>`;
+    }).join('') :
+    '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📁</div><div class="empty-title">No documents yet</div><div class="empty-sub">Orders will appear here automatically once the scraper runs</div></div>';
 }
 
 // ── MATTER DETAIL ─────────────────────────────────────────────────────────────
