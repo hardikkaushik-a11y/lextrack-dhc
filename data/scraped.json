@@ -14,7 +14,7 @@
     "timeline": [],
     "tasks": [],
     "docs": [],
-    "lastScraped": "2026-04-25T22:48:41.861Z"
+    "lastScraped": "2026-04-25T22:56:11.404Z"
   },
   {
     "id": "m_CSCOMM_331_2025",
@@ -31,7 +31,7 @@
     "timeline": [],
     "tasks": [],
     "docs": [],
-    "lastScraped": "2026-04-25T22:48:49.791Z"
+    "lastScraped": "2026-04-25T22:56:20.203Z"
   },
   {
     "id": "m_CSCOMM_89_2026",
@@ -48,7 +48,7 @@
     "timeline": [],
     "tasks": [],
     "docs": [],
-    "lastScraped": "2026-04-25T22:48:57.341Z"
+    "lastScraped": "2026-04-25T22:56:28.618Z"
   },
   {
     "id": "m_CSCOMM_81_2026",
@@ -64,7 +64,7 @@
     "timeline": [],
     "tasks": [],
     "docs": [],
-    "lastScraped": "2026-04-25T22:49:04.890Z"
+    "lastScraped": "2026-04-25T22:56:37.054Z"
   },
   {
     "id": "m_CSCOMM_313_2026",
@@ -81,7 +81,7 @@
     "timeline": [],
     "tasks": [],
     "docs": [],
-    "lastScraped": "2026-04-25T22:49:12.474Z"
+    "lastScraped": "2026-04-25T22:56:45.483Z"
   },
   {
     "id": "m_CSCOMM_319_2026",
@@ -98,16 +98,24 @@
     "timeline": [],
     "tasks": [],
     "docs": [],
-    "lastScraped": "2026-04-25T22:49:20.072Z"
+    "lastScraped": "2026-04-25T22:56:53.951Z"
   },
   {
+    "id": "m_CSCOMM_756_2025",
     "caseNo": "CS(COMM)/756/2025",
-    "error": "No results found on DHC",
-    "lastScraped": "2026-04-25T22:49:28.975Z",
+    "title": "JIOSTAR INDIA PRIVATE LIMITED VS. HTTPS//IPTVWORLD.IN & ORS.",
+    "type": "trademark",
+    "stage": "filed",
+    "status": "PENDING",
+    "judge": null,
+    "client": null,
+    "lastDate": null,
+    "nextDate": "2026-07-15",
+    "notes": null,
+    "timeline": [],
     "tasks": [],
     "docs": [],
-    "lastDate": null,
-    "timeline": []
+    "lastScraped": "2026-04-25T22:57:02.368Z"
   },
   {
     "id": "m_CSCOMM_810_2025",
@@ -124,6 +132,6 @@
     "timeline": [],
     "tasks": [],
     "docs": [],
-    "lastScraped": "2026-04-25T22:49:36.572Z"
+    "lastScraped": "2026-04-25T22:57:10.843Z"
   }
 ]
