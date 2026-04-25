@@ -1703,7 +1703,7 @@ function openDetail(id) {
         </div>
         <div style="display:flex;gap:8px;align-items:center;">
           <button class="btn" onclick="showView('matters')" style="background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.1);color:var(--ink2);padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;">← Back</button>
-          <button class="btn btn-gold" onclick="runAnalysis('${id}')">✦ AI Analysis</button>
+          <button class="btn btn-gold" onclick="runAnalysis('${id}')" id="ai-btn-${id}">${getDeepSeekKey() ? '⚡ AI Analysis' : '✦ AI Analysis'}</button>
           <button class="btn btn-danger" onclick="confirmDelete('${id}')">Delete</button>
         </div>
       </div>
