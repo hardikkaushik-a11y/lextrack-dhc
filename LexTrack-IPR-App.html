@@ -1715,12 +1715,12 @@ function openDetail(id) {
       <div class="card">
         <div class="card-title">Timeline</div>
         <div class="timeline">
-          ${m.timeline.map(e => `
+          ${(m.timeline || []).map(e => `
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-date">${formatDate(e.date)}</div>
               <div class="timeline-event">${e.event}</div>
-              <div class="timeline-detail">${e.detail}</div>
+              <div class="timeline-detail">${e.orderLink ? `<a href="${e.orderLink}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;">${e.detail || 'View Order →'}</a>` : (e.detail || '')}</div>
             </div>`).join('')}
           <div class="timeline-item">
             <div class="timeline-dot" style="background:var(--blue);box-shadow:0 0 0 2px var(--blue);"></div>
