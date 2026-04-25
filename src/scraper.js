@@ -45,9 +45,10 @@ function guessStage(statusText) {
   return 'filed';
 }
 
-async function scrapeCase(browser, caseInput) {
+async function scrapeCase(browser, caseInput, attempt = 1) {
   const parsed = parseCaseNumber(caseInput);
-  console.log(`\nScraping: ${caseInput}`);
+  if (attempt === 1) console.log(`\nScraping: ${caseInput}`);
+  else console.log(`  Retry ${attempt}/3...`);
 
   const page = await browser.newPage();
   await page.setUserAgent(
@@ -57,75 +58,97 @@ async function scrapeCase(browser, caseInput) {
   try {
     await page.goto(DHC_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
 
-    // Wait for form fields to be rendered (SPA — takes a moment)
+    // Wait for form fields to be rendered
     await page.waitForSelector('#case_type', { timeout: 20000 });
-    await new Promise(r => setTimeout(r, 500)); // let JS finish initialising
+    await new Promise(r => setTimeout(r, 800));
 
-    // Fill in case type
     await page.select('#case_type', parsed.type);
-
-    // Fill in case number
     await page.click('#case_number', { clickCount: 3 });
     await page.type('#case_number', parsed.number, { delay: 30 });
-
-    // Fill in year
     await page.select('#case_year', parsed.year);
 
-    // ── Read CAPTCHA directly from DOM ────────────────────────────────────────
-    // DHC stores the CAPTCHA answer in a hidden input #randomid.
-    // The visual obfuscation is CSS-only — the actual code is in the DOM.
+    // Read CAPTCHA from DOM
     const captchaCode = await page.$eval('#randomid', el => el.value);
-    console.log(`  CAPTCHA (read from DOM): "${captchaCode}"`);
-
     await page.click('#captchaInput', { clickCount: 3 });
     await page.type('#captchaInput', captchaCode, { delay: 30 });
 
-    // Click Submit and wait for DataTable to respond
     await page.click('#search');
-    console.log('  Submitted — waiting for results...');
 
-    // Wait for DataTable processing spinner to disappear
+    // Wait for DataTable to actually populate or show "No data"
     await page.waitForFunction(() => {
-      const proc = document.querySelector('#caseTable_processing');
-      return !proc || proc.style.display === 'none' || proc.style.display === '';
-    }, { timeout: 20000 }).catch(() => console.log('  Warning: processing indicator timeout'));
+      const tbody = document.querySelector('#caseTable tbody');
+      if (!tbody) return false;
+      const rows = tbody.querySelectorAll('tr');
+      if (rows.length === 0) return false;
+      const text = tbody.textContent;
+      return text.includes('No data') || rows[0].querySelectorAll('td').length >= 4;
+    }, { timeout: 25000 }).catch(() => null);
 
-    await new Promise(r => setTimeout(r, 1000));
+    await new Promise(r => setTimeout(r, 1500));
 
-    // Extract results from DataTable
+    // Extract results — capture both text AND HTML (for detail links)
     const rows = await page.evaluate(() => {
       const trs = document.querySelectorAll('#caseTable tbody tr');
       return Array.from(trs).map(tr => {
         const tds = tr.querySelectorAll('td');
         return {
-          caseNo:      tds[1]?.textContent.trim() || '',
+          caseNoText:  tds[1]?.textContent.trim() || '',
+          caseNoHtml:  tds[1]?.innerHTML || '',
           parties:     tds[2]?.textContent.trim() || '',
           listingDate: tds[3]?.textContent.trim() || ''
         };
       });
     });
 
-    const valid = rows.filter(r => r.caseNo && !r.caseNo.includes('No data'));
+    const valid = rows.filter(r => r.caseNoText && !r.caseNoText.includes('No data'));
     console.log(`  Found ${valid.length} result(s)`);
 
-    await page.close();
-
-    if (valid.length === 0) {
-      return { caseNo: parsed.raw, error: 'No results found on DHC', lastScraped: new Date().toISOString() };
+    // Retry on transient 0-result failures (DHC is sometimes slow)
+    if (valid.length === 0 && attempt < 3) {
+      await page.close();
+      await new Promise(r => setTimeout(r, 3000));
+      return scrapeCase(browser, caseInput, attempt + 1);
     }
 
-    return buildCaseObject(parsed, valid[0]);
+    if (valid.length === 0) {
+      await page.close();
+      return { caseNo: parsed.raw, error: 'No results found on DHC after 3 attempts', lastScraped: new Date().toISOString() };
+    }
+
+    // Try to fetch case history for richer data (judge, last date, timeline)
+    const historyData = await fetchCaseHistory(page, valid[0].caseNoHtml).catch(() => null);
+
+    await page.close();
+    return buildCaseObject(parsed, valid[0], historyData);
 
   } catch (err) {
     await page.close();
     console.error(`  Error: ${err.message}`);
+    if (attempt < 3) {
+      await new Promise(r => setTimeout(r, 3000));
+      return scrapeCase(browser, caseInput, attempt + 1);
+    }
     return { caseNo: parsed.raw, error: err.message, lastScraped: new Date().toISOString() };
   }
 }
 
-function buildCaseObject(parsed, row) {
-  // row.caseNo is like "CS(COMM)/108/2025\n[Active]"
-  const statusMatch = row.caseNo.match(/\[([^\]]+)\]/);
+// Try to extract case history link from result row and fetch full timeline
+async function fetchCaseHistory(page, caseNoHtml) {
+  // Look for a link/onclick in the case number cell that opens history
+  const linkMatch = caseNoHtml.match(/href=["']([^"']+)["']/i);
+  const onclickMatch = caseNoHtml.match(/onclick=["']([^"']+)["']/i);
+
+  if (!linkMatch && !onclickMatch) return null;
+
+  // For now, just log what we found — full history extraction needs more research
+  console.log(`  [history] link found: ${linkMatch?.[1] || onclickMatch?.[1] || 'none'}`);
+  return null;
+}
+
+function buildCaseObject(parsed, row, history) {
+  // row.caseNoText is like "CS(COMM)/108/2025\n[PENDING]"
+  const caseNoSrc   = row.caseNoText || row.caseNo || '';
+  const statusMatch = caseNoSrc.match(/\[([^\]]+)\]/);
   const statusText  = statusMatch ? statusMatch[1] : '';
 
   // row.listingDate is like "15-05-2026\n(Court No. 5)" or "15/05/2026 Court No. 5"
