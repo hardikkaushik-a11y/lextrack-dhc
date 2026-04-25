@@ -1,7 +1,7 @@
 {
   "name": "lextrack-dhc-scraper",
   "version": "1.0.0",
-  "description": "Automated DHC case scraper for LexTrack",
+  "description": "Automated DHC case scraper for LexTrack — no CAPTCHA service needed",
   "main": "src/scraper.js",
   "scripts": {
     "scrape": "node src/scraper.js",
@@ -10,8 +10,6 @@
   "dependencies": {
     "puppeteer": "^21.0.0",
     "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2",
-    "2captcha": "3.0.7",
-    "axios": "^1.6.0"
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   }
 }
