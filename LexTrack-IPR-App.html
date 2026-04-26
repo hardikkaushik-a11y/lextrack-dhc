@@ -1280,23 +1280,23 @@ body {
       <div class="stats-grid">
         <div class="stat-card stat-accent">
           <div class="stat-label">Active Matters</div>
-          <div class="stat-value" id="stat-active">5</div>
-          <div class="stat-sub">2 added this month</div>
+          <div class="stat-value" id="stat-active">—</div>
+          <div class="stat-sub" id="stat-active-sub">&nbsp;</div>
         </div>
         <div class="stat-card stat-red">
           <div class="stat-label">Hearings This Week</div>
-          <div class="stat-value" id="stat-hearings">3</div>
-          <div class="stat-sub">Next: Tomorrow 10:30 AM</div>
+          <div class="stat-value" id="stat-hearings">—</div>
+          <div class="stat-sub" id="stat-hearings-sub">&nbsp;</div>
         </div>
         <div class="stat-card stat-green">
           <div class="stat-label">Tasks Pending</div>
-          <div class="stat-value" id="stat-tasks">8</div>
-          <div class="stat-sub">2 overdue</div>
+          <div class="stat-value" id="stat-tasks">—</div>
+          <div class="stat-sub" id="stat-tasks-sub">&nbsp;</div>
         </div>
         <div class="stat-card stat-blue">
           <div class="stat-label">DHC Synced</div>
-          <div class="stat-value">✓</div>
-          <div class="stat-sub">All matters updated</div>
+          <div class="stat-value" id="stat-sync">✓</div>
+          <div class="stat-sub" id="stat-sync-sub">&nbsp;</div>
         </div>
       </div>
 
@@ -1802,18 +1802,98 @@ function matterRowHTML(m, showDelete=true) {
 // ── RENDER ────────────────────────────────────────────────────────────────────
 
 function renderDashboard() {
-  const pending = matters.flatMap(m => m.tasks).filter(t => !t.done);
-  const thisWeek = matters.filter(m => {
-    const d = daysUntil(m.nextDate);
-    return d !== null && d >= 0 && d <= 7;
-  });
-  document.getElementById('stat-active').textContent = matters.length;
+  const todayStr = fmt(today);
+
+  // ── Active Matters ────────────────────────────────────────────────
+  // Count matters added this calendar month. m.id like "m_<...>_<num>_<year>"
+  // doesn't carry a creation date, so we derive from the earliest date we
+  // know: timeline[0].date as a fallback, otherwise treat as "added now".
+  const monthKey = todayStr.substring(0, 7); // "YYYY-MM"
+  const addedThisMonth = matters.filter(m => {
+    // Heuristic: a matter was "added this month" if its earliest timeline
+    // entry (or its lastDate, if no timeline) falls in the current month.
+    const earliest = (m.timeline || []).map(t => t.date).filter(Boolean).sort()[0]
+                  || m.lastDate || m.nextDate;
+    return earliest && earliest.startsWith(monthKey);
+  }).length;
+
+  // ── Hearings This Week ────────────────────────────────────────────
+  const thisWeek = matters
+    .map(m => ({ m, d: daysUntil(m.nextDate) }))
+    .filter(x => x.d !== null && x.d >= 0 && x.d <= 7)
+    .sort((a, b) => a.d - b.d);
+  const nextHearing = thisWeek[0];
+
+  // ── Tasks Pending + Overdue ───────────────────────────────────────
+  const allTasks = matters.flatMap(m => m.tasks || []);
+  const pending  = allTasks.filter(t => !t.done);
+  const overdue  = pending.filter(t => t.due && t.due < todayStr);
+
+  // ── DHC Sync state ────────────────────────────────────────────────
+  const scrapedMatters = matters.filter(m => m.lastScraped);
+  const lastScrapeIso = scrapedMatters.map(m => m.lastScraped).sort().slice(-1)[0];
+
+  // Headline numbers
+  document.getElementById('stat-active').textContent   = matters.length;
   document.getElementById('stat-hearings').textContent = thisWeek.length;
-  document.getElementById('stat-tasks').textContent = pending.length;
+  document.getElementById('stat-tasks').textContent    = pending.length;
+
+  // Subtitles — all derived from real data
+  const activeSub = matters.length === 0
+    ? 'Add your first matter'
+    : addedThisMonth === 0 ? 'No new matters this month'
+    : `${addedThisMonth} added this month`;
+  document.getElementById('stat-active-sub').textContent = activeSub;
+
+  const hearingsSub = thisWeek.length === 0
+    ? (allMattersHaveNextDate(matters) ? 'No hearings in next 7 days' : 'No upcoming hearings')
+    : `Next: ${describeWhen(nextHearing.m.nextDate)}`;
+  document.getElementById('stat-hearings-sub').textContent = hearingsSub;
+
+  const tasksSub = pending.length === 0
+    ? (allTasks.length ? 'All caught up' : 'No tasks yet')
+    : overdue.length === 0 ? 'On track'
+    : `${overdue.length} overdue`;
+  document.getElementById('stat-tasks-sub').textContent = tasksSub;
+
+  const syncEl = document.getElementById('stat-sync');
+  const syncSub = document.getElementById('stat-sync-sub');
+  if (lastScrapeIso) {
+    syncEl.textContent = '✓';
+    syncSub.textContent = `Synced ${describeWhen(lastScrapeIso, true)}`;
+  } else {
+    syncEl.textContent = '—';
+    syncSub.textContent = 'Awaiting first scrape';
+  }
 
   document.getElementById('dashboard-matters').innerHTML =
     matters.length ? matters.map(m => matterRowHTML(m)).join('') :
     `<div class="empty-state"><div class="empty-icon">⚖️</div><div class="empty-title">No matters yet</div><div class="empty-sub">Add your first matter to get started</div></div>`;
+}
+
+// True when every matter has a nextDate (so "0 hearings" is meaningful);
+// false when the data is incomplete (so the message reads differently).
+function allMattersHaveNextDate(arr) {
+  return arr.length > 0 && arr.every(m => m.nextDate);
+}
+
+// Human-friendly relative date: "Today", "Tomorrow", "in 3 days", or "26 May".
+function describeWhen(isoDateOrTs, includeTime = false) {
+  if (!isoDateOrTs) return '—';
+  const date = isoDateOrTs.length > 10 ? new Date(isoDateOrTs) : new Date(isoDateOrTs + 'T00:00:00');
+  const dayDiff = Math.round((date - new Date(fmt(today) + 'T00:00:00')) / 86400000);
+  if (includeTime) {
+    // For sync timestamps: "today 11:32 PM", "yesterday", "26 Apr"
+    if (dayDiff === 0) return `today ${date.toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit' })}`;
+    if (dayDiff === -1) return 'yesterday';
+    if (dayDiff > -7) return `${-dayDiff} days ago`;
+    return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+  }
+  if (dayDiff === 0) return 'Today';
+  if (dayDiff === 1) return 'Tomorrow';
+  if (dayDiff < 0) return `${-dayDiff} days ago`;
+  if (dayDiff <= 7) return `in ${dayDiff} days`;
+  return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
 }
 
 function renderAllMatters() {
