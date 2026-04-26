@@ -223,24 +223,36 @@ async function fetchCaseHistory(page, caseNoHtml) {
   }
 }
 
-// Classify IPR type from DHC page text (Subject/Acts field or order list)
+// Classify IPR type from DHC page text (Subject/Acts field or order list).
+// Patterns are deliberately strict — site-wide footers like "© Copyright
+// Delhi High Court" must NOT trigger a copyright classification.
 function classifyIprType(corpus) {
-  if (!corpus) return null;
-  corpus = corpus.toLowerCase();
+  if (!corpus) return { type: null, scores: {} };
+
+  // Strip boilerplate that always appears on DHC pages and pollutes scoring
+  let text = String(corpus).toLowerCase();
+  text = text
+    .replace(/©\s*copyright[^.]*?(delhi\s*high\s*court|nic\.in|court)/gi, ' ')
+    .replace(/copyright\s*©[^.]*?(delhi\s*high\s*court|nic\.in|court)/gi, ' ')
+    .replace(/copyright\s*\d{4}\s*delhi\s*high\s*court/gi, ' ')
+    .replace(/all\s*rights\s*reserved/gi, ' ');
+
+  // Each pattern requires a phrase that's specifically legal/IPR — not a
+  // generic word like "patent" or "copyright" that might be in nav/footer.
   const patterns = {
-    trademark: /\b(trade\s*mark|trademark|trade-mark|passing\s*off|deceptive(ly)?\s*similar|trade\s*marks?\s*act|nice\s*classification)\b/g,
-    patent:    /\b(patent(ee|s|ed|s\s*act)?|patented\s*invention|prior\s*art|specification\s*of\s*the\s*patent|patent\s*agent|revocation\s*petition|patent\s*infringement)\b/g,
-    copyright: /\b(copyright|literary\s*work|artistic\s*work|musical\s*work|cinematograph|sound\s*recording|copyright\s*act|moral\s*rights|fair\s*dealing)\b/g,
+    trademark: /\b(trade\s*marks?\s*act|infringement\s*of\s*(the\s*)?(plaintiff'?s\s*)?(registered\s*)?trade\s*marks?|passing\s*off|deceptive(ly)?\s*similar|nice\s*classification|registered\s*trade\s*mark|tm\s*registration|impugned\s*mark|mark\s+["'].+?["']|distinctive(ness)?\s*(of\s*)?(the\s*)?mark|trademark\s+infringement|use\s*of\s*the\s*mark)\b/g,
+    patent:    /\b(patents?\s*act|patent(ee|ed)|patented\s*invention|prior\s*art|patent\s*specification|specification\s*of\s*the\s*patent|patent\s*agent|revocation\s*petition|patent\s*infringement|claim\s*\d+\s*of\s*the\s*patent)\b/g,
+    copyright: /\b(copyrights?\s*act|copyright\s*infringement|copyright\s*owner|literary\s*work|artistic\s*work|musical\s*work|cinematograph|sound\s*recording|moral\s*rights|fair\s*dealing|broadcast\s*reproduction|originality\s*of\s*the\s*work)\b/g,
     design:    /\b(registered\s*design|industrial\s*design|design\s*infringement|designs\s*act|novelty\s*of\s*design)\b/g,
     gi:        /\b(geographical\s*indication|gi\s*tag|gi\s*registration|geographical\s*indications\s*act)\b/g,
   };
   const scores = { trademark:0, patent:0, copyright:0, design:0, gi:0 };
   for (const [type, re] of Object.entries(patterns)) {
-    const matches = corpus.match(re);
+    const matches = text.match(re);
     if (matches) scores[type] = matches.length;
   }
   const best = Object.entries(scores).sort((a,b) => b[1] - a[1])[0];
-  return best[1] > 0 ? best[0] : null;
+  return { type: best[1] > 0 ? best[0] : null, scores };
 }
 
 function buildCaseObject(parsed, row, history) {
@@ -296,7 +308,9 @@ function buildCaseObject(parsed, row, history) {
 
   // Auto-classify IPR type from DHC detail-page text (Subject / Acts / order summaries)
   // Falls back to 'other' so the app shows "Untagged" rather than a wrong tag
-  const detectedType = classifyIprType(`${title} ${pageText}`) || 'other';
+  const classification = classifyIprType(`${title} ${pageText}`);
+  const detectedType = classification.type || 'other';
+  console.log(`  [classify] type=${detectedType} scores=${JSON.stringify(classification.scores)}`);
 
   return {
     id:          `m_${parsed.type.replace(/[^a-z0-9]/gi,'')}_${parsed.number}_${parsed.year}`,

@@ -1555,9 +1555,10 @@ function tagHTML(type) {
 
 // ── AUTO-CLASSIFY IPR TYPE FROM SCRAPED ORDER TEXT ───────────────────────────
 // Scans timeline events, notes, title, docs for IPR-domain keywords and picks
-// the highest-scoring type. No LLM, no manual setup.
+// the highest-scoring type. Patterns are strict so DHC site footers like
+// "© Copyright Delhi High Court" don't trigger a false copyright tag.
 function classifyIprType(m) {
-  const corpus = [
+  let corpus = [
     m.title || '',
     m.notes || '',
     m.client || '',
@@ -1566,10 +1567,17 @@ function classifyIprType(m) {
   ].join(' ').toLowerCase();
   if (!corpus.trim()) return null;
 
+  // Strip boilerplate
+  corpus = corpus
+    .replace(/©\s*copyright[^.]*?(delhi\s*high\s*court|nic\.in|court)/gi, ' ')
+    .replace(/copyright\s*©[^.]*?(delhi\s*high\s*court|nic\.in|court)/gi, ' ')
+    .replace(/copyright\s*\d{4}\s*delhi\s*high\s*court/gi, ' ')
+    .replace(/all\s*rights\s*reserved/gi, ' ');
+
   const patterns = {
-    trademark: /\b(trade\s*mark|trademark|trade-mark|passing\s*off|deceptive(ly)?\s*similar|infringement\s*of\s*(the\s*)?(plaintiff'?s\s*)?(registered\s*)?(trade\s*mark|trademark)|nice\s*classification|trade\s*marks?\s*act|class\s*\d{1,2}\b)/g,
-    patent:    /\b(patent(ee|s|ed|s\s*act)?|patented\s*invention|prior\s*art|specification\s*of\s*the\s*patent|patent\s*agent|revocation\s*petition|claim\s*\d+|patent\s*infringement)\b/g,
-    copyright: /\b(copyright|literary\s*work|artistic\s*work|musical\s*work|cinematograph|sound\s*recording|copyright\s*act|moral\s*rights|fair\s*dealing)\b/g,
+    trademark: /\b(trade\s*marks?\s*act|infringement\s*of\s*(the\s*)?(plaintiff'?s\s*)?(registered\s*)?trade\s*marks?|passing\s*off|deceptive(ly)?\s*similar|nice\s*classification|registered\s*trade\s*mark|tm\s*registration|impugned\s*mark|mark\s+["'].+?["']|distinctive(ness)?\s*(of\s*)?(the\s*)?mark|trademark\s+infringement|use\s*of\s*the\s*mark)\b/g,
+    patent:    /\b(patents?\s*act|patent(ee|ed)|patented\s*invention|prior\s*art|patent\s*specification|specification\s*of\s*the\s*patent|patent\s*agent|revocation\s*petition|patent\s*infringement|claim\s*\d+\s*of\s*the\s*patent)\b/g,
+    copyright: /\b(copyrights?\s*act|copyright\s*infringement|copyright\s*owner|literary\s*work|artistic\s*work|musical\s*work|cinematograph|sound\s*recording|moral\s*rights|fair\s*dealing|broadcast\s*reproduction|originality\s*of\s*the\s*work)\b/g,
     design:    /\b(registered\s*design|industrial\s*design|design\s*infringement|designs\s*act|novelty\s*of\s*design)\b/g,
     gi:        /\b(geographical\s*indication|gi\s*tag|gi\s*registration|geographical\s*indications\s*act)\b/g,
   };
