@@ -78,78 +78,90 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
       console.log(`  - ${f.tag}${f.type ? `[${f.type}]` : ''} name="${f.name}" id="${f.id}" placeholder="${f.placeholder}" text="${f.text}"`);
     });
 
-    // Try common selectors for the search input
-    const searchSelectors = [
-      'input[name="search"]',
-      'input[name="searchText"]',
-      'input[name="query"]',
-      'input[name="keyword"]',
-      'input[id*="search" i]',
-      'input[id*="query" i]',
-      'input[placeholder*="search" i]',
-      'input[type="search"]',
-      'form input[type="text"]'
-    ];
-    let inputHandle = null;
-    for (const sel of searchSelectors) {
-      inputHandle = await page.$(sel);
-      if (inputHandle) {
-        console.log(`[eDHCR] Search input found via selector: ${sel}`);
-        break;
-      }
-    }
+    // From logs: eDHCR's search field is <textarea id="search">, NOT an
+    // <input>. Submit button has text "Search Now". Mode is selected via
+    // separate <button> elements with text "Phrase" / "Any Words" / "All Words".
+    const inputHandle = await page.$('textarea#search')
+                     || await page.$('textarea[placeholder*="judgment" i]')
+                     || await page.$('textarea[placeholder*="search" i]')
+                     || await page.$('textarea');
     if (!inputHandle) {
-      throw new Error('Could not locate a search input on eDHCR. See [eDHCR] logs for the form fields.');
+      throw new Error('Could not locate the eDHCR search textarea. See [eDHCR] form-field log above.');
     }
+    console.log('[eDHCR] Using textarea#search for query input');
 
+    // Click the mode button (Phrase / Any Words / All Words). These are <button>s,
+    // not radios — so we match by visible text.
+    const modeClicked = await page.evaluate((wantedMode) => {
+      const btns = Array.from(document.querySelectorAll('button'));
+      const target = btns.find(b => (b.innerText || '').trim().toLowerCase() === wantedMode.toLowerCase());
+      if (target) { target.click(); return true; }
+      return false;
+    }, mode);
+    console.log(`[eDHCR] Mode button "${mode}" ${modeClicked ? 'clicked' : 'not found — using default'}`);
+
+    // Type the query into the textarea
     await inputHandle.click({ clickCount: 3 });
     await inputHandle.type(query, { delay: 30 });
+    console.log(`[eDHCR] Typed query into textarea#search`);
 
-    // Try to set the search mode (Phrase / Any Words / All Words) if exposed
-    const modeMap = {
-      'Phrase':     ['phrase', 'exact'],
-      'Any Words':  ['any', 'or'],
-      'All Words':  ['all', 'and']
-    };
-    const modeKeywords = modeMap[mode] || [];
-    for (const kw of modeKeywords) {
-      const radio = await page.$(`input[type="radio"][value*="${kw}" i]`);
-      if (radio) { await radio.click(); console.log(`[eDHCR] Mode set to "${mode}" via value*="${kw}"`); break; }
-      const opt = await page.$(`option[value*="${kw}" i]`);
-      if (opt) { await opt.click(); break; }
+    // Detect CAPTCHA + try to read its expected value from the DOM
+    // (DHC case-status uses #randomid; eDHCR may use a similar trick)
+    const captchaInfo = await page.evaluate(() => {
+      const captchaInput = document.querySelector('input[placeholder*="Captcha" i]');
+      if (!captchaInput) return { present: false };
+      // Try common hidden-answer patterns
+      const candidates = ['#randomid', '#captcha', '#captchaText', 'input[type="hidden"][name*="captcha" i]'];
+      for (const sel of candidates) {
+        const el = document.querySelector(sel);
+        if (el && el.value && el.value.length < 12) return { present: true, expected: el.value, via: sel };
+      }
+      // Sibling/label scan — sometimes the captcha text is rendered as visible HTML
+      const parent = captchaInput.closest('div,form,section');
+      const visibleText = (parent?.innerText || '').match(/\b[A-Z0-9]{4,8}\b/);
+      return { present: true, expected: visibleText ? visibleText[0] : null, via: 'text-scan' };
+    });
+    console.log(`[eDHCR] CAPTCHA: ${JSON.stringify(captchaInfo)}`);
+    if (captchaInfo.present && captchaInfo.expected) {
+      const captchaInput = await page.$('input[placeholder*="Captcha" i]');
+      if (captchaInput) {
+        await captchaInput.click({ clickCount: 3 });
+        await captchaInput.type(captchaInfo.expected, { delay: 30 });
+        console.log(`[eDHCR] Filled CAPTCHA with "${captchaInfo.expected}" (via ${captchaInfo.via})`);
+      }
+    } else if (captchaInfo.present) {
+      console.warn('[eDHCR] CAPTCHA present but answer not found — submit may fail');
     }
 
-    // Find a search/submit button
-    const submitSelectors = [
-      'button[type="submit"]',
-      'input[type="submit"]',
-      'button:has-text("Search")',
-      'button[id*="search" i]',
-      'button[name*="search" i]'
-    ];
-    let submitted = false;
-    for (const sel of submitSelectors) {
-      try {
-        const btn = await page.$(sel);
-        if (btn) {
-          await Promise.all([
-            page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 30000 }).catch(() => null),
-            btn.click()
-          ]);
-          submitted = true;
-          console.log(`[eDHCR] Submitted via: ${sel}`);
-          break;
-        }
-      } catch (_) {}
-    }
-    if (!submitted) {
-      // Fallback: press Enter in the input
+    // Click the "Search Now" button by text (more reliable than [type="submit"]
+    // because the page has multiple submit buttons)
+    const submitClicked = await page.evaluate(() => {
+      const btns = Array.from(document.querySelectorAll('button'));
+      const target = btns.find(b => /search\s*now/i.test(b.innerText || ''));
+      if (target) { target.click(); return true; }
+      return false;
+    });
+    console.log(`[eDHCR] "Search Now" button clicked: ${submitClicked}`);
+
+    if (!submitClicked) {
+      // Last resort: press Enter inside the textarea
       await inputHandle.press('Enter');
-      await page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 30000 }).catch(() => null);
-      console.log('[eDHCR] Submitted via Enter key');
+      console.log('[eDHCR] Submitted via Enter key (fallback)');
     }
 
+    // eDHCR likely renders results via AJAX into the same page rather than
+    // navigating away. Wait for either a navigation or a results container.
+    await Promise.race([
+      page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 25000 }).catch(() => null),
+      page.waitForSelector('table tbody tr, .results, .result-item, [class*="result" i] a[href]', { timeout: 25000 }).catch(() => null)
+    ]);
     await new Promise(r => setTimeout(r, 2500));
+
+    // Snapshot what's on screen now so we can see if the search worked
+    const postUrl = page.url();
+    const bodyTextSample = await page.evaluate(() => (document.body.innerText || '').replace(/\s+/g, ' ').substring(0, 600));
+    console.log(`[eDHCR] After submit — URL: ${postUrl}`);
+    console.log(`[eDHCR] Page text (first 600 chars): ${bodyTextSample}`);
 
     // Parse the results page. Try multiple plausible structures —
     // table rows, divs with case-link classes, or a generic <a href>
