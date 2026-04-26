@@ -1131,10 +1131,29 @@ body {
    list, system font, sheet-style modals, large titles.
    Desktop layout unchanged.
    ═══════════════════════════════════════════════════════════════════ */
-/* DRAFTING — collapse the type/matter row to single column on narrow screens
-   so the selects stay touch-friendly. */
+/* DRAFTING ────────────────────────────────────────────────────────────── */
+/* Textareas need explicit width:100% — .form-input is shared with <input>
+   and <select> which auto-fill via flex. Without this rule textareas
+   collapse to their default ~32-character width. */
+.draft-textarea {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  resize: vertical;
+  min-height: 80px;
+}
+.draft-textarea::placeholder { color: var(--ink3); opacity: 0.7; }
+/* Style the SELECT chevrons consistently in the drafting form */
+#view-drafting .form-select { width: 100%; }
+/* Form labels in drafting use slightly tighter spacing + uppercase tag */
+#view-drafting .form-label { font-size: 11px; text-transform: uppercase; }
+
+/* Collapse the type/matter row to a single column on narrow screens. */
 @media (max-width: 700px) {
-  .draft-row { grid-template-columns: 1fr !important; }
+  #view-drafting .form-grid.draft-row { grid-template-columns: 1fr !important; }
   #draft-output-body { padding: 24px 18px !important; font-size: 14px !important; }
 }
 
@@ -1759,14 +1778,15 @@ body {
         <div style="font-size:12px;color:var(--ink3);">First drafts in your voice · powered by DeepSeek Reasoner</div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr;gap:20px;">
+      <div style="display:flex;flex-direction:column;gap:20px;max-width:920px;">
         <!-- INPUT FORM -->
-        <div style="background:white;border:1px solid var(--border);border-radius:12px;padding:24px;box-shadow:var(--shadow);">
-          <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:16px;color:var(--ink);">New Draft</div>
+        <div style="background:white;border:1px solid var(--border);border-radius:12px;padding:28px;box-shadow:var(--shadow);">
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:4px;color:var(--ink);">New Draft</div>
+          <div style="font-size:12px;color:var(--ink3);margin-bottom:24px;">Pick a type, link a matter, describe what to plead.</div>
 
-          <div class="draft-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-            <div>
-              <label class="form-label">Draft Type</label>
+          <div class="form-grid draft-row" style="margin-bottom:18px;">
+            <div class="form-group">
+              <label class="form-label">DRAFT TYPE</label>
               <select class="form-select" id="draft-type">
                 <option value="plaint">Plaint</option>
                 <option value="written-statement">Written Statement</option>
@@ -1782,35 +1802,35 @@ body {
                 <option value="legal-notice">Legal Notice</option>
               </select>
             </div>
-            <div>
-              <label class="form-label">Linked Matter <span style="color:var(--ink3);font-weight:400;">(optional)</span></label>
+            <div class="form-group">
+              <label class="form-label">LINKED MATTER <span style="color:var(--ink3);font-weight:400;text-transform:none;letter-spacing:0;">· optional</span></label>
               <select class="form-select" id="draft-matter">
                 <option value="">— Standalone draft —</option>
               </select>
             </div>
           </div>
 
-          <div style="margin-bottom:16px;">
-            <label class="form-label">Document being responded to <span style="color:var(--ink3);font-weight:400;">(plaint, IA, order — paste text)</span></label>
-            <textarea class="form-input" id="draft-opposing-doc" rows="6" placeholder="Paste the document you are responding to. Leave blank for a fresh draft (e.g. plaint, legal notice, synopsis)." style="font-family:inherit;font-size:13px;resize:vertical;line-height:1.5;"></textarea>
+          <div class="form-group" style="margin-bottom:18px;">
+            <label class="form-label">DOCUMENT BEING RESPONDED TO <span style="color:var(--ink3);font-weight:400;text-transform:none;letter-spacing:0;">· optional · paste text</span></label>
+            <textarea class="form-input draft-textarea" id="draft-opposing-doc" rows="6" placeholder="Paste the plaint, IA, order, or notice you are responding to. Leave blank for a fresh draft (plaint, legal notice, synopsis, etc.)."></textarea>
           </div>
 
-          <div style="margin-bottom:16px;">
-            <label class="form-label">Your Brief <span style="color:#dc2626;">*</span></label>
-            <textarea class="form-input" id="draft-brief" rows="5" placeholder="What do you want to plead? Plain English. e.g.: 'Deny all paragraphs. Plead acquiescence — they knew about our use since 2019. Raise jurisdiction (no part of cause of action arose in Delhi). Counter-claim for groundless threats.'" style="font-family:inherit;font-size:13px;resize:vertical;line-height:1.5;"></textarea>
+          <div class="form-group" style="margin-bottom:18px;">
+            <label class="form-label">YOUR BRIEF <span style="color:#dc2626;font-weight:600;">*</span></label>
+            <textarea class="form-input draft-textarea" id="draft-brief" rows="5" placeholder="Plain English — what do you want to plead?&#10;&#10;e.g. Deny all paragraphs. Plead acquiescence — they knew about our use since 2019. Raise jurisdiction (no part of cause of action arose in Delhi). Counter-claim for groundless threats."></textarea>
           </div>
 
-          <div style="margin-bottom:20px;">
-            <label class="form-label">Citations to include <span style="color:var(--ink3);font-weight:400;">(optional · one per line)</span></label>
-            <textarea class="form-input" id="draft-citations" rows="3" placeholder="e.g.&#10;Khoday Distilleries v. Scotch Whisky, (2008) 10 SCC 723&#10;Pioneer Nuts v. Goodricke, AIR 2008 Del 99" style="font-family:inherit;font-size:13px;resize:vertical;line-height:1.5;"></textarea>
-            <div style="font-size:11px;color:var(--ink3);margin-top:6px;line-height:1.5;">AI may suggest additional cases — these will be tagged <code style="background:#fef3c7;color:#92400e;padding:1px 5px;border-radius:3px;font-size:10px;">[SUGGESTED — verify]</code> with Indian Kanoon links. Click to verify the citation; the cited proposition will be highlighted on the page.</div>
+          <div class="form-group" style="margin-bottom:24px;">
+            <label class="form-label">CITATIONS TO INCLUDE <span style="color:var(--ink3);font-weight:400;text-transform:none;letter-spacing:0;">· optional · one per line</span></label>
+            <textarea class="form-input draft-textarea" id="draft-citations" rows="3" placeholder="e.g.&#10;Khoday Distilleries v. Scotch Whisky, (2008) 10 SCC 723&#10;Pioneer Nuts v. Goodricke, AIR 2008 Del 99"></textarea>
+            <div style="font-size:11.5px;color:var(--ink3);margin-top:8px;line-height:1.55;">AI may suggest additional cases. Suggestions are tagged <code style="background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:3px;font-size:10.5px;">[verify]</code> with Indian Kanoon links — clicking opens the judgment with the cited proposition auto-highlighted.</div>
           </div>
 
-          <button class="btn btn-primary" id="draft-generate-btn" onclick="generateDraft()" style="width:100%;justify-content:center;font-size:14px;padding:12px;">
+          <button class="btn btn-primary" id="draft-generate-btn" onclick="generateDraft()" style="width:100%;justify-content:center;font-size:14px;padding:14px;">
             <span id="draft-btn-label">✦ Generate Draft</span>
           </button>
-          <div style="font-size:10.5px;color:var(--ink3);margin-top:10px;text-align:center;">
-            Reasoner takes 30s–2min · client names masked before sending · ~₹2–5 per draft
+          <div style="font-size:11px;color:var(--ink3);margin-top:12px;text-align:center;line-height:1.5;">
+            Reasoner takes 30s–2 min · client identifiers masked before sending · ~₹2–5 per draft
           </div>
         </div>
 
