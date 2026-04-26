@@ -244,6 +244,12 @@ body {
 
 .btn-label-mobile { display: none; }
 
+/* ── BOTTOM TAB BAR (mobile only — hidden on desktop) ── */
+.tab-bar { display: none; }
+
+/* ── LARGE TITLE (mobile only — hidden on desktop) ── */
+.large-title { display: none; }
+
 /* ── VIEWS ── */
 .view { display: none; }
 .view.active { display: block; }
@@ -1095,106 +1101,228 @@ body {
 @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } }
 
 /* ═══════════════════════════════════════════════════════════════════
-   MOBILE LAYER — additive, only kicks in at narrow widths.
-   Desktop layout is unchanged.
+   MOBILE LAYER — iOS-native feel: bottom tab bar, card-based matter
+   list, system font, sheet-style modals, large titles.
+   Desktop layout unchanged.
    ═══════════════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
-  /* Lock down horizontal overflow so an oversized child (matter table,
-     long order link, etc.) can't make the whole page scroll sideways */
+  /* iOS system font for that native texture; keep Playfair for accents */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+                 "Segoe UI", Roboto, "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Lock down horizontal overflow */
   html, body { overflow-x: hidden; max-width: 100vw; }
 
-  /* Sidebar slides off-screen by default; hamburger opens it */
+  /* ── Sidebar becomes the "More" sheet (drag-up panel) ── */
   .sidebar {
     transform: translateX(-100%);
     transition: transform 0.25s ease;
-    width: 260px;
+    width: 280px;
     box-shadow: 4px 0 20px rgba(0,0,0,0.3);
   }
   .sidebar.open { transform: translateX(0); }
-
   .sidebar-backdrop { display: block; pointer-events: none; }
   .sidebar-backdrop.show { pointer-events: auto; }
 
-  /* Main content takes full width on mobile */
+  /* Main content takes full width */
   .main { margin-left: 0; width: 100%; max-width: 100vw; }
 
-  /* Show hamburger */
-  .hamburger { display: flex; }
+  /* Hide hamburger now that we have a tab bar (kept in DOM for sidebar
+     access, just visually replaced by the More tab) */
+  .hamburger { display: none; }
 
-  /* Topbar: respect iPhone safe-area (notch/Dynamic Island) so the
-     status bar doesn't overlap our title or buttons */
+  /* ── TOPBAR: minimal, just shows title + sync ── */
   .topbar {
-    padding: env(safe-area-inset-top, 0) 16px 0;
-    height: calc(56px + env(safe-area-inset-top, 0));
+    padding: 0 16px;
+    height: 48px;
+    border-bottom: none;
+    background: transparent;
     align-items: center;
   }
-  .topbar > * { align-self: center; }
-  .topbar-title { font-size: 16px; }
+  .topbar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink3);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
   .topbar-right { gap: 8px; }
-
-  /* Topbar buttons only: hide labels, show compact form */
   .topbar-right .btn-sync .btn-label { display: none; }
   .topbar-right .btn-sync { padding: 8px 10px; }
   .topbar-right .btn-primary .btn-label { display: none; }
   .topbar-right .btn-primary .btn-label-mobile { display: inline; font-size: 18px; line-height: 1; }
-  .topbar-right .btn-primary { padding: 8px 12px; }
+  .topbar-right .btn-primary { padding: 8px 12px; min-height: 36px; }
 
-  /* Hide sync banner on small screens (info still in sidebar footer) */
   #sync-banner { display: none !important; }
 
-  /* Content padding tighter; bottom safe-area for home indicator */
+  /* ── CONTENT: padding for fixed tab bar at bottom ── */
   .content {
-    padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0));
+    padding: 8px 16px calc(80px + env(safe-area-inset-bottom, 0));
   }
 
-  /* Stat cards stack on mobile */
+  /* ── BOTTOM TAB BAR ── */
+  .tab-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(255, 252, 247, 0.92);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding: 8px 0 calc(8px + env(safe-area-inset-bottom, 0));
+    z-index: 60;
+  }
+  .tab-bar-item {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 4px 0;
+    color: rgba(60, 56, 48, 0.55);
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    transition: color 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .tab-bar-item svg { width: 24px; height: 24px; }
+  .tab-bar-item:active { transform: scale(0.94); }
+  .tab-bar-item.active { color: var(--ink); }
+  .tab-bar-item.active svg { stroke: var(--ink); }
+
+  /* ── LARGE TITLE (iOS pattern) above content ── */
+  .large-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 6px 0 18px;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  /* ── STAT CARDS — single column, more breathing room ── */
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 22px;
   }
-  .stat-card { padding: 14px; }
-  .stat-value { font-size: 26px; }
-  .stat-label { font-size: 10px; margin-bottom: 6px; }
-  .stat-sub { font-size: 11px; }
+  .stat-card {
+    padding: 14px 14px 12px;
+    border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .stat-value { font-size: 28px; }
+  .stat-label { font-size: 10px; margin-bottom: 6px; letter-spacing: 1px; }
+  .stat-sub { font-size: 11px; margin-top: 4px; }
 
-  /* Matter table: scroll horizontally INSIDE the rounded card, never the page */
+  /* ── MATTER LIST: cards instead of table rows ── */
   .matter-table {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    max-width: 100%;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    overflow: visible;
+    border-radius: 0;
   }
-  .table-header, .matter-row {
-    grid-template-columns: minmax(220px, 2fr) 130px 100px 110px 110px 80px;
-    min-width: 760px;
-    width: 760px;       /* explicit width so flexbox doesn't try to shrink */
+  .table-header { display: none; }
+  .matter-row {
+    display: block !important;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    width: auto;
+    min-width: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .matter-row:active { transform: scale(0.985); transition: transform 0.1s; }
+  /* Inside each card, use a custom layout via data attributes / spans.
+     Existing matterRowHTML() spans become stacked rows with labels. */
+  .matter-row > * { display: block; }
+  .matter-row > :nth-child(1) {  /* title block */
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+  .matter-row > :nth-child(2) {  /* case no */
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--ink3);
+    margin-bottom: 8px;
+  }
+  .matter-row > :nth-child(3) {  /* type tag */
+    margin-bottom: 12px;
+  }
+  .matter-row > :nth-child(4),
+  .matter-row > :nth-child(5) {  /* dates */
+    display: inline-block;
+    font-size: 12px;
+    color: var(--ink2);
+    margin-right: 16px;
+  }
+  .matter-row > :nth-child(4)::before { content: "Last: "; color: var(--ink3); }
+  .matter-row > :nth-child(5)::before { content: "Next: "; color: var(--ink3); }
+  .matter-row > :nth-child(6) {  /* delete button */
+    display: block;
+    text-align: right;
+    margin-top: 10px;
   }
 
-  /* Detail page: stack the two-column grid */
-  .detail-grid {
-    grid-template-columns: 1fr;
-  }
+  /* ── DETAIL PAGE: stack ── */
+  .detail-grid { grid-template-columns: 1fr; }
   .detail-meta { gap: 10px; }
   .detail-meta-item { font-size: 12px; }
+  .detail-header {
+    border-radius: 14px;
+    padding: 18px;
+  }
 
-  /* Modals: full-width on phones, with margin */
+  /* ── MODALS as iOS sheets (slide up from bottom) ── */
+  .modal-overlay { align-items: flex-end !important; }
   .modal {
-    width: calc(100vw - 32px) !important;
-    max-width: 480px;
-    max-height: calc(100vh - 32px);
+    width: 100vw !important;
+    max-width: 100vw;
+    margin: 0;
+    border-radius: 18px 18px 0 0 !important;
+    max-height: 92vh;
+    padding: 22px 20px calc(22px + env(safe-area-inset-bottom, 0));
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    animation: sheetSlideUp 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  /* iOS-style drag handle at top of sheet */
+  .modal::before {
+    content: "";
+    display: block;
+    width: 36px; height: 5px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.18);
+    margin: -10px auto 16px;
   }
   .form-grid { grid-template-columns: 1fr; }
 
-  /* Lookup panel: stack inputs, full-width */
+  /* ── LOOKUP PANEL: stacked ── */
   .lookup-row { flex-wrap: wrap; gap: 8px; }
   .lookup-input, .lookup-select { min-width: 0; flex: 1 1 100%; }
-  .btn-lookup { flex: 1 1 100%; justify-content: center; }
+  .btn-lookup { flex: 1 1 100%; justify-content: center; min-height: 44px; }
 
-  /* Calendar: stack widget + sidebar */
+  /* ── CALENDAR: stack ── */
   .calendar-grid { grid-template-columns: 1fr; }
 
-  /* Tasks: hide some columns, keep title + due */
+  /* ── TASKS: hide unimportant columns ── */
   .tasks-header, .task-row {
     grid-template-columns: 28px 1fr 90px;
   }
@@ -1204,14 +1332,23 @@ body {
   .task-row > :nth-child(3),
   .task-row > :nth-child(5),
   .task-row > :nth-child(6) { display: none; }
+
+  /* ── 44pt tap targets everywhere ── */
+  .btn { min-height: 40px; padding: 10px 16px; }
+  .nav-item { padding: 14px 14px; font-size: 15px; }
+
+  /* ── Section header tweaks for big mobile titles ── */
+  .section-header { margin-bottom: 12px; }
+  .section-title { font-size: 14px; }
+}
+
+@keyframes sheetSlideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
 }
 
 @media (max-width: 480px) {
-  /* On phones, single-column stats */
-  .stats-grid { grid-template-columns: 1fr; }
-  .stat-value { font-size: 30px; }
-
-  /* Detail header stacks */
+  /* Detail header stacks vertically */
   .detail-header > div:first-child {
     flex-direction: column;
     gap: 12px;
@@ -1295,6 +1432,9 @@ body {
   </div>
 
   <div class="content">
+
+    <!-- iOS-style large title (mobile only — hidden on desktop) -->
+    <h1 class="large-title" id="large-title">Dashboard</h1>
 
     <!-- ── DASHBOARD VIEW ── -->
     <div class="view active" id="view-dashboard">
@@ -1633,6 +1773,30 @@ body {
   </div>
 </div>
 
+<!-- BOTTOM TAB BAR (mobile only) -->
+<nav class="tab-bar" id="tab-bar">
+  <button class="tab-bar-item active" data-view="dashboard" onclick="showView('dashboard')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1h-5v-7h-6v7H4a1 1 0 01-1-1z"/></svg>
+    <span>Dashboard</span>
+  </button>
+  <button class="tab-bar-item" data-view="matters" onclick="showView('matters')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+    <span>Matters</span>
+  </button>
+  <button class="tab-bar-item" data-view="calendar" onclick="showView('calendar')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+    <span>Hearings</span>
+  </button>
+  <button class="tab-bar-item" data-view="judgments" onclick="showView('judgments')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l9-3 9 3M3 6v12l9 3 9-3V6M3 6l9 3 9-3"/></svg>
+    <span>Research</span>
+  </button>
+  <button class="tab-bar-item" data-view="__more" onclick="toggleSidebar(true)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+    <span>More</span>
+  </button>
+</nav>
+
 <!-- TOAST CONTAINER -->
 <div class="toast-container" id="toasts"></div>
 
@@ -1726,6 +1890,19 @@ function showView(name) {
   });
   const titles = { dashboard:'Dashboard', lookup:'Case Lookup', matters:'All Matters', calendar:'Hearings Calendar', tasks:'Tasks', judgments:'Legal Research', documents:'Documents', detail:'Matter Detail' };
   document.getElementById('topbar-title').textContent = titles[name] || name;
+
+  // Update mobile large-title (hidden on desktop via CSS)
+  const lt = document.getElementById('large-title');
+  if (lt) {
+    lt.textContent = titles[name] || name;
+    // Hide it on the matter-detail view (the detail header has its own title)
+    lt.style.display = (name === 'detail') ? 'none' : '';
+  }
+
+  // Sync the bottom tab bar's active state on mobile
+  document.querySelectorAll('.tab-bar-item').forEach(b => {
+    b.classList.toggle('active', b.dataset.view === name);
+  });
 
   if (name === 'dashboard') renderDashboard();
   if (name === 'matters') renderAllMatters();
