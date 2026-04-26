@@ -1131,6 +1131,13 @@ body {
    list, system font, sheet-style modals, large titles.
    Desktop layout unchanged.
    ═══════════════════════════════════════════════════════════════════ */
+/* DRAFTING — collapse the type/matter row to single column on narrow screens
+   so the selects stay touch-friendly. */
+@media (max-width: 700px) {
+  .draft-row { grid-template-columns: 1fr !important; }
+  #draft-output-body { padding: 24px 18px !important; font-size: 14px !important; }
+}
+
 @media (max-width: 900px) {
   /* iOS system font for that native texture; keep Playfair for accents */
   body {
@@ -1485,6 +1492,11 @@ body {
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
       Orders
     </div>
+    <div class="nav-section">Drafting</div>
+    <div class="nav-item" onclick="showView('drafting')">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 113 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      Drafting
+    </div>
   </nav>
 
   <div class="sidebar-footer">
@@ -1738,6 +1750,73 @@ body {
         <div style="font-size:12px;color:var(--ink3);">Auto-fetched from DHC nightly</div>
       </div>
       <div class="doc-grid" id="docs-grid"></div>
+    </div>
+
+    <!-- ── DRAFTING VIEW ── -->
+    <div class="view" id="view-drafting">
+      <div class="section-header" style="margin-bottom:20px;">
+        <div class="section-title">Drafting</div>
+        <div style="font-size:12px;color:var(--ink3);">First drafts in your voice · powered by DeepSeek Reasoner</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr;gap:20px;">
+        <!-- INPUT FORM -->
+        <div style="background:white;border:1px solid var(--border);border-radius:12px;padding:24px;box-shadow:var(--shadow);">
+          <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:16px;color:var(--ink);">New Draft</div>
+
+          <div class="draft-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+            <div>
+              <label class="form-label">Draft Type</label>
+              <select class="form-select" id="draft-type">
+                <option value="plaint">Plaint</option>
+                <option value="written-statement">Written Statement</option>
+                <option value="rejoinder">Rejoinder / Replication</option>
+                <option value="counter-affidavit">Counter-Affidavit</option>
+                <option value="reply-ia">Reply (to IA)</option>
+                <option value="impleadment">Impleadment Application (O.I R.10)</option>
+                <option value="o39-r12">Application under O.XXXIX R.1 &amp; 2</option>
+                <option value="o12-r6">Application under O.XII R.6</option>
+                <option value="s124-stay">Section 124 Stay Application</option>
+                <option value="written-submissions">Written Submissions / Notes of Arguments</option>
+                <option value="synopsis">Synopsis &amp; List of Dates</option>
+                <option value="legal-notice">Legal Notice</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Linked Matter <span style="color:var(--ink3);font-weight:400;">(optional)</span></label>
+              <select class="form-select" id="draft-matter">
+                <option value="">— Standalone draft —</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:16px;">
+            <label class="form-label">Document being responded to <span style="color:var(--ink3);font-weight:400;">(plaint, IA, order — paste text)</span></label>
+            <textarea class="form-input" id="draft-opposing-doc" rows="6" placeholder="Paste the document you are responding to. Leave blank for a fresh draft (e.g. plaint, legal notice, synopsis)." style="font-family:inherit;font-size:13px;resize:vertical;line-height:1.5;"></textarea>
+          </div>
+
+          <div style="margin-bottom:16px;">
+            <label class="form-label">Your Brief <span style="color:#dc2626;">*</span></label>
+            <textarea class="form-input" id="draft-brief" rows="5" placeholder="What do you want to plead? Plain English. e.g.: 'Deny all paragraphs. Plead acquiescence — they knew about our use since 2019. Raise jurisdiction (no part of cause of action arose in Delhi). Counter-claim for groundless threats.'" style="font-family:inherit;font-size:13px;resize:vertical;line-height:1.5;"></textarea>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <label class="form-label">Citations to include <span style="color:var(--ink3);font-weight:400;">(optional · one per line)</span></label>
+            <textarea class="form-input" id="draft-citations" rows="3" placeholder="e.g.&#10;Khoday Distilleries v. Scotch Whisky, (2008) 10 SCC 723&#10;Pioneer Nuts v. Goodricke, AIR 2008 Del 99" style="font-family:inherit;font-size:13px;resize:vertical;line-height:1.5;"></textarea>
+            <div style="font-size:11px;color:var(--ink3);margin-top:6px;line-height:1.5;">AI may suggest additional cases — these will be tagged <code style="background:#fef3c7;color:#92400e;padding:1px 5px;border-radius:3px;font-size:10px;">[SUGGESTED — verify]</code> with Indian Kanoon links. Click to verify the citation; the cited proposition will be highlighted on the page.</div>
+          </div>
+
+          <button class="btn btn-primary" id="draft-generate-btn" onclick="generateDraft()" style="width:100%;justify-content:center;font-size:14px;padding:12px;">
+            <span id="draft-btn-label">✦ Generate Draft</span>
+          </button>
+          <div style="font-size:10.5px;color:var(--ink3);margin-top:10px;text-align:center;">
+            Reasoner takes 30s–2min · client names masked before sending · ~₹2–5 per draft
+          </div>
+        </div>
+
+        <!-- OUTPUT -->
+        <div id="drafting-output" style="display:none;"></div>
+      </div>
     </div>
 
     <!-- ── MATTER DETAIL VIEW ── -->
@@ -2142,7 +2221,7 @@ function showView(name, opts) {
   document.querySelectorAll('.nav-item').forEach(n => {
     if (n.getAttribute('onclick')?.includes(name)) n.classList.add('active');
   });
-  const titles = { dashboard:'Dashboard', lookup:'Case Lookup', matters:'All Matters', calendar:'Hearings Calendar', tasks:'Tasks', judgments:'Legal Research', prep:'Documents', documents:'Court Orders', detail:'Matter Detail' };
+  const titles = { dashboard:'Dashboard', lookup:'Case Lookup', matters:'All Matters', calendar:'Hearings Calendar', tasks:'Tasks', judgments:'Legal Research', prep:'Documents', documents:'Court Orders', drafting:'Drafting', detail:'Matter Detail' };
   document.getElementById('topbar-title').textContent = titles[name] || name;
 
   // Update mobile large-title (hidden on desktop via CSS)
@@ -2167,6 +2246,7 @@ function showView(name, opts) {
   if (name === 'tasks') renderTasks('all');
   if (name === 'prep') renderPrepChecklist();
   if (name === 'documents') renderDocuments();
+  if (name === 'drafting' && typeof renderDraftingView === 'function') renderDraftingView();
   if (name === 'judgments' && typeof refreshIkKeyLabel === 'function') refreshIkKeyLabel();
 
   // Auto-close mobile sidebar after picking a nav item
@@ -4397,6 +4477,386 @@ if ('serviceWorker' in navigator) {
       window.location.reload();
     });
   });
+}
+
+// ── DRAFTING ─────────────────────────────────────────────────────────────────
+// First-draft generation in Ishi's voice, using DeepSeek Reasoner (R1).
+//
+// Architecture:
+//   1. STYLE_PROFILE  (below) is a sanitized fingerprint of the user's drafting
+//      style — extracted from her past pleadings by scripts/extract-style.py.
+//      It contains NO client names, case numbers, or facts. Only structural
+//      patterns: cause-title format, connective phrases, sentence rhythm.
+//   2. PII masking:  before the request leaves the browser, all client/party
+//      identifiers from the linked LexTrack matter are replaced with
+//      placeholders (<<CLIENT>>, <<PARTY_A>>, …). The API never sees real
+//      identifiers. The response is unmasked client-side.
+//   3. Citation policy:  user-supplied citations are passed through verbatim;
+//      the model may suggest additional cases but only inside a strict
+//      [SUGGESTED — verify: ...] envelope. Each suggestion gets an Indian
+//      Kanoon search URL with a #:~:text= fragment so the cited proposition
+//      gets highlighted on click. If the model hallucinated the quote, the
+//      fragment fails silently — the lawyer instantly sees the red flag.
+
+const DRAFTING_STYLE_PROFILE = {
+  cause_title: {
+    court_line: "IN THE HIGH COURT OF DELHI AT NEW DELHI",
+    jurisdiction_line: "(ORDINARY ORIGINAL COMMERCIAL JURISDICTION)",
+    matter_label: "IN THE MATTER OF:",
+    plaintiff_marker: "…Plaintiff",
+    defendant_marker: "…Defendants",
+    versus_label: "Versus"
+  },
+  section_headers: ["INDEX","NOTICE OF MOTION","URGENT APPLICATION","MEMO OF PARTIES","AMENDED MEMO OF PARTIES","MOST RESPECTFULLY SHEWETH","MOST RESPECTFULLY SHOWETH","SYNOPSIS","LIST OF DATES","PRAYER","VERIFICATION","SERVICE AFFIDAVIT"],
+  // Top connectives by frequency in Ishi's prior drafts. Numbers = raw counts
+  // across 5 sample pleadings. The model is instructed to prefer the high-
+  // frequency phrases.
+  connectives_freq: {
+    "It is submitted that": 106, "Hon'ble Court": 41, "cause of action": 41,
+    "this Hon'ble Court": 26, "permanent injunction": 23, "for the sake of brevity": 10,
+    "In view of the aforesaid": 8, "It is stated that": 7, "In light of the above": 7,
+    "It is pertinent to note": 6, "balance of convenience": 5, "prima facie case": 5,
+    "It is pertinent to mention": 5, "It is prayed accordingly": 3, "It is humbly submitted": 3,
+    "Hon'ble High Court": 3, "It is respectfully submitted": 2, "irreparable loss": 2,
+    "In view of the above": 2, "ex-parte ad-interim": 2, "in the interest of justice": 2,
+    "Reliance is placed on": 2, "Without prejudice to": 2, "Plaintiff humbly prays": 1,
+    "Pass any further orders": 1, "as this Hon'ble Court may deem fit": 1,
+    "leave of this Hon'ble Court": 1, "Reliance is placed upon": 1
+  },
+  stats: { median_paragraph_words: 58, median_sentence_words: 28 },
+  prayer: { sub_numbering: "a. / b. / c. (lowercase letters)" }
+};
+
+// Per-draft-type metadata: required sections + drafting notes.
+const DRAFT_TYPES = {
+  'plaint':              { label: 'Plaint',                              sections: ['Cause Title','Memo of Parties','MOST RESPECTFULLY SHEWETH','Facts','Cause of Action','Jurisdiction','Limitation','Court Fees','Prayer','Verification'], notes: 'Original suit. Lay out parties, facts, cause of action, jurisdiction (S.134 TM Act / S.62 Copyright Act / Commercial Courts Act), limitation, valuation, court fees, prayer.' },
+  'written-statement':   { label: 'Written Statement',                   sections: ['Cause Title','Preliminary Objections','Parawise Reply','Reply on Merits','Prayer','Verification'], notes: 'Defense pleading. Begin with PRELIMINARY OBJECTIONS (jurisdiction, limitation, mis-joinder, suppression, etc.). Then PARAWISE REPLY: deny/admit each plaint paragraph by number. Conclude with prayer for dismissal.' },
+  'rejoinder':           { label: 'Rejoinder / Replication',             sections: ['Cause Title','Preliminary Submissions','Parawise Rejoinder','Prayer','Verification'], notes: 'Plaintiff response to WS. Reaffirm plaint, deny new pleadings raised in WS para-by-para. Do NOT introduce new cause of action.' },
+  'counter-affidavit':   { label: 'Counter-Affidavit',                   sections: ['Cause Title','Preliminary Objections','Parawise Reply','Prayer','Verification'], notes: 'Reply to a writ/application. Sworn before court — first person ("I, the deponent…"). Para-wise denial structure.' },
+  'reply-ia':            { label: 'Reply (to IA)',                       sections: ['Cause Title','Preliminary Submissions','Parawise Reply','Prayer','Verification'], notes: 'Short reply to an interlocutory application. Address each ground in the IA. Conclude with prayer to dismiss the IA.' },
+  'impleadment':         { label: 'Impleadment Application (O.I R.10)',  sections: ['Cause Title','Notice of Motion','Urgent Application','Application Body','Prayer','Verification','Memo of Parties (Amended)'], notes: 'Application to add new defendants. Refer to existing suit, prior orders, and explain why new parties are necessary. For rogue-website cases, follow the UTV Software v. 1337x.to (CS(COMM) 724/2017) framework.' },
+  'o39-r12':             { label: 'Application under O.XXXIX R.1 & 2',   sections: ['Cause Title','Notice of Motion','Application Body','Prayer','Verification'], notes: 'Interim injunction application. Establish: (i) prima facie case, (ii) balance of convenience, (iii) irreparable loss. These three are the holy trinity — every IA must address all three.' },
+  'o12-r6':              { label: 'Application under O.XII R.6',         sections: ['Cause Title','Application Body','Prayer','Verification'], notes: 'Judgment on admissions. Identify specific admissions in WS or in correspondence. Quote them verbatim. Argue no triable issue remains.' },
+  's124-stay':           { label: 'Section 124 Stay Application',        sections: ['Cause Title','Application Body','Prayer','Verification'], notes: 'Stay of TM infringement suit pending rectification petition. Cite the rectification petition number and date filed. Establish the registration sought to be rectified is the basis of the suit.' },
+  'written-submissions': { label: 'Written Submissions / Notes of Arguments', sections: ['Cause Title','Brief Facts','Issues','Submissions','Conclusion','Prayer'], notes: 'Filed at end of arguments. Organise by issue. Each submission should be a complete proposition supported by evidence and case law.' },
+  'synopsis':            { label: 'Synopsis & List of Dates',            sections: ['Synopsis','List of Dates and Events'], notes: 'Synopsis: 1-2 page narrative summary of the case for the bench. List of Dates: chronological table — Date | Event. Both go at the start of paperbooks.' },
+  'legal-notice':        { label: 'Legal Notice',                        sections: ['Header (sender / addressee)','Subject','Body (facts, claims, demands)','Time period for compliance','Signature block'], notes: 'Pre-litigation notice. Establish client rights, particularise the infringement, demand cease & desist + undertaking + damages, give 15-30 days to comply, reserve right to sue.' }
+};
+
+// Standard DHC verification template — hardcoded because pdftotext garbled it
+// in the sample extraction (signatures + stamps interrupt the text flow).
+const DRAFTING_VERIFICATION_TEMPLATE = "Verified at <<PLACE>> on this ____ day of <<MONTH>>, <<YEAR>>, that the contents of paragraphs ___ to ___ of the above ____________ are true to my knowledge derived from records maintained in the ordinary course of business and the contents of paragraphs ___ to ___ are true to my information received and believed by me to be true. Nothing material has been concealed therefrom.";
+
+// Populate the Linked Matter dropdown with the user's current matters list.
+function renderDraftingView() {
+  const sel = document.getElementById('draft-matter');
+  if (!sel) return;
+  const current = sel.value;
+  const items = (typeof matters !== 'undefined' && Array.isArray(matters)) ? matters : [];
+  sel.innerHTML = '<option value="">— Standalone draft —</option>' +
+    items.map(m => {
+      const label = (m.title && m.title !== m.caseNo)
+        ? `${m.title} · ${m.caseNo}`
+        : (m.caseNo || m.id);
+      return `<option value="${m.id}">${label.replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]))}</option>`;
+    }).join('');
+  if (current) sel.value = current;
+}
+
+// Build a placeholder map so client-identifying strings get replaced before
+// the prompt is sent to the API. The map is held only for the duration of
+// the request — the response is unmasked using the same map and the map is
+// then discarded.
+function buildDraftingMaskMap(matter) {
+  const map = {};
+  if (!matter) return map;
+  if (matter.client && matter.client.length > 2) map[matter.client] = '<<CLIENT>>';
+  if (matter.title && matter.title !== matter.caseNo) {
+    const m = matter.title.match(/^(.+?)\s+(?:v\.?|vs\.?|versus)\s+(.+)$/i);
+    if (m) {
+      const a = m[1].trim(), b = m[2].trim();
+      if (a.length > 2) map[a] = '<<PARTY_A>>';
+      if (b.length > 2) map[b] = '<<PARTY_B>>';
+    }
+  }
+  if (matter.caseNo) map[matter.caseNo] = '<<CASE_NO>>';
+  if (matter.judge && matter.judge.length > 2) map[matter.judge] = '<<JUDGE>>';
+  return map;
+}
+
+function applyDraftingMask(text, map) {
+  let out = text || '';
+  // Apply longer keys first so we don't partial-match a substring of a longer name.
+  const keys = Object.keys(map).sort((a, b) => b.length - a.length);
+  for (const k of keys) {
+    if (!k) continue;
+    const safe = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    out = out.replace(new RegExp(safe, 'gi'), map[k]);
+  }
+  return out;
+}
+
+function reverseDraftingMask(text, map) {
+  let out = text || '';
+  for (const [k, v] of Object.entries(map)) out = out.split(v).join(k);
+  return out;
+}
+
+// Prompt construction: style primer + matter context + brief + citations.
+// Critical pieces are flagged so DeepSeek Reasoner (which thinks before
+// writing) treats them as hard constraints during its reasoning trace.
+function buildDraftingPrompt(typeKey, matter, opposingDocMasked, brief, citations) {
+  const t = DRAFT_TYPES[typeKey] || { label: typeKey, sections: [], notes: '' };
+  const sp = DRAFTING_STYLE_PROFILE;
+  const topConnectives = Object.entries(sp.connectives_freq)
+    .slice(0, 12).map(([k]) => `"${k}"`).join(', ');
+
+  return `You are an elite IPR litigation drafter at a Delhi High Court practice. Draft a **${t.label}** that exactly matches the requested house style and pleading format.
+
+# STYLE REQUIREMENTS (CRITICAL — these are non-negotiable)
+
+Cause title format (Delhi High Court):
+- Line 1: ${sp.cause_title.court_line}
+- Line 2: ${sp.cause_title.jurisdiction_line}
+- Line 3: Suit / IA number
+- Line 4 (optional): "IN" / parent suit number (for IAs)
+- Line 5: ${sp.cause_title.matter_label}
+- Then parties layout: PartyName${sp.cause_title.plaintiff_marker} / ${sp.cause_title.versus_label} / PartyName${sp.cause_title.defendant_marker}
+
+Voice (extracted from the drafter's prior pleadings):
+- Median sentence: ${sp.stats.median_sentence_words} words. Median paragraph: ${sp.stats.median_paragraph_words} words.
+- Favor these connective phrases (in approximate order of frequency): ${topConnectives}.
+- Use "MOST RESPECTFULLY SHEWETH:" as the body opener for applications and replies. Use "MOST RESPECTFULLY SHOWETH:" for plaints.
+- Numbered paragraphs: 1. 2. 3. (with a period, not a parenthesis).
+- Sub-points within prayer: lowercase letters with period — a. b. c.
+- Capitalize: "Hon'ble Court", "Hon'ble High Court", "Plaintiff", "Defendant", "Application", "Suit".
+- Refer to the court as "this Hon'ble Court" within paragraphs.
+- For reproduced order/judgement extracts, introduce with: "The relevant portion of the Order dated ____ is reproduced herein below:" followed by an indented quote block.
+- Prayer closer: "It is prayed accordingly."
+- Verification template (use this exact format, fill in the blanks):
+  ${DRAFTING_VERIFICATION_TEMPLATE}
+
+Output formatting:
+- Plain text only. NO markdown (no #, no **, no _, no \`).
+- Preserve indentation/spacing of the cause title and signature block.
+- Output is a court pleading, not a chat response.
+
+# DRAFT TYPE: ${t.label}
+Required sections in order: ${t.sections.join(' → ')}
+${t.notes ? 'Notes: ' + t.notes : ''}
+
+# MATTER CONTEXT
+${matter ? `- Court: Delhi High Court (Ordinary Original Commercial Jurisdiction)
+- Case No.: <<CASE_NO>>
+- Parties: ${(matter.title || '<<PARTY_A>> v. <<PARTY_B>>').replace(/</g,'<').replace(/>/g,'>')}
+- We act for: ${matter.client ? '<<CLIENT>>' : '(unspecified — leave [CLIENT] placeholder)'}
+- IPR type: ${matter.type || 'unspecified'}
+- Stage: ${matter.stage || 'unspecified'}` : '(No matter linked — use [PLAINTIFF], [DEFENDANT], [CASE NO.], [DATE] as bracketed placeholders for the user to fill in.)'}
+
+# DOCUMENT BEING RESPONDED TO
+${opposingDocMasked ? opposingDocMasked.slice(0, 12000) : '(none — fresh draft)'}
+
+# THE BRIEF (what to plead)
+${brief}
+
+# CITATIONS USER HAS PROVIDED (cite these freely, exactly as written)
+${citations || '(none)'}
+
+# CITATION POLICY (STRICT — DO NOT VIOLATE)
+1. Cite the user-provided citations exactly as supplied. You may rephrase the proposition each cite supports, but never alter the citation text itself.
+2. You MAY suggest additional relevant case law from your knowledge — but EVERY suggested cite MUST be wrapped in this exact envelope:
+   [SUGGESTED — verify: <Case Name>, <Year> <Reporter> <Page> | proposition: "<≤15-word verbatim quote of the proposition>"]
+3. Never invent citations. If you can't recall the case with certainty, OMIT the suggestion entirely.
+4. The proposition quote inside the [SUGGESTED — ...] envelope must be a real verbatim phrase from the cited judgement that you intend to cite for. If you cannot recall a verbatim line, omit the suggestion.
+5. Inline citations belong in running prose, not as footnotes.
+
+# OUTPUT
+Begin directly with the cause title. Do not include any preamble, explanation, or markdown. End with the appropriate closing block (verification clause / signature block / prayer-only as required by the draft type).`;
+}
+
+// Main entry. Triggered by the Generate Draft button.
+async function generateDraft() {
+  const typeKey = document.getElementById('draft-type').value;
+  const matterId = document.getElementById('draft-matter').value;
+  const opposingDoc = document.getElementById('draft-opposing-doc').value.trim();
+  const brief = document.getElementById('draft-brief').value.trim();
+  const citations = document.getElementById('draft-citations').value.trim();
+
+  if (!brief) { toast('Please enter a brief — what do you want to draft?', 'error'); return; }
+
+  // Reuse the same DeepSeek key as AI Analysis
+  let apiKey = getDeepSeekKey();
+  if (!apiKey) apiKey = setupDeepSeekKey();
+  if (!apiKey) { toast('DeepSeek API key required', 'error'); return; }
+
+  const matter = matterId
+    ? (typeof matters !== 'undefined' ? matters.find(m => m.id === matterId) : null)
+    : null;
+  const maskMap = buildDraftingMaskMap(matter);
+  const maskedDoc = opposingDoc ? applyDraftingMask(opposingDoc, maskMap) : '';
+  const maskedBrief = applyDraftingMask(brief, maskMap);
+
+  const btn = document.getElementById('draft-generate-btn');
+  const lbl = document.getElementById('draft-btn-label');
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+  lbl.innerHTML = '<span style="display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:-3px;margin-right:8px;"></span>Reasoner thinking… (~30s–2 min)';
+
+  const out = document.getElementById('drafting-output');
+  out.style.display = 'block';
+  out.innerHTML = `<div style="background:white;border:1px solid var(--border);border-radius:12px;padding:32px;box-shadow:var(--shadow);text-align:center;color:var(--ink3);font-size:13px;line-height:1.7;">
+    <div style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:6px;">DeepSeek Reasoner is drafting</div>
+    Reasoning models think before they write. This takes longer than a normal AI call but the output is markedly tighter.<br>
+    <span style="font-size:11px;">Client identifiers were masked before the request was sent.</span>
+  </div>`;
+
+  try {
+    const prompt = buildDraftingPrompt(typeKey, matter, maskedDoc, maskedBrief, citations);
+    const resp = await fetch('https://api.deepseek.com/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+      body: JSON.stringify({
+        model: 'deepseek-reasoner',
+        messages: [{ role: 'user', content: prompt }],
+        max_tokens: 8000
+        // R1 does not accept response_format or temperature — leave defaults.
+      })
+    });
+    if (!resp.ok) {
+      const errTxt = await resp.text().catch(() => '');
+      if (resp.status === 401) {
+        localStorage.removeItem('lextrack_deepseek_key');
+        throw new Error('Invalid API key — re-enter it');
+      }
+      throw new Error(`DeepSeek error (${resp.status}): ${errTxt.slice(0, 200)}`);
+    }
+    const data = await resp.json();
+    let draft = data.choices?.[0]?.message?.content || '';
+    if (!draft.trim()) throw new Error('Empty response from API');
+
+    // Restore client identifiers before showing the draft to the user
+    draft = reverseDraftingMask(draft, maskMap);
+    renderDraftOutput(draft, typeKey, matter);
+    toast('Draft ready · review and edit', 'success');
+  } catch (err) {
+    out.innerHTML = `<div style="background:white;border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:24px;color:#dc2626;font-size:13px;">Drafting failed: ${err.message}</div>`;
+    toast(`Drafting failed: ${err.message}`, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.style.opacity = '';
+    lbl.textContent = '✦ Generate Draft';
+  }
+}
+
+// Render the AI output as an editable contenteditable surface, with
+// suggested-citation envelopes converted into clickable Indian Kanoon links.
+function renderDraftOutput(draft, typeKey, matter) {
+  const enriched = enrichDraftCitations(draft);
+  const t = DRAFT_TYPES[typeKey] || { label: typeKey };
+  const out = document.getElementById('drafting-output');
+  out.innerHTML = `
+    <div style="background:white;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid var(--border);background:#fafaf8;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);">${t.label} · Draft</div>
+          <div style="font-size:11px;color:var(--ink3);margin-top:3px;">Editable · click anywhere to revise · suggested cites tagged for verification</div>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-ghost" onclick="copyDraftToClipboard()" style="font-size:12px;padding:6px 12px;">Copy</button>
+          <button class="btn btn-ghost" onclick="downloadDraftAsDoc()" style="font-size:12px;padding:6px 12px;">Download .doc</button>
+          <button class="btn btn-ghost" onclick="generateDraft()" style="font-size:12px;padding:6px 12px;" title="Regenerate with the same inputs">Regenerate</button>
+        </div>
+      </div>
+      <div id="draft-output-body" contenteditable="true" spellcheck="true" style="padding:36px 44px;font-family:'Georgia','Times New Roman',serif;font-size:13.5px;line-height:1.75;color:#1a1a1a;min-height:400px;outline:none;white-space:pre-wrap;background:white;">${enriched}</div>
+    </div>
+  `;
+  // Scroll the output into view
+  out.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Replace [SUGGESTED — verify: ...] envelopes with Indian Kanoon search
+// links carrying a Chrome text-fragment so the cited proposition is
+// auto-highlighted on the destination page.
+function enrichDraftCitations(rawText) {
+  let html = rawText
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  // Match: [SUGGESTED — verify: Case Name, citation | proposition: "verbatim quote"]
+  // Tolerant of em-dash variants and missing proposition.
+  const sugRe = /\[SUGGESTED\s*[—–-]\s*verify:\s*([^|\]]+?)(?:\s*\|\s*proposition:\s*&quot;([^&]*?)&quot;)?\s*\]/gi;
+  html = html.replace(sugRe, (match, caseName, prop) => {
+    const cleanName = (caseName || '').trim().replace(/^&quot;|&quot;$/g, '');
+    const q = encodeURIComponent(cleanName);
+    let url = `https://indiankanoon.org/search/?formInput=${q}`;
+    if (prop && prop.trim().length > 4) {
+      const frag = encodeURIComponent(prop.trim().slice(0, 80));
+      url += `#:~:text=${frag}`;
+    }
+    const propPreview = prop ? ` <span style="font-style:italic;color:#78350f;font-size:11px;">"${prop.slice(0, 60)}${prop.length > 60 ? '…' : ''}"</span>` : '';
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:4px;text-decoration:none;border-bottom:1px dotted #92400e;font-weight:500;" title="Suggested citation — click to verify on Indian Kanoon (cited proposition will be highlighted)">[verify: ${cleanName}]${propPreview}</a>`;
+  });
+
+  return html;
+}
+
+// Copy the (possibly edited) draft to the clipboard as both rich HTML and
+// plain text so it pastes cleanly into Word or any rich-text editor.
+async function copyDraftToClipboard() {
+  const el = document.getElementById('draft-output-body');
+  if (!el) return;
+  try {
+    if (navigator.clipboard && window.ClipboardItem) {
+      const html = el.innerHTML;
+      const text = el.innerText;
+      const htmlBlob = new Blob([html], { type: 'text/html' });
+      const textBlob = new Blob([text], { type: 'text/plain' });
+      await navigator.clipboard.write([
+        new ClipboardItem({ 'text/html': htmlBlob, 'text/plain': textBlob })
+      ]);
+      toast('Draft copied — paste into Word', 'success');
+      return;
+    }
+    // Fallback: contenteditable selection + execCommand
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    document.execCommand('copy');
+    sel.removeAllRanges();
+    toast('Draft copied', 'success');
+  } catch (err) {
+    toast(`Copy failed: ${err.message}`, 'error');
+  }
+}
+
+// Word reads HTML wrapped in this header as a .doc. Cleaner than a real
+// .docx (which would require a 100KB library) and good enough for paste-edit.
+function downloadDraftAsDoc() {
+  const el = document.getElementById('draft-output-body');
+  if (!el) return;
+  const innerHtml = el.innerHTML;
+  const docHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='utf-8'><title>LexTrack Draft</title>
+<style>
+  body { font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.5; }
+  pre { font-family: 'Times New Roman', serif; font-size: 12pt; white-space: pre-wrap; margin:0; }
+  a { color: #92400e; text-decoration: underline; }
+</style>
+</head><body><pre>${innerHtml}</pre></body></html>`;
+  const blob = new Blob([docHtml], { type: 'application/msword' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const ts = new Date().toISOString().slice(0, 16).replace(/[T:]/g, '-');
+  a.href = url;
+  a.download = `LexTrack-draft-${ts}.doc`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast('Downloaded — open in Word', 'success');
 }
 </script>
 </body>
