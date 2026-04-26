@@ -634,6 +634,89 @@ body {
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── CAUSE LIST surfaces ────────────────────────────────────────────── */
+/* Matter-detail banner: prominent strip below the matter header. */
+.causelist-banner {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: linear-gradient(90deg, rgba(201,168,76,0.13) 0%, rgba(201,168,76,0.04) 100%);
+  border: 1px solid rgba(201,168,76,0.4);
+  border-left: 3px solid var(--gold, #c9a84c);
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.causelist-banner-icon { font-size: 18px; line-height: 1.2; flex-shrink: 0; }
+.causelist-banner-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #7a5a10;
+  margin-bottom: 4px;
+}
+.causelist-banner-line { font-size: 13px; color: var(--ink, #1a1a1a); line-height: 1.55; }
+.causelist-judge { color: var(--ink3, #777); font-size: 12px; }
+
+/* Dashboard banner — list of all matters listed in upcoming dates. */
+.cl-dash-banner {
+  background: white;
+  border: 1px solid var(--border, #e5e1d6);
+  border-left: 3px solid var(--gold, #c9a84c);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  box-shadow: var(--shadow);
+}
+.cl-dash-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--ink, #1a1a1a);
+}
+.cl-dash-icon { font-size: 17px; }
+.cl-dash-count {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--ink3, #777);
+  background: var(--paper2, #faf9f6);
+  padding: 2px 8px;
+  border-radius: 100px;
+  border: 1px solid var(--border, #e5e1d6);
+}
+.cl-dash-date { margin-bottom: 10px; }
+.cl-dash-date:last-child { margin-bottom: 0; }
+.cl-dash-date-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ink3, #777);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.cl-dash-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.12s;
+  flex-wrap: wrap;
+}
+.cl-dash-row:hover { background: var(--paper2, #faf9f6); }
+.cl-dash-case { font-size: 13px; font-weight: 500; color: var(--ink, #1a1a1a); }
+.cl-dash-meta { font-size: 12px; color: var(--ink3, #777); font-variant-numeric: tabular-nums; }
+@media (max-width: 700px) {
+  .cl-dash-banner { padding: 14px 16px; }
+  .cl-dash-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .cl-dash-meta { font-size: 11.5px; }
+}
 .loading .ai-spinner { display: block; }
 
 .ai-sections {
@@ -1693,6 +1776,9 @@ body {
         </div>
       </div>
 
+      <!-- Cause-list banner — populated by renderCauselistBanner() -->
+      <div id="dashboard-causelist-banner"></div>
+
       <div class="section-header">
         <div class="section-title">Active Matters</div>
         <button class="btn btn-ghost" onclick="showView('matters')" style="font-size:12px;padding:6px 12px;">View all →</button>
@@ -2179,6 +2265,11 @@ let calCurrentDate = new Date();
 // Falls back to the hardcoded matters array if fetch fails (offline / not yet scraped).
 
 const SCRAPED_DATA_URL = 'https://raw.githubusercontent.com/hardikkaushik-a11y/lextrack-dhc/main/data/scraped.json';
+// Cause list — scraped nightly from DHC PDFs by scripts/scrape_causelist.py.
+// Tells us which of the user's matters are listed in the next 24-48h, with
+// court no, item no, judge, and time. Always fetched from the personal repo
+// (public data) regardless of which build (personal/brand) the user is on.
+const CAUSELIST_DATA_URL = 'https://raw.githubusercontent.com/hardikkaushik-a11y/lextrack-dhc/main/data/causelist.json';
 
 // ── USER STATE PERSISTENCE ────────────────────────────────────────────────────
 // Tasks, docsNeeded, manual notes, client overrides — keyed by case number so
@@ -2351,6 +2442,125 @@ async function loadScrapedData() {
       banner.style.display = 'flex';
     }
   }
+  // Cause list runs in parallel — independent of scraped.json. Failure is
+  // non-fatal (UI just doesn't show the listed-tomorrow banner).
+  loadCauselist();
+}
+
+// ── CAUSE LIST (DHC daily PDFs) ───────────────────────────────────────────────
+// Scraped nightly from https://delhihighcourt.nic.in/web/cause-lists/cause-list
+// Output: data/causelist.json — list of entries for the user's tracked cases
+// with court no, item no, judge, time. We attach matches to each matter as
+// `matter.causelist = [...]` so the dashboard / matter-detail / drafting view
+// can surface them without re-querying.
+async function loadCauselist() {
+  try {
+    const res = await fetch(CAUSELIST_DATA_URL, { cache: 'no-cache' });
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!data || !Array.isArray(data.entries)) return;
+    window.__causelist = data;
+    applyCauselistToMatters();
+    if (document.getElementById('view-dashboard')?.classList.contains('active')) renderDashboard();
+    if (document.getElementById('view-detail')?.classList.contains('active')) {
+      // Re-render whichever matter is currently open
+      const id = document.querySelector('[id^="ai-btn-"]')?.id?.replace('ai-btn-','');
+      if (id) openDetail(id);
+    }
+  } catch (e) {
+    console.warn('Cause list load failed:', e.message);
+  }
+}
+
+function applyCauselistToMatters() {
+  const data = window.__causelist;
+  if (!data || !Array.isArray(data.entries) || !Array.isArray(matters)) return;
+  // Normalise case nos for matching — strip spaces / slashes / parens
+  const norm = s => (s || '').replace(/[\s\(\)\/\.\-]/g, '').toUpperCase();
+  const byCase = new Map();
+  for (const e of data.entries) {
+    const k = norm(e.caseNo);
+    if (!byCase.has(k)) byCase.set(k, []);
+    byCase.get(k).push(e);
+  }
+  for (const m of matters) {
+    const hits = byCase.get(norm(m.caseNo)) || [];
+    // Sort by date asc, then item asc — earliest hearing first
+    m.causelist = hits.slice().sort((a, b) => {
+      const da = (a.date || '').localeCompare(b.date || '');
+      if (da !== 0) return da;
+      return parseInt(a.item || '999') - parseInt(b.item || '999');
+    });
+  }
+}
+
+// Dashboard banner — the "X of your matters are listed tomorrow" surface.
+// Hidden when no matches, prominent when there are.
+function renderCauselistBanner() {
+  const el = document.getElementById('dashboard-causelist-banner');
+  if (!el) return;
+  if (!Array.isArray(matters)) { el.innerHTML = ''; return; }
+  // Collect (matter, entry) pairs so the click can deep-link to the matter.
+  const pairs = [];
+  for (const m of matters) {
+    for (const e of (m.causelist || [])) pairs.push({ m, e });
+  }
+  if (!pairs.length) { el.innerHTML = ''; return; }
+  // Group by date so the banner reads "Today: 2 · Tomorrow: 3" structure.
+  const byDate = {};
+  for (const p of pairs) {
+    const d = p.e.date || 'unknown';
+    (byDate[d] ||= []).push(p);
+  }
+  const dates = Object.keys(byDate).sort();
+  const today = new Date(); today.setHours(0,0,0,0);
+  const dateLabel = iso => {
+    const d = new Date(iso + 'T00:00:00');
+    const diff = Math.round((d - today) / 86400000);
+    if (diff === 0) return 'Today';
+    if (diff === 1) return 'Tomorrow';
+    return d.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'short' });
+  };
+  el.innerHTML = `
+    <div class="cl-dash-banner">
+      <div class="cl-dash-head">
+        <span class="cl-dash-icon">📅</span>
+        <strong>Listed in DHC Cause List</strong>
+        <span class="cl-dash-count">${pairs.length} ${pairs.length===1?'entry':'entries'}</span>
+      </div>
+      <div class="cl-dash-body">
+        ${dates.map(d => `
+          <div class="cl-dash-date">
+            <div class="cl-dash-date-label">${dateLabel(d)}</div>
+            ${byDate[d].map(({m, e}) => `
+              <div class="cl-dash-row" onclick="openDetail('${m.id}')">
+                <span class="cl-dash-case">${(m.title || m.caseNo).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]))}</span>
+                <span class="cl-dash-meta">
+                  ${e.court ? `Court ${e.court}` : ''}
+                  ${e.item ? ` · Item ${e.item}` : ''}
+                  ${e.time ? ` · ${e.time}` : ''}
+                  ${e.judge ? ` · ${e.judge}` : ''}
+                </span>
+              </div>`).join('')}
+          </div>`).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// Format a single causelist entry as a human-readable line for the UI.
+function formatCauselistEntry(e) {
+  const parts = [];
+  if (e.date) {
+    const d = new Date(e.date + 'T00:00:00');
+    const today = new Date(); today.setHours(0,0,0,0);
+    const diff = Math.round((d - today) / 86400000);
+    parts.push(diff === 0 ? 'Today' : diff === 1 ? 'Tomorrow' : d.toLocaleDateString('en-IN', { weekday:'short', day:'numeric', month:'short' }));
+  }
+  if (e.court) parts.push(`Court ${e.court}`);
+  if (e.item)  parts.push(`Item ${e.item}`);
+  if (e.time)  parts.push(e.time);
+  return parts.join(' · ');
 }
 
 // ── HELPERS ──────────────────────────────────────────────────────────────────
@@ -2566,6 +2776,9 @@ function renderDashboard() {
     syncEl.textContent = '—';
     syncSub.textContent = 'Awaiting first scrape';
   }
+
+  // ── Cause list banner (matters listed today / tomorrow per DHC) ──
+  renderCauselistBanner();
 
   // ── Company filter (shared chip pattern with Court Orders) ────────
   const companyOf = m => (m.title || '').split(' VS.')[0].split(' v. ')[0].trim();
@@ -2929,6 +3142,19 @@ function openDetail(id) {
         </div>
       </div>
       ${m.notes ? `<div style="margin-top:16px;padding:12px 16px;background:var(--gold3);border-radius:8px;font-size:13px;color:#7a5a10;border-left:3px solid var(--gold);">${m.notes}</div>` : ''}
+      ${(m.causelist && m.causelist.length) ? `
+        <div class="causelist-banner">
+          <div class="causelist-banner-icon">📅</div>
+          <div style="flex:1;">
+            <div class="causelist-banner-title">Listed in DHC Cause List</div>
+            ${m.causelist.map(e => `
+              <div class="causelist-banner-line">
+                <strong>${formatCauselistEntry(e)}</strong>
+                ${e.judge ? `<span class="causelist-judge">· ${e.judge}</span>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>` : ''}
     </div>
 
     <div id="ai-block-${id}"></div>

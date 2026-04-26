@@ -1,0 +1,55 @@
+name: Scrape DHC Cause List
+
+# Daily scrape of the Delhi High Court cause list PDFs for cases tracked
+# in config/cases.json. Two firings per day:
+#
+#   • 21:30 IST  (16:00 UTC) — captures the "advance" list for tomorrow,
+#                              which DHC publishes in the evening
+#   • 07:00 IST  (01:30 UTC) — re-runs to pick up overnight supplementary
+#                              additions and the morning's finalised list
+#
+# Output: data/causelist.json — committed back to the repo so both the
+# personal and brand apps can fetch it from raw.githubusercontent.com.
+
+on:
+  schedule:
+    - cron: '0 16 * * *'   # 21:30 IST
+    - cron: '30 1 * * *'   # 07:00 IST
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install requests pdfplumber
+
+      - name: Run cause-list scraper
+        run: python3 scripts/scrape_causelist.py
+
+      - name: Commit updated cause list
+        run: |
+          git config --local user.email "scraper@lextrack"
+          git config --local user.name "LexTrack Causelist"
+          git add data/causelist.json
+          git diff --staged --quiet && echo "No changes" || \
+            git commit -m "chore: update cause list $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git pull --rebase
+          git push
