@@ -200,6 +200,34 @@ body {
 
 .content { padding: 32px; }
 
+/* ── HAMBURGER + BACKDROP (hidden on desktop) ── */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+.hamburger:hover { background: var(--paper2); }
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.sidebar-backdrop.show { opacity: 1; }
+
+.btn-label-mobile { display: none; }
+
 /* ── VIEWS ── */
 .view { display: none; }
 .view.active { display: block; }
@@ -1049,6 +1077,113 @@ body {
 .toast.error { border-left-color: var(--red); }
 
 @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } }
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE LAYER — additive, only kicks in at narrow widths.
+   Desktop layout is unchanged.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  /* Sidebar slides off-screen by default; hamburger opens it */
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    width: 260px;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.3);
+  }
+  .sidebar.open { transform: translateX(0); }
+
+  .sidebar-backdrop { display: block; pointer-events: none; }
+  .sidebar-backdrop.show { pointer-events: auto; }
+
+  /* Main content takes full width on mobile */
+  .main { margin-left: 0; }
+
+  /* Show hamburger */
+  .hamburger { display: flex; }
+
+  /* Topbar: tighter padding, smaller title */
+  .topbar { padding: 0 16px; height: 56px; }
+  .topbar-title { font-size: 16px; }
+  .topbar-right { gap: 8px; }
+
+  /* Topbar buttons only: hide labels, show compact form */
+  .topbar-right .btn-sync .btn-label { display: none; }
+  .topbar-right .btn-sync { padding: 8px 10px; }
+  .topbar-right .btn-primary .btn-label { display: none; }
+  .topbar-right .btn-primary .btn-label-mobile { display: inline; font-size: 18px; line-height: 1; }
+  .topbar-right .btn-primary { padding: 8px 12px; }
+
+  /* Hide sync banner on small screens (info still in sidebar footer) */
+  #sync-banner { display: none !important; }
+
+  /* Content padding tighter */
+  .content { padding: 16px; }
+
+  /* Stat cards stack on mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .stat-card { padding: 14px; }
+  .stat-value { font-size: 26px; }
+  .stat-label { font-size: 10px; margin-bottom: 6px; }
+  .stat-sub { font-size: 11px; }
+
+  /* Matter table: scroll horizontally, keep columns intact */
+  .matter-table { overflow-x: auto; }
+  .table-header, .matter-row {
+    grid-template-columns: minmax(220px, 2fr) 130px 100px 110px 110px 80px;
+    min-width: 760px;
+  }
+
+  /* Detail page: stack the two-column grid */
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .detail-meta { gap: 10px; }
+  .detail-meta-item { font-size: 12px; }
+
+  /* Modals: full-width on phones, with margin */
+  .modal {
+    width: calc(100vw - 32px) !important;
+    max-width: 480px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+  }
+  .form-grid { grid-template-columns: 1fr; }
+
+  /* Lookup panel: stack inputs, full-width */
+  .lookup-row { flex-wrap: wrap; gap: 8px; }
+  .lookup-input, .lookup-select { min-width: 0; flex: 1 1 100%; }
+  .btn-lookup { flex: 1 1 100%; justify-content: center; }
+
+  /* Calendar: stack widget + sidebar */
+  .calendar-grid { grid-template-columns: 1fr; }
+
+  /* Tasks: hide some columns, keep title + due */
+  .tasks-header, .task-row {
+    grid-template-columns: 28px 1fr 90px;
+  }
+  .tasks-header > :nth-child(3),
+  .tasks-header > :nth-child(5),
+  .tasks-header > :nth-child(6),
+  .task-row > :nth-child(3),
+  .task-row > :nth-child(5),
+  .task-row > :nth-child(6) { display: none; }
+}
+
+@media (max-width: 480px) {
+  /* On phones, single-column stats */
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-value { font-size: 30px; }
+
+  /* Detail header stacks */
+  .detail-header > div:first-child {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
 </style>
 </head>
 <body>
@@ -1098,17 +1233,26 @@ body {
   </div>
 </aside>
 
+<!-- Mobile sidebar backdrop -->
+<div class="sidebar-backdrop" id="sidebar-backdrop" onclick="toggleSidebar(false)"></div>
+
 <!-- MAIN -->
 <main class="main">
   <div class="topbar">
+    <button class="hamburger" id="hamburger-btn" onclick="toggleSidebar()" aria-label="Toggle menu">
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <div class="topbar-title" id="topbar-title">Dashboard</div>
     <div class="topbar-right">
       <div id="sync-banner" style="display:none;align-items:center;font-size:11px;color:var(--ink3);letter-spacing:0.5px;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;gap:6px;"></div>
-      <button class="btn btn-ghost" onclick="loadScrapedData()">
+      <button class="btn btn-ghost btn-sync" onclick="loadScrapedData()">
         <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M20 9A9 9 0 005.3 5.3M4 15a9 9 0 0014.7 3.7"/></svg>
-        Sync DHC
+        <span class="btn-label">Sync DHC</span>
       </button>
-      <button class="btn btn-primary" onclick="openAddModal()">+ New Matter</button>
+      <button class="btn btn-primary" onclick="openAddModal()">
+        <span class="btn-label">+ New Matter</span>
+        <span class="btn-label-mobile">+</span>
+      </button>
     </div>
   </div>
 
@@ -1509,7 +1653,24 @@ function showView(name) {
   if (name === 'calendar') renderCalendar();
   if (name === 'tasks') renderTasks('all');
   if (name === 'documents') renderDocuments();
+
+  // Auto-close mobile sidebar after picking a nav item
+  toggleSidebar(false);
 }
+
+// Slide the sidebar in/out on mobile. No-op on desktop (sidebar is always visible).
+function toggleSidebar(force) {
+  const sidebar  = document.querySelector('.sidebar');
+  const backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar || !backdrop) return;
+  const open = force === undefined ? !sidebar.classList.contains('open') : force;
+  sidebar.classList.toggle('open', open);
+  backdrop.classList.toggle('show', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+
+// Close sidebar with Escape on mobile
+document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleSidebar(false); });
 
 function toast(msg, type='') {
   const c = document.getElementById('toasts');
