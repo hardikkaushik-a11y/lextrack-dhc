@@ -2503,7 +2503,7 @@ async function generateDeepAnalysis(id, forceRefresh = false) {
 
   const recentOrdersBlock = ordersWithText.length
     ? ordersWithText.slice(0, 3).map((t, i) => {
-        const txt = (t.orderText || '').substring(0, 1500);
+        const txt = (t.orderText || '').substring(0, 2500);
         return `── Order ${i+1} of ${ordersWithText.length} (${formatDate(t.date)}) ──\n${txt}`;
       }).join('\n\n')
     : '(no PDF text extracted — analyse from dates + parties only)';

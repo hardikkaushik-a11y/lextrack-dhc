@@ -19,7 +19,7 @@ const CASES_FILE   = path.join(__dirname, '../config/cases.json');
 const OUTPUT_FILE  = path.join(__dirname, '../data/scraped.json');
 const DHC_URL      = 'https://delhihighcourt.nic.in/app/get-case-type-status';
 const ORDERS_TO_PARSE = 3;          // most recent N order PDFs per case
-const ORDER_TEXT_LIMIT = 4000;       // chars of extracted text per order
+const ORDER_TEXT_LIMIT = 6000;       // chars of extracted text per order
 
 // Download a PDF and extract its text. Returns null on any failure
 // (image-only scans, network errors, etc.) — never throws.

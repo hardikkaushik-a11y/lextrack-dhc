@@ -48,7 +48,26 @@ jobs:
 
       - name: Install Chromium for Puppeteer
         if: steps.cache-chromium.outputs.cache-hit != 'true'
-        run: npx puppeteer browsers install chrome --path /home/runner/.cache/puppeteer
+        timeout-minutes: 4
+        # The install itself takes ~6s; the npx wrapper sometimes hangs
+        # after success. We force-exit once the binary is present.
+        run: |
+          npx --no-update-notifier puppeteer browsers install chrome \
+            --path /home/runner/.cache/puppeteer &
+          INSTALL_PID=$!
+          # Poll for the binary; once it exists, kill the wrapper and continue.
+          for i in $(seq 1 180); do
+            if ls /home/runner/.cache/puppeteer/chrome/linux-*/chrome-linux64/chrome 2>/dev/null; then
+              echo "Chromium ready — terminating wrapper."
+              kill -9 $INSTALL_PID 2>/dev/null || true
+              wait 2>/dev/null || true
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "::error::Chromium install did not finish in 6 minutes"
+          kill -9 $INSTALL_PID 2>/dev/null || true
+          exit 1
 
       - name: Run scraper
         env:
