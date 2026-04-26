@@ -2138,10 +2138,19 @@ function readLatestOrderText(m) {
   if (/\bdismissed\s*as\s*withdrawn/i.test(text)) return { kind: 'withdrawn', summary: 'Suit was dismissed as withdrawn.' };
   if (/\bcompromise|\bsettled\s*between\s*the\s*parties/i.test(text)) return { kind: 'settled', summary: 'Parties indicated settlement.' };
 
-  // Fall back: first concrete sentence after the date marker
-  const afterDate = text.replace(/^.*?(?:O\s*R\s*D\s*E\s*R|ORDER)\s*[\d.\-\/]*/i, '').trim();
-  const firstSentence = afterDate.split(/(?<=[.!?])\s/)[0];
-  return firstSentence ? { kind: 'fallback', summary: firstSentence.substring(0, 200) } : null;
+  // Fall back: skip the order header (% DATE 1.) and take first real content
+  let afterHeader = text.replace(/^.*?(?:O\s*R\s*D\s*E\s*R|ORDER)\s*/i, '');
+  afterHeader = afterHeader.replace(/^%?\s*\d{1,2}[\.\-\/]\d{1,2}[\.\-\/]\d{4}\s*/, '');
+  afterHeader = afterHeader.replace(/^\d+\.\s*/, '').trim();
+  if (!afterHeader) return null;
+
+  const firstSentence = afterHeader.split(/(?<=[.!?])\s+/)[0];
+  if (firstSentence && firstSentence.length >= 12) {
+    return { kind: 'fallback', summary: firstSentence.substring(0, 220) };
+  }
+  // Last resort: first ~180 chars of order body
+  const snippet = afterHeader.substring(0, 180).replace(/\s+/g, ' ').trim();
+  return snippet.length >= 8 ? { kind: 'fallback', summary: snippet + (afterHeader.length > 180 ? '…' : '') } : null;
 }
 
 function deriveLastDateSummary(m, c, cadence) {

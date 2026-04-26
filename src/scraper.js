@@ -22,13 +22,20 @@ const ORDER_TEXT_LIMIT = 6000;       // chars of extracted text per order
 const PDF_CONCURRENCY  = 4;          // simultaneous PDF fetches per case
                                      // — don't hammer DHC but still finish in reasonable time
 
-// Download a PDF and extract its text. Returns null on any failure
-// (image-only scans, network errors, etc.) — never throws.
-function fetchPdfText(url) {
+// One attempt at downloading + parsing a PDF.
+// Returns { text } on success, or { error, retryable } on failure.
+function fetchPdfTextOnce(url) {
   return new Promise(resolve => {
-    if (!url || !url.startsWith('http')) return resolve(null);
+    if (!url || !url.startsWith('http')) return resolve({ error: 'no-url', retryable: false });
     const req = https.get(url, { timeout: 20000 }, res => {
-      if (res.statusCode !== 200) { res.resume(); return resolve(null); }
+      if (res.statusCode === 404 || res.statusCode === 410) {
+        res.resume();
+        return resolve({ error: `http-${res.statusCode}`, retryable: false });
+      }
+      if (res.statusCode !== 200) {
+        res.resume();
+        return resolve({ error: `http-${res.statusCode}`, retryable: true });
+      }
       const chunks = [];
       res.on('data', c => chunks.push(c));
       res.on('end', async () => {
@@ -39,16 +46,29 @@ function fetchPdfText(url) {
             .replace(/\s+/g, ' ')
             .trim()
             .substring(0, ORDER_TEXT_LIMIT);
-          resolve(text || null);
+          if (text) resolve({ text });
+          else resolve({ error: 'empty-pdf', retryable: false }); // image-only scan
         } catch (err) {
-          resolve(null); // image-only scan or corrupt PDF
+          resolve({ error: 'parse-failed', retryable: false }); // corrupt PDF
         }
       });
-      res.on('error', () => resolve(null));
+      res.on('error', () => resolve({ error: 'stream-error', retryable: true }));
     });
-    req.on('error', () => resolve(null));
-    req.on('timeout', () => { req.destroy(); resolve(null); });
+    req.on('error', () => resolve({ error: 'request-error', retryable: true }));
+    req.on('timeout', () => { req.destroy(); resolve({ error: 'timeout', retryable: true }); });
   });
+}
+
+// Public API — retries up to twice on transient failures (network/timeout/5xx),
+// gives up immediately on non-retryable failures (404, image-only PDF).
+async function fetchPdfText(url) {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const result = await fetchPdfTextOnce(url);
+    if (result.text) return result.text;
+    if (!result.retryable) return null;
+    if (attempt < 2) await new Promise(r => setTimeout(r, 2000 * (attempt + 1))); // 2s, 4s
+  }
+  return null;
 }
 
 // Parse case number into { type, number, year }.
@@ -320,15 +340,23 @@ function summariseOrderText(text) {
   // Fall back: skip past the order header. DHC orders look like:
   //   "...O R D E R % 13.04.2026 1. <actual content...>"
   // We strip everything up to and including the leading "%" date marker
-  // and the optional list-numbering, then take the first real sentence.
+  // and the optional list-numbering, then take the first real content.
   let afterHeader = t.replace(/^.*?(?:O\s*R\s*D\s*E\s*R|ORDER)\s*/i, '');
   afterHeader = afterHeader.replace(/^%?\s*\d{1,2}[\.\-\/]\d{1,2}[\.\-\/]\d{4}\s*/, '');
-  afterHeader = afterHeader.replace(/^\d+\.\s*/, '');           // strip leading "1."
+  afterHeader = afterHeader.replace(/^\d+\.\s*/, '');                 // leading "1."
   afterHeader = afterHeader.replace(/^[A-Z\.\s]+:?\s*$/m, '').trim();  // CORAM lines
+  if (!afterHeader) return null;
+
+  // Try a complete sentence first (most natural reading)
   const firstSentence = afterHeader.split(/(?<=[.!?])\s+/)[0];
-  return firstSentence && firstSentence.length > 15
-    ? firstSentence.substring(0, 220)
-    : null;
+  if (firstSentence && firstSentence.length >= 12) {
+    return firstSentence.substring(0, 220);
+  }
+
+  // Last resort: first ~180 chars of body content. Better to surface
+  // SOMETHING from the PDF than the generic "Order passed by court".
+  const snippet = afterHeader.substring(0, 180).replace(/\s+/g, ' ').trim();
+  return snippet.length >= 8 ? snippet + (afterHeader.length > 180 ? '…' : '') : null;
 }
 
 async function buildCaseObject(parsed, row, history) {
