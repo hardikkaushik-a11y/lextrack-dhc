@@ -163,36 +163,70 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
     console.log(`[eDHCR] After submit — URL: ${postUrl}`);
     console.log(`[eDHCR] Page text (first 600 chars): ${bodyTextSample}`);
 
-    // Parse the results page. Try multiple plausible structures —
-    // table rows, divs with case-link classes, or a generic <a href>
-    // pattern that points to a judgment PDF / detail page.
-    const results = await page.evaluate(() => {
+    // Parse the results page. eDHCR uses a React/Next-style SPA where
+    // each result is rendered as a card with its title + metadata.
+    // We try the structured approach first, and dump diagnostic info
+    // about the DOM if it doesn't yield enough.
+    const { results, diagnostics } = await page.evaluate(() => {
       const items = [];
       const seen = new Set();
 
-      // Strategy 1: any <a> whose href looks like a judgment doc/page
+      // Helpers
+      const clean = s => (s || '').replace(/\s+/g, ' ').trim();
+      const isResultTitle = t => t.length > 12 && t.length < 350 && !/^(home|search|view|read|next|prev|page|english|hindi|all\s+rights)/i.test(t);
+
+      // Strategy A: cards with anchors pointing to judgment pages
       document.querySelectorAll('a[href]').forEach(a => {
         const href = a.href || '';
-        const isJudgmentLink = /(judgement|judgment|order|reportable|case|cnr|doc)[_-]?\d|\.pdf(\?|$)/i.test(href);
-        if (!isJudgmentLink) return;
+        const isLikely = /(judg|order|case|cite|doc|pdf|view)/i.test(href) && !/(manual|userman|home|about|contact|cdn|css|\.png|\.jpg|\.svg)/i.test(href);
+        if (!isLikely) return;
         if (seen.has(href)) return;
+        const text = clean(a.innerText || a.textContent);
+        if (!isResultTitle(text)) return;
         seen.add(href);
-        const text = (a.innerText || a.textContent || '').replace(/\s+/g, ' ').trim();
-        if (text.length < 6) return;
-        // Try to find surrounding context (date, judges, citation)
-        const row = a.closest('tr, li, div.row, div.result, article');
-        const context = row ? (row.innerText || '').replace(/\s+/g, ' ').trim() : '';
-        items.push({
-          title: text.substring(0, 220),
-          link: href,
-          context: context.substring(0, 500)
-        });
+        const card = a.closest('article, li, tr, [class*="card" i], [class*="result" i], [class*="item" i], div');
+        const context = card ? clean(card.innerText) : text;
+        items.push({ title: text.substring(0, 280), link: href, context: context.substring(0, 600) });
       });
 
-      return items.slice(0, 50);
+      // Strategy B: card-shaped <div>s with substantial text, even without an anchor.
+      // eDHCR sometimes renders the result row + a separate "View" button.
+      if (items.length < 3) {
+        document.querySelectorAll('div, article, li').forEach(node => {
+          const txt = clean(node.innerText);
+          if (!isResultTitle(txt)) return;
+          if (txt.length < 30) return;
+          // Look for an action link inside
+          const link = node.querySelector('a[href]');
+          const href = link ? link.href : '';
+          if (href && seen.has(href)) return;
+          if (!href && items.some(i => i.title === txt.substring(0, 280))) return;
+          if (href) seen.add(href);
+          // Heuristic: must look like a judgment line (contains "v." or "vs" or court+year)
+          const looksLikeCase = /\b(v\.?|vs\.?|versus)\b/i.test(txt) || /\b(19|20)\d{2}\b/.test(txt);
+          if (!looksLikeCase) return;
+          items.push({ title: txt.substring(0, 280), link: href || '', context: txt.substring(0, 600) });
+        });
+      }
+
+      // Diagnostics — emit a sample of the DOM so we can iterate quickly
+      const diagnostics = {
+        anchorCount: document.querySelectorAll('a[href]').length,
+        cardCount: document.querySelectorAll('[class*="card" i], [class*="result" i], [class*="item" i]').length,
+        sampleClassList: Array.from(document.querySelectorAll('div, li, article'))
+          .filter(n => /v\.|vs\.|trademark|passing|infringement|registration/i.test(n.innerText || ''))
+          .slice(0, 5)
+          .map(n => ({ tag: n.tagName.toLowerCase(), classes: n.className, snippet: clean(n.innerText).substring(0, 200) }))
+      };
+
+      return { results: items.slice(0, 50), diagnostics };
     });
 
     console.log(`[eDHCR] Parsed ${results.length} candidate results`);
+    console.log(`[eDHCR] DOM diagnostics: anchors=${diagnostics.anchorCount}, cards=${diagnostics.cardCount}`);
+    diagnostics.sampleClassList.forEach((s, i) => {
+      console.log(`[eDHCR]   sample ${i + 1}: <${s.tag} class="${s.classes}"> "${s.snippet}"`);
+    });
 
     // Normalise into the same shape as IK results so the UI can render uniformly
     const normalised = results.map(r => {
