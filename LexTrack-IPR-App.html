@@ -3553,19 +3553,80 @@ function openDetail(id) {
       <div class="card">
         <div class="card-title">Timeline</div>
         <div class="timeline">
-          ${(m.timeline || []).map(e => `
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">${formatDate(e.date)}</div>
-              <div class="timeline-event">${e.event}</div>
-              <div class="timeline-detail">${e.orderLink ? `<a href="${e.orderLink}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;">${e.detail || 'View Order →'}</a>` : (e.detail || '')}</div>
-            </div>`).join('')}
-          <div class="timeline-item">
-            <div class="timeline-dot" style="background:var(--blue);box-shadow:0 0 0 2px var(--blue);"></div>
-            <div class="timeline-date">${formatDate(m.nextDate)}</div>
-            <div class="timeline-event" style="color:var(--blue);">Next Hearing</div>
-            <div class="timeline-detail">Scheduled</div>
-          </div>
+          ${(() => {
+            // Build a unified timeline:
+            //   - past events from m.timeline (orders, status changes)
+            //   - upcoming hearings from m.causelist (today/tomorrow per DHC)
+            //   - matter.nextDate (if not already covered by causelist)
+            // Then sort newest-first (next-date at top, oldest at bottom).
+            const events = [];
+            for (const e of (m.timeline || [])) {
+              events.push({
+                date: e.date,
+                kind: 'order',
+                event: e.event,
+                detail: e.detail,
+                orderLink: e.orderLink,
+              });
+            }
+            // Cause-list entries — future hearings with court / item / time
+            for (const cl of (m.causelist || [])) {
+              if (!cl.date) continue;
+              const pdfUrl = cl.source_pdf
+                ? `https://delhihighcourt.nic.in/files/${(cl.date || '').slice(0,7)}/cause-list/${cl.source_pdf}`
+                : null;
+              const meta = [
+                cl.court ? `Court ${cl.court}` : null,
+                cl.item ? `Item ${cl.item}` : null,
+                cl.time || null,
+                cl.judge || null,
+              ].filter(Boolean).join(' · ');
+              events.push({
+                date: cl.date,
+                kind: 'causelist',
+                event: '📅 Listed in DHC Cause List',
+                detail: meta || 'Hearing',
+                orderLink: pdfUrl,
+                detailLabel: 'Source PDF →',
+              });
+            }
+            // matter.nextDate fallback (only if no causelist entry covers it)
+            if (m.nextDate) {
+              const covered = (m.causelist || []).some(e => e.date === m.nextDate);
+              if (!covered) {
+                events.push({
+                  date: m.nextDate,
+                  kind: 'next',
+                  event: 'Next Hearing',
+                  detail: 'Scheduled',
+                });
+              }
+            }
+            // Sort newest-first
+            events.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+            return events.map(e => {
+              const dotStyle = e.kind === 'next'
+                ? 'background:var(--blue);box-shadow:0 0 0 2px var(--blue);'
+                : e.kind === 'causelist'
+                ? 'background:var(--gold,#c9a84c);box-shadow:0 0 0 2px var(--gold,#c9a84c);'
+                : '';
+              const eventStyle = e.kind === 'next'
+                ? 'color:var(--blue);'
+                : e.kind === 'causelist'
+                ? 'color:#7a5a10;'
+                : '';
+              const detailHtml = e.orderLink
+                ? `<a href="${e.orderLink}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;">${e.detailLabel || e.detail || 'View Order →'}</a>${e.detail && e.detailLabel ? ` <span style="color:var(--ink3);">· ${e.detail}</span>` : ''}`
+                : (e.detail || '');
+              return `
+                <div class="timeline-item">
+                  <div class="timeline-dot" style="${dotStyle}"></div>
+                  <div class="timeline-date">${formatDate(e.date)}</div>
+                  <div class="timeline-event" style="${eventStyle}">${e.event}</div>
+                  <div class="timeline-detail">${detailHtml}</div>
+                </div>`;
+            }).join('');
+          })()}
         </div>
       </div>
 
@@ -4472,6 +4533,25 @@ async function generateDeepAnalysis(id, forceRefresh = false) {
 
   const olderOrdersList = '';  // moved into recentOrdersBlock
 
+  // Cause-list awareness — if this matter is on the daily DHC cause list,
+  // tell the model so its "Next date purpose" / "Action items" account for
+  // the imminent hearing instead of looking dumb (e.g. saying "no upcoming
+  // hearing" when one is literally tomorrow).
+  const causelistBlock = (m.causelist && m.causelist.length)
+    ? '═══ DHC CAUSE LIST — UPCOMING HEARINGS ═══\n' +
+      m.causelist.map((cl, i) => {
+        const parts = [
+          `#${i+1} · ${formatDate(cl.date)}`,
+          cl.court ? `Court ${cl.court}` : null,
+          cl.item ? `Item ${cl.item}` : null,
+          cl.time || null,
+          cl.judge ? `before ${cl.judge}` : null,
+        ].filter(Boolean);
+        return parts.join(' · ');
+      }).join('\n') +
+      '\n═══════════════════════════════════════════════════════\n'
+    : '';
+
   const prompt = `You are a senior IPR litigation lawyer practising at the Delhi High Court. You are advising on a specific case based on the actual order text from the DHC record. Be precise — refer ONLY to what the orders actually say. Do not invent facts.
 
 CASE: ${m.title}
@@ -4483,7 +4563,7 @@ Next hearing: ${m.nextDate ? formatDate(m.nextDate) : '—'}
 Total orders on record: ${orders.length}
 Cadence: ${cadence.label}${cadence.avgGap ? ` (avg ${cadence.avgGap} days between hearings)` : ''}
 
-═══ ACTUAL ORDER TEXT (latest ${Math.min(3, ordersWithText.length)}) ═══
+${causelistBlock}═══ ACTUAL ORDER TEXT (latest ${Math.min(3, ordersWithText.length)}) ═══
 ${recentOrdersBlock}
 ${olderOrdersList}
 ═══════════════════════════════════════════════════════
@@ -4491,9 +4571,9 @@ ${olderOrdersList}
 CRITICAL INSTRUCTIONS:
 - You have the FULL order history above. Use it. Trace how the case has progressed across orders — what's been disposed of, what's pending, what the bench keeps directing.
 - For "lastDateSummary": describe what the most recent order actually says. Quote or paraphrase its directions. Do NOT speculate about hearings that didn't happen (e.g. if P.O. was on leave, say so — don't invent arguments).
-- For "nextDatePurpose": derive from the latest order's directions and the historical pattern (e.g. if the case has had 5 IA-related listings, the next one is probably IA-related too).
+${m.causelist && m.causelist.length ? `- For "nextDatePurpose": THE CASE IS ON THE DHC DAILY CAUSE LIST FOR ${m.causelist.map(c => formatDate(c.date)).join(', ')}. Reference this directly. Mention Court ${m.causelist[0].court || '?'}, Item ${m.causelist[0].item || '?'}, before ${m.causelist[0].judge || 'the assigned bench'}. Then derive the likely purpose from the latest order's directions.` : '- For "nextDatePurpose": derive from the latest order\'s directions and the historical pattern (e.g. if the case has had 5 IA-related listings, the next one is probably IA-related too).'}
 - For "caseSummary": 6-8 sentences. Reference specific inflection points from the order history — when interim was granted, when defendants were added, when pleadings closed, etc. This is where the full timeline pays off.
-- "actionItems": be specific to what the recent orders directed. If WS is due, name the deadline. If a reply to an IA is pending, name the IA number.
+- "actionItems": be specific to what the recent orders directed. If WS is due, name the deadline. If a reply to an IA is pending, name the IA number.${m.causelist && m.causelist.length ? ` SINCE THE CASE IS LISTED IN THE NEXT 48 HOURS, action items should reflect the immediate prep — confirm appearance, brief partner, prepare arguments per the last order's directions, file any pending replies/affidavits.` : ''}
 - "strategicInsight": identify a pattern from the order history that Ishi should exploit or pre-empt. The deeper the history you cite, the better.
 
 Return EXACTLY this JSON (no markdown, no preamble, pure JSON):
