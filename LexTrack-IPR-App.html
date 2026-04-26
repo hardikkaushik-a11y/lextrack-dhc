@@ -1698,6 +1698,8 @@ body {
         <button class="btn btn-ghost" onclick="showView('matters')" style="font-size:12px;padding:6px 12px;">View all →</button>
       </div>
 
+      <div id="dashboard-filter" class="docs-filter" style="display:none;"></div>
+
       <div class="matter-table">
         <div class="table-header">
           <span>Matter</span>
@@ -2565,9 +2567,60 @@ function renderDashboard() {
     syncSub.textContent = 'Awaiting first scrape';
   }
 
+  // ── Company filter (shared chip pattern with Court Orders) ────────
+  const companyOf = m => (m.title || '').split(' VS.')[0].split(' v. ')[0].trim();
+  const counts = {};
+  matters.forEach(m => {
+    const c = companyOf(m);
+    // Skip case-number-only titles (unscraped matters) — they're noise as filter chips.
+    if (c && c !== m.caseNo) counts[c] = (counts[c] || 0) + 1;
+  });
+  const companies = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+
+  // Drop stale selections that no longer match any visible company
+  Array.from(__dashFilter).forEach(c => { if (!counts[c]) __dashFilter.delete(c); });
+
+  const filterEl = document.getElementById('dashboard-filter');
+  if (companies.length > 1) {
+    filterEl.style.display = '';
+    filterEl.innerHTML = `
+      <div class="docs-filter-row">
+        <button class="filter-chip ${__dashFilter.size === 0 ? 'active' : ''}" onclick="clearDashFilter()">
+          All <span class="filter-chip-count">${matters.length}</span>
+        </button>
+        ${companies.map(([name, n]) => `
+          <button class="filter-chip ${__dashFilter.has(name) ? 'active' : ''}" onclick="toggleDashFilter('${name.replace(/'/g, "\\'")}')">
+            ${name.length > 32 ? name.slice(0, 30) + '…' : name}
+            <span class="filter-chip-count">${n}</span>
+          </button>`).join('')}
+      </div>
+    `;
+  } else {
+    filterEl.style.display = 'none';
+    filterEl.innerHTML = '';
+  }
+
+  const visibleMatters = __dashFilter.size === 0
+    ? matters
+    : matters.filter(m => __dashFilter.has(companyOf(m)));
+
   document.getElementById('dashboard-matters').innerHTML =
-    matters.length ? matters.map(m => matterRowHTML(m)).join('') :
-    `<div class="empty-state"><div class="empty-icon">⚖️</div><div class="empty-title">No matters yet</div><div class="empty-sub">Add your first matter to get started</div></div>`;
+    visibleMatters.length ? visibleMatters.map(m => matterRowHTML(m)).join('') :
+    matters.length === 0
+      ? `<div class="empty-state"><div class="empty-icon">⚖️</div><div class="empty-title">No matters yet</div><div class="empty-sub">Add your first matter to get started</div></div>`
+      : `<div class="empty-state"><div class="empty-icon">🔍</div><div class="empty-title">No matters for this filter</div><div class="empty-sub">Tap "All" to see everything</div></div>`;
+}
+
+// Active company filter for the Dashboard. Same pattern as __ordersFilter.
+const __dashFilter = new Set();
+function toggleDashFilter(company) {
+  if (__dashFilter.has(company)) __dashFilter.delete(company);
+  else __dashFilter.add(company);
+  renderDashboard();
+}
+function clearDashFilter() {
+  __dashFilter.clear();
+  renderDashboard();
 }
 
 // True when every matter has a nextDate (so "0 hearings" is meaningful);
