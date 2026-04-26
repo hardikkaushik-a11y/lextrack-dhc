@@ -1424,9 +1424,13 @@ body {
       Judgments
     </div>
     <div class="nav-section">Files</div>
+    <div class="nav-item" onclick="showView('prep')">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Documents
+    </div>
     <div class="nav-item" onclick="showView('documents')">
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-      Documents
+      Orders
     </div>
   </nav>
 
@@ -1657,11 +1661,20 @@ body {
       <div id="judgments-result" style="margin-top:24px;"></div>
     </div>
 
-    <!-- ── DOCUMENTS VIEW ── -->
+    <!-- ── DOCUMENTS PREP CHECKLIST ── -->
+    <div class="view" id="view-prep">
+      <div class="section-header" style="margin-bottom:20px;">
+        <div class="section-title">Documents to Prepare</div>
+        <div style="font-size:12px;color:var(--ink3);">Items routed here from AI Analysis</div>
+      </div>
+      <div id="prep-list"></div>
+    </div>
+
+    <!-- ── COURT ORDERS VIEW ── -->
     <div class="view" id="view-documents">
       <div class="section-header" style="margin-bottom:20px;">
-        <div class="section-title">Documents</div>
-        <button class="btn btn-primary">+ Upload</button>
+        <div class="section-title">Court Orders</div>
+        <div style="font-size:12px;color:var(--ink3);">Auto-fetched from DHC nightly</div>
       </div>
       <div class="doc-grid" id="docs-grid"></div>
     </div>
@@ -1862,6 +1875,126 @@ let calCurrentDate = new Date();
 
 const SCRAPED_DATA_URL = 'https://raw.githubusercontent.com/hardikkaushik-a11y/lextrack-dhc/main/data/scraped.json';
 
+// ── USER STATE PERSISTENCE ────────────────────────────────────────────────────
+// Tasks, docsNeeded, manual notes, client overrides — keyed by case number so
+// a re-scrape (or even a different device with the same browser profile) keeps
+// Ishi's checklists intact. Only the user-modified fields are persisted; the
+// scraped fields (timeline, lastDate, status) re-flow from scraped.json.
+const USER_STATE_KEY = 'lextrack_user_state_v1';
+
+function saveUserState() {
+  const userData = {};
+  matters.forEach(m => {
+    if (!m.caseNo) return;
+    userData[m.caseNo] = {
+      tasks:      m.tasks      || [],
+      docsNeeded: m.docsNeeded || [],
+      notes:      m.notes      || null,
+      client:     m.client     || null,
+      // Only persist explicit type overrides (not the auto-classifier guess)
+      type:       (m.type && m.type !== 'other') ? m.type : null,
+    };
+  });
+  try { localStorage.setItem(USER_STATE_KEY, JSON.stringify(userData)); }
+  catch (e) { console.warn('LexTrack: failed to persist user state:', e); }
+}
+
+function loadUserState() {
+  try {
+    const raw = localStorage.getItem(USER_STATE_KEY);
+    if (!raw) return;
+    const userData = JSON.parse(raw);
+    matters.forEach(m => {
+      if (!m.caseNo) return;
+      const u = userData[m.caseNo];
+      if (!u) return;
+      if (Array.isArray(u.tasks))      m.tasks      = u.tasks;
+      if (Array.isArray(u.docsNeeded)) m.docsNeeded = u.docsNeeded;
+      if (u.notes)  m.notes  = u.notes;
+      if (u.client) m.client = u.client;
+      if (u.type)   m.type   = u.type;
+    });
+  } catch (e) { console.warn('LexTrack: failed to load user state:', e); }
+}
+
+// ── AI INSIGHTS → CHECKLIST ROUTING ───────────────────────────────────────────
+// Routes AI-generated actionItems to m.tasks and documentsNeeded to
+// m.docsNeeded with idempotent dedup, so re-running analysis doesn't pile up
+// duplicates. Saves immediately so the checklist survives reload.
+window.__lastAiByMatter = window.__lastAiByMatter || {};
+
+function saveAiInsightsToMatter(matterId, ai) {
+  const m = matters.find(x => x.id === matterId);
+  if (!m || !ai) return;
+
+  m.tasks      = m.tasks      || [];
+  m.docsNeeded = m.docsNeeded || [];
+
+  const norm = s => (s || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  const existingTaskTitles = new Set(m.tasks.map(t => norm(t.title)));
+  const existingDocTitles  = new Set(m.docsNeeded.map(d => norm(d.title)));
+
+  const newTasks = (ai.actionItems || [])
+    .filter(a => a && !existingTaskTitles.has(norm(a)))
+    .map(title => ({
+      id:        't_'  + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+      title,
+      due:       m.nextDate || null,
+      priority:  'P2',
+      done:      false,
+      source:    'ai',
+      addedAt:   new Date().toISOString(),
+    }));
+
+  const newDocs = (ai.documentsNeeded || [])
+    .filter(d => d && !existingDocTitles.has(norm(d)))
+    .map(title => ({
+      id:        'dn_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+      title,
+      obtained:  false,
+      source:    'ai',
+      addedAt:   new Date().toISOString(),
+    }));
+
+  m.tasks      = m.tasks.concat(newTasks);
+  m.docsNeeded = m.docsNeeded.concat(newDocs);
+
+  saveUserState();
+
+  if (newTasks.length === 0 && newDocs.length === 0) {
+    toast('All items already in checklist', '');
+  } else {
+    toast(`Added ${newTasks.length} task${newTasks.length === 1 ? '' : 's'} + ${newDocs.length} doc${newDocs.length === 1 ? '' : 's'} to checklist`, 'success');
+  }
+
+  // Re-render whichever view is currently active
+  if (document.getElementById('view-tasks')?.classList.contains('active'))     renderTasks('all');
+  if (document.getElementById('view-prep')?.classList.contains('active'))      renderPrepChecklist();
+  if (document.getElementById('view-detail')?.classList.contains('active'))    openDetail(matterId);
+  if (document.getElementById('view-dashboard')?.classList.contains('active')) renderDashboard();
+}
+
+function toggleDocNeeded(matterId, docId) {
+  const m = matters.find(x => x.id === matterId);
+  if (!m) return;
+  const d = (m.docsNeeded || []).find(x => x.id === docId);
+  if (!d) return;
+  d.obtained = !d.obtained;
+  saveUserState();
+  // Re-render currently visible views
+  if (document.getElementById('view-prep')?.classList.contains('active'))      renderPrepChecklist();
+  if (document.getElementById('view-detail')?.classList.contains('active'))    renderDetailDocsNeeded(matterId);
+}
+
+function deleteDocNeeded(matterId, docId) {
+  const m = matters.find(x => x.id === matterId);
+  if (!m) return;
+  m.docsNeeded = (m.docsNeeded || []).filter(x => x.id !== docId);
+  saveUserState();
+  if (document.getElementById('view-prep')?.classList.contains('active'))      renderPrepChecklist();
+  if (document.getElementById('view-detail')?.classList.contains('active'))    renderDetailDocsNeeded(matterId);
+}
+
 async function loadScrapedData() {
   const banner = document.getElementById('sync-banner');
   try {
@@ -1872,7 +2005,7 @@ async function loadScrapedData() {
 
     // Merge scraped data into matters:
     // - For each scraped case, update matching matter (by caseNo) OR add as new
-    // - Preserve client, tasks, docs, notes Ishi added manually
+    // - Preserve client, tasks, docsNeeded, notes Ishi added manually
     scraped.forEach(fresh => {
       if (fresh.error) return; // skip failed scrapes
       const norm = s => s.replace(/[\s\/]/g,'').toLowerCase();
@@ -1882,15 +2015,20 @@ async function loadScrapedData() {
         matters[idx] = {
           ...old,
           ...fresh,
-          client: fresh.client || old.client,
-          notes:  old.notes || fresh.notes,
-          tasks:  old.tasks?.length ? old.tasks : (fresh.tasks || []),
-          docs:   old.docs?.length  ? old.docs  : (fresh.docs  || []),
+          client:     fresh.client || old.client,
+          notes:      old.notes || fresh.notes,
+          tasks:      old.tasks?.length      ? old.tasks      : (fresh.tasks      || []),
+          docsNeeded: old.docsNeeded         || [],
+          docs:       old.docs?.length       ? old.docs       : (fresh.docs       || []),
         };
       } else {
         matters.push(fresh);
       }
     });
+
+    // After the scraped merge, re-apply persisted user state — it may
+    // contain newer checklist data than what the placeholder array had.
+    loadUserState();
 
     if (banner) {
       const ts = scraped.find(s => s.lastScraped)?.lastScraped;
@@ -1919,7 +2057,7 @@ function showView(name) {
   document.querySelectorAll('.nav-item').forEach(n => {
     if (n.getAttribute('onclick')?.includes(name)) n.classList.add('active');
   });
-  const titles = { dashboard:'Dashboard', lookup:'Case Lookup', matters:'All Matters', calendar:'Hearings Calendar', tasks:'Tasks', judgments:'Legal Research', documents:'Documents', detail:'Matter Detail' };
+  const titles = { dashboard:'Dashboard', lookup:'Case Lookup', matters:'All Matters', calendar:'Hearings Calendar', tasks:'Tasks', judgments:'Legal Research', prep:'Documents', documents:'Court Orders', detail:'Matter Detail' };
   document.getElementById('topbar-title').textContent = titles[name] || name;
 
   // Update mobile large-title (hidden on desktop via CSS)
@@ -1939,6 +2077,7 @@ function showView(name) {
   if (name === 'matters') renderAllMatters();
   if (name === 'calendar') renderCalendar();
   if (name === 'tasks') renderTasks('all');
+  if (name === 'prep') renderPrepChecklist();
   if (name === 'documents') renderDocuments();
   if (name === 'judgments' && typeof refreshIkKeyLabel === 'function') refreshIkKeyLabel();
 
@@ -2225,11 +2364,92 @@ function filterTasks(f, el) {
   renderTasks(f);
 }
 
+function renderPrepChecklist() {
+  // The Documents tab shows the AI-routed checklist of documents Ishi needs
+  // to obtain or prepare before a hearing. Separate from the Court Orders
+  // tab which shows scraped order PDFs (read-only artefacts from DHC).
+  const list = document.getElementById('prep-list');
+
+  // Flatten: every matter's docsNeeded gets a matter handle for routing.
+  const allNeeded = matters.flatMap(m =>
+    (m.docsNeeded || []).map(d => ({
+      ...d,
+      matterId: m.id,
+      matterTitle: m.title.split(' VS.')[0].split(' v. ')[0],
+      caseNo: m.caseNo,
+      nextDate: m.nextDate
+    }))
+  );
+
+  // Pending first, sorted by upcoming hearing; obtained items at the end
+  allNeeded.sort((a, b) => {
+    if (a.obtained !== b.obtained) return a.obtained ? 1 : -1;
+    return (a.nextDate || '').localeCompare(b.nextDate || '');
+  });
+
+  const pendingCount  = allNeeded.filter(d => !d.obtained).length;
+  const obtainedCount = allNeeded.length - pendingCount;
+
+  if (!allNeeded.length) {
+    list.innerHTML = `
+      <div class="empty-state" style="padding:60px 20px;">
+        <div class="empty-icon">📝</div>
+        <div class="empty-title">Nothing to prepare yet</div>
+        <div class="empty-sub">Run AI Analysis on any matter and click "Save to Checklist" — documents you need to prepare will land here with checkboxes to track progress.</div>
+      </div>`;
+    return;
+  }
+
+  // Group by matter so Ishi can see prep load per-case
+  const byMatter = {};
+  allNeeded.forEach(d => {
+    byMatter[d.matterId] = byMatter[d.matterId] || { title: d.matterTitle, caseNo: d.caseNo, nextDate: d.nextDate, items: [] };
+    byMatter[d.matterId].items.push(d);
+  });
+
+  list.innerHTML = `
+    <div style="display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap;">
+      <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--ink2);">
+        <strong style="color:var(--red);">${pendingCount}</strong> pending
+      </div>
+      <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--ink2);">
+        <strong style="color:var(--green);">${obtainedCount}</strong> obtained
+      </div>
+    </div>
+    ${Object.entries(byMatter).map(([mid, group]) => {
+      const dDays = daysUntil(group.nextDate);
+      const urgency = dDays !== null && dDays <= 7 ? 'color:var(--red);' : 'color:var(--ink3);';
+      return `
+        <div class="matter-prep-card" style="background:white;border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin-bottom:12px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+            <div onclick="openDetail('${mid}')" style="cursor:pointer;flex:1;min-width:0;">
+              <div style="font-size:14px;font-weight:600;color:var(--ink);line-height:1.35;">${group.title}</div>
+              <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:2px;">${group.caseNo}</div>
+            </div>
+            <div style="font-size:11px;${urgency}letter-spacing:0.5px;">
+              ${group.nextDate ? 'Hearing: ' + formatDate(group.nextDate) : 'No hearing set'}
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            ${group.items.map(d => `
+              <div class="prep-item" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:${d.obtained ? 'var(--paper2)' : 'var(--paper)'};border-radius:8px;">
+                <div class="task-check${d.obtained ? ' done' : ''}" onclick="toggleDocNeeded('${mid}','${d.id}')" style="flex-shrink:0;cursor:pointer;"></div>
+                <div style="flex:1;min-width:0;font-size:13.5px;color:var(--ink);${d.obtained ? 'text-decoration:line-through;color:var(--ink3);' : ''}">${d.title}</div>
+                <span style="font-size:10px;color:var(--ink3);letter-spacing:0.5px;">${d.source === 'ai' ? '🤖 AI' : '✏️'}</span>
+                <button onclick="deleteDocNeeded('${mid}','${d.id}')" title="Remove" style="background:transparent;border:0;color:var(--ink3);cursor:pointer;font-size:18px;line-height:1;padding:2px 6px;">×</button>
+              </div>`).join('')}
+          </div>
+        </div>`;
+    }).join('')}`;
+}
+
 function renderDocuments() {
+  // Documents tab is the "Court Orders" archive: scraped PDFs from DHC,
+  // read-only. The "Documents to Prepare" checklist is its own tab
+  // (#view-prep) since they're conceptually different — orders are
+  // historical artefacts; prep items are working TODOs.
   const docIcons = { 'Plaint':'📄', 'Court Order':'⚖️', 'Written Submission':'📝', 'Patent Document':'🔬', 'Affidavit':'📋' };
   const allDocs = matters.flatMap(m => (m.docs || []).map(d => ({ ...d, matterTitle: m.title.split(' VS.')[0].split(' v. ')[0] })));
-
-  // Sort newest first by date
   allDocs.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
   document.getElementById('docs-grid').innerHTML = allDocs.length ?
@@ -2321,7 +2541,34 @@ function openDetail(id) {
           }
         </div>
       </div>
+
+      <div class="card detail-col-full">
+        <div class="card-title">Documents to Prepare</div>
+        <div id="detail-docs-${id}"></div>
+      </div>
     </div>`;
+
+  // Render docs-needed list (uses shared fn so toggleDocNeeded re-renders cleanly)
+  renderDetailDocsNeeded(id);
+}
+
+function renderDetailDocsNeeded(id) {
+  const m = matters.find(x => x.id === id);
+  if (!m) return;
+  const el = document.getElementById('detail-docs-' + id);
+  if (!el) return;
+  const items = m.docsNeeded || [];
+  el.innerHTML = items.length
+    ? items.map(d => `
+        <div class="task-item">
+          <div class="task-check${d.obtained ? ' done' : ''}" onclick="toggleDocNeeded('${id}','${d.id}');renderDetailDocsNeeded('${id}')"></div>
+          <div class="task-info">
+            <div class="task-title${d.obtained ? ' done' : ''}">${d.title}</div>
+            <div class="task-meta">${d.source === 'ai' ? '🤖 From AI Analysis' : '✏️ Manual'}</div>
+          </div>
+          <button onclick="deleteDocNeeded('${id}','${d.id}');renderDetailDocsNeeded('${id}')" title="Remove" style="background:transparent;border:0;color:var(--ink3);cursor:pointer;font-size:18px;line-height:1;padding:2px 8px;">×</button>
+        </div>`).join('')
+    : '<div style="padding:20px 0;text-align:center;color:var(--ink3);font-size:13px;">No documents queued. Run AI Analysis and click "Save to Checklist" to populate this list.</div>';
 }
 
 function renderDetailTasks(id) {
@@ -2733,7 +2980,16 @@ async function generateAI(id) {
           <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">${ai.strategicInsight}</div>
         </div>
       </div>
+      <div style="margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">
+          Route ${ai.actionItems.length} actions → Tasks tab and ${ai.documentsNeeded.length} items → Documents tab as a tracked checklist.
+        </div>
+        <button class="btn btn-gold" onclick="saveAiInsightsToMatter('${id}', window.__lastAiByMatter['${id}'])" style="white-space:nowrap;">
+          ✓ Save to Checklist
+        </button>
+      </div>
     </div>`;
+  window.__lastAiByMatter[id] = ai;
   toast('Analysis complete', 'success');
 }
 
@@ -3084,7 +3340,16 @@ function renderDeepAnalysis(id, ai, ordersCount, cachedAt) {
           <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">${ai.strategicInsight}</div>
         </div>
       </div>
+      <div style="margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">
+          Route ${(ai.actionItems || []).length} actions → Tasks tab and ${(ai.documentsNeeded || []).length} items → Documents tab as a tracked checklist.
+        </div>
+        <button class="btn btn-gold" onclick="saveAiInsightsToMatter('${id}', window.__lastAiByMatter['${id}'])" style="white-space:nowrap;">
+          ✓ Save to Checklist
+        </button>
+      </div>
     </div>`;
+  window.__lastAiByMatter[id] = ai;
 }
 
 async function generateDeepAnalysis(id, forceRefresh = false) {
@@ -3586,11 +3851,13 @@ function addTask() {
     done: false,
     source: 'manual'
   });
+  saveUserState();
 
   closeModal('task-modal');
   toast('Task added', 'success');
   if (document.getElementById('view-tasks').classList.contains('active')) renderTasks('all');
   if (document.getElementById('view-detail').classList.contains('active')) renderDetailTasks(matterId);
+  if (document.getElementById('view-dashboard').classList.contains('active')) renderDashboard();
 }
 
 function toggleTask(matterId, taskId) {
@@ -3599,10 +3866,12 @@ function toggleTask(matterId, taskId) {
   const t = m.tasks.find(x => x.id === taskId);
   if (!t) return;
   t.done = !t.done;
+  saveUserState();
   if (document.getElementById('view-tasks').classList.contains('active')) {
     const filter = document.querySelector('.filter-chip.active')?.getAttribute('onclick')?.match(/'(\w+)'/)?.[1] || 'all';
     renderTasks(filter);
   }
+  if (document.getElementById('view-dashboard').classList.contains('active')) renderDashboard();
 }
 
 function syncAll() {
@@ -3617,9 +3886,12 @@ const currentYear = String(new Date().getFullYear());
 document.getElementById('lookup-year').value = currentYear;
 document.getElementById('f-year').value = currentYear;
 
+// Restore user-saved tasks/docsNeeded/notes from localStorage BEFORE first render
+loadUserState();
+
 renderDashboard();
 renderCalendar();
-loadScrapedData(); // fetch latest data from GitHub in background
+loadScrapedData(); // fetch latest data from GitHub in background (re-applies user state after merge)
 
 // ── PWA: register service worker for offline support + home-screen install
 if ('serviceWorker' in navigator) {
