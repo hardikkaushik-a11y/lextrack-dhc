@@ -269,22 +269,14 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
       widgetDump.allCanvas.forEach(c => console.log(`     - ${c.w}x${c.h} class="${c.classes}"`));
     }
 
-    // Reset the interceptor's buffer, THEN click reload, so the only
-    // captcha chars captured belong to the fresh captcha. (Without
-    // this reset, the buffer holds the chars from the page's initial
-    // captcha + the reload's captcha, and we can't tell them apart.)
-    await page.evaluate(() => {
-      if (window.__capturedCaptchas) window.__capturedCaptchas.length = 0;
-      if (window.__captchaCalls)     window.__captchaCalls.length     = 0;
-    });
-
-    const reloadClicked = await page.evaluate(() => {
-      const a = document.querySelector('#reload_href, a[id*="reload" i], button[id*="reload" i]');
-      if (a) { a.click(); return true; }
-      return false;
-    });
-    console.log(`[eDHCR] Captcha reload triggered: ${reloadClicked}`);
-    await new Promise(r => setTimeout(r, 1500));
+    // Use the captcha that was drawn at page load — DO NOT click reload.
+    // The server ties the expected captcha value to the session token
+    // sent on page load. Clicking reload generates a new captcha on
+    // the server but the form submit appears to check against a
+    // different one, causing silent rejection (0 records).
+    // We just take the most recent 6 chars captured so far.
+    console.log('[eDHCR] Using initial captcha (no reload).');
+    await new Promise(r => setTimeout(r, 800));
 
     // Diagnostic: confirm the canvas actually has pixels drawn on it.
     const canvasInfo = await page.evaluate(() => {
