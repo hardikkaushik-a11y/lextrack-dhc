@@ -3,23 +3,23 @@
 Scrape Delhi High Court daily cause lists for the cases tracked in
 config/cases.json and emit the matches to data/causelist.json.
 
-DHC publishes multiple PDFs per day under
-  https://delhihighcourt.nic.in/web/cause-lists/cause-list
+Two performance choices that matter:
+  1. Each PDF is downloaded + parsed ONCE. We extract full text via
+     poppler's `pdftotext -layout` (a system binary, ~20× faster than
+     pdfplumber on big files). Then we run every case-no regex against
+     the cached text. The earlier nested-loop version reparsed each PDF
+     per case → 12 × 8 = 96 parses → 8+ minutes.
+  2. We only walk the first 2 listing pages — DHC publishes ~10 PDFs
+     per day on page 0; older lists past page 1 are not relevant for a
+     "today + tomorrow" lookup.
 
-Filename patterns include:
-  combined_advance_DDMMYYYY.pdf       — next-day's pre-list (most useful)
+DHC cause-list filename patterns (vary in date/separator format):
+  combined_advance_DDMMYYYY.pdf       — next-day pre-list (most useful)
   combined_targetedd_DD.MM.YYYY.pdf   — today's main list
   combined_pro_DD.MM.YYYY.pdf         — provisional
   finals_DD.MM.YYYY.pdf               — finalised list
   combined_sup_*_DD.MM.YYYY.pdf       — supplementary additions
-  rlDDMMYYYY.pdf                      — review list
-
-For each tracked case, we search every relevant PDF (today + tomorrow's
-list pages) and capture: item number, court number, judge, time, source
-page. Result feeds the LexTrack UI's "Listed in cause list" surface so
-Ishi never has to grep PDFs herself.
-
-No CAPTCHA. Direct file downloads. Runs nightly via GitHub Actions.
+  rlDDMMYYYY.pdf                      — review list (skipped)
 
 Output schema (data/causelist.json):
 {
@@ -34,13 +34,14 @@ Output schema (data/causelist.json):
 
 import json
 import re
+import shutil
+import subprocess
 import sys
 import urllib.parse
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
-import pdfplumber
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "config" / "cases.json"
@@ -49,19 +50,15 @@ OUT_PATH = ROOT / "data" / "causelist.json"
 INDEX_URL = "https://delhihighcourt.nic.in/web/cause-lists/cause-list"
 HOST = "https://delhihighcourt.nic.in"
 
-# Filename prefixes we care about (in priority order). The "advance" list
-# published the evening before is the most useful — that's the next-day
-# schedule. Targeted/finals are today's actual list. Supply* are mid-day
-# additions. Skip pure deletion notes (signal/noise too low).
 RELEVANT_PREFIXES = (
-    "combined_advance",   # next day
-    "combined_targetedd", # today main
-    "finals_",            # today finalised
-    "final_",             # alt naming
-    "combined_pro",       # provisional
-    "pro_",               # alt
-    "combined_sup",       # supplementary
-    "supply_",            # alt
+    "combined_advance",
+    "combined_targetedd",
+    "finals_",
+    "final_",
+    "combined_pro",
+    "pro_",
+    "combined_sup",
+    "supply_",
 )
 
 UA = "Mozilla/5.0 (X11; Linux x86_64) LexTrack-Causelist/1.0"
@@ -70,10 +67,9 @@ session = requests.Session()
 session.headers.update({"User-Agent": UA})
 
 
-def fetch_pdf_links(max_pages: int = 4):
-    """Walk the first few pages of the cause-list listing, collecting every
-    /files/.../cause-list/*.pdf link. Newest-first ordering preserved.
-    """
+# ── Index walking ────────────────────────────────────────────────────────────
+
+def fetch_pdf_links(max_pages: int = 2):
     found = []
     for page in range(max_pages):
         url = f"{INDEX_URL}?page={page}"
@@ -95,23 +91,19 @@ def fetch_pdf_links(max_pages: int = 4):
 
 
 def date_in_filename(fname: str, target_date) -> bool:
-    """Cheap heuristic: filename contains a date stamp matching target_date.
-    DHC mixes formats — try them all."""
     d, mo, y = target_date.day, target_date.month, target_date.year
     candidates = [
-        f"{d:02d}{mo:02d}{y}",       # 27042026
-        f"{d:02d}.{mo:02d}.{y}",     # 27.04.2026
-        f"{d:02d}.{mo:02d}",         # 27.04 (some files omit year)
-        f"{d:02d}-{mo:02d}-{y}",     # 27-04-2026
-        f"{d:02d}_{mo:02d}_{y}",     # 27_04_2026
+        f"{d:02d}{mo:02d}{y}",
+        f"{d:02d}.{mo:02d}.{y}",
+        f"{d:02d}.{mo:02d}",
+        f"{d:02d}-{mo:02d}-{y}",
+        f"{d:02d}_{mo:02d}_{y}",
     ]
     low = fname.lower()
     return any(c in low for c in candidates)
 
 
 def select_pdfs(pdf_links, target_dates):
-    """From every PDF link found, pick the ones whose filename matches a
-    relevant prefix AND a target date. Returns list of (url, hearing_date)."""
     keep = []
     for href in pdf_links:
         fname = href.rsplit("/", 1)[-1]
@@ -133,18 +125,44 @@ def download_pdf(href: str, dest: Path) -> Path:
     return dest
 
 
+# ── Text extraction (poppler) ────────────────────────────────────────────────
+
+def extract_pages(pdf_path: Path):
+    """Return [{page, text}] for the PDF using `pdftotext -layout`.
+    pdftotext emits form-feed (\\x0c) between pages — split on that.
+    """
+    if not shutil.which("pdftotext"):
+        raise RuntimeError("pdftotext not on PATH. Workflow must apt-install poppler-utils.")
+    try:
+        proc = subprocess.run(
+            ["pdftotext", "-layout", "-enc", "UTF-8", str(pdf_path), "-"],
+            capture_output=True,
+            timeout=180,
+        )
+    except subprocess.TimeoutExpired:
+        print(f"[parse] {pdf_path.name}: pdftotext timeout (>180s)", file=sys.stderr)
+        return []
+    text = proc.stdout.decode("utf-8", errors="replace")
+    if proc.returncode != 0 and not text:
+        print(f"[parse] {pdf_path.name}: pdftotext rc={proc.returncode} stderr={proc.stderr[:200]!r}", file=sys.stderr)
+        return []
+    pages = text.split("\f")
+    return [{"page": i + 1, "text": p} for i, p in enumerate(pages) if p.strip()]
+
+
+# ── Case-number matching ─────────────────────────────────────────────────────
+
 def build_case_pattern(case_no: str) -> re.Pattern:
-    """Turn 'CS(COMM)/108/2025' into a regex that matches the same case
-    no matter how DHC's PDF formats spaces, slashes, parens, or dots."""
+    """Turn 'CS(COMM)/108/2025' into a regex tolerant of DHC's formatting drift.
+    Matches CS(COMM)108/2025, CS(COMM) 108/2025, CS(COMM)/108/2025, CS COMM 108-2025…
+    """
     type_match = re.match(r"^([A-Z\.\-]+)", case_no)
     type_part = type_match.group(1) if type_match else ""
-    # Anything bracketed after the type — e.g. (COMM)
     bracket = re.search(r"\(([A-Z\s]+)\)", case_no)
     bracket_word = bracket.group(1).strip() if bracket else ""
     nums = re.findall(r"\d+", case_no)
     if len(nums) < 2:
-        # Single-num cases — rare for tracked IPR matters, fallback
-        nums = nums + [""]
+        return re.compile(re.escape(case_no), re.IGNORECASE)
     num, year = nums[-2], nums[-1]
 
     parts = [re.escape(type_part)]
@@ -154,65 +172,63 @@ def build_case_pattern(case_no: str) -> re.Pattern:
     return re.compile("".join(parts), re.IGNORECASE)
 
 
-def search_case_in_pdf(case_no: str, pdf_path: Path):
-    """Find every occurrence of `case_no` in `pdf_path`. For each, capture the
-    line, item number (if line starts with one), nearest court header,
-    nearest judge name, and any time string on the same line.
-    """
-    pattern = build_case_pattern(case_no)
-    hits = []
-    try:
-        with pdfplumber.open(pdf_path) as pdf:
-            running_court = None
-            running_judge = None
-            for page in pdf.pages:
-                text = page.extract_text() or ""
-                # Court header on this page (or carry over from prior)
-                for cm in re.finditer(
-                    r"COURT\s+(?:NO\.?|NUM(?:BER)?)?\s*[:\-]?\s*(\d+)",
-                    text,
-                    re.IGNORECASE,
-                ):
-                    running_court = cm.group(1)
-                for jm in re.finditer(
-                    r"HON'?BLE\s+(?:MR\.?|MS\.?|MRS\.?|JUSTICE\s+|MS\.?\s+JUSTICE\s+|MR\.?\s+JUSTICE\s+)+([A-Z][A-Z\s\.\-]{3,60})",
-                    text,
-                ):
-                    running_judge = re.sub(r"\s+", " ", jm.group(1)).strip(" .,")
-                # Now look for the actual case in the body
-                for m in pattern.finditer(text):
-                    line_start = text.rfind("\n", 0, m.start()) + 1
-                    line_end = text.find("\n", m.end())
-                    if line_end == -1:
-                        line_end = min(len(text), m.end() + 300)
-                    line = text[line_start:line_end].strip()
+# Pre-compile court / judge sniffers — same regexes used on every page.
+COURT_RE = re.compile(r"COURT\s+(?:NO\.?|NUM(?:BER)?)?\s*[:\-]?\s*(\d+)", re.IGNORECASE)
+JUDGE_RE = re.compile(
+    r"HON'?BLE\s+(?:MR\.?|MS\.?|MRS\.?|JUSTICE\s+|MS\.?\s+JUSTICE\s+|MR\.?\s+JUSTICE\s+)+([A-Z][A-Z\s\.\-]{3,60})"
+)
+ITEM_RE = re.compile(r"^\s*(\d{1,4})[\.\s]")
+TIME_RE = re.compile(r"\b(\d{1,2}[:\.]\d{2}(?:\s*[AP]\.?M\.?)?)\b", re.IGNORECASE)
 
-                    item = None
-                    im = re.match(r"^\s*(\d{1,4})[\.\s]", line)
-                    if im:
-                        item = im.group(1)
 
-                    time_str = None
-                    tm = re.search(
-                        r"\b(\d{1,2}[:\.]\d{2}(?:\s*[AP]\.?M\.?)?)\b",
-                        line,
-                        re.IGNORECASE,
-                    )
-                    if tm:
-                        time_str = tm.group(1).upper().replace(".", ":", 1)
+def search_pages(pages, case_patterns: dict):
+    """Run every case pattern against the cached pages once.
+    Tracks running court / judge across pages (DHC headers cascade)."""
+    out = []
+    running_court = None
+    running_judge = None
 
-                    hits.append({
-                        "item":  item,
-                        "court": running_court,
-                        "judge": running_judge,
-                        "time":  time_str,
-                        "page":  page.page_number,
-                        "context": line[:240],
-                    })
-    except Exception as e:
-        print(f"[parse] {pdf_path.name}: {e}", file=sys.stderr)
-    return hits
+    for page in pages:
+        text = page["text"]
+        # Update running headers from this page (last hit wins)
+        cm = COURT_RE.findall(text)
+        if cm:
+            running_court = cm[-1]
+        jm = JUDGE_RE.findall(text)
+        if jm:
+            running_judge = re.sub(r"\s+", " ", jm[-1]).strip(" .,")
 
+        for case_no, pattern in case_patterns.items():
+            for m in pattern.finditer(text):
+                line_start = text.rfind("\n", 0, m.start()) + 1
+                line_end = text.find("\n", m.end())
+                if line_end == -1:
+                    line_end = min(len(text), m.end() + 300)
+                line = text[line_start:line_end].strip()
+
+                item = None
+                im = ITEM_RE.match(line)
+                if im:
+                    item = im.group(1)
+
+                time_str = None
+                tm = TIME_RE.search(line)
+                if tm:
+                    time_str = tm.group(1).upper().replace(".", ":", 1)
+
+                out.append({
+                    "caseNo": case_no,
+                    "item":   item,
+                    "court":  running_court,
+                    "judge":  running_judge,
+                    "time":   time_str,
+                    "page":   page["page"],
+                    "context": line[:240],
+                })
+    return out
+
+
+# ── Main ─────────────────────────────────────────────────────────────────────
 
 def main() -> int:
     if not CONFIG_PATH.exists():
@@ -228,7 +244,10 @@ def main() -> int:
     target_dates = [today, today + timedelta(days=1)]
     print(f"Tracking {len(cases)} cases · target dates: {[d.isoformat() for d in target_dates]}")
 
-    pdf_links = fetch_pdf_links(max_pages=5)
+    # Pre-compile every case's matcher once.
+    case_patterns = {c: build_case_pattern(c) for c in cases}
+
+    pdf_links = fetch_pdf_links(max_pages=2)
     print(f"Index returned {len(pdf_links)} PDF links")
     relevant = select_pdfs(pdf_links, target_dates)
     print(f"  → {len(relevant)} relevant for our target dates")
@@ -245,22 +264,24 @@ def main() -> int:
         try:
             download_pdf(href, local)
         except Exception as e:
-            print(f"✗ download failed: {fname}: {e}", file=sys.stderr)
+            print(f"  ✗ download {fname}: {e}", file=sys.stderr)
             sources.append({"file": fname, "date": hearing_date, "error": f"download: {e}"})
             continue
 
-        match_count = 0
-        for case_no in cases:
-            for hit in search_case_in_pdf(case_no, local):
-                hit.update({
-                    "caseNo":     case_no,
-                    "date":       hearing_date,
-                    "source_pdf": fname,
-                })
-                all_entries.append(hit)
-                match_count += 1
-        print(f"  ✓ {fname} → {match_count} matches")
-        sources.append({"file": fname, "date": hearing_date, "matched": match_count})
+        try:
+            pages = extract_pages(local)
+        except Exception as e:
+            print(f"  ✗ parse {fname}: {e}", file=sys.stderr)
+            sources.append({"file": fname, "date": hearing_date, "error": f"parse: {e}"})
+            continue
+
+        hits = search_pages(pages, case_patterns)
+        for hit in hits:
+            hit["date"] = hearing_date
+            hit["source_pdf"] = fname
+            all_entries.append(hit)
+        print(f"  ✓ {fname} · {len(pages)} pages · {len(hits)} matches")
+        sources.append({"file": fname, "date": hearing_date, "matched": len(hits)})
 
     # Dedup — same case + same date + same item + same court is one entry
     seen = set()

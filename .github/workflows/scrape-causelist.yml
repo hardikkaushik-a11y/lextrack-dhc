@@ -20,7 +20,9 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Generous safety net — typical run is <90s. If it climbs past 5 min
+    # something is wrong (PDF parser hung, DHC site is down).
+    timeout-minutes: 6
     permissions:
       contents: write
 
@@ -30,17 +32,20 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install poppler-utils (for fast PDF text extraction)
+        # Using `pdftotext` instead of pdfplumber: ~20× faster on the giant
+        # cause-list PDFs (some are 1000+ pages). One-time apt install adds
+        # ~3s to the run; pays for itself many times over.
+        run: sudo apt-get update -qq && sudo apt-get install -y poppler-utils
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        # No requirements.txt — only two deps. Pinning here so installs are
-        # reproducible (and pdfplumber's pinned version pulls a known pdfminer.six).
-        run: |
-          pip install --upgrade pip
-          pip install 'requests>=2.31,<3' 'pdfplumber>=0.11,<1'
+      - name: Install Python dependencies
+        # Only `requests` now — pdftotext is the system binary above.
+        run: pip install --quiet 'requests>=2.31,<3'
 
       - name: Run cause-list scraper
         run: python3 scripts/scrape_causelist.py
