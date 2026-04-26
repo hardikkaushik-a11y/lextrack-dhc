@@ -313,10 +313,18 @@ function summariseOrderText(text) {
   if (/\bdismissed\s*as\s*withdrawn/i.test(t)) return 'Suit dismissed as withdrawn.';
   if (/\bcompromise|\bsettled\s*between\s*the\s*parties/i.test(t)) return 'Settled between parties.';
 
-  // Fall back to first concrete sentence after the date line
-  const afterDate = t.replace(/^.*?(?:O\s*R\s*D\s*E\s*R|ORDER)\s*[\d.\-\/]*/i, '').trim();
-  const firstSentence = afterDate.split(/(?<=[.!?])\s/)[0];
-  return firstSentence ? firstSentence.substring(0, 200) : null;
+  // Fall back: skip past the order header. DHC orders look like:
+  //   "...O R D E R % 13.04.2026 1. <actual content...>"
+  // We strip everything up to and including the leading "%" date marker
+  // and the optional list-numbering, then take the first real sentence.
+  let afterHeader = t.replace(/^.*?(?:O\s*R\s*D\s*E\s*R|ORDER)\s*/i, '');
+  afterHeader = afterHeader.replace(/^%?\s*\d{1,2}[\.\-\/]\d{1,2}[\.\-\/]\d{4}\s*/, '');
+  afterHeader = afterHeader.replace(/^\d+\.\s*/, '');           // strip leading "1."
+  afterHeader = afterHeader.replace(/^[A-Z\.\s]+:?\s*$/m, '').trim();  // CORAM lines
+  const firstSentence = afterHeader.split(/(?<=[.!?])\s+/)[0];
+  return firstSentence && firstSentence.length > 15
+    ? firstSentence.substring(0, 220)
+    : null;
 }
 
 async function buildCaseObject(parsed, row, history) {
