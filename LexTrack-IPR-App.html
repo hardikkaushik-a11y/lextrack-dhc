@@ -1860,13 +1860,31 @@ function renderDetailTasks(id) {
 // ── ANALYSIS ROUTER ───────────────────────────────────────────────────────────
 // Single entry point. Uses DeepSeek API if a key is configured (cached so no
 // repeat charges), falls back to the free deterministic engine otherwise.
+// First click without a key: offer to enable AI (one-time paste), don't just
+// silently fall back — Ishi was getting basic analysis without realising AI
+// was an option.
 async function runAnalysis(id) {
-  const apiKey = getDeepSeekKey();
-  if (apiKey) {
-    return generateDeepAnalysis(id);
+  let apiKey = getDeepSeekKey();
+  if (!apiKey) {
+    const wantAI = confirm(
+      '✦ AI Analysis\n\n' +
+      'Want deeper, AI-powered analysis (DeepSeek)?\n' +
+      '  • Click OK to paste your API key (one-time setup)\n' +
+      '  • Click Cancel to use the built-in case-intelligence engine instead\n\n' +
+      'Either way you get a full analysis — DeepSeek just goes deeper.'
+    );
+    if (wantAI) {
+      apiKey = setupDeepSeekKey();
+      if (apiKey) {
+        toast('✓ AI Analysis enabled', 'success');
+        return generateDeepAnalysis(id);
+      }
+      // User cancelled paste — fall through to deterministic
+    }
   } else {
-    return generateAI(id);
+    return generateDeepAnalysis(id);
   }
+  return generateAI(id);
 }
 
 // ── DETERMINISTIC CASE INTELLIGENCE ENGINE ────────────────────────────────────
@@ -2175,13 +2193,28 @@ function getDeepSeekKey() { return localStorage.getItem('lextrack_deepseek_key')
 function setupDeepSeekKey() {
   const existing = getDeepSeekKey();
   const msg = existing
-    ? 'Update your DeepSeek API key:\n\nGet one at platform.deepseek.com → API Keys'
-    : 'Paste your DeepSeek API key for deeper case analysis.\n\n1. Go to platform.deepseek.com\n2. Sign up (free trial credit included)\n3. API Keys → Create new key\n4. Paste below.\n\n~₹0.05-0.20 per analysis. Key stays only in your browser.';
+    ? 'Update your DeepSeek API key (already configured).'
+    : 'Enable AI Analysis (DeepSeek) — Hardik shared a key with you.\n\nPaste the key below. It stays only in your browser. ~₹0.05 per analysis.';
   const k = prompt(msg, existing || '');
   if (k === null) return null;
   if (k.trim()) { localStorage.setItem('lextrack_deepseek_key', k.trim()); return k.trim(); }
   return null;
 }
+
+// One-shot install via URL hash: visiting `...#setup-ai=sk-xxx` stores the
+// key in localStorage and strips it from the URL.  Lets Hardik send Ishi
+// a one-click setup link without exposing the key in the public HTML.
+(function autoInstallFromHash() {
+  try {
+    const m = window.location.hash.match(/setup-ai=([^&]+)/);
+    if (m && m[1]) {
+      localStorage.setItem('lextrack_deepseek_key', decodeURIComponent(m[1]).trim());
+      // Strip the key from URL so it doesn't sit in browser history
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+      setTimeout(() => alert('✓ AI Analysis enabled. You can now click "AI Analysis" on any case for DeepSeek-powered insights.'), 100);
+    }
+  } catch(e) { console.warn('Auto-install failed:', e); }
+})();
 
 // Build a fingerprint that changes ONLY when actual case content changes —
 // not when the scraper runs without finding anything new.
