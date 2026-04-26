@@ -635,6 +635,126 @@ body {
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* ── CAUSE LIST · sidebar tab ─────────────────────────────────────────── */
+.cl-summary-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  max-width: 760px;
+}
+.cl-stat {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+.cl-stat-num { font-size: 22px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1.2; }
+.cl-stat-lbl { font-size: 11px; color: var(--ink3); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.4px; }
+
+.cl-day-section { margin-top: 28px; max-width: 920px; }
+.cl-day-section:first-child { margin-top: 0; }
+.cl-day-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.cl-day-count {
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink3);
+  background: var(--paper2, #faf9f6);
+  padding: 2px 8px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+}
+.cl-entries { display: flex; flex-direction: column; gap: 10px; }
+.cl-entry {
+  background: white;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold, #c9a84c);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.cl-entry-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.cl-entry-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.cl-entry-title:hover { color: var(--gold, #c9a84c); }
+.cl-entry-meta {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: var(--ink2);
+}
+.cl-entry-meta span { background: var(--paper2, #faf9f6); padding: 2px 9px; border-radius: 4px; font-variant-numeric: tabular-nums; }
+.cl-entry-context {
+  margin-top: 8px;
+  font-size: 11.5px;
+  color: var(--ink3);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: var(--paper2, #faf9f6);
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.cl-entry-foot {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--ink3);
+}
+.cl-matched-on code {
+  background: rgba(201,168,76,0.12);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 10.5px;
+  color: var(--ink2);
+}
+.cl-source-link {
+  color: var(--ink2);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px dotted var(--ink3);
+}
+.cl-source-link:hover { color: var(--gold, #c9a84c); border-color: var(--gold, #c9a84c); }
+
+.cl-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+.cl-badge-confirm { background: #d1fae5; color: #059669; border: 1px solid #05966933; }
+.cl-badge-verify  { background: #fef3c7; color: #d97706; border: 1px solid #d9770633; }
+
+@media (max-width: 700px) {
+  .cl-entry { padding: 12px 14px; }
+  .cl-entry-meta { font-size: 11.5px; }
+}
+
 /* ── CAUSE LIST surfaces ────────────────────────────────────────────── */
 /* Matter-detail banner: prominent strip below the matter header. */
 .causelist-banner {
@@ -1681,6 +1801,10 @@ body {
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
       Hearings Calendar
     </div>
+    <div class="nav-item" onclick="showView('causelist')">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13h8M8 17h6M8 9h2"/></svg>
+      Cause List
+    </div>
     <div class="nav-item" onclick="showView('tasks')">
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
       Tasks
@@ -1903,6 +2027,16 @@ body {
         </div>
         <div id="tasks-list"></div>
       </div>
+    </div>
+
+    <!-- ── CAUSE LIST VIEW ── -->
+    <div class="view" id="view-causelist">
+      <div class="section-header" style="margin-bottom:8px;">
+        <div class="section-title">DHC Cause List</div>
+        <div style="font-size:12px;color:var(--ink3);" id="causelist-meta">Auto-scraped from Delhi High Court daily PDFs</div>
+      </div>
+      <div id="causelist-summary" style="margin-bottom:18px;"></div>
+      <div id="causelist-body"></div>
     </div>
 
     <!-- ── JUDGMENTS / LEGAL RESEARCH VIEW ── -->
@@ -2462,8 +2596,8 @@ async function loadCauselist() {
     window.__causelist = data;
     applyCauselistToMatters();
     if (document.getElementById('view-dashboard')?.classList.contains('active')) renderDashboard();
+    if (document.getElementById('view-causelist')?.classList.contains('active')) renderCauselistView();
     if (document.getElementById('view-detail')?.classList.contains('active')) {
-      // Re-render whichever matter is currently open
       const id = document.querySelector('[id^="ai-btn-"]')?.id?.replace('ai-btn-','');
       if (id) openDetail(id);
     }
@@ -2548,6 +2682,119 @@ function renderCauselistBanner() {
   `;
 }
 
+// Full Cause List view — sidebar tab. Shows every entry grouped by date,
+// with full metadata + source PDF link + match-confidence badge so Ishi can
+// verify the auto-extracted matches.
+function renderCauselistView() {
+  const data = window.__causelist;
+  const meta = document.getElementById('causelist-meta');
+  const summary = document.getElementById('causelist-summary');
+  const body = document.getElementById('causelist-body');
+  if (!body) return;
+
+  // Loading / empty
+  if (!data) {
+    summary.innerHTML = '';
+    body.innerHTML = `<div class="empty-state"><div class="empty-icon">📅</div><div class="empty-title">Loading…</div><div class="empty-sub">Fetching the latest scraped cause list.</div></div>`;
+    return;
+  }
+
+  // Header meta — last scrape time + tracked / matched counts
+  const scrapedAt = data.scraped_at ? new Date(data.scraped_at) : null;
+  const scrapedStr = scrapedAt ? scrapedAt.toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }) : 'unknown';
+  meta.textContent = `Auto-scraped from Delhi High Court daily PDFs · last run ${scrapedStr}`;
+
+  const entries = data.entries || [];
+  const matched = data.matched_cases || 0;
+  const tracked = data.tracked_cases || 0;
+  const datesRange = (data.for_dates || []).map(d => new Date(d + 'T00:00:00').toLocaleDateString('en-IN', { weekday:'short', day:'numeric', month:'short' })).join(' & ');
+
+  summary.innerHTML = `
+    <div class="cl-summary-row">
+      <div class="cl-stat">
+        <div class="cl-stat-num">${matched}</div>
+        <div class="cl-stat-lbl">of ${tracked} tracked matters listed</div>
+      </div>
+      <div class="cl-stat">
+        <div class="cl-stat-num">${entries.length}</div>
+        <div class="cl-stat-lbl">Total entries</div>
+      </div>
+      <div class="cl-stat">
+        <div class="cl-stat-num" style="font-size:14px;">${datesRange || '—'}</div>
+        <div class="cl-stat-lbl">Coverage window</div>
+      </div>
+    </div>
+  `;
+
+  if (!entries.length) {
+    body.innerHTML = `
+      <div class="empty-state" style="margin-top:12px;">
+        <div class="empty-icon">🗓️</div>
+        <div class="empty-title">No tracked matters in the next 48-hour cause list</div>
+        <div class="empty-sub" style="max-width:540px;margin:0 auto;line-height:1.6;">
+          Either none of your ${tracked || 'tracked'} matters are listed for ${datesRange || 'the upcoming days'}, or the auto-extracted keywords didn't match. Open a matter to verify its title is populated — keywords are derived from there.
+        </div>
+      </div>`;
+    return;
+  }
+
+  // Group by date
+  const byDate = {};
+  for (const e of entries) (byDate[e.date || 'unknown'] ||= []).push(e);
+  const dates = Object.keys(byDate).sort();
+  const today = new Date(); today.setHours(0,0,0,0);
+  const dateLabel = iso => {
+    const d = new Date(iso + 'T00:00:00');
+    const diff = Math.round((d - today) / 86400000);
+    if (diff === 0) return `Today · ${d.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'short' })}`;
+    if (diff === 1) return `Tomorrow · ${d.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'short' })}`;
+    return d.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'short', year:'numeric' });
+  };
+
+  const escapeHtml = s => String(s||'').replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
+
+  body.innerHTML = dates.map(date => {
+    const dayEntries = byDate[date];
+    return `
+      <div class="cl-day-section">
+        <div class="cl-day-label">${dateLabel(date)} <span class="cl-day-count">${dayEntries.length} ${dayEntries.length===1?'entry':'entries'}</span></div>
+        <div class="cl-entries">
+          ${dayEntries.map(e => {
+            const matter = (matters || []).find(m => m.caseNo === e.caseNo);
+            const title = matter ? (matter.title || matter.caseNo) : e.caseNo;
+            const isVerify = e.match_type === 'keyword';
+            const badge = isVerify
+              ? `<span class="cl-badge cl-badge-verify" title="Matched on a party-name keyword. Click 'Source' to verify.">⚠ verify</span>`
+              : `<span class="cl-badge cl-badge-confirm" title="Matched on the case number itself.">✓ confirmed</span>`;
+            const sourceUrl = e.source_pdf
+              ? `https://delhihighcourt.nic.in/files/${(e.date || '').slice(0,7)}/cause-list/${e.source_pdf}`
+              : null;
+            return `
+              <div class="cl-entry">
+                <div class="cl-entry-head">
+                  <div class="cl-entry-title" ${matter ? `onclick="openDetail('${matter.id}')"` : ''} ${matter ? 'style="cursor:pointer;"' : ''}>
+                    ${escapeHtml(title)}
+                    ${badge}
+                  </div>
+                </div>
+                <div class="cl-entry-meta">
+                  ${e.court ? `<span><strong>Court ${e.court}</strong></span>` : ''}
+                  ${e.item ? `<span>Item ${e.item}</span>` : ''}
+                  ${e.time ? `<span>${e.time}</span>` : ''}
+                  ${e.judge ? `<span>${escapeHtml(e.judge)}</span>` : ''}
+                </div>
+                ${e.context ? `<div class="cl-entry-context">${escapeHtml(e.context)}</div>` : ''}
+                <div class="cl-entry-foot">
+                  ${e.matched_on ? `<span class="cl-matched-on">matched: <code>${escapeHtml(e.matched_on)}</code></span>` : ''}
+                  ${sourceUrl ? `<a href="${sourceUrl}" target="_blank" rel="noopener" class="cl-source-link">Source PDF · p.${e.page || '?'} →</a>` : ''}
+                </div>
+              </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+  }).join('');
+}
+
 // Format a single causelist entry as a human-readable line for the UI.
 function formatCauselistEntry(e) {
   const parts = [];
@@ -2596,7 +2843,7 @@ function showView(name, opts) {
   document.querySelectorAll('.nav-item').forEach(n => {
     if (n.getAttribute('onclick')?.includes(name)) n.classList.add('active');
   });
-  const titles = { dashboard:'Dashboard', lookup:'Case Lookup', matters:'All Matters', calendar:'Hearings Calendar', tasks:'Tasks', judgments:'Legal Research', prep:'Documents', documents:'Court Orders', drafting:'Drafting', detail:'Matter Detail' };
+  const titles = { dashboard:'Dashboard', lookup:'Case Lookup', matters:'All Matters', calendar:'Hearings Calendar', causelist:'Cause List', tasks:'Tasks', judgments:'Legal Research', prep:'Documents', documents:'Court Orders', drafting:'Drafting', detail:'Matter Detail' };
   document.getElementById('topbar-title').textContent = titles[name] || name;
 
   // Update mobile large-title (hidden on desktop via CSS)
@@ -2619,6 +2866,7 @@ function showView(name, opts) {
   if (name === 'matters') renderAllMatters();
   if (name === 'calendar') renderCalendar();
   if (name === 'tasks') renderTasks('all');
+  if (name === 'causelist' && typeof renderCauselistView === 'function') renderCauselistView();
   if (name === 'prep') renderPrepChecklist();
   if (name === 'documents') renderDocuments();
   if (name === 'drafting' && typeof renderDraftingView === 'function') renderDraftingView();
