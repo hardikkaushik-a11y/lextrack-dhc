@@ -269,8 +269,15 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
       widgetDump.allCanvas.forEach(c => console.log(`     - ${c.w}x${c.h} class="${c.classes}"`));
     }
 
-    // Force-regenerate the captcha by clicking the reload anchor (if present),
-    // then wait so the redraw happens with our interceptor in place.
+    // Reset the interceptor's buffer, THEN click reload, so the only
+    // captcha chars captured belong to the fresh captcha. (Without
+    // this reset, the buffer holds the chars from the page's initial
+    // captcha + the reload's captcha, and we can't tell them apart.)
+    await page.evaluate(() => {
+      if (window.__capturedCaptchas) window.__capturedCaptchas.length = 0;
+      if (window.__captchaCalls)     window.__captchaCalls.length     = 0;
+    });
+
     const reloadClicked = await page.evaluate(() => {
       const a = document.querySelector('#reload_href, a[id*="reload" i], button[id*="reload" i]');
       if (a) { a.click(); return true; }
@@ -301,18 +308,20 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
     console.log(`[eDHCR] Intercept calls (${interceptDump.allCalls.length}): ${JSON.stringify(interceptDump.allCalls.slice(0, 30))}`);
     console.log(`[eDHCR] Intercepted strings: ${JSON.stringify(interceptDump.captured)}`);
 
-    // Build the captcha answer. Two strategies:
-    // (A) If a single ≥4-char string was drawn, that's the answer.
-    // (B) If many single chars were drawn in sequence, concatenate them.
+    // Build the captcha answer. After the reset+reload above, the
+    // captured buffer should hold ONLY the fresh captcha's characters.
+    // eDHCR draws each char with a separate fillText() call.
     let captchaAnswer = null;
     const plausibleSingle = interceptDump.captured.filter(s => /^[A-Za-z0-9]{4,10}$/.test(s));
     if (plausibleSingle.length) {
       captchaAnswer = plausibleSingle[plausibleSingle.length - 1];
     } else {
-      // Concatenate single chars (drawn in sequence)
       const singleChars = interceptDump.captured.filter(s => /^[A-Za-z0-9]$/.test(s));
-      if (singleChars.length >= 4 && singleChars.length <= 10) {
-        captchaAnswer = singleChars.slice(-singleChars.length).join('');
+      if (singleChars.length >= 4) {
+        // Take the last 6 chars (eDHCR captchas appear to be 6-char numeric
+        // strings; defensive against any leftover chars in the buffer).
+        const len = singleChars.length > 8 ? 6 : singleChars.length;
+        captchaAnswer = singleChars.slice(-len).join('');
       }
     }
     console.log(`[eDHCR] Resolved captcha answer: ${JSON.stringify(captchaAnswer)}`);
