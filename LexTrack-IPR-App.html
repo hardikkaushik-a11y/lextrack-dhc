@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>LexTrack — IPR Practice Manager</title>
 
 <!-- ── PWA ─────────────────────────────────────────────────────────── -->
@@ -1138,7 +1138,19 @@ body {
                  "Segoe UI", Roboto, "DM Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
     overscroll-behavior-y: contain;  /* let our PTR own the top-pull gesture */
+    -webkit-text-size-adjust: 100%;  /* don't let iOS auto-resize text on rotate */
+    touch-action: manipulation;       /* kill the 300ms tap delay + dbl-tap zoom */
   }
+
+  /* Bump every input/select/textarea to 16px to prevent iOS Safari's
+     "zoom in on focus" behaviour. Inputs <16px trigger an automatic
+     viewport zoom that doesn't always reverse cleanly. */
+  input, select, textarea, button {
+    font-size: 16px !important;
+  }
+  /* …but keep cosmetic small text (lookup placeholder, etc.) at the smaller
+     visual size by using transform/scale-style downsizing only via CSS,
+     not font-size. For now 16px is the right baseline. */
 
   /* Show pull-to-refresh indicator on mobile (JS toggles its position) */
   .ptr-indicator { display: flex; }
