@@ -5435,6 +5435,75 @@ function urlBase64ToUint8Array(base64String) {
   return out;
 }
 
+// Show the subscription token modal. Built imperatively (rather than via
+// innerHTML with inline onclick handlers) because:
+//   1. Inline onclick="…" inside an arrow function captures the wrong `this`,
+//      so the previous Copy button never updated its label on success.
+//   2. Inline `closest(...).parentElement.remove()` would have removed
+//      <body> itself if the user tapped Close.
+function showSubscriptionModal(subJSON) {
+  // Tear down any existing modal first.
+  document.querySelectorAll('.lextrack-push-modal').forEach(n => n.remove());
+
+  const wrap = document.createElement('div');
+  wrap.className = 'lextrack-push-modal';
+  wrap.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;';
+  const card = document.createElement('div');
+  card.style.cssText = 'background:white;border-radius:14px;max-width:540px;width:100%;padding:26px 28px;box-shadow:0 20px 60px rgba(0,0,0,0.4);';
+  card.innerHTML = `
+    <div style="font-size:18px;font-weight:600;color:var(--ink1);margin-bottom:8px;">✓ Subscribed on this device</div>
+    <div style="font-size:13px;color:var(--ink2);line-height:1.55;margin-bottom:14px;">
+      Send the token below to Hardik (one-time). He'll add it to the GitHub repo so this phone starts receiving alerts.
+    </div>
+    <div style="font-size:11px;color:var(--ink3);margin-bottom:6px;">Tap and hold the box below to select all → Copy. Or use the button.</div>
+    <textarea readonly id="push-sub-json"
+      style="width:100%;min-height:160px;font-family:ui-monospace,Menlo,monospace;font-size:11px;padding:12px;border:1px solid var(--border);border-radius:8px;background:#f6f7f9;color:var(--ink1);resize:vertical;-webkit-user-select:text;user-select:text;"></textarea>
+    <div id="push-copy-status" style="font-size:12px;color:var(--ink3);margin-top:8px;min-height:18px;"></div>
+    <div style="display:flex;gap:10px;margin-top:14px;">
+      <button id="push-copy-btn" type="button"
+        style="flex:1;padding:13px 16px;background:var(--gold2);color:white;border:none;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;">Copy token</button>
+      <button id="push-close-btn" type="button"
+        style="padding:13px 16px;background:white;color:var(--ink2);border:1px solid var(--border);border-radius:8px;font-weight:500;cursor:pointer;">Close</button>
+    </div>`;
+  wrap.appendChild(card);
+  document.body.appendChild(wrap);
+
+  // Set the JSON via .value (not innerHTML) so quotes and backslashes survive.
+  const ta     = card.querySelector('#push-sub-json');
+  const status = card.querySelector('#push-copy-status');
+  const copyBtn  = card.querySelector('#push-copy-btn');
+  const closeBtn = card.querySelector('#push-close-btn');
+  ta.value = subJSON;
+
+  copyBtn.addEventListener('click', async () => {
+    let ok = false;
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(subJSON);
+        ok = true;
+      }
+    } catch (e) { /* fall through to execCommand */ }
+    if (!ok) {
+      try {
+        ta.focus(); ta.select(); ta.setSelectionRange(0, ta.value.length);
+        ok = document.execCommand('copy');
+      } catch (e) { ok = false; }
+    }
+    if (ok) {
+      copyBtn.textContent = '✓ Copied';
+      copyBtn.style.background = '#10b981';
+      status.textContent = 'Token copied to clipboard. Paste it into a WhatsApp/text to Hardik.';
+      status.style.color = '#10b981';
+    } else {
+      status.textContent = 'Auto-copy blocked. Tap and hold the box above, then tap "Copy".';
+      status.style.color = '#dc2626';
+      ta.focus(); ta.select();
+    }
+  });
+
+  closeBtn.addEventListener('click', () => wrap.remove());
+}
+
 async function enablePushNotifications() {
   const btn = document.getElementById('enable-push-btn');
   if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
@@ -5460,29 +5529,21 @@ async function enablePushNotifications() {
       });
     }
 
-    // Show the subscription JSON in a modal for one-time copy → GitHub Secret.
     const subJSON = JSON.stringify(sub.toJSON());
-    const wrap = document.createElement('div');
-    wrap.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;';
-    wrap.innerHTML = `
-      <div style="background:white;border-radius:14px;max-width:540px;width:100%;padding:26px 28px;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
-        <div style="font-size:18px;font-weight:600;color:var(--ink1);margin-bottom:8px;">✓ Subscribed on this device</div>
-        <div style="font-size:13px;color:var(--ink2);line-height:1.55;margin-bottom:18px;">
-          Send the token below to Hardik (one-time). He'll add it to the GitHub repo so this phone starts receiving push alerts.
-        </div>
-        <textarea readonly id="push-sub-json"
-          style="width:100%;min-height:140px;font-family:ui-monospace,Menlo,monospace;font-size:11px;padding:12px;border:1px solid var(--border);border-radius:8px;background:#f6f7f9;color:var(--ink1);resize:vertical;">${subJSON}</textarea>
-        <div style="display:flex;gap:10px;margin-top:16px;">
-          <button onclick="navigator.clipboard.writeText(document.getElementById('push-sub-json').value).then(() => this.textContent='✓ Copied');this.style.background='#10b981';this.style.color='white';"
-            style="flex:1;padding:11px 16px;background:var(--gold2);color:white;border:none;border-radius:8px;font-weight:500;cursor:pointer;">Copy token</button>
-          <button onclick="this.closest('div[style*=fixed]').parentElement.remove()"
-            style="padding:11px 16px;background:white;color:var(--ink2);border:1px solid var(--border);border-radius:8px;font-weight:500;cursor:pointer;">Close</button>
-        </div>
-      </div>`;
-    document.body.appendChild(wrap);
-
-    if (btn) { btn.disabled = false; btn.textContent = '🔔 Notifications enabled ✓'; btn.style.background = 'rgba(16,185,129,0.15)'; btn.style.borderColor = 'rgba(16,185,129,0.4)'; btn.style.color = '#10b981'; }
+    // Cache the JSON locally so the user can re-open the modal anytime to
+    // copy again — useful if the first copy attempt fails or they need to
+    // re-share with Hardik later.
     localStorage.setItem('lextrack_push_subscribed', '1');
+    localStorage.setItem('lextrack_push_subscription_json', subJSON);
+
+    showSubscriptionModal(subJSON);
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = '✓ Show my token';
+      btn.style.background = '#10b981';
+      btn.style.borderColor = '#10b981';
+      btn.style.color = '#ffffff';
+    }
   } catch (e) {
     console.error('Push subscribe failed:', e);
     alert('Could not enable notifications: ' + e.message);
@@ -5491,14 +5552,17 @@ async function enablePushNotifications() {
 }
 
 // On load: if already subscribed, reflect it in the button so user knows.
+// Tapping the button when subscribed re-opens the token modal so the user
+// can copy again — handled inside enablePushNotifications which calls
+// getSubscription() (returns existing sub) and re-shows the modal.
 window.addEventListener('load', () => {
   if (localStorage.getItem('lextrack_push_subscribed') === '1') {
     const btn = document.getElementById('enable-push-btn');
     if (btn) {
-      btn.textContent = '🔔 Notifications enabled ✓';
-      btn.style.background = 'rgba(16,185,129,0.15)';
-      btn.style.borderColor = 'rgba(16,185,129,0.4)';
-      btn.style.color = '#10b981';
+      btn.textContent = '✓ Show my token';
+      btn.style.background = '#10b981';
+      btn.style.borderColor = '#10b981';
+      btn.style.color = '#ffffff';
     }
   }
 });
