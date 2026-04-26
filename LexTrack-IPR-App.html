@@ -1131,6 +1131,57 @@ body {
    list, system font, sheet-style modals, large titles.
    Desktop layout unchanged.
    ═══════════════════════════════════════════════════════════════════ */
+/* ORDERS FILTER ───────────────────────────────────────────────────────── */
+.docs-filter { margin-bottom: 18px; }
+.docs-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--ink2);
+  font-size: 12.5px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}
+.filter-chip:hover { background: var(--paper2, #faf9f6); border-color: var(--ink3); }
+.filter-chip.active {
+  background: var(--ink, #1a1a1a);
+  color: white;
+  border-color: var(--ink, #1a1a1a);
+}
+.filter-chip.active .filter-chip-count {
+  background: rgba(255,255,255,0.18);
+  color: white;
+}
+.filter-chip-count {
+  display: inline-block;
+  background: var(--paper2, #f0eee8);
+  color: var(--ink3);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .docs-filter-row { padding-bottom: 4px; }
+  .filter-chip { font-size: 12px; padding: 5px 10px; }
+}
+
 /* DRAFTING ────────────────────────────────────────────────────────────── */
 /* Textareas need explicit width:100% — .form-input is shared with <input>
    and <select> which auto-fill via flex. Without this rule textareas
@@ -1822,6 +1873,7 @@ body {
         <div class="section-title">Court Orders</div>
         <div style="font-size:12px;color:var(--ink3);">Auto-fetched from DHC nightly</div>
       </div>
+      <div id="docs-filter" class="docs-filter" style="display:none;"></div>
       <div class="doc-grid" id="docs-grid"></div>
     </div>
 
@@ -2722,6 +2774,9 @@ function renderPrepChecklist() {
     }).join('')}`;
 }
 
+// Active company filter for the Orders view. Multi-select set; empty = show all.
+const __ordersFilter = new Set();
+
 function renderDocuments() {
   // Documents tab is the "Court Orders" archive: scraped PDFs from DHC,
   // read-only. The "Documents to Prepare" checklist is its own tab
@@ -2731,8 +2786,41 @@ function renderDocuments() {
   const allDocs = matters.flatMap(m => (m.docs || []).map(d => ({ ...d, matterTitle: m.title.split(' VS.')[0].split(' v. ')[0] })));
   allDocs.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
-  document.getElementById('docs-grid').innerHTML = allDocs.length ?
-    allDocs.map(d => {
+  // Build company filter chips — one per unique company (the parties on the
+  // case, derived from matterTitle), ordered by document count desc.
+  const counts = {};
+  allDocs.forEach(d => { counts[d.matterTitle] = (counts[d.matterTitle] || 0) + 1; });
+  const companies = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+
+  // Drop stale selections that no longer match any visible company
+  Array.from(__ordersFilter).forEach(c => { if (!counts[c]) __ordersFilter.delete(c); });
+
+  const filterEl = document.getElementById('docs-filter');
+  if (companies.length > 1) {
+    filterEl.style.display = '';
+    filterEl.innerHTML = `
+      <div class="docs-filter-row">
+        <button class="filter-chip ${__ordersFilter.size === 0 ? 'active' : ''}" onclick="clearOrdersFilter()">
+          All <span class="filter-chip-count">${allDocs.length}</span>
+        </button>
+        ${companies.map(([name, n]) => `
+          <button class="filter-chip ${__ordersFilter.has(name) ? 'active' : ''}" onclick="toggleOrdersFilter('${name.replace(/'/g, "\\'")}')">
+            ${name.length > 32 ? name.slice(0, 30) + '…' : name}
+            <span class="filter-chip-count">${n}</span>
+          </button>`).join('')}
+      </div>
+    `;
+  } else {
+    filterEl.style.display = 'none';
+    filterEl.innerHTML = '';
+  }
+
+  const visibleDocs = __ordersFilter.size === 0
+    ? allDocs
+    : allDocs.filter(d => __ordersFilter.has(d.matterTitle));
+
+  document.getElementById('docs-grid').innerHTML = visibleDocs.length ?
+    visibleDocs.map(d => {
       const dateStr = d.date ? formatDate(d.date) : '';
       const inner = `
         <div class="doc-icon">${docIcons[d.type] || '📄'}</div>
@@ -2743,7 +2831,18 @@ function renderDocuments() {
         ? `<a class="doc-card" href="${d.url}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;cursor:pointer;">${inner}</a>`
         : `<div class="doc-card">${inner}</div>`;
     }).join('') :
-    '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📁</div><div class="empty-title">No documents yet</div><div class="empty-sub">Orders will appear here automatically once the scraper runs</div></div>';
+    `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📁</div><div class="empty-title">${allDocs.length === 0 ? 'No documents yet' : 'No matches for this filter'}</div><div class="empty-sub">${allDocs.length === 0 ? 'Orders will appear here automatically once the scraper runs' : 'Clear the filter to see all orders'}</div></div>`;
+}
+
+function toggleOrdersFilter(company) {
+  if (__ordersFilter.has(company)) __ordersFilter.delete(company);
+  else __ordersFilter.add(company);
+  renderDocuments();
+}
+
+function clearOrdersFilter() {
+  __ordersFilter.clear();
+  renderDocuments();
 }
 
 // ── MATTER DETAIL ─────────────────────────────────────────────────────────────
