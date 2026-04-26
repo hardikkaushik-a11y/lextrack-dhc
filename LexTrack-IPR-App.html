@@ -1902,9 +1902,51 @@ function analyseOrderCadence(orders) {
   return { count: orders.length, label: cadence, avgGap, recentActivity, trajectory, recentOrders: recentOrders.length };
 }
 
+// Read the actual PDF text of the latest order (if scraper extracted it)
+// and produce a grounded one-line summary. This is the SAME logic as
+// summariseOrderText in src/scraper.js — duplicated client-side so the
+// summary updates if the scraper data lacks it.
+function readLatestOrderText(m) {
+  const tl = (m.timeline || []).slice().sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  const latest = tl.find(t => t.orderText);
+  if (!latest) return null;
+  const text = latest.orderText;
+  const lower = text.toLowerCase();
+
+  if (/\bld\.?\s*p\.?o\.?\s*is\s*on\s*leave/i.test(text)) {
+    const next = text.match(/(?:list(?:ed)?|fix(?:ed)?|adjourn(?:ed)?|next\s*date)[^.]*?on\s+(\d{1,2}[\.\-\/]\d{1,2}[\.\-\/]\d{4})/i);
+    return { kind: 'po_leave', summary: next ? `Presiding Officer was on leave; matter adjourned to ${next[1]}.` : 'Presiding Officer was on leave; matter adjourned.' };
+  }
+  if (/\bjudge\s+(?:is\s+)?on\s+leave/i.test(text)) return { kind: 'judge_leave', summary: 'The judge was on leave; matter adjourned.' };
+  if (/\bno\s+(?:one|representation|appearance)\s+(?:appeared|present)/i.test(text)) return { kind: 'no_appearance', summary: 'No appearance; matter adjourned.' };
+  if (/\bex[\s-]*parte\s*(?:ad-?interim\s*)?injunction/i.test(text)) return { kind: 'exparte', summary: 'Court granted ex-parte ad-interim injunction.' };
+  if (/\binterim\s*(?:order|injunction)\s*(?:is\s*)?(?:made\s*absolute|granted|continued|extended)/i.test(text)) return { kind: 'interim', summary: 'Interim order/injunction granted or continued.' };
+  if (/\bjudgment\s*(?:is\s*)?reserved/i.test(text)) return { kind: 'reserved', summary: 'Judgment was reserved.' };
+  if (/\bpassed\s*over/i.test(text)) return { kind: 'passed_over', summary: 'Matter was passed over.' };
+  if (/\bwritten\s*statement\s*(?:is\s*)?(?:filed|taken\s*on\s*record)/i.test(text)) return { kind: 'ws', summary: 'Written statement was filed/taken on record.' };
+  if (/\breply\s*(?:is\s*)?(?:filed|taken\s*on\s*record)/i.test(text)) return { kind: 'reply', summary: 'Reply was filed.' };
+  if (/\bsummons\s*(?:are\s*)?issued/i.test(text)) return { kind: 'summons', summary: 'Summons issued to defendants.' };
+  if (/\bdecree(?:d|\s)|\bsuit\s*decreed/i.test(text)) return { kind: 'decreed', summary: 'Suit was decreed.' };
+  if (/\bdismissed\s*as\s*withdrawn/i.test(text)) return { kind: 'withdrawn', summary: 'Suit was dismissed as withdrawn.' };
+  if (/\bcompromise|\bsettled\s*between\s*the\s*parties/i.test(text)) return { kind: 'settled', summary: 'Parties indicated settlement.' };
+
+  // Fall back: first concrete sentence after the date marker
+  const afterDate = text.replace(/^.*?(?:O\s*R\s*D\s*E\s*R|ORDER)\s*[\d.\-\/]*/i, '').trim();
+  const firstSentence = afterDate.split(/(?<=[.!?])\s/)[0];
+  return firstSentence ? { kind: 'fallback', summary: firstSentence.substring(0, 200) } : null;
+}
+
 function deriveLastDateSummary(m, c, cadence) {
   if (!m.lastDate) return 'No prior hearing recorded yet on DHC.';
   const lastDate = formatDate(m.lastDate);
+
+  // Prefer the actual order text — grounded reading beats archetype guesses
+  const real = readLatestOrderText(m);
+  if (real) {
+    return `On ${lastDate}: ${real.summary} (Read directly from the order PDF.)`;
+  }
+
+  // Fallback: archetype-based guess (only when no PDF text available)
   const ordersOnDate = (m.docs || []).filter(o => o.date === m.lastDate).length;
   const orderTxt = ordersOnDate ? `An order was passed on this date (PDF available in Documents tab).` : '';
 
@@ -1925,6 +1967,21 @@ function deriveNextDatePurpose(m, c, cadence) {
   const next = formatDate(m.nextDate);
   const days = daysUntil(m.nextDate);
   const proximity = days <= 7 ? 'imminent' : days <= 21 ? 'near-term' : 'mid-term';
+
+  // If the latest order was an adjournment, the next date is just routine listing
+  const real = readLatestOrderText(m);
+  if (real && (real.kind === 'po_leave' || real.kind === 'judge_leave' || real.kind === 'no_appearance' || real.kind === 'passed_over')) {
+    return `On ${next} (${days} days away — ${proximity}): routine re-listing after the previous adjournment. Same purpose as before — pleadings/arguments at the ${m.stage} stage.`;
+  }
+  if (real && real.kind === 'reserved') {
+    return `On ${next} (${days} days away): pronouncement of reserved judgment. Be ready for either outcome with appeal/cross-objection strategy.`;
+  }
+  if (real && real.kind === 'exparte') {
+    return `On ${next} (${days} days away): expect first appearance by the defendant(s) and likely contestation of the ex-parte ad-interim order.`;
+  }
+  if (real && real.kind === 'summons') {
+    return `On ${next} (${days} days away): defendants' first appearance after summons. Expect time to be sought for filing written statement.`;
+  }
 
   if (c.isStreamingPiracy) {
     return `On ${next} (${days} days away — ${proximity}), expect: status report on blocking compliance, identification of fresh rogue mirrors, ISP/DoT compliance updates, and possible addition of new defendant URLs. With ${cadence.count} prior orders, court will likely continue rolling injunction directions.`;
@@ -2278,52 +2335,52 @@ async function generateDeepAnalysis(id, forceRefresh = false) {
   const c = classifyCase(m);
   const cadence = analyseOrderCadence(orders);
 
-  const ordersList = orders.length
-    ? orders.slice(0, 30).map((o,i) => `${i+1}. ${formatDate(o.date)}${o.url ? ' — ' + o.url : ''}`).join('\n')
-    : '(none)';
+  // Pull actual extracted PDF text from the timeline (set by the scraper).
+  // This is the critical change: without real text, DeepSeek hallucinates.
+  const timeline = (m.timeline || []).slice().sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  const ordersWithText = timeline.filter(t => t.orderText);
 
-  const prompt = `You are a senior IPR litigation lawyer practising at the Delhi High Court. You are advising on this specific case based on the actual DHC record. Be specific to THIS case — do not give generic templates.
+  const recentOrdersBlock = ordersWithText.length
+    ? ordersWithText.slice(0, 3).map((t, i) => {
+        const txt = (t.orderText || '').substring(0, 1500);
+        return `── Order ${i+1} of ${ordersWithText.length} (${formatDate(t.date)}) ──\n${txt}`;
+      }).join('\n\n')
+    : '(no PDF text extracted — analyse from dates + parties only)';
 
-═══════════════════════════════════
+  const olderOrdersList = orders.length > 3
+    ? '\nOLDER ORDERS (dates only):\n' + orders.slice(3, 30).map((o,i) => `${i+4}. ${formatDate(o.date)}`).join('\n')
+    : '';
+
+  const prompt = `You are a senior IPR litigation lawyer practising at the Delhi High Court. You are advising on a specific case based on the actual order text from the DHC record. Be precise — refer ONLY to what the orders actually say. Do not invent facts.
+
 CASE: ${m.title}
-Case No: ${m.caseNo} | Delhi High Court | ${m.type.toUpperCase()}
+Case No: ${m.caseNo} | Delhi High Court | ${m.type === 'other' ? 'IPR (type not yet classified)' : m.type.toUpperCase()}
 Status: ${m.status || m.stage}
 Client: ${m.client || 'not specified'}
 Last hearing: ${m.lastDate ? formatDate(m.lastDate) : '—'}
 Next hearing: ${m.nextDate ? formatDate(m.nextDate) : '—'}
-Notes: ${m.notes || '(none)'}
+Total orders on record: ${orders.length}
+Cadence: ${cadence.label}${cadence.avgGap ? ` (avg ${cadence.avgGap} days between hearings)` : ''}
 
-ORDER HISTORY — ${orders.length} orders (newest first, up to 30 shown):
-${ordersList}
+═══ ACTUAL ORDER TEXT (latest ${Math.min(3, ordersWithText.length)}) ═══
+${recentOrdersBlock}
+${olderOrdersList}
+═══════════════════════════════════════════════════════
 
-PATTERN OBSERVATIONS:
-- Total orders passed: ${orders.length}
-- ${cadence.avgGap ? `Average gap between hearings: ${cadence.avgGap} days` : 'Insufficient data'}
-- Cadence: ${cadence.label}
-- Recent activity (last 60d): ${cadence.recentActivity}
-- Trajectory: ${cadence.trajectory}
-
-DISPUTE SIGNALS (from parties' names):
-${c.isStreamingPiracy ? '- IPTV/streaming piracy (defendant has URLs/domains/streaming markers)' : ''}
-${c.isJohnDoeMulti ? '- Multi-defendant / John Doe action (& ORS in title)' : ''}
-${c.isPharma ? '- Pharma/patent matter' : ''}
-${c.isFMCG ? '- Brand-protection / consumer goods' : ''}
-═══════════════════════════════════
-
-Reason carefully:
-1. What is this dispute REALLY about? Identify the IPR issue from parties' names.
-2. What does ${orders.length} orders in this cadence tell you about the court's posture?
-3. What's the next hearing genuinely going to be about? Be specific.
-4. What are the failure modes Ishi (the lawyer) should pre-empt?
+CRITICAL INSTRUCTIONS:
+- For "lastDateSummary": describe ONLY what the most recent order actually says. If the order says "Ld. P.O. is on leave, list on X" — say exactly that. If it grants an interim, say so. Do NOT speculate about hearings that didn't happen.
+- For "nextDatePurpose": derive from the latest order's directions. If the matter is just adjourned, say "next routine listing on <date>" — don't invent a hearing purpose.
+- For "caseSummary": stick to what the orders show — parties, what's been done, current stage.
+- Action items must follow logically from what the latest orders direct.
 
 Return EXACTLY this JSON (no markdown, no preamble, pure JSON):
 {
-  "lastDateSummary": "What likely happened on ${m.lastDate ? formatDate(m.lastDate) : 'the most recent date'} — specific to THIS case, refer to parties by name where relevant.",
-  "nextDatePurpose": "What ${m.nextDate ? formatDate(m.nextDate) : 'the next hearing'} will be for. Reference the case stage and order pattern.",
-  "caseSummary": "5-6 sentence summary of THIS case — dispute, current trajectory, key inflection points. Be specific.",
-  "actionItems": ["specific action 1", "action 2", "action 3", "action 4", "action 5"],
-  "documentsNeeded": ["specific doc 1 for next date", "doc 2", "doc 3", "doc 4"],
-  "strategicInsight": "One sharp, case-specific tactical observation. What's the bench likely to be sensitive to? What's the failure mode? What should be pre-empted?"
+  "lastDateSummary": "Summary of what the order on ${m.lastDate ? formatDate(m.lastDate) : 'the most recent date'} actually says. Quote or paraphrase the order's directions. Do NOT invent.",
+  "nextDatePurpose": "What ${m.nextDate ? formatDate(m.nextDate) : 'the next hearing'} will be for, based on the latest order's directions.",
+  "caseSummary": "5-6 sentence summary of THIS case based on the actual order text — dispute, what's happened, current stage.",
+  "actionItems": ["concrete action 1 derived from latest order", "action 2", "action 3", "action 4", "action 5"],
+  "documentsNeeded": ["specific doc 1 referenced in the latest order or implied by the next listing", "doc 2", "doc 3", "doc 4"],
+  "strategicInsight": "One sharp, case-specific tactical observation grounded in what the orders show. No generic advice."
 }`;
 
   try {

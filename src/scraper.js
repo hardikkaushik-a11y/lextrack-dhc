@@ -12,10 +12,43 @@ puppeteer.use(StealthPlugin());
 
 const fs   = require('fs');
 const path = require('path');
+const https = require('https');
+const pdfParse = require('pdf-parse');
 
-const CASES_FILE  = path.join(__dirname, '../config/cases.json');
-const OUTPUT_FILE = path.join(__dirname, '../data/scraped.json');
-const DHC_URL     = 'https://delhihighcourt.nic.in/app/get-case-type-status';
+const CASES_FILE   = path.join(__dirname, '../config/cases.json');
+const OUTPUT_FILE  = path.join(__dirname, '../data/scraped.json');
+const DHC_URL      = 'https://delhihighcourt.nic.in/app/get-case-type-status';
+const ORDERS_TO_PARSE = 3;          // most recent N order PDFs per case
+const ORDER_TEXT_LIMIT = 4000;       // chars of extracted text per order
+
+// Download a PDF and extract its text. Returns null on any failure
+// (image-only scans, network errors, etc.) — never throws.
+function fetchPdfText(url) {
+  return new Promise(resolve => {
+    if (!url || !url.startsWith('http')) return resolve(null);
+    const req = https.get(url, { timeout: 20000 }, res => {
+      if (res.statusCode !== 200) { res.resume(); return resolve(null); }
+      const chunks = [];
+      res.on('data', c => chunks.push(c));
+      res.on('end', async () => {
+        try {
+          const buf = Buffer.concat(chunks);
+          const parsed = await pdfParse(buf);
+          const text = (parsed.text || '')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .substring(0, ORDER_TEXT_LIMIT);
+          resolve(text || null);
+        } catch (err) {
+          resolve(null); // image-only scan or corrupt PDF
+        }
+      });
+      res.on('error', () => resolve(null));
+    });
+    req.on('error', () => resolve(null));
+    req.on('timeout', () => { req.destroy(); resolve(null); });
+  });
+}
 
 // Parse case number into { type, number, year }.
 // Accepts strict canonical form ("CS(COMM)/108/2025") plus a few common
@@ -159,7 +192,7 @@ async function scrapeCase(browser, caseInput, attempt = 1) {
     const historyData = await fetchCaseHistory(page, valid[0].caseNoHtml).catch(() => null);
 
     await page.close();
-    return buildCaseObject(parsed, valid[0], historyData);
+    return await buildCaseObject(parsed, valid[0], historyData);
 
   } catch (err) {
     await page.close();
@@ -255,16 +288,46 @@ function classifyIprType(corpus) {
   return { type: best[1] > 0 ? best[0] : null, scores };
 }
 
-function buildCaseObject(parsed, row, history) {
+// Boil down the order text into a 1-line summary for timeline display.
+// Looks for common DHC order patterns first; falls back to first sentence.
+function summariseOrderText(text) {
+  if (!text) return null;
+  const t = text.replace(/\s+/g, ' ').trim();
+  const lower = t.toLowerCase();
+
+  // Most common adjournment/no-hearing patterns
+  if (/\bld\.?\s*p\.?o\.?\s*is\s*on\s*leave/i.test(t)) {
+    const next = t.match(/(?:list(?:ed)?|fix(?:ed)?|adjourn(?:ed)?|next\s*date)[^.]*?on\s+(\d{1,2}[\.\-\/]\d{1,2}[\.\-\/]\d{4})/i);
+    return next ? `Presiding Officer on leave — adjourned to ${next[1]}.` : 'Presiding Officer on leave; matter adjourned.';
+  }
+  if (/\bno\s+(?:one|representation|appearance)\s+(?:appeared|present)/i.test(t)) return 'No appearance — matter adjourned.';
+  if (/\bjudge\s+(?:is\s+)?on\s+leave/i.test(t)) return 'Judge on leave — matter adjourned.';
+  if (/\binterim\s*(?:order|injunction)\s*(?:is\s*)?(?:made\s*absolute|granted|continued|extended)/i.test(t)) return 'Interim order/injunction granted or continued.';
+  if (/\bex[\s-]*parte\s*(?:ad-?interim\s*)?injunction/i.test(t)) return 'Ex-parte ad-interim injunction granted.';
+  if (/\bjudgment\s*(?:is\s*)?reserved/i.test(t)) return 'Judgment reserved.';
+  if (/\bpassed\s*over/i.test(t)) return 'Matter passed over.';
+  if (/\bwritten\s*statement\s*(?:is\s*)?(?:filed|taken\s*on\s*record)/i.test(t)) return 'Written statement filed/taken on record.';
+  if (/\breply\s*(?:is\s*)?(?:filed|taken\s*on\s*record)/i.test(t)) return 'Reply filed.';
+  if (/\bsummons\s*(?:are\s*)?issued/i.test(t)) return 'Summons issued to defendants.';
+  if (/\bdecree(?:d|\s)/i.test(t) || /\bsuit\s*decreed/i.test(t)) return 'Suit decreed.';
+  if (/\bdismissed\s*as\s*withdrawn/i.test(t)) return 'Suit dismissed as withdrawn.';
+  if (/\bcompromise|\bsettled\s*between\s*the\s*parties/i.test(t)) return 'Settled between parties.';
+
+  // Fall back to first concrete sentence after the date line
+  const afterDate = t.replace(/^.*?(?:O\s*R\s*D\s*E\s*R|ORDER)\s*[\d.\-\/]*/i, '').trim();
+  const firstSentence = afterDate.split(/(?<=[.!?])\s/)[0];
+  return firstSentence ? firstSentence.substring(0, 200) : null;
+}
+
+async function buildCaseObject(parsed, row, history) {
   const caseNoSrc   = row.caseNoText || row.caseNo || '';
   const statusMatch = caseNoSrc.match(/\[([^\]]+)\]/);
   const statusText  = statusMatch ? statusMatch[1] : '';
 
-  // history is now { orders, pageText } — backwards-compatible if it's still an array
+  // history is { orders, pageText } — backwards-compatible if it's still an array
   const ordersList = Array.isArray(history) ? history : (history?.orders || []);
   const pageText   = Array.isArray(history) ? '' : (history?.pageText || '');
 
-  // Build timeline + docs from order history
   const orders = ordersList.map(o => {
     const dateMatch = o.orderDate.match(/(\d{1,2}[-\/]\d{1,2}[-\/]\d{4})/);
     return {
@@ -274,19 +337,32 @@ function buildCaseObject(parsed, row, history) {
     };
   }).filter(o => o.date);
 
-  // Sort orders newest first
   orders.sort((a, b) => b.date.localeCompare(a.date));
-
   const lastDate = orders[0]?.date || null;
 
-  const timeline = orders.map(o => ({
-    date: o.date,
-    event: 'Court Order',
-    detail: 'Order passed by court',
-    orderLink: o.orderLink
-  }));
+  // Fetch + parse the latest N order PDFs so analysis can read what
+  // actually happened (e.g. "P.O. on leave" vs hallucinated arguments).
+  const toParse = orders.slice(0, ORDERS_TO_PARSE);
+  const parsedTexts = await Promise.all(
+    toParse.map(o => fetchPdfText(o.orderLink))
+  );
+  toParse.forEach((o, i) => { o.orderText = parsedTexts[i]; });
+  const parsedCount = parsedTexts.filter(Boolean).length;
+  console.log(`  [pdf] parsed ${parsedCount}/${toParse.length} latest orders`);
 
-  const docs = orders.map((o, i) => ({
+  const timeline = orders.map(o => {
+    const summary = summariseOrderText(o.orderText);
+    return {
+      date: o.date,
+      event: 'Court Order',
+      detail: summary || 'Order passed by court',
+      orderLink: o.orderLink,
+      // Keep full text only on the orders we parsed; rest stay light
+      orderText: o.orderText || undefined
+    };
+  });
+
+  const docs = orders.map(o => ({
     name: `Order_${o.date}.pdf`,
     type: 'Court Order',
     date: o.date,
@@ -295,20 +371,25 @@ function buildCaseObject(parsed, row, history) {
   }));
 
   // row.listingDate is like "15-05-2026\n(Court No. 5)" or "15/05/2026 Court No. 5"
-  const dateMatch = row.listingDate.match(/(\d{1,2}[-\/]\d{1,2}[-\/]\d{4})/);
-  const nextDate  = dateMatch ? normaliseDate(dateMatch[1]) : null;
+  const listMatch = row.listingDate.match(/(\d{1,2}[-\/]\d{1,2}[-\/]\d{4})/);
+  const nextDate  = listMatch ? normaliseDate(listMatch[1]) : null;
   if (!nextDate) console.log(`  [debug] listingDate raw: "${row.listingDate}"`);
 
-  // row.parties is like "PLAINTIFF NAME VS. DEFENDANT NAME" — ensure space before VS.
+  // row.parties is like "PLAINTIFF NAME VS. DEFENDANT NAME"
   const title = row.parties
     .replace(/\n+/g, ' ')
     .replace(/\s+/g, ' ')
     .replace(/(\S)(VS\.)/gi, '$1 $2')
     .trim() || parsed.raw;
 
-  // Auto-classify IPR type from DHC detail-page text (Subject / Acts / order summaries)
-  // Falls back to 'other' so the app shows "Untagged" rather than a wrong tag
-  const classification = classifyIprType(`${title} ${pageText}`);
+  // Classify from real PDF order text (way more signal than the generic
+  // listing-page text we used to scan).
+  const classifierCorpus = [
+    title,
+    pageText,
+    ...parsedTexts.filter(Boolean)
+  ].join(' ');
+  const classification = classifyIprType(classifierCorpus);
   const detectedType = classification.type || 'other';
   console.log(`  [classify] type=${detectedType} scores=${JSON.stringify(classification.scores)}`);
 
@@ -320,7 +401,7 @@ function buildCaseObject(parsed, row, history) {
     stage:       guessStage(statusText),
     status:      statusText,
     judge:       null,
-    client:      null,          // Ishi fills this in the app
+    client:      null,
     lastDate,
     nextDate,
     notes:       null,
