@@ -214,52 +214,76 @@ LEGAL_SUFFIX_RE = re.compile(
 KEYWORD_STOPWORDS = {
     "STAR", "INC", "LTD", "PVT", "AND", "THE", "OF", "FOR", "IN", "ON",
     "WITH", "VS", "V", "VERSUS", "GROUP", "INDIA", "DELHI",
+    "HTTPS", "HTTP", "WWW", "COM", "ORG", "NET",
 }
+
+# Domain pattern — matches hostnames like crichdbest.com, daddylives.nl,
+# abbonamentoiptvitalia.com. Word boundary at start so we don't pick up the
+# 'TPS.COM' tail of 'HTTPS://something.com'. TLD must be ≥2 letters.
+DOMAIN_RE = re.compile(r"\b([a-z0-9][a-z0-9\-]{2,}(?:\.[a-z]{2,}){1,3})\b", re.IGNORECASE)
 
 
 def derive_keywords_from_title(title: str) -> list:
     """Split 'STAR INDIA PVT. LTD. VS. IPTV SMARTERS PRO & ORS.' into
     ['STAR INDIA', 'IPTV SMARTERS PRO'] — phrases distinctive enough to
-    search PDFs for. Returns uppercased phrases."""
+    search PDFs for. Returns uppercased phrases.
+
+    Special case: rogue-website cases have URL-style defendants
+    (HTTPS//CRICHDBEST.COM, SERIALMAZA.MY). For these we extract the
+    hostname BEFORE the generic dot-stripping that would mangle it into
+    'CRICHDBEST COM'. We also add the bare site name (CRICHDBEST) as a
+    fallback for PDFs that abbreviate URLs.
+    """
     if not title:
         return []
 
-    # Split plaintiff / defendant on versus
     parts = re.split(r"\s+(?:VS\.?|VERSUS|V\.?)\s+", title, flags=re.IGNORECASE)
 
     out = []
     seen = set()
-    for chunk in parts:
-        # Strip legal suffixes
-        cleaned = LEGAL_SUFFIX_RE.sub("", chunk)
-        # Drop punctuation, collapse whitespace
-        cleaned = re.sub(r"[\.,\&]", " ", cleaned)
-        cleaned = re.sub(r"\s+", " ", cleaned).strip()
-        cleaned = cleaned.upper()
 
+    def add(kw: str):
+        if not kw:
+            return
+        if kw in seen:
+            return
+        if kw in KEYWORD_STOPWORDS:
+            return
+        if len(kw) < 4:
+            return
+        seen.add(kw)
+        out.append(kw)
+
+    for chunk in parts:
+        # ── First: domain detection ──
+        # Run before dot-stripping so 'CRICHDBEST.COM' stays intact.
+        # If the chunk looks domain-y, take that as the keyword and skip
+        # name-based extraction for this chunk.
+        domain_match = DOMAIN_RE.search(chunk)
+        if domain_match:
+            domain = domain_match.group(1).upper()
+            add(domain)
+            # Also add the bare host without TLD, in case the PDF abbreviates
+            # (e.g., "CRICHDBEST" without the .COM)
+            bare = domain.split(".")[0]
+            add(bare)
+            continue
+
+        # ── Otherwise: name-based extraction ──
+        cleaned = LEGAL_SUFFIX_RE.sub("", chunk)
+        cleaned = re.sub(r"[\.,\&]", " ", cleaned)
+        cleaned = re.sub(r"\s+", " ", cleaned).strip().upper()
         if not cleaned:
             continue
-        # Skip if it's just stopwords
         words = [w for w in cleaned.split() if w not in KEYWORD_STOPWORDS]
         if not words:
             continue
-
-        # Use the first 2-4 words (the distinctive part of the party name)
+        # Distinctive phrase — first 2-4 non-stopwords
         phrase = " ".join(words[:4])
-        if len(phrase) < 4:
-            continue
-        if phrase in seen:
-            continue
-        seen.add(phrase)
-        out.append(phrase)
-
-        # Also add the first 2-word combo if longer phrase exists (helps when
-        # the PDF abbreviates the company name)
+        add(phrase)
+        # 2-word fallback for PDFs that abbreviate
         if len(words) >= 2:
-            short = " ".join(words[:2])
-            if short != phrase and short not in seen and len(short) >= 4:
-                seen.add(short)
-                out.append(short)
+            add(" ".join(words[:2]))
 
     return out
 

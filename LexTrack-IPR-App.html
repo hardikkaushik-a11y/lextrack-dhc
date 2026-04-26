@@ -535,6 +535,18 @@ body {
 .hearing-case { font-weight: 500; font-size: 14px; color: var(--ink); }
 .hearing-case-no { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--ink3); margin-top: 2px; }
 .hearing-days-away { font-size: 11px; color: var(--red); font-weight: 500; margin-top: 4px; }
+.hearing-source-tag {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: rgba(201,168,76,0.15);
+  color: #7a5a10;
+  margin-left: 6px;
+  vertical-align: 1px;
+}
 
 /* ── MATTER DETAIL ── */
 .detail-header {
@@ -683,7 +695,11 @@ body {
   padding: 14px 18px;
   font-size: 13px;
   line-height: 1.55;
+  transition: border-color 0.12s, box-shadow 0.12s, transform 0.1s;
 }
+.cl-entry-clickable { cursor: pointer; }
+.cl-entry-clickable:hover { border-color: var(--gold, #c9a84c); box-shadow: 0 3px 10px rgba(201,168,76,0.18); }
+.cl-entry-clickable:active { transform: scale(0.998); }
 .cl-entry-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .cl-entry-title {
   font-size: 14px;
@@ -2762,17 +2778,30 @@ function renderCauselistView() {
           ${dayEntries.map(e => {
             const matter = (matters || []).find(m => m.caseNo === e.caseNo);
             const title = matter ? (matter.title || matter.caseNo) : e.caseNo;
-            const isVerify = e.match_type === 'keyword';
-            const badge = isVerify
-              ? `<span class="cl-badge cl-badge-verify" title="Matched on a party-name keyword. Click 'Source' to verify.">⚠ verify</span>`
-              : `<span class="cl-badge cl-badge-confirm" title="Matched on the case number itself.">✓ confirmed</span>`;
+            // Confidence tiers:
+            //   ✓ confirmed — case-no regex matched the line directly
+            //   ✓ matched   — keyword score ≥ 2 (plaintiff + defendant both hit)
+            //   ⚠ verify    — keyword score = 1 (only plaintiff or only one keyword)
+            let badge;
+            if (e.match_type === 'case_no') {
+              badge = `<span class="cl-badge cl-badge-confirm" title="The case number itself appears on this line of the PDF.">✓ confirmed</span>`;
+            } else if ((e.match_score || 1) >= 2) {
+              badge = `<span class="cl-badge cl-badge-confirm" title="Multiple keywords from this matter match the line — high confidence.">✓ matched</span>`;
+            } else {
+              badge = `<span class="cl-badge cl-badge-verify" title="Only one keyword matched. Could be a different case with the same plaintiff. Click the card to open the source PDF and confirm.">⚠ verify</span>`;
+            }
             const sourceUrl = e.source_pdf
               ? `https://delhihighcourt.nic.in/files/${(e.date || '').slice(0,7)}/cause-list/${e.source_pdf}`
               : null;
+            // Entire card opens the source PDF in a new tab. Matter-title
+            // click escalates to the matter detail (stopPropagation prevents
+            // the card-level PDF open).
+            const cardOnClick = sourceUrl ? `onclick="window.open('${sourceUrl}','_blank','noopener')"` : '';
+            const cardClass = sourceUrl ? 'cl-entry cl-entry-clickable' : 'cl-entry';
             return `
-              <div class="cl-entry">
+              <div class="${cardClass}" ${cardOnClick} ${sourceUrl ? `title="Click to open source PDF on Delhi High Court site"` : ''}>
                 <div class="cl-entry-head">
-                  <div class="cl-entry-title" ${matter ? `onclick="openDetail('${matter.id}')"` : ''} ${matter ? 'style="cursor:pointer;"' : ''}>
+                  <div class="cl-entry-title" ${matter ? `onclick="event.stopPropagation();openDetail('${matter.id}')"` : ''} ${matter ? 'style="cursor:pointer;" title="Open matter detail"' : ''}>
                     ${escapeHtml(title)}
                     ${badge}
                   </div>
@@ -2786,7 +2815,7 @@ function renderCauselistView() {
                 ${e.context ? `<div class="cl-entry-context">${escapeHtml(e.context)}</div>` : ''}
                 <div class="cl-entry-foot">
                   ${e.matched_on ? `<span class="cl-matched-on">matched: <code>${escapeHtml(e.matched_on)}</code></span>` : ''}
-                  ${sourceUrl ? `<a href="${sourceUrl}" target="_blank" rel="noopener" class="cl-source-link">Source PDF · p.${e.page || '?'} →</a>` : ''}
+                  ${sourceUrl ? `<span class="cl-source-link">📄 Open source PDF · p.${e.page || '?'} →</span>` : ''}
                 </div>
               </div>`;
           }).join('')}
@@ -3124,7 +3153,13 @@ function renderCalendar() {
   const daysInMonth = new Date(d.getFullYear(), d.getMonth()+1, 0).getDate();
   const daysInPrev = new Date(d.getFullYear(), d.getMonth(), 0).getDate();
 
+  // Hearings come from two sources: (1) matter.nextDate set by the main
+  // scraper, (2) cause-list entries (which may have dates the case-status
+  // sync doesn't yet reflect — e.g. last-minute additions). Merge both.
   const hearingDates = new Set(matters.map(m => m.nextDate).filter(Boolean));
+  for (const m of matters) {
+    for (const e of (m.causelist || [])) if (e.date) hearingDates.add(e.date);
+  }
 
   let html = '';
   for (let i = firstDay-1; i >= 0; i--) {
@@ -3138,24 +3173,43 @@ function renderCalendar() {
   }
   document.getElementById('cal-days').innerHTML = html;
 
-  const upcoming = matters
-    .filter(m => { const d = daysUntil(m.nextDate); return d !== null && d >= 0; })
-    .sort((a,b) => new Date(a.nextDate) - new Date(b.nextDate))
-    .slice(0,6);
+  // Build a unified upcoming list — one row per (matter, date) pair, sorted
+  // soonest-first. Cause-list entries beat next-date entries when both exist
+  // for the same date (richer metadata: court, item, time, judge).
+  const allUpcoming = [];
+  for (const m of matters) {
+    // Cause-list entries
+    for (const e of (m.causelist || [])) {
+      if (!e.date) continue;
+      if (daysUntil(e.date) === null || daysUntil(e.date) < 0) continue;
+      allUpcoming.push({ m, date: e.date, source: 'causelist', cl: e });
+    }
+    // matter.nextDate — only add if not already covered by a causelist entry
+    if (m.nextDate && daysUntil(m.nextDate) !== null && daysUntil(m.nextDate) >= 0) {
+      const covered = (m.causelist || []).some(e => e.date === m.nextDate);
+      if (!covered) allUpcoming.push({ m, date: m.nextDate, source: 'nextdate' });
+    }
+  }
+  allUpcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
+  const upcoming = allUpcoming.slice(0, 6);
 
   document.getElementById('upcoming-list').innerHTML = upcoming.length ?
-    upcoming.map(m => {
-      const nd = new Date(m.nextDate+'T00:00:00');
-      const diff = daysUntil(m.nextDate);
-      return `<div class="hearing-item">
+    upcoming.map(({ m, date, source, cl }) => {
+      const nd = new Date(date + 'T00:00:00');
+      const diff = daysUntil(date);
+      const sub = cl
+        ? `${cl.court ? `Court ${cl.court}` : ''}${cl.item ? ` · Item ${cl.item}` : ''}${cl.time ? ` · ${cl.time}` : ''}`
+        : (diff === 0 ? 'Today' : diff + ' days away');
+      const sourceTag = source === 'causelist' ? '<span class="hearing-source-tag" title="From DHC cause list">📅 Cause List</span>' : '';
+      return `<div class="hearing-item" onclick="openDetail('${m.id}')" style="cursor:pointer;">
         <div class="hearing-date-badge">
           <div class="hearing-date-day">${nd.getDate()}</div>
           <div class="hearing-date-month">${nd.toLocaleString('en-IN',{month:'short'})}</div>
         </div>
         <div class="hearing-info">
-          <div class="hearing-case">${m.title.split(' v. ')[0].substring(0,30)}...</div>
-          <div class="hearing-case-no">${m.caseNo}</div>
-          <div class="hearing-days-away">${diff === 0 ? 'Today' : diff + ' days away'}</div>
+          <div class="hearing-case">${(m.title || m.caseNo).split(' v. ')[0].substring(0,30)}${(m.title||'').length>30?'...':''}</div>
+          <div class="hearing-case-no">${m.caseNo} ${sourceTag}</div>
+          <div class="hearing-days-away">${sub || (diff === 0 ? 'Today' : diff + ' days away')}</div>
         </div>
       </div>`;
     }).join('') :
