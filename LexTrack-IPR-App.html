@@ -1217,6 +1217,11 @@ body {
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
       Tasks
     </div>
+    <div class="nav-section">Research</div>
+    <div class="nav-item" onclick="showView('judgments')">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M3 6l9-3 9 3M3 6v12l9 3 9-3V6M3 6l9 3 9-3M12 9v12"/></svg>
+      Judgments
+    </div>
     <div class="nav-section">Files</div>
     <div class="nav-item" onclick="showView('documents')">
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -1405,6 +1410,47 @@ body {
         </div>
         <div id="tasks-list"></div>
       </div>
+    </div>
+
+    <!-- ── JUDGMENTS / LEGAL RESEARCH VIEW ── -->
+    <div class="view" id="view-judgments">
+      <div class="lookup-panel">
+        <div class="lookup-title">Legal Research</div>
+        <div class="lookup-sub">Type a legal proposition. Get relevant Indian judgments ranked by relevance.</div>
+        <div style="margin-top:18px;">
+          <textarea id="prop-input" rows="4" placeholder="e.g. An ex-parte ad-interim injunction can be granted in trademark infringement cases without notice to the defendant where there is real risk of imminent and irreparable harm." style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:white;padding:14px 16px;border-radius:10px;font-family:inherit;font-size:14px;line-height:1.6;resize:vertical;"></textarea>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center;">
+          <select class="lookup-select" id="prop-court" style="min-width:170px;">
+            <option value="">All courts</option>
+            <option value="supremecourt">Supreme Court</option>
+            <option value="delhi">Delhi HC</option>
+            <option value="bombay">Bombay HC</option>
+            <option value="calcutta">Calcutta HC</option>
+            <option value="madras">Madras HC</option>
+            <option value="karnataka">Karnataka HC</option>
+          </select>
+          <select class="lookup-select" id="prop-years" style="min-width:140px;">
+            <option value="">Any year</option>
+            <option value="5">Last 5 years</option>
+            <option value="10">Last 10 years</option>
+            <option value="20">Last 20 years</option>
+          </select>
+          <button class="btn-lookup" onclick="searchJudgments()" id="prop-btn">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 6l9-3 9 3M3 6v12l9 3 9-3V6M3 6l9 3 9-3"/></svg>
+            Find Judgments
+          </button>
+          <button class="btn btn-ghost" onclick="setupIndianKanoonKey()" style="font-size:12px;padding:8px 12px;color:rgba(255,255,255,0.5);">
+            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="margin-right:4px;vertical-align:middle;"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <span id="ik-key-label">Set IK API key</span>
+          </button>
+        </div>
+        <div style="margin-top:14px;font-size:11px;color:rgba(255,255,255,0.25);">
+          ~₹0.50 per search via Indian Kanoon API. Results re-ranked by DeepSeek for relevance to your proposition.
+        </div>
+      </div>
+
+      <div id="judgments-result" style="margin-top:24px;"></div>
     </div>
 
     <!-- ── DOCUMENTS VIEW ── -->
@@ -1645,7 +1691,7 @@ function showView(name) {
   document.querySelectorAll('.nav-item').forEach(n => {
     if (n.getAttribute('onclick')?.includes(name)) n.classList.add('active');
   });
-  const titles = { dashboard:'Dashboard', lookup:'Case Lookup', matters:'All Matters', calendar:'Hearings Calendar', tasks:'Tasks', documents:'Documents', detail:'Matter Detail' };
+  const titles = { dashboard:'Dashboard', lookup:'Case Lookup', matters:'All Matters', calendar:'Hearings Calendar', tasks:'Tasks', judgments:'Legal Research', documents:'Documents', detail:'Matter Detail' };
   document.getElementById('topbar-title').textContent = titles[name] || name;
 
   if (name === 'dashboard') renderDashboard();
@@ -1653,6 +1699,7 @@ function showView(name) {
   if (name === 'calendar') renderCalendar();
   if (name === 'tasks') renderTasks('all');
   if (name === 'documents') renderDocuments();
+  if (name === 'judgments' && typeof refreshIkKeyLabel === 'function') refreshIkKeyLabel();
 
   // Auto-close mobile sidebar after picking a nav item
   toggleSidebar(false);
@@ -2376,20 +2423,226 @@ function setupDeepSeekKey() {
   return null;
 }
 
-// One-shot install via URL hash: visiting `...#setup-ai=sk-xxx` stores the
-// key in localStorage and strips it from the URL.  Lets Hardik send Ishi
-// a one-click setup link without exposing the key in the public HTML.
+// One-shot install via URL hash. Lets Hardik send Ishi a setup link without
+// exposing keys in the public HTML. Hash params never travel to any server.
+//   #setup-ai=sk-xxx          → DeepSeek key
+//   #setup-ik=token-xxx       → Indian Kanoon API token
 (function autoInstallFromHash() {
   try {
-    const m = window.location.hash.match(/setup-ai=([^&]+)/);
-    if (m && m[1]) {
-      localStorage.setItem('lextrack_deepseek_key', decodeURIComponent(m[1]).trim());
-      // Strip the key from URL so it doesn't sit in browser history
+    const aiMatch = window.location.hash.match(/setup-ai=([^&]+)/);
+    const ikMatch = window.location.hash.match(/setup-ik=([^&]+)/);
+    const installed = [];
+    if (aiMatch && aiMatch[1]) {
+      localStorage.setItem('lextrack_deepseek_key', decodeURIComponent(aiMatch[1]).trim());
+      installed.push('AI Analysis (DeepSeek)');
+    }
+    if (ikMatch && ikMatch[1]) {
+      localStorage.setItem('lextrack_ik_token', decodeURIComponent(ikMatch[1]).trim());
+      installed.push('Legal Research (Indian Kanoon)');
+    }
+    if (installed.length) {
       history.replaceState(null, '', window.location.pathname + window.location.search);
-      setTimeout(() => alert('✓ AI Analysis enabled. You can now click "AI Analysis" on any case for DeepSeek-powered insights.'), 100);
+      setTimeout(() => alert('✓ Enabled: ' + installed.join(' + ') + '.'), 100);
     }
   } catch(e) { console.warn('Auto-install failed:', e); }
 })();
+
+// ── INDIAN KANOON API ───────────────────────────────────────────────────────
+// Token lives in browser localStorage. Pricing: ₹0.50/search, ₹0.20/doc.
+// Free ₹500 on signup + ₹10K/mo non-commercial tier.
+
+function getIkToken() { return localStorage.getItem('lextrack_ik_token'); }
+function setupIndianKanoonKey() {
+  const existing = getIkToken();
+  const msg = existing
+    ? 'Update your Indian Kanoon API token (already configured).'
+    : 'Paste your Indian Kanoon API token.\n\n1. Sign up at api.indiankanoon.org\n2. Recharge ₹500 (or apply for ₹10K/month non-commercial tier)\n3. Copy your API token\n4. Paste below.\n\nToken stays only in your browser.';
+  const k = prompt(msg, existing || '');
+  if (k === null) return null;
+  if (k.trim()) {
+    localStorage.setItem('lextrack_ik_token', k.trim());
+    refreshIkKeyLabel();
+    return k.trim();
+  }
+  return null;
+}
+
+function refreshIkKeyLabel() {
+  const lbl = document.getElementById('ik-key-label');
+  if (lbl) lbl.textContent = getIkToken() ? '✓ IK key set' : 'Set IK API key';
+}
+
+// Build extractive keywords from a proposition for IK's search.
+// IK supports natural-language queries directly, so this is pass-through;
+// included as a hook for future tuning.
+function buildIkQuery(proposition, court, years) {
+  let q = proposition.trim();
+  if (court) q += ` doctypes:${court}`;
+  if (years) {
+    const cur = new Date().getFullYear();
+    q += ` fromdate:1-1-${cur - parseInt(years)}`;
+  }
+  return q;
+}
+
+async function searchJudgments() {
+  const prop = document.getElementById('prop-input').value.trim();
+  if (!prop) { toast('Enter a legal proposition first', 'error'); return; }
+
+  let token = getIkToken();
+  if (!token) {
+    token = setupIndianKanoonKey();
+    if (!token) return;
+  }
+
+  const court = document.getElementById('prop-court').value;
+  const years = document.getElementById('prop-years').value;
+  const result = document.getElementById('judgments-result');
+  const btn = document.getElementById('prop-btn');
+
+  btn.disabled = true;
+  btn.innerHTML = '<span style="width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.8s linear infinite;display:inline-block;"></span> Searching…';
+  result.innerHTML = `<div style="padding:24px;text-align:center;color:var(--ink3);font-size:13px;">Searching Indian Kanoon…</div>`;
+
+  try {
+    // IK API search — POST request with auth header
+    // https://api.indiankanoon.org/search/?formInput=<query>&pagenum=0
+    const ikQuery = buildIkQuery(prop, court, years);
+    const ikUrl = `https://api.indiankanoon.org/search/?formInput=${encodeURIComponent(ikQuery)}&pagenum=0`;
+    const ikRes = await fetch(ikUrl, {
+      method: 'POST',
+      headers: { 'Authorization': `Token ${token}` }
+    });
+
+    if (!ikRes.ok) {
+      if (ikRes.status === 401 || ikRes.status === 403) {
+        localStorage.removeItem('lextrack_ik_token');
+        throw new Error('Invalid token — re-enter it');
+      }
+      throw new Error(`IK API failed (${ikRes.status})`);
+    }
+    const ikData = await ikRes.json();
+    const docs = ikData.docs || [];
+
+    if (!docs.length) {
+      result.innerHTML = `<div class="lookup-result show" style="padding:32px;text-align:center;color:var(--ink3);">No judgments matched. Try rephrasing the proposition or removing filters.</div>`;
+      return;
+    }
+
+    btn.innerHTML = '<span style="width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.8s linear infinite;display:inline-block;"></span> Ranking by relevance…';
+
+    // Optional: re-rank with DeepSeek if key is set
+    let ranked = docs.slice(0, 20);
+    let aiUsed = false;
+    const aiKey = getDeepSeekKey();
+    if (aiKey && ranked.length > 1) {
+      try {
+        ranked = await rankJudgmentsWithDeepSeek(prop, ranked, aiKey);
+        aiUsed = true;
+      } catch (e) {
+        console.warn('DeepSeek ranking failed, using IK order:', e.message);
+      }
+    }
+
+    renderJudgments(prop, ranked, aiUsed);
+
+  } catch (err) {
+    result.innerHTML = `<div class="lookup-result show" style="padding:24px;color:#ef4444;font-size:13px;">Failed: ${err.message}</div>`;
+    console.error(err);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 6l9-3 9 3M3 6v12l9 3 9-3V6M3 6l9 3 9-3"/></svg> Find Judgments';
+  }
+}
+
+async function rankJudgmentsWithDeepSeek(proposition, docs, apiKey) {
+  // Build a compact list for the model — IK search results have title, headline (snippet),
+  // docsource (court), publishdate, docsize, tid (doc id)
+  const list = docs.map((d, i) => {
+    const snippet = (d.headline || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').substring(0, 400);
+    return `${i + 1}. ${d.title || '(untitled)'} — ${d.docsource || 'unknown court'}, ${d.publishdate || '?'}\n   Snippet: ${snippet}`;
+  }).join('\n\n');
+
+  const prompt = `You are an Indian IPR litigation lawyer. The user has a legal proposition and ${docs.length} candidate judgments from Indian Kanoon. Pick the 5 most relevant to the proposition, in descending order of relevance, and write a one-sentence note on WHY each one matches.
+
+PROPOSITION:
+"${proposition}"
+
+CANDIDATES:
+${list}
+
+Return EXACTLY this JSON (pure JSON, no markdown):
+{
+  "ranked": [
+    { "index": 1, "why": "One-sentence reason this matches the proposition." },
+    { "index": 7, "why": "..." },
+    { "index": 3, "why": "..." },
+    { "index": 12, "why": "..." },
+    { "index": 5, "why": "..." }
+  ]
+}
+Use the candidate's number (1-${docs.length}) for "index". Pick fewer than 5 only if very few are actually relevant.`;
+
+  const resp = await fetch('https://api.deepseek.com/v1/chat/completions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+    body: JSON.stringify({
+      model: 'deepseek-chat',
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 800,
+      temperature: 0.2,
+      response_format: { type: 'json_object' }
+    })
+  });
+  if (!resp.ok) throw new Error(`DeepSeek failed (${resp.status})`);
+  const data = await resp.json();
+  const content = data.choices?.[0]?.message?.content || '{}';
+  const parsed = JSON.parse(content);
+  if (!Array.isArray(parsed.ranked)) throw new Error('DeepSeek returned malformed JSON');
+
+  // Map back to docs + attach the "why"
+  return parsed.ranked
+    .map(r => {
+      const idx = parseInt(r.index) - 1;
+      if (idx < 0 || idx >= docs.length) return null;
+      return { ...docs[idx], why: r.why };
+    })
+    .filter(Boolean);
+}
+
+function renderJudgments(proposition, docs, aiUsed) {
+  const result = document.getElementById('judgments-result');
+  result.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+      <div style="font-size:14px;color:var(--ink2);">
+        <strong>${docs.length}</strong> judgment${docs.length === 1 ? '' : 's'} — ${aiUsed ? 'ranked by DeepSeek' : 'in Indian Kanoon order'}
+      </div>
+      <div style="font-size:11px;color:var(--ink3);">"${proposition.length > 80 ? proposition.substring(0, 80) + '…' : proposition}"</div>
+    </div>
+    <div class="judgments-list" style="display:flex;flex-direction:column;gap:12px;">
+      ${docs.map((d, i) => {
+        const url = d.tid ? `https://indiankanoon.org/doc/${d.tid}/` : '#';
+        const snippet = (d.headline || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').substring(0, 280);
+        return `
+          <div class="judgment-card" style="background:white;border:1px solid var(--border);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:8px;">
+              <div style="flex:1;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                  <span style="background:var(--gold3);color:#7a5a10;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;">#${i + 1}</span>
+                  <span style="font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;">${d.docsource || 'Unknown court'} ${d.publishdate ? '· ' + d.publishdate : ''}</span>
+                </div>
+                <div style="font-size:15px;font-weight:600;color:var(--ink);line-height:1.4;">
+                  <a href="${url}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">${d.title || '(Untitled)'}</a>
+                </div>
+              </div>
+              <a href="${url}" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:12px;padding:6px 12px;white-space:nowrap;">Read →</a>
+            </div>
+            ${d.why ? `<div style="margin-top:10px;padding:10px 12px;background:var(--gold3);border-left:3px solid var(--gold);border-radius:6px;font-size:13px;color:#5a430a;line-height:1.5;"><strong>Why it matches:</strong> ${d.why}</div>` : ''}
+            ${snippet ? `<div style="margin-top:10px;font-size:12.5px;color:var(--ink2);line-height:1.6;">${snippet}…</div>` : ''}
+          </div>`;
+      }).join('')}
+    </div>`;
+}
 
 // Build a fingerprint that changes ONLY when actual case content changes —
 // not when the scraper runs without finding anything new.
