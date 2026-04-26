@@ -1144,13 +1144,24 @@ body {
 
   /* Bump every input/select/textarea to 16px to prevent iOS Safari's
      "zoom in on focus" behaviour. Inputs <16px trigger an automatic
-     viewport zoom that doesn't always reverse cleanly. */
-  input, select, textarea, button {
+     viewport zoom that doesn't always reverse cleanly. We hit the
+     known specifics by class as well in case the broad override
+     loses to a more specific rule somewhere. */
+  input, select, textarea, button,
+  .lookup-input, .lookup-select,
+  .form-input, .form-select,
+  textarea#prop-input, #lookup-number, #lookup-year, #lookup-prefix,
+  #f-number, #f-year, #f-prefix, #f-title, #f-client, #f-notes,
+  #f-stage, #f-type, #f-lastdate, #f-nextdate, #f-custom-prefix {
     font-size: 16px !important;
   }
-  /* …but keep cosmetic small text (lookup placeholder, etc.) at the smaller
-     visual size by using transform/scale-style downsizing only via CSS,
-     not font-size. For now 16px is the right baseline. */
+  /* Also disable user-zoom on these specific elements as a final safety */
+  input[type="text"], input[type="search"], input[type="number"],
+  input[type="email"], input[type="tel"], input[type="url"],
+  input[type="date"], textarea, select {
+    font-size: max(16px, 1rem) !important;
+    transform: translateZ(0);   /* force composite layer; helps reset zoom */
+  }
 
   /* Show pull-to-refresh indicator on mobile (JS toggles its position) */
   .ptr-indicator { display: flex; }
@@ -2100,21 +2111,27 @@ async function loadScrapedData() {
 
 // ── HELPERS ──────────────────────────────────────────────────────────────────
 
-// ── VIEW HISTORY (powers iOS-style swipe-back) ──────────────────────────────
+// ── BACK NAVIGATION ─────────────────────────────────────────────────────────
+// Per request: swipe-back always returns to the Dashboard regardless of how
+// you got to the current view. Simpler mental model than a history stack —
+// every page is "one swipe from home". History array is kept (for potential
+// future use) but goBack() ignores it.
 const __viewHistory = [];
 function __pushHistory(name) {
-  if (__viewHistory[__viewHistory.length - 1] === name) return; // dedupe
+  if (__viewHistory[__viewHistory.length - 1] === name) return;
   __viewHistory.push(name);
   if (__viewHistory.length > 20) __viewHistory.shift();
 }
+function isOnDashboard() {
+  return document.getElementById('view-dashboard')?.classList.contains('active');
+}
 function canGoBack() {
-  return __viewHistory.length >= 2;
+  // Swipe-back available everywhere except when already on Dashboard
+  return !isOnDashboard();
 }
 function goBack() {
-  if (!canGoBack()) return false;
-  __viewHistory.pop();                          // drop current
-  const prev = __viewHistory[__viewHistory.length - 1];
-  showView(prev, { fromHistory: true });        // showView won't re-push
+  if (isOnDashboard()) return false;
+  showView('dashboard', { fromHistory: true });
   return true;
 }
 
@@ -4269,6 +4286,22 @@ loadScrapedData(); // fetch latest data from GitHub in background (re-applies us
     if (!st) return;
     st = null;
     snapBack();
+  });
+})();
+
+// ── iOS ZOOM SAFETY NET ──────────────────────────────────────────────────────
+// Even with font-size:16px and a locked viewport, very rarely iOS Safari can
+// get stuck zoomed in (e.g. after rotating with focus). On input blur, force
+// the viewport meta back to scale=1 so the page is guaranteed to reset.
+(function antiZoom() {
+  const viewport = document.querySelector('meta[name="viewport"]');
+  if (!viewport) return;
+  const baseContent = viewport.getAttribute('content');
+  document.addEventListener('focusout', (e) => {
+    if (!e.target.matches('input, select, textarea')) return;
+    // Toggle the viewport meta to force iOS to re-evaluate the zoom level
+    viewport.setAttribute('content', baseContent + ', maximum-scale=1.0001');
+    setTimeout(() => viewport.setAttribute('content', baseContent), 100);
   });
 })();
 
