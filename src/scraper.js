@@ -257,28 +257,31 @@ async function fetchCaseHistory(page, caseNoHtml) {
   }
 }
 
-// Classify IPR type from DHC page text (Subject/Acts field or order list).
-// Patterns are deliberately strict — site-wide footers like "© Copyright
-// Delhi High Court" must NOT trigger a copyright classification.
+// Classify IPR type from DHC page text + parsed PDF order text.
+// With ALL orders now parsed, we have rich signal. Patterns recognise
+// the legal phrases that show up in IPR pleadings + orders.
+// Boilerplate "© Copyright Delhi High Court" footer is stripped first.
 function classifyIprType(corpus) {
   if (!corpus) return { type: null, scores: {} };
 
-  // Strip boilerplate that always appears on DHC pages and pollutes scoring
+  // Strip site-wide copyright footer that pollutes every PDF
   let text = String(corpus).toLowerCase();
   text = text
-    .replace(/©\s*copyright[^.]*?(delhi\s*high\s*court|nic\.in|court)/gi, ' ')
-    .replace(/copyright\s*©[^.]*?(delhi\s*high\s*court|nic\.in|court)/gi, ' ')
+    .replace(/©\s*copyright[^.]*?(delhi\s*high\s*court|nic\.in|court|india)/gi, ' ')
+    .replace(/copyright\s*©[^.]*?(delhi\s*high\s*court|nic\.in|court|india)/gi, ' ')
     .replace(/copyright\s*\d{4}\s*delhi\s*high\s*court/gi, ' ')
-    .replace(/all\s*rights\s*reserved/gi, ' ');
+    .replace(/all\s*rights\s*reserved/gi, ' ')
+    .replace(/digitally\s*signed[^.]*?delhi\s*high\s*court/gi, ' ');
 
-  // Each pattern requires a phrase that's specifically legal/IPR — not a
-  // generic word like "patent" or "copyright" that might be in nav/footer.
+  // Pattern set tuned for full-PDF text: covers common IPR-pleading
+  // language plus statutory references. False-positive risk is low
+  // because we're scoring across many orders, not a single page.
   const patterns = {
-    trademark: /\b(trade\s*marks?\s*act|infringement\s*of\s*(the\s*)?(plaintiff'?s\s*)?(registered\s*)?trade\s*marks?|passing\s*off|deceptive(ly)?\s*similar|nice\s*classification|registered\s*trade\s*mark|tm\s*registration|impugned\s*mark|mark\s+["'].+?["']|distinctive(ness)?\s*(of\s*)?(the\s*)?mark|trademark\s+infringement|use\s*of\s*the\s*mark)\b/g,
-    patent:    /\b(patents?\s*act|patent(ee|ed)|patented\s*invention|prior\s*art|patent\s*specification|specification\s*of\s*the\s*patent|patent\s*agent|revocation\s*petition|patent\s*infringement|claim\s*\d+\s*of\s*the\s*patent)\b/g,
-    copyright: /\b(copyrights?\s*act|copyright\s*infringement|copyright\s*owner|literary\s*work|artistic\s*work|musical\s*work|cinematograph|sound\s*recording|moral\s*rights|fair\s*dealing|broadcast\s*reproduction|originality\s*of\s*the\s*work)\b/g,
-    design:    /\b(registered\s*design|industrial\s*design|design\s*infringement|designs\s*act|novelty\s*of\s*design)\b/g,
-    gi:        /\b(geographical\s*indication|gi\s*tag|gi\s*registration|geographical\s*indications\s*act)\b/g,
+    trademark: /\b(trade\s*marks?\s*act|trademarks?\s*act|infringement\s*of\s*(the\s*)?(plaintiff'?s\s*)?(registered\s*)?trade\s*marks?|passing\s*off|deceptive(ly)?\s*similar|nice\s*classification|registered\s*trade\s*mark|tm\s*registration|impugned\s*mark|distinctive(ness)?\s*(of\s*)?(the\s*)?mark|trademark\s*infringement|use\s*of\s*the\s*mark|deceptive\s*similarity|prior\s*adoption\s*and\s*use|honest\s*concurrent\s*user|likelihood\s*of\s*confusion)\b/g,
+    patent:    /\b(patents?\s*act|patent(ee|ed)|patented\s*invention|prior\s*art|patent\s*specification|specification\s*of\s*the\s*patent|patent\s*agent|revocation\s*petition|patent\s*infringement|inventive\s*step|complete\s*specification|provisional\s*specification|standard\s*essential\s*patent|sep\b)\b/g,
+    copyright: /\b(copyrights?\s*act|copyright\s*infringement|copyright\s*owner|literary\s*work|artistic\s*work|musical\s*work|cinematograph(?:\s*film)?|sound\s*recording|moral\s*rights|fair\s*dealing|broadcast\s*reproduction|broadcasting\s*reproduction\s*right|originality\s*of\s*the\s*work|rogue\s*website|piracy|illegal\s*streaming|signal\s*piracy|unauthori[sz]ed\s*broadcast|infringing\s*copy|hyperlink(?:ing)?)\b/g,
+    design:    /\b(registered\s*design|industrial\s*design|design\s*infringement|designs?\s*act|novelty\s*of\s*design|design\s*registration|registered\s*proprietor\s*of\s*the\s*design)\b/g,
+    gi:        /\b(geographical\s*indication|gi\s*tag|gi\s*registration|geographical\s*indications?\s*act|registered\s*proprietor\s*of\s*the\s*g\.?i\.?)\b/g,
   };
   const scores = { trademark:0, patent:0, copyright:0, design:0, gi:0 };
   for (const [type, re] of Object.entries(patterns)) {
