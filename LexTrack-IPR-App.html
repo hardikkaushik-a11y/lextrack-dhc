@@ -250,6 +250,32 @@ body {
 /* ── LARGE TITLE (mobile only — hidden on desktop) ── */
 .large-title { display: none; }
 
+/* ── PULL-TO-REFRESH INDICATOR (mobile only, JS-controlled) ── */
+.ptr-indicator {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  align-items: center;
+  justify-content: center;
+  color: var(--ink3);
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-60px);
+  transition: none;
+}
+.ptr-indicator svg { width: 18px; height: 18px; }
+.ptr-indicator.ready { color: var(--gold); }
+.ptr-indicator.refreshing svg { animation: ptr-spin 0.8s linear infinite; }
+@keyframes ptr-spin { to { transform: rotate(360deg); } }
+
 /* ── VIEWS ── */
 .view { display: none; }
 .view.active { display: block; }
@@ -1111,7 +1137,11 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
                  "Segoe UI", Roboto, "DM Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: contain;  /* let our PTR own the top-pull gesture */
   }
+
+  /* Show pull-to-refresh indicator on mobile (JS toggles its position) */
+  .ptr-indicator { display: flex; }
 
   /* Lock down horizontal overflow */
   html, body { overflow-x: hidden; max-width: 100vw; }
@@ -1445,6 +1475,14 @@ body {
 
 <!-- Mobile sidebar backdrop -->
 <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="toggleSidebar(false)"></div>
+
+<!-- PULL-TO-REFRESH INDICATOR (mobile, dashboard + matters only) -->
+<div class="ptr-indicator" id="ptr-indicator">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12a9 9 0 11-3-6.7"></path>
+    <path d="M21 4v5h-5"></path>
+  </svg>
+</div>
 
 <!-- MAIN -->
 <main class="main">
@@ -3892,6 +3930,125 @@ loadUserState();
 renderDashboard();
 renderCalendar();
 loadScrapedData(); // fetch latest data from GitHub in background (re-applies user state after merge)
+
+// ── PULL-TO-REFRESH (mobile, scoped to data-driven views) ────────────────────
+// Activates only on Dashboard / All Matters / Tasks. User pulls down at the
+// top of the page; an iOS-style spinner grows as they pull. Past 70px, the
+// release triggers a full refresh (loadScrapedData + re-render). Below
+// threshold, it snaps back without refreshing.
+(function setupPullToRefresh() {
+  const PTR_VIEWS = ['view-dashboard', 'view-matters', 'view-tasks'];
+  const TRIGGER_PX = 70;
+  const MAX_PULL = 110;
+
+  const indicator = document.getElementById('ptr-indicator');
+  if (!indicator) return;
+
+  let startY = 0;
+  let pullDist = 0;
+  let pulling = false;
+  let triggered = false;
+  let refreshing = false;
+
+  function ptrAllowed(target) {
+    if (refreshing) return false;
+    // Only on the allowed views
+    const onAllowedView = PTR_VIEWS.some(id => document.getElementById(id)?.classList.contains('active'));
+    if (!onAllowedView) return false;
+    // Must be at top of page
+    if (window.scrollY > 1 || window.pageYOffset > 1 || document.documentElement.scrollTop > 1) return false;
+    // Don't intercept when starting touch inside a modal, the sidebar, or
+    // any inner scroll container that the user might be trying to scroll.
+    if (target.closest('.modal-overlay, .sidebar, .matter-table[style*="overflow"]')) return false;
+    return true;
+  }
+
+  function setIndicator(distance) {
+    const eased = Math.min(distance, MAX_PULL);
+    const ratio = Math.min(eased / TRIGGER_PX, 1);
+    indicator.style.transform = `translateY(${eased}px) rotate(${eased * 4}deg)`;
+    indicator.style.opacity = ratio;
+    indicator.classList.toggle('ready', distance >= TRIGGER_PX);
+  }
+
+  function resetIndicator(animated) {
+    indicator.style.transition = animated ? 'transform 0.28s cubic-bezier(0.32,0.72,0,1), opacity 0.28s' : 'none';
+    indicator.style.transform = 'translateY(-60px) rotate(0deg)';
+    indicator.style.opacity = '0';
+    indicator.classList.remove('ready', 'refreshing');
+    setTimeout(() => indicator.style.transition = 'none', 320);
+  }
+
+  document.addEventListener('touchstart', (e) => {
+    if (!ptrAllowed(e.target)) return;
+    startY = e.touches[0].clientY;
+    pulling = true;
+    triggered = false;
+    pullDist = 0;
+    indicator.style.transition = 'none';
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!pulling) return;
+    const dy = e.touches[0].clientY - startY;
+    if (dy <= 0) {
+      // User pulled up — cancel
+      pulling = false;
+      resetIndicator(true);
+      return;
+    }
+    // Damped pull: each pixel of finger movement = 0.55px of indicator drop
+    pullDist = dy * 0.55;
+    setIndicator(pullDist);
+    triggered = pullDist >= TRIGGER_PX;
+  }, { passive: true });
+
+  document.addEventListener('touchend', () => {
+    if (!pulling) return;
+    pulling = false;
+    if (triggered) {
+      // Hold the indicator at the threshold position while we refresh
+      indicator.style.transition = 'transform 0.2s, opacity 0.2s';
+      indicator.style.transform = `translateY(${TRIGGER_PX}px) rotate(0deg)`;
+      indicator.style.opacity = '1';
+      indicator.classList.add('refreshing');
+      refreshing = true;
+      doRefresh().finally(() => {
+        refreshing = false;
+        resetIndicator(true);
+      });
+    } else {
+      resetIndicator(true);
+    }
+  });
+
+  document.addEventListener('touchcancel', () => {
+    if (!pulling) return;
+    pulling = false;
+    resetIndicator(true);
+  });
+
+  async function doRefresh() {
+    // Run actual data refresh + minimum animation time so the spinner
+    // doesn't flash and look broken on a fast network.
+    const minDelay = new Promise(r => setTimeout(r, 700));
+    try {
+      await Promise.all([
+        typeof loadScrapedData === 'function' ? loadScrapedData() : Promise.resolve(),
+        minDelay
+      ]);
+      // Re-render whatever's currently active
+      if (document.getElementById('view-dashboard')?.classList.contains('active')) renderDashboard();
+      if (document.getElementById('view-matters')?.classList.contains('active'))   renderAllMatters();
+      if (document.getElementById('view-tasks')?.classList.contains('active'))     renderTasks('all');
+      toast('Refreshed', 'success');
+    } catch (e) {
+      console.warn('PTR refresh error:', e);
+      await minDelay;
+      toast('Refresh failed', 'error');
+    }
+  }
+})();
 
 // ── PWA: register service worker for offline support + home-screen install
 if ('serviceWorker' in navigator) {
