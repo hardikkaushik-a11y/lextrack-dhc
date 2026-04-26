@@ -2545,15 +2545,18 @@ async function addToScraper(caseNo) {
     });
     if (!writeRes.ok) throw new Error(`GitHub write failed (${writeRes.status})`);
 
-    // 4. Trigger the scraper workflow immediately
+    // 4. Trigger the scraper workflow in single-case mode (fast path: ~30-60s)
     const triggerRes = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/scrape.yml/dispatches`, {
       method: 'POST',
       headers: { ...ghHeaders, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ref: GH_BRANCH })
+      body: JSON.stringify({
+        ref: GH_BRANCH,
+        inputs: { case_no: caseNo }   // ← scraper only runs for this case
+      })
     });
     if (!triggerRes.ok) console.warn('Workflow dispatch failed', triggerRes.status);
 
-    toast(`✓ ${caseNo} added — scraper running, data appears in ~3 min`, 'success');
+    toast(`✓ ${caseNo} added — scraping now, data appears in ~60s`, 'success');
 
     // Add a placeholder so it shows up immediately
     const parsed = caseNo.match(/^(.+?)\/(\d+)\/(\d{4})$/);
@@ -2561,7 +2564,7 @@ async function addToScraper(caseNo) {
       const id = `m_${parsed[1].replace(/[^a-z0-9]/gi,'')}_${parsed[2]}_${parsed[3]}`;
       if (!matters.find(m => m.id === id)) {
         matters.push({
-          id, caseNo, title: caseNo, type: 'trademark', stage: 'filed',
+          id, caseNo, title: caseNo, type: 'other', stage: 'filed',
           client: null, judge: null, lastDate: null, nextDate: null, notes: null,
           timeline: [], tasks: [], docs: []
         });
@@ -2569,6 +2572,14 @@ async function addToScraper(caseNo) {
     }
 
     showView('matters');
+
+    // Auto-refresh scraped data after 75s — the single-case run should be done by then
+    setTimeout(async () => {
+      toast('Pulling fresh data from DHC...', '');
+      await loadScrapedData();
+      toast(`✓ ${caseNo} now live`, 'success');
+    }, 75000);
+
   } catch(err) {
     toast(`Failed: ${err.message}`, 'error');
     console.error(err);

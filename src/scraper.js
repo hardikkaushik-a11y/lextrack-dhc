@@ -280,10 +280,17 @@ function buildCaseObject(parsed, row, history) {
 // ── MAIN ──────────────────────────────────────────────────────────────────────
 
 async function main() {
-  const cases = JSON.parse(fs.readFileSync(CASES_FILE, 'utf8'));
+  const allCases = JSON.parse(fs.readFileSync(CASES_FILE, 'utf8'));
+
+  // Single-case fast path: SCRAPE_CASE env var (set by workflow_dispatch input)
+  // lets us re-scrape just one case in ~30s instead of looping all of them.
+  const singleCase = (process.env.SCRAPE_CASE || '').trim();
+  const cases = singleCase ? [singleCase] : allCases;
 
   console.log('LexTrack DHC Scraper');
-  console.log(`Cases to scrape: ${cases.length}`);
+  console.log(singleCase
+    ? `Single-case mode: ${singleCase}`
+    : `Full sync: ${cases.length} cases`);
   console.log(`No CAPTCHA service needed — reading answer from DOM directly.\n`);
 
   // Validate mode
@@ -317,15 +324,18 @@ async function main() {
 
   await browser.close();
 
-  // Merge with existing data — preserve client, tasks, docs Ishi has added manually
+  // Merge: start from existing cases, replace/add the freshly scraped ones.
+  // This way single-case runs don't drop the other cases from scraped.json.
   let existing = [];
   try { existing = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8')); } catch(_) {}
 
   const norm = s => s.replace(/[\s\/]/g,'').toLowerCase();
-  const merged = results.map(fresh => {
-    const old = existing.find(e => norm(e.caseNo) === norm(fresh.caseNo));
-    if (old) {
-      return {
+  const merged = [...existing];
+  results.forEach(fresh => {
+    const idx = merged.findIndex(e => norm(e.caseNo) === norm(fresh.caseNo));
+    if (idx >= 0) {
+      const old = merged[idx];
+      merged[idx] = {
         ...fresh,
         client:   old.client   || fresh.client,
         tasks:    old.tasks?.length  ? old.tasks  : (fresh.tasks  || []),
@@ -333,8 +343,9 @@ async function main() {
         lastDate: fresh.lastDate || old.lastDate,
         timeline: fresh.timeline?.length ? fresh.timeline : (old.timeline || [])
       };
+    } else {
+      merged.push(fresh);
     }
-    return fresh;
   });
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(merged, null, 2));

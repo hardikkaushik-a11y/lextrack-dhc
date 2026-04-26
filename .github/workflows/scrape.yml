@@ -5,7 +5,12 @@ on:
     # 11 PM IST = 5:30 PM UTC
     - cron: '30 17 * * *'
   workflow_dispatch:
-    # Allow manual trigger from GitHub UI
+    # Allow manual trigger from GitHub UI / API
+    inputs:
+      case_no:
+        description: 'Single case number to scrape (leave blank for full sync)'
+        required: false
+        default: ''
 
 jobs:
   scrape:
@@ -37,6 +42,7 @@ jobs:
       - name: Run scraper
         env:
           TWO_CAPTCHA_API_KEY: ${{ secrets.TWO_CAPTCHA_API_KEY }}
+          SCRAPE_CASE: ${{ inputs.case_no }}
         run: node src/scraper.js
 
       - name: Commit updated data
