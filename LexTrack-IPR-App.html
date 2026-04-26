@@ -2501,16 +2501,35 @@ async function generateDeepAnalysis(id, forceRefresh = false) {
   const timeline = (m.timeline || []).slice().sort((a,b) => (b.date||'').localeCompare(a.date||''));
   const ordersWithText = timeline.filter(t => t.orderText);
 
+  // Smart context budget — feed the model as many orders as we can while
+  // staying under ~25K chars total (well within DeepSeek's 128K context).
+  // Latest 5 orders go in FULL, next 15 get a 700-char excerpt, anything
+  // older just contributes its date + a one-line summary.
+  const FULL_LIMIT = 5;
+  const EXCERPT_LIMIT = 20;
+  const fullBlock = ordersWithText.slice(0, FULL_LIMIT).map((t, i) =>
+    `── Order ${i+1} of ${ordersWithText.length} (${formatDate(t.date)}) — FULL TEXT ──\n${(t.orderText||'').substring(0, 4000)}`
+  ).join('\n\n');
+
+  const excerptBlock = ordersWithText.slice(FULL_LIMIT, EXCERPT_LIMIT).map((t, i) =>
+    `Order ${FULL_LIMIT + i + 1} (${formatDate(t.date)}) — excerpt: ${(t.orderText||'').substring(0, 700).replace(/\s+/g,' ').trim()}`
+  ).join('\n');
+
+  const olderBlock = ordersWithText.slice(EXCERPT_LIMIT).map((t, i) => {
+    const summary = (t.detail && t.detail !== 'Order passed by court') ? ` — ${t.detail}` : '';
+    return `${EXCERPT_LIMIT + i + 1}. ${formatDate(t.date)}${summary}`;
+  }).join('\n');
+
   const recentOrdersBlock = ordersWithText.length
-    ? ordersWithText.slice(0, 3).map((t, i) => {
-        const txt = (t.orderText || '').substring(0, 2500);
-        return `── Order ${i+1} of ${ordersWithText.length} (${formatDate(t.date)}) ──\n${txt}`;
-      }).join('\n\n')
+    ? [
+        '═══ FULL TEXT — MOST RECENT ORDERS ═══',
+        fullBlock,
+        excerptBlock ? '\n═══ EXCERPTS — OLDER ORDERS ═══\n' + excerptBlock : '',
+        olderBlock ? '\n═══ ORDER TIMELINE — OLDEST (dates + summaries) ═══\n' + olderBlock : ''
+      ].filter(Boolean).join('\n')
     : '(no PDF text extracted — analyse from dates + parties only)';
 
-  const olderOrdersList = orders.length > 3
-    ? '\nOLDER ORDERS (dates only):\n' + orders.slice(3, 30).map((o,i) => `${i+4}. ${formatDate(o.date)}`).join('\n')
-    : '';
+  const olderOrdersList = '';  // moved into recentOrdersBlock
 
   const prompt = `You are a senior IPR litigation lawyer practising at the Delhi High Court. You are advising on a specific case based on the actual order text from the DHC record. Be precise — refer ONLY to what the orders actually say. Do not invent facts.
 
@@ -2529,19 +2548,21 @@ ${olderOrdersList}
 ═══════════════════════════════════════════════════════
 
 CRITICAL INSTRUCTIONS:
-- For "lastDateSummary": describe ONLY what the most recent order actually says. If the order says "Ld. P.O. is on leave, list on X" — say exactly that. If it grants an interim, say so. Do NOT speculate about hearings that didn't happen.
-- For "nextDatePurpose": derive from the latest order's directions. If the matter is just adjourned, say "next routine listing on <date>" — don't invent a hearing purpose.
-- For "caseSummary": stick to what the orders show — parties, what's been done, current stage.
-- Action items must follow logically from what the latest orders direct.
+- You have the FULL order history above. Use it. Trace how the case has progressed across orders — what's been disposed of, what's pending, what the bench keeps directing.
+- For "lastDateSummary": describe what the most recent order actually says. Quote or paraphrase its directions. Do NOT speculate about hearings that didn't happen (e.g. if P.O. was on leave, say so — don't invent arguments).
+- For "nextDatePurpose": derive from the latest order's directions and the historical pattern (e.g. if the case has had 5 IA-related listings, the next one is probably IA-related too).
+- For "caseSummary": 6-8 sentences. Reference specific inflection points from the order history — when interim was granted, when defendants were added, when pleadings closed, etc. This is where the full timeline pays off.
+- "actionItems": be specific to what the recent orders directed. If WS is due, name the deadline. If a reply to an IA is pending, name the IA number.
+- "strategicInsight": identify a pattern from the order history that Ishi should exploit or pre-empt. The deeper the history you cite, the better.
 
 Return EXACTLY this JSON (no markdown, no preamble, pure JSON):
 {
-  "lastDateSummary": "Summary of what the order on ${m.lastDate ? formatDate(m.lastDate) : 'the most recent date'} actually says. Quote or paraphrase the order's directions. Do NOT invent.",
-  "nextDatePurpose": "What ${m.nextDate ? formatDate(m.nextDate) : 'the next hearing'} will be for, based on the latest order's directions.",
-  "caseSummary": "5-6 sentence summary of THIS case based on the actual order text — dispute, what's happened, current stage.",
-  "actionItems": ["concrete action 1 derived from latest order", "action 2", "action 3", "action 4", "action 5"],
-  "documentsNeeded": ["specific doc 1 referenced in the latest order or implied by the next listing", "doc 2", "doc 3", "doc 4"],
-  "strategicInsight": "One sharp, case-specific tactical observation grounded in what the orders show. No generic advice."
+  "lastDateSummary": "Summary of what the order on ${m.lastDate ? formatDate(m.lastDate) : 'the most recent date'} actually says. 2-3 sentences. Quote/paraphrase the order's directions; cite the IA numbers or party references it mentions.",
+  "nextDatePurpose": "What ${m.nextDate ? formatDate(m.nextDate) : 'the next hearing'} will be for, based on the latest order's directions PLUS the historical pattern of this case.",
+  "caseSummary": "6-8 sentence narrative summary based on the full order history — dispute archetype, key inflection points, current stage, trajectory.",
+  "actionItems": ["concrete action 1 with specifics (deadlines, IA numbers, doc names)", "action 2", "action 3", "action 4", "action 5"],
+  "documentsNeeded": ["specific doc 1 referenced by name/IA in the orders", "doc 2", "doc 3", "doc 4"],
+  "strategicInsight": "2-3 sentence tactical observation grounded in the order pattern. What's the bench sensitive to? What failure mode is showing up across orders? What should be pre-empted?"
 }`;
 
   try {
@@ -2554,7 +2575,7 @@ Return EXACTLY this JSON (no markdown, no preamble, pure JSON):
       body: JSON.stringify({
         model: 'deepseek-chat',
         messages: [{ role: 'user', content: prompt }],
-        max_tokens: 1500,
+        max_tokens: 2500,
         temperature: 0.3,
         response_format: { type: 'json_object' }
       })

@@ -18,8 +18,9 @@ const pdfParse = require('pdf-parse');
 const CASES_FILE   = path.join(__dirname, '../config/cases.json');
 const OUTPUT_FILE  = path.join(__dirname, '../data/scraped.json');
 const DHC_URL      = 'https://delhihighcourt.nic.in/app/get-case-type-status';
-const ORDERS_TO_PARSE = 3;          // most recent N order PDFs per case
 const ORDER_TEXT_LIMIT = 6000;       // chars of extracted text per order
+const PDF_CONCURRENCY  = 4;          // simultaneous PDF fetches per case
+                                     // — don't hammer DHC but still finish in reasonable time
 
 // Download a PDF and extract its text. Returns null on any failure
 // (image-only scans, network errors, etc.) — never throws.
@@ -348,15 +349,18 @@ async function buildCaseObject(parsed, row, history) {
   orders.sort((a, b) => b.date.localeCompare(a.date));
   const lastDate = orders[0]?.date || null;
 
-  // Fetch + parse the latest N order PDFs so analysis can read what
-  // actually happened (e.g. "P.O. on leave" vs hallucinated arguments).
-  const toParse = orders.slice(0, ORDERS_TO_PARSE);
-  const parsedTexts = await Promise.all(
-    toParse.map(o => fetchPdfText(o.orderLink))
-  );
-  toParse.forEach((o, i) => { o.orderText = parsedTexts[i]; });
+  // Fetch + parse EVERY order PDF so analysis sees the full case body.
+  // Runs PDF_CONCURRENCY fetches in parallel batches — for a 37-order
+  // case at 4-way concurrency that's ~10 batches × ~3s = ~30s instead
+  // of ~110s sequential.
+  for (let i = 0; i < orders.length; i += PDF_CONCURRENCY) {
+    const batch = orders.slice(i, i + PDF_CONCURRENCY);
+    const texts = await Promise.all(batch.map(o => fetchPdfText(o.orderLink)));
+    batch.forEach((o, j) => { o.orderText = texts[j]; });
+  }
+  const parsedTexts = orders.map(o => o.orderText);
   const parsedCount = parsedTexts.filter(Boolean).length;
-  console.log(`  [pdf] parsed ${parsedCount}/${toParse.length} latest orders`);
+  console.log(`  [pdf] parsed ${parsedCount}/${orders.length} orders (parallel x${PDF_CONCURRENCY})`);
 
   const timeline = orders.map(o => {
     const summary = summariseOrderText(o.orderText);
