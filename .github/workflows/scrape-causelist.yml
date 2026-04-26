@@ -34,12 +34,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
       - name: Install dependencies
+        # No requirements.txt — only two deps. Pinning here so installs are
+        # reproducible (and pdfplumber's pinned version pulls a known pdfminer.six).
         run: |
           pip install --upgrade pip
-          pip install requests pdfplumber
+          pip install 'requests>=2.31,<3' 'pdfplumber>=0.11,<1'
 
       - name: Run cause-list scraper
         run: python3 scripts/scrape_causelist.py
