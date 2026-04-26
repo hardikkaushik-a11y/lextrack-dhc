@@ -335,8 +335,25 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
       console.warn(`[eDHCR] No captcha answer resolved`);
     }
 
-    // Click the "Search Now" button by text (more reliable than [type="submit"]
-    // because the page has multiple submit buttons)
+    // Pre-submit sanity check: confirm textarea still has the full query.
+    // The autocomplete dropdown can replace it with a single suggestion.
+    const preSubmitValue = await page.evaluate(() => document.querySelector('textarea#search')?.value);
+    console.log(`[eDHCR] Textarea value before submit: "${preSubmitValue}"`);
+    if (preSubmitValue !== query) {
+      console.log(`[eDHCR] Textarea was mutated (expected "${query}"). Re-typing…`);
+      const handle = await page.$('textarea#search');
+      if (handle) {
+        await handle.click({ clickCount: 3 });
+        await page.keyboard.press('Backspace');
+        await handle.type(query, { delay: 50 });
+        // Hide any autocomplete that pops up by pressing Escape
+        await page.keyboard.press('Escape');
+        const fixedValue = await page.evaluate(() => document.querySelector('textarea#search')?.value);
+        console.log(`[eDHCR] Textarea value after re-type: "${fixedValue}"`);
+      }
+    }
+
+    // Click the "Search Now" button by text
     const submitClicked = await page.evaluate(() => {
       const btns = Array.from(document.querySelectorAll('button'));
       const target = btns.find(b => /search\s*now/i.test(b.innerText || ''));
