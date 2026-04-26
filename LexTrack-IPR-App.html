@@ -3723,26 +3723,72 @@ function setupGitHubToken() {
 }
 
 // ── TRIGGER A FRESH FULL SCRAPE OF DHC ────────────────────────────────────────
-// "Sync DHC" button calls this. Dispatches the scrape.yml workflow with no
-// case_no input (= full sync of all cases), then polls scraped.json's
-// lastScraped timestamp to know when GitHub Actions finishes. ~2-3 min total.
+// "Sync DHC" button dispatches the scrape.yml workflow (full sync) and polls
+// scraped.json's lastScraped to know when Actions finishes. ~2-3 min total.
 //
-// Distinct from loadScrapedData() which just RE-FETCHES the last cached
-// scraped.json from raw.githubusercontent (used by pull-to-refresh).
+// Sync state (startedAt + beforeTs) is persisted to localStorage so that
+// closing/reopening the app while a sync is in flight doesn't lose track of
+// it — resumeInFlightSync() picks up the polling loop where we left off.
+//
+// Distinct from loadScrapedData() which only RE-FETCHES the cached
+// scraped.json (used by pull-to-refresh).
+const SYNC_STATE_KEY = 'lextrack_sync_state_v1';
+const SYNC_TIMEOUT_MS = 5 * 60 * 1000;
+
 let __dhcSyncInFlight = false;
-async function triggerFullSync() {
-  if (__dhcSyncInFlight) {
-    toast('Sync already in progress…', '');
-    return;
+
+function getSyncState() {
+  try { return JSON.parse(localStorage.getItem(SYNC_STATE_KEY) || 'null'); }
+  catch { return null; }
+}
+function setSyncState(state) {
+  if (state) localStorage.setItem(SYNC_STATE_KEY, JSON.stringify(state));
+  else localStorage.removeItem(SYNC_STATE_KEY);
+}
+
+function setSyncButtonSpinner(on) {
+  const btn = document.querySelector('.btn-sync');
+  if (!btn) return;
+  if (on) {
+    if (!btn.dataset.origHtml) btn.dataset.origHtml = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span style="width:14px;height:14px;border:2px solid rgba(0,0,0,0.2);border-top-color:var(--ink);border-radius:50%;animation:spin 0.8s linear infinite;display:inline-block;"></span> <span class="btn-label">Syncing…</span>';
+  } else {
+    btn.disabled = false;
+    if (btn.dataset.origHtml) {
+      btn.innerHTML = btn.dataset.origHtml;
+      delete btn.dataset.origHtml;
+    }
   }
+}
+
+async function pollUntilSyncCompletes(beforeTs, timeoutMs) {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    await new Promise(r => setTimeout(r, 15000));
+    try {
+      const res = await fetch(SCRAPED_DATA_URL + '?ts=' + Date.now(), { cache: 'no-store' });
+      if (!res.ok) continue;
+      const data = await res.json();
+      const latestTs = (data.find(d => d.lastScraped)?.lastScraped) || '';
+      if (latestTs && latestTs > beforeTs) {
+        await loadScrapedData();
+        return true;
+      }
+    } catch (_) { /* keep polling */ }
+  }
+  throw new Error('Sync timed out — check the Actions tab');
+}
+
+async function triggerFullSync() {
+  if (__dhcSyncInFlight) { toast('Sync already in progress…', ''); return; }
+
   let token = getGitHubToken();
   if (!token) {
     token = setupGitHubToken();
     if (!token) return;
   }
 
-  // Capture the current "lastScraped" so we know when the new scrape lands.
-  // Use a cache-buster so we get the genuine current state, not a CDN cache.
   let beforeTs = '';
   try {
     const before = await fetch(SCRAPED_DATA_URL + '?ts=' + Date.now(), { cache: 'no-store' }).then(r => r.json());
@@ -3750,15 +3796,8 @@ async function triggerFullSync() {
   } catch (_) {}
 
   __dhcSyncInFlight = true;
+  setSyncButtonSpinner(true);
   toast('Triggering DHC scrape on GitHub Actions…', '');
-
-  // Show spinner state on the button while running
-  const btn = document.querySelector('.btn-sync');
-  const origHTML = btn?.innerHTML;
-  if (btn) {
-    btn.disabled = true;
-    btn.innerHTML = '<span style="width:14px;height:14px;border:2px solid rgba(0,0,0,0.2);border-top-color:var(--ink);border-radius:50%;animation:spin 0.8s linear infinite;display:inline-block;"></span> <span class="btn-label">Syncing…</span>';
-  }
 
   try {
     const dispatchRes = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/scrape.yml/dispatches`, {
@@ -3768,7 +3807,6 @@ async function triggerFullSync() {
         'Accept': 'application/vnd.github+json',
         'Content-Type': 'application/json'
       },
-      // No `case_no` input → full sync
       body: JSON.stringify({ ref: GH_BRANCH, inputs: {} })
     });
     if (!dispatchRes.ok) {
@@ -3779,37 +3817,52 @@ async function triggerFullSync() {
       throw new Error(`GitHub workflow dispatch failed (${dispatchRes.status})`);
     }
 
+    // Persist that a sync is now in flight — survives app close/reopen
+    setSyncState({ startedAt: Date.now(), beforeTs });
     toast('DHC scrape running… ~2–3 min', '');
 
-    // Poll for the new scraped.json. Up to 5 min, every 15s.
-    const start = Date.now();
-    const timeoutMs = 5 * 60 * 1000;
-    while (Date.now() - start < timeoutMs) {
-      await new Promise(r => setTimeout(r, 15000));
-      try {
-        const res = await fetch(SCRAPED_DATA_URL + '?ts=' + Date.now(), { cache: 'no-store' });
-        if (!res.ok) continue;
-        const data = await res.json();
-        const latestTs = (data.find(d => d.lastScraped)?.lastScraped) || '';
-        if (latestTs && latestTs > beforeTs) {
-          // New scrape landed — re-merge into matters
-          await loadScrapedData();
-          toast('✓ DHC sync complete — fresh data loaded', 'success');
-          return;
-        }
-      } catch (_) { /* keep polling */ }
-    }
-    throw new Error('Sync timed out after 5 min — check the Actions tab');
+    await pollUntilSyncCompletes(beforeTs, SYNC_TIMEOUT_MS);
+    toast('✓ DHC sync complete — fresh data loaded', 'success');
 
   } catch (err) {
     toast(`Sync failed: ${err.message}`, 'error');
     console.error('triggerFullSync:', err);
   } finally {
     __dhcSyncInFlight = false;
-    if (btn && origHTML) {
-      btn.disabled = false;
-      btn.innerHTML = origHTML;
-    }
+    setSyncButtonSpinner(false);
+    setSyncState(null);
+  }
+}
+
+// Called on app boot. If a sync was running when the app was closed, restore
+// the spinner UI and keep polling so the user sees it complete naturally.
+async function resumeInFlightSync() {
+  const state = getSyncState();
+  if (!state) return;
+
+  const elapsed = Date.now() - state.startedAt;
+  if (elapsed > SYNC_TIMEOUT_MS) {
+    // Too old to still be running — clear the stale flag.
+    setSyncState(null);
+    return;
+  }
+  if (__dhcSyncInFlight) return; // already resumed
+
+  __dhcSyncInFlight = true;
+  setSyncButtonSpinner(true);
+  toast('Resuming DHC sync that was in progress…', '');
+
+  try {
+    const remainingMs = Math.max(60000, SYNC_TIMEOUT_MS - elapsed);
+    await pollUntilSyncCompletes(state.beforeTs, remainingMs);
+    toast('✓ DHC sync complete — fresh data loaded', 'success');
+  } catch (err) {
+    toast(`Sync ended: ${err.message}`, '');
+    console.warn('resumeInFlightSync:', err.message);
+  } finally {
+    __dhcSyncInFlight = false;
+    setSyncButtonSpinner(false);
+    setSyncState(null);
   }
 }
 
@@ -4074,6 +4127,10 @@ __pushHistory('dashboard');
 renderDashboard();
 renderCalendar();
 loadScrapedData(); // fetch latest data from GitHub in background (re-applies user state after merge)
+
+// If a DHC Sync was in flight when the app was last closed, resume it —
+// restore the spinner and keep polling for completion.
+setTimeout(() => { try { resumeInFlightSync(); } catch (e) { console.warn(e); } }, 800);
 
 // ── PULL-TO-REFRESH (mobile, scoped to data-driven views) ────────────────────
 // Activates only on Dashboard / All Matters / Tasks. User pulls down at the
