@@ -1421,7 +1421,12 @@ body {
           <textarea id="prop-input" rows="4" placeholder="e.g. An ex-parte ad-interim injunction can be granted in trademark infringement cases without notice to the defendant where there is real risk of imminent and irreparable harm." style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:white;padding:14px 16px;border-radius:10px;font-family:inherit;font-size:14px;line-height:1.6;resize:vertical;"></textarea>
         </div>
         <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center;">
-          <select class="lookup-select" id="prop-court" style="min-width:170px;">
+          <select class="lookup-select" id="prop-source" style="min-width:200px;">
+            <option value="ik">Indian Kanoon (fast)</option>
+            <option value="edhcr">DHC Official — eDHCR (authoritative)</option>
+            <option value="both">Both (combined)</option>
+          </select>
+          <select class="lookup-select" id="prop-court" style="min-width:150px;">
             <option value="">All courts</option>
             <option value="supremecourt">Supreme Court</option>
             <option value="delhi">Delhi HC</option>
@@ -1430,7 +1435,7 @@ body {
             <option value="madras">Madras HC</option>
             <option value="karnataka">Karnataka HC</option>
           </select>
-          <select class="lookup-select" id="prop-years" style="min-width:140px;">
+          <select class="lookup-select" id="prop-years" style="min-width:130px;">
             <option value="">Any year</option>
             <option value="5">Last 5 years</option>
             <option value="10">Last 10 years</option>
@@ -1445,8 +1450,9 @@ body {
             <span id="ik-key-label">Set IK API key</span>
           </button>
         </div>
-        <div style="margin-top:14px;font-size:11px;color:rgba(255,255,255,0.25);">
-          ~₹0.50 per search via Indian Kanoon API. Results re-ranked by DeepSeek for relevance to your proposition.
+        <div style="margin-top:14px;font-size:11px;color:rgba(255,255,255,0.25);line-height:1.6;">
+          <strong style="color:rgba(255,255,255,0.5);">Indian Kanoon</strong> — fast keyword search (~₹0.50/query). Best for discovery.<br>
+          <strong style="color:rgba(255,255,255,0.5);">DHC Official (eDHCR)</strong> — authoritative for citation; takes ~60s (server-side scrape).
         </div>
       </div>
 
@@ -2498,50 +2504,46 @@ async function searchJudgments() {
   const prop = document.getElementById('prop-input').value.trim();
   if (!prop) { toast('Enter a legal proposition first', 'error'); return; }
 
-  let token = getIkToken();
-  if (!token) {
-    token = setupIndianKanoonKey();
-    if (!token) return;
-  }
-
-  const court = document.getElementById('prop-court').value;
-  const years = document.getElementById('prop-years').value;
+  const source = document.getElementById('prop-source').value;
+  const court  = document.getElementById('prop-court').value;
+  const years  = document.getElementById('prop-years').value;
   const result = document.getElementById('judgments-result');
-  const btn = document.getElementById('prop-btn');
+  const btn    = document.getElementById('prop-btn');
+  const setBtn = (label) => { btn.innerHTML = `<span style="width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.8s linear infinite;display:inline-block;"></span> ${label}`; };
+  const resetBtn = () => { btn.disabled = false; btn.innerHTML = '<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 6l9-3 9 3M3 6v12l9 3 9-3V6M3 6l9 3 9-3"/></svg> Find Judgments'; };
 
   btn.disabled = true;
-  btn.innerHTML = '<span style="width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.8s linear infinite;display:inline-block;"></span> Searching…';
-  result.innerHTML = `<div style="padding:24px;text-align:center;color:var(--ink3);font-size:13px;">Searching Indian Kanoon…</div>`;
 
   try {
-    // IK API search — POST request with auth header
-    // https://api.indiankanoon.org/search/?formInput=<query>&pagenum=0
-    const ikQuery = buildIkQuery(prop, court, years);
-    const ikUrl = `https://api.indiankanoon.org/search/?formInput=${encodeURIComponent(ikQuery)}&pagenum=0`;
-    const ikRes = await fetch(ikUrl, {
-      method: 'POST',
-      headers: { 'Authorization': `Token ${token}` }
-    });
+    let allResults = [];
 
-    if (!ikRes.ok) {
-      if (ikRes.status === 401 || ikRes.status === 403) {
-        localStorage.removeItem('lextrack_ik_token');
-        throw new Error('Invalid token — re-enter it');
-      }
-      throw new Error(`IK API failed (${ikRes.status})`);
+    if (source === 'ik' || source === 'both') {
+      setBtn('Searching Indian Kanoon…');
+      result.innerHTML = `<div style="padding:24px;text-align:center;color:var(--ink3);font-size:13px;">Searching Indian Kanoon…</div>`;
+      const ikDocs = await searchIndianKanoon(prop, court, years);
+      allResults = allResults.concat(ikDocs);
     }
-    const ikData = await ikRes.json();
-    const docs = ikData.docs || [];
 
-    if (!docs.length) {
-      result.innerHTML = `<div class="lookup-result show" style="padding:32px;text-align:center;color:var(--ink3);">No judgments matched. Try rephrasing the proposition or removing filters.</div>`;
+    if (source === 'edhcr' || source === 'both') {
+      setBtn('Dispatching DHC official search (~60s)…');
+      result.innerHTML = `
+        <div style="padding:24px;text-align:center;color:var(--ink3);font-size:13px;">
+          <div style="margin-bottom:10px;">Triggering eDHCR scraper on GitHub Actions…</div>
+          <div style="font-size:11px;color:rgba(0,0,0,0.35);">This is the authoritative DHC source. ~60s.</div>
+        </div>`;
+      const edhcrDocs = await searchEDHCR(prop);
+      allResults = allResults.concat(edhcrDocs);
+    }
+
+    if (!allResults.length) {
+      result.innerHTML = `<div class="lookup-result show" style="padding:32px;text-align:center;color:var(--ink3);">No judgments matched. Try rephrasing or removing filters.</div>`;
       return;
     }
 
-    btn.innerHTML = '<span style="width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.8s linear infinite;display:inline-block;"></span> Ranking by relevance…';
+    setBtn('Ranking by relevance…');
 
-    // Optional: re-rank with DeepSeek if key is set
-    let ranked = docs.slice(0, 20);
+    // Optional: DeepSeek re-rank
+    let ranked = allResults.slice(0, 20);
     let aiUsed = false;
     const aiKey = getDeepSeekKey();
     if (aiKey && ranked.length > 1) {
@@ -2549,7 +2551,7 @@ async function searchJudgments() {
         ranked = await rankJudgmentsWithDeepSeek(prop, ranked, aiKey);
         aiUsed = true;
       } catch (e) {
-        console.warn('DeepSeek ranking failed, using IK order:', e.message);
+        console.warn('DeepSeek ranking failed, using source order:', e.message);
       }
     }
 
@@ -2559,9 +2561,96 @@ async function searchJudgments() {
     result.innerHTML = `<div class="lookup-result show" style="padding:24px;color:#ef4444;font-size:13px;">Failed: ${err.message}</div>`;
     console.error(err);
   } finally {
-    btn.disabled = false;
-    btn.innerHTML = '<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 6l9-3 9 3M3 6v12l9 3 9-3V6M3 6l9 3 9-3"/></svg> Find Judgments';
+    resetBtn();
   }
+}
+
+// ── INDIAN KANOON SEARCH ────────────────────────────────────────────────────
+async function searchIndianKanoon(prop, court, years) {
+  let token = getIkToken();
+  if (!token) {
+    token = setupIndianKanoonKey();
+    if (!token) throw new Error('Indian Kanoon API token required');
+  }
+  const ikQuery = buildIkQuery(prop, court, years);
+  const ikUrl = `https://api.indiankanoon.org/search/?formInput=${encodeURIComponent(ikQuery)}&pagenum=0`;
+  const ikRes = await fetch(ikUrl, {
+    method: 'POST',
+    headers: { 'Authorization': `Token ${token}` }
+  });
+  if (!ikRes.ok) {
+    if (ikRes.status === 401 || ikRes.status === 403) {
+      localStorage.removeItem('lextrack_ik_token');
+      throw new Error('Invalid IK token — re-enter it');
+    }
+    throw new Error(`IK API failed (${ikRes.status})`);
+  }
+  const data = await ikRes.json();
+  return (data.docs || []).map(d => ({
+    title: d.title,
+    docsource: d.docsource || 'Indian Kanoon',
+    publishdate: d.publishdate,
+    headline: d.headline,
+    tid: d.tid,
+    url: d.tid ? `https://indiankanoon.org/doc/${d.tid}/` : null,
+    source: 'ik'
+  }));
+}
+
+// ── eDHCR (DHC OFFICIAL) SEARCH ──────────────────────────────────────────────
+// Triggers the search-judgments.yml workflow with the proposition as input,
+// then polls data/searches/<hash>.json for the result. ~60s total.
+const GH_REPO_SEARCH = 'hardikkaushik-a11y/lextrack-dhc';
+
+async function searchEDHCR(query, mode = 'Any Words') {
+  const token = getGitHubToken();
+  if (!token) {
+    const t = setupGitHubToken();
+    if (!t) throw new Error('GitHub token required for eDHCR search');
+  }
+
+  // sha1(mode|query) — same scheme as src/judgment-search.js queryHash()
+  const hash = await sha1Hex(`${mode}|${query}`).then(h => h.substring(0, 12));
+  const rawUrl = `https://raw.githubusercontent.com/${GH_REPO_SEARCH}/main/data/searches/${hash}.json`;
+
+  const ghHeaders = { 'Authorization': `Bearer ${getGitHubToken()}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' };
+  const dispatchRes = await fetch(`https://api.github.com/repos/${GH_REPO_SEARCH}/actions/workflows/search-judgments.yml/dispatches`, {
+    method: 'POST',
+    headers: ghHeaders,
+    body: JSON.stringify({ ref: 'main', inputs: { query, mode } })
+  });
+  if (!dispatchRes.ok) throw new Error(`GitHub workflow dispatch failed (${dispatchRes.status})`);
+
+  // Poll for the result file. Up to 90s, every 5s.
+  const start = Date.now();
+  while (Date.now() - start < 90000) {
+    await new Promise(r => setTimeout(r, 5000));
+    const res = await fetch(`${rawUrl}?ts=${Date.now()}`, { cache: 'no-store' });
+    if (res.ok) {
+      const payload = await res.json();
+      // Make sure it's the latest run, not stale cache
+      const generatedAt = new Date(payload.generatedAt || 0).getTime();
+      if (generatedAt > start - 5000) {
+        if (payload.error) throw new Error(`eDHCR scrape error: ${payload.error}`);
+        return (payload.results || []).map(r => ({
+          title: r.title,
+          docsource: r.docsource || 'Delhi High Court (eDHCR)',
+          publishdate: r.publishdate,
+          headline: r.headline,
+          neutralCitation: r.neutralCitation,
+          url: r.url,
+          source: 'edhcr'
+        }));
+      }
+    }
+  }
+  throw new Error('eDHCR scrape timed out (no result after 90s)');
+}
+
+async function sha1Hex(s) {
+  const enc = new TextEncoder().encode(s);
+  const buf = await crypto.subtle.digest('SHA-1', enc);
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
 async function rankJudgmentsWithDeepSeek(proposition, docs, apiKey) {
@@ -2621,24 +2710,37 @@ Use the candidate's number (1-${docs.length}) for "index". Pick fewer than 5 onl
 
 function renderJudgments(proposition, docs, aiUsed) {
   const result = document.getElementById('judgments-result');
+  const sourceCount = { ik: 0, edhcr: 0 };
+  docs.forEach(d => { sourceCount[d.source] = (sourceCount[d.source] || 0) + 1; });
+  const sourceMix = [
+    sourceCount.edhcr ? `<strong style="color:#2563eb;">${sourceCount.edhcr}</strong> from DHC official` : '',
+    sourceCount.ik    ? `<strong style="color:#7a5a10;">${sourceCount.ik}</strong> from Indian Kanoon` : ''
+  ].filter(Boolean).join(' · ');
+
   result.innerHTML = `
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
       <div style="font-size:14px;color:var(--ink2);">
-        <strong>${docs.length}</strong> judgment${docs.length === 1 ? '' : 's'} — ${aiUsed ? 'ranked by DeepSeek' : 'in Indian Kanoon order'}
+        <strong>${docs.length}</strong> judgment${docs.length === 1 ? '' : 's'} ${sourceMix ? '— ' + sourceMix : ''} ${aiUsed ? '· ranked by DeepSeek' : ''}
       </div>
       <div style="font-size:11px;color:var(--ink3);">"${proposition.length > 80 ? proposition.substring(0, 80) + '…' : proposition}"</div>
     </div>
     <div class="judgments-list" style="display:flex;flex-direction:column;gap:12px;">
       ${docs.map((d, i) => {
-        const url = d.tid ? `https://indiankanoon.org/doc/${d.tid}/` : '#';
+        const url = d.url || (d.tid ? `https://indiankanoon.org/doc/${d.tid}/` : '#');
         const snippet = (d.headline || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').substring(0, 280);
+        const isOfficial = d.source === 'edhcr';
+        const sourceBadge = isOfficial
+          ? '<span style="background:rgba(37,99,235,0.1);color:#2563eb;font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;border:1px solid rgba(37,99,235,0.25);">✓ DHC OFFICIAL</span>'
+          : '<span style="background:rgba(122,90,16,0.08);color:#7a5a10;font-size:10px;font-weight:500;padding:2px 8px;border-radius:4px;">Indian Kanoon</span>';
         return `
-          <div class="judgment-card" style="background:white;border:1px solid var(--border);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);">
+          <div class="judgment-card" style="background:white;border:1px solid ${isOfficial ? 'rgba(37,99,235,0.25)' : 'var(--border)'};border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);">
             <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:8px;">
               <div style="flex:1;">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;">
                   <span style="background:var(--gold3);color:#7a5a10;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;">#${i + 1}</span>
-                  <span style="font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;">${d.docsource || 'Unknown court'} ${d.publishdate ? '· ' + d.publishdate : ''}</span>
+                  ${sourceBadge}
+                  <span style="font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;">${d.docsource || ''}${d.publishdate ? ' · ' + d.publishdate : ''}</span>
+                  ${d.neutralCitation ? `<span style="font-family:monospace;font-size:11px;color:#2563eb;background:rgba(37,99,235,0.06);padding:2px 6px;border-radius:4px;">${d.neutralCitation}</span>` : ''}
                 </div>
                 <div style="font-size:15px;font-weight:600;color:var(--ink);line-height:1.4;">
                   <a href="${url}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">${d.title || '(Untitled)'}</a>
