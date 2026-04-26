@@ -10,7 +10,11 @@
 <meta name="theme-color" content="#0f0e0c">
 <!-- iOS standalone-app meta tags (iOS Safari "Add to Home Screen") -->
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<!-- "default" makes iOS reserve space for the status bar above our topbar.
+     "black-translucent" was overlaying the iPhone clock/battery on top of
+     the cream-colored topbar, which was the broken-looking effect. -->
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="LexTrack">
 <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
@@ -1095,6 +1099,10 @@ body {
    Desktop layout is unchanged.
    ═══════════════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
+  /* Lock down horizontal overflow so an oversized child (matter table,
+     long order link, etc.) can't make the whole page scroll sideways */
+  html, body { overflow-x: hidden; max-width: 100vw; }
+
   /* Sidebar slides off-screen by default; hamburger opens it */
   .sidebar {
     transform: translateX(-100%);
@@ -1108,13 +1116,19 @@ body {
   .sidebar-backdrop.show { pointer-events: auto; }
 
   /* Main content takes full width on mobile */
-  .main { margin-left: 0; }
+  .main { margin-left: 0; width: 100%; max-width: 100vw; }
 
   /* Show hamburger */
   .hamburger { display: flex; }
 
-  /* Topbar: tighter padding, smaller title */
-  .topbar { padding: 0 16px; height: 56px; }
+  /* Topbar: respect iPhone safe-area (notch/Dynamic Island) so the
+     status bar doesn't overlap our title or buttons */
+  .topbar {
+    padding: env(safe-area-inset-top, 0) 16px 0;
+    height: calc(56px + env(safe-area-inset-top, 0));
+    align-items: center;
+  }
+  .topbar > * { align-self: center; }
   .topbar-title { font-size: 16px; }
   .topbar-right { gap: 8px; }
 
@@ -1128,8 +1142,10 @@ body {
   /* Hide sync banner on small screens (info still in sidebar footer) */
   #sync-banner { display: none !important; }
 
-  /* Content padding tighter */
-  .content { padding: 16px; }
+  /* Content padding tighter; bottom safe-area for home indicator */
+  .content {
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0));
+  }
 
   /* Stat cards stack on mobile */
   .stats-grid {
@@ -1142,11 +1158,16 @@ body {
   .stat-label { font-size: 10px; margin-bottom: 6px; }
   .stat-sub { font-size: 11px; }
 
-  /* Matter table: scroll horizontally, keep columns intact */
-  .matter-table { overflow-x: auto; }
+  /* Matter table: scroll horizontally INSIDE the rounded card, never the page */
+  .matter-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
   .table-header, .matter-row {
     grid-template-columns: minmax(220px, 2fr) 130px 100px 110px 110px 80px;
     min-width: 760px;
+    width: 760px;       /* explicit width so flexbox doesn't try to shrink */
   }
 
   /* Detail page: stack the two-column grid */
