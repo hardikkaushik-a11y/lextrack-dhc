@@ -13,12 +13,11 @@ name: Scrape DHC Cause List
 
 on:
   schedule:
-    # Every 30 minutes. Each run is ~46s wall-clock = 1 min billable.
-    # 48 runs/day × 30 = 1,440 min/month — fits comfortably in the
-    # GitHub Actions FREE tier (2,000 min/month) with headroom for
-    # manual Sync-DHC button clicks. Captures DHC's evening publish
-    # window within 30 min of release.
-    - cron: '*/30 * * * *'
+    # Every 6 minutes. This repo is public, so GitHub Actions minutes are
+    # UNLIMITED FREE — no cost concern. We don't push higher (e.g. /5 or
+    # /1) out of respect for DHC's servers; 6 min already gives near-real-
+    # time freshness on the evening publish window.
+    - cron: '*/6 * * * *'
   workflow_dispatch:
 
 jobs:
