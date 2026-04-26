@@ -2161,18 +2161,48 @@ body {
             <div class="form-group">
               <label class="form-label">DRAFT TYPE</label>
               <select class="form-select" id="draft-type" onchange="onDraftTypeChange()">
-                <option value="plaint">Plaint</option>
-                <option value="written-statement">Written Statement</option>
-                <option value="rejoinder">Rejoinder / Replication</option>
-                <option value="counter-affidavit">Counter-Affidavit</option>
-                <option value="reply-ia">Reply (to IA)</option>
-                <option value="impleadment">Impleadment Application (O.I R.10)</option>
-                <option value="o39-r12">Application under O.XXXIX R.1 &amp; 2</option>
-                <option value="o12-r6">Application under O.XII R.6</option>
-                <option value="s124-stay">Section 124 Stay Application</option>
-                <option value="written-submissions">Written Submissions / Notes of Arguments</option>
-                <option value="synopsis">Synopsis &amp; List of Dates</option>
-                <option value="legal-notice">Legal Notice</option>
+                <optgroup label="Pleadings">
+                  <option value="plaint">Plaint</option>
+                  <option value="written-statement">Written Statement</option>
+                  <option value="rejoinder">Rejoinder / Replication</option>
+                  <option value="counter-affidavit">Counter-Affidavit</option>
+                  <option value="reply-ia">Reply (to IA)</option>
+                  <option value="impleadment">Impleadment Application (O.I R.10)</option>
+                  <option value="o39-r12">Application under O.XXXIX R.1 &amp; 2</option>
+                  <option value="o12-r6">Application under O.XII R.6</option>
+                  <option value="s124-stay">Section 124 Stay Application</option>
+                  <option value="written-submissions">Written Submissions / Notes of Arguments</option>
+                  <option value="synopsis">Synopsis &amp; List of Dates</option>
+                  <option value="legal-notice">Legal Notice</option>
+                </optgroup>
+                <optgroup label="Contracts — Trademark">
+                  <option value="tm-assignment">Trademark Assignment Deed</option>
+                  <option value="tm-license">Trademark License Agreement</option>
+                  <option value="tm-coexistence">Trademark Coexistence Agreement</option>
+                </optgroup>
+                <optgroup label="Contracts — Patent">
+                  <option value="patent-assignment">Patent Assignment Deed</option>
+                  <option value="patent-license">Patent License Agreement</option>
+                </optgroup>
+                <optgroup label="Contracts — Copyright">
+                  <option value="copyright-assignment">Copyright Assignment Agreement</option>
+                  <option value="copyright-license">Copyright License Agreement</option>
+                  <option value="software-license">Software License Agreement (B2B)</option>
+                </optgroup>
+                <optgroup label="Contracts — General IP / Employment">
+                  <option value="nda-ip">Non-Disclosure Agreement (IP-focused)</option>
+                  <option value="jda">Joint Development Agreement</option>
+                  <option value="work-for-hire">Work-for-Hire / Employment IP Assignment</option>
+                  <option value="contractor-ip">Independent Contractor IP Assignment</option>
+                </optgroup>
+                <optgroup label="Contracts — Settlement">
+                  <option value="settlement-ip">IP Litigation Settlement Agreement</option>
+                </optgroup>
+                <optgroup label="Contracts — Commercial">
+                  <option value="franchise">Franchise Agreement</option>
+                  <option value="merchandising">Merchandising / Endorsement Agreement</option>
+                  <option value="distribution-ip">Distribution Agreement (with brand rights)</option>
+                </optgroup>
                 <option value="other">Other — specify below</option>
               </select>
             </div>
@@ -5442,25 +5472,335 @@ function scrubGenericPII(text) {
 }
 
 // Per-draft-type metadata: required sections + drafting notes.
+//
+// `category` — 'pleading' | 'contract' | 'other'. Drives prompt branching:
+//   pleadings get DHC house style (MOST RESPECTFULLY SHEWETH, verification
+//   clause, "It is submitted that"); contracts get commercial-contract style
+//   (THIS AGREEMENT IS MADE BY AND BETWEEN..., WHEREAS, defined terms,
+//   numbered clauses, schedules, execution block).
+//
+// `sub_category` — used only for contracts, drives the <optgroup> labels in
+//   the dropdown so the user can find the right contract quickly.
 const DRAFT_TYPES = {
-  'plaint':              { label: 'Plaint',                              sections: ['Cause Title','Memo of Parties','MOST RESPECTFULLY SHEWETH','Facts','Cause of Action','Jurisdiction','Limitation','Court Fees','Prayer','Verification'], notes: 'Original suit. Lay out parties, facts, cause of action, jurisdiction (S.134 TM Act / S.62 Copyright Act / Commercial Courts Act), limitation, valuation, court fees, prayer.' },
-  'written-statement':   { label: 'Written Statement',                   sections: ['Cause Title','Preliminary Objections','Parawise Reply','Reply on Merits','Prayer','Verification'], notes: 'Defense pleading. Begin with PRELIMINARY OBJECTIONS (jurisdiction, limitation, mis-joinder, suppression, etc.). Then PARAWISE REPLY: deny/admit each plaint paragraph by number. Conclude with prayer for dismissal.' },
-  'rejoinder':           { label: 'Rejoinder / Replication',             sections: ['Cause Title','Preliminary Submissions','Parawise Rejoinder','Prayer','Verification'], notes: 'Plaintiff response to WS. Reaffirm plaint, deny new pleadings raised in WS para-by-para. Do NOT introduce new cause of action.' },
-  'counter-affidavit':   { label: 'Counter-Affidavit',                   sections: ['Cause Title','Preliminary Objections','Parawise Reply','Prayer','Verification'], notes: 'Reply to a writ/application. Sworn before court — first person ("I, the deponent…"). Para-wise denial structure.' },
-  'reply-ia':            { label: 'Reply (to IA)',                       sections: ['Cause Title','Preliminary Submissions','Parawise Reply','Prayer','Verification'], notes: 'Short reply to an interlocutory application. Address each ground in the IA. Conclude with prayer to dismiss the IA.' },
-  'impleadment':         { label: 'Impleadment Application (O.I R.10)',  sections: ['Cause Title','Notice of Motion','Urgent Application','Application Body','Prayer','Verification','Memo of Parties (Amended)'], notes: 'Application to add new defendants. Refer to existing suit, prior orders, and explain why new parties are necessary. For rogue-website cases, follow the UTV Software v. 1337x.to (CS(COMM) 724/2017) framework.' },
-  'o39-r12':             { label: 'Application under O.XXXIX R.1 & 2',   sections: ['Cause Title','Notice of Motion','Application Body','Prayer','Verification'], notes: 'Interim injunction application. Establish: (i) prima facie case, (ii) balance of convenience, (iii) irreparable loss. These three are the holy trinity — every IA must address all three.' },
-  'o12-r6':              { label: 'Application under O.XII R.6',         sections: ['Cause Title','Application Body','Prayer','Verification'], notes: 'Judgment on admissions. Identify specific admissions in WS or in correspondence. Quote them verbatim. Argue no triable issue remains.' },
-  's124-stay':           { label: 'Section 124 Stay Application',        sections: ['Cause Title','Application Body','Prayer','Verification'], notes: 'Stay of TM infringement suit pending rectification petition. Cite the rectification petition number and date filed. Establish the registration sought to be rectified is the basis of the suit.' },
-  'written-submissions': { label: 'Written Submissions / Notes of Arguments', sections: ['Cause Title','Brief Facts','Issues','Submissions','Conclusion','Prayer'], notes: 'Filed at end of arguments. Organise by issue. Each submission should be a complete proposition supported by evidence and case law.' },
-  'synopsis':            { label: 'Synopsis & List of Dates',            sections: ['Synopsis','List of Dates and Events'], notes: 'Synopsis: 1-2 page narrative summary of the case for the bench. List of Dates: chronological table — Date | Event. Both go at the start of paperbooks.' },
-  'legal-notice':        { label: 'Legal Notice',                        sections: ['Header (sender / addressee)','Subject','Body (facts, claims, demands)','Time period for compliance','Signature block'], notes: 'Pre-litigation notice. Establish client rights, particularise the infringement, demand cease & desist + undertaking + damages, give 15-30 days to comply, reserve right to sue.' },
-  'other':               { label: 'Custom',                              sections: [], notes: 'User-specified draft type. The exact label is provided in the SPECIFY DRAFT TYPE field — adapt the structure, sections, and tone to that draft type while keeping DHC house style (cause title, numbered paragraphs, verification clause if applicable).' }
+  // ── PLEADINGS ─────────────────────────────────────────────────────
+  'plaint':              { category:'pleading', label: 'Plaint',                              sections: ['Cause Title','Memo of Parties','MOST RESPECTFULLY SHEWETH','Facts','Cause of Action','Jurisdiction','Limitation','Court Fees','Prayer','Verification'], notes: 'Original suit. Lay out parties, facts, cause of action, jurisdiction (S.134 TM Act / S.62 Copyright Act / Commercial Courts Act), limitation, valuation, court fees, prayer.' },
+  'written-statement':   { category:'pleading', label: 'Written Statement',                   sections: ['Cause Title','Preliminary Objections','Parawise Reply','Reply on Merits','Prayer','Verification'], notes: 'Defense pleading. Begin with PRELIMINARY OBJECTIONS (jurisdiction, limitation, mis-joinder, suppression, etc.). Then PARAWISE REPLY: deny/admit each plaint paragraph by number. Conclude with prayer for dismissal.' },
+  'rejoinder':           { category:'pleading', label: 'Rejoinder / Replication',             sections: ['Cause Title','Preliminary Submissions','Parawise Rejoinder','Prayer','Verification'], notes: 'Plaintiff response to WS. Reaffirm plaint, deny new pleadings raised in WS para-by-para. Do NOT introduce new cause of action.' },
+  'counter-affidavit':   { category:'pleading', label: 'Counter-Affidavit',                   sections: ['Cause Title','Preliminary Objections','Parawise Reply','Prayer','Verification'], notes: 'Reply to a writ/application. Sworn before court — first person ("I, the deponent…"). Para-wise denial structure.' },
+  'reply-ia':            { category:'pleading', label: 'Reply (to IA)',                       sections: ['Cause Title','Preliminary Submissions','Parawise Reply','Prayer','Verification'], notes: 'Short reply to an interlocutory application. Address each ground in the IA. Conclude with prayer to dismiss the IA.' },
+  'impleadment':         { category:'pleading', label: 'Impleadment Application (O.I R.10)',  sections: ['Cause Title','Notice of Motion','Urgent Application','Application Body','Prayer','Verification','Memo of Parties (Amended)'], notes: 'Application to add new defendants. Refer to existing suit, prior orders, and explain why new parties are necessary. For rogue-website cases, follow the UTV Software v. 1337x.to (CS(COMM) 724/2017) framework.' },
+  'o39-r12':             { category:'pleading', label: 'Application under O.XXXIX R.1 & 2',   sections: ['Cause Title','Notice of Motion','Application Body','Prayer','Verification'], notes: 'Interim injunction application. Establish: (i) prima facie case, (ii) balance of convenience, (iii) irreparable loss. These three are the holy trinity — every IA must address all three.' },
+  'o12-r6':              { category:'pleading', label: 'Application under O.XII R.6',         sections: ['Cause Title','Application Body','Prayer','Verification'], notes: 'Judgment on admissions. Identify specific admissions in WS or in correspondence. Quote them verbatim. Argue no triable issue remains.' },
+  's124-stay':           { category:'pleading', label: 'Section 124 Stay Application',        sections: ['Cause Title','Application Body','Prayer','Verification'], notes: 'Stay of TM infringement suit pending rectification petition. Cite the rectification petition number and date filed. Establish the registration sought to be rectified is the basis of the suit.' },
+  'written-submissions': { category:'pleading', label: 'Written Submissions / Notes of Arguments', sections: ['Cause Title','Brief Facts','Issues','Submissions','Conclusion','Prayer'], notes: 'Filed at end of arguments. Organise by issue. Each submission should be a complete proposition supported by evidence and case law.' },
+  'synopsis':            { category:'pleading', label: 'Synopsis & List of Dates',            sections: ['Synopsis','List of Dates and Events'], notes: 'Synopsis: 1-2 page narrative summary of the case for the bench. List of Dates: chronological table — Date | Event. Both go at the start of paperbooks.' },
+  'legal-notice':        { category:'pleading', label: 'Legal Notice',                        sections: ['Header (sender / addressee)','Subject','Body (facts, claims, demands)','Time period for compliance','Signature block'], notes: 'Pre-litigation notice. Establish client rights, particularise the infringement, demand cease & desist + undertaking + damages, give 15-30 days to comply, reserve right to sue.' },
+
+  // ── CONTRACTS — TRADEMARK ─────────────────────────────────────────
+  'tm-assignment': {
+    category:'contract', sub_category:'Trademark', label: 'Trademark Assignment Deed',
+    sections: ['Title and Date','Parties (Assignor and Assignee)','Recitals (WHEREAS clauses)','Definitions','Assignment of Marks (operative clause)','Goodwill (with or without — declare expressly)','Consideration','Representations and Warranties of Assignor (good title, no encumbrances, no pending challenges)','Indemnification by Assignor','Registration of Assignment (Form TM-P, S.45 TM Act)','Stamp Duty and Costs','Notices','Governing Law (Indian Trade Marks Act 1999 + Indian Contract Act 1872)','Dispute Resolution','Boilerplate (Severability, Entire Agreement, Amendment, Counterparts)','Schedule A — List of Marks (registration nos., classes, status, registration date)','Execution Block (signatures + 2 witnesses each)'],
+    notes: 'Trade Marks Act 1999, Sections 38–45 govern. CRITICAL: Section 42 — assignment "without goodwill" requires advertisement in newspaper within 6 months of assignment, in form prescribed by Registrar; failure = assignment void. Section 45 — assignee must apply for registration of title (Form TM-P) within reasonable time. Section 40 prohibits assignments creating exclusive rights in different persons in same goods/services. Stamp duty per Schedule of Indian Stamp Act + state-specific (Delhi: ₹100 + 0.1% of consideration). Where a registered TM and unregistered TM (same mark, related goods) exist together, both must be assigned to the same assignee (S.41).'
+  },
+  'tm-license': {
+    category:'contract', sub_category:'Trademark', label: 'Trademark License Agreement',
+    sections: ['Title and Date','Parties (Licensor and Licensee)','Recitals','Definitions (Marks, Territory, Term, Permitted Use, Licensed Goods/Services)','Grant of License (exclusive / non-exclusive / sole — declare expressly)','Quality Control Provisions (S.49 TM Act compliance — MANDATORY)','Royalty / Consideration and Payment Terms','Permitted Use, Restrictions, and Markings (use of ®, ™)','Sublicensing (typically prohibited unless expressly permitted)','Reporting and Audit Rights','Term and Renewal','Termination (for cause, for convenience, on insolvency)','Effects of Termination (cease use, destroy materials, transition period)','Confidentiality','Indemnification (mutual)','Force Majeure','Governing Law and Dispute Resolution','Notices','Boilerplate','Schedule A — Licensed Marks','Schedule B — Quality Standards','Execution Block'],
+    notes: 'Trade Marks Act 1999, Sections 48–55. CRITICAL: S.49 + Rule 88 — registered user agreement must be filed with TM Registry within 6 months of agreement (Form TM-U) to be enforceable. WITHOUT registration, license is permissive use only — no statutory protection. Quality control by Licensor over Licensee\'s use is essential to avoid "naked license" + abandonment. Specify control mechanism: samples for approval, audit rights, brand standards manual. Royalty arrangements must avoid sham (FERA / FEMA implications for cross-border).'
+  },
+  'tm-coexistence': {
+    category:'contract', sub_category:'Trademark', label: 'Trademark Coexistence Agreement',
+    sections: ['Title and Date','Parties','Recitals (history of dispute / parallel use)','Definitions','Mutual Acknowledgment of Each Other\'s Rights','Coexistence Terms (geographic split, sectoral split, channel split, design/get-up restrictions)','Restrictions on Future Filings (each party undertakes not to oppose / not to file in restricted classes)','Use Restrictions (font, color, format, channel)','Cooperation in Enforcement Against Third Parties','No Challenge / No Opposition Clauses','Term (typically perpetual or until invalidation)','Escalation Mechanism for Disputes Between Parties','Confidentiality','Governing Law and Dispute Resolution','Boilerplate','Schedule A — Each Party\'s Marks','Schedule B — Use Restrictions Map','Execution Block'],
+    notes: 'No specific statutory framework — governed by general Contract Act + TM Act principles. CRITICAL: agreement should NOT extend to creating monopolies in restraint of trade (S.27 Indian Contract Act). DHC has held coexistence agreements valid where parties had legitimate parallel rights. Avoid "no challenge" clauses that would prevent third-party rectification. Common in: parallel-but-non-confusing use, prior-user vs registered-user disputes, related-companies use.'
+  },
+
+  // ── CONTRACTS — PATENT ────────────────────────────────────────────
+  'patent-assignment': {
+    category:'contract', sub_category:'Patent', label: 'Patent Assignment Deed',
+    sections: ['Title and Date','Parties (Assignor and Assignee)','Recitals','Definitions (Patents, Patent Applications, Improvements)','Assignment of Patents and Pending Applications','Assignment of Improvements (during transition period, if any)','Consideration','Cooperation in Prosecution and Enforcement','Representations and Warranties (good title, inventor named correctly, no prior license, fees paid up)','Indemnification','Registration of Assignment (Form 16, S.69 Patents Act)','Stamp Duty and Costs','Notices','Governing Law','Dispute Resolution','Boilerplate','Schedule A — List of Patents (Indian + foreign, with application/grant nos., status)','Schedule B — Pending Applications','Execution Block'],
+    notes: 'Patents Act 1970, Sections 68–70. CRITICAL: S.68 — assignment NOT VALID unless in writing AND registered with the Controller. Application within 6 months of execution under S.69 + Rule 90 (Form 16). Failure to register = assignment unenforceable in court (S.69(5)). Cover BOTH granted patents AND pending applications expressly. For inventions made by employee — inventorship is separate from ownership; ensure inventor has properly assigned to Assignor first. Foreign patents require local registration in each jurisdiction.'
+  },
+  'patent-license': {
+    category:'contract', sub_category:'Patent', label: 'Patent License Agreement',
+    sections: ['Title and Date','Parties (Licensor and Licensee)','Recitals','Definitions (Licensed Patents, Field of Use, Territory, Net Sales, Royalty)','Grant of License (exclusive / non-exclusive / sole; specify field of use)','Improvements Clause (who owns improvements, license-back if any)','Royalty Structure (running royalty, milestone payments, minimum royalty)','Reporting, Audit Rights, and Records','Sublicensing','Patent Maintenance and Prosecution Responsibilities','Enforcement of Patents (against infringers — first right of action)','Defense Against Infringement Claims (third-party patents)','Term and Termination','Effects of Termination','Confidentiality','Indemnification','Governing Law and Dispute Resolution','Notices','Boilerplate','Schedule A — Licensed Patents','Execution Block'],
+    notes: 'Patents Act 1970 + general contract law. Registration NOT mandatory for license validity (unlike assignment) but registration helps in enforcement. CRITICAL: S.83 — patentees must work the invention in India; license terms ought not to defeat working obligation. S.84–94 — compulsory license risk if patent not worked. Cross-border royalty triggers FEMA + withholding tax (typically 10% under Section 115A of Income Tax Act). For pharma / standard-essential patents — check FRAND obligations.'
+  },
+
+  // ── CONTRACTS — COPYRIGHT ─────────────────────────────────────────
+  'copyright-assignment': {
+    category:'contract', sub_category:'Copyright', label: 'Copyright Assignment Agreement',
+    sections: ['Title and Date','Parties (Assignor and Assignee)','Recitals (description of Work)','Definitions','Identification of the Work (S.19(2) — must be specific)','Specific Rights Assigned (right by right — reproduction, adaptation, translation, communication to public, etc.)','Term and Territory of Assignment (S.19(5) and (6) — defaults: 5 years and India)','Consideration / Royalty','Moral Rights (S.57 — author retains paternity and integrity rights even after assignment; cannot be waived/assigned)','Reversion (S.19(4) — if assignee does not exercise right within 1 year, reverts to author unless agreement says otherwise)','Representations and Warranties of Assignor (sole authorship, no prior assignment, original work, no infringement)','Indemnification','Notices','Governing Law (Indian Copyright Act 1957 + Contract Act 1872)','Dispute Resolution','Boilerplate','Schedule A — Description of the Work','Execution Block'],
+    notes: 'Copyright Act 1957, Section 19 governs. CRITICAL formal requirements: must be in writing, signed by assignor or duly authorized agent, identify work specifically, specify rights assigned, specify duration and territorial extent. Defaults if not specified: term 5 years, territory India. S.19(8) — assignment contrary to terms of equitable assignment with copyright society is void. S.19A — Copyright Board (now IPAB→ Commercial Court) can revoke assignment if assignee fails to make work available. S.57 MORAL RIGHTS — non-assignable, perpetual: author can claim authorship + restrain distortion/mutilation. Address moral rights separately (typically waiver of integrity right; paternity right preserved).'
+  },
+  'copyright-license': {
+    category:'contract', sub_category:'Copyright', label: 'Copyright License Agreement',
+    sections: ['Title and Date','Parties (Licensor and Licensee)','Recitals','Definitions','Identification of the Work','Grant of License (exclusive / non-exclusive — declare; exclusive must be in writing per S.30)','Specific Rights Licensed (right-by-right enumeration)','Permitted Modes of Exploitation','Term, Territory','Royalty Structure and Payment','Reporting and Audit Rights','Sublicensing','Termination (for breach, for non-exercise, on insolvency)','Effects of Termination','Moral Rights Acknowledgment (S.57)','Representations and Warranties','Indemnification','Confidentiality (where applicable)','Governing Law and Dispute Resolution','Notices','Boilerplate','Schedule A — Description of the Work','Schedule B — License Scope Map','Execution Block'],
+    notes: 'Copyright Act 1957, Sections 30–30A govern licensing. CRITICAL: S.30 — exclusive license must be in writing, signed by owner. Same formal requirements as assignment apply mutatis mutandis (S.30A). Compulsory licensing regime (S.31, 31A–D) — if work withheld from public, IPAB/Commercial Court can grant compulsory license. For musical works — statutory licensing for radio/TV broadcasting (S.31D) at rates set by IPAB. Performer\'s rights (S.38) and broadcasting reproduction rights (S.37) require separate consideration if applicable. Withholding tax on royalty: 10% under S.115A.'
+  },
+  'software-license': {
+    category:'contract', sub_category:'Copyright', label: 'Software License Agreement (B2B)',
+    sections: ['Title and Date','Parties (Licensor and Licensee)','Recitals','Definitions (Software, Documentation, Updates, Authorized Users, Affiliates)','Grant of License (scope, named users, sites, instances, perpetual / subscription)','Restrictions on Use (no reverse engineering, no sublicensing, no decompilation, etc.)','Delivery and Installation','Updates, Upgrades, and Maintenance','Support Services and SLA','Fees and Payment','Acceptance Testing (if applicable)','Confidentiality','IP Ownership (Licensor retains all IP)','Open-Source Components Disclosure','Data Protection and Privacy (DPDP Act 2023 compliance)','Warranties (limited; software-as-is for B2C; specific for B2B)','Indemnification (IP infringement; data breach)','Limitation of Liability','Term and Termination','Effects of Termination (data return, deletion, transition)','Audit Rights','Governing Law and Dispute Resolution','Notices','Force Majeure','Boilerplate','Schedule A — Specifications','Schedule B — SLA','Schedule C — Fee Schedule','Execution Block'],
+    notes: 'Copyright Act 1957 (software treated as "literary work" under S.2(o)). DPDP Act 2023 compliance for any personal data handling. Cross-border data transfer rules apply. For SaaS — separate considerations for data residency. Open-source license compliance (e.g., GPL, MIT) must be disclosed; some OSS terms can taint proprietary IP. Limitation of liability typically capped at 12 months of fees paid. Indemnity for IP infringement: standard but must be enforceable under Indian Contract Act S.124.'
+  },
+
+  // ── CONTRACTS — GENERAL IP / EMPLOYMENT ──────────────────────────
+  'nda-ip': {
+    category:'contract', sub_category:'General IP', label: 'Non-Disclosure Agreement (IP-focused)',
+    sections: ['Title and Date','Parties (Disclosing Party and Receiving Party — or mutual)','Recitals (purpose of disclosure)','Definitions (Confidential Information — broad; expressly include trade secrets, IP, technical info)','Scope of Confidentiality Obligations','Permitted Recipients (employees, advisors on need-to-know basis)','Permitted Uses (limited to defined Purpose only)','Exceptions (publicly known, independently developed, lawfully received from third party, required by law)','Duration of Obligations (typically 3-5 years post-termination)','Return / Destruction of Materials','Equitable Remedies (specific performance, injunction)','No License or Assignment of IP','Term','Notices','Governing Law and Dispute Resolution','Boilerplate','Execution Block'],
+    notes: 'No specific statute — governed by Contract Act 1872, common-law trade secret protection, and post-DPDP Act for personal data. CRITICAL: include "no license / no assignment" clause to prevent implied IP transfer through disclosure. Equitable remedies (injunctions) are routinely granted by Indian courts for trade secret violations. Indian courts disfavor overbroad / perpetual NDAs (restraint of trade, S.27 Contract Act). Reasonable duration (3–7 years) preferred; perpetual can survive only for genuinely confidential information not for general commercial info.'
+  },
+  'jda': {
+    category:'contract', sub_category:'General IP', label: 'Joint Development Agreement',
+    sections: ['Title and Date','Parties','Recitals (purpose, complementary capabilities)','Definitions (Background IP, Foreground IP, Joint IP, Project, Field of Use)','Scope of Project / Statement of Work','Project Plan, Milestones, and Timeline','Funding / Cost-Sharing Arrangements','Project Governance (Steering Committee, decision-making)','Background IP — License to Each Party for Project Use','Ownership of Foreground IP (split / joint / by contribution)','Right to File Patents / Register IP (which party leads, costs)','Right to Enforce Joint IP','Commercialization Rights (field-of-use split, territory split, royalty-back)','Improvements Clause','Confidentiality','Term and Termination','Effects of Termination (IP allocation post-termination, ongoing license rights)','Representations and Warranties','Indemnification','Governing Law','Dispute Resolution','Boilerplate','Schedule A — Project Plan','Schedule B — Background IP','Execution Block'],
+    notes: 'No specific statute — combines elements of contract, IP statutes. CRITICAL: clearly demarcate Background (pre-existing) IP, Foreground (developed) IP, and Joint IP — this is the most-litigated zone. For patents — joint applicants under S.6 Patents Act, but each can independently exploit unless agreement restricts. For copyright — joint authorship under S.2(z) requires inseparable contributions. Avoid creating joint inventorship by accident (causes prosecution complications).'
+  },
+  'work-for-hire': {
+    category:'contract', sub_category:'General IP', label: 'Work-for-Hire / Employment IP Assignment',
+    sections: ['Title and Date','Parties (Employer / Company and Employee)','Recitals','Definitions','Pre-existing IP — Employee Carve-out (Schedule A)','Assignment of Work Product to Employer','Assignment of Inventions and Discoveries','Moral Rights — Waiver to the Extent Permitted by Law','Cooperation in Patent / Copyright / Design Filings','Confidentiality and Trade Secrets','Non-Solicit (post-employment, reasonable scope)','Non-Compete (carefully drafted — restricted under S.27 Contract Act)','Return of Property on Termination','Governing Law and Dispute Resolution','Notices','Boilerplate','Schedule A — Employee Pre-existing IP','Execution Block'],
+    notes: 'Copyright Act S.17(c) — copyright in work made in course of employment vests automatically in employer (presumption only; can be displaced by contract). Patents Act has NO equivalent presumption — invention belongs to inventor unless assigned. CRITICAL: explicit assignment clause covering both copyright AND patents/inventions/designs. S.27 Indian Contract Act voids restraints of trade — non-compete unenforceable post-employment in India (only during employment). Non-solicit narrowly enforceable. S.57 moral rights non-waivable for paternity; integrity right partial waiver possible.'
+  },
+  'contractor-ip': {
+    category:'contract', sub_category:'General IP', label: 'Independent Contractor IP Assignment',
+    sections: ['Title and Date','Parties (Company and Contractor)','Recitals (scope of engagement)','Definitions','Statement of Work','Fees and Payment','Pre-existing IP — Contractor Carve-out','Assignment of Work Product (entire IP — copyright, patents, designs, trade secrets)','Moral Rights Waiver (to extent permitted)','Cooperation in Filings (executed assignments at Company expense)','Confidentiality','No Employment Relationship (declaration)','Tax and Compliance Responsibilities','Indemnification','Term and Termination','Governing Law and Dispute Resolution','Notices','Boilerplate','Schedule A — Pre-existing IP','Execution Block'],
+    notes: 'For contractors, copyright does NOT auto-vest in commissioner under S.17 (which only covers employees and certain commissioned categories like maps, charts, films). Contract MUST expressly assign IP. Pay attention to: (1) clear identification of work product, (2) assignment effective on creation (not just on payment), (3) "further-acts-and-deeds" clause for filing cooperation, (4) tax classification — TDS under S.194J for professional fees.'
+  },
+
+  // ── CONTRACTS — SETTLEMENT ────────────────────────────────────────
+  'settlement-ip': {
+    category:'contract', sub_category:'Settlement', label: 'IP Litigation Settlement Agreement',
+    sections: ['Title and Date','Parties','Recitals (the dispute, suits/applications filed, current stage)','Definitions','Settlement Consideration','Mutual Releases (covenant not to sue, scope, exclusions)','Withdrawal of Suits and Applications (specify each by court / case no.)','License-Back / Coexistence Terms (if applicable)','Future Use Restrictions','Non-Disparagement','Confidentiality of Settlement Terms','No Admission of Liability','Specific Performance / Liquidated Damages for Breach','Compliance with Court (consent terms / Order XXIII Rule 3 CPC)','Governing Law and Jurisdiction','Boilerplate','Schedule A — List of Suits / Applications','Execution Block'],
+    notes: 'CPC Order XXIII Rule 3 — settlement must be recorded by court for decree-on-compromise. Settlement should typically be filed before the court in which the lead suit is pending. CRITICAL: include specific performance + liquidated damages clause; courts routinely enforce IP settlements via contempt / breach proceedings. For TM matters — file deletion/withdrawal of pending oppositions/rectifications referred to. For patents — withdraw pending pre/post-grant oppositions. Confidentiality of TERMS but NOT of FACT of settlement (court records are public).'
+  },
+
+  // ── CONTRACTS — COMMERCIAL (with IP elements) ─────────────────────
+  'franchise': {
+    category:'contract', sub_category:'Commercial', label: 'Franchise Agreement',
+    sections: ['Title and Date','Parties (Franchisor and Franchisee)','Recitals','Definitions','Grant of Franchise (territory, exclusivity, term)','Franchise Fee (initial) and Royalty (ongoing % of revenue)','Trademark and Brand Use License (S.49 TM Act compliance)','Quality Control and Operations Manual','Training and Support','Marketing Fund Contribution','Site Selection and Approval','Reporting, Audit, Books of Accounts','Renewal','Termination (for cause, for breach of standards, on insolvency)','Effects of Termination — Most Important: Cease use of TM, return manuals, non-compete (limited)','Right of First Refusal / Transfer Restrictions','Confidentiality','Indemnification','Insurance Requirements','Force Majeure','Governing Law and Dispute Resolution','Notices','Boilerplate','Schedule A — Licensed Marks','Schedule B — Operations Manual','Schedule C — Fee Schedule','Schedule D — Approved Suppliers','Execution Block'],
+    notes: 'No specific franchise statute in India (unlike US FTC Rule). Governed by TM Act 1999 (for brand license — S.49 quality control mandatory) + Contract Act + Competition Act 2002 (vertical restraints). CRITICAL: register the TM license under Form TM-U within 6 months. Quality control is non-negotiable — without it, license is "naked" and abandons the mark. Post-termination non-compete enforceable ONLY to protect goodwill, narrow scope, reasonable duration (typically 6-12 months in same territory). Avoid resale price maintenance (Competition Act risk).'
+  },
+  'merchandising': {
+    category:'contract', sub_category:'Commercial', label: 'Merchandising / Endorsement Agreement',
+    sections: ['Title and Date','Parties (Rights Holder and Licensee / Endorser and Brand)','Recitals (the property — character, name, image, persona)','Definitions','Grant of Rights (image, name, voice, signature, persona — specify each)','Permitted Products / Categories','Territory','Term and Renewal','Exclusivity (if any — sectoral / territorial / channel)','Royalty / Endorsement Fee Structure','Approval Rights (on creative, packaging, marketing)','Quality Standards','Promotional Obligations of Endorser (number of posts, appearances, etc.)','Restrictions on Endorser (no competing endorsements, morality clause)','Reporting and Audit','Confidentiality','Indemnification','IP Ownership (Endorser retains personality rights; Licensee owns derivative creative)','Termination (incl. morality clause / image-damage trigger)','Governing Law and Dispute Resolution','Notices','Boilerplate','Schedule A — Approved Products','Schedule B — Promotional Calendar','Execution Block'],
+    notes: 'Personality rights / publicity rights in India: NOT codified, derived from Article 21 (privacy) and tort. DHC has recognised in K.S. Puttaswamy and DM Entertainment v. Baby Gift House. For deceased personalities — heirs may have rights (DHC, Madras HC have differing views). Morality clause critical — define "image-damaging conduct" objectively. ASCI Code of Self-Regulation applies for advertising. Influencer Guidelines (ASCI, 2021) require #ad / #sponsored disclosure. Foreign endorsers — withholding tax + ECB rules.'
+  },
+  'distribution-ip': {
+    category:'contract', sub_category:'Commercial', label: 'Distribution Agreement (with brand rights)',
+    sections: ['Title and Date','Parties (Principal and Distributor)','Recitals','Definitions','Appointment of Distributor (exclusive / non-exclusive / sole)','Territory and Channel','Products and Pricing','Order, Forecasting, and Supply Mechanics','Trademark Use Authorization (limited license; no assignment)','Restrictions on Brand Use (no modification, no co-branding, format compliance)','Marketing and Advertising Obligations','Reporting and Audit','Sales Targets and Performance','Term and Renewal','Termination (for cause, for performance, for convenience with notice)','Effects of Termination — CEASE USE OF BRAND, return inventory or buy-back, non-compete','Confidentiality','Anti-Bribery / Anti-Corruption (PCA / FCPA-equivalent)','Force Majeure','Indemnification (IP, products liability)','Governing Law and Dispute Resolution','Notices','Boilerplate','Schedule A — Products','Schedule B — Territory','Schedule C — Marks','Schedule D — Targets','Execution Block'],
+    notes: 'Governed by Contract Act + Sale of Goods Act 1930 + Competition Act 2002 + TM Act 1999 (for brand license). For exclusive distribution — Competition Act risks (vertical agreement; check S.3(4) — only enforceable if not "appreciable adverse effect on competition"). TM use is implicit license — better to make EXPRESS limited license clause to prevent goodwill ambiguity on termination. Post-termination clause: distributor MUST cease all brand use within 30 days; principal can buy back inventory at cost or supplier price.'
+  },
+
+  // ── OTHER ─────────────────────────────────────────────────────────
+  'other':               { category:'other', label: 'Custom',                              sections: [], notes: 'User-specified draft type. The exact label is provided in the SPECIFY DRAFT TYPE field — adapt the structure, sections, and tone to that draft type. If pleading: keep DHC house style. If contract: standard Indian commercial contract structure.' }
 };
 
 // Standard DHC verification template — hardcoded because pdftotext garbled it
 // in the sample extraction (signatures + stamps interrupt the text flow).
 const DRAFTING_VERIFICATION_TEMPLATE = "Verified at <<PLACE>> on this ____ day of <<MONTH>>, <<YEAR>>, that the contents of paragraphs ___ to ___ of the above ____________ are true to my knowledge derived from records maintained in the ordinary course of business and the contents of paragraphs ___ to ___ are true to my information received and believed by me to be true. Nothing material has been concealed therefrom.";
+
+// Per-contract brief template. Fills the "Your Brief" textarea when a
+// contract type is selected — the user just fills in the fields rather
+// than writing a free-form brief. The AI parses these fields into the
+// drafted contract.
+const CONTRACT_BRIEF_TEMPLATES = {
+  'tm-assignment': `Assignor (current TM owner):
+Assignee (recipient):
+Trademarks (list — name + class + reg no.):
+Goodwill: with goodwill / without goodwill
+Consideration (amount + payment terms):
+Effective date:
+Special terms (territory, exceptions, post-assignment covenants):`,
+
+  'tm-license': `Licensor (TM owner):
+Licensee:
+Trademarks (list — name + class + reg no.):
+License type: exclusive / non-exclusive / sole
+Territory:
+Field of use / Licensed goods or services:
+Term (years):
+Renewable: yes — by mutual consent / yes — automatic / no — fixed term
+Royalty (e.g., 5% of Net Sales / ₹X lump sum / ₹X per unit):
+Sublicensing: not permitted / with consent / to affiliates only
+Quality control mechanism (samples, audit, brand standards manual):
+Special terms:`,
+
+  'tm-coexistence': `Party A:
+Party A's marks:
+Party B:
+Party B's marks:
+Background of dispute / parallel use:
+Geographic split (e.g., Party A in India only, Party B in EU):
+Sectoral split (e.g., goods/services categories):
+Channel split (e.g., online vs offline):
+Term: perpetual / fixed years / until invalidation of either mark
+Special restrictions (font, color, packaging):`,
+
+  'patent-assignment': `Assignor (current patent owner):
+Assignee:
+Patents (Indian — list patent nos./application nos. + status):
+Foreign patents (list jurisdiction + nos.):
+Pending applications:
+Improvements clause: included / excluded / time-limited
+Consideration:
+Effective date:
+Cooperation in prosecution / enforcement: yes / no
+Special terms:`,
+
+  'patent-license': `Licensor:
+Licensee:
+Patents (list):
+License type: exclusive / non-exclusive / sole
+Field of use:
+Territory:
+Term (years):
+Royalty (running royalty %, milestone payments, minimum royalty):
+Improvements: licensee owns / licensor owns / cross-license
+Sublicensing: permitted / not permitted / with consent
+Patent maintenance: licensor responsibility / licensee responsibility
+Enforcement first right: licensor / licensee
+Special terms:`,
+
+  'copyright-assignment': `Assignor (author / current owner):
+Assignee:
+The Work (title, type — literary/musical/artistic/cinematograph/sound recording, year of creation):
+Rights assigned (specify each: reproduction, adaptation, translation, communication to public, etc. — or "all rights"):
+Territory: India / Worldwide / specific list
+Term (years; default 5 if not specified):
+Consideration / royalty structure:
+Moral rights: integrity right waived / paternity preserved (S.57 — paternity NOT waivable)
+Special terms:`,
+
+  'copyright-license': `Licensor:
+Licensee:
+The Work (title, type, year):
+License type: exclusive / non-exclusive
+Rights licensed (specify each):
+Modes of exploitation:
+Territory:
+Term:
+Royalty:
+Reporting / audit obligations:
+Special terms:`,
+
+  'software-license': `Licensor (vendor):
+Licensee (customer):
+Software name + version:
+License model: perpetual / subscription / per-user / per-instance / site-wide
+Authorized users / instances / sites:
+Fee structure:
+Support / SLA tier:
+Updates / maintenance: included for term / separate fee
+Open-source components used (list):
+Data flow / personal data handled (DPDP Act 2023 implications):
+Term (months/years):
+Termination triggers:
+Special terms:`,
+
+  'nda-ip': `Disclosing party:
+Receiving party (or "mutual" for two-way):
+Purpose of disclosure (the project / evaluation / negotiation):
+Categories of confidential information (technical, IP, financial, customer data, etc.):
+Permitted recipients (employees, advisors, affiliates):
+Term (typically 3-5 years):
+Post-termination obligations duration:
+Special terms (e.g., specific IP carve-outs):`,
+
+  'jda': `Party A:
+Party B:
+Project description / purpose:
+Funding split:
+Background IP each party brings:
+Foreground IP allocation: split / joint / by contribution
+Right to file IP applications: party A / party B / jointly
+Commercialization rights (territory, field-of-use split):
+Term:
+Termination effects:
+Special terms:`,
+
+  'work-for-hire': `Employer / Company:
+Employee:
+Role / position:
+Scope of work (general categories):
+Pre-existing IP brought by employee (Schedule A list):
+Non-solicit duration (post-employment):
+Non-compete (note: limited enforceability post-employment under S.27 Contract Act):
+Effective date:
+Special terms:`,
+
+  'contractor-ip': `Company:
+Contractor:
+Scope of engagement / SOW:
+Fees and payment milestones:
+Pre-existing IP brought by contractor:
+Term (project duration):
+Confidentiality duration:
+Special terms:`,
+
+  'settlement-ip': `Party A (e.g., Plaintiff):
+Party B (e.g., Defendant):
+The dispute (brief background):
+Suits / applications to be withdrawn (list each by court / case no.):
+Settlement consideration (amount + payment terms):
+Mutual release scope (claims being released):
+License-back or coexistence terms (if any):
+Future use restrictions:
+Confidentiality of terms: yes / no
+Special terms:`,
+
+  'franchise': `Franchisor:
+Franchisee:
+Brand / system name:
+Territory (exclusive / non-exclusive):
+Term (years):
+Initial franchise fee:
+Royalty (% of revenue, ongoing):
+Marketing fund contribution (%):
+Training / support obligations:
+Quality control mechanism:
+Renewal terms:
+Post-termination non-compete (limited):
+Special terms:`,
+
+  'merchandising': `Rights holder / Endorser:
+Licensee / Brand:
+The property (character / personality / image / persona):
+Permitted product categories:
+Territory:
+Term (months/years):
+Exclusivity (sectoral / territorial / channel):
+Endorsement fee structure:
+Approval rights (Endorser approves creative? Brand approves which products?):
+Promotional obligations (number of posts, appearances, deliverables):
+Restrictions (no competing endorsements, morality clause):
+Special terms:`,
+
+  'distribution-ip': `Principal (brand owner):
+Distributor:
+Products covered:
+Territory + channel (exclusive / non-exclusive):
+Term (years):
+Pricing structure:
+Sales targets:
+Trademark use authorization scope:
+Marketing obligations:
+Anti-bribery clause: yes / no
+Termination notice period:
+Special terms:`,
+};
+
+// Auto-fill the brief textarea with a contract template when a contract
+// type is selected (and the user hasn't typed anything custom yet).
+function maybeFillContractBriefTemplate(typeKey) {
+  const tmpl = CONTRACT_BRIEF_TEMPLATES[typeKey];
+  if (!tmpl) return;
+  const briefEl = document.getElementById('draft-brief');
+  if (!briefEl) return;
+  const cur = (briefEl.value || '').trim();
+  // Replace if empty OR if it matches another contract template (so switching
+  // contract types updates the template). Don't overwrite custom text.
+  const isAnotherTemplate = Object.values(CONTRACT_BRIEF_TEMPLATES).some(t => cur === t.trim());
+  if (!cur || isAnotherTemplate) {
+    briefEl.value = tmpl;
+  }
+}
 
 // Populate the Linked Matter dropdown with the user's current matters list,
 // and wire the dropzone (idempotent — safe to call on every view switch).
@@ -5487,6 +5827,19 @@ function onDraftTypeChange() {
   if (!wrap) return;
   wrap.style.display = (v === 'other') ? '' : 'none';
   if (v === 'other') setTimeout(() => document.getElementById('draft-other-type')?.focus(), 50);
+  // Contract-specific: auto-fill the brief with the per-contract template
+  // so the user just fills in fields rather than typing a free-form brief.
+  maybeFillContractBriefTemplate(v);
+  // Update placeholder hint on the brief textarea so the user knows what to do
+  const briefEl = document.getElementById('draft-brief');
+  if (briefEl) {
+    const t = DRAFT_TYPES[v];
+    if (t?.category === 'contract') {
+      briefEl.placeholder = 'Fill in the contract fields above (auto-filled). Edit any line; delete fields you don\'t need.';
+    } else {
+      briefEl.placeholder = "Plain English — what do you want to plead?\n\ne.g. Deny all paragraphs. Plead acquiescence — they knew about our use since 2019. Raise jurisdiction (no part of cause of action arose in Delhi). Counter-claim for groundless threats.";
+    }
+  }
 }
 
 // Wire the file dropzone — called from renderDraftingView. Guarded against
@@ -5689,11 +6042,17 @@ function reverseDraftingMask(text, map) {
 // Critical pieces are flagged so DeepSeek Reasoner (which thinks before
 // writing) treats them as hard constraints during its reasoning trace.
 function buildDraftingPrompt(typeKey, matter, opposingDocMasked, brief, citations, customLabel) {
-  const baseT = DRAFT_TYPES[typeKey] || { label: typeKey, sections: [], notes: '' };
-  // For "Other", use the user-specified label so the model knows what it's drafting.
+  const baseT = DRAFT_TYPES[typeKey] || { label: typeKey, sections: [], notes: '', category: 'pleading' };
   const t = (typeKey === 'other' && customLabel)
     ? { ...baseT, label: customLabel }
     : baseT;
+  // Branch: contracts get commercial-contract style; pleadings get DHC house style.
+  if (t.category === 'contract') return buildContractPrompt(t, matter, brief, citations);
+  return buildPleadingPrompt(t, matter, opposingDocMasked, brief, citations);
+}
+
+// ── Pleading prompt (DHC house style, MOST RESPECTFULLY SHEWETH, etc.) ──
+function buildPleadingPrompt(t, matter, opposingDocMasked, brief, citations) {
   const sp = DRAFTING_STYLE_PROFILE;
   const topConnectives = Object.entries(sp.connectives_freq)
     .slice(0, 12).map(([k]) => `"${k}"`).join(', ');
@@ -5759,6 +6118,78 @@ ${citations || '(none)'}
 
 # OUTPUT
 Begin directly with the cause title. Do not include any preamble, explanation, or markdown. End with the appropriate closing block (verification clause / signature block / prayer-only as required by the draft type).`;
+}
+
+// ── Contract prompt (commercial-contract style, defined terms, schedules) ──
+function buildContractPrompt(t, matter, brief, citations) {
+  return `You are an elite Indian IP transactional drafter. Draft a **${t.label}** that fully complies with applicable Indian statutes (Trade Marks Act 1999, Patents Act 1970, Copyright Act 1957, Indian Contract Act 1872, DPDP Act 2023 where relevant) and reflects best practice in Indian IP transactional drafting.
+
+# CONTRACT STYLE REQUIREMENTS (CRITICAL — non-negotiable)
+
+Header / Title:
+- All caps title: "${t.label.toUpperCase()}"
+- Below title: "THIS ${t.label.toUpperCase()} (this \\"Agreement\\") is made on this ____ day of _________, 20___ (the \\"Effective Date\\")"
+
+Parties block:
+- "BY AND BETWEEN" header
+- Each party introduced with full legal name, type of entity, registered address, PAN/CIN where appropriate, "(hereinafter referred to as the '<Role>', which expression shall, unless repugnant to the context or meaning thereof, mean and include its successors and permitted assigns)"
+- Joint label: "(Party A and Party B together referred to as the 'Parties' and individually as a 'Party')"
+
+Recitals:
+- Numbered "WHEREAS" clauses establishing background, current rights, intent
+- Concluded with: "NOW, THEREFORE, in consideration of the mutual covenants and agreements contained herein and other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the Parties agree as follows:"
+
+Operative clauses:
+- Numbered: 1. 1.1 1.1.1
+- Bold/all-caps section headings: "1. DEFINITIONS", "2. GRANT OF LICENSE", etc.
+- Defined terms ALWAYS in initial caps when used after definition
+- Use "shall" for obligations, "may" for discretion, "will" for future facts
+- Include all sections from the required list below — do NOT omit any
+- For each schedule referenced in the body, include the schedule at the end with placeholder content
+
+Boilerplate (must include, near end):
+- Notices (addresses for service, modes including email, deemed receipt timing)
+- Governing Law (Indian law; specific statutes that govern the subject matter)
+- Dispute Resolution (typically arbitration under Arbitration & Conciliation Act 1996 OR Delhi High Court jurisdiction — pick based on context, default to DHC for IP disputes)
+- Severability, Entire Agreement, Amendment in writing, Counterparts (incl. electronic)
+- Assignment restrictions
+- Force Majeure (where commercial)
+
+Stamp duty + registration:
+- Insert a clause noting stamp duty applicable under Indian Stamp Act + state schedules; specify which Party bears the cost
+- For trademark / patent / copyright assignments, include a clause requiring registration with the relevant Indian IP office
+
+Execution block:
+- "IN WITNESS WHEREOF, the Parties have caused this Agreement to be executed by their duly authorized representatives as of the Effective Date first above written."
+- Per-party signature block with: name, title, signature line, date
+- Witness lines: "WITNESSED BY" (1 or 2 witnesses per party) with name + signature
+
+Output formatting:
+- Plain text only. NO markdown (no #, no **, no _, no \`).
+- Use ALL CAPS for section headings.
+- Indent sub-clauses with leading spaces.
+- Output is a final-form contract, not a chat response or commentary.
+
+# CONTRACT TYPE: ${t.label}
+Required clauses in order: ${t.sections.join(' → ')}
+
+# INDIAN-LAW DRAFTING NOTES (apply these — they reflect statutory requirements)
+${t.notes || '(none)'}
+
+# MATTER CONTEXT (if linked — use placeholders if not)
+${matter ? `- Linked to matter: ${(matter.title || matter.caseNo).replace(/</g,'<').replace(/>/g,'>')}
+- IPR type: ${matter.type || 'unspecified'}
+- Use this context only for understanding the parties / subject matter; the contract itself stands alone.` : '(No matter linked — use the field values from the brief; if a value is missing, use a clearly-marked placeholder like [LICENSOR NAME] or [TERRITORY] for the user to fill in.)'}
+
+# THE FIELDS (parties + commercial terms — populate the contract from these)
+${brief}
+
+${citations ? `# REFERENCES (cite where relevant in recitals or definitions)
+${citations}
+` : ''}
+# OUTPUT
+Begin directly with the title. No preamble, no explanation, no markdown.
+End with execution block + schedules. Include ALL listed clauses — even routine boilerplate. Use clearly-bracketed placeholders like [LICENSOR ADDRESS] for any field the user did not provide.`;
 }
 
 // Main entry. Triggered by the Generate Draft button.
