@@ -1493,7 +1493,7 @@ body {
     <div class="topbar-title" id="topbar-title">Dashboard</div>
     <div class="topbar-right">
       <div id="sync-banner" style="display:none;align-items:center;font-size:11px;color:var(--ink3);letter-spacing:0.5px;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;gap:6px;"></div>
-      <button class="btn btn-ghost btn-sync" onclick="loadScrapedData()">
+      <button class="btn btn-ghost btn-sync" onclick="triggerFullSync()" title="Run a fresh DHC scrape now (~2-3 min). Pull-to-refresh just reloads cached data instead.">
         <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M20 9A9 9 0 005.3 5.3M4 15a9 9 0 0014.7 3.7"/></svg>
         <span class="btn-label">Sync DHC</span>
       </button>
@@ -3672,6 +3672,97 @@ function setupGitHubToken() {
   return null;
 }
 
+// ── TRIGGER A FRESH FULL SCRAPE OF DHC ────────────────────────────────────────
+// "Sync DHC" button calls this. Dispatches the scrape.yml workflow with no
+// case_no input (= full sync of all cases), then polls scraped.json's
+// lastScraped timestamp to know when GitHub Actions finishes. ~2-3 min total.
+//
+// Distinct from loadScrapedData() which just RE-FETCHES the last cached
+// scraped.json from raw.githubusercontent (used by pull-to-refresh).
+let __dhcSyncInFlight = false;
+async function triggerFullSync() {
+  if (__dhcSyncInFlight) {
+    toast('Sync already in progress…', '');
+    return;
+  }
+  let token = getGitHubToken();
+  if (!token) {
+    token = setupGitHubToken();
+    if (!token) return;
+  }
+
+  // Capture the current "lastScraped" so we know when the new scrape lands.
+  // Use a cache-buster so we get the genuine current state, not a CDN cache.
+  let beforeTs = '';
+  try {
+    const before = await fetch(SCRAPED_DATA_URL + '?ts=' + Date.now(), { cache: 'no-store' }).then(r => r.json());
+    beforeTs = (before.find(d => d.lastScraped)?.lastScraped) || '';
+  } catch (_) {}
+
+  __dhcSyncInFlight = true;
+  toast('Triggering DHC scrape on GitHub Actions…', '');
+
+  // Show spinner state on the button while running
+  const btn = document.querySelector('.btn-sync');
+  const origHTML = btn?.innerHTML;
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<span style="width:14px;height:14px;border:2px solid rgba(0,0,0,0.2);border-top-color:var(--ink);border-radius:50%;animation:spin 0.8s linear infinite;display:inline-block;"></span> <span class="btn-label">Syncing…</span>';
+  }
+
+  try {
+    const dispatchRes = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/scrape.yml/dispatches`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json'
+      },
+      // No `case_no` input → full sync
+      body: JSON.stringify({ ref: GH_BRANCH, inputs: {} })
+    });
+    if (!dispatchRes.ok) {
+      if (dispatchRes.status === 401 || dispatchRes.status === 403) {
+        localStorage.removeItem('lextrack_gh_token');
+        throw new Error('Invalid GitHub token — re-enter it');
+      }
+      throw new Error(`GitHub workflow dispatch failed (${dispatchRes.status})`);
+    }
+
+    toast('DHC scrape running… ~2–3 min', '');
+
+    // Poll for the new scraped.json. Up to 5 min, every 15s.
+    const start = Date.now();
+    const timeoutMs = 5 * 60 * 1000;
+    while (Date.now() - start < timeoutMs) {
+      await new Promise(r => setTimeout(r, 15000));
+      try {
+        const res = await fetch(SCRAPED_DATA_URL + '?ts=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) continue;
+        const data = await res.json();
+        const latestTs = (data.find(d => d.lastScraped)?.lastScraped) || '';
+        if (latestTs && latestTs > beforeTs) {
+          // New scrape landed — re-merge into matters
+          await loadScrapedData();
+          toast('✓ DHC sync complete — fresh data loaded', 'success');
+          return;
+        }
+      } catch (_) { /* keep polling */ }
+    }
+    throw new Error('Sync timed out after 5 min — check the Actions tab');
+
+  } catch (err) {
+    toast(`Sync failed: ${err.message}`, 'error');
+    console.error('triggerFullSync:', err);
+  } finally {
+    __dhcSyncInFlight = false;
+    if (btn && origHTML) {
+      btn.disabled = false;
+      btn.innerHTML = origHTML;
+    }
+  }
+}
+
 async function addToScraper(caseNo) {
   let token = getGitHubToken();
   if (!token) {
@@ -4050,12 +4141,40 @@ loadScrapedData(); // fetch latest data from GitHub in background (re-applies us
   }
 })();
 
-// ── PWA: register service worker for offline support + home-screen install
+// ── PWA: register service worker + auto-update when a new version ships
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('LexTrack PWA: service worker registered, scope=', reg.scope))
-      .catch(err => console.warn('LexTrack PWA: service worker registration failed:', err));
+    navigator.serviceWorker.register('./sw.js').then(reg => {
+      console.log('LexTrack PWA: service worker registered, scope=', reg.scope);
+
+      // Force a check for an updated SW on every page load (default is once
+      // every 24h — too slow when we're shipping fixes).
+      reg.update();
+
+      // When a new SW is found, install it and ask it to take over immediately.
+      reg.addEventListener('updatefound', () => {
+        const newSW = reg.installing;
+        if (!newSW) return;
+        newSW.addEventListener('statechange', () => {
+          if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+            // A new version is ready, but the page is still controlled by the
+            // old SW. Tell the new one to skip waiting; controllerchange below
+            // will reload once it activates.
+            newSW.postMessage('SKIP_WAITING');
+          }
+        });
+      });
+    }).catch(err => console.warn('LexTrack PWA: service worker registration failed:', err));
+
+    // Reload the page when the controlling SW changes (i.e. the new version
+    // has activated). One-shot guard so we don't loop.
+    let reloaded = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (reloaded) return;
+      reloaded = true;
+      console.log('LexTrack PWA: new SW active, reloading…');
+      window.location.reload();
+    });
   });
 }
 </script>

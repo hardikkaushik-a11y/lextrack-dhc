@@ -1,14 +1,19 @@
 /**
- * LexTrack service worker — offline support.
+ * LexTrack service worker — offline support + fast updates.
  *
  * Strategy:
- *   - Pre-cache the app shell (HTML, manifest, icons) on install.
- *   - For app-shell requests: cache-first (instant load, works offline).
- *   - For data requests (scraped.json, IK API, DeepSeek, GitHub API):
- *     network-first with cache fallback so Ishi sees the latest data
- *     when online but still gets the last-known data when offline.
+ *   - HTML / manifest:  NETWORK-FIRST. Always try the live version so feature
+ *                       updates land instantly (was cache-first, which was
+ *                       trapping people on stale builds).
+ *   - Icons:            cache-first (they almost never change).
+ *   - data/scraped.json: network-first with cache fallback so Ishi sees the
+ *                       latest dates online and last-known when offline.
+ *   - Auth'd APIs:      pass through (no caching).
+ *
+ * Bumping CACHE_VERSION evicts old caches on activation. The version string
+ * also includes a build timestamp so each push triggers a clean refresh.
  */
-const CACHE_VERSION = 'lextrack-v3';
+const CACHE_VERSION = 'lextrack-v6-2026-04-26-pwa-update';
 const APP_SHELL = [
   './LexTrack-IPR-App.html',
   './manifest.json',
@@ -21,8 +26,6 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_VERSION)
       .then(cache => cache.addAll(APP_SHELL).catch(err => {
-        // Some assets may not exist yet (e.g. before icons are generated);
-        // don't fail install — partial cache is fine.
         console.warn('[sw] App shell partial cache:', err);
       }))
       .then(() => self.skipWaiting())
@@ -37,33 +40,56 @@ self.addEventListener('activate', event => {
   );
 });
 
+// Allow the page to ask the SW to skip waiting (used by the page-side
+// updatefound handler so a fresh SW activates without a tab close).
+self.addEventListener('message', event => {
+  if (event.data === 'SKIP_WAITING') self.skipWaiting();
+});
+
 self.addEventListener('fetch', event => {
   const req = event.request;
   if (req.method !== 'GET') return;
 
   const url = new URL(req.url);
 
-  // App shell: cache-first
-  const isAppShell = APP_SHELL.some(p => url.pathname.endsWith(p.replace('./', '/')))
-    || url.pathname.endsWith('/LexTrack-IPR-App.html')
-    || url.pathname === '/' || url.pathname.endsWith('/lextrack-dhc/');
+  // HTML, manifest, root navigations → NETWORK-FIRST so updates ship instantly
+  const isHtmlOrManifest =
+    req.mode === 'navigate' ||
+    url.pathname.endsWith('.html') ||
+    url.pathname.endsWith('/manifest.json') ||
+    url.pathname.endsWith('/') ||
+    url.pathname.endsWith('/lextrack-dhc/');
 
-  // Data requests we want to cache for offline (scraped data + GitHub raw):
-  const isData = url.host === 'raw.githubusercontent.com';
+  // Icons → cache-first (rarely change)
+  const isIcon = /\/icons\//.test(url.pathname);
 
-  if (isAppShell) {
+  // Scraped data → network-first with cache fallback
+  const isScrapedData = url.host === 'raw.githubusercontent.com' && /scraped\.json/.test(url.pathname);
+
+  if (isHtmlOrManifest) {
     event.respondWith(
-      caches.match(req).then(cached => cached || fetch(req).then(res => {
+      fetch(req).then(res => {
         // Update cache in background
         const copy = res.clone();
         caches.open(CACHE_VERSION).then(c => c.put(req, copy));
         return res;
-      }).catch(() => caches.match('./LexTrack-IPR-App.html')))
+      }).catch(() => caches.match(req).then(c => c || caches.match('./LexTrack-IPR-App.html')))
     );
     return;
   }
 
-  if (isData) {
+  if (isIcon) {
+    event.respondWith(
+      caches.match(req).then(cached => cached || fetch(req).then(res => {
+        const copy = res.clone();
+        caches.open(CACHE_VERSION).then(c => c.put(req, copy));
+        return res;
+      }))
+    );
+    return;
+  }
+
+  if (isScrapedData) {
     event.respondWith(
       fetch(req).then(res => {
         const copy = res.clone();
@@ -74,6 +100,5 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Everything else (IK API, DeepSeek, GitHub API): network-only.
-  // Don't cache because they're authenticated calls or rapidly stale.
+  // Everything else (IK API, DeepSeek, GitHub API): pass through, no caching.
 });
