@@ -68,21 +68,27 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
 
   try {
     // ── CAPTCHA INTERCEPTOR ────────────────────────────────────────────
-    // eDHCR renders its CAPTCHA to a <canvas> via ctx.fillText("ABC123").
-    // We monkey-patch fillText BEFORE the page's JS runs, so every
-    // string drawn to canvas is captured into window.__capturedCaptchas.
-    // The captcha answer is just the largest plausible string drawn.
+    // Patch every canvas text method so we catch the answer regardless
+    // of how it's drawn. Installed via evaluateOnNewDocument so it's
+    // active before the page's own JS runs.
     await page.evaluateOnNewDocument(() => {
       window.__capturedCaptchas = [];
-      const origFillText = CanvasRenderingContext2D.prototype.fillText;
-      CanvasRenderingContext2D.prototype.fillText = function (text, ...rest) {
-        try {
-          if (typeof text === 'string' && text.length >= 3 && text.length <= 12) {
-            window.__capturedCaptchas.push(text);
-          }
-        } catch (_) {}
-        return origFillText.call(this, text, ...rest);
-      };
+      window.__captchaCalls = [];
+      const proto = CanvasRenderingContext2D.prototype;
+      ['fillText', 'strokeText'].forEach(method => {
+        const orig = proto[method];
+        proto[method] = function (text, ...rest) {
+          try {
+            window.__captchaCalls.push({ method, text: String(text).substring(0, 20) });
+            if (typeof text === 'string' && text.length >= 1 && text.length <= 20) {
+              window.__capturedCaptchas.push(text);
+            }
+          } catch (_) {}
+          return orig.call(this, text, ...rest);
+        };
+      });
+      // Also: capture characters drawn one-at-a-time by concatenating
+      // sequential single-char fills (common in captcha rendering)
     });
 
     console.log(`\n[eDHCR] Navigating to ${EDHCR_URL}`);
@@ -263,24 +269,61 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
       widgetDump.allCanvas.forEach(c => console.log(`     - ${c.w}x${c.h} class="${c.classes}"`));
     }
 
-    // Read the captcha answer captured by our fillText interceptor.
-    // The canvas captcha gets drawn at page load — by now it's in
-    // window.__capturedCaptchas. If multiple strings were drawn, the
-    // last one is the most recent (e.g. after a reload click).
-    const captured = await page.evaluate(() => window.__capturedCaptchas || []);
-    console.log(`[eDHCR] Canvas fillText interceptor captured ${captured.length} string(s): ${JSON.stringify(captured)}`);
+    // Force-regenerate the captcha by clicking the reload anchor (if present),
+    // then wait so the redraw happens with our interceptor in place.
+    const reloadClicked = await page.evaluate(() => {
+      const a = document.querySelector('#reload_href, a[id*="reload" i], button[id*="reload" i]');
+      if (a) { a.click(); return true; }
+      return false;
+    });
+    console.log(`[eDHCR] Captcha reload triggered: ${reloadClicked}`);
+    await new Promise(r => setTimeout(r, 1500));
 
-    // Filter to plausible captcha shapes (4-10 alphanumeric, no spaces)
-    const plausible = captured.filter(s => /^[A-Za-z0-9]{4,10}$/.test(s));
-    const captchaAnswer = plausible.length ? plausible[plausible.length - 1] : null;
+    // Diagnostic: confirm the canvas actually has pixels drawn on it.
+    const canvasInfo = await page.evaluate(() => {
+      const c = document.querySelector('canvas#canv, canvas');
+      if (!c) return null;
+      const ctx = c.getContext('2d');
+      try {
+        const data = ctx.getImageData(0, 0, c.width, c.height).data;
+        let nonTransparent = 0;
+        for (let i = 3; i < data.length; i += 4) if (data[i] > 0) nonTransparent++;
+        return { width: c.width, height: c.height, nonTransparentPixels: nonTransparent, dataUrl: c.toDataURL().substring(0, 80) };
+      } catch (e) { return { error: e.message }; }
+    });
+    console.log(`[eDHCR] Canvas info: ${JSON.stringify(canvasInfo)}`);
+
+    // Read intercepted captcha calls
+    const interceptDump = await page.evaluate(() => ({
+      captured: window.__capturedCaptchas || [],
+      allCalls: window.__captchaCalls || []
+    }));
+    console.log(`[eDHCR] Intercept calls (${interceptDump.allCalls.length}): ${JSON.stringify(interceptDump.allCalls.slice(0, 30))}`);
+    console.log(`[eDHCR] Intercepted strings: ${JSON.stringify(interceptDump.captured)}`);
+
+    // Build the captcha answer. Two strategies:
+    // (A) If a single ≥4-char string was drawn, that's the answer.
+    // (B) If many single chars were drawn in sequence, concatenate them.
+    let captchaAnswer = null;
+    const plausibleSingle = interceptDump.captured.filter(s => /^[A-Za-z0-9]{4,10}$/.test(s));
+    if (plausibleSingle.length) {
+      captchaAnswer = plausibleSingle[plausibleSingle.length - 1];
+    } else {
+      // Concatenate single chars (drawn in sequence)
+      const singleChars = interceptDump.captured.filter(s => /^[A-Za-z0-9]$/.test(s));
+      if (singleChars.length >= 4 && singleChars.length <= 10) {
+        captchaAnswer = singleChars.slice(-singleChars.length).join('');
+      }
+    }
+    console.log(`[eDHCR] Resolved captcha answer: ${JSON.stringify(captchaAnswer)}`);
 
     const captchaInputEl = await page.$('input[placeholder*="Captcha" i]');
     if (captchaInputEl && captchaAnswer) {
       await captchaInputEl.click({ clickCount: 3 });
       await captchaInputEl.type(captchaAnswer, { delay: 40 });
-      console.log(`[eDHCR] Filled CAPTCHA with intercepted value: "${captchaAnswer}"`);
+      console.log(`[eDHCR] Filled CAPTCHA with: "${captchaAnswer}"`);
     } else if (captchaInputEl) {
-      console.warn(`[eDHCR] No plausible captcha captured. Raw drawn strings: ${JSON.stringify(captured)}`);
+      console.warn(`[eDHCR] No captcha answer resolved`);
     }
 
     // Click the "Search Now" button by text (more reliable than [type="submit"]
