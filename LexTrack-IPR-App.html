@@ -1151,10 +1151,64 @@ body {
 /* Form labels in drafting use slightly tighter spacing + uppercase tag */
 #view-drafting .form-label { font-size: 11px; text-transform: uppercase; }
 
+/* DROP ZONE — file upload for "Document being responded to" */
+.draft-dropzone {
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 24px 16px;
+  background: var(--paper2, #faf9f6);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.draft-dropzone:hover { border-color: var(--gold, #c9a84c); background: rgba(201, 168, 76, 0.04); }
+.draft-dropzone:focus { border-color: var(--gold, #c9a84c); }
+.draft-dropzone.dragging {
+  border-color: var(--gold, #c9a84c);
+  background: rgba(201, 168, 76, 0.08);
+  transform: scale(1.005);
+}
+.draft-dropzone.has-file {
+  cursor: default;
+  text-align: left;
+  border-style: solid;
+  border-color: var(--border);
+  background: white;
+  padding: 14px 16px;
+}
+.draft-dropzone.has-file:hover { background: white; border-color: var(--border); }
+.dz-state .dz-title { font-size: 14px; font-weight: 500; color: var(--ink); }
+.dz-state .dz-sub   { font-size: 11.5px; color: var(--ink3); margin-top: 4px; }
+.dz-file-row { display: flex; align-items: center; gap: 12px; }
+.dz-file-name {
+  font-size: 13.5px; font-weight: 500; color: var(--ink);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.dz-file-meta { font-size: 11px; color: var(--ink3); margin-top: 2px; }
+.dz-action {
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--ink2);
+  cursor: pointer;
+  font-family: inherit;
+  flex-shrink: 0;
+  transition: background 0.12s, color 0.12s;
+}
+.dz-action:hover { background: var(--paper2); color: var(--ink); }
+.dz-action-danger:hover { background: #fee2e2; color: #b91c1c; border-color: #fca5a5; }
+
 /* Collapse the type/matter row to a single column on narrow screens. */
 @media (max-width: 700px) {
   #view-drafting .form-grid.draft-row { grid-template-columns: 1fr !important; }
   #draft-output-body { padding: 24px 18px !important; font-size: 14px !important; }
+  .draft-dropzone { padding: 18px 12px; }
+  .dz-file-row { flex-wrap: wrap; }
 }
 
 @media (max-width: 900px) {
@@ -1787,7 +1841,7 @@ body {
           <div class="form-grid draft-row" style="margin-bottom:18px;">
             <div class="form-group">
               <label class="form-label">DRAFT TYPE</label>
-              <select class="form-select" id="draft-type">
+              <select class="form-select" id="draft-type" onchange="onDraftTypeChange()">
                 <option value="plaint">Plaint</option>
                 <option value="written-statement">Written Statement</option>
                 <option value="rejoinder">Rejoinder / Replication</option>
@@ -1800,6 +1854,7 @@ body {
                 <option value="written-submissions">Written Submissions / Notes of Arguments</option>
                 <option value="synopsis">Synopsis &amp; List of Dates</option>
                 <option value="legal-notice">Legal Notice</option>
+                <option value="other">Other — specify below</option>
               </select>
             </div>
             <div class="form-group">
@@ -1810,9 +1865,45 @@ body {
             </div>
           </div>
 
+          <div class="form-group" id="draft-other-wrap" style="display:none;margin-bottom:18px;">
+            <label class="form-label">SPECIFY DRAFT TYPE</label>
+            <input class="form-input" id="draft-other-type" placeholder="e.g. Caveat · Withdrawal Application · Statutory Notice under S.21 of …">
+          </div>
+
           <div class="form-group" style="margin-bottom:18px;">
-            <label class="form-label">DOCUMENT BEING RESPONDED TO <span style="color:var(--ink3);font-weight:400;text-transform:none;letter-spacing:0;">· optional · paste text</span></label>
-            <textarea class="form-input draft-textarea" id="draft-opposing-doc" rows="6" placeholder="Paste the plaint, IA, order, or notice you are responding to. Leave blank for a fresh draft (plaint, legal notice, synopsis, etc.)."></textarea>
+            <label class="form-label">DOCUMENT BEING RESPONDED TO <span style="color:var(--ink3);font-weight:400;text-transform:none;letter-spacing:0;">· optional</span></label>
+
+            <!-- DROP ZONE -->
+            <div id="draft-dropzone" class="draft-dropzone" tabindex="0" role="button" aria-label="Drop file or click to upload">
+              <input type="file" id="draft-file-input" accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" style="display:none;">
+              <div id="draft-dz-empty" class="dz-state">
+                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="opacity:0.55;margin-bottom:8px;"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <div class="dz-title">Drop a file or click to upload</div>
+                <div class="dz-sub">PDF, DOCX, or TXT · max 10 MB</div>
+              </div>
+              <div id="draft-dz-loaded" class="dz-state" style="display:none;">
+                <div class="dz-file-row">
+                  <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0;color:#059669;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg>
+                  <div style="flex:1;min-width:0;">
+                    <div class="dz-file-name" id="draft-file-name">filename.pdf</div>
+                    <div class="dz-file-meta" id="draft-file-meta">— · — words extracted</div>
+                  </div>
+                  <button type="button" class="dz-action" onclick="event.stopPropagation();toggleDraftFilePreview();" id="draft-preview-btn">Preview</button>
+                  <button type="button" class="dz-action dz-action-danger" onclick="event.stopPropagation();removeDraftFile();">Remove</button>
+                </div>
+              </div>
+              <div id="draft-dz-loading" class="dz-state" style="display:none;">
+                <div style="display:inline-block;width:20px;height:20px;border:2.5px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin 0.7s linear infinite;margin-bottom:8px;"></div>
+                <div class="dz-title" id="draft-dz-loading-text">Reading file…</div>
+              </div>
+            </div>
+
+            <div style="font-size:11.5px;color:var(--ink3);margin-top:8px;line-height:1.55;display:flex;align-items:flex-start;gap:6px;">
+              <span style="flex-shrink:0;font-size:13px;">🔒</span>
+              <span><strong style="color:var(--ink2);">Privacy.</strong> Before the document goes to the AI, emails, phone numbers, URLs, and PIN codes are auto-masked. If a matter is linked, client and party names are also masked. The API never sees the raw identifiers. Click <em>Preview</em> after upload to verify the extracted text below before generating.</span>
+            </div>
+
+            <textarea class="form-input draft-textarea" id="draft-opposing-doc" rows="6" placeholder="…or paste the document text directly here. Drop a file above to auto-fill." style="margin-top:12px;"></textarea>
           </div>
 
           <div class="form-group" style="margin-bottom:18px;">
@@ -4547,6 +4638,71 @@ const DRAFTING_STYLE_PROFILE = {
   prayer: { sub_numbering: "a. / b. / c. (lowercase letters)" }
 };
 
+// Lazily-loaded parsing libraries (PDF.js for PDF, mammoth for DOCX).
+// Loaded only when the user actually drops a file — saves ~1 MB on every
+// drafting view open if they only ever paste text.
+let __draftingLibsPromise = null;
+function loadDraftingLibs() {
+  if (__draftingLibsPromise) return __draftingLibsPromise;
+  __draftingLibsPromise = (async () => {
+    // PDF.js (Mozilla) — extracts text from PDF pages.
+    if (!window.pdfjsLib) {
+      await new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.7.76/pdf.min.mjs';
+        s.type = 'module';
+        s.onerror = () => reject(new Error('Failed to load PDF.js'));
+        // For module scripts, listen for window event since onload doesn't reliably set window.pdfjsLib in time
+        s.onload = () => {
+          // pdfjsLib is exposed via the legacy build path
+          import('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.7.76/pdf.min.mjs')
+            .then(mod => { window.pdfjsLib = mod; resolve(); })
+            .catch(reject);
+        };
+        document.head.appendChild(s);
+      }).catch(async () => {
+        // Fallback: legacy non-module build from unpkg
+        await new Promise((resolve, reject) => {
+          const s = document.createElement('script');
+          s.src = 'https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js';
+          s.onload = resolve; s.onerror = () => reject(new Error('Failed to load PDF.js'));
+          document.head.appendChild(s);
+        });
+        if (window.pdfjsLib) {
+          window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+        }
+      });
+      if (window.pdfjsLib && window.pdfjsLib.GlobalWorkerOptions) {
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.7.76/pdf.worker.min.mjs';
+      }
+    }
+    // Mammoth — DOCX → plain text. Smaller (~270KB) and rock-solid.
+    if (!window.mammoth) {
+      await new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = 'https://unpkg.com/mammoth@1.7.2/mammoth.browser.min.js';
+        s.onload = resolve; s.onerror = () => reject(new Error('Failed to load mammoth (DOCX parser)'));
+        document.head.appendChild(s);
+      });
+    }
+  })();
+  return __draftingLibsPromise;
+}
+
+// Generic PII scrubber. Applied to the opposing document BEFORE the
+// matter-specific name mask. Strips emails, phones, URLs, PIN codes —
+// the kind of identifiers that show up in real plaints/IAs but the AI
+// doesn't need to draft a response.
+function scrubGenericPII(text) {
+  if (!text) return '';
+  return text
+    .replace(/[\w._%+-]+@[\w.-]+\.[A-Za-z]{2,}/g, '<<EMAIL>>')
+    .replace(/https?:\/\/[^\s<>"']+/g, '<<URL>>')
+    .replace(/\b(?:[+]?\d[\d\s\-()]{8,}\d)\b/g, '<<PHONE>>')
+    .replace(/\b\d{6}\b/g, '<<PIN>>')                   // Indian postal codes
+    .replace(/\b\d{4}\s?\d{4}\s?\d{4}\s?\d{4}\b/g, '<<CARD>>'); // Long card-like numbers
+}
+
 // Per-draft-type metadata: required sections + drafting notes.
 const DRAFT_TYPES = {
   'plaint':              { label: 'Plaint',                              sections: ['Cause Title','Memo of Parties','MOST RESPECTFULLY SHEWETH','Facts','Cause of Action','Jurisdiction','Limitation','Court Fees','Prayer','Verification'], notes: 'Original suit. Lay out parties, facts, cause of action, jurisdiction (S.134 TM Act / S.62 Copyright Act / Commercial Courts Act), limitation, valuation, court fees, prayer.' },
@@ -4560,14 +4716,16 @@ const DRAFT_TYPES = {
   's124-stay':           { label: 'Section 124 Stay Application',        sections: ['Cause Title','Application Body','Prayer','Verification'], notes: 'Stay of TM infringement suit pending rectification petition. Cite the rectification petition number and date filed. Establish the registration sought to be rectified is the basis of the suit.' },
   'written-submissions': { label: 'Written Submissions / Notes of Arguments', sections: ['Cause Title','Brief Facts','Issues','Submissions','Conclusion','Prayer'], notes: 'Filed at end of arguments. Organise by issue. Each submission should be a complete proposition supported by evidence and case law.' },
   'synopsis':            { label: 'Synopsis & List of Dates',            sections: ['Synopsis','List of Dates and Events'], notes: 'Synopsis: 1-2 page narrative summary of the case for the bench. List of Dates: chronological table — Date | Event. Both go at the start of paperbooks.' },
-  'legal-notice':        { label: 'Legal Notice',                        sections: ['Header (sender / addressee)','Subject','Body (facts, claims, demands)','Time period for compliance','Signature block'], notes: 'Pre-litigation notice. Establish client rights, particularise the infringement, demand cease & desist + undertaking + damages, give 15-30 days to comply, reserve right to sue.' }
+  'legal-notice':        { label: 'Legal Notice',                        sections: ['Header (sender / addressee)','Subject','Body (facts, claims, demands)','Time period for compliance','Signature block'], notes: 'Pre-litigation notice. Establish client rights, particularise the infringement, demand cease & desist + undertaking + damages, give 15-30 days to comply, reserve right to sue.' },
+  'other':               { label: 'Custom',                              sections: [], notes: 'User-specified draft type. The exact label is provided in the SPECIFY DRAFT TYPE field — adapt the structure, sections, and tone to that draft type while keeping DHC house style (cause title, numbered paragraphs, verification clause if applicable).' }
 };
 
 // Standard DHC verification template — hardcoded because pdftotext garbled it
 // in the sample extraction (signatures + stamps interrupt the text flow).
 const DRAFTING_VERIFICATION_TEMPLATE = "Verified at <<PLACE>> on this ____ day of <<MONTH>>, <<YEAR>>, that the contents of paragraphs ___ to ___ of the above ____________ are true to my knowledge derived from records maintained in the ordinary course of business and the contents of paragraphs ___ to ___ are true to my information received and believed by me to be true. Nothing material has been concealed therefrom.";
 
-// Populate the Linked Matter dropdown with the user's current matters list.
+// Populate the Linked Matter dropdown with the user's current matters list,
+// and wire the dropzone (idempotent — safe to call on every view switch).
 function renderDraftingView() {
   const sel = document.getElementById('draft-matter');
   if (!sel) return;
@@ -4581,6 +4739,166 @@ function renderDraftingView() {
       return `<option value="${m.id}">${label.replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]))}</option>`;
     }).join('');
   if (current) sel.value = current;
+  setupDraftingDropzone();
+}
+
+// Show/hide the SPECIFY DRAFT TYPE input based on dropdown selection.
+function onDraftTypeChange() {
+  const v = document.getElementById('draft-type').value;
+  const wrap = document.getElementById('draft-other-wrap');
+  if (!wrap) return;
+  wrap.style.display = (v === 'other') ? '' : 'none';
+  if (v === 'other') setTimeout(() => document.getElementById('draft-other-type')?.focus(), 50);
+}
+
+// Wire the file dropzone — called from renderDraftingView. Guarded against
+// double-binding so re-rendering the view doesn't stack listeners.
+function setupDraftingDropzone() {
+  const dz = document.getElementById('draft-dropzone');
+  const input = document.getElementById('draft-file-input');
+  if (!dz || !input || dz.__wired) return;
+  dz.__wired = true;
+
+  // Click anywhere on the empty zone opens the file picker.
+  dz.addEventListener('click', e => {
+    // Don't reopen when clicking action buttons inside the loaded state.
+    if (e.target.closest('.dz-action')) return;
+    if (dz.classList.contains('has-file')) return;
+    input.click();
+  });
+
+  dz.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && !dz.classList.contains('has-file')) {
+      e.preventDefault();
+      input.click();
+    }
+  });
+
+  input.addEventListener('change', e => {
+    const f = e.target.files?.[0];
+    if (f) handleDraftFileSelect(f);
+    // Reset so selecting the same file twice still fires.
+    e.target.value = '';
+  });
+
+  // Drag-and-drop wiring. Passive=false so we can preventDefault.
+  ['dragenter', 'dragover'].forEach(ev => {
+    dz.addEventListener(ev, e => { e.preventDefault(); e.stopPropagation(); dz.classList.add('dragging'); });
+  });
+  ['dragleave', 'dragend'].forEach(ev => {
+    dz.addEventListener(ev, e => { e.preventDefault(); e.stopPropagation(); dz.classList.remove('dragging'); });
+  });
+  dz.addEventListener('drop', e => {
+    e.preventDefault(); e.stopPropagation();
+    dz.classList.remove('dragging');
+    const f = e.dataTransfer?.files?.[0];
+    if (f) handleDraftFileSelect(f);
+  });
+}
+
+// Handle a single dropped/selected file. Routes by extension and pumps the
+// extracted text into the textarea (which remains the source of truth so
+// the user can edit before submitting).
+async function handleDraftFileSelect(file) {
+  const MAX = 10 * 1024 * 1024; // 10 MB
+  if (file.size > MAX) { toast('File too large — max 10 MB', 'error'); return; }
+  const ext = (file.name.split('.').pop() || '').toLowerCase();
+  if (!['pdf', 'docx', 'txt'].includes(ext)) {
+    toast('Unsupported file type. Use PDF, DOCX, or TXT.', 'error');
+    return;
+  }
+
+  setDraftDropzoneState('loading', { name: file.name, ext });
+
+  try {
+    let text = '';
+    if (ext === 'txt') {
+      text = await file.text();
+    } else if (ext === 'pdf') {
+      await loadDraftingLibs();
+      text = await extractPdfText(file);
+    } else if (ext === 'docx') {
+      await loadDraftingLibs();
+      text = await extractDocxText(file);
+    }
+    text = (text || '').trim();
+    if (!text) throw new Error('No text could be extracted (file may be a scanned image — OCR not supported)');
+
+    document.getElementById('draft-opposing-doc').value = text;
+    setDraftDropzoneState('loaded', {
+      name: file.name,
+      size: file.size,
+      words: text.split(/\s+/).filter(Boolean).length
+    });
+    toast(`Loaded ${file.name} · ${text.split(/\s+/).filter(Boolean).length.toLocaleString()} words`, 'success');
+  } catch (err) {
+    console.error('[drafting] file read failed:', err);
+    toast(`Couldn't read file: ${err.message}`, 'error');
+    setDraftDropzoneState('empty');
+  }
+}
+
+async function extractPdfText(file) {
+  if (!window.pdfjsLib) throw new Error('PDF parser failed to load');
+  const buf = await file.arrayBuffer();
+  const pdf = await window.pdfjsLib.getDocument({ data: buf }).promise;
+  let out = '';
+  for (let i = 1; i <= pdf.numPages; i++) {
+    document.getElementById('draft-dz-loading-text').textContent =
+      `Reading page ${i} of ${pdf.numPages}…`;
+    const page = await pdf.getPage(i);
+    const tc = await page.getTextContent();
+    out += tc.items.map(it => it.str).join(' ') + '\n\n';
+  }
+  return out;
+}
+
+async function extractDocxText(file) {
+  if (!window.mammoth) throw new Error('DOCX parser failed to load');
+  const buf = await file.arrayBuffer();
+  const result = await window.mammoth.extractRawText({ arrayBuffer: buf });
+  return result.value;
+}
+
+function setDraftDropzoneState(state, info) {
+  const dz = document.getElementById('draft-dropzone');
+  const empty = document.getElementById('draft-dz-empty');
+  const loaded = document.getElementById('draft-dz-loaded');
+  const loading = document.getElementById('draft-dz-loading');
+  if (!dz) return;
+  empty.style.display = state === 'empty' ? '' : 'none';
+  loaded.style.display = state === 'loaded' ? '' : 'none';
+  loading.style.display = state === 'loading' ? '' : 'none';
+  dz.classList.toggle('has-file', state === 'loaded');
+
+  if (state === 'loading') {
+    document.getElementById('draft-dz-loading-text').textContent =
+      info?.ext === 'pdf' ? 'Reading PDF…' : info?.ext === 'docx' ? 'Reading DOCX…' : 'Reading file…';
+  }
+  if (state === 'loaded') {
+    document.getElementById('draft-file-name').textContent = info.name;
+    const kb = (info.size / 1024).toFixed(0);
+    const sizeStr = info.size > 1024 * 1024 ? `${(info.size/1024/1024).toFixed(1)} MB` : `${kb} KB`;
+    document.getElementById('draft-file-meta').textContent =
+      `${sizeStr} · ${info.words.toLocaleString()} words extracted`;
+  }
+}
+
+function removeDraftFile() {
+  document.getElementById('draft-opposing-doc').value = '';
+  setDraftDropzoneState('empty');
+  toast('File removed', '');
+}
+
+function toggleDraftFilePreview() {
+  const ta = document.getElementById('draft-opposing-doc');
+  if (!ta) return;
+  ta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  ta.focus();
+  // Briefly highlight to draw the eye
+  const orig = ta.style.boxShadow;
+  ta.style.boxShadow = '0 0 0 3px rgba(201,168,76,0.35)';
+  setTimeout(() => { ta.style.boxShadow = orig; }, 1200);
 }
 
 // Build a placeholder map so client-identifying strings get replaced before
@@ -4625,8 +4943,12 @@ function reverseDraftingMask(text, map) {
 // Prompt construction: style primer + matter context + brief + citations.
 // Critical pieces are flagged so DeepSeek Reasoner (which thinks before
 // writing) treats them as hard constraints during its reasoning trace.
-function buildDraftingPrompt(typeKey, matter, opposingDocMasked, brief, citations) {
-  const t = DRAFT_TYPES[typeKey] || { label: typeKey, sections: [], notes: '' };
+function buildDraftingPrompt(typeKey, matter, opposingDocMasked, brief, citations, customLabel) {
+  const baseT = DRAFT_TYPES[typeKey] || { label: typeKey, sections: [], notes: '' };
+  // For "Other", use the user-specified label so the model knows what it's drafting.
+  const t = (typeKey === 'other' && customLabel)
+    ? { ...baseT, label: customLabel }
+    : baseT;
   const sp = DRAFTING_STYLE_PROFILE;
   const topConnectives = Object.entries(sp.connectives_freq)
     .slice(0, 12).map(([k]) => `"${k}"`).join(', ');
@@ -4697,6 +5019,15 @@ Begin directly with the cause title. Do not include any preamble, explanation, o
 // Main entry. Triggered by the Generate Draft button.
 async function generateDraft() {
   const typeKey = document.getElementById('draft-type').value;
+  const customLabel = (typeKey === 'other')
+    ? (document.getElementById('draft-other-type')?.value || '').trim()
+    : '';
+  if (typeKey === 'other' && !customLabel) {
+    toast('Please specify the draft type in the field below the dropdown', 'error');
+    document.getElementById('draft-other-type')?.focus();
+    return;
+  }
+
   const matterId = document.getElementById('draft-matter').value;
   const opposingDoc = document.getElementById('draft-opposing-doc').value.trim();
   const brief = document.getElementById('draft-brief').value.trim();
@@ -4713,8 +5044,14 @@ async function generateDraft() {
     ? (typeof matters !== 'undefined' ? matters.find(m => m.id === matterId) : null)
     : null;
   const maskMap = buildDraftingMaskMap(matter);
-  const maskedDoc = opposingDoc ? applyDraftingMask(opposingDoc, maskMap) : '';
-  const maskedBrief = applyDraftingMask(brief, maskMap);
+  // Two-stage masking: first scrub generic PII (emails, phones, URLs, PIN
+  // codes, card-like numbers) — these are one-way and never restored. Then
+  // apply the matter-specific mask which IS reversible (so client/party
+  // names get put back in the final draft after the API responds).
+  const maskedDoc = opposingDoc
+    ? applyDraftingMask(scrubGenericPII(opposingDoc), maskMap)
+    : '';
+  const maskedBrief = applyDraftingMask(scrubGenericPII(brief), maskMap);
 
   const btn = document.getElementById('draft-generate-btn');
   const lbl = document.getElementById('draft-btn-label');
@@ -4731,7 +5068,7 @@ async function generateDraft() {
   </div>`;
 
   try {
-    const prompt = buildDraftingPrompt(typeKey, matter, maskedDoc, maskedBrief, citations);
+    const prompt = buildDraftingPrompt(typeKey, matter, maskedDoc, maskedBrief, citations, customLabel);
     const resp = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
