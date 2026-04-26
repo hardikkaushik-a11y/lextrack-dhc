@@ -1179,7 +1179,7 @@ body {
             <option value="OTHER">Other…</option>
           </select>
           <input class="lookup-input" id="lookup-number" placeholder="Number (e.g. 195)" type="text" style="flex:1;min-width:120px;">
-          <input class="lookup-input" id="lookup-year" placeholder="Year (e.g. 2026)" type="text" maxlength="4" style="max-width:130px;" value="2026">
+          <input class="lookup-input" id="lookup-year" placeholder="Year" type="text" maxlength="4" style="max-width:130px;">
           <button class="btn-lookup" onclick="performLookup()" id="lookup-btn">
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
             Fetch Case
@@ -1309,7 +1309,7 @@ body {
             <option value="OTHER">Other…</option>
           </select>
           <input class="form-input" id="f-number" placeholder="Number" style="flex:1;min-width:100px;">
-          <input class="form-input" id="f-year" placeholder="Year" maxlength="4" style="flex:0 0 100px;" value="2026">
+          <input class="form-input" id="f-year" placeholder="Year" maxlength="4" style="flex:0 0 100px;">
         </div>
         <input class="form-input" id="f-custom-prefix" placeholder="Custom prefix (only if 'Other')" style="margin-top:8px;display:none;">
         <input type="hidden" id="f-caseno">
@@ -1454,32 +1454,23 @@ async function loadScrapedData() {
 
     // Merge scraped data into matters:
     // - For each scraped case, update matching matter (by caseNo) OR add as new
-    // - Preserve any manual additions Ishi made that aren't in scraped list
+    // - Preserve client, tasks, docs, notes Ishi added manually
     scraped.forEach(fresh => {
       if (fresh.error) return; // skip failed scrapes
       const norm = s => s.replace(/[\s\/]/g,'').toLowerCase();
       const idx = matters.findIndex(m => norm(m.caseNo) === norm(fresh.caseNo));
       if (idx >= 0) {
-        // Update existing — preserve client, tasks, docs if scraper didn't return them
+        const old = matters[idx];
         matters[idx] = {
-          ...matters[idx],
+          ...old,
           ...fresh,
-          // ALWAYS overwrite type with fresh classification unless user explicitly set non-'other'
-          type: (matters[idx].type && matters[idx].type !== 'other' && matters[idx].type !== 'trademark') ? matters[idx].type : 'other',
-          client: fresh.client || matters[idx].client,
-          tasks: matters[idx].tasks?.length ? matters[idx].tasks : (fresh.tasks || []),
-          docs: matters[idx].docs?.length ? matters[idx].docs : (fresh.docs || [])
+          client: fresh.client || old.client,
+          notes:  old.notes || fresh.notes,
+          tasks:  old.tasks?.length ? old.tasks : (fresh.tasks || []),
+          docs:   old.docs?.length  ? old.docs  : (fresh.docs  || []),
         };
       } else {
         matters.push(fresh);
-      }
-    });
-
-    // Auto-classify IPR type from scraped order text — no manual setup required
-    matters.forEach(m => {
-      if (!m.type || m.type === 'other') {
-        const guess = classifyIprType(m);
-        if (guess) m.type = guess;
       }
     });
 
@@ -1553,43 +1544,9 @@ function tagHTML(type) {
   return `<span class="tag ${v[0]}">${v[1]}</span>`;
 }
 
-// ── AUTO-CLASSIFY IPR TYPE FROM SCRAPED ORDER TEXT ───────────────────────────
-// Scans timeline events, notes, title, docs for IPR-domain keywords and picks
-// the highest-scoring type. Patterns are strict so DHC site footers like
-// "© Copyright Delhi High Court" don't trigger a false copyright tag.
-function classifyIprType(m) {
-  let corpus = [
-    m.title || '',
-    m.notes || '',
-    m.client || '',
-    ...(m.timeline || []).map(t => `${t.event||''} ${t.detail||''}`),
-    ...(m.docs || []).map(d => `${d.name||''} ${d.type||''}`)
-  ].join(' ').toLowerCase();
-  if (!corpus.trim()) return null;
-
-  // Strip boilerplate
-  corpus = corpus
-    .replace(/©\s*copyright[^.]*?(delhi\s*high\s*court|nic\.in|court)/gi, ' ')
-    .replace(/copyright\s*©[^.]*?(delhi\s*high\s*court|nic\.in|court)/gi, ' ')
-    .replace(/copyright\s*\d{4}\s*delhi\s*high\s*court/gi, ' ')
-    .replace(/all\s*rights\s*reserved/gi, ' ');
-
-  const patterns = {
-    trademark: /\b(trade\s*marks?\s*act|infringement\s*of\s*(the\s*)?(plaintiff'?s\s*)?(registered\s*)?trade\s*marks?|passing\s*off|deceptive(ly)?\s*similar|nice\s*classification|registered\s*trade\s*mark|tm\s*registration|impugned\s*mark|mark\s+["'].+?["']|distinctive(ness)?\s*(of\s*)?(the\s*)?mark|trademark\s+infringement|use\s*of\s*the\s*mark)\b/g,
-    patent:    /\b(patents?\s*act|patent(ee|ed)|patented\s*invention|prior\s*art|patent\s*specification|specification\s*of\s*the\s*patent|patent\s*agent|revocation\s*petition|patent\s*infringement|claim\s*\d+\s*of\s*the\s*patent)\b/g,
-    copyright: /\b(copyrights?\s*act|copyright\s*infringement|copyright\s*owner|literary\s*work|artistic\s*work|musical\s*work|cinematograph|sound\s*recording|moral\s*rights|fair\s*dealing|broadcast\s*reproduction|originality\s*of\s*the\s*work)\b/g,
-    design:    /\b(registered\s*design|industrial\s*design|design\s*infringement|designs\s*act|novelty\s*of\s*design)\b/g,
-    gi:        /\b(geographical\s*indication|gi\s*tag|gi\s*registration|geographical\s*indications\s*act)\b/g,
-  };
-
-  const scores = { trademark:0, patent:0, copyright:0, design:0, gi:0 };
-  for (const [type, re] of Object.entries(patterns)) {
-    const matches = corpus.match(re);
-    if (matches) scores[type] = matches.length;
-  }
-  const best = Object.entries(scores).sort((a,b) => b[1] - a[1])[0];
-  return best[1] > 0 ? best[0] : null;
-}
+// IPR-type classification lives in src/scraper.js — the scraper has
+// access to the DHC detail page text (Subject / Acts), which the browser
+// doesn't. Each scraped case arrives with `type` already set.
 
 function stageHTML(stage) {
   const map = { filed:'stage-filed Filed', pleadings:'stage-pleadings Pleadings', arguments:'stage-arguments Arguments', reserved:'stage-reserved Reserved', disposed:'stage-disposed Disposed' };
@@ -2665,26 +2622,6 @@ document.addEventListener('change', e => {
   }
 });
 
-function addFromLookup(caseNo, type, title, lastDate, nextDate) {
-  const newMatter = {
-    id: 'm' + Date.now(),
-    title: title,
-    caseNo: caseNo,
-    type: type,
-    stage: 'pleadings',
-    client: 'Client',
-    lastDate: lastDate,
-    nextDate: nextDate,
-    notes: 'Added via DHC Lookup',
-    timeline: [{ date: fmt(today), event: 'Matter added', detail: 'Added via DHC case lookup' }],
-    tasks: [],
-    docs: []
-  };
-  matters.push(newMatter);
-  toast('Matter added successfully', 'success');
-  showView('matters');
-}
-
 // ── MATTER CRUD ───────────────────────────────────────────────────────────────
 
 function openAddModal() {
@@ -2806,6 +2743,11 @@ function syncAll() {
 }
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
+
+// Seed current year into lookup + Add Matter year fields (was hardcoded "2026")
+const currentYear = String(new Date().getFullYear());
+document.getElementById('lookup-year').value = currentYear;
+document.getElementById('f-year').value = currentYear;
 
 renderDashboard();
 renderCalendar();
