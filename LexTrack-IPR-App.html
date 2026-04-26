@@ -1879,7 +1879,7 @@ body {
               <div id="draft-dz-empty" class="dz-state">
                 <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="opacity:0.55;margin-bottom:8px;"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                 <div class="dz-title">Drop a file or click to upload</div>
-                <div class="dz-sub">PDF, DOCX, or TXT · max 10 MB</div>
+                <div class="dz-sub">PDF, DOCX, or TXT · max 50 MB</div>
               </div>
               <div id="draft-dz-loaded" class="dz-state" style="display:none;">
                 <div class="dz-file-row">
@@ -4800,12 +4800,19 @@ function setupDraftingDropzone() {
 // extracted text into the textarea (which remains the source of truth so
 // the user can edit before submitting).
 async function handleDraftFileSelect(file) {
-  const MAX = 10 * 1024 * 1024; // 10 MB
-  if (file.size > MAX) { toast('File too large — max 10 MB', 'error'); return; }
+  const MAX = 50 * 1024 * 1024; // 50 MB — covers most DHC paperbooks with annexures
+  const SOFT_WARN = 25 * 1024 * 1024; // 25 MB — flag long parse time
+  if (file.size > MAX) {
+    toast(`File too large — max 50 MB (this is ${(file.size/1024/1024).toFixed(0)} MB)`, 'error');
+    return;
+  }
   const ext = (file.name.split('.').pop() || '').toLowerCase();
   if (!['pdf', 'docx', 'txt'].includes(ext)) {
     toast('Unsupported file type. Use PDF, DOCX, or TXT.', 'error');
     return;
+  }
+  if (file.size > SOFT_WARN) {
+    toast(`Large file (${(file.size/1024/1024).toFixed(0)} MB) — parsing may take 30–60 seconds`, '');
   }
 
   setDraftDropzoneState('loading', { name: file.name, ext });
