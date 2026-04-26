@@ -105,32 +105,133 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
     await inputHandle.type(query, { delay: 30 });
     console.log(`[eDHCR] Typed query into textarea#search`);
 
-    // Detect CAPTCHA + try to read its expected value from the DOM
-    // (DHC case-status uses #randomid; eDHCR may use a similar trick)
+    // Comprehensive CAPTCHA reconnaissance — dump everything that could
+    // plausibly hold the expected answer. We're trying to find the
+    // equivalent of the DHC case-status #randomid hidden input.
     const captchaInfo = await page.evaluate(() => {
       const captchaInput = document.querySelector('input[placeholder*="Captcha" i]');
       if (!captchaInput) return { present: false };
-      // Try common hidden-answer patterns
-      const candidates = ['#randomid', '#captcha', '#captchaText', 'input[type="hidden"][name*="captcha" i]'];
-      for (const sel of candidates) {
-        const el = document.querySelector(sel);
-        if (el && el.value && el.value.length < 12) return { present: true, expected: el.value, via: sel };
+
+      const out = { present: true, candidates: [] };
+
+      // 1. ALL hidden inputs (no name filter)
+      document.querySelectorAll('input[type="hidden"]').forEach(el => {
+        if (el.value && el.value.length < 20) {
+          out.candidates.push({ via: `hidden#${el.id || el.name || '?'}`, value: el.value, name: el.name, id: el.id });
+        }
+      });
+
+      // 2. ANY input/select with a value that looks like a captcha (4-10 alnum)
+      document.querySelectorAll('input, select').forEach(el => {
+        if (el === captchaInput) return;
+        const v = (el.value || '').trim();
+        if (/^[A-Za-z0-9]{4,10}$/.test(v)) {
+          out.candidates.push({ via: `value-pattern ${el.tagName.toLowerCase()}#${el.id || el.name || '?'}`, value: v, name: el.name, id: el.id });
+        }
+      });
+
+      // 3. Any element whose innerText is a 4-8 alnum token AND is near the captcha
+      const captchaParent = captchaInput.closest('div, form, section');
+      if (captchaParent) {
+        captchaParent.querySelectorAll('*').forEach(el => {
+          if (el.children.length > 0) return; // leaf nodes only
+          const txt = (el.innerText || el.textContent || '').trim();
+          if (/^[A-Za-z0-9]{4,8}$/.test(txt)) {
+            out.candidates.push({ via: `near-captcha-text ${el.tagName.toLowerCase()}.${el.className}`, value: txt });
+          }
+        });
       }
-      // Sibling/label scan — sometimes the captcha text is rendered as visible HTML
-      const parent = captchaInput.closest('div,form,section');
-      const visibleText = (parent?.innerText || '').match(/\b[A-Z0-9]{4,8}\b/);
-      return { present: true, expected: visibleText ? visibleText[0] : null, via: 'text-scan' };
+
+      // 4. <img> tags near the captcha — capture src so we know if it's image-based
+      const captchaImg = captchaParent?.querySelector('img');
+      if (captchaImg) {
+        out.captchaImageSrc = captchaImg.src;
+        out.captchaImageAlt = captchaImg.alt;
+      }
+      // Also any <canvas> elements (some captchas render to canvas)
+      const canvas = captchaParent?.querySelector('canvas');
+      if (canvas) out.captchaCanvas = { width: canvas.width, height: canvas.height };
+
+      // 5. Inline scripts that might leak the answer
+      Array.from(document.querySelectorAll('script:not([src])')).forEach(s => {
+        const code = s.textContent || '';
+        const matches = code.match(/captcha[^"'\n]{0,40}["'`]([A-Za-z0-9]{4,10})["'`]/gi);
+        if (matches) out.candidates.push({ via: 'inline-script', value: matches[0].substring(0, 80) });
+      });
+
+      // 6. window globals that might hold it (Next.js __NEXT_DATA__, etc.)
+      try {
+        const nextData = document.querySelector('#__NEXT_DATA__');
+        if (nextData) {
+          const txt = nextData.textContent || '';
+          const m = txt.match(/"captcha[^"]*"\s*:\s*"([A-Za-z0-9]{4,10})"/i);
+          if (m) out.candidates.push({ via: '__NEXT_DATA__', value: m[1] });
+        }
+      } catch (_) {}
+
+      // 7. localStorage / sessionStorage — long shot but cheap
+      try {
+        for (let i = 0; i < localStorage.length; i++) {
+          const k = localStorage.key(i);
+          const v = localStorage.getItem(k) || '';
+          if (/captcha/i.test(k) && /^[A-Za-z0-9]{4,10}$/.test(v.trim())) {
+            out.candidates.push({ via: `localStorage[${k}]`, value: v.trim() });
+          }
+        }
+      } catch (_) {}
+      try {
+        for (let i = 0; i < sessionStorage.length; i++) {
+          const k = sessionStorage.key(i);
+          const v = sessionStorage.getItem(k) || '';
+          if (/captcha/i.test(k) && /^[A-Za-z0-9]{4,10}$/.test(v.trim())) {
+            out.candidates.push({ via: `sessionStorage[${k}]`, value: v.trim() });
+          }
+        }
+      } catch (_) {}
+
+      // 8. Walk all data-* attrs on captcha input ancestors
+      let walker = captchaInput;
+      for (let depth = 0; depth < 5 && walker; depth++) {
+        for (const attr of walker.attributes || []) {
+          if (attr.name.startsWith('data-') && /^[A-Za-z0-9]{4,10}$/.test(attr.value || '')) {
+            out.candidates.push({ via: `ancestor-attr[${depth}] ${attr.name}`, value: attr.value });
+          }
+        }
+        walker = walker.parentElement;
+      }
+
+      return out;
     });
-    console.log(`[eDHCR] CAPTCHA: ${JSON.stringify(captchaInfo)}`);
-    if (captchaInfo.present && captchaInfo.expected) {
-      const captchaInput = await page.$('input[placeholder*="Captcha" i]');
-      if (captchaInput) {
-        await captchaInput.click({ clickCount: 3 });
-        await captchaInput.type(captchaInfo.expected, { delay: 30 });
-        console.log(`[eDHCR] Filled CAPTCHA with "${captchaInfo.expected}" (via ${captchaInfo.via})`);
-      }
+    console.log(`[eDHCR] CAPTCHA reconnaissance: present=${captchaInfo.present}`);
+    if (captchaInfo.captchaImageSrc) console.log(`[eDHCR]   CAPTCHA image src: ${captchaInfo.captchaImageSrc.substring(0, 200)}`);
+    if (captchaInfo.captchaCanvas) console.log(`[eDHCR]   CAPTCHA <canvas>: ${captchaInfo.captchaCanvas.width}x${captchaInfo.captchaCanvas.height}`);
+    if (captchaInfo.candidates) {
+      console.log(`[eDHCR]   Candidate values found: ${captchaInfo.candidates.length}`);
+      captchaInfo.candidates.slice(0, 15).forEach(c => {
+        console.log(`     - ${c.via}: "${c.value}"${c.name ? ` (name=${c.name})` : ''}${c.id ? ` (id=${c.id})` : ''}`);
+      });
+    }
+
+    // Fill the captcha if we found a plausible answer (highest-confidence first)
+    const captchaInputEl = await page.$('input[placeholder*="Captcha" i]');
+    if (captchaInputEl && captchaInfo.candidates && captchaInfo.candidates.length) {
+      // Prioritise hidden inputs and near-captcha-text (most likely to be right)
+      const sorted = [...captchaInfo.candidates].sort((a, b) => {
+        const score = (c) => {
+          if (c.via.startsWith('hidden')) return 0;
+          if (c.via.startsWith('near-captcha-text')) return 1;
+          if (c.via.startsWith('ancestor-attr')) return 2;
+          if (c.via.startsWith('value-pattern')) return 3;
+          return 4;
+        };
+        return score(a) - score(b);
+      });
+      const pick = sorted[0];
+      await captchaInputEl.click({ clickCount: 3 });
+      await captchaInputEl.type(pick.value, { delay: 30 });
+      console.log(`[eDHCR] Filled CAPTCHA with "${pick.value}" (via ${pick.via})`);
     } else if (captchaInfo.present) {
-      console.warn('[eDHCR] CAPTCHA present but answer not found — submit may fail');
+      console.warn('[eDHCR] CAPTCHA present but no candidate answer found in DOM');
     }
 
     // Click the "Search Now" button by text (more reliable than [type="submit"]
