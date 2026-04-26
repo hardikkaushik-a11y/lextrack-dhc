@@ -13,11 +13,12 @@ name: Scrape DHC Cause List
 
 on:
   schedule:
-    # Every 6 minutes. This repo is public, so GitHub Actions minutes are
-    # UNLIMITED FREE — no cost concern. We don't push higher (e.g. /5 or
-    # /1) out of respect for DHC's servers; 6 min already gives near-real-
-    # time freshness on the evening publish window.
-    - cron: '*/6 * * * *'
+    # Every 15 minutes. Public repo → unlimited free GitHub Actions minutes,
+    # so we'd love to run more often, but GitHub's cron scheduler silently
+    # drops a large fraction of sub-15-min runs. */15 is the sweet spot
+    # documented as ~95%+ honored. For instant freshness, the "Sync DHC"
+    # button still triggers a manual workflow_dispatch.
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 jobs:
