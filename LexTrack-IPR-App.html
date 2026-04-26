@@ -1163,21 +1163,33 @@ body {
         <div class="lookup-title">DHC Case Lookup</div>
         <div class="lookup-sub">Enter any Delhi High Court case number to fetch live status, orders, and AI analysis</div>
         <div class="lookup-row">
-          <input class="lookup-input" id="lookup-case-no" placeholder="e.g. CS(COMM)/441/2024 or W.P.(C)/1234/2023" type="text">
-          <select class="lookup-select" id="lookup-type">
-            <option value="trademark">Trademark</option>
-            <option value="patent">Patent</option>
-            <option value="copyright">Copyright</option>
-            <option value="design">Design</option>
-            <option value="gi">GI</option>
+          <select class="lookup-select" id="lookup-prefix" style="min-width:170px;">
+            <option value="CS(COMM)">CS(COMM)</option>
+            <option value="CS(OS)">CS(OS)</option>
+            <option value="W.P.(C)">W.P.(C)</option>
+            <option value="FAO(OS)(COMM)">FAO(OS)(COMM)</option>
+            <option value="FAO(COMM)">FAO(COMM)</option>
+            <option value="OMP(I)(COMM)">OMP(I)(COMM)</option>
+            <option value="OMP(COMM)">OMP(COMM)</option>
+            <option value="RFA(OS)(COMM)">RFA(OS)(COMM)</option>
+            <option value="CONT.CAS(C)">CONT.CAS(C)</option>
+            <option value="CRL.M.C.">CRL.M.C.</option>
+            <option value="LPA">LPA</option>
+            <option value="MAT.APP.">MAT.APP.</option>
+            <option value="OTHER">Other…</option>
           </select>
+          <input class="lookup-input" id="lookup-number" placeholder="Number (e.g. 195)" type="text" style="flex:1;min-width:120px;">
+          <input class="lookup-input" id="lookup-year" placeholder="Year (e.g. 2026)" type="text" maxlength="4" style="max-width:130px;" value="2026">
           <button class="btn-lookup" onclick="performLookup()" id="lookup-btn">
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
             Fetch Case
           </button>
         </div>
+        <div id="lookup-custom-row" style="display:none;margin-top:10px;">
+          <input class="lookup-input" id="lookup-custom-prefix" placeholder="Custom case-type prefix (e.g. ARB.P.)" type="text" style="width:100%;">
+        </div>
         <div style="margin-top:14px;font-size:11px;color:rgba(255,255,255,0.25);">
-          Supported formats: CS(COMM), W.P.(C), FAO(OS)(COMM), OMP(I)(COMM), RFA(OS)(COMM)
+          Pick the case-type prefix, then enter the number and year. Full case no. is auto-built (e.g. CS(COMM)/195/2026).
         </div>
       </div>
 
@@ -1278,13 +1290,34 @@ body {
         <label class="form-label">Case Title (Parties)</label>
         <input class="form-input" id="f-title" placeholder="Plaintiff v. Defendant">
       </div>
-      <div class="form-group">
+      <div class="form-group form-full">
         <label class="form-label">Case Number</label>
-        <input class="form-input" id="f-caseno" placeholder="CS(COMM)/441/2024">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <select class="form-select" id="f-prefix" style="flex:0 0 180px;">
+            <option value="CS(COMM)">CS(COMM)</option>
+            <option value="CS(OS)">CS(OS)</option>
+            <option value="W.P.(C)">W.P.(C)</option>
+            <option value="FAO(OS)(COMM)">FAO(OS)(COMM)</option>
+            <option value="FAO(COMM)">FAO(COMM)</option>
+            <option value="OMP(I)(COMM)">OMP(I)(COMM)</option>
+            <option value="OMP(COMM)">OMP(COMM)</option>
+            <option value="RFA(OS)(COMM)">RFA(OS)(COMM)</option>
+            <option value="CONT.CAS(C)">CONT.CAS(C)</option>
+            <option value="CRL.M.C.">CRL.M.C.</option>
+            <option value="LPA">LPA</option>
+            <option value="MAT.APP.">MAT.APP.</option>
+            <option value="OTHER">Other…</option>
+          </select>
+          <input class="form-input" id="f-number" placeholder="Number" style="flex:1;min-width:100px;">
+          <input class="form-input" id="f-year" placeholder="Year" maxlength="4" style="flex:0 0 100px;" value="2026">
+        </div>
+        <input class="form-input" id="f-custom-prefix" placeholder="Custom prefix (only if 'Other')" style="margin-top:8px;display:none;">
+        <input type="hidden" id="f-caseno">
       </div>
       <div class="form-group">
         <label class="form-label">IPR Type</label>
         <select class="form-select" id="f-type">
+          <option value="other">Other / Not yet set</option>
           <option value="trademark">Trademark</option>
           <option value="patent">Patent</option>
           <option value="copyright">Copyright</option>
@@ -1392,14 +1425,14 @@ const addDays = (d, n) => { const r = new Date(d); r.setDate(r.getDate()+n); ret
 let matters = [
   // ── Ishi's cases — populated automatically by nightly DHC scraper ──
   // Dates and full details will load from data/scraped.json once scraper runs.
-  { id: 'm_CSCOMM_108_2025',  caseNo: 'CS(COMM)/108/2025',  title: 'CS(COMM)/108/2025',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
-  { id: 'm_CSCOMM_331_2025',  caseNo: 'CS(COMM)/331/2025',  title: 'CS(COMM)/331/2025',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
-  { id: 'm_CSCOMM_89_2026',   caseNo: 'CS(COMM)/89/2026',   title: 'CS(COMM)/89/2026',   type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
-  { id: 'm_CSCOMM_81_2026',   caseNo: 'CS(COMM)/81/2026',   title: 'CS(COMM)/81/2026',   type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
-  { id: 'm_CSCOMM_313_2026',  caseNo: 'CS(COMM)/313/2026',  title: 'CS(COMM)/313/2026',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
-  { id: 'm_CSCOMM_319_2026',  caseNo: 'CS(COMM)/319/2026',  title: 'CS(COMM)/319/2026',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
-  { id: 'm_CSCOMM_756_2025',  caseNo: 'CS(COMM)/756/2025',  title: 'CS(COMM)/756/2025',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
-  { id: 'm_CSCOMM_810_2025',  caseNo: 'CS(COMM)/810/2025',  title: 'CS(COMM)/810/2025',  type: 'trademark', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_108_2025',  caseNo: 'CS(COMM)/108/2025',  title: 'CS(COMM)/108/2025',  type: 'other', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_331_2025',  caseNo: 'CS(COMM)/331/2025',  title: 'CS(COMM)/331/2025',  type: 'other', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_89_2026',   caseNo: 'CS(COMM)/89/2026',   title: 'CS(COMM)/89/2026',   type: 'other', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_81_2026',   caseNo: 'CS(COMM)/81/2026',   title: 'CS(COMM)/81/2026',   type: 'other', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_313_2026',  caseNo: 'CS(COMM)/313/2026',  title: 'CS(COMM)/313/2026',  type: 'other', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_319_2026',  caseNo: 'CS(COMM)/319/2026',  title: 'CS(COMM)/319/2026',  type: 'other', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_756_2025',  caseNo: 'CS(COMM)/756/2025',  title: 'CS(COMM)/756/2025',  type: 'other', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
+  { id: 'm_CSCOMM_810_2025',  caseNo: 'CS(COMM)/810/2025',  title: 'CS(COMM)/810/2025',  type: 'other', stage: 'filed', client: null, judge: null, lastDate: null, nextDate: null, notes: null, timeline: [], tasks: [], docs: [] },
 
 ];
 
@@ -1431,12 +1464,22 @@ async function loadScrapedData() {
         matters[idx] = {
           ...matters[idx],
           ...fresh,
+          // ALWAYS overwrite type with fresh classification unless user explicitly set non-'other'
+          type: (matters[idx].type && matters[idx].type !== 'other' && matters[idx].type !== 'trademark') ? matters[idx].type : 'other',
           client: fresh.client || matters[idx].client,
           tasks: matters[idx].tasks?.length ? matters[idx].tasks : (fresh.tasks || []),
           docs: matters[idx].docs?.length ? matters[idx].docs : (fresh.docs || [])
         };
       } else {
         matters.push(fresh);
+      }
+    });
+
+    // Auto-classify IPR type from scraped order text — no manual setup required
+    matters.forEach(m => {
+      if (!m.type || m.type === 'other') {
+        const guess = classifyIprType(m);
+        if (guess) m.type = guess;
       }
     });
 
@@ -1503,8 +1546,41 @@ function daysUntil(s) {
 
 function tagHTML(type) {
   const map = { trademark:'tag-trademark Trademark', patent:'tag-patent Patent', copyright:'tag-copyright Copyright', design:'tag-design Design', gi:'tag-trademark GI' };
+  if (!type || type === 'other') {
+    return `<span class="tag" style="background:rgba(0,0,0,0.05);color:var(--ink3);border:1px dashed rgba(0,0,0,0.15);">Untagged</span>`;
+  }
   const v = (map[type]||'tag-trademark Trademark').split(' ');
   return `<span class="tag ${v[0]}">${v[1]}</span>`;
+}
+
+// ── AUTO-CLASSIFY IPR TYPE FROM SCRAPED ORDER TEXT ───────────────────────────
+// Scans timeline events, notes, title, docs for IPR-domain keywords and picks
+// the highest-scoring type. No LLM, no manual setup.
+function classifyIprType(m) {
+  const corpus = [
+    m.title || '',
+    m.notes || '',
+    m.client || '',
+    ...(m.timeline || []).map(t => `${t.event||''} ${t.detail||''}`),
+    ...(m.docs || []).map(d => `${d.name||''} ${d.type||''}`)
+  ].join(' ').toLowerCase();
+  if (!corpus.trim()) return null;
+
+  const patterns = {
+    trademark: /\b(trade\s*mark|trademark|trade-mark|passing\s*off|deceptive(ly)?\s*similar|infringement\s*of\s*(the\s*)?(plaintiff'?s\s*)?(registered\s*)?(trade\s*mark|trademark)|nice\s*classification|trade\s*marks?\s*act|class\s*\d{1,2}\b)/g,
+    patent:    /\b(patent(ee|s|ed|s\s*act)?|patented\s*invention|prior\s*art|specification\s*of\s*the\s*patent|patent\s*agent|revocation\s*petition|claim\s*\d+|patent\s*infringement)\b/g,
+    copyright: /\b(copyright|literary\s*work|artistic\s*work|musical\s*work|cinematograph|sound\s*recording|copyright\s*act|moral\s*rights|fair\s*dealing)\b/g,
+    design:    /\b(registered\s*design|industrial\s*design|design\s*infringement|designs\s*act|novelty\s*of\s*design)\b/g,
+    gi:        /\b(geographical\s*indication|gi\s*tag|gi\s*registration|geographical\s*indications\s*act)\b/g,
+  };
+
+  const scores = { trademark:0, patent:0, copyright:0, design:0, gi:0 };
+  for (const [type, re] of Object.entries(patterns)) {
+    const matches = corpus.match(re);
+    if (matches) scores[type] = matches.length;
+  }
+  const best = Object.entries(scores).sort((a,b) => b[1] - a[1])[0];
+  return best[1] > 0 ? best[0] : null;
 }
 
 function stageHTML(stage) {
@@ -2296,9 +2372,17 @@ Return EXACTLY this JSON (no markdown, no preamble, pure JSON):
 // ── CASE LOOKUP (DHC) ─────────────────────────────────────────────────────────
 
 async function performLookup() {
-  const caseNo = document.getElementById('lookup-case-no').value.trim();
-  const type = document.getElementById('lookup-type').value;
-  if (!caseNo) { toast('Enter a case number', 'error'); return; }
+  let prefix = document.getElementById('lookup-prefix').value;
+  if (prefix === 'OTHER') {
+    prefix = (document.getElementById('lookup-custom-prefix').value || '').trim();
+    if (!prefix) { toast('Enter a custom prefix or pick one from the list', 'error'); return; }
+  }
+  const number = document.getElementById('lookup-number').value.trim();
+  const year   = document.getElementById('lookup-year').value.trim();
+  if (!number || !year) { toast('Enter case number and year', 'error'); return; }
+  if (!/^\d{4}$/.test(year)) { toast('Year must be 4 digits (e.g. 2026)', 'error'); return; }
+  const caseNo = `${prefix}/${number}/${year}`;
+  const type = 'other'; // auto-classified later from scraped data
 
   const btn = document.getElementById('lookup-btn');
   btn.disabled = true;
@@ -2495,12 +2579,39 @@ async function addToScraper(caseNo) {
 function prefillAddModal(caseNo, type) {
   openAddModal();
   setTimeout(() => {
-    const caseNoField = document.getElementById('f-caseno');
+    // Parse "PREFIX/NUMBER/YEAR" back into the 3 fields
+    const parts = caseNo.match(/^(.+?)\/(\d+)\/(\d{4})$/);
+    if (parts) {
+      const [_, pfx, num, yr] = parts;
+      const pfxSel = document.getElementById('f-prefix');
+      const knownPrefixes = Array.from(pfxSel.options).map(o => o.value);
+      if (knownPrefixes.includes(pfx)) {
+        pfxSel.value = pfx;
+        document.getElementById('f-custom-prefix').style.display = 'none';
+      } else {
+        pfxSel.value = 'OTHER';
+        const cp = document.getElementById('f-custom-prefix');
+        cp.style.display = 'block';
+        cp.value = pfx;
+      }
+      document.getElementById('f-number').value = num;
+      document.getElementById('f-year').value = yr;
+      document.getElementById('f-caseno').value = caseNo;
+    }
     const typeField = document.getElementById('f-type');
-    if (caseNoField) caseNoField.value = caseNo;
-    if (typeField) typeField.value = type;
+    if (typeField && type) typeField.value = type;
   }, 50);
 }
+
+// Show/hide custom-prefix inputs when "Other…" is picked
+document.addEventListener('change', e => {
+  if (e.target.id === 'lookup-prefix') {
+    document.getElementById('lookup-custom-row').style.display = e.target.value === 'OTHER' ? 'block' : 'none';
+  }
+  if (e.target.id === 'f-prefix') {
+    document.getElementById('f-custom-prefix').style.display = e.target.value === 'OTHER' ? 'block' : 'none';
+  }
+});
 
 function addFromLookup(caseNo, type, title, lastDate, nextDate) {
   const newMatter = {
@@ -2527,6 +2638,11 @@ function addFromLookup(caseNo, type, title, lastDate, nextDate) {
 function openAddModal() {
   document.getElementById('f-title').value = '';
   document.getElementById('f-caseno').value = '';
+  document.getElementById('f-number').value = '';
+  document.getElementById('f-year').value = String(new Date().getFullYear());
+  document.getElementById('f-prefix').value = 'CS(COMM)';
+  document.getElementById('f-custom-prefix').value = '';
+  document.getElementById('f-custom-prefix').style.display = 'none';
   document.getElementById('f-client').value = '';
   document.getElementById('f-notes').value = '';
   document.getElementById('f-lastdate').value = '';
@@ -2536,8 +2652,18 @@ function openAddModal() {
 
 function addMatter() {
   const title = document.getElementById('f-title').value.trim();
-  const caseNo = document.getElementById('f-caseno').value.trim();
-  if (!title || !caseNo) { toast('Please fill in case title and number', 'error'); return; }
+  let prefix = document.getElementById('f-prefix').value;
+  if (prefix === 'OTHER') {
+    prefix = (document.getElementById('f-custom-prefix').value || '').trim();
+    if (!prefix) { toast('Enter a custom case-type prefix', 'error'); return; }
+  }
+  const number = document.getElementById('f-number').value.trim();
+  const year = document.getElementById('f-year').value.trim();
+  if (!title) { toast('Enter a case title', 'error'); return; }
+  if (!number || !year) { toast('Enter case number and year', 'error'); return; }
+  if (!/^\d{4}$/.test(year)) { toast('Year must be 4 digits', 'error'); return; }
+  const caseNo = `${prefix}/${number}/${year}`;
+  document.getElementById('f-caseno').value = caseNo;
 
   matters.push({
     id: 'm' + Date.now(),
