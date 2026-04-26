@@ -2,10 +2,13 @@ name: Scrape DHC Cases
 
 on:
   schedule:
-    # Hourly. Case-status data only changes when orders upload (rare, ~1
-    # per hearing). Hourly catches new orders within 60 min of upload
-    # while staying well within the GitHub Actions free tier.
-    - cron: '0 * * * *'
+    # Every 8 hours. Each run is ~3 min billable. 3 runs/day × 30 = 270
+    # min/month — within free tier alongside the cause-list scraper.
+    # Case-status data changes only when orders upload (typically a few
+    # hours after a hearing); 8-hour polling catches it before the next
+    # business day.
+    # 03:30, 11:30, 19:30 IST = 22:00 UTC, 06:00 UTC, 14:00 UTC
+    - cron: '0 22,6,14 * * *'
   workflow_dispatch:
     # Allow manual trigger from GitHub UI / API
     inputs:

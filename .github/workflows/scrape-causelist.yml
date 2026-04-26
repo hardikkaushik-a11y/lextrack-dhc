@@ -13,10 +13,12 @@ name: Scrape DHC Cause List
 
 on:
   schedule:
-    # Every 6 minutes. Cheap to run (no captcha, ~30s wall-clock,
-    # poppler-only dependency). Picks up DHC's evening publish + any
-    # mid-day supplementaries within minutes of them appearing.
-    - cron: '*/6 * * * *'
+    # Every 30 minutes. Each run is ~46s wall-clock = 1 min billable.
+    # 48 runs/day × 30 = 1,440 min/month — fits comfortably in the
+    # GitHub Actions FREE tier (2,000 min/month) with headroom for
+    # manual Sync-DHC button clicks. Captures DHC's evening publish
+    # window within 30 min of release.
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 jobs:
