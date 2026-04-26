@@ -1314,10 +1314,41 @@ body {
   }
   .form-grid { grid-template-columns: 1fr; }
 
-  /* ── LOOKUP PANEL: stacked ── */
-  .lookup-row { flex-wrap: wrap; gap: 8px; }
-  .lookup-input, .lookup-select { min-width: 0; flex: 1 1 100%; }
-  .btn-lookup { flex: 1 1 100%; justify-content: center; min-height: 44px; }
+  /* ── LOOKUP PANEL: tighter padding + stacked, full-width inputs ──
+     The desktop .lookup-row is a CSS grid with fixed columns, which
+     doesn't wrap. Switch to flex-column on mobile so inputs stack
+     and aren't clipped. !important beats the per-element inline
+     styles (min-width / max-width / flex:1). */
+  .lookup-panel {
+    padding: 22px 18px;
+    border-radius: 14px;
+  }
+  .lookup-row {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .lookup-row > * { width: 100% !important; }
+  .lookup-row .lookup-input,
+  .lookup-row .lookup-select {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    min-height: 44px;
+  }
+  .lookup-row .btn-lookup {
+    width: 100% !important;
+    justify-content: center;
+    min-height: 48px;
+  }
+  /* Same fix for the Add Matter modal's prefix/number/year row */
+  .modal .form-input, .modal .form-select {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
 
   /* ── CALENDAR: stack ── */
   .calendar-grid { grid-template-columns: 1fr; }
