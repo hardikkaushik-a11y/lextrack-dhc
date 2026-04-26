@@ -1,0 +1,71 @@
+name: Generate PWA Icons
+
+# One-shot workflow that renders the LexTrack PWA icons and commits
+# them to /icons. Trigger manually from the Actions tab when the
+# icon design changes; no need to run regularly.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
+        run: npm ci --prefer-offline --no-audit --no-fund
+
+      - name: Cache Puppeteer Chromium
+        id: cache-chromium
+        uses: actions/cache@v4
+        with:
+          path: /home/runner/.cache/puppeteer
+          key: puppeteer-chromium-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            puppeteer-chromium-${{ runner.os }}-
+
+      - name: Install Chromium
+        if: steps.cache-chromium.outputs.cache-hit != 'true'
+        timeout-minutes: 4
+        run: |
+          npx --no-update-notifier puppeteer browsers install chrome \
+            --path /home/runner/.cache/puppeteer &
+          INSTALL_PID=$!
+          for i in $(seq 1 180); do
+            if ls /home/runner/.cache/puppeteer/chrome/linux-*/chrome-linux64/chrome 2>/dev/null; then
+              kill -9 $INSTALL_PID 2>/dev/null || true
+              wait 2>/dev/null || true
+              exit 0
+            fi
+            sleep 2
+          done
+          exit 1
+
+      - name: Generate icons
+        run: node scripts/generate-icons.js
+
+      - name: Commit icons
+        run: |
+          git config --local user.email "scraper@lextrack"
+          git config --local user.name "LexTrack Builder"
+          git add icons/
+          git diff --staged --quiet && echo "No icon changes" || \
+            git commit -m "chore: regenerate PWA icons"
+          git pull --rebase
+          git push

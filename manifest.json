@@ -1,0 +1,33 @@
+{
+  "name": "LexTrack — IPR Practice Manager",
+  "short_name": "LexTrack",
+  "description": "DHC case management, AI analysis, and judgment search for IPR litigation.",
+  "start_url": "./LexTrack-IPR-App.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0f0e0c",
+  "theme_color": "#0f0e0c",
+  "categories": ["productivity", "business", "utilities"],
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

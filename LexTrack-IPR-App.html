@@ -2,8 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>LexTrack — IPR Practice Manager</title>
+
+<!-- ── PWA ─────────────────────────────────────────────────────────── -->
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0f0e0c">
+<!-- iOS standalone-app meta tags (iOS Safari "Add to Home Screen") -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="LexTrack">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -3299,6 +3311,15 @@ document.getElementById('f-year').value = currentYear;
 renderDashboard();
 renderCalendar();
 loadScrapedData(); // fetch latest data from GitHub in background
+
+// ── PWA: register service worker for offline support + home-screen install
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('LexTrack PWA: service worker registered, scope=', reg.scope))
+      .catch(err => console.warn('LexTrack PWA: service worker registration failed:', err));
+  });
+}
 </script>
 </body>
 </html>
