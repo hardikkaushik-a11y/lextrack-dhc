@@ -67,6 +67,11 @@ body {
   position: fixed;
   left: 0; top: 0; bottom: 0;
   z-index: 100;
+  /* Allow internal scroll when nav + footer (incl. the push-notification
+     button) overflow the viewport. Without this, items below the screen
+     edge are clipped and unreachable on smaller phones. */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .sidebar-brand {
