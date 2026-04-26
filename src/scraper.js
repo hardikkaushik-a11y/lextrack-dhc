@@ -155,9 +155,9 @@ async function fetchCaseHistory(page, caseNoHtml) {
 
     await new Promise(r => setTimeout(r, 1500));
 
-    const orders = await page.evaluate(() => {
+    const result = await page.evaluate(() => {
       const rows = document.querySelectorAll('#caseTable tbody tr');
-      return Array.from(rows).map(row => {
+      const orders = Array.from(rows).map(row => {
         const tds = row.querySelectorAll('td');
         const linkEl = tds[1]?.querySelector('a');
         return {
@@ -168,10 +168,14 @@ async function fetchCaseHistory(page, caseNoHtml) {
           hindiOrder:  tds[4]?.textContent.trim() || ''
         };
       }).filter(o => o.orderDate && o.orderDate.match(/\d/));
+
+      // Pull entire page text (subject / acts / sections etc.) for IPR classification
+      const pageText = (document.body.innerText || '').replace(/\s+/g, ' ').trim().substring(0, 5000);
+      return { orders, pageText };
     });
 
-    console.log(`  [history] ${orders.length} orders found`);
-    return orders;
+    console.log(`  [history] ${result.orders.length} orders found`);
+    return result;
 
   } catch (err) {
     console.log(`  [history] error: ${err.message}`);
@@ -179,13 +183,37 @@ async function fetchCaseHistory(page, caseNoHtml) {
   }
 }
 
+// Classify IPR type from DHC page text (Subject/Acts field or order list)
+function classifyIprType(corpus) {
+  if (!corpus) return null;
+  corpus = corpus.toLowerCase();
+  const patterns = {
+    trademark: /\b(trade\s*mark|trademark|trade-mark|passing\s*off|deceptive(ly)?\s*similar|trade\s*marks?\s*act|nice\s*classification)\b/g,
+    patent:    /\b(patent(ee|s|ed|s\s*act)?|patented\s*invention|prior\s*art|specification\s*of\s*the\s*patent|patent\s*agent|revocation\s*petition|patent\s*infringement)\b/g,
+    copyright: /\b(copyright|literary\s*work|artistic\s*work|musical\s*work|cinematograph|sound\s*recording|copyright\s*act|moral\s*rights|fair\s*dealing)\b/g,
+    design:    /\b(registered\s*design|industrial\s*design|design\s*infringement|designs\s*act|novelty\s*of\s*design)\b/g,
+    gi:        /\b(geographical\s*indication|gi\s*tag|gi\s*registration|geographical\s*indications\s*act)\b/g,
+  };
+  const scores = { trademark:0, patent:0, copyright:0, design:0, gi:0 };
+  for (const [type, re] of Object.entries(patterns)) {
+    const matches = corpus.match(re);
+    if (matches) scores[type] = matches.length;
+  }
+  const best = Object.entries(scores).sort((a,b) => b[1] - a[1])[0];
+  return best[1] > 0 ? best[0] : null;
+}
+
 function buildCaseObject(parsed, row, history) {
   const caseNoSrc   = row.caseNoText || row.caseNo || '';
   const statusMatch = caseNoSrc.match(/\[([^\]]+)\]/);
   const statusText  = statusMatch ? statusMatch[1] : '';
 
+  // history is now { orders, pageText } — backwards-compatible if it's still an array
+  const ordersList = Array.isArray(history) ? history : (history?.orders || []);
+  const pageText   = Array.isArray(history) ? '' : (history?.pageText || '');
+
   // Build timeline + docs from order history
-  const orders = (history || []).map(o => {
+  const orders = ordersList.map(o => {
     const dateMatch = o.orderDate.match(/(\d{1,2}[-\/]\d{1,2}[-\/]\d{4})/);
     return {
       date: dateMatch ? normaliseDate(dateMatch[1]) : null,
@@ -226,11 +254,15 @@ function buildCaseObject(parsed, row, history) {
     .replace(/(\S)(VS\.)/gi, '$1 $2')
     .trim() || parsed.raw;
 
+  // Auto-classify IPR type from DHC detail-page text (Subject / Acts / order summaries)
+  // Falls back to 'other' so the app shows "Untagged" rather than a wrong tag
+  const detectedType = classifyIprType(`${title} ${pageText}`) || 'other';
+
   return {
     id:          `m_${parsed.type.replace(/[^a-z0-9]/gi,'')}_${parsed.number}_${parsed.year}`,
     caseNo:      parsed.raw,
     title,
-    type:        'trademark',   // All Ishi's cases are CS(COMM) — IPR commercial
+    type:        detectedType,
     stage:       guessStage(statusText),
     status:      statusText,
     judge:       null,
