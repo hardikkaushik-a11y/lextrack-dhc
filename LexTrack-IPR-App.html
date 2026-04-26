@@ -2088,7 +2088,25 @@ async function loadScrapedData() {
 
 // ── HELPERS ──────────────────────────────────────────────────────────────────
 
-function showView(name) {
+// ── VIEW HISTORY (powers iOS-style swipe-back) ──────────────────────────────
+const __viewHistory = [];
+function __pushHistory(name) {
+  if (__viewHistory[__viewHistory.length - 1] === name) return; // dedupe
+  __viewHistory.push(name);
+  if (__viewHistory.length > 20) __viewHistory.shift();
+}
+function canGoBack() {
+  return __viewHistory.length >= 2;
+}
+function goBack() {
+  if (!canGoBack()) return false;
+  __viewHistory.pop();                          // drop current
+  const prev = __viewHistory[__viewHistory.length - 1];
+  showView(prev, { fromHistory: true });        // showView won't re-push
+  return true;
+}
+
+function showView(name, opts) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.getElementById('view-' + name).classList.add('active');
@@ -2110,6 +2128,9 @@ function showView(name) {
   document.querySelectorAll('.tab-bar-item').forEach(b => {
     b.classList.toggle('active', b.dataset.view === name);
   });
+
+  // Update the back-history stack unless this navigation came from goBack()
+  if (!(opts && opts.fromHistory)) __pushHistory(name);
 
   if (name === 'dashboard') renderDashboard();
   if (name === 'matters') renderAllMatters();
@@ -2530,7 +2551,7 @@ function openDetail(id) {
           </div>
         </div>
         <div style="display:flex;gap:8px;align-items:center;">
-          <button class="btn" onclick="showView('matters')" style="background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.1);color:var(--ink2);padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;">← Back</button>
+          <button class="btn" onclick="goBack() || showView('matters')" style="background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.1);color:var(--ink2);padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;">← Back</button>
           <button class="btn btn-gold" onclick="runAnalysis('${id}')" id="ai-btn-${id}">${getDeepSeekKey() ? '⚡ AI Analysis' : '✦ AI Analysis'}</button>
           <button class="btn btn-danger" onclick="confirmDelete('${id}')">Delete</button>
         </div>
@@ -4018,6 +4039,9 @@ document.getElementById('f-year').value = currentYear;
 // Restore user-saved tasks/docsNeeded/notes from localStorage BEFORE first render
 loadUserState();
 
+// Seed view history so swipe-back from the first navigation has a home base
+__pushHistory('dashboard');
+
 renderDashboard();
 renderCalendar();
 loadScrapedData(); // fetch latest data from GitHub in background (re-applies user state after merge)
@@ -4139,6 +4163,101 @@ loadScrapedData(); // fetch latest data from GitHub in background (re-applies us
       toast('Refresh failed', 'error');
     }
   }
+})();
+
+// ── EDGE-SWIPE BACK (iOS-style) ──────────────────────────────────────────────
+// Swipe right from the left edge of the screen → goes back to the previous
+// view in the history stack. Mobile only (no mouse equivalent). Bails on
+// vertical scroll, modals, and the sidebar.
+(function setupSwipeBack() {
+  const EDGE_PX = 30;        // touch must start within this many px of the left
+  const TRIGGER_PX = 80;     // horizontal distance to commit the back action
+  const MAX_DRAG = 280;      // damped maximum visual offset
+  const VERTICAL_BAIL = 0.7; // ratio: if dy > 0.7 * dx, abort (user is scrolling)
+
+  let st = null;             // null when not in a gesture; object while active
+  const main = () => document.querySelector('.main');
+
+  function setOffset(dx) {
+    const m = main();
+    if (!m) return;
+    m.style.transform = dx ? `translateX(${dx}px)` : '';
+    m.style.boxShadow = dx > 4 ? `-${Math.min(20, dx / 8)}px 0 30px rgba(0,0,0,0.15)` : '';
+    m.style.transition = 'none';
+  }
+  function snapBack() {
+    const m = main();
+    if (!m) return;
+    m.style.transition = 'transform 0.28s cubic-bezier(0.32,0.72,0,1), box-shadow 0.28s';
+    m.style.transform = '';
+    m.style.boxShadow = '';
+    setTimeout(() => { m.style.transition = ''; }, 300);
+  }
+  function commitBack() {
+    const m = main();
+    if (!m) { goBack(); return; }
+    m.style.transition = 'transform 0.22s cubic-bezier(0.32,0.72,0,1)';
+    m.style.transform = 'translateX(100%)';
+    setTimeout(() => {
+      // Navigate while content is off-screen, then drop it back instantly.
+      goBack();
+      m.style.transition = 'none';
+      m.style.transform = '';
+      m.style.boxShadow = '';
+      // Force a reflow then animate from off-screen-left back to 0.
+      void m.offsetHeight;
+      m.style.transform = 'translateX(-15%)';
+      requestAnimationFrame(() => {
+        m.style.transition = 'transform 0.24s cubic-bezier(0.32,0.72,0,1)';
+        m.style.transform = '';
+        setTimeout(() => { m.style.transition = ''; }, 260);
+      });
+    }, 220);
+  }
+
+  document.addEventListener('touchstart', (e) => {
+    if (!canGoBack()) return;
+    if (e.touches.length !== 1) return;
+    const t = e.touches[0];
+    if (t.clientX > EDGE_PX) return;
+    // Don't fire inside modal/sidebar/tab-bar
+    if (e.target.closest('.modal-overlay, .sidebar, .tab-bar')) return;
+    st = { startX: t.clientX, startY: t.clientY, dx: 0, dy: 0, active: false };
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!st) return;
+    const t = e.touches[0];
+    st.dx = t.clientX - st.startX;
+    st.dy = Math.abs(t.clientY - st.startY);
+
+    // Decide which gesture this is on the first significant move
+    if (!st.active) {
+      if (st.dx < 6 && st.dy < 6) return;          // not enough movement yet
+      if (st.dy > Math.abs(st.dx) * VERTICAL_BAIL) {
+        // Vertical scroll — abort the back gesture
+        st = null;
+        return;
+      }
+      st.active = true;
+    }
+    if (st.dx <= 0) { setOffset(0); return; }
+    setOffset(Math.min(st.dx, MAX_DRAG));
+  }, { passive: true });
+
+  document.addEventListener('touchend', () => {
+    if (!st) return;
+    const triggered = st.active && st.dx >= TRIGGER_PX;
+    st = null;
+    if (triggered) commitBack();
+    else snapBack();
+  });
+
+  document.addEventListener('touchcancel', () => {
+    if (!st) return;
+    st = null;
+    snapBack();
+  });
 })();
 
 // ── PWA: register service worker + auto-update when a new version ships
