@@ -212,6 +212,39 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
       });
     }
 
+    // Dump the captcha widget HTML so we can see how the answer is presented
+    const widgetDump = await page.evaluate(() => {
+      const captchaInput = document.querySelector('input[placeholder*="Captcha" i]');
+      if (!captchaInput) return null;
+      // Walk up 4 levels and dump each ancestor's outerHTML truncated
+      const dumps = [];
+      let el = captchaInput;
+      for (let i = 0; i < 5 && el; i++) {
+        const html = (el.outerHTML || '').replace(/\s+/g, ' ');
+        dumps.push({ depth: i, tag: el.tagName.toLowerCase(), classes: el.className, html: html.substring(0, 1500) });
+        el = el.parentElement;
+      }
+      // Also: find all <img>, <svg>, <canvas> on the entire page so we know
+      // where the captcha is rendered (if it's image-based)
+      const allImgs = Array.from(document.querySelectorAll('img')).map(i => ({ src: i.src.substring(0, 200), alt: i.alt, w: i.width, h: i.height })).filter(i => i.src && !/icon|logo|user|dark|light/i.test(i.src + i.alt));
+      const allSvgs = Array.from(document.querySelectorAll('svg')).filter(s => s.children.length > 0).slice(0, 5).map(s => ({ classes: s.className.baseVal || '', innerHTML: (s.innerHTML || '').substring(0, 300) }));
+      const allCanvas = Array.from(document.querySelectorAll('canvas')).map(c => ({ w: c.width, h: c.height, classes: c.className }));
+      return { dumps, allImgs, allSvgs, allCanvas };
+    });
+    if (widgetDump) {
+      console.log('[eDHCR] Captcha widget ancestor dump:');
+      widgetDump.dumps.forEach(d => {
+        console.log(`     [${d.depth}] <${d.tag} class="${d.classes}">`);
+        console.log(`         ${d.html}`);
+      });
+      console.log(`[eDHCR] Page-wide images (non-icon): ${widgetDump.allImgs.length}`);
+      widgetDump.allImgs.slice(0, 5).forEach(i => console.log(`     - ${i.w}x${i.h}: ${i.src}`));
+      console.log(`[eDHCR] Page-wide SVGs (non-empty): ${widgetDump.allSvgs.length}`);
+      widgetDump.allSvgs.forEach(s => console.log(`     - class="${s.classes}" inner: ${s.innerHTML}`));
+      console.log(`[eDHCR] Page-wide canvases: ${widgetDump.allCanvas.length}`);
+      widgetDump.allCanvas.forEach(c => console.log(`     - ${c.w}x${c.h} class="${c.classes}"`));
+    }
+
     // Fill the captcha if we found a plausible answer (highest-confidence first)
     const captchaInputEl = await page.$('input[placeholder*="Captcha" i]');
     if (captchaInputEl && captchaInfo.candidates && captchaInfo.candidates.length) {
