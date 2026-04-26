@@ -12,13 +12,9 @@ name: Scrape DHC Cause List
 # personal and brand apps can fetch it from raw.githubusercontent.com.
 
 on:
-  schedule:
-    # Every 15 minutes. Public repo → unlimited free GitHub Actions minutes,
-    # so we'd love to run more often, but GitHub's cron scheduler silently
-    # drops a large fraction of sub-15-min runs. */15 is the sweet spot
-    # documented as ~95%+ honored. For instant freshness, the "Sync DHC"
-    # button still triggers a manual workflow_dispatch.
-    - cron: '*/15 * * * *'
+  # Schedule lives on sync-all.yml (the unified cron). This workflow stays
+  # available as a manual trigger — useful when only the cause list needs a
+  # refresh without paying the ~2 min cost of the case-status scraper.
   workflow_dispatch:
 
 jobs:

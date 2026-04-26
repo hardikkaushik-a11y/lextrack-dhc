@@ -1,14 +1,11 @@
 name: Scrape DHC Cases
 
 on:
-  schedule:
-    # Hourly. Public repo → unlimited free Actions minutes. Hourly catches
-    # newly uploaded order PDFs within 60 min of upload while staying
-    # respectful to DHC's site (case-status scrape hits each tracked case
-    # individually, so frequency × case-count = total requests/hour).
-    - cron: '0 * * * *'
+  # Schedule lives on sync-all.yml (the unified cron) — that workflow runs
+  # both this scraper and the cause-list scraper together. Keeping this file
+  # available as a manual trigger for one-off case scrapes via the GitHub UI
+  # or the SCRAPE_CASE input.
   workflow_dispatch:
-    # Allow manual trigger from GitHub UI / API
     inputs:
       case_no:
         description: 'Single case number to scrape (leave blank for full sync)'
