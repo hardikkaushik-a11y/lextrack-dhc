@@ -308,12 +308,35 @@ def _build_hit(text, line_start, line_end, page, court, judge):
 
 
 def search_pages(pages, case_patterns: dict, keyword_map: dict):
-    """Run case-no regex AND keyword search across cached pages.
+    """Find every PDF line that mentions a tracked case, attributing each
+    line to EXACTLY ONE case — the one whose keyword set is most specific
+    to the line.
 
-    case_patterns: caseNo → compiled regex (high-confidence match)
-    keyword_map:   caseNo → list of keyword phrases (uppercased; medium
-                   confidence — UI should show a 'verify' badge)
+    Without this attribution step, common plaintiff keywords like
+    'JIOSTAR' (shared across 6 different rogue-website cases) produce
+    6× duplication: one PDF line → 6 reported entries. Bad UX.
+
+    Algorithm per line:
+      1. If the line contains a case-number regex match → that case wins
+         (highest confidence; case nos are unique by definition).
+      2. Otherwise, score every tracked case by counting how many of its
+         keywords appear in the line. Pick the highest scorer.
+      3. If multiple cases tie for top score AND that score is 1 (only
+         the plaintiff name matched, no defendant), the line is ambiguous
+         — skip it rather than pick arbitrarily.
+      4. Anything score >= 2 is unambiguous (plaintiff + something else
+         matched), even if multiple cases share that score (very rare).
     """
+    # Pre-collect the union of all keywords across cases so we know which
+    # lines to consider in stage 2. Also keep per-case keyword sets for
+    # scoring.
+    all_keywords = set()
+    case_kw_sets = {}
+    for case_no, kws in keyword_map.items():
+        kw_set = set(k for k in kws if k)
+        case_kw_sets[case_no] = kw_set
+        all_keywords.update(kw_set)
+
     out = []
     running_court = None
     running_judge = None
@@ -329,40 +352,74 @@ def search_pages(pages, case_patterns: dict, keyword_map: dict):
         if jm:
             running_judge = re.sub(r"\s+", " ", jm[-1]).strip(" .,")
 
+        # Track lines we've already attributed so a line matched by both
+        # case-no AND keyword doesn't double-count.
+        attributed_lines = set()  # set of line_start positions
+
+        # ── Stage 1: case-no regex matches (high confidence) ──────────
         for case_no, pattern in case_patterns.items():
-            # Stage 1 — case-no regex matches (high confidence)
-            seen_lines = set()
             for m in pattern.finditer(text):
                 ls = text.rfind("\n", 0, m.start()) + 1
                 le = text.find("\n", m.end())
                 if le == -1:
                     le = min(len(text), m.end() + 300)
+                if ls in attributed_lines:
+                    continue
+                attributed_lines.add(ls)
                 hit = _build_hit(text, ls, le, page, running_court, running_judge)
                 hit["caseNo"]     = case_no
                 hit["match_type"] = "case_no"
                 hit["matched_on"] = m.group(0)[:80]
                 out.append(hit)
-                seen_lines.add((page["page"], ls))
 
-            # Stage 2 — keyword phrase matches (medium confidence)
-            for kw in keyword_map.get(case_no, []):
-                start = 0
-                while True:
-                    idx = text_upper.find(kw, start)
-                    if idx == -1:
-                        break
-                    ls = text.rfind("\n", 0, idx) + 1
-                    le = text.find("\n", idx + len(kw))
-                    if le == -1:
-                        le = min(len(text), idx + len(kw) + 200)
-                    if (page["page"], ls) not in seen_lines:
-                        hit = _build_hit(text, ls, le, page, running_court, running_judge)
-                        hit["caseNo"]     = case_no
-                        hit["match_type"] = "keyword"
-                        hit["matched_on"] = kw
-                        out.append(hit)
-                        seen_lines.add((page["page"], ls))
-                    start = idx + len(kw)
+        # ── Stage 2: keyword matches with attribution by specificity ──
+        # Find every line containing ANY keyword (across all cases).
+        # For each such line, pick the case whose keyword score is highest.
+        seen_search_offsets = set()
+        for kw in all_keywords:
+            start = 0
+            while True:
+                idx = text_upper.find(kw, start)
+                if idx == -1:
+                    break
+                start = idx + len(kw)
+                ls = text.rfind("\n", 0, idx) + 1
+                if ls in attributed_lines:
+                    continue
+                le = text.find("\n", idx + len(kw))
+                if le == -1:
+                    le = min(len(text), idx + len(kw) + 200)
+                line_text = text[ls:le].upper()
+
+                # Score every case by how many of ITS keywords appear in
+                # this line text. Track ties so we can detect ambiguity.
+                best_case = None
+                best_score = 0
+                ties_at_best = 0
+                for case_no, kw_set in case_kw_sets.items():
+                    score = sum(1 for k in kw_set if k in line_text)
+                    if score > best_score:
+                        best_case = case_no
+                        best_score = score
+                        ties_at_best = 1
+                    elif score == best_score and score > 0:
+                        ties_at_best += 1
+
+                if best_case is None or best_score == 0:
+                    continue
+                # Genuinely ambiguous: multiple cases tie at score 1
+                # (the plaintiff name matched but no defendant disambig).
+                # Skip rather than spam N false positives.
+                if best_score == 1 and ties_at_best > 1:
+                    continue
+
+                attributed_lines.add(ls)
+                hit = _build_hit(text, ls, le, page, running_court, running_judge)
+                hit["caseNo"]     = best_case
+                hit["match_type"] = "keyword"
+                hit["matched_on"] = kw  # the keyword that triggered discovery
+                hit["match_score"] = best_score
+                out.append(hit)
     return out
 
 
