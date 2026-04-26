@@ -1579,5 +1579,10 @@
       }
     ],
     "lastScraped": "2026-04-26T09:11:05.455Z"
+  },
+  {
+    "caseNo": "CS(COMM)/1306/2026",
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-04-26T09:12:09.536Z"
   }
 ]
