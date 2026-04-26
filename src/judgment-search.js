@@ -67,6 +67,24 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
   );
 
   try {
+    // ── CAPTCHA INTERCEPTOR ────────────────────────────────────────────
+    // eDHCR renders its CAPTCHA to a <canvas> via ctx.fillText("ABC123").
+    // We monkey-patch fillText BEFORE the page's JS runs, so every
+    // string drawn to canvas is captured into window.__capturedCaptchas.
+    // The captcha answer is just the largest plausible string drawn.
+    await page.evaluateOnNewDocument(() => {
+      window.__capturedCaptchas = [];
+      const origFillText = CanvasRenderingContext2D.prototype.fillText;
+      CanvasRenderingContext2D.prototype.fillText = function (text, ...rest) {
+        try {
+          if (typeof text === 'string' && text.length >= 3 && text.length <= 12) {
+            window.__capturedCaptchas.push(text);
+          }
+        } catch (_) {}
+        return origFillText.call(this, text, ...rest);
+      };
+    });
+
     console.log(`\n[eDHCR] Navigating to ${EDHCR_URL}`);
     await page.goto(EDHCR_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await new Promise(r => setTimeout(r, 1500));
@@ -245,26 +263,24 @@ async function searchEDHCR(browser, query, mode = 'Any Words') {
       widgetDump.allCanvas.forEach(c => console.log(`     - ${c.w}x${c.h} class="${c.classes}"`));
     }
 
-    // Fill the captcha if we found a plausible answer (highest-confidence first)
+    // Read the captcha answer captured by our fillText interceptor.
+    // The canvas captcha gets drawn at page load — by now it's in
+    // window.__capturedCaptchas. If multiple strings were drawn, the
+    // last one is the most recent (e.g. after a reload click).
+    const captured = await page.evaluate(() => window.__capturedCaptchas || []);
+    console.log(`[eDHCR] Canvas fillText interceptor captured ${captured.length} string(s): ${JSON.stringify(captured)}`);
+
+    // Filter to plausible captcha shapes (4-10 alphanumeric, no spaces)
+    const plausible = captured.filter(s => /^[A-Za-z0-9]{4,10}$/.test(s));
+    const captchaAnswer = plausible.length ? plausible[plausible.length - 1] : null;
+
     const captchaInputEl = await page.$('input[placeholder*="Captcha" i]');
-    if (captchaInputEl && captchaInfo.candidates && captchaInfo.candidates.length) {
-      // Prioritise hidden inputs and near-captcha-text (most likely to be right)
-      const sorted = [...captchaInfo.candidates].sort((a, b) => {
-        const score = (c) => {
-          if (c.via.startsWith('hidden')) return 0;
-          if (c.via.startsWith('near-captcha-text')) return 1;
-          if (c.via.startsWith('ancestor-attr')) return 2;
-          if (c.via.startsWith('value-pattern')) return 3;
-          return 4;
-        };
-        return score(a) - score(b);
-      });
-      const pick = sorted[0];
+    if (captchaInputEl && captchaAnswer) {
       await captchaInputEl.click({ clickCount: 3 });
-      await captchaInputEl.type(pick.value, { delay: 30 });
-      console.log(`[eDHCR] Filled CAPTCHA with "${pick.value}" (via ${pick.via})`);
-    } else if (captchaInfo.present) {
-      console.warn('[eDHCR] CAPTCHA present but no candidate answer found in DOM');
+      await captchaInputEl.type(captchaAnswer, { delay: 40 });
+      console.log(`[eDHCR] Filled CAPTCHA with intercepted value: "${captchaAnswer}"`);
+    } else if (captchaInputEl) {
+      console.warn(`[eDHCR] No plausible captcha captured. Raw drawn strings: ${JSON.stringify(captured)}`);
     }
 
     // Click the "Search Now" button by text (more reliable than [type="submit"]
