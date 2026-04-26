@@ -17,12 +17,52 @@ const CASES_FILE  = path.join(__dirname, '../config/cases.json');
 const OUTPUT_FILE = path.join(__dirname, '../data/scraped.json');
 const DHC_URL     = 'https://delhihighcourt.nic.in/app/get-case-type-status';
 
-// Parse "CS(COMM)/108/2025" → { type, number, year }
+// Parse case number into { type, number, year }.
+// Accepts strict canonical form ("CS(COMM)/108/2025") plus a few common
+// variants users might type from Case Lookup:
+//   "CS COMM 195/2026"  → "CS(COMM)/195/2026"
+//   "CS(COMM) 195 2026" → "CS(COMM)/195/2026"
+//   "CS(COMM)-195-2026" → "CS(COMM)/195/2026"
 function parseCaseNumber(raw) {
-  const clean = raw.trim();
-  const match = clean.match(/^(.+?)\/(\d+)\/(\d{4})$/);
-  if (!match) throw new Error(`Cannot parse: ${raw}`);
-  return { raw: clean, type: match[1].trim(), number: match[2].trim(), year: match[3].trim() };
+  let clean = String(raw || '').trim();
+
+  // 1. Strict form first
+  let m = clean.match(/^(.+?)\/(\d+)\/(\d{4})$/);
+  if (m) return { raw: clean, type: m[1].trim(), number: m[2].trim(), year: m[3].trim() };
+
+  // 2. Look for trailing "<number>/<year>" or "<number> <year>" or "<number>-<year>"
+  //    Everything before that is the type token (with possible spaces in place of parens).
+  m = clean.match(/^(.+?)[\s\/-]+(\d+)[\s\/-]+(\d{4})$/);
+  if (m) {
+    let type = m[1].trim();
+    // Common rewrites: "CS COMM" → "CS(COMM)", "CS OS" → "CS(OS)", "WP C" → "W.P.(C)"
+    const upper = type.toUpperCase().replace(/\s+/g, ' ');
+    const map = {
+      'CS COMM': 'CS(COMM)',
+      'CS OS': 'CS(OS)',
+      'CS(COMM)': 'CS(COMM)',
+      'WP C': 'W.P.(C)',
+      'W P C': 'W.P.(C)',
+      'W.P.(C)': 'W.P.(C)',
+      'FAO OS COMM': 'FAO(OS)(COMM)',
+      'FAO COMM': 'FAO(COMM)',
+      'OMP I COMM': 'OMP(I)(COMM)',
+      'OMP COMM': 'OMP(COMM)',
+      'RFA OS COMM': 'RFA(OS)(COMM)',
+      'CONT CAS C': 'CONT.CAS(C)',
+      'CONT.CAS(C)': 'CONT.CAS(C)',
+      'CRL M C': 'CRL.M.C.',
+      'CRL.M.C.': 'CRL.M.C.',
+      'LPA': 'LPA',
+      'MAT APP': 'MAT.APP.',
+      'MAT.APP.': 'MAT.APP.',
+    };
+    if (map[upper]) type = map[upper];
+    const canonical = `${type}/${m[2]}/${m[3]}`;
+    return { raw: canonical, type, number: m[2].trim(), year: m[3].trim() };
+  }
+
+  throw new Error(`Cannot parse: ${raw}`);
 }
 
 // DD-MM-YYYY or DD/MM/YYYY → YYYY-MM-DD
@@ -315,9 +355,14 @@ async function main() {
   const results = [];
 
   for (const caseNo of cases) {
-    const data = await scrapeCase(browser, caseNo);
-    results.push(data);
-
+    try {
+      const data = await scrapeCase(browser, caseNo);
+      results.push(data);
+    } catch (err) {
+      // Don't let one malformed case kill the entire run
+      console.error(`  ✗ Skipping ${caseNo}: ${err.message}`);
+      results.push({ caseNo, error: err.message, lastScraped: new Date().toISOString() });
+    }
     // Polite delay — don't hammer DHC
     await new Promise(r => setTimeout(r, 5000));
   }
