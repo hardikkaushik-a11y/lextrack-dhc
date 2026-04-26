@@ -1881,6 +1881,10 @@ body {
       Last sync: Today 11:00 PM
     </div>
     <div style="font-size:10px;color:rgba(255,255,255,0.2);margin-top:6px;">DHC data via GitHub Actions</div>
+    <button id="enable-push-btn" type="button" onclick="enablePushNotifications()"
+      style="margin-top:10px;width:100%;padding:7px 10px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);border-radius:6px;font-size:11px;letter-spacing:0.4px;cursor:pointer;font-family:inherit;">
+      🔔 Enable phone notifications
+    </button>
   </div>
 </aside>
 
@@ -5400,6 +5404,99 @@ setTimeout(() => { try { resumeInFlightSync(); } catch (e) { console.warn(e); } 
     setTimeout(() => viewport.setAttribute('content', baseContent), 100);
   });
 })();
+
+// ── PUSH NOTIFICATIONS ───────────────────────────────────────────────────────
+// Web Push subscription flow. VAPID public key is generated once locally with
+// `npx web-push generate-vapid-keys`. The matching private key + the
+// subscription objects below live as GitHub Secrets so sync-all.yml /
+// digest.yml can sign + send authenticated pushes when new cause-list entries
+// or order PDFs land for tracked cases.
+//
+// One-time setup per device:
+//   1. User clicks "🔔 Enable phone notifications" in the sidebar footer
+//   2. Browser asks permission → user taps Allow
+//   3. We grab the PushSubscription, show the JSON, ask user to send it to Hardik
+//   4. Hardik appends it to the PUSH_SUBSCRIPTIONS GitHub secret (JSON array)
+//   5. From now on, that device gets pushes whenever the action sends one
+const VAPID_PUBLIC_KEY = 'BEGOOQj5KwgI3pGE3h3DmS-WFK447Z_-dgGFKbGdMGkvLi1z9Pa-V2nIAK_J1mjo26DMTOixzcUFZw2MHuf2yR4';
+
+// Web Push needs the VAPID key as a Uint8Array, not a base64 string.
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const raw = atob(base64);
+  const out = new Uint8Array(raw.length);
+  for (let i = 0; i < raw.length; ++i) out[i] = raw.charCodeAt(i);
+  return out;
+}
+
+async function enablePushNotifications() {
+  const btn = document.getElementById('enable-push-btn');
+  if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+    alert('Push notifications are not supported on this browser. On iPhone, install the app to your home screen first (Share → Add to Home Screen) and reopen from there.');
+    return;
+  }
+  try {
+    if (btn) { btn.disabled = true; btn.textContent = 'Requesting permission…'; }
+
+    const reg = await navigator.serviceWorker.ready;
+    let sub = await reg.pushManager.getSubscription();
+
+    if (!sub) {
+      const perm = await Notification.requestPermission();
+      if (perm !== 'granted') {
+        alert('Notifications were blocked. To turn them on later, open browser settings → Notifications → allow LexTrack.');
+        if (btn) { btn.disabled = false; btn.textContent = '🔔 Enable phone notifications'; }
+        return;
+      }
+      sub = await reg.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY),
+      });
+    }
+
+    // Show the subscription JSON in a modal for one-time copy → GitHub Secret.
+    const subJSON = JSON.stringify(sub.toJSON());
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;';
+    wrap.innerHTML = `
+      <div style="background:white;border-radius:14px;max-width:540px;width:100%;padding:26px 28px;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+        <div style="font-size:18px;font-weight:600;color:var(--ink1);margin-bottom:8px;">✓ Subscribed on this device</div>
+        <div style="font-size:13px;color:var(--ink2);line-height:1.55;margin-bottom:18px;">
+          Send the token below to Hardik (one-time). He'll add it to the GitHub repo so this phone starts receiving push alerts.
+        </div>
+        <textarea readonly id="push-sub-json"
+          style="width:100%;min-height:140px;font-family:ui-monospace,Menlo,monospace;font-size:11px;padding:12px;border:1px solid var(--border);border-radius:8px;background:#f6f7f9;color:var(--ink1);resize:vertical;">${subJSON}</textarea>
+        <div style="display:flex;gap:10px;margin-top:16px;">
+          <button onclick="navigator.clipboard.writeText(document.getElementById('push-sub-json').value).then(() => this.textContent='✓ Copied');this.style.background='#10b981';this.style.color='white';"
+            style="flex:1;padding:11px 16px;background:var(--gold2);color:white;border:none;border-radius:8px;font-weight:500;cursor:pointer;">Copy token</button>
+          <button onclick="this.closest('div[style*=fixed]').parentElement.remove()"
+            style="padding:11px 16px;background:white;color:var(--ink2);border:1px solid var(--border);border-radius:8px;font-weight:500;cursor:pointer;">Close</button>
+        </div>
+      </div>`;
+    document.body.appendChild(wrap);
+
+    if (btn) { btn.disabled = false; btn.textContent = '🔔 Notifications enabled ✓'; btn.style.background = 'rgba(16,185,129,0.15)'; btn.style.borderColor = 'rgba(16,185,129,0.4)'; btn.style.color = '#10b981'; }
+    localStorage.setItem('lextrack_push_subscribed', '1');
+  } catch (e) {
+    console.error('Push subscribe failed:', e);
+    alert('Could not enable notifications: ' + e.message);
+    if (btn) { btn.disabled = false; btn.textContent = '🔔 Enable phone notifications'; }
+  }
+}
+
+// On load: if already subscribed, reflect it in the button so user knows.
+window.addEventListener('load', () => {
+  if (localStorage.getItem('lextrack_push_subscribed') === '1') {
+    const btn = document.getElementById('enable-push-btn');
+    if (btn) {
+      btn.textContent = '🔔 Notifications enabled ✓';
+      btn.style.background = 'rgba(16,185,129,0.15)';
+      btn.style.borderColor = 'rgba(16,185,129,0.4)';
+      btn.style.color = '#10b981';
+    }
+  }
+});
 
 // ── PWA: register service worker + auto-update when a new version ships
 if ('serviceWorker' in navigator) {

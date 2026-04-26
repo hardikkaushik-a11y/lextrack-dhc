@@ -13,7 +13,7 @@
  * Bumping CACHE_VERSION evicts old caches on activation. The version string
  * also includes a build timestamp so each push triggers a clean refresh.
  */
-const CACHE_VERSION = 'lextrack-v18-timeline-causelist';
+const CACHE_VERSION = 'lextrack-v19-push';
 const APP_SHELL = [
   './LexTrack-IPR-App.html',
   './manifest.json',
@@ -101,4 +101,44 @@ self.addEventListener('fetch', event => {
   }
 
   // Everything else (IK API, DeepSeek, GitHub API): pass through, no caching.
+});
+
+// ── PUSH NOTIFICATIONS ────────────────────────────────────────────────────────
+// Triggered by sync-all.yml (or digest.yml) when a new cause-list entry or
+// order PDF lands for one of Ishi's tracked cases. Payload shape:
+//   { title, body, url, tag }
+// `tag` collapses repeated alerts about the same case into one notification
+// instead of stacking — e.g. if the scraper finds the same hearing twice
+// across two runs, the second push replaces the first instead of buzzing again.
+self.addEventListener('push', event => {
+  let data = {};
+  try { data = event.data ? event.data.json() : {}; } catch (e) { data = { title: 'LexTrack', body: event.data ? event.data.text() : '' }; }
+  const title = data.title || 'LexTrack update';
+  const opts = {
+    body:  data.body  || '',
+    icon:  './icons/icon-192.png',
+    badge: './icons/icon-192.png',
+    tag:   data.tag   || 'lextrack-default',
+    data:  { url: data.url || './' },
+    // requireInteraction keeps the notification on screen until tapped on
+    // desktop — for hearings tomorrow that's the right call. Mobile ignores
+    // this flag and uses platform defaults, which is also fine.
+    requireInteraction: !!data.requireInteraction,
+  };
+  event.waitUntil(self.registration.showNotification(title, opts));
+});
+
+// Tap handler — focus the existing app window if open, otherwise open one.
+// Deep-links to the matter detail when the push payload includes a URL.
+self.addEventListener('notificationclick', event => {
+  event.notification.close();
+  const target = event.notification.data?.url || './';
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(list => {
+      for (const c of list) {
+        if ('focus' in c) { c.focus(); if (c.navigate && target !== './') c.navigate(target); return; }
+      }
+      if (self.clients.openWindow) return self.clients.openWindow(target);
+    })
+  );
 });

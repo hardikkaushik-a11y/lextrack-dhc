@@ -108,6 +108,30 @@ jobs:
         if: ${{ github.event.schedule != '15,30,45 * * * *' && inputs.include_case_scrape != false }}
         run: node src/scraper.js
 
+      # ── Push notifications (always — runs after data is fresh on disk
+      # but BEFORE commit, so HEAD still represents the previous state and
+      # the diff between disk and HEAD = "what just changed in this run").
+      # Failure here is non-fatal: send-push.js exits 0 on any error so a
+      # missing VAPID secret or expired subscription never blocks the sync.
+      - name: Setup Node.js (for push)
+        if: ${{ github.event.schedule == '15,30,45 * * * *' || inputs.include_case_scrape == false }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install web-push
+        # Light install (~3s) — separate from the Puppeteer-heavy npm ci
+        # because we need this even on quarter-hour ticks where npm ci doesn't run.
+        run: npm install --no-save web-push
+
+      - name: Send push notifications (diff)
+        env:
+          VAPID_PUBLIC_KEY:    ${{ secrets.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY:   ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT:       ${{ secrets.VAPID_SUBJECT }}
+          PUSH_SUBSCRIPTIONS:  ${{ secrets.PUSH_SUBSCRIPTIONS }}
+        run: node scripts/send-push.js
+
       # ── Commit everything in one go ──────────────────────────────────
       - name: Commit updated data
         run: |

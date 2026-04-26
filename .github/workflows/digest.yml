@@ -1,0 +1,47 @@
+name: Daily morning digest
+
+# Sends ONE summary push at 8 AM IST every weekday morning IFF there's
+# something to report — hearings in the next 48h or new orders in the
+# last 24h. Silent days = silent app (no buzz, no clutter).
+#
+# Runs against the already-scraped data from sync-all.yml — does NOT scrape
+# anything itself. So the digest is only as fresh as the last sync, which
+# typically completed minutes earlier (sync-all fires at :00 just before).
+#
+# Why a separate workflow: digest cadence (1×/day) doesn't match sync
+# cadence (4×/hour), and the silent-if-empty logic is cleaner as its own
+# entrypoint than a flag on send-push.js inside sync-all.
+
+on:
+  schedule:
+    # 02:30 UTC = 08:00 IST. Weekdays only — Saturdays and Sundays the
+    # courts don't sit, so no point waking her up.
+    - cron: '30 2 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install web-push
+        run: npm install --no-save web-push
+
+      - name: Send digest push (silent if no events)
+        env:
+          VAPID_PUBLIC_KEY:    ${{ secrets.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY:   ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT:       ${{ secrets.VAPID_SUBJECT }}
+          PUSH_SUBSCRIPTIONS:  ${{ secrets.PUSH_SUBSCRIPTIONS }}
+        run: node scripts/send-push.js --digest

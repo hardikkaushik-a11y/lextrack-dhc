@@ -1,0 +1,206 @@
+#!/usr/bin/env node
+/**
+ * LexTrack push-notification dispatcher.
+ *
+ * Called from sync-all.yml + digest.yml after the scrapers run. Reads:
+ *   - data/causelist.json   (current cause-list state)
+ *   - data/scraped.json     (current case-status state)
+ *   - HEAD versions of both (the previous committed state — i.e. what was
+ *     true before this run's commit)
+ *
+ * Diffs the two and sends a Web Push notification to every subscriber in
+ * the PUSH_SUBSCRIPTIONS secret (a JSON array) when:
+ *   - a new cause-list entry shows up for a tracked matter, or
+ *   - a new order PDF is added to a tracked matter, or
+ *   - a tracked matter's nextDate changes
+ *
+ * Modes:
+ *   node send-push.js          — diff mode, fires per-event pushes
+ *   node send-push.js --digest — digest mode, fires ONE summary push iff
+ *                                there's anything happening in the next 48h
+ *                                or any new orders since 24h ago. Silent
+ *                                if there's nothing to say.
+ *
+ * Required env vars (set as GitHub Action secrets):
+ *   VAPID_PUBLIC_KEY       — same key embedded in the app
+ *   VAPID_PRIVATE_KEY      — generated alongside the public one
+ *   VAPID_SUBJECT          — mailto:hardik@... or https://lextrack.app
+ *   PUSH_SUBSCRIPTIONS     — JSON array of PushSubscription objects
+ *
+ * Failures (expired subscriptions, network errors) are logged and don't
+ * fail the workflow — pushes are best-effort, never block the data sync.
+ */
+
+const fs = require('fs');
+const { execSync } = require('child_process');
+const webpush = require('web-push');
+
+const MODE = process.argv.includes('--digest') ? 'digest' : 'diff';
+
+// ── Load secrets ────────────────────────────────────────────────────────────
+const PUB  = process.env.VAPID_PUBLIC_KEY;
+const PRIV = process.env.VAPID_PRIVATE_KEY;
+const SUBJ = process.env.VAPID_SUBJECT || 'mailto:lextrack@example.com';
+const SUBS_RAW = process.env.PUSH_SUBSCRIPTIONS;
+
+if (!PUB || !PRIV) { console.error('VAPID keys missing — skipping push.'); process.exit(0); }
+if (!SUBS_RAW)     { console.error('PUSH_SUBSCRIPTIONS not set — no subscribers, skipping.'); process.exit(0); }
+
+let subs = [];
+try { subs = JSON.parse(SUBS_RAW); }
+catch (e) { console.error('PUSH_SUBSCRIPTIONS is not valid JSON, skipping.'); process.exit(0); }
+if (!Array.isArray(subs) || subs.length === 0) { console.log('No subscribers, skipping push.'); process.exit(0); }
+
+webpush.setVapidDetails(SUBJ, PUB, PRIV);
+
+// ── Load current + previous state from git ──────────────────────────────────
+function readJSON(path)        { try { return JSON.parse(fs.readFileSync(path, 'utf8')); } catch (e) { return null; } }
+function readJSONFromHEAD(path) {
+  try { return JSON.parse(execSync(`git show HEAD:${path}`, { encoding: 'utf8' })); }
+  catch (e) { return null; }
+}
+
+const causeNow  = readJSON('data/causelist.json')         || { entries: [] };
+const causePrev = readJSONFromHEAD('data/causelist.json') || { entries: [] };
+const scrapedNow  = readJSON('data/scraped.json')         || [];
+const scrapedPrev = readJSONFromHEAD('data/scraped.json') || [];
+
+// ── Helpers ─────────────────────────────────────────────────────────────────
+function entryKey(e)   { return `${e.caseNo}|${e.date}|${e.item || ''}`; }
+function shortCase(no) { return (no || '').replace(/\s+/g, ''); }
+
+function findCaseTitle(caseNo) {
+  const m = scrapedNow.find(s => shortCase(s.caseNo) === shortCase(caseNo));
+  return m?.title || caseNo;
+}
+
+// ── Send to all subscribers, prune expired ──────────────────────────────────
+async function sendToAll(payload) {
+  const body = JSON.stringify(payload);
+  const stillValid = [];
+  for (const sub of subs) {
+    try {
+      await webpush.sendNotification(sub, body, { TTL: 60 * 60 * 24 });
+      stillValid.push(sub);
+      console.log(`✓ Pushed to ${(sub.endpoint || '').slice(0, 60)}…`);
+    } catch (e) {
+      // 404 / 410 = subscription expired — drop it. Anything else = log + keep.
+      if (e.statusCode === 404 || e.statusCode === 410) {
+        console.log(`✗ Dropping expired subscription (${e.statusCode})`);
+      } else {
+        console.warn(`✗ Push failed (${e.statusCode || '?'}): ${e.message}`);
+        stillValid.push(sub);
+      }
+    }
+  }
+  return stillValid;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// DIFF MODE — per-event pushes
+// ─────────────────────────────────────────────────────────────────────────────
+async function runDiffMode() {
+  const events = [];
+
+  // 1) New cause-list entries for tracked matters
+  const prevKeys = new Set((causePrev.entries || []).map(entryKey));
+  const newCauseEntries = (causeNow.entries || []).filter(e => !prevKeys.has(entryKey(e)));
+  for (const e of newCauseEntries) {
+    const title = findCaseTitle(e.caseNo);
+    const when  = e.date || 'tomorrow';
+    const where = [e.court && `Court ${e.court}`, e.item && `Item ${e.item}`, e.judge].filter(Boolean).join(' · ');
+    events.push({
+      title: `🔔 Listed ${when}`,
+      body:  `${title}${where ? '\n' + where : ''}`,
+      tag:   `causelist-${e.caseNo}-${e.date}`,
+      url:   './#/matter/' + encodeURIComponent(e.caseNo),
+      requireInteraction: true,
+    });
+  }
+
+  // 2) New order PDFs on tracked matters
+  const prevByCase = new Map(scrapedPrev.map(s => [shortCase(s.caseNo), s]));
+  for (const m of scrapedNow) {
+    const old = prevByCase.get(shortCase(m.caseNo));
+    if (!old) continue;
+    const oldOrders = new Set((old.orders || []).map(o => o.url || o.date));
+    const newOrders = (m.orders || []).filter(o => !oldOrders.has(o.url || o.date));
+    if (newOrders.length) {
+      events.push({
+        title: `📄 New order in ${m.title || m.caseNo}`,
+        body:  `${newOrders.length} new order${newOrders.length > 1 ? 's' : ''} uploaded`,
+        tag:   `orders-${m.caseNo}`,
+        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+      });
+    }
+    if (old.nextDate && m.nextDate && old.nextDate !== m.nextDate) {
+      events.push({
+        title: `📅 Next date changed: ${m.title || m.caseNo}`,
+        body:  `${old.nextDate} → ${m.nextDate}`,
+        tag:   `nextdate-${m.caseNo}`,
+        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+      });
+    }
+  }
+
+  if (events.length === 0) { console.log('No new events — nothing to push.'); return; }
+  console.log(`Sending ${events.length} push event(s) to ${subs.length} subscriber(s)…`);
+  for (const ev of events) await sendToAll(ev);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// DIGEST MODE — one summary push per day, only if non-empty
+// ─────────────────────────────────────────────────────────────────────────────
+async function runDigestMode() {
+  const today    = new Date(); today.setHours(0,0,0,0);
+  const dayAfter = new Date(today.getTime() + 48 * 60 * 60 * 1000);
+
+  // Hearings in the next 48h (cause list)
+  const upcoming = (causeNow.entries || []).filter(e => {
+    if (!e.date) return false;
+    const d = new Date(e.date);
+    if (isNaN(d)) return false;
+    return d >= today && d <= dayAfter;
+  });
+
+  // Orders uploaded since 24h ago (case status)
+  const cutoff = new Date(Date.now() - 24 * 60 * 60 * 1000);
+  let recentOrderCount = 0;
+  for (const m of scrapedNow) {
+    for (const o of (m.orders || [])) {
+      const d = new Date(o.date);
+      if (!isNaN(d) && d >= cutoff) recentOrderCount++;
+    }
+  }
+
+  if (upcoming.length === 0 && recentOrderCount === 0) {
+    console.log('Digest: nothing to report — staying silent.');
+    return;
+  }
+
+  const lines = [];
+  if (upcoming.length) {
+    lines.push(`${upcoming.length} hearing${upcoming.length > 1 ? 's' : ''} in next 48h`);
+    upcoming.slice(0, 3).forEach(e => lines.push(`• ${findCaseTitle(e.caseNo)} — ${e.date}${e.court ? ` (Court ${e.court})` : ''}`));
+    if (upcoming.length > 3) lines.push(`• …and ${upcoming.length - 3} more`);
+  }
+  if (recentOrderCount) lines.push(`${recentOrderCount} new order${recentOrderCount > 1 ? 's' : ''} in last 24h`);
+
+  await sendToAll({
+    title: '☀️ LexTrack — your morning brief',
+    body:  lines.join('\n'),
+    tag:   'morning-digest',
+    url:   './',
+    requireInteraction: false,
+  });
+}
+
+(async () => {
+  try {
+    if (MODE === 'digest') await runDigestMode();
+    else                   await runDiffMode();
+  } catch (e) {
+    console.error('send-push.js error:', e);
+    process.exit(0); // never fail the workflow
+  }
+})();
