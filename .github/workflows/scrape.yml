@@ -2,8 +2,10 @@ name: Scrape DHC Cases
 
 on:
   schedule:
-    # 11 PM IST = 5:30 PM UTC
-    - cron: '30 17 * * *'
+    # Hourly. Case-status data only changes when orders upload (rare, ~1
+    # per hearing). Hourly catches new orders within 60 min of upload
+    # while staying well within the GitHub Actions free tier.
+    - cron: '0 * * * *'
   workflow_dispatch:
     # Allow manual trigger from GitHub UI / API
     inputs:

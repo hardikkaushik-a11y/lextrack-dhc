@@ -765,6 +765,35 @@ body {
 }
 .cl-badge-confirm { background: #d1fae5; color: #059669; border: 1px solid #05966933; }
 .cl-badge-verify  { background: #fef3c7; color: #d97706; border: 1px solid #d9770633; }
+.cl-badge-ambiguous { background: #ede9fe; color: #7c3aed; border: 1px solid #7c3aed33; }
+
+.cl-candidates { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.cl-candidate-pill {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(124,58,237,0.08);
+  color: #5b21b6;
+  border: 1px solid rgba(124,58,237,0.2);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+}
+.cl-candidate-pill:hover { background: rgba(124,58,237,0.16); border-color: rgba(124,58,237,0.4); }
+
+/* Causelist banner clickable lines (matter detail header) */
+.causelist-banner-line { display: flex; align-items: center; gap: 6px; padding: 4px 0; }
+.causelist-banner-line-clickable {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin: -4px -8px;
+  transition: background 0.12s;
+}
+.causelist-banner-line-clickable:hover { background: rgba(201,168,76,0.12); }
+.causelist-pdf-link { margin-left: auto; font-size: 12px; color: var(--ink3, #777); opacity: 0.6; }
+.causelist-banner-line-clickable:hover .causelist-pdf-link { opacity: 1; color: var(--gold, #c9a84c); }
 
 @media (max-width: 700px) {
   .cl-entry { padding: 12px 14px; }
@@ -2777,16 +2806,28 @@ function renderCauselistView() {
         <div class="cl-entries">
           ${dayEntries.map(e => {
             const matter = (matters || []).find(m => m.caseNo === e.caseNo);
-            const title = matter ? (matter.title || matter.caseNo) : e.caseNo;
+            const isAmbiguousEntry = e.match_type === 'ambiguous';
+            // For ambiguous entries, show the shared plaintiff (matched_on)
+            // + count of candidates rather than picking one matter's title.
+            const title = isAmbiguousEntry
+              ? `${(e.matched_on || 'Multiple cases').toString()} · one of ${(e.candidates || []).length} possible matters`
+              : (matter ? (matter.title || matter.caseNo) : e.caseNo);
             // Confidence tiers:
             //   ✓ confirmed — case-no regex matched the line directly
             //   ✓ matched   — keyword score ≥ 2 (plaintiff + defendant both hit)
-            //   ⚠ verify    — keyword score = 1 (only plaintiff or only one keyword)
+            //   ⚠ verify    — keyword score = 1 (single keyword — could be wrong case)
+            //   ? ambiguous — multiple tracked cases share the only matching
+            //                 keyword (e.g. 6 JIOSTAR cases all listed together
+            //                 without a defendant disambiguator)
             let badge;
+            const isAmbiguous = e.match_type === 'ambiguous';
             if (e.match_type === 'case_no') {
               badge = `<span class="cl-badge cl-badge-confirm" title="The case number itself appears on this line of the PDF.">✓ confirmed</span>`;
             } else if ((e.match_score || 1) >= 2) {
               badge = `<span class="cl-badge cl-badge-confirm" title="Multiple keywords from this matter match the line — high confidence.">✓ matched</span>`;
+            } else if (isAmbiguous) {
+              const n = (e.candidates || []).length;
+              badge = `<span class="cl-badge cl-badge-ambiguous" title="${n} of your tracked cases share the matching keyword. Open the PDF to see which one is actually listed.">? possibly listed (${n})</span>`;
             } else {
               badge = `<span class="cl-badge cl-badge-verify" title="Only one keyword matched. Could be a different case with the same plaintiff. Click the card to open the source PDF and confirm.">⚠ verify</span>`;
             }
@@ -2798,10 +2839,19 @@ function renderCauselistView() {
             // the card-level PDF open).
             const cardOnClick = sourceUrl ? `onclick="window.open('${sourceUrl}','_blank','noopener')"` : '';
             const cardClass = sourceUrl ? 'cl-entry cl-entry-clickable' : 'cl-entry';
+            const titleClickable = matter && !isAmbiguousEntry;
+            const candidatesHtml = isAmbiguousEntry && e.candidates ? `
+              <div class="cl-candidates">
+                ${e.candidates.map(c => {
+                  const candMatter = (matters || []).find(m => m.caseNo === c);
+                  const lbl = candMatter ? (candMatter.title || candMatter.caseNo) : c;
+                  return `<span class="cl-candidate-pill" onclick="event.stopPropagation();openDetail('${candMatter?.id || ''}')" title="${escapeHtml(lbl)}">${escapeHtml(c)}</span>`;
+                }).join('')}
+              </div>` : '';
             return `
               <div class="${cardClass}" ${cardOnClick} ${sourceUrl ? `title="Click to open source PDF on Delhi High Court site"` : ''}>
                 <div class="cl-entry-head">
-                  <div class="cl-entry-title" ${matter ? `onclick="event.stopPropagation();openDetail('${matter.id}')"` : ''} ${matter ? 'style="cursor:pointer;" title="Open matter detail"' : ''}>
+                  <div class="cl-entry-title" ${titleClickable ? `onclick="event.stopPropagation();openDetail('${matter.id}')"` : ''} ${titleClickable ? 'style="cursor:pointer;" title="Open matter detail"' : ''}>
                     ${escapeHtml(title)}
                     ${badge}
                   </div>
@@ -2812,6 +2862,7 @@ function renderCauselistView() {
                   ${e.time ? `<span>${e.time}</span>` : ''}
                   ${e.judge ? `<span>${escapeHtml(e.judge)}</span>` : ''}
                 </div>
+                ${candidatesHtml}
                 ${e.context ? `<div class="cl-entry-context">${escapeHtml(e.context)}</div>` : ''}
                 <div class="cl-entry-foot">
                   ${e.matched_on ? `<span class="cl-matched-on">matched: <code>${escapeHtml(e.matched_on)}</code></span>` : ''}
@@ -3448,13 +3499,20 @@ function openDetail(id) {
         <div class="causelist-banner">
           <div class="causelist-banner-icon">📅</div>
           <div style="flex:1;">
-            <div class="causelist-banner-title">Listed in DHC Cause List</div>
-            ${m.causelist.map(e => `
-              <div class="causelist-banner-line">
-                <strong>${formatCauselistEntry(e)}</strong>
-                ${e.judge ? `<span class="causelist-judge">· ${e.judge}</span>` : ''}
-              </div>
-            `).join('')}
+            <div class="causelist-banner-title">Listed in DHC Cause List · click any line to open the source PDF</div>
+            ${m.causelist.map(e => {
+              const pdfUrl = e.source_pdf
+                ? `https://delhihighcourt.nic.in/files/${(e.date || '').slice(0,7)}/cause-list/${e.source_pdf}`
+                : null;
+              const click = pdfUrl ? `onclick="window.open('${pdfUrl}','_blank','noopener')"` : '';
+              const cls = pdfUrl ? 'causelist-banner-line causelist-banner-line-clickable' : 'causelist-banner-line';
+              return `
+                <div class="${cls}" ${click} ${pdfUrl ? `title="Open source PDF (page ${e.page || '?'})"` : ''}>
+                  <strong>${formatCauselistEntry(e)}</strong>
+                  ${e.judge ? `<span class="causelist-judge">· ${e.judge}</span>` : ''}
+                  ${pdfUrl ? `<span class="causelist-pdf-link">📄 →</span>` : ''}
+                </div>`;
+            }).join('')}
           </div>
         </div>` : ''}
     </div>
@@ -4671,7 +4729,7 @@ async function triggerFullSync() {
   toast('Triggering DHC scrape on GitHub Actions…', '');
 
   try {
-    const dispatchRes = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/scrape.yml/dispatches`, {
+    const dispatchRes = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/sync-all.yml/dispatches`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -4780,7 +4838,7 @@ async function addToScraper(caseNo) {
     if (!writeRes.ok) throw new Error(`GitHub write failed (${writeRes.status})`);
 
     // 4. Trigger the scraper workflow in single-case mode (fast path: ~30-60s)
-    const triggerRes = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/scrape.yml/dispatches`, {
+    const triggerRes = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/sync-all.yml/dispatches`, {
       method: 'POST',
       headers: { ...ghHeaders, 'Content-Type': 'application/json' },
       body: JSON.stringify({

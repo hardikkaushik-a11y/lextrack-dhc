@@ -431,18 +431,28 @@ def search_pages(pages, case_patterns: dict, keyword_map: dict):
 
                 if best_case is None or best_score == 0:
                     continue
-                # Genuinely ambiguous: multiple cases tie at score 1
-                # (the plaintiff name matched but no defendant disambig).
-                # Skip rather than spam N false positives.
-                if best_score == 1 and ties_at_best > 1:
-                    continue
 
                 attributed_lines.add(ls)
                 hit = _build_hit(text, ls, le, page, running_court, running_judge)
-                hit["caseNo"]     = best_case
-                hit["match_type"] = "keyword"
-                hit["matched_on"] = kw  # the keyword that triggered discovery
                 hit["match_score"] = best_score
+                hit["matched_on"] = kw
+
+                # Genuinely ambiguous: multiple cases tie at score 1 (plaintiff
+                # matched, no defendant to disambiguate). Don't drop — emit a
+                # single ambiguous entry listing all candidates so the user
+                # knows SOMETHING JIOSTAR-shaped is on the docket.
+                if best_score == 1 and ties_at_best > 1:
+                    line_text_check = text[ls:le].upper()
+                    candidates = sorted([
+                        c for c, kw_set in case_kw_sets.items()
+                        if any(k in line_text_check for k in kw_set)
+                    ])
+                    hit["caseNo"]     = candidates[0]  # representative
+                    hit["match_type"] = "ambiguous"
+                    hit["candidates"] = candidates
+                else:
+                    hit["caseNo"]     = best_case
+                    hit["match_type"] = "keyword"
                 out.append(hit)
     return out
 
@@ -517,12 +527,18 @@ def main() -> int:
         })
 
     # Dedup — same case + same date + same item + same court is one entry.
-    # When duplicates exist (same line matched by both case-no AND keyword),
-    # keep the higher-confidence one (case_no > keyword).
-    confidence_rank = {"case_no": 2, "keyword": 1}
+    # When duplicates exist, keep the higher-confidence one
+    # (case_no > keyword > ambiguous).
+    confidence_rank = {"case_no": 3, "keyword": 2, "ambiguous": 1}
     by_key = {}
     for e in all_entries:
-        key = (e["caseNo"], e["date"], e.get("item"), e.get("court"))
+        # Ambiguous entries are deduped by (date, court, item) instead of
+        # caseNo — multiple "Possibly one of [JIOSTAR cases]" rows for the
+        # same court/item are noise; one is enough.
+        if e.get("match_type") == "ambiguous":
+            key = ("__ambig__", e["date"], e.get("item"), e.get("court"))
+        else:
+            key = (e["caseNo"], e["date"], e.get("item"), e.get("court"))
         prev = by_key.get(key)
         if prev is None or confidence_rank.get(e["match_type"], 0) > confidence_rank.get(prev["match_type"], 0):
             by_key[key] = e

@@ -1,0 +1,108 @@
+name: Sync DHC (all scrapers)
+
+# One-shot workflow that runs the full LexTrack data refresh:
+#   1. Case-status scraper  (src/scraper.js — Puppeteer)
+#   2. Cause-list scraper   (scripts/scrape_causelist.py — HTTP + pdftotext)
+# Triggered by:
+#   - The "Sync DHC" button in the app (workflow_dispatch via GitHub REST API)
+#   - Manual trigger from the GitHub Actions UI
+#
+# NOT scheduled. The individual scrapers have their own crons:
+#   - scrape.yml           → hourly (case status; data changes when orders
+#                             upload, hourly catches it within 60 min)
+#   - scrape-causelist.yml → every 6 min (cheap; captures DHC publish window)
+# This workflow is the "do everything right now" option for the Sync button.
+
+on:
+  workflow_dispatch:
+    inputs:
+      include_case_scrape:
+        description: 'Run case-status scraper (slow, ~2 min). Uncheck for cause-list-only refresh.'
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── Cause list (always — cheap and most time-sensitive) ──────────
+      - name: Install poppler-utils
+        run: sudo apt-get update -qq && sudo apt-get install -y poppler-utils
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python deps
+        run: pip install --quiet 'requests>=2.31,<3'
+
+      - name: Run cause-list scraper
+        run: python3 scripts/scrape_causelist.py
+
+      # ── Case-status scraper (Puppeteer — slow, optional) ────────────
+      - name: Setup Node.js
+        if: ${{ inputs.include_case_scrape != false }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        if: ${{ inputs.include_case_scrape != false }}
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
+        run: npm ci --prefer-offline --no-audit --no-fund
+
+      - name: Cache Puppeteer Chromium
+        if: ${{ inputs.include_case_scrape != false }}
+        id: cache-chromium
+        uses: actions/cache@v4
+        with:
+          path: /home/runner/.cache/puppeteer
+          key: puppeteer-chromium-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            puppeteer-chromium-${{ runner.os }}-
+
+      - name: Install Chromium for Puppeteer
+        if: ${{ inputs.include_case_scrape != false && steps.cache-chromium.outputs.cache-hit != 'true' }}
+        timeout-minutes: 4
+        run: |
+          npx --no-update-notifier puppeteer browsers install chrome \
+            --path /home/runner/.cache/puppeteer &
+          INSTALL_PID=$!
+          for i in $(seq 1 180); do
+            if ls /home/runner/.cache/puppeteer/chrome/linux-*/chrome-linux64/chrome 2>/dev/null; then
+              kill -9 $INSTALL_PID 2>/dev/null || true
+              wait 2>/dev/null || true
+              exit 0
+            fi
+            sleep 2
+          done
+          kill -9 $INSTALL_PID 2>/dev/null || true
+          exit 1
+
+      - name: Run case-status scraper
+        if: ${{ inputs.include_case_scrape != false }}
+        run: node src/scraper.js
+
+      # ── Commit everything in one go ──────────────────────────────────
+      - name: Commit updated data
+        run: |
+          git config --local user.email "scraper@lextrack"
+          git config --local user.name "LexTrack Sync"
+          git add data/scraped.json data/causelist.json 2>/dev/null || true
+          git diff --staged --quiet && echo "No changes" || \
+            git commit -m "chore: sync (causelist + cases) $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git pull --rebase
+          git push
