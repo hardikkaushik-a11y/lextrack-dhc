@@ -1,18 +1,18 @@
 {
-  "scraped_at": "2026-04-26T21:21:31Z",
+  "scraped_at": "2026-04-26T21:46:07Z",
   "for_dates": [
     "2026-04-27",
     "2026-04-28"
   ],
   "tracked_cases": 12,
-  "matched_cases": 8,
+  "matched_cases": 2,
   "sources": [
     {
       "file": "combined_advance_28042026.pdf",
       "date": "2026-04-28",
-      "matched": 7,
+      "matched": 1,
       "case_no_matches": 0,
-      "keyword_matches": 7
+      "keyword_matches": 1
     },
     {
       "file": "combined_targetedd_27.04.2026.pdf",
@@ -59,90 +59,12 @@
     {
       "file": "combined_advance_27042026.pdf",
       "date": "2026-04-27",
-      "matched": 7,
+      "matched": 1,
       "case_no_matches": 0,
-      "keyword_matches": 7
+      "keyword_matches": 1
     }
   ],
   "entries": [
-    {
-      "item": "19",
-      "court": "47",
-      "judge": "TUSHAR RAO GEDELA NOTE",
-      "time": null,
-      "page": 403,
-      "context": "19        CS(COMM)-         JIOSTAR INDIA        PIYUSH BERIWAL,",
-      "caseNo": "CS(COMM)/89/2026",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
-      "date": "2026-04-28",
-      "source_pdf": "combined_advance_28042026.pdf"
-    },
-    {
-      "item": "19",
-      "court": "47",
-      "judge": "TUSHAR RAO GEDELA NOTE",
-      "time": null,
-      "page": 403,
-      "context": "19        CS(COMM)-         JIOSTAR INDIA        PIYUSH BERIWAL,",
-      "caseNo": "CS(COMM)/81/2026",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
-      "date": "2026-04-28",
-      "source_pdf": "combined_advance_28042026.pdf"
-    },
-    {
-      "item": "19",
-      "court": "47",
-      "judge": "TUSHAR RAO GEDELA NOTE",
-      "time": null,
-      "page": 403,
-      "context": "19        CS(COMM)-         JIOSTAR INDIA        PIYUSH BERIWAL,",
-      "caseNo": "CS(COMM)/313/2026",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
-      "date": "2026-04-28",
-      "source_pdf": "combined_advance_28042026.pdf"
-    },
-    {
-      "item": "19",
-      "court": "47",
-      "judge": "TUSHAR RAO GEDELA NOTE",
-      "time": null,
-      "page": 403,
-      "context": "19        CS(COMM)-         JIOSTAR INDIA        PIYUSH BERIWAL,",
-      "caseNo": "CS(COMM)/319/2026",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
-      "date": "2026-04-28",
-      "source_pdf": "combined_advance_28042026.pdf"
-    },
-    {
-      "item": "19",
-      "court": "47",
-      "judge": "TUSHAR RAO GEDELA NOTE",
-      "time": null,
-      "page": 403,
-      "context": "19        CS(COMM)-         JIOSTAR INDIA        PIYUSH BERIWAL,",
-      "caseNo": "CS(COMM)/756/2025",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
-      "date": "2026-04-28",
-      "source_pdf": "combined_advance_28042026.pdf"
-    },
-    {
-      "item": "19",
-      "court": "47",
-      "judge": "TUSHAR RAO GEDELA NOTE",
-      "time": null,
-      "page": 403,
-      "context": "19        CS(COMM)-         JIOSTAR INDIA        PIYUSH BERIWAL,",
-      "caseNo": "CS(COMM)/810/2025",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
-      "date": "2026-04-28",
-      "source_pdf": "combined_advance_28042026.pdf"
-    },
     {
       "item": "8",
       "court": "48",
@@ -153,6 +75,7 @@
       "caseNo": "CS(COMM)/1306/2025",
       "match_type": "keyword",
       "matched_on": "DAZN",
+      "match_score": 1,
       "date": "2026-04-28",
       "source_pdf": "combined_advance_28042026.pdf"
     },
@@ -166,84 +89,7 @@
       "caseNo": "CS(COMM)/331/2025",
       "match_type": "keyword",
       "matched_on": "DEVRAJ",
-      "date": "2026-04-27",
-      "source_pdf": "combined_advance_27042026.pdf"
-    },
-    {
-      "item": "38",
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 406,
-      "context": "38       CS(COMM)-968/2024 JIOSTAR INDIA PRIVATE MANISH SINGH,",
-      "caseNo": "CS(COMM)/89/2026",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
-      "date": "2026-04-27",
-      "source_pdf": "combined_advance_27042026.pdf"
-    },
-    {
-      "item": "38",
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 406,
-      "context": "38       CS(COMM)-968/2024 JIOSTAR INDIA PRIVATE MANISH SINGH,",
-      "caseNo": "CS(COMM)/81/2026",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
-      "date": "2026-04-27",
-      "source_pdf": "combined_advance_27042026.pdf"
-    },
-    {
-      "item": "38",
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 406,
-      "context": "38       CS(COMM)-968/2024 JIOSTAR INDIA PRIVATE MANISH SINGH,",
-      "caseNo": "CS(COMM)/313/2026",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
-      "date": "2026-04-27",
-      "source_pdf": "combined_advance_27042026.pdf"
-    },
-    {
-      "item": "38",
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 406,
-      "context": "38       CS(COMM)-968/2024 JIOSTAR INDIA PRIVATE MANISH SINGH,",
-      "caseNo": "CS(COMM)/319/2026",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
-      "date": "2026-04-27",
-      "source_pdf": "combined_advance_27042026.pdf"
-    },
-    {
-      "item": "38",
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 406,
-      "context": "38       CS(COMM)-968/2024 JIOSTAR INDIA PRIVATE MANISH SINGH,",
-      "caseNo": "CS(COMM)/756/2025",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
-      "date": "2026-04-27",
-      "source_pdf": "combined_advance_27042026.pdf"
-    },
-    {
-      "item": "38",
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 406,
-      "context": "38       CS(COMM)-968/2024 JIOSTAR INDIA PRIVATE MANISH SINGH,",
-      "caseNo": "CS(COMM)/810/2025",
-      "match_type": "keyword",
-      "matched_on": "JIOSTAR",
+      "match_score": 1,
       "date": "2026-04-27",
       "source_pdf": "combined_advance_27042026.pdf"
     }
