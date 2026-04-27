@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-04-27T07:52:10Z",
+  "scraped_at": "2026-04-27T08:07:07Z",
   "for_dates": [
     "2026-04-27",
     "2026-04-28"
@@ -10,6 +10,20 @@
     {
       "file": "combined_advance_28042026.pdf",
       "date": "2026-04-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetedd_27.04.2026.pdf",
+      "date": "2026-04-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_27.04.2026.pdf",
+      "date": "2026-04-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
