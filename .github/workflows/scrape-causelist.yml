@@ -17,6 +17,12 @@ on:
   # refresh without paying the ~2 min cost of the case-status scraper.
   workflow_dispatch:
 
+# Share the sync-all concurrency group so a manual cause-list run can't
+# clash with an in-flight scheduled sync (which writes the same file).
+concurrency:
+  group: sync-all
+  cancel-in-progress: true
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -51,11 +57,22 @@ jobs:
         run: python3 scripts/scrape_causelist.py
 
       - name: Commit updated cause list
+        # Same "ours wins, retry on contention" pattern as sync-all.yml.
         run: |
+          set -e
           git config --local user.email "scraper@lextrack"
           git config --local user.name "LexTrack Causelist"
-          git add data/causelist.json
-          git diff --staged --quiet && echo "No changes" || \
+          mkdir -p /tmp/snap
+          [ -f data/causelist.json ] && cp data/causelist.json /tmp/snap/causelist.json || true
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            [ -f /tmp/snap/causelist.json ] && cp /tmp/snap/causelist.json data/causelist.json || true
+            git add data/causelist.json 2>/dev/null || true
+            if git diff --staged --quiet; then echo "No net change."; exit 0; fi
             git commit -m "chore: update cause list $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git pull --rebase
-          git push
+            if git push origin main; then exit 0; fi
+            sleep 3
+          done
+          echo "::error::Push failed after 3 attempts."
+          exit 1

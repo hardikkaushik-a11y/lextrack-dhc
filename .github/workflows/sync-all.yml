@@ -34,6 +34,14 @@ on:
         type: boolean
         default: true
 
+# Only one sync runs at a time. If a manual dispatch fires while a cron
+# is mid-flight, the cron is cancelled — the new run picks up DHC's freshest
+# data anyway. Without this, two runs racing each other on git push caused
+# rebase conflicts on data/causelist.json.
+concurrency:
+  group: sync-all
+  cancel-in-progress: true
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -62,16 +70,18 @@ jobs:
       - name: Run cause-list scraper
         run: python3 scripts/scrape_causelist.py
 
-      # ── Case-status scraper (Puppeteer — slow, optional) ────────────
+      # ── Node.js setup (always — needed for both case-status scraper and
+      # the push-notification dispatcher). PUPPETEER_SKIP_DOWNLOAD prevents
+      # Chromium from being pulled by `npm ci`; the heavy Chromium install
+      # is still gated below to only run on the full-sync path. web-push
+      # lives in package.json so this single npm ci covers it.
       - name: Setup Node.js
-        if: ${{ github.event.schedule != '15,30,45 * * * *' && inputs.include_case_scrape != false }}
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
       - name: Install Node dependencies
-        if: ${{ github.event.schedule != '15,30,45 * * * *' && inputs.include_case_scrape != false }}
         env:
           PUPPETEER_SKIP_DOWNLOAD: "true"
         run: npm ci --prefer-offline --no-audit --no-fund
@@ -113,17 +123,6 @@ jobs:
       # the diff between disk and HEAD = "what just changed in this run").
       # Failure here is non-fatal: send-push.js exits 0 on any error so a
       # missing VAPID secret or expired subscription never blocks the sync.
-      - name: Setup Node.js (for push)
-        if: ${{ github.event.schedule == '15,30,45 * * * *' || inputs.include_case_scrape == false }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install web-push
-        # Light install (~3s) — separate from the Puppeteer-heavy npm ci
-        # because we need this even on quarter-hour ticks where npm ci doesn't run.
-        run: npm install --no-save web-push
-
       - name: Send push notifications (diff)
         env:
           VAPID_PUBLIC_KEY:    ${{ secrets.VAPID_PUBLIC_KEY }}
@@ -133,12 +132,47 @@ jobs:
         run: node scripts/send-push.js
 
       # ── Commit everything in one go ──────────────────────────────────
+      # Resilient against parallel pushes. Strategy: snapshot our scraper
+      # outputs to /tmp BEFORE touching git, then on each attempt reset to
+      # the latest origin/main, restore our snapshots on top, commit, push.
+      # If origin moves between fetch and push, retry (next iteration sees
+      # the new tip). "Ours wins" is always correct here — our snapshot is
+      # the freshest scrape; older parallel runs are stale by definition.
       - name: Commit updated data
         run: |
+          set -e
           git config --local user.email "scraper@lextrack"
           git config --local user.name "LexTrack Sync"
-          git add data/scraped.json data/causelist.json 2>/dev/null || true
-          git diff --staged --quiet && echo "No changes" || \
+
+          # Snapshot whatever the scrapers wrote so we can re-apply after
+          # any reset. Files may not exist (e.g. case-status skipped on
+          # quarter-hour cron), so guard each cp.
+          mkdir -p /tmp/snap
+          [ -f data/scraped.json ]   && cp data/scraped.json   /tmp/snap/scraped.json   || true
+          [ -f data/causelist.json ] && cp data/causelist.json /tmp/snap/causelist.json || true
+
+          for attempt in 1 2 3; do
+            echo "── attempt $attempt ──"
+            git fetch origin main
+            git reset --hard origin/main
+
+            # Re-apply our snapshot on top of the freshest origin/main.
+            [ -f /tmp/snap/scraped.json ]   && cp /tmp/snap/scraped.json   data/scraped.json   || true
+            [ -f /tmp/snap/causelist.json ] && cp /tmp/snap/causelist.json data/causelist.json || true
+
+            git add data/scraped.json data/causelist.json 2>/dev/null || true
+            if git diff --staged --quiet; then
+              echo "No net change vs origin — nothing to push."
+              exit 0
+            fi
+
             git commit -m "chore: sync (causelist + cases) $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git pull --rebase
-          git push
+            if git push origin main; then
+              echo "Push succeeded on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected (origin moved) — retrying…"
+            sleep 3
+          done
+          echo "::error::Push failed after 3 attempts."
+          exit 1

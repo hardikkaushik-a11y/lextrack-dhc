@@ -12,6 +12,12 @@ on:
         required: false
         default: ''
 
+# Share sync-all's concurrency group so manual + scheduled runs serialize
+# instead of racing each other on git push.
+concurrency:
+  group: sync-all
+  cancel-in-progress: true
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -76,11 +82,22 @@ jobs:
         run: node src/scraper.js
 
       - name: Commit updated data
+        # Same "ours wins, retry on contention" pattern as sync-all.yml.
         run: |
+          set -e
           git config --local user.email "scraper@lextrack"
           git config --local user.name "LexTrack Scraper"
-          git add data/scraped.json
-          git diff --staged --quiet && echo "No changes to commit" || \
+          mkdir -p /tmp/snap
+          [ -f data/scraped.json ] && cp data/scraped.json /tmp/snap/scraped.json || true
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            [ -f /tmp/snap/scraped.json ] && cp /tmp/snap/scraped.json data/scraped.json || true
+            git add data/scraped.json 2>/dev/null || true
+            if git diff --staged --quiet; then echo "No net change."; exit 0; fi
             git commit -m "chore: update scraped case data $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git pull --rebase
-          git push
+            if git push origin main; then exit 0; fi
+            sleep 3
+          done
+          echo "::error::Push failed after 3 attempts."
+          exit 1
