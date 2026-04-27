@@ -197,6 +197,41 @@ async function scrapeCase(browser, caseInput, attempt = 1) {
     const valid = rows.filter(r => r.caseNoText && !r.caseNoText.includes('No data'));
     console.log(`  Found ${valid.length} result(s)`);
 
+    // Diagnostics on 0-results — tells us whether DHC actually returned
+    // "no data", or our captcha was wrong, or the runner is rate-limited
+    // and the search just silently never executed. Only on the LAST
+    // attempt to keep logs short on transient blips.
+    if (valid.length === 0 && attempt === 3) {
+      const diag = await page.evaluate(() => {
+        const tbody = document.querySelector('#caseTable tbody');
+        const cap   = document.querySelector('#randomid')?.value;
+        const capDisplay = document.querySelector('#captcha-code')?.textContent?.trim();
+        const captchaInput = document.querySelector('#captchaInput')?.value;
+        // Look for any error / alert messages DHC might show
+        const alerts = Array.from(document.querySelectorAll('.alert, .error, .text-danger, [role="alert"]'))
+          .map(el => el.textContent.trim()).filter(Boolean).slice(0, 5);
+        return {
+          tbodyHTML: tbody ? tbody.innerHTML.slice(0, 400) : '(no tbody)',
+          rowCount:  tbody ? tbody.querySelectorAll('tr').length : 0,
+          captchaHidden: cap || '(missing)',
+          captchaDisplayed: capDisplay || '(missing)',
+          captchaSubmitted: captchaInput || '(missing)',
+          alerts: alerts.length ? alerts : null,
+          url: location.href,
+          title: document.title,
+        };
+      }).catch(e => ({ error: e.message }));
+      console.log('  ── 0-result diagnostics ──');
+      console.log(`     URL:               ${diag.url}`);
+      console.log(`     Page title:        ${diag.title}`);
+      console.log(`     captcha (hidden):  ${diag.captchaHidden}`);
+      console.log(`     captcha (display): ${diag.captchaDisplayed}`);
+      console.log(`     captcha (typed):   ${diag.captchaSubmitted}`);
+      console.log(`     tbody rows:        ${diag.rowCount}`);
+      console.log(`     tbody HTML[0:400]: ${diag.tbodyHTML}`);
+      if (diag.alerts) console.log(`     alerts:            ${JSON.stringify(diag.alerts)}`);
+    }
+
     // Retry on transient 0-result failures (DHC is sometimes slow)
     if (valid.length === 0 && attempt < 3) {
       await page.close();

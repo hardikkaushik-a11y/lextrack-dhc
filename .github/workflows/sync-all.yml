@@ -17,16 +17,17 @@ name: Sync DHC (all scrapers)
 
 on:
   schedule:
-    # Cause list ONLY — fires at :10, :20, :40, :50 of every hour. Fast
-    # (~25s), cheap, and the cause-list PDFs change throughout the day as
-    # DHC publishes morning + supplementary lists. Combined with the full
-    # sync below, cause list refreshes every 10 minutes total.
-    - cron: '10,20,40,50 * * * *'
-    # FULL sync (cause list + case status) — every 30 min, at :00 and :30.
-    # Case-status scrape is slow (~2 min) and hits DHC for every tracked
-    # matter, so 30-min cadence catches newly uploaded order PDFs fast
-    # while staying respectful to DHC's site.
-    - cron: '0,30 * * * *'
+    # Cause list ONLY — every 30 min. Aggressive cadence (e.g. */10 or
+    # */15) was triggering DHC rate-limits and the case-status scraper
+    # started returning 0 results for everything. 30 min is the
+    # documented sweet spot — DHC's cause-list PDFs only change a few
+    # times a day, so faster than this is no real freshness gain.
+    - cron: '15,45 * * * *'
+    # FULL sync (cause list + case status) — hourly. Case-status scrape
+    # hits DHC ~12× per run (one per tracked case); hourly = ~288 DHC
+    # hits/day across cases + cause-list, which is the cadence DHC
+    # consistently allows without throttling.
+    - cron: '0 * * * *'
   workflow_dispatch:
     inputs:
       include_case_scrape:
@@ -88,7 +89,7 @@ jobs:
         run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Cache Puppeteer Chromium
-        if: ${{ github.event.schedule != '10,20,40,50 * * * *' && inputs.include_case_scrape != false }}
+        if: ${{ github.event.schedule != '15,45 * * * *' && inputs.include_case_scrape != false }}
         id: cache-chromium
         uses: actions/cache@v4
         with:
@@ -98,7 +99,7 @@ jobs:
             puppeteer-chromium-${{ runner.os }}-
 
       - name: Install Chromium for Puppeteer
-        if: ${{ github.event.schedule != '10,20,40,50 * * * *' && inputs.include_case_scrape != false && steps.cache-chromium.outputs.cache-hit != 'true' }}
+        if: ${{ github.event.schedule != '15,45 * * * *' && inputs.include_case_scrape != false && steps.cache-chromium.outputs.cache-hit != 'true' }}
         timeout-minutes: 4
         run: |
           npx --no-update-notifier puppeteer browsers install chrome \
@@ -116,7 +117,7 @@ jobs:
           exit 1
 
       - name: Run case-status scraper
-        if: ${{ github.event.schedule != '10,20,40,50 * * * *' && inputs.include_case_scrape != false }}
+        if: ${{ github.event.schedule != '15,45 * * * *' && inputs.include_case_scrape != false }}
         run: node src/scraper.js
 
       # ── Push notifications (always — runs after data is fresh on disk
