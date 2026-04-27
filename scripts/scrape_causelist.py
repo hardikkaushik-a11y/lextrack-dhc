@@ -72,7 +72,13 @@ session.headers.update({"User-Agent": UA})
 
 # ── Index walking ────────────────────────────────────────────────────────────
 
-def fetch_pdf_links(max_pages: int = 2):
+def fetch_pdf_links(max_pages: int = 4):
+    """Walk the cause-list index page-by-page and collect every PDF URL
+    pointing at /files/.../cause-list/. The index has both relative
+    (/files/...) and absolute (https://delhihighcourt.nic.in/files/...)
+    hrefs in the HTML; the old regex only caught relative ones, which
+    silently dropped half the listings (incl. today's main `finals_*` and
+    `combined_pro_*` PDFs that live on page 1 with absolute URLs)."""
     found = []
     for page in range(max_pages):
         url = f"{INDEX_URL}?page={page}"
@@ -82,14 +88,28 @@ def fetch_pdf_links(max_pages: int = 2):
         except requests.RequestException as e:
             print(f"[index] page {page} failed: {e}", file=sys.stderr)
             continue
+        before = len(found)
         for m in re.finditer(
-            r'href=[\'"](/files/[^\'\"]*?cause-list/[^\'\"]+\.pdf)',
+            r'href=[\'"]([^\'"]+\.pdf)[\'"]',
             resp.text,
             re.IGNORECASE,
         ):
             href = m.group(1)
+            if "cause-list/" not in href.lower():
+                continue
+            # Normalize absolute → relative so dedupe works regardless of
+            # how the link was written.
+            if href.startswith("http"):
+                try:
+                    href = "/" + href.split("//", 1)[1].split("/", 1)[1]
+                except IndexError:
+                    continue
             if href not in found:
                 found.append(href)
+        print(f"[index] page {page}: +{len(found) - before} PDFs (total {len(found)})")
+        # If a page returned no NEW PDFs, we've likely hit the end.
+        if len(found) == before and page > 0:
+            break
     return found
 
 
@@ -133,7 +153,6 @@ def select_pdfs(pdf_links, target_dates):
                     continue
                 seen.add(key)
                 keep.append(key)
-                break
                 break
     return keep
 
