@@ -47,7 +47,16 @@ const MODE = process.argv.includes('--digest') ? 'digest' : 'diff';
 // ── Load secrets ────────────────────────────────────────────────────────────
 const PUB  = process.env.VAPID_PUBLIC_KEY;
 const PRIV = process.env.VAPID_PRIVATE_KEY;
-const SUBJ = process.env.VAPID_SUBJECT || 'mailto:lextrack@example.com';
+
+// VAPID_SUBJECT must be either mailto:… or https://… per RFC 8292. The
+// web-push library rejects bare strings ("hardik@gmail.com" alone fails
+// even though it looks correct). Normalize whatever the user pasted so a
+// missing prefix doesn't blow up the workflow.
+let SUBJ = (process.env.VAPID_SUBJECT || '').trim() || 'mailto:lextrack@example.com';
+if (!/^(mailto:|https?:\/\/)/i.test(SUBJ)) {
+  SUBJ = SUBJ.includes('@') ? `mailto:${SUBJ}` : `https://${SUBJ}`;
+  console.log(`VAPID_SUBJECT lacked a scheme — normalized to "${SUBJ}".`);
+}
 
 if (!PUB || !PRIV) { console.error('VAPID keys missing — skipping push.'); process.exit(0); }
 
