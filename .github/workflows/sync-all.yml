@@ -17,16 +17,13 @@ name: Sync DHC (all scrapers)
 
 on:
   schedule:
-    # Cause list ONLY — every 30 min. Aggressive cadence (e.g. */10 or
-    # */15) was triggering DHC rate-limits and the case-status scraper
-    # started returning 0 results for everything. 30 min is the
-    # documented sweet spot — DHC's cause-list PDFs only change a few
-    # times a day, so faster than this is no real freshness gain.
-    - cron: '15,45 * * * *'
-    # FULL sync (cause list + case status) — hourly. Case-status scrape
-    # hits DHC ~12× per run (one per tracked case); hourly = ~288 DHC
-    # hits/day across cases + cause-list, which is the cadence DHC
-    # consistently allows without throttling.
+    # ONE cron, hourly. Covers both cause list + case status (full sync).
+    # Aggressive sub-hour cadences (*/10, */15, even */30) were tripping
+    # DHC's rate-limit on the GitHub runner IP, surfacing as silent
+    # "0 results" across every tracked case. Hourly is the cadence DHC
+    # consistently allows without throttling, and is plenty fresh for
+    # the things we care about (DHC publishes cause-list PDFs only a
+    # few times a day; orders trickle in throughout business hours).
     - cron: '0 * * * *'
   workflow_dispatch:
     inputs:
@@ -89,7 +86,7 @@ jobs:
         run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Cache Puppeteer Chromium
-        if: ${{ github.event.schedule != '15,45 * * * *' && inputs.include_case_scrape != false }}
+        if: ${{ inputs.include_case_scrape != false }}
         id: cache-chromium
         uses: actions/cache@v4
         with:
@@ -99,7 +96,7 @@ jobs:
             puppeteer-chromium-${{ runner.os }}-
 
       - name: Install Chromium for Puppeteer
-        if: ${{ github.event.schedule != '15,45 * * * *' && inputs.include_case_scrape != false && steps.cache-chromium.outputs.cache-hit != 'true' }}
+        if: ${{ inputs.include_case_scrape != false && steps.cache-chromium.outputs.cache-hit != 'true' }}
         timeout-minutes: 4
         run: |
           npx --no-update-notifier puppeteer browsers install chrome \
@@ -117,7 +114,7 @@ jobs:
           exit 1
 
       - name: Run case-status scraper
-        if: ${{ github.event.schedule != '15,45 * * * *' && inputs.include_case_scrape != false }}
+        if: ${{ inputs.include_case_scrape != false }}
         run: node src/scraper.js
 
       # ── Push notifications (always — runs after data is fresh on disk
