@@ -39,9 +39,15 @@ jobs:
         run: npm install --no-save web-push
 
       - name: Send digest push (silent if no events)
+        # PUSH_SUBSCRIPTIONS, PUSH_SUBSCRIPTIONS_2, etc. — one per device.
+        # send-push.js merges + dedupes them at runtime.
         env:
-          VAPID_PUBLIC_KEY:    ${{ secrets.VAPID_PUBLIC_KEY }}
-          VAPID_PRIVATE_KEY:   ${{ secrets.VAPID_PRIVATE_KEY }}
-          VAPID_SUBJECT:       ${{ secrets.VAPID_SUBJECT }}
-          PUSH_SUBSCRIPTIONS:  ${{ secrets.PUSH_SUBSCRIPTIONS }}
+          VAPID_PUBLIC_KEY:      ${{ secrets.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY:     ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT:         ${{ secrets.VAPID_SUBJECT }}
+          PUSH_SUBSCRIPTIONS:    ${{ secrets.PUSH_SUBSCRIPTIONS }}
+          PUSH_SUBSCRIPTIONS_2:  ${{ secrets.PUSH_SUBSCRIPTIONS_2 }}
+          PUSH_SUBSCRIPTIONS_3:  ${{ secrets.PUSH_SUBSCRIPTIONS_3 }}
+          PUSH_SUBSCRIPTIONS_4:  ${{ secrets.PUSH_SUBSCRIPTIONS_4 }}
+          PUSH_SUBSCRIPTIONS_5:  ${{ secrets.PUSH_SUBSCRIPTIONS_5 }}
         run: node scripts/send-push.js --digest

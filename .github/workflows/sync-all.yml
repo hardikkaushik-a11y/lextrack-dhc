@@ -125,11 +125,19 @@ jobs:
       # Failure here is non-fatal: send-push.js exits 0 on any error so a
       # missing VAPID secret or expired subscription never blocks the sync.
       - name: Send push notifications (diff)
+        # Each PUSH_SUBSCRIPTIONS* secret is one device. send-push.js scans
+        # process.env for everything matching PUSH_SUBSCRIPTIONS(_\d+)? and
+        # merges them, so adding a new device = create a new numbered
+        # secret in repo settings; no code change here.
         env:
-          VAPID_PUBLIC_KEY:    ${{ secrets.VAPID_PUBLIC_KEY }}
-          VAPID_PRIVATE_KEY:   ${{ secrets.VAPID_PRIVATE_KEY }}
-          VAPID_SUBJECT:       ${{ secrets.VAPID_SUBJECT }}
-          PUSH_SUBSCRIPTIONS:  ${{ secrets.PUSH_SUBSCRIPTIONS }}
+          VAPID_PUBLIC_KEY:      ${{ secrets.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY:     ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT:         ${{ secrets.VAPID_SUBJECT }}
+          PUSH_SUBSCRIPTIONS:    ${{ secrets.PUSH_SUBSCRIPTIONS }}
+          PUSH_SUBSCRIPTIONS_2:  ${{ secrets.PUSH_SUBSCRIPTIONS_2 }}
+          PUSH_SUBSCRIPTIONS_3:  ${{ secrets.PUSH_SUBSCRIPTIONS_3 }}
+          PUSH_SUBSCRIPTIONS_4:  ${{ secrets.PUSH_SUBSCRIPTIONS_4 }}
+          PUSH_SUBSCRIPTIONS_5:  ${{ secrets.PUSH_SUBSCRIPTIONS_5 }}
         run: node scripts/send-push.js
 
       # ── Commit everything in one go ──────────────────────────────────

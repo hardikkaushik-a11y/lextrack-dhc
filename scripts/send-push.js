@@ -25,7 +25,14 @@
  *   VAPID_PUBLIC_KEY       — same key embedded in the app
  *   VAPID_PRIVATE_KEY      — generated alongside the public one
  *   VAPID_SUBJECT          — mailto:hardik@... or https://lextrack.app
- *   PUSH_SUBSCRIPTIONS     — JSON array of PushSubscription objects
+ *   PUSH_SUBSCRIPTIONS     — primary subscription secret. Either a JSON
+ *                            array of PushSubscription objects, or a
+ *                            single object (we accept both shapes).
+ *   PUSH_SUBSCRIPTIONS_2,  — additional secrets for more devices. The
+ *   PUSH_SUBSCRIPTIONS_3,    workflow yaml passes whatever exists; we
+ *   ...                      iterate process.env here and merge them.
+ *                            New device → add a new numbered secret in
+ *                            GitHub, no code change needed.
  *
  * Failures (expired subscriptions, network errors) are logged and don't
  * fail the workflow — pushes are best-effort, never block the data sync.
@@ -41,15 +48,41 @@ const MODE = process.argv.includes('--digest') ? 'digest' : 'diff';
 const PUB  = process.env.VAPID_PUBLIC_KEY;
 const PRIV = process.env.VAPID_PRIVATE_KEY;
 const SUBJ = process.env.VAPID_SUBJECT || 'mailto:lextrack@example.com';
-const SUBS_RAW = process.env.PUSH_SUBSCRIPTIONS;
 
 if (!PUB || !PRIV) { console.error('VAPID keys missing — skipping push.'); process.exit(0); }
-if (!SUBS_RAW)     { console.error('PUSH_SUBSCRIPTIONS not set — no subscribers, skipping.'); process.exit(0); }
 
+// Collect every PUSH_SUBSCRIPTIONS* secret the workflow exposed. Each
+// secret value can be either a single PushSubscription object or a JSON
+// array of them.
 let subs = [];
-try { subs = JSON.parse(SUBS_RAW); }
-catch (e) { console.error('PUSH_SUBSCRIPTIONS is not valid JSON, skipping.'); process.exit(0); }
-if (!Array.isArray(subs) || subs.length === 0) { console.log('No subscribers, skipping push.'); process.exit(0); }
+const subscriptionEnvKeys = Object.keys(process.env)
+  .filter(k => /^PUSH_SUBSCRIPTIONS(_\d+)?$/.test(k))
+  .sort();
+for (const key of subscriptionEnvKeys) {
+  const raw = process.env[key];
+  if (!raw || !raw.trim()) continue;
+  try {
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) {
+      for (const s of parsed) if (s && s.endpoint) subs.push(s);
+    } else if (parsed && parsed.endpoint) {
+      subs.push(parsed);
+    } else {
+      console.warn(`${key}: parsed but not a subscription / array of subscriptions — skipping.`);
+    }
+  } catch (e) {
+    console.warn(`${key}: not valid JSON — skipping.`);
+  }
+}
+// Dedupe by endpoint URL. If the same device's token ends up pasted into
+// two secrets (e.g. someone re-subscribes on the same phone), we'd
+// otherwise send two pushes for one event.
+const byEndpoint = new Map();
+for (const s of subs) if (s.endpoint && !byEndpoint.has(s.endpoint)) byEndpoint.set(s.endpoint, s);
+subs = [...byEndpoint.values()];
+
+console.log(`Loaded ${subs.length} unique subscription(s) from ${subscriptionEnvKeys.length} secret(s): [${subscriptionEnvKeys.join(', ') || 'none'}]`);
+if (subs.length === 0) { console.log('No subscribers, skipping push.'); process.exit(0); }
 
 webpush.setVapidDetails(SUBJ, PUB, PRIV);
 
