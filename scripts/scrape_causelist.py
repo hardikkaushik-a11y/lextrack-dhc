@@ -50,15 +50,18 @@ OUT_PATH = ROOT / "data" / "causelist.json"
 INDEX_URL = "https://delhihighcourt.nic.in/web/cause-lists/cause-list"
 HOST = "https://delhihighcourt.nic.in"
 
-RELEVANT_PREFIXES = (
-    "combined_advance",
-    "combined_targetedd",
-    "finals_",
-    "final_",
-    "combined_pro",
-    "pro_",
-    "combined_sup",
-    "supply_",
+# Categories of PDFs on the cause-list index that are NOT cause lists and
+# should be skipped. Everything else dated for our target days gets parsed.
+# This is a blocklist (not a whitelist) so we automatically pick up new
+# supplementary list patterns DHC introduces — sup_hmj_<judge>, sup-<n>,
+# combined_sup, etc. — without manual config edits.
+EXCLUDED_PREFIXES = (
+    "leave_note",          # judges-on-leave notice
+    "corrigendum",         # typo corrections to earlier lists
+    "jud-",                # judgment delivery rosters
+    "judgement",           # alt spelling
+    "judgment",            # alt spelling
+    "today_jud",           # today's judgments roster
 )
 
 UA = "Mozilla/5.0 (X11; Linux x86_64) LexTrack-Causelist/1.0"
@@ -91,28 +94,46 @@ def fetch_pdf_links(max_pages: int = 2):
 
 
 def date_in_filename(fname: str, target_date) -> bool:
-    d, mo, y = target_date.day, target_date.month, target_date.year
+    d, mo, y4 = target_date.day, target_date.month, target_date.year
+    y2 = y4 % 100
     candidates = [
-        f"{d:02d}{mo:02d}{y}",
-        f"{d:02d}.{mo:02d}.{y}",
-        f"{d:02d}.{mo:02d}",
-        f"{d:02d}-{mo:02d}-{y}",
-        f"{d:02d}_{mo:02d}_{y}",
+        # 4-digit year variants
+        f"{d:02d}{mo:02d}{y4}",         # 27042026
+        f"{d:02d}.{mo:02d}.{y4}",       # 27.04.2026
+        f"{d:02d}-{mo:02d}-{y4}",       # 27-04-2026
+        f"{d:02d}_{mo:02d}_{y4}",       # 27_04_2026
+        # 2-digit year variants — used by sup-N_for_dd.mm.yy.pdf etc.
+        f"{d:02d}.{mo:02d}.{y2:02d}",   # 27.04.26
+        f"{d:02d}-{mo:02d}-{y2:02d}",   # 27-04-26
+        f"{d:02d}_{mo:02d}_{y2:02d}",   # 27_04_26
+        f"{d:02d}{mo:02d}{y2:02d}",     # 270426
+        # Day-month only (some advance lists drop the year entirely)
+        f"{d:02d}.{mo:02d}",            # 27.04
     ]
     low = fname.lower()
     return any(c in low for c in candidates)
 
 
 def select_pdfs(pdf_links, target_dates):
+    """Return every PDF on the index that (a) isn't an obvious non-cause-list
+    artefact (judgments, corrigenda, leave notes) and (b) carries one of
+    our target dates in its filename. Mirrors what a clerk would scan in
+    Acrobat — read everything dated for today/tomorrow."""
     keep = []
+    seen = set()
     for href in pdf_links:
         fname = href.rsplit("/", 1)[-1]
         flow = fname.lower()
-        if not any(flow.startswith(p) for p in RELEVANT_PREFIXES):
+        if any(flow.startswith(p) for p in EXCLUDED_PREFIXES):
             continue
         for d in target_dates:
             if date_in_filename(fname, d):
-                keep.append((href, d.isoformat()))
+                key = (href, d.isoformat())
+                if key in seen:
+                    continue
+                seen.add(key)
+                keep.append(key)
+                break
                 break
     return keep
 
