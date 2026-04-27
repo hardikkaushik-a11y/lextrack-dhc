@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-04-27T18:05:57Z",
+  "scraped_at": "2026-04-27T20:10:49Z",
   "for_dates": [
-    "2026-04-27",
-    "2026-04-28"
+    "2026-04-28",
+    "2026-04-29"
   ],
   "tracked_cases": 12,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_adv_list_29.04.2026.pdf",
+      "date": "2026-04-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_28.04.2026.pdf",
       "date": "2026-04-28",
@@ -73,41 +80,6 @@
     {
       "file": "combined_advance_28042026.pdf",
       "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_27.04.2026_1.pdf",
-      "date": "2026-04-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-16_for_27.04.26.pdf",
-      "date": "2026-04-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-15_for_27.04.26.pdf",
-      "date": "2026-04-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-11_13_14_for_27.04.26.pdf",
-      "date": "2026-04-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_saurabh_b_27.04.2026.pdf",
-      "date": "2026-04-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
