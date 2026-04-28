@@ -303,6 +303,17 @@ body {
   border-radius: var(--radius-lg);
   padding: 20px;
   box-shadow: var(--shadow);
+  transition: transform 0.08s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.stat-card[role="button"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,0.14);
+}
+.stat-card[role="button"]:active { transform: translateY(0); }
+.stat-card[role="button"]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
 }
 
 .stat-label {
@@ -1935,23 +1946,25 @@ body {
 
     <!-- ── DASHBOARD VIEW ── -->
     <div class="view active" id="view-dashboard">
+      <!-- Each tile is clickable and routes to the most useful follow-up
+           view: matters list, hearings calendar, tasks list, manual sync. -->
       <div class="stats-grid">
-        <div class="stat-card stat-accent">
+        <div class="stat-card stat-accent" onclick="showView('matters')" style="cursor:pointer;" role="button" tabindex="0" title="Open All Matters">
           <div class="stat-label">Active Matters</div>
           <div class="stat-value" id="stat-active">—</div>
           <div class="stat-sub" id="stat-active-sub">&nbsp;</div>
         </div>
-        <div class="stat-card stat-red">
+        <div class="stat-card stat-red" onclick="showView('calendar')" style="cursor:pointer;" role="button" tabindex="0" title="Open Hearings Calendar">
           <div class="stat-label">Hearings This Week</div>
           <div class="stat-value" id="stat-hearings">—</div>
           <div class="stat-sub" id="stat-hearings-sub">&nbsp;</div>
         </div>
-        <div class="stat-card stat-green">
+        <div class="stat-card stat-green" onclick="showView('tasks')" style="cursor:pointer;" role="button" tabindex="0" title="Open Tasks">
           <div class="stat-label">Tasks Pending</div>
           <div class="stat-value" id="stat-tasks">—</div>
           <div class="stat-sub" id="stat-tasks-sub">&nbsp;</div>
         </div>
-        <div class="stat-card stat-blue">
+        <div class="stat-card stat-blue" onclick="triggerFullSync()" style="cursor:pointer;" role="button" tabindex="0" title="Run a fresh DHC scrape now (~5 min)">
           <div class="stat-label">DHC Synced</div>
           <div class="stat-value" id="stat-sync">✓</div>
           <div class="stat-sub" id="stat-sync-sub">&nbsp;</div>
@@ -3094,7 +3107,16 @@ function dateHTML(s) {
 }
 
 function matterRowHTML(m, showDelete=true) {
-  const d = daysUntil(m.nextDate);
+  // Use the EARLIEST forward-looking hearing across all sources (case
+  // status, JR/IA from order text, cause list). When that's a JR or
+  // cause-list date, append a small kind tag so the column doesn't
+  // silently lie about which date it's showing.
+  const eff = (typeof getEffectiveNextHearing === 'function') ? getEffectiveNextHearing(m) : null;
+  const effDate = eff?.date || m.nextDate;
+  const effKind = eff?.kind || 'court';
+  const kindTag = effKind === 'jr' ? ' <span style="font-size:9.5px;letter-spacing:1px;color:#9a3412;background:rgba(249,115,22,0.12);padding:1px 5px;border-radius:3px;vertical-align:middle;">JR</span>'
+                : effKind === 'causelist' ? ' <span style="font-size:9.5px;letter-spacing:1px;color:#7a5a10;background:rgba(201,168,76,0.18);padding:1px 5px;border-radius:3px;vertical-align:middle;">LIST</span>'
+                : '';
   return `
     <div class="matter-row" onclick="openDetail('${m.id}')">
       <div>
@@ -3104,7 +3126,7 @@ function matterRowHTML(m, showDelete=true) {
       <div><span class="matter-sub" style="font-family:var(--font-mono,monospace);font-size:12px">${m.caseNo}</span></div>
       <div>${tagHTML(m.type)}</div>
       <div>${formatDate(m.lastDate)}</div>
-      <div>${dateHTML(m.nextDate)}</div>
+      <div>${dateHTML(effDate)}${kindTag}</div>
       <div class="row-actions" onclick="event.stopPropagation()">
         ${showDelete ? `<button class="btn btn-danger" onclick="confirmDelete('${m.id}')">Delete</button>` : ''}
       </div>
@@ -3342,12 +3364,12 @@ function renderCalendar() {
   const daysInMonth = new Date(d.getFullYear(), d.getMonth()+1, 0).getDate();
   const daysInPrev = new Date(d.getFullYear(), d.getMonth(), 0).getDate();
 
-  // Hearings come from two sources: (1) matter.nextDate set by the main
-  // scraper, (2) cause-list entries (which may have dates the case-status
-  // sync doesn't yet reflect — e.g. last-minute additions). Merge both.
-  const hearingDates = new Set(matters.map(m => m.nextDate).filter(Boolean));
+  // Hearings come from THREE sources: case-status nextDate, JR/IA dates
+  // extracted from order text (m.additionalDates), and cause-list entries.
+  // getMatterHearings() merges + dedupes them per matter.
+  const hearingDates = new Set();
   for (const m of matters) {
-    for (const e of (m.causelist || [])) if (e.date) hearingDates.add(e.date);
+    for (const h of getMatterHearings(m)) hearingDates.add(h.date);
   }
 
   let html = '';
@@ -3362,34 +3384,35 @@ function renderCalendar() {
   }
   document.getElementById('cal-days').innerHTML = html;
 
-  // Build a unified upcoming list — one row per (matter, date) pair, sorted
-  // soonest-first. Cause-list entries beat next-date entries when both exist
-  // for the same date (richer metadata: court, item, time, judge).
+  // Unified upcoming list across all 3 sources. Each (matter, hearing)
+  // pair becomes one row; the kind drives the source tag.
   const allUpcoming = [];
   for (const m of matters) {
-    // Cause-list entries
-    for (const e of (m.causelist || [])) {
-      if (!e.date) continue;
-      if (daysUntil(e.date) === null || daysUntil(e.date) < 0) continue;
-      allUpcoming.push({ m, date: e.date, source: 'causelist', cl: e });
-    }
-    // matter.nextDate — only add if not already covered by a causelist entry
-    if (m.nextDate && daysUntil(m.nextDate) !== null && daysUntil(m.nextDate) >= 0) {
-      const covered = (m.causelist || []).some(e => e.date === m.nextDate);
-      if (!covered) allUpcoming.push({ m, date: m.nextDate, source: 'nextdate' });
+    for (const h of getMatterHearings(m)) {
+      const diff = daysUntil(h.date);
+      if (diff === null || diff < 0) continue;
+      // Find a richer cause-list entry if this hearing came from one
+      const cl = (h.kind === 'causelist')
+        ? (m.causelist || []).find(e => e.date === h.date)
+        : null;
+      allUpcoming.push({ m, date: h.date, kind: h.kind, cl });
     }
   }
   allUpcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
-  const upcoming = allUpcoming.slice(0, 6);
+  const upcoming = allUpcoming.slice(0, 8);
+
+  const tagFor = (kind) =>
+      kind === 'jr'        ? '<span class="hearing-source-tag" title="From order text">📋 JR</span>'
+    : kind === 'causelist' ? '<span class="hearing-source-tag" title="From DHC cause list">📅 Cause List</span>'
+    :                        '';
 
   document.getElementById('upcoming-list').innerHTML = upcoming.length ?
-    upcoming.map(({ m, date, source, cl }) => {
+    upcoming.map(({ m, date, kind, cl }) => {
       const nd = new Date(date + 'T00:00:00');
       const diff = daysUntil(date);
       const sub = cl
         ? `${cl.court ? `Court ${cl.court}` : ''}${cl.item ? ` · Item ${cl.item}` : ''}${cl.time ? ` · ${cl.time}` : ''}`
-        : (diff === 0 ? 'Today' : diff + ' days away');
-      const sourceTag = source === 'causelist' ? '<span class="hearing-source-tag" title="From DHC cause list">📅 Cause List</span>' : '';
+        : (diff === 0 ? 'Today' : (diff === 1 ? 'Tomorrow' : diff + ' days away'));
       return `<div class="hearing-item" onclick="openDetail('${m.id}')" style="cursor:pointer;">
         <div class="hearing-date-badge">
           <div class="hearing-date-day">${nd.getDate()}</div>
@@ -3397,7 +3420,7 @@ function renderCalendar() {
         </div>
         <div class="hearing-info">
           <div class="hearing-case">${(m.title || m.caseNo).split(' v. ')[0].substring(0,30)}${(m.title||'').length>30?'...':''}</div>
-          <div class="hearing-case-no">${m.caseNo} ${sourceTag}</div>
+          <div class="hearing-case-no">${m.caseNo} ${tagFor(kind)}</div>
           <div class="hearing-days-away">${sub || (diff === 0 ? 'Today' : diff + ' days away')}</div>
         </div>
       </div>`;
