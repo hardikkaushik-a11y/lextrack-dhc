@@ -3546,7 +3546,12 @@ function selectCalDay(dateStr) {
 
 function renderTasks(filter) {
   let allTasks = matters.flatMap(m =>
-    m.tasks.map(t => ({ ...t, matterTitle: m.title.split(' v. ')[0], matterId: m.id }))
+    m.tasks.map(t => ({
+      ...t,
+      matterTitle: (m.title || m.caseNo || '').split(' v. ')[0],
+      matterId: m.id,
+      matterCaseNo: m.caseNo || '',
+    }))
   );
   const today = fmt(new Date());
 
@@ -3572,7 +3577,10 @@ function renderTasks(filter) {
           <div class="task-title${t.done?' done':''}">${t.title}</div>
           ${t.description ? `<div class="task-meta">${t.description}</div>` : ''}
         </div>
-        <div style="font-size:12px;color:var(--ink3);">${t.matterTitle}</div>
+        <div style="font-size:12px;color:var(--ink3);cursor:pointer;line-height:1.45;" onclick="event.stopPropagation();openDetail('${t.matterId}')" title="Open ${t.matterCaseNo}">
+          <div style="color:var(--ink2);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px;">${t.matterTitle}</div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:var(--ink3);margin-top:2px;">${t.matterCaseNo}</div>
+        </div>
         <div style="font-size:12px;${isOverdue(t)?'color:var(--red);font-weight:600;':''}">${formatDate(t.due)}</div>
         <div class="priority-${t.priority.toLowerCase()}" style="font-size:12px;">${t.priority}</div>
         <div style="font-size:11px;color:var(--ink3);">${sourceLabel(t.source)}</div>
