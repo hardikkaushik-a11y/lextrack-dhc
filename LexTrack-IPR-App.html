@@ -1997,6 +1997,10 @@ body {
       <!-- Cause-list banner — populated by renderCauselistBanner() -->
       <div id="dashboard-causelist-banner"></div>
 
+      <!-- Tomorrow's Hearings (next 48h, with AI prep briefs) — populated by
+           renderTomorrowsHearings(). Empty when nothing's listed in 48h. -->
+      <div id="dashboard-tomorrows-hearings"></div>
+
       <div class="section-header">
         <div class="section-title">Active Matters</div>
         <button class="btn btn-ghost" onclick="showView('matters')" style="font-size:12px;padding:6px 12px;">View all →</button>
@@ -2063,12 +2067,16 @@ body {
       <div class="lookup-panel" style="margin-top:24px;">
         <div class="lookup-title" style="font-size:18px;">Bulk import</div>
         <div class="lookup-sub">
-          Paste a list — one per line. We auto-detect the case type (CS(COMM), W.P.(C), CRL.M.C., etc.) and queue them for tracking.
+          Paste a list — one per line. Or paste a CSV with header columns: <code style="font-size:11px;">caseNo, title, client, type, stage, lastDate, nextDate, notes</code> (caseNo required, others optional).
         </div>
-        <textarea id="bulk-paste" rows="7" placeholder="CS(COMM)/108/2025
+        <textarea id="bulk-paste" rows="7" placeholder="Plain mode — one case per line:
+CS(COMM)/108/2025
 CS(COMM) 331/2025  ABC Ltd v. XYZ Ltd
 W.P.(C)-456/2024
-CRL.M.C./3456/2023&#10;…or paste a column from a sheet"
+
+…or CSV mode (first line is the header):
+caseNo,title,client,type,stage,nextDate
+CS(COMM)/108/2025,ABC v XYZ,ABC Ltd,trademark,arguments,2026-05-15"
           style="width:100%;font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:12px;border:1px solid rgba(255,255,255,0.12);border-radius:8px;resize:vertical;color:rgba(255,255,255,0.95);background:rgba(0,0,0,0.25);box-sizing:border-box;margin-top:12px;"
           oninput="renderBulkPreview()"></textarea>
 
@@ -2120,7 +2128,13 @@ CRL.M.C./3456/2023&#10;…or paste a column from a sheet"
           <div class="cal-days" id="cal-days"></div>
         </div>
         <div class="upcoming-hearings">
-          <div class="card-title" id="upcoming-header">Upcoming Hearings</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <div class="card-title" id="upcoming-header" style="margin-bottom:0;flex:1;">Upcoming Hearings</div>
+            <button class="btn btn-ghost" style="font-size:11px;padding:5px 10px;white-space:nowrap;"
+              onclick="exportCalendarIcs()" title="Download all upcoming hearings as a .ics file (Apple Calendar / Google Calendar / Outlook)">
+              📅 Export .ics
+            </button>
+          </div>
           <div id="upcoming-list"></div>
         </div>
       </div>
@@ -3323,6 +3337,9 @@ function renderDashboard() {
   // ── Cause list banner (matters listed today / tomorrow per DHC) ──
   renderCauselistBanner();
 
+  // ── Tomorrow's Hearings (48h window with AI prep briefs) ──────────
+  if (typeof renderTomorrowsHearings === 'function') renderTomorrowsHearings();
+
   // ── Company filter (shared chip pattern with Court Orders) ────────
   const companyOf = m => (m.title || '').split(' VS.')[0].split(' v. ')[0].trim();
   const counts = {};
@@ -3914,14 +3931,58 @@ function openDetail(id) {
         </div>
       </div>
 
-      <div class="card detail-col-full">
+      <div class="card">
         <div class="card-title">Documents to Prepare</div>
         <div id="detail-docs-${id}"></div>
       </div>
+
+      <div class="card">
+        <div class="card-title" style="justify-content:space-between;">
+          Uploaded Documents
+          <label class="btn btn-ghost" style="font-size:11px;padding:4px 10px;cursor:pointer;margin:0;">
+            + Upload
+            <input type="file" multiple style="display:none;" onchange="uploadDocFromInput('${id}', this)" accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg,.heic">
+          </label>
+        </div>
+        <div id="uploaded-docs-${id}" style="margin-top:10px;"></div>
+      </div>
+
+      ${(() => {
+        // Hearing-prep CTA — surfaces only when there's a forward-looking
+        // hearing within 7 days. DeepSeek-backed (Ishi's hardcoded provider).
+        const todayDate = new Date(); todayDate.setHours(0, 0, 0, 0);
+        const cutoff = new Date(todayDate.getTime() + 7 * 86400000).toISOString().slice(0, 10);
+        const todayStr = todayDate.toISOString().slice(0, 10);
+        const upcoming = (typeof getMatterHearings === 'function' ? getMatterHearings(m) : [])
+          .filter(h => h.date >= todayStr && h.date <= cutoff);
+        if (!upcoming.length) return '';
+        const cache = loadHearingPrepCache();
+        return `<div class="card detail-col-full">
+          <div class="card-title">✦ Hearing Prep · upcoming 7 days</div>
+          ${upcoming.map(h => {
+            const cached = cache[`${id}|${h.date}`];
+            const dateLbl = new Date(h.date+'T00:00:00').toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'});
+            const tag = h.kind === 'jr' ? ' (JR)' : h.kind === 'causelist' ? ' (cause list)' : '';
+            return `
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed rgba(0,0,0,0.08);">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
+                  <strong style="color:var(--ink1);font-size:13px;">${dateLbl}${tag}</strong>
+                  <button class="btn btn-ghost" style="font-size:11px;padding:4px 10px;margin-left:auto;"
+                    onclick="runHearingPrepFor('${id}', '${h.date}', '${h.kind}', this)">
+                    ${cached ? 'Regenerate brief' : '✦ Generate prep brief'}
+                  </button>
+                </div>
+                <div id="hearing-prep-${id}-${h.date}">${cached ? hearingPrepHTML(cached) : '<div style="font-size:12px;color:var(--ink3);font-style:italic;">No brief yet — click Generate to draft a lawyer-grade prep summary from the timeline.</div>'}</div>
+              </div>`;
+          }).join('')}
+        </div>`;
+      })()}
     </div>`;
 
   // Render docs-needed list (uses shared fn so toggleDocNeeded re-renders cleanly)
   renderDetailDocsNeeded(id);
+  // Render uploaded documents list (async — IndexedDB lookup)
+  if (typeof renderUploadedDocs === 'function') renderUploadedDocs(id);
 }
 
 function renderDetailDocsNeeded(id) {
@@ -5317,7 +5378,6 @@ function parseBulkLine(raw) {
 
 function renderBulkPreview() {
   const text = document.getElementById('bulk-paste').value;
-  const lines = text.split(/\r?\n/);
   const preview = document.getElementById('bulk-preview');
   const btn = document.getElementById('bulk-import-btn');
 
@@ -5327,22 +5387,47 @@ function renderBulkPreview() {
 
   let ok = [], errors = [], duplicates = [];
   const seenInPaste = new Set();
-  for (const line of lines) {
-    const parsed = parseBulkLine(line);
-    if (parsed === null) continue;
-    if (parsed.error) { errors.push({ line: line.trim(), why: parsed.error }); continue; }
-    const k = norm(parsed.caseNo);
-    if (seenInPaste.has(k)) continue;          // dedupe within paste
-    seenInPaste.add(k);
-    if (existing.has(k)) duplicates.push(parsed);
-    else ok.push(parsed);
+  const csvMode = (typeof detectCsvMode === 'function') && detectCsvMode(text);
+  if (csvMode) {
+    const rows = parseBulkCsv(text) || [];
+    for (const r of rows) {
+      if (r.error) { errors.push({ line: r.line, why: r.error }); continue; }
+      const k = norm(r.caseNo);
+      if (seenInPaste.has(k)) continue;
+      seenInPaste.add(k);
+      if (existing.has(k)) duplicates.push(r);
+      else ok.push(r);
+    }
+  } else {
+    const lines = text.split(/\r?\n/);
+    for (const line of lines) {
+      const parsed = parseBulkLine(line);
+      if (parsed === null) continue;
+      if (parsed.error) { errors.push({ line: line.trim(), why: parsed.error }); continue; }
+      const k = norm(parsed.caseNo);
+      if (seenInPaste.has(k)) continue;          // dedupe within paste
+      seenInPaste.add(k);
+      if (existing.has(k)) duplicates.push(parsed);
+      else ok.push(parsed);
+    }
   }
 
   let html = '';
+  if (csvMode) {
+    html += `<div style="color:#fbbf24;font-size:11px;margin-bottom:6px;letter-spacing:0.5px;text-transform:uppercase;">CSV mode — extra fields detected (client / stage / dates / etc.)</div>`;
+  }
   if (ok.length) {
     html += `<div style="color:#34d399;font-weight:500;margin-bottom:6px;">✓ ${ok.length} new case${ok.length > 1 ? 's' : ''} ready to import</div>`;
     html += '<div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.6;color:rgba(255,255,255,0.7);max-height:140px;overflow-y:auto;">' +
-      ok.map(c => `<div>${c.caseNo}${c.title ? ' <span style="color:rgba(255,255,255,0.4);">— ' + c.title.replace(/</g,'&lt;').slice(0, 60) + '</span>' : ''}</div>`).join('') +
+      ok.map(c => {
+        const extras = [];
+        if (c.client)   extras.push(`client: ${c.client}`);
+        if (c.type)     extras.push(c.type);
+        if (c.stage)    extras.push(c.stage);
+        if (c.nextDate) extras.push(`next: ${c.nextDate}`);
+        const extrasHtml = extras.length ? ` <span style="color:rgba(251,191,36,0.65);">[${extras.join(' · ')}]</span>` : '';
+        return `<div>${c.caseNo}${c.title ? ' <span style="color:rgba(255,255,255,0.4);">— ' + c.title.replace(/</g,'&lt;').slice(0, 60) + '</span>' : ''}${extrasHtml}</div>`;
+      }).join('') +
       '</div>';
   }
   if (duplicates.length) {
@@ -5367,19 +5452,31 @@ function renderBulkPreview() {
 
 async function bulkImportCases() {
   const text = document.getElementById('bulk-paste').value;
-  const lines = text.split(/\r?\n/);
   const norm = s => s.replace(/[\s\/]/g, '').toLowerCase();
   const existing = new Set((matters || []).map(m => norm(m.caseNo || '')));
 
   const toAdd = [];
   const seen = new Set();
-  for (const line of lines) {
-    const p = parseBulkLine(line);
-    if (!p || p.error) continue;
-    const k = norm(p.caseNo);
-    if (seen.has(k) || existing.has(k)) continue;
-    seen.add(k);
-    toAdd.push(p);
+  const csvMode = (typeof detectCsvMode === 'function') && detectCsvMode(text);
+  if (csvMode) {
+    const rows = parseBulkCsv(text) || [];
+    for (const r of rows) {
+      if (r.error) continue;
+      const k = norm(r.caseNo);
+      if (seen.has(k) || existing.has(k)) continue;
+      seen.add(k);
+      toAdd.push(r);
+    }
+  } else {
+    const lines = text.split(/\r?\n/);
+    for (const line of lines) {
+      const p = parseBulkLine(line);
+      if (!p || p.error) continue;
+      const k = norm(p.caseNo);
+      if (seen.has(k) || existing.has(k)) continue;
+      seen.add(k);
+      toAdd.push(p);
+    }
   }
   if (toAdd.length === 0) { toast('Nothing new to import', ''); return; }
 
@@ -5434,12 +5531,20 @@ async function bulkImportCases() {
         matters.push({
           id, caseNo: p.caseNo,
           title: p.title || p.caseNo,
-          type: 'other', stage: 'filed',
-          client: null, judge: null, lastDate: null, nextDate: null,
-          notes: null, timeline: [], tasks: [], docs: [],
+          // CSV mode supplies these; plain-list mode leaves defaults.
+          type:     p.type     || 'other',
+          stage:    p.stage    || 'filed',
+          client:   p.client   || null,
+          judge:    null,
+          lastDate: p.lastDate || null,
+          nextDate: p.nextDate || null,
+          notes:    p.notes    || null,
+          timeline: [], tasks: [], docs: [],
         });
       }
     }
+    // Persist CSV-supplied user fields so they survive the next scraper merge.
+    if (csvMode && typeof saveUserState === 'function') saveUserState();
 
     // 5. ONE workflow dispatch (full sync covers all the new cases).
     const triggerRes = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/sync-all.yml/dispatches`, {
@@ -7142,6 +7247,463 @@ function downloadDraftAsDoc() {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
   toast('Downloaded — open in Word', 'success');
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE B0 — FOUNDATION POLISH (mirrored from brand)
+//   • Document upload (IndexedDB, per-matter)
+//   • .ics calendar export (RFC 5545)
+//   • CSV bulk-import support (sits on top of existing line-paste flow)
+//   • DeepSeek hearing-prep auto-generation (cached per hearing)
+//   • Tomorrow's Hearings dashboard widget
+// dhc is hardcoded DeepSeek (Ishi's daily); brand uses the multi-provider
+// aiCall() abstraction. Otherwise the surfaces are identical.
+// ═══════════════════════════════════════════════════════════════════════════
+
+// ── IndexedDB document storage ─────────────────────────────────────────────
+const LEXTRACK_DB_NAME    = 'lextrack-docs';
+const LEXTRACK_DB_VERSION = 1;
+const LEXTRACK_DB_STORE   = 'files';
+
+function lexDbOpen() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(LEXTRACK_DB_NAME, LEXTRACK_DB_VERSION);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains(LEXTRACK_DB_STORE)) {
+        const store = db.createObjectStore(LEXTRACK_DB_STORE, { keyPath: 'id' });
+        store.createIndex('matterId', 'matterId', { unique: false });
+      }
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror   = () => reject(req.error);
+  });
+}
+
+async function lexDocStore(matterId, file) {
+  const db = await lexDbOpen();
+  const id = `doc_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  const record = {
+    id, matterId,
+    name: file.name, type: file.type || 'application/octet-stream',
+    size: file.size, uploadedAt: new Date().toISOString(),
+    blob: file,
+  };
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(LEXTRACK_DB_STORE, 'readwrite');
+    tx.objectStore(LEXTRACK_DB_STORE).put(record);
+    tx.oncomplete = () => resolve({ id, matterId, name: record.name, type: record.type, size: record.size, uploadedAt: record.uploadedAt });
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+async function lexDocList(matterId) {
+  const db = await lexDbOpen();
+  return new Promise((resolve, reject) => {
+    const idx = db.transaction(LEXTRACK_DB_STORE, 'readonly').objectStore(LEXTRACK_DB_STORE).index('matterId');
+    const req = idx.getAll(matterId);
+    req.onsuccess = () => resolve((req.result || []).map(r => ({
+      id: r.id, matterId: r.matterId, name: r.name, type: r.type, size: r.size, uploadedAt: r.uploadedAt,
+    })));
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function lexDocOpen(docId) {
+  const db = await lexDbOpen();
+  return new Promise((resolve, reject) => {
+    const req = db.transaction(LEXTRACK_DB_STORE, 'readonly').objectStore(LEXTRACK_DB_STORE).get(docId);
+    req.onsuccess = () => {
+      const r = req.result;
+      if (!r) return reject(new Error('Doc not found'));
+      const url = URL.createObjectURL(r.blob);
+      window.open(url, '_blank', 'noopener');
+      setTimeout(() => URL.revokeObjectURL(url), 60_000);
+      resolve();
+    };
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function lexDocDelete(docId) {
+  const db = await lexDbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(LEXTRACK_DB_STORE, 'readwrite');
+    tx.objectStore(LEXTRACK_DB_STORE).delete(docId);
+    tx.oncomplete = () => resolve();
+    tx.onerror    = () => reject(tx.error);
+  });
+}
+
+async function uploadDocFromInput(matterId, inputEl) {
+  const files = [...(inputEl?.files || [])];
+  if (!files.length) return;
+  for (const f of files) {
+    if (f.size > 25 * 1024 * 1024) {
+      toast(`${f.name} is over 25 MB — skipped`, 'error');
+      continue;
+    }
+    try { await lexDocStore(matterId, f); }
+    catch (e) { console.error('doc store failed', e); toast(`Upload failed for ${f.name}`, 'error'); }
+  }
+  inputEl.value = '';
+  renderUploadedDocs(matterId);
+  toast(`✓ Uploaded ${files.length} document${files.length === 1 ? '' : 's'}`, 'success');
+}
+
+async function renderUploadedDocs(matterId) {
+  const container = document.getElementById(`uploaded-docs-${matterId}`);
+  if (!container) return;
+  let docs = [];
+  try { docs = await lexDocList(matterId); } catch (e) { console.warn('doc list failed', e); }
+  docs.sort((a, b) => (b.uploadedAt || '').localeCompare(a.uploadedAt || ''));
+  if (!docs.length) {
+    container.innerHTML = `<div style="padding:14px 0;text-align:center;color:var(--ink3);font-size:12.5px;">No documents uploaded yet</div>`;
+    return;
+  }
+  const fmtSize = b => b < 1024 ? `${b} B` : b < 1024*1024 ? `${(b/1024).toFixed(1)} KB` : `${(b/(1024*1024)).toFixed(1)} MB`;
+  const escape  = s => String(s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
+  container.innerHTML = docs.map(d => `
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:6px;background:rgba(0,0,0,0.02);margin-bottom:6px;font-size:12.5px;">
+      <span style="font-size:18px;">${d.type.includes('pdf') ? '📄' : d.type.includes('image') ? '🖼️' : d.type.includes('word') || d.type.includes('document') ? '📝' : '📎'}</span>
+      <div style="flex:1;min-width:0;">
+        <div style="font-weight:500;color:var(--ink1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${escape(d.name)}</div>
+        <div style="font-size:11px;color:var(--ink3);">${fmtSize(d.size)} · ${new Date(d.uploadedAt).toLocaleDateString('en-IN', {day:'numeric',month:'short'})}</div>
+      </div>
+      <button class="btn btn-ghost" style="font-size:11px;padding:4px 10px;" onclick="lexDocOpen('${d.id}')">Open</button>
+      <button class="btn btn-ghost" style="font-size:11px;padding:4px 10px;color:#dc2626;" onclick="if(confirm('Delete this document?'))lexDocDelete('${d.id}').then(()=>renderUploadedDocs('${matterId}'))">×</button>
+    </div>
+  `).join('');
+}
+
+// ── Calendar export (.ics, RFC 5545) ───────────────────────────────────────
+function _icsEscape(s) {
+  return String(s || '').replace(/[\\;,]/g, m => '\\' + m).replace(/\r?\n/g, '\\n');
+}
+function _icsDate(isoDate, time) {
+  const [Y, M, D] = isoDate.split('-').map(Number);
+  let H = 10, Mi = 0;
+  if (time) {
+    const m = String(time).match(/(\d{1,2})(?::(\d{2}))?\s*([ap]m)?/i);
+    if (m) {
+      H  = parseInt(m[1], 10) || 0;
+      Mi = parseInt(m[2] || '0', 10);
+      if (/p/i.test(m[3] || '') && H < 12) H += 12;
+      if (/a/i.test(m[3] || '') && H === 12) H = 0;
+    }
+  }
+  const pad = n => String(n).padStart(2, '0');
+  return `${Y}${pad(M)}${pad(D)}T${pad(H)}${pad(Mi)}00`;
+}
+function exportCalendarIcs() {
+  const lines = [
+    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//LexTrack//Hearings Export//EN',
+    'CALSCALE:GREGORIAN','METHOD:PUBLISH',
+    'X-WR-CALNAME:LexTrack Hearings','X-WR-TIMEZONE:Asia/Kolkata',
+  ];
+  const todayStr = (new Date()).toISOString().slice(0, 10);
+  let count = 0;
+  for (const m of matters) {
+    const hs = (typeof getMatterHearings === 'function')
+      ? getMatterHearings(m).filter(h => h.date >= todayStr)
+      : (m.nextDate && m.nextDate >= todayStr ? [{ date: m.nextDate, kind: 'court' }] : []);
+    for (const h of hs) {
+      const cl   = h.kind === 'causelist' ? (m.causelist || []).find(e => e.date === h.date) : null;
+      const time = cl?.time || null;
+      const dtStart = _icsDate(h.date, time);
+      let dtEnd;
+      if (time) {
+        const sH = parseInt(dtStart.slice(9, 11), 10);
+        const sM = parseInt(dtStart.slice(11, 13), 10);
+        const eH = Math.min(23, sH + 1);
+        dtEnd = `${dtStart.slice(0, 9)}${String(eH).padStart(2, '0')}${String(sM).padStart(2, '0')}00`;
+      } else {
+        dtEnd = _icsDate(h.date, '12:00');
+      }
+      const tag = h.kind === 'jr' ? 'JR' : (h.kind === 'causelist' ? 'Cause List' : 'Court');
+      const sumPrefix = h.kind === 'jr' ? '[JR] ' : (h.kind === 'causelist' ? '[CL] ' : '');
+      const summary = `${sumPrefix}${m.title || m.caseNo}`;
+      const descParts = [
+        m.caseNo,
+        m.client ? `Client: ${m.client}` : null,
+        cl?.judge ? `Coram: ${cl.judge}` : null,
+        cl?.court ? `Court ${cl.court}` : null,
+        cl?.item  ? `Item ${cl.item}`   : null,
+        m.notes   ? `Notes: ${m.notes}` : null,
+        `Source: ${tag}`,
+      ].filter(Boolean);
+      lines.push(
+        'BEGIN:VEVENT',
+        `UID:lextrack-${m.id}-${h.date}-${h.kind}@lextrack.app`,
+        `DTSTAMP:${_icsDate(todayStr, '00:00')}`,
+        `DTSTART:${dtStart}`,
+        `DTEND:${dtEnd}`,
+        `SUMMARY:${_icsEscape(summary)}`,
+        `DESCRIPTION:${_icsEscape(descParts.join('\n'))}`,
+        `LOCATION:${_icsEscape('Delhi High Court')}`,
+        `CATEGORIES:LexTrack,${tag}`,
+        'END:VEVENT'
+      );
+      count++;
+    }
+  }
+  lines.push('END:VCALENDAR');
+  if (count === 0) { toast('No upcoming hearings to export', ''); return; }
+  const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = `lextrack-hearings-${todayStr.replace(/-/g, '')}.ics`;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 1000);
+  toast(`✓ Exported ${count} hearing${count !== 1 ? 's' : ''}`, 'success');
+}
+
+// ── CSV bulk-import support ────────────────────────────────────────────────
+function _csvSplit(line) {
+  const out = []; let cur = '', q = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (q) {
+      if (c === '"' && line[i+1] === '"') { cur += '"'; i++; }
+      else if (c === '"') { q = false; }
+      else cur += c;
+    } else {
+      if (c === '"') q = true;
+      else if (c === ',') { out.push(cur); cur = ''; }
+      else cur += c;
+    }
+  }
+  out.push(cur);
+  return out.map(s => s.trim());
+}
+function _normIsoDate(raw) {
+  if (!raw) return null;
+  const iso = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  if (iso) return `${iso[1]}-${iso[2].padStart(2,'0')}-${iso[3].padStart(2,'0')}`;
+  const dmy = raw.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{4})$/);
+  if (dmy) return `${dmy[3]}-${dmy[2].padStart(2,'0')}-${dmy[1].padStart(2,'0')}`;
+  const d = new Date(raw);
+  if (!isNaN(d.getTime())) return d.toISOString().slice(0, 10);
+  return null;
+}
+function detectCsvMode(rawText) {
+  const firstLine = (rawText || '').split(/\r?\n/).find(l => l.trim());
+  if (!firstLine || !firstLine.includes(',')) return false;
+  const cells = _csvSplit(firstLine).map(c => c.toLowerCase().replace(/[\s_]/g, ''));
+  return cells.some(c => ['caseno','title','client','type','stage','lastdate','nextdate','notes'].includes(c));
+}
+function parseBulkCsv(rawText) {
+  const lines = rawText.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  if (!lines.length) return null;
+  const headerCells = _csvSplit(lines[0]).map(c => c.toLowerCase().replace(/[\s_]/g, ''));
+  const map = {};
+  headerCells.forEach((c, i) => {
+    if (c === 'caseno')        map.caseNo   = i;
+    else if (c === 'title')    map.title    = i;
+    else if (c === 'client')   map.client   = i;
+    else if (c === 'type')     map.type     = i;
+    else if (c === 'stage')    map.stage    = i;
+    else if (c === 'lastdate') map.lastDate = i;
+    else if (c === 'nextdate') map.nextDate = i;
+    else if (c === 'notes')    map.notes    = i;
+  });
+  if (map.caseNo == null) return null;
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const cols = _csvSplit(lines[i]);
+    const rawCase = (cols[map.caseNo] || '').trim();
+    if (!rawCase) continue;
+    const parsed = parseBulkLine(rawCase);
+    if (!parsed || parsed.error) {
+      rows.push({ error: parsed?.error || 'unknown case-no format', line: rawCase });
+      continue;
+    }
+    const row = { caseNo: parsed.caseNo, title: parsed.title || (cols[map.title] || '').trim() || null };
+    if (map.client   != null) row.client   = (cols[map.client]   || '').trim() || null;
+    if (map.type     != null) row.type     = (cols[map.type]     || '').trim().toLowerCase() || null;
+    if (map.stage    != null) row.stage    = (cols[map.stage]    || '').trim().toLowerCase() || null;
+    if (map.lastDate != null) row.lastDate = _normIsoDate(cols[map.lastDate] || '');
+    if (map.nextDate != null) row.nextDate = _normIsoDate(cols[map.nextDate] || '');
+    if (map.notes    != null) row.notes    = (cols[map.notes]    || '').trim() || null;
+    rows.push(row);
+  }
+  return rows;
+}
+
+// ── DeepSeek Hearing-Prep brief generator ──────────────────────────────────
+// dhc is DeepSeek-only (Ishi's hardcoded provider). The brand version uses the
+// multi-provider aiCall() abstraction; here we hit api.deepseek.com directly,
+// matching the existing pattern used by runAnalysis() and the judgments ranker.
+const HEARING_PREP_CACHE_KEY = 'lextrack_hearing_prep_v1';
+
+function loadHearingPrepCache() {
+  try { return JSON.parse(localStorage.getItem(HEARING_PREP_CACHE_KEY) || '{}'); }
+  catch { return {}; }
+}
+function saveHearingPrepCache(cache) {
+  try { localStorage.setItem(HEARING_PREP_CACHE_KEY, JSON.stringify(cache)); } catch {}
+}
+function setCachedHearingPrep(matterId, hearingDate, prep) {
+  const c = loadHearingPrepCache();
+  c[`${matterId}|${hearingDate}`] = { ...prep, generatedAt: new Date().toISOString() };
+  saveHearingPrepCache(c);
+}
+
+async function generateHearingPrep(matterId, hearingDate, kind) {
+  const m = matters.find(x => x.id === matterId);
+  if (!m) throw new Error('Matter not found');
+  const apiKey = getDeepSeekKey();
+  if (!apiKey) {
+    toast('Add your DeepSeek key first (✦ AI Analysis on any matter prompts you)', 'error');
+    throw new Error('No DeepSeek key');
+  }
+
+  const timeline = (m.timeline || [])
+    .filter(t => t.date && t.date <= hearingDate)
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+    .slice(0, 5);
+  const tasks      = (m.tasks      || []).filter(t => !t.done);
+  const docsNeeded = (m.docsNeeded || []).filter(d => !d.obtained);
+  const before     = kind === 'jr' ? "the Joint Registrar" : "the Hon'ble Court";
+
+  const prompt = [
+    `You are an IPR litigation associate preparing a senior partner for a hearing tomorrow before ${before}.`,
+    `Produce a tight, lawyer-grade prep brief. Be specific to THIS matter, not generic. Skip pleasantries.`,
+    ``,
+    `Matter: ${m.title || m.caseNo}`,
+    `Case No: ${m.caseNo}`,
+    `Type: ${m.type || 'unspecified'}`,
+    `Stage: ${m.stage || 'unspecified'}`,
+    m.client ? `Client: ${m.client}` : null,
+    m.notes  ? `Internal notes: ${m.notes}` : null,
+    ``,
+    `Recent timeline (most recent first):`,
+    ...(timeline.length
+      ? timeline.map(t => `- ${t.date} — ${t.event || 'Event'}: ${(t.detail || '').slice(0, 240)}`)
+      : ['(no prior events recorded)']),
+    ``,
+    `Open tasks: ${tasks.length ? tasks.map(t => t.title).join('; ') : '(none)'}`,
+    `Documents pending: ${docsNeeded.length ? docsNeeded.map(d => d.title).join('; ') : '(none)'}`,
+    ``,
+    `Hearing date: ${hearingDate} before ${before}.`,
+    ``,
+    `Return ONLY valid JSON in this exact schema (no prose, no markdown fences):`,
+    `{`,
+    `  "lastHearingRecap": "2-3 sentences on what most likely happened at the prior hearing, grounded in the timeline above",`,
+    `  "purposeOfHearing": "1-2 sentences on what THIS hearing is specifically for",`,
+    `  "keyIssues": ["3-5 bullets on the actual issues likely to be argued"],`,
+    `  "exhibitsReady": ["3-5 documents/exhibits that should be in hand"],`,
+    `  "talkingPoints": ["3-5 specific things the lawyer should be ready to say"],`,
+    `  "risks": ["1-3 things that could go wrong, with a one-line mitigation each"]`,
+    `}`,
+  ].filter(Boolean).join('\n');
+
+  const resp = await fetch('https://api.deepseek.com/v1/chat/completions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+    body: JSON.stringify({
+      model: 'deepseek-chat',
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 1500,
+      temperature: 0.3,
+      response_format: { type: 'json_object' },
+    }),
+  });
+  if (!resp.ok) {
+    const txt = await resp.text().catch(() => '');
+    throw new Error(`DeepSeek failed (${resp.status}): ${txt.slice(0, 200)}`);
+  }
+  const data    = await resp.json();
+  const content = data.choices?.[0]?.message?.content || '{}';
+  const cleaned = content.replace(/^```(?:json)?\s*|\s*```\s*$/g, '').trim();
+  let parsed;
+  try { parsed = JSON.parse(cleaned); }
+  catch (e) { console.error('hearing-prep parse error', e, cleaned.slice(0, 400)); throw new Error('AI returned non-JSON — try again'); }
+  setCachedHearingPrep(matterId, hearingDate, parsed);
+  return parsed;
+}
+
+function hearingPrepHTML(prep) {
+  if (!prep) return '';
+  const esc  = s => String(s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+  const list = arr => (arr || []).map(x => `<li>${esc(x)}</li>`).join('');
+  return `
+    <div style="background:linear-gradient(135deg,#fefce8 0%,#fef3c7 100%);border-left:3px solid var(--gold,#c9a84c);border-radius:0 8px 8px 0;padding:14px 18px;font-size:13px;line-height:1.65;color:#5b4a10;">
+      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Last hearing recap</div>
+      <div style="margin-bottom:12px;">${esc(prep.lastHearingRecap)}</div>
+      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Purpose of this hearing</div>
+      <div style="margin-bottom:12px;">${esc(prep.purposeOfHearing)}</div>
+      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Key issues</div>
+      <ul style="margin:0 0 12px 18px;padding:0;">${list(prep.keyIssues)}</ul>
+      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Exhibits to have ready</div>
+      <ul style="margin:0 0 12px 18px;padding:0;">${list(prep.exhibitsReady)}</ul>
+      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Talking points</div>
+      <ul style="margin:0 0 12px 18px;padding:0;">${list(prep.talkingPoints)}</ul>
+      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Risks</div>
+      <ul style="margin:0 0 0 18px;padding:0;">${list(prep.risks)}</ul>
+    </div>`;
+}
+
+async function runHearingPrepFor(matterId, hearingDate, kind, btn) {
+  if (btn) { btn.disabled = true; btn.textContent = 'Generating…'; }
+  try {
+    const prep   = await generateHearingPrep(matterId, hearingDate, kind || 'court');
+    const target = document.getElementById(`hearing-prep-${matterId}-${hearingDate}`);
+    if (target) target.innerHTML = hearingPrepHTML(prep);
+    toast('✓ Prep brief generated', 'success');
+  } catch (e) { console.error(e); toast(e.message || 'Brief generation failed', 'error'); }
+  finally   { if (btn) { btn.disabled = false; btn.textContent = 'Regenerate brief'; } }
+}
+
+// ── Tomorrow's Hearings dashboard widget ───────────────────────────────────
+function renderTomorrowsHearings() {
+  const container = document.getElementById('dashboard-tomorrows-hearings');
+  if (!container) return;
+  const todayDate = new Date(); todayDate.setHours(0, 0, 0, 0);
+  const dayAfter  = new Date(todayDate.getTime() + 48 * 60 * 60 * 1000);
+  const yyyymmdd  = d => d.toISOString().slice(0, 10);
+  const todayStr  = yyyymmdd(todayDate);
+  const cutoffStr = yyyymmdd(dayAfter);
+
+  const upcoming = [];
+  for (const m of matters) {
+    const hs = (typeof getMatterHearings === 'function') ? getMatterHearings(m) : [];
+    for (const h of hs) {
+      if (h.date >= todayStr && h.date <= cutoffStr) upcoming.push({ m, ...h });
+    }
+  }
+  upcoming.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  if (!upcoming.length) { container.innerHTML = ''; return; }
+
+  const cache       = loadHearingPrepCache();
+  const tomorrowStr = yyyymmdd(new Date(todayDate.getTime() + 86400000));
+  container.innerHTML = `
+    <div style="margin:20px 0 24px;padding:20px 22px;background:linear-gradient(135deg,#fefce8 0%,#fef9c3 100%);border-left:4px solid var(--gold,#c9a84c);border-radius:0 12px 12px 0;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+        <span style="font-size:18px;">⚡</span>
+        <div style="font-size:14px;font-weight:600;color:#7a5a10;">In the next 48 hours · ${upcoming.length} hearing${upcoming.length === 1 ? '' : 's'}</div>
+      </div>
+      ${upcoming.map(({ m, date, kind }) => {
+        const cached  = cache[`${m.id}|${date}`];
+        const dateLbl = date === todayStr ? 'Today' : date === tomorrowStr ? 'Tomorrow' : new Date(date+'T00:00:00').toLocaleDateString('en-IN', {day:'numeric', month:'short'});
+        const kindTag = kind === 'jr' ? ' <span style="font-size:10px;background:rgba(122,90,16,0.15);padding:2px 6px;border-radius:3px;letter-spacing:0.4px;">JR</span>' : kind === 'causelist' ? ' <span style="font-size:10px;background:rgba(122,90,16,0.15);padding:2px 6px;border-radius:3px;letter-spacing:0.4px;">CL</span>' : '';
+        return `
+          <div style="background:rgba(255,255,255,0.6);border-radius:8px;padding:12px 14px;margin-bottom:8px;">
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <span style="font-weight:600;color:#5b4a10;cursor:pointer;" onclick="openDetail('${m.id}')">${(m.title || m.caseNo).slice(0, 60)}</span>
+              <span style="font-size:11px;color:#7a5a10;font-family:ui-monospace,Menlo,monospace;">${m.caseNo}</span>
+              <span style="font-size:11px;color:#7a5a10;margin-left:auto;">${dateLbl}${kindTag}</span>
+            </div>
+            <div style="margin-top:10px;" id="hearing-prep-${m.id}-${date}">${cached ? hearingPrepHTML(cached) : ''}</div>
+            <div style="margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+              <button class="btn btn-ghost" style="font-size:11px;padding:5px 12px;" onclick="runHearingPrepFor('${m.id}', '${date}', '${kind}', this)">${cached ? 'Regenerate brief' : '✦ Generate prep brief'}</button>
+              ${cached ? `<span style="font-size:10.5px;color:#7a5a10;">cached · ${new Date(cached.generatedAt).toLocaleString('en-IN', {day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})}</span>` : '<span style="font-size:10.5px;color:#7a5a10;">click to draft a lawyer-grade brief from your timeline</span>'}
+            </div>
+          </div>`;
+      }).join('')}
+    </div>`;
 }
 </script>
 </body>
