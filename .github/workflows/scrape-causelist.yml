@@ -56,6 +56,37 @@ jobs:
       - name: Run cause-list scraper
         run: python3 scripts/scrape_causelist.py
 
+      # ── Push notifications BEFORE commit ────────────────────────────────
+      # send-push.js diffs the freshly-scraped data/causelist.json on disk
+      # against HEAD (= the previous committed cause list). If the cron-job
+      # only fires this workflow (not sync-all), pushes still need to go out
+      # for new cause-list entries. Same pattern as sync-all.yml — runs
+      # before commit so HEAD represents the prior state.
+      - name: Setup Node.js (for push dispatcher)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
+        run: npm ci --prefer-offline --no-audit --no-fund
+
+      - name: Send push notifications (cause-list diff)
+        # Same env contract as sync-all.yml. Adding new device = new numbered
+        # PUSH_SUBSCRIPTIONS_N secret, no code change needed here.
+        env:
+          VAPID_PUBLIC_KEY:      ${{ secrets.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY:     ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT:         ${{ secrets.VAPID_SUBJECT }}
+          PUSH_SUBSCRIPTIONS:    ${{ secrets.PUSH_SUBSCRIPTIONS }}
+          PUSH_SUBSCRIPTIONS_2:  ${{ secrets.PUSH_SUBSCRIPTIONS_2 }}
+          PUSH_SUBSCRIPTIONS_3:  ${{ secrets.PUSH_SUBSCRIPTIONS_3 }}
+          PUSH_SUBSCRIPTIONS_4:  ${{ secrets.PUSH_SUBSCRIPTIONS_4 }}
+          PUSH_SUBSCRIPTIONS_5:  ${{ secrets.PUSH_SUBSCRIPTIONS_5 }}
+        run: node scripts/send-push.js
+
       - name: Commit updated cause list
         # Same "ours wins, retry on contention" pattern as sync-all.yml.
         run: |
