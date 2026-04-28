@@ -13,7 +13,7 @@
  * Bumping CACHE_VERSION evicts old caches on activation. The version string
  * also includes a build timestamp so each push triggers a clean refresh.
  */
-const CACHE_VERSION = 'lextrack-v31-push-everything';
+const CACHE_VERSION = 'lextrack-v32-deeplink';
 const APP_SHELL = [
   './LexTrack-IPR-App.html',
   './manifest.json',
@@ -130,15 +130,27 @@ self.addEventListener('push', event => {
 
 // Tap handler — focus the existing app window if open, otherwise open one.
 // Deep-links to the matter detail when the push payload includes a URL.
+//
+// Two-path design:
+//   - Cold (no window open): openWindow(target) — target MUST be the actual
+//     app file (./LexTrack-IPR-App.html#/matter/…), not bare './'. GitHub
+//     Pages has no index.html in this repo, so './' 404s.
+//   - Warm (window already open): focus the existing client and postMessage
+//     the URL. We don't use WindowClient.navigate() because hash-only changes
+//     are unreliable across browsers — many treat it as a no-op. The page
+//     listens for 'lextrack-navigate' messages and routes in-app.
 self.addEventListener('notificationclick', event => {
   event.notification.close();
-  const target = event.notification.data?.url || './';
-  event.waitUntil(
-    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(list => {
-      for (const c of list) {
-        if ('focus' in c) { c.focus(); if (c.navigate && target !== './') c.navigate(target); return; }
+  const target = event.notification.data?.url || './LexTrack-IPR-App.html';
+  event.waitUntil((async () => {
+    const list = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+    for (const c of list) {
+      if ('focus' in c) {
+        await c.focus();
+        c.postMessage({ type: 'lextrack-navigate', url: target });
+        return;
       }
-      if (self.clients.openWindow) return self.clients.openWindow(target);
-    })
-  );
+    }
+    if (self.clients.openWindow) await self.clients.openWindow(target);
+  })());
 });

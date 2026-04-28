@@ -6038,6 +6038,46 @@ if ('serviceWorker' in navigator) {
       console.log('LexTrack PWA: new SW active, reloading…');
       window.location.reload();
     });
+
+    // ── Deep-link routing for push notifications ─────────────────────────────
+    // Push payloads include a URL like:
+    //   ./LexTrack-IPR-App.html#/matter/CS%28COMM%29%2F108%2F2025
+    // Two delivery paths from the SW:
+    //   1) Cold open  → openWindow lands on the URL directly; hash is set on
+    //                   load, and routeFromHash() runs once below.
+    //   2) Warm open  → SW posts {type:'lextrack-navigate', url}; we set the
+    //                   hash ourselves so the same router runs.
+    // Either way, we look up the matter by caseNo and call openDetail(id).
+    function routeFromHash() {
+      const m = (window.location.hash || '').match(/^#\/matter\/(.+)$/);
+      if (!m) return;
+      const caseNo = decodeURIComponent(m[1]);
+      const norm = s => (s || '').replace(/\s+/g, '').toLowerCase();
+      const target = (window.matters || []).find(x => norm(x.caseNo) === norm(caseNo))
+                  || (typeof matters !== 'undefined' ? matters.find(x => norm(x.caseNo) === norm(caseNo)) : null);
+      if (target && typeof openDetail === 'function') {
+        openDetail(target.id);
+      } else {
+        // Matter not found locally yet (e.g. data hasn't synced) — at least
+        // surface what was clicked so the user isn't stranded.
+        console.warn('[lextrack] notif deep-link: no matter for caseNo', caseNo);
+      }
+    }
+    navigator.serviceWorker.addEventListener('message', e => {
+      if (e.data?.type === 'lextrack-navigate' && e.data.url) {
+        const hashIdx = e.data.url.indexOf('#');
+        if (hashIdx >= 0) {
+          window.location.hash = e.data.url.slice(hashIdx);
+          // hashchange listener below picks it up; also call directly in case
+          // the hash hasn't actually changed (same matter notif twice).
+          routeFromHash();
+        }
+      }
+    });
+    window.addEventListener('hashchange', routeFromHash);
+    // Cold-open case: matters[] may not be populated yet at load. Defer one
+    // tick so the rest of init runs, then attempt to route.
+    setTimeout(routeFromHash, 0);
   });
 }
 

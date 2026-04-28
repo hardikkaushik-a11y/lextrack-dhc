@@ -157,7 +157,7 @@ async function runDiffMode() {
       title: `🔔 Listed ${when}`,
       body:  `${title}${where ? '\n' + where : ''}`,
       tag:   `causelist-${e.caseNo}-${e.date}`,
-      url:   './#/matter/' + encodeURIComponent(e.caseNo),
+      url:   './LexTrack-IPR-App.html#/matter/' + encodeURIComponent(e.caseNo),
       requireInteraction: true,
     });
   }
@@ -180,7 +180,7 @@ async function runDiffMode() {
         title: `🆕 Tracking: ${m.title || m.caseNo}`,
         body:  `${m.caseNo}${m.nextDate ? '\nNext: ' + fmtDate(m.nextDate) : ''}`,
         tag:   `tracked-${m.caseNo}`,
-        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+        url:   './LexTrack-IPR-App.html#/matter/' + encodeURIComponent(m.caseNo),
       });
       continue;
     }
@@ -193,7 +193,7 @@ async function runDiffMode() {
         title: `📄 New order — ${m.title || m.caseNo}`,
         body:  `${newOrders.length} new order${newOrders.length > 1 ? 's' : ''} uploaded${newOrders[0]?.date ? '\nLatest: ' + fmtDate(newOrders[0].date) : ''}`,
         tag:   `orders-${m.caseNo}`,
-        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+        url:   './LexTrack-IPR-App.html#/matter/' + encodeURIComponent(m.caseNo),
       });
     }
 
@@ -203,7 +203,7 @@ async function runDiffMode() {
         title: `📅 Next date changed — ${m.title || m.caseNo}`,
         body:  `${fmtDate(old.nextDate)} → ${fmtDate(m.nextDate)}`,
         tag:   `nextdate-${m.caseNo}`,
-        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+        url:   './LexTrack-IPR-App.html#/matter/' + encodeURIComponent(m.caseNo),
       });
     }
 
@@ -217,7 +217,7 @@ async function runDiffMode() {
         title: `📋 New listing — ${m.title || m.caseNo}`,
         body:  `Listed ${fmtDate(e.date)} before the ${before}`,
         tag:   `additional-${m.caseNo}-${e.date}-${e.before}`,
-        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+        url:   './LexTrack-IPR-App.html#/matter/' + encodeURIComponent(m.caseNo),
         requireInteraction: true,
       });
     }
@@ -228,7 +228,7 @@ async function runDiffMode() {
         title: `⚖️ Stage changed — ${m.title || m.caseNo}`,
         body:  `${old.stage} → ${m.stage}`,
         tag:   `stage-${m.caseNo}`,
-        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+        url:   './LexTrack-IPR-App.html#/matter/' + encodeURIComponent(m.caseNo),
       });
     }
 
@@ -238,7 +238,7 @@ async function runDiffMode() {
         title: `👨‍⚖️ Judge changed — ${m.title || m.caseNo}`,
         body:  `${old.judge} → ${m.judge}`,
         tag:   `judge-${m.caseNo}`,
-        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+        url:   './LexTrack-IPR-App.html#/matter/' + encodeURIComponent(m.caseNo),
       });
     }
 
@@ -248,7 +248,7 @@ async function runDiffMode() {
         title: `🔄 Status — ${m.title || m.caseNo}`,
         body:  `${old.status} → ${m.status}`,
         tag:   `status-${m.caseNo}`,
-        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+        url:   './LexTrack-IPR-App.html#/matter/' + encodeURIComponent(m.caseNo),
       });
     }
   }
@@ -300,7 +300,7 @@ async function runDigestMode() {
     title: '☀️ LexTrack — your morning brief',
     body:  lines.join('\n'),
     tag:   'morning-digest',
-    url:   './',
+    url:   './LexTrack-IPR-App.html',
     requireInteraction: false,
   });
 }
@@ -317,7 +317,7 @@ async function runTestMode() {
     title: '🧪 LexTrack test',
     body:  `Push notifications are working — fired ${stamp}. ${subs.length} device${subs.length > 1 ? 's' : ''} reached.`,
     tag:   'test-' + Date.now(),    // unique tag → never replaces a previous notif
-    url:   './',
+    url:   './LexTrack-IPR-App.html',
     requireInteraction: false,
   });
 }
