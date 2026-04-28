@@ -3588,6 +3588,35 @@ function openDetail(id) {
             }).join('')}
           </div>
         </div>` : ''}
+      ${(() => {
+        // Surface JR / additional listings extracted from the latest order's
+        // text. DHC's case-status only returns ONE next-date; when the order
+        // also directs the case to the Joint Registrar on a different
+        // (usually earlier) date, that information lives only in the order
+        // body. The scraper's extractListingDates() pulls these out.
+        const extras = (m.additionalDates || []).filter(e => {
+          if (!e.date) return false;
+          // Only future / today's listings — past JR dates are stale.
+          const today = new Date(); today.setHours(0, 0, 0, 0);
+          return new Date(e.date) >= today;
+        });
+        // Don't show entries that duplicate the case-status nextDate.
+        const filtered = extras.filter(e => e.date !== m.nextDate);
+        if (!filtered.length) return '';
+        return `
+          <div class="causelist-banner" style="background:linear-gradient(135deg,#fff7ed 0%,#fed7aa 100%);border-left-color:#f97316;">
+            <div class="causelist-banner-icon">📋</div>
+            <div style="flex:1;">
+              <div class="causelist-banner-title" style="color:#9a3412;">Additional listing${filtered.length > 1 ? 's' : ''} from the latest order</div>
+              ${filtered.map(e => `
+                <div class="causelist-banner-line">
+                  <strong>${formatDate(e.date)}</strong>
+                  <span class="causelist-judge">· before the ${e.before === 'jr' ? 'Joint Registrar' : "Hon'ble Court"}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>`;
+      })()}
     </div>
 
     <div id="ai-block-${id}"></div>

@@ -394,6 +394,71 @@ function summariseOrderText(text) {
   return snippet.length >= 8 ? snippet + (afterHeader.length > 180 ? '…' : '') : null;
 }
 
+// Extract additional listing dates buried inside an order's text. DHC's
+// case-status page only returns ONE next-date (the main court listing);
+// the same order frequently directs the case to the Joint Registrar
+// (or some other coram) on a different earlier date for procedural
+// purposes (issuance, exhibits, completion of pleadings, etc.). Without
+// parsing the order body we miss those entirely.
+//
+// Returns an array of { date, before } where `before` is one of:
+//   'jr'    — Joint Registrar / Registrar
+//   'court' — Hon'ble Court / Bench (named or unnamed)
+function extractListingDates(orderText, orderDateISO) {
+  if (!orderText) return [];
+  const found = new Map();   // key=`${date}|${before}` → entry
+  // Catch as many phrasings as DHC orders use. Each pattern captures the
+  // date in one group; we tag whether the surrounding window mentions
+  // Registrar (→ 'jr') or Court (→ 'court').
+  const datePat = String.raw`\b(\d{1,2}[\.\-/]\d{1,2}[\.\-/]\d{4})\b`;
+  const stem    = String.raw`(?:re-?notif(?:y|ied|ication)?|list(?:ed)?(?:\s+for\s+\w+)?|fix(?:ed)?|next\s+date(?:\s+of\s+hearing)?|put\s+up)`;
+  const sources = [
+    // "List before the learned Joint Registrar on 29.04.2026"
+    new RegExp(stem + String.raw`[^\.\n]{0,160}` + datePat, 'gi'),
+    // "Re-notify on 29.04.2026 before the Joint Registrar"
+    new RegExp(String.raw`\bon\s+` + datePat + String.raw`[^\.\n]{0,80}\bbefore\b[^\.\n]{0,40}\b(?:joint\s+registrar|registrar|hon'?ble)`, 'gi'),
+    // "Next date of hearing: 29.04.2026"
+    new RegExp(String.raw`next\s+date(?:\s+of\s+hearing)?\s*[:\-=]?\s*` + datePat, 'gi'),
+  ];
+
+  for (const re of sources) {
+    re.lastIndex = 0;
+    let m;
+    while ((m = re.exec(orderText))) {
+      const dateStr = m[1];
+      const iso = normaliseDate(dateStr);
+      if (!iso) continue;
+      // Only forward-looking dates (after the order itself).
+      if (orderDateISO && iso <= orderDateISO) continue;
+      // Sentence-bounded window: walk back to the previous sentence
+      // terminator (`.` or blank line) so adjacent sentences can't leak
+      // their "Registrar" mention into this date's classification.
+      const before = orderText.slice(0, m.index);
+      const sentStart = Math.max(
+        before.lastIndexOf('.\n'),
+        before.lastIndexOf('. '),
+        before.lastIndexOf('\n\n'),
+        0
+      );
+      const after = orderText.slice(m.index + m[0].length);
+      const sentEndOff = Math.min(
+        ...['.', '\n\n'].map(s => {
+          const i = after.indexOf(s);
+          return i === -1 ? Infinity : i;
+        })
+      );
+      const window = (
+        orderText.slice(sentStart, m.index + m[0].length) +
+        (sentEndOff !== Infinity ? after.slice(0, sentEndOff) : after.slice(0, 80))
+      ).toLowerCase();
+      const beforeLabel = /\b(?:joint\s+registrar|registrar)\b/.test(window) ? 'jr' : 'court';
+      const key = `${iso}|${beforeLabel}`;
+      if (!found.has(key)) found.set(key, { date: iso, before: beforeLabel });
+    }
+  }
+  return [...found.values()].sort((a, b) => a.date.localeCompare(b.date));
+}
+
 async function buildCaseObject(parsed, row, history) {
   const caseNoSrc   = row.caseNoText || row.caseNo || '';
   const statusMatch = caseNoSrc.match(/\[([^\]]+)\]/);
@@ -440,6 +505,18 @@ async function buildCaseObject(parsed, row, history) {
     };
   });
 
+  // Pull additional listings (JR / IA dates) from the most recent order.
+  // We only look at the latest order because earlier ones' "next date"
+  // directives have been superseded — the most recent order's directive
+  // is what's actually in force.
+  const latest = orders[0]; // already sorted descending by date
+  const additionalDates = latest
+    ? extractListingDates(latest.orderText, latest.date)
+    : [];
+  if (additionalDates.length) {
+    console.log(`  [listings] +${additionalDates.length} from order ${latest.date}: ${additionalDates.map(d => d.date + '(' + d.before + ')').join(', ')}`);
+  }
+
   const docs = orders.map(o => ({
     name: `Order_${o.date}.pdf`,
     type: 'Court Order',
@@ -484,6 +561,7 @@ async function buildCaseObject(parsed, row, history) {
     nextDate,
     notes:       null,
     timeline,
+    additionalDates,
     tasks:       [],
     docs,
     lastScraped: new Date().toISOString()
