@@ -119,11 +119,14 @@ function parseCaseNumber(raw) {
   throw new Error(`Cannot parse: ${raw}`);
 }
 
-// DD-MM-YYYY or DD/MM/YYYY → YYYY-MM-DD
+// DD-MM-YYYY or DD/MM/YYYY or DD.MM.YYYY → YYYY-MM-DD
+// DHC's case-status table uses '/' or '-'; order-PDF body text uses '.'
+// (e.g. "List before the JR on 29.04.2026"). Both must work — we feed
+// both into normaliseDate from different paths.
 function normaliseDate(raw) {
   if (!raw) return null;
   raw = raw.trim();
-  let m = raw.match(/^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})/);
+  let m = raw.match(/^(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{4})/);
   if (m) return `${m[3]}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`;
   m = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (m) return raw.slice(0,10);

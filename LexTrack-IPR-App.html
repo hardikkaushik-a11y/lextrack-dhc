@@ -1885,9 +1885,9 @@ body {
   </nav>
 
   <div class="sidebar-footer">
-    <div class="sync-status">
+    <div class="sync-status" id="sidebar-sync-status">
       <div class="sync-dot"></div>
-      Last sync: Today 11:00 PM
+      <span id="sidebar-sync-text">Last sync: …</span>
     </div>
     <div style="font-size:10px;color:rgba(255,255,255,0.2);margin-top:6px;">DHC data via GitHub Actions</div>
     <button id="enable-push-btn" type="button" onclick="enablePushNotifications()"
@@ -3228,6 +3228,19 @@ function renderDashboard() {
   } else {
     syncEl.textContent = '—';
     syncSub.textContent = 'Awaiting first scrape';
+  }
+
+  // Sidebar footer — same data, formatted as "Last sync: 28 Apr 12:00 PM"
+  const sidebarSync = document.getElementById('sidebar-sync-text');
+  if (sidebarSync) {
+    if (lastScrapeIso) {
+      const d = new Date(lastScrapeIso);
+      const pretty = d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) +
+                     ' · ' + d.toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit', hour12: true });
+      sidebarSync.textContent = `Last sync: ${pretty}`;
+    } else {
+      sidebarSync.textContent = 'Awaiting first scrape';
+    }
   }
 
   // ── Cause list banner (matters listed today / tomorrow per DHC) ──
