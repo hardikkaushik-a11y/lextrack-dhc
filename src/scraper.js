@@ -505,16 +505,33 @@ async function buildCaseObject(parsed, row, history) {
     };
   });
 
-  // Pull additional listings (JR / IA dates) from the most recent order.
-  // We only look at the latest order because earlier ones' "next date"
-  // directives have been superseded — the most recent order's directive
-  // is what's actually in force.
-  const latest = orders[0]; // already sorted descending by date
-  const additionalDates = latest
-    ? extractListingDates(latest.orderText, latest.date)
-    : [];
+  // Pull additional listings (JR / IA dates) from ALL orders. Each order
+  // can direct different sub-matters (an interim application disposed
+  // here, a Joint Registrar listing scheduled there) without cancelling
+  // each other. We extract from every order's text, keep forward-looking
+  // dates only, dedupe by (date|before) so the same listing referenced
+  // in multiple orders shows once.
+  //
+  // Real example we missed before: CS(COMM)/89/2026 — the 07.04.2026
+  // order said "List before the Joint Registrar on 29.04.2026", then a
+  // separate IA was disposed on 15.04.2026 without speaking to that
+  // JR listing. Scanning only the latest order missed 29.04.2026.
+  const todayISO = new Date().toISOString().slice(0, 10);
+  const seenAdd = new Set();
+  const additionalDates = [];
+  for (const o of orders) {
+    if (!o.orderText) continue;
+    for (const e of extractListingDates(o.orderText, o.date)) {
+      if (e.date < todayISO) continue;
+      const key = `${e.date}|${e.before}`;
+      if (seenAdd.has(key)) continue;
+      seenAdd.add(key);
+      additionalDates.push(e);
+    }
+  }
+  additionalDates.sort((a, b) => a.date.localeCompare(b.date));
   if (additionalDates.length) {
-    console.log(`  [listings] +${additionalDates.length} from order ${latest.date}: ${additionalDates.map(d => d.date + '(' + d.before + ')').join(', ')}`);
+    console.log(`  [listings] +${additionalDates.length} across ${orders.length} order(s): ${additionalDates.map(d => d.date + '(' + d.before + ')').join(', ')}`);
   }
 
   const docs = orders.map(o => ({
