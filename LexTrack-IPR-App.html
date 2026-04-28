@@ -3992,7 +3992,7 @@ function openDetail(id) {
                     ${cached ? 'Regenerate brief' : '✦ Generate prep brief'}
                   </button>
                 </div>
-                <div id="hearing-prep-${id}-${h.date}">${cached ? hearingPrepHTML(cached) : '<div style="font-size:12px;color:var(--ink3);font-style:italic;">No brief yet — click Generate to draft a lawyer-grade prep summary from the timeline.</div>'}</div>
+                <div id="hearing-prep-${id}-${h.date}">${cached ? hearingPrepHTML(cached) : '<div style="font-size:12px;color:var(--ink3);font-style:italic;">No brief yet — click Generate to draft a prep summary from the timeline.</div>'}</div>
               </div>`;
           }).join('')}
         </div>`;
@@ -7590,7 +7590,7 @@ async function generateHearingPrep(matterId, hearingDate, kind) {
 
   const prompt = [
     `You are an IPR litigation associate preparing a senior partner for a hearing tomorrow before ${before}.`,
-    `Produce a tight, lawyer-grade prep brief. Be specific to THIS matter, not generic. Skip pleasantries.`,
+    `Produce a tight prep brief. Be specific to THIS matter, not generic. Skip pleasantries.`,
     ``,
     `Matter: ${m.title || m.caseNo}`,
     `Case No: ${m.caseNo}`,
@@ -7719,7 +7719,7 @@ function renderTomorrowsHearings() {
             <div style="margin-top:10px;" id="hearing-prep-${m.id}-${date}">${cached ? hearingPrepHTML(cached) : ''}</div>
             <div style="margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
               <button class="btn btn-ghost" style="font-size:11px;padding:5px 12px;" onclick="runHearingPrepFor('${m.id}', '${date}', '${kind}', this)">${cached ? 'Regenerate brief' : '✦ Generate prep brief'}</button>
-              ${cached ? `<span style="font-size:10.5px;color:#7a5a10;">cached · ${new Date(cached.generatedAt).toLocaleString('en-IN', {day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})}</span>` : '<span style="font-size:10.5px;color:#7a5a10;">click to draft a lawyer-grade brief from your timeline</span>'}
+              ${cached ? `<span style="font-size:10.5px;color:#7a5a10;">cached · ${new Date(cached.generatedAt).toLocaleString('en-IN', {day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})}</span>` : '<span style="font-size:10.5px;color:#7a5a10;">click to draft a brief from your timeline</span>'}
             </div>
           </div>`;
       }).join('')}
