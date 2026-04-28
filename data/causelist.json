@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-04-28T12:31:25Z",
+  "scraped_at": "2026-04-28T12:46:17Z",
   "for_dates": [
     "2026-04-28",
     "2026-04-29"
@@ -7,6 +7,34 @@
   "tracked_cases": 12,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "final_supplementary_list_29.04.2026.pdf",
+      "date": "2026-04-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_29.04.2026.pdf",
+      "date": "2026-04-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_29.04.2026.pdf",
+      "date": "2026-04-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_29.04.2026.pdf",
+      "date": "2026-04-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "29042026m.pdf",
       "date": "2026-04-29",
@@ -100,27 +128,6 @@
     },
     {
       "file": "deletion_jud_note_28.04.2026.pdf",
-      "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_28042026.pdf",
-      "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_fnl_for_28.04.26.pdf",
-      "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_28042026.pdf",
       "date": "2026-04-28",
       "matched": 0,
       "regex_matches": 0,
