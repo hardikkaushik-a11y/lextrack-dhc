@@ -391,6 +391,20 @@ body {
 }
 
 .matter-row:last-child { border-bottom: none; }
+
+/* Next vs Last visual hierarchy. Next is what Ishi acts on so it gets
+   the weight; Last is reference info so it fades back. */
+.matter-row .date-next .date-cell {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.2px;
+}
+.matter-row .date-last {
+  font-size: 12px;
+  color: var(--ink3);
+  font-weight: 400;
+}
 .matter-row:hover { background: var(--paper); }
 
 .matter-title {
@@ -3137,8 +3151,8 @@ function matterRowHTML(m, showDelete=true) {
       </div>
       <div><span class="matter-sub" style="font-family:var(--font-mono,monospace);font-size:12px">${m.caseNo}</span></div>
       <div>${tagHTML(m.type)}</div>
-      <div>${dateHTML(effDate)}${kindTag}</div>
-      <div>${formatDate(m.lastDate)}</div>
+      <div class="date-next">${dateHTML(effDate)}${kindTag}</div>
+      <div class="date-last">${formatDate(m.lastDate)}</div>
       <div class="row-actions" onclick="event.stopPropagation()">
         ${showDelete ? `<button class="btn btn-danger" onclick="confirmDelete('${m.id}')">Delete</button>` : ''}
       </div>
