@@ -3992,7 +3992,7 @@ function openDetail(id) {
                     ${cached ? 'Regenerate brief' : '✦ Generate prep brief'}
                   </button>
                 </div>
-                <div id="hearing-prep-${id}-${h.date}">${cached ? hearingPrepHTML(cached) : '<div style="font-size:12px;color:var(--ink3);font-style:italic;">No brief yet — click Generate to draft a prep summary from the timeline.</div>'}</div>
+                <div id="hearing-prep-${id}-${h.date}">${cached ? (isHearingPrepCollapsed(id, h.date) ? collapsedHearingPrepHTML(id, h.date) : hearingPrepHTML(cached, id, h.date)) : '<div style="font-size:12px;color:var(--ink3);font-style:italic;">No brief yet — click Generate to draft a prep summary from the timeline.</div>'}</div>
               </div>`;
           }).join('')}
         </div>`;
@@ -4630,7 +4630,34 @@ function buildOfficialSourceLink(doc) {
   return null;
 }
 
+// Cache key for judgment-ranking AI calls. Same proposition + same
+// candidate-set hits cache and skips the API entirely.
+const JUDGMENT_RANK_CACHE_KEY = 'lextrack_judgment_rank_cache_v1';
+function _judgmentRankCacheKey(proposition, docs) {
+  const docKey = (docs || []).map(d => d.tid || d.title || '').sort().join('|');
+  return `${(proposition || '').trim().toLowerCase()}::${docKey}`;
+}
+function getCachedJudgmentRank(proposition, docs) {
+  try {
+    const c = JSON.parse(localStorage.getItem(JUDGMENT_RANK_CACHE_KEY) || '{}');
+    return c[_judgmentRankCacheKey(proposition, docs)] || null;
+  } catch { return null; }
+}
+function setCachedJudgmentRank(proposition, docs, ranked) {
+  try {
+    const c = JSON.parse(localStorage.getItem(JUDGMENT_RANK_CACHE_KEY) || '{}');
+    c[_judgmentRankCacheKey(proposition, docs)] = { ranked, cachedAt: new Date().toISOString() };
+    localStorage.setItem(JUDGMENT_RANK_CACHE_KEY, JSON.stringify(c));
+  } catch {}
+}
+
 async function rankJudgmentsWithDeepSeek(proposition, docs, apiKey) {
+  // Cache-first: same proposition + same candidate set = no API call.
+  const cached = getCachedJudgmentRank(proposition, docs);
+  if (cached && Array.isArray(cached.ranked)) {
+    console.log('[judgment-rank] cache hit — no API call');
+    return cached.ranked;
+  }
   // Build a compact list for the model — IK search results have title, headline (snippet),
   // docsource (court), publishdate, docsize, tid (doc id)
   const list = docs.map((d, i) => {
@@ -4676,13 +4703,17 @@ Use the candidate's number (1-${docs.length}) for "index". Pick fewer than 5 onl
   if (!Array.isArray(parsed.ranked)) throw new Error('DeepSeek returned malformed JSON');
 
   // Map back to docs + attach the "why"
-  return parsed.ranked
+  const ranked = parsed.ranked
     .map(r => {
       const idx = parseInt(r.index) - 1;
       if (idx < 0 || idx >= docs.length) return null;
       return { ...docs[idx], why: r.why };
     })
     .filter(Boolean);
+  // Cache the ranked output keyed by proposition+candidate-set so a re-run
+  // of the same query is free.
+  setCachedJudgmentRank(proposition, docs, ranked);
+  return ranked;
 }
 
 function renderJudgments(proposition, docs, aiUsed) {
@@ -7645,13 +7676,56 @@ async function generateHearingPrep(matterId, hearingDate, kind) {
   return parsed;
 }
 
-function hearingPrepHTML(prep) {
+// Persisted dismissed-briefs map. Cache (HEARING_PREP_CACHE_KEY) stays
+// intact; this map only tracks which (matter, date) the user collapsed.
+const HEARING_PREP_COLLAPSED_KEY = 'lex_hearing_prep_collapsed_v1';
+function loadHearingPrepCollapsed() {
+  try { return JSON.parse(localStorage.getItem(HEARING_PREP_COLLAPSED_KEY) || '{}'); }
+  catch { return {}; }
+}
+function isHearingPrepCollapsed(matterId, hearingDate) {
+  return !!loadHearingPrepCollapsed()[`${matterId}|${hearingDate}`];
+}
+function setHearingPrepCollapsed(matterId, hearingDate, collapsed) {
+  const c = loadHearingPrepCollapsed();
+  if (collapsed) c[`${matterId}|${hearingDate}`] = true;
+  else            delete c[`${matterId}|${hearingDate}`];
+  try { localStorage.setItem(HEARING_PREP_COLLAPSED_KEY, JSON.stringify(c)); } catch {}
+}
+function dismissHearingPrep(matterId, hearingDate) {
+  setHearingPrepCollapsed(matterId, hearingDate, true);
+  const target = document.getElementById(`hearing-prep-${matterId}-${hearingDate}`);
+  if (target) target.innerHTML = collapsedHearingPrepHTML(matterId, hearingDate);
+}
+function showHearingPrep(matterId, hearingDate) {
+  setHearingPrepCollapsed(matterId, hearingDate, false);
+  const cache = loadHearingPrepCache();
+  const cached = cache[`${matterId}|${hearingDate}`];
+  const target = document.getElementById(`hearing-prep-${matterId}-${hearingDate}`);
+  if (target && cached) target.innerHTML = hearingPrepHTML(cached, matterId, hearingDate);
+}
+function collapsedHearingPrepHTML(matterId, hearingDate) {
+  return `
+    <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(122,90,16,0.08);border-radius:6px;font-size:11.5px;color:#7a5a10;">
+      <span>✓ Brief generated · hidden</span>
+      <button onclick="event.stopPropagation();showHearingPrep('${matterId}','${hearingDate}')" style="margin-left:auto;background:none;border:1px solid rgba(122,90,16,0.3);color:#7a5a10;padding:3px 10px;border-radius:4px;cursor:pointer;font-size:11px;">Show</button>
+    </div>`;
+}
+
+function hearingPrepHTML(prep, matterId, hearingDate) {
   if (!prep) return '';
   const esc  = s => String(s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
   const list = arr => (arr || []).map(x => `<li>${esc(x)}</li>`).join('');
+  const dismissBtn = (matterId && hearingDate) ? `
+    <button onclick="event.stopPropagation();dismissHearingPrep('${matterId}','${hearingDate}')"
+      title="Hide brief (cached — click Show to see it again, no re-charge)"
+      aria-label="Dismiss brief"
+      style="position:absolute;top:8px;right:10px;background:none;border:none;color:#7a5a10;font-size:18px;cursor:pointer;padding:0 8px;line-height:1;opacity:0.4;transition:opacity 0.15s;"
+      onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">×</button>` : '';
   return `
-    <div style="background:linear-gradient(135deg,#fefce8 0%,#fef3c7 100%);border-left:3px solid var(--gold,#c9a84c);border-radius:0 8px 8px 0;padding:14px 18px;font-size:13px;line-height:1.65;color:#5b4a10;">
-      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Last hearing recap</div>
+    <div style="position:relative;background:linear-gradient(135deg,#fefce8 0%,#fef3c7 100%);border-left:3px solid var(--gold,#c9a84c);border-radius:0 8px 8px 0;padding:14px 18px 14px 18px;font-size:13px;line-height:1.65;color:#5b4a10;">
+      ${dismissBtn}
+      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;padding-right:30px;">Last hearing recap</div>
       <div style="margin-bottom:12px;">${esc(prep.lastHearingRecap)}</div>
       <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Purpose of this hearing</div>
       <div style="margin-bottom:12px;">${esc(prep.purposeOfHearing)}</div>
@@ -7670,8 +7744,9 @@ async function runHearingPrepFor(matterId, hearingDate, kind, btn) {
   if (btn) { btn.disabled = true; btn.textContent = 'Generating…'; }
   try {
     const prep   = await generateHearingPrep(matterId, hearingDate, kind || 'court');
+    setHearingPrepCollapsed(matterId, hearingDate, false);
     const target = document.getElementById(`hearing-prep-${matterId}-${hearingDate}`);
-    if (target) target.innerHTML = hearingPrepHTML(prep);
+    if (target) target.innerHTML = hearingPrepHTML(prep, matterId, hearingDate);
     toast('✓ Prep brief generated', 'success');
   } catch (e) { console.error(e); toast(e.message || 'Brief generation failed', 'error'); }
   finally   { if (btn) { btn.disabled = false; btn.textContent = 'Regenerate brief'; } }
@@ -7716,7 +7791,7 @@ function renderTomorrowsHearings() {
               <span style="font-size:11px;color:#7a5a10;font-family:ui-monospace,Menlo,monospace;">${m.caseNo}</span>
               <span style="font-size:11px;color:#7a5a10;margin-left:auto;">${dateLbl}${kindTag}</span>
             </div>
-            <div style="margin-top:10px;" id="hearing-prep-${m.id}-${date}">${cached ? hearingPrepHTML(cached) : ''}</div>
+            <div style="margin-top:10px;" id="hearing-prep-${m.id}-${date}">${cached ? (isHearingPrepCollapsed(m.id, date) ? collapsedHearingPrepHTML(m.id, date) : hearingPrepHTML(cached, m.id, date)) : ''}</div>
             <div style="margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
               <button class="btn btn-ghost" style="font-size:11px;padding:5px 12px;" onclick="runHearingPrepFor('${m.id}', '${date}', '${kind}', this)">${cached ? 'Regenerate brief' : '✦ Generate prep brief'}</button>
               ${cached ? `<span style="font-size:10.5px;color:#7a5a10;">cached · ${new Date(cached.generatedAt).toLocaleString('en-IN', {day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})}</span>` : '<span style="font-size:10.5px;color:#7a5a10;">click to draft a brief from your timeline</span>'}
