@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-04-28T10:39:27Z",
+  "scraped_at": "2026-04-28T11:48:17Z",
   "for_dates": [
     "2026-04-28",
     "2026-04-29"
@@ -10,6 +10,13 @@
     {
       "file": "combined_adv_list_29.04.2026.pdf",
       "date": "2026-04-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_tejas_k_28.04.2026.pdf",
+      "date": "2026-04-28",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -114,13 +121,6 @@
     },
     {
       "file": "pla_28042026.pdf",
-      "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_28042026.pdf",
       "date": "2026-04-28",
       "matched": 0,
       "regex_matches": 0,
