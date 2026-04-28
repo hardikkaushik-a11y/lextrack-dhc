@@ -22,6 +22,13 @@ const ORDER_TEXT_LIMIT = 6000;       // chars of extracted text per order
 const PDF_CONCURRENCY  = 4;          // simultaneous PDF fetches per case
                                      // — don't hammer DHC but still finish in reasonable time
 
+// Module-level lookup map for AI-extracted order intelligence cache.
+// Populated by main() before the scrape loop. scrapeCase reads it and
+// passes the matching prior entry into buildCaseObject so already-
+// extracted intelligence isn't re-billed.
+const priorScrapedMap = new Map();
+const _normCaseKey = s => (s || '').replace(/[\s\/]/g, '').toLowerCase();
+
 // One attempt at downloading + parsing a PDF.
 // Returns { text } on success, or { error, retryable } on failure.
 function fetchPdfTextOnce(url) {
@@ -251,7 +258,13 @@ async function scrapeCase(browser, caseInput, attempt = 1) {
     const historyData = await fetchCaseHistory(page, valid[0].caseNoHtml).catch(() => null);
 
     await page.close();
-    return await buildCaseObject(parsed, valid[0], historyData);
+    // Look up prior scraped entry by normalised case-no for AI intel cache.
+    // Try both the input shape and the canonical caseNo from the row.
+    const priorEntry =
+      priorScrapedMap.get(_normCaseKey(parsed.raw)) ||
+      priorScrapedMap.get(_normCaseKey(valid[0].caseNoText)) ||
+      null;
+    return await buildCaseObject(parsed, valid[0], historyData, priorEntry);
 
   } catch (err) {
     await page.close();
@@ -609,7 +622,94 @@ function extractListingDates(orderText, orderDateISO) {
   return [...found.values()].sort((a, b) => a.date.localeCompare(b.date));
 }
 
-async function buildCaseObject(parsed, row, history) {
+// ── Order Intelligence (Phase B3) ───────────────────────────────────────────
+// Extract structured fields from an order's text via DeepSeek. Returns:
+//   { classification, reliefGranted, costsAwarded, directions, citations,
+//     counsel, summary }
+// or null on any failure (silent — never blocks the scrape).
+//
+// Caching: caller is responsible for skipping already-extracted orders;
+// this fn always makes an API call when invoked. See buildCaseObject for
+// the per-order cache via prior scraped.json timeline lookup.
+//
+// Cost: ~3000 input + ~300 output tokens per order on DeepSeek-chat.
+// At current pricing, ~₹0.10 per order. 50 matters × ~5 new orders/month
+// = ~₹25/month for the firm. Bootstrap (first run extracting all historic
+// orders) costs more but is one-time.
+async function extractOrderIntelligence(orderText, caseTitle) {
+  if (!orderText || orderText.length < 100) return null;
+  const apiKey = process.env.DEEPSEEK_API_KEY;
+  if (!apiKey) return null;  // Silently skip when not configured
+
+  // Truncate so we never blow context. 5000 chars ≈ ~1500 tokens — covers
+  // the substantive part of nearly every DHC order.
+  const truncated = orderText.substring(0, 5000);
+  const prompt = [
+    `You are reading a Delhi High Court order to extract structured information.`,
+    `Return ONLY valid JSON in the schema below. No prose, no markdown.`,
+    ``,
+    `Case: ${caseTitle || 'unknown'}`,
+    ``,
+    `Order text:`,
+    truncated,
+    ``,
+    `Schema:`,
+    `{`,
+    `  "classification": "interim" | "final" | "procedural" | "directions" | "ex-parte" | "dismissal" | "other",`,
+    `  "reliefGranted": "1-line description of any injunction/relief granted, or null if none",`,
+    `  "costsAwarded": { "amount": "₹X" or null, "to": "plaintiff" | "defendant" | "neither" | null } or null,`,
+    `  "directions": ["one line each — what the order specifically directs parties to do, max 5"],`,
+    `  "citations": ["statutes/sections cited, e.g. 'Section 14, Trade Marks Act 1999' — max 5"],`,
+    `  "counsel": { "plaintiff": "advocate name(s) or null", "defendant": "advocate name(s) or null" },`,
+    `  "summary": "2-3 sentence neutral summary of what happened"`,
+    `}`,
+  ].join('\n');
+
+  const body = JSON.stringify({
+    model: 'deepseek-chat',
+    messages: [{ role: 'user', content: prompt }],
+    max_tokens: 800,
+    temperature: 0.1,
+    response_format: { type: 'json_object' },
+  });
+
+  return new Promise(resolve => {
+    const req = https.request('https://api.deepseek.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Length': Buffer.byteLength(body),
+      },
+      timeout: 25_000,
+    }, res => {
+      const chunks = [];
+      res.on('data', c => chunks.push(c));
+      res.on('end', () => {
+        try {
+          if (res.statusCode !== 200) {
+            console.warn(`  [order-intel] HTTP ${res.statusCode}, skipping`);
+            return resolve(null);
+          }
+          const data = JSON.parse(Buffer.concat(chunks).toString());
+          const content = data.choices?.[0]?.message?.content || '{}';
+          const cleaned = content.replace(/^```(?:json)?\s*|\s*```\s*$/g, '').trim();
+          const parsed = JSON.parse(cleaned);
+          resolve(parsed);
+        } catch (e) {
+          console.warn('  [order-intel] parse error:', e.message);
+          resolve(null);
+        }
+      });
+    });
+    req.on('error', e => { console.warn('  [order-intel] request error:', e.message); resolve(null); });
+    req.on('timeout',   () => { req.destroy(); resolve(null); });
+    req.write(body);
+    req.end();
+  });
+}
+
+async function buildCaseObject(parsed, row, history, priorEntry) {
   const caseNoSrc   = row.caseNoText || row.caseNo || '';
   const statusMatch = caseNoSrc.match(/\[([^\]]+)\]/);
   const statusText  = statusMatch ? statusMatch[1] : '';
@@ -643,15 +743,60 @@ async function buildCaseObject(parsed, row, history) {
   const parsedCount = parsedTexts.filter(Boolean).length;
   console.log(`  [pdf] parsed ${parsedCount}/${orders.length} orders (parallel x${PDF_CONCURRENCY})`);
 
+  // ── AI Order Intelligence ────────────────────────────────────────────────
+  // Per-order structured extraction (relief, costs, citations, directions,
+  // counsel, summary, classification). Cached against prior scraped.json so
+  // we only re-bill for newly-published orders. Skipped silently when
+  // DEEPSEEK_API_KEY isn't configured.
+  const priorIntelByLink = new Map();
+  for (const t of (priorEntry?.timeline || [])) {
+    if (t.orderLink && t.intelligence) priorIntelByLink.set(t.orderLink, t.intelligence);
+  }
+  const ORDER_INTEL_CONCURRENCY = 3;
+  let intelHits = 0, intelMisses = 0, intelSkipped = 0;
+  if (process.env.DEEPSEEK_API_KEY) {
+    for (let i = 0; i < orders.length; i += ORDER_INTEL_CONCURRENCY) {
+      const batch = orders.slice(i, i + ORDER_INTEL_CONCURRENCY);
+      await Promise.all(batch.map(async o => {
+        if (!o.orderText) return;
+        if (priorIntelByLink.has(o.orderLink)) {
+          o.intelligence = priorIntelByLink.get(o.orderLink);
+          intelHits++;
+          return;
+        }
+        const intel = await extractOrderIntelligence(o.orderText, row.parties || parsed.raw);
+        if (intel) {
+          o.intelligence = intel;
+          intelMisses++;
+        } else {
+          intelSkipped++;
+        }
+      }));
+    }
+    console.log(`  [order-intel] cache hits: ${intelHits}, fresh: ${intelMisses}, skipped: ${intelSkipped}`);
+  } else {
+    // Still preserve any intelligence from prior runs (in case the key was
+    // set previously but isn't now — don't lose data we already paid for).
+    for (const o of orders) {
+      if (priorIntelByLink.has(o.orderLink)) o.intelligence = priorIntelByLink.get(o.orderLink);
+    }
+    console.log('  [order-intel] DEEPSEEK_API_KEY not set, AI extraction skipped (cached results preserved)');
+  }
+
   const timeline = orders.map(o => {
-    const summary = summariseOrderText(o.orderText);
+    // Prefer the AI summary when available — it's case-aware and far better
+    // than the regex-based first-paragraph snippet. Fall back to summariseOrderText.
+    const aiSummary = o.intelligence?.summary;
+    const detail = aiSummary || summariseOrderText(o.orderText) || 'Order passed by court';
     return {
       date: o.date,
       event: 'Court Order',
-      detail: summary || 'Order passed by court',
+      detail,
       orderLink: o.orderLink,
       // Keep full text only on the orders we parsed; rest stay light
-      orderText: o.orderText || undefined
+      orderText: o.orderText || undefined,
+      // Structured intelligence (when available — gracefully absent on failure or no key)
+      intelligence: o.intelligence || undefined,
     };
   });
 
@@ -763,6 +908,20 @@ async function main() {
       }
     });
     return;
+  }
+
+  // Pre-load scraped.json into priorScrapedMap so buildCaseObject can skip
+  // AI extraction for orders that already have intelligence from a prior run.
+  // Keyed by normalised caseNo (no spaces, no slashes, lowercase) so input
+  // shape variation doesn't break the lookup.
+  try {
+    const prior = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'));
+    for (const e of (prior || [])) {
+      if (e && e.caseNo) priorScrapedMap.set(_normCaseKey(e.caseNo), e);
+    }
+    console.log(`Pre-loaded ${priorScrapedMap.size} prior cases for AI intel cache.\n`);
+  } catch {
+    console.log('No prior scraped.json — first run, all orders will need AI extraction.\n');
   }
 
   const browser = await puppeteer.launch({

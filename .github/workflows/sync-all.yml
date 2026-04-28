@@ -107,6 +107,14 @@ jobs:
 
       - name: Run case-status scraper
         if: ${{ inputs.include_case_scrape != false }}
+        env:
+          # Phase B3 — Order Intelligence Layer. When set, the scraper runs
+          # DeepSeek extraction on each newly-fetched order PDF to pull out
+          # relief / costs / citations / directions / counsel / summary. Cached
+          # against prior scraped.json — only new orders are re-billed.
+          # Cost ~₹0.10/order. If the secret isn't set, the scraper silently
+          # skips AI extraction and everything else continues normally.
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: node src/scraper.js
 
       # ── Push notifications (always — runs after data is fresh on disk
