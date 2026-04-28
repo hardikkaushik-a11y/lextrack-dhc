@@ -407,21 +407,106 @@ function summariseOrderText(text) {
 // Returns an array of { date, before } where `before` is one of:
 //   'jr'    — Joint Registrar / Registrar
 //   'court' — Hon'ble Court / Bench (named or unnamed)
+// Month names → 1-indexed numbers. Covers full + 3-letter + 'sept' variant.
+const TEXT_MONTHS = {
+  jan: 1, january: 1,
+  feb: 2, february: 2,
+  mar: 3, march: 3,
+  apr: 4, april: 4,
+  may: 5,
+  jun: 6, june: 6,
+  jul: 7, july: 7,
+  aug: 8, august: 8,
+  sep: 9, sept: 9, september: 9,
+  oct: 10, october: 10,
+  nov: 11, november: 11,
+  dec: 12, december: 12,
+};
+
+// Convert a textual date string to ISO. Handles:
+//   "30 April 2026" / "30th April, 2026" / "30-Apr-2026"
+//   "April 30, 2026" / "April 30 2026" / "Apr 30, 2026"
+function normaliseTextDate(raw) {
+  if (!raw) return null;
+  const s = raw.trim();
+  let m;
+  // "30 April 2026" / "30th April, 2026" / "30-Apr-2026" / "30 April, 2026"
+  m = s.match(/^(\d{1,2})(?:st|nd|rd|th)?[\s\-,]+([A-Za-z]+)[\s\-,]+(\d{4})$/i);
+  if (m) {
+    const mo = TEXT_MONTHS[m[2].toLowerCase()];
+    if (mo) return `${m[3]}-${String(mo).padStart(2,'0')}-${m[1].padStart(2,'0')}`;
+  }
+  // "April 30, 2026" / "April 30 2026" / "Apr 30, 2026"
+  m = s.match(/^([A-Za-z]+)[\s,]+(\d{1,2})(?:st|nd|rd|th)?[\s,]+(\d{4})$/i);
+  if (m) {
+    const mo = TEXT_MONTHS[m[1].toLowerCase()];
+    if (mo) return `${m[3]}-${String(mo).padStart(2,'0')}-${m[2].padStart(2,'0')}`;
+  }
+  return null;
+}
+
+// Extract additional listing dates buried inside an order's text. DHC's
+// case-status page only returns ONE next-date (the main court listing);
+// the same order frequently directs the case to the Joint Registrar
+// (or some other coram) on a different earlier date for procedural
+// purposes (issuance, exhibits, completion of pleadings, etc.). Without
+// parsing the order body we miss those entirely.
+//
+// Returns an array of { date, before } where `before` is one of:
+//   'jr'    — Joint Registrar / Registrar
+//   'court' — Hon'ble Court / Bench (named or unnamed)
 function extractListingDates(orderText, orderDateISO) {
   if (!orderText) return [];
   const found = new Map();   // key=`${date}|${before}` → entry
-  // Catch as many phrasings as DHC orders use. Each pattern captures the
-  // date in one group; we tag whether the surrounding window mentions
-  // Registrar (→ 'jr') or Court (→ 'court').
-  const datePat = String.raw`\b(\d{1,2}[\.\-/]\d{1,2}[\.\-/]\d{4})\b`;
-  const stem    = String.raw`(?:re-?notif(?:y|ied|ication)?|list(?:ed)?(?:\s+for\s+\w+)?|fix(?:ed)?|next\s+date(?:\s+of\s+hearing)?|put\s+up)`;
+
+  // Date patterns. Numeric (DD.MM.YYYY, DD/MM/YYYY, DD-MM-YYYY) is the
+  // common case. Textual ("30th April, 2026" / "April 30, 2026") shows up
+  // in older or formal orders. Each capture group ends up in m[1].
+  const numericDate = String.raw`\d{1,2}[\.\-/]\d{1,2}[\.\-/]\d{4}`;
+  const monthName   = String.raw`(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*`;
+  const textDateA   = String.raw`\d{1,2}(?:st|nd|rd|th)?[\s\-,]+` + monthName + String.raw`[\s\-,]+\d{4}`;
+  const textDateB   = monthName + String.raw`[\s,]+\d{1,2}(?:st|nd|rd|th)?[\s,]+\d{4}`;
+  const datePat     = String.raw`(${numericDate}|${textDateA}|${textDateB})`;
+
+  // Phrases that introduce a forward listing. Indian court orders use
+  // many — covering the common ones drastically improves recall.
+  // Real-world example that motivated 'returnable':
+  //   "Issue notice to the Defendant through all permissible modes,
+  //    returnable before Court on 30.04.2026."
+  const stem = String.raw`(?:` +
+    String.raw`re-?notif(?:y|ied|ication)?` +
+    String.raw`|list(?:ed)?(?:\s+for\s+\w+)?` +
+    String.raw`|fix(?:ed)?` +
+    String.raw`|next\s+date(?:\s+of\s+hearing)?` +
+    String.raw`|put\s+up` +
+    String.raw`|adjourn(?:ed)?` +
+    String.raw`|stand(?:s|ing)?\s+over` +
+    String.raw`|stand(?:s|ing)?\s+adjourned` +
+    String.raw`|to\s+be\s+listed` +
+    String.raw`|matter\s+is\s+listed` +
+    String.raw`|returnable` +
+    String.raw`|come\s+up` +
+    String.raw`|taken\s+up` +
+    String.raw`|notice\s+returnable` +
+    String.raw`|show\s+cause` +
+    String.raw`)`;
+
   const sources = [
-    // "List before the learned Joint Registrar on 29.04.2026"
-    new RegExp(stem + String.raw`[^\.\n]{0,160}` + datePat, 'gi'),
-    // "Re-notify on 29.04.2026 before the Joint Registrar"
-    new RegExp(String.raw`\bon\s+` + datePat + String.raw`[^\.\n]{0,80}\bbefore\b[^\.\n]{0,40}\b(?:joint\s+registrar|registrar|hon'?ble)`, 'gi'),
-    // "Next date of hearing: 29.04.2026"
-    new RegExp(String.raw`next\s+date(?:\s+of\s+hearing)?\s*[:\-=]?\s*` + datePat, 'gi'),
+    // "List before the learned Joint Registrar on 30th April, 2026"
+    // "returnable before Court on 30.04.2026"
+    new RegExp(stem + String.raw`[^\.\n]{0,200}\b` + datePat + String.raw`\b`, 'gi'),
+    // "Re-notify on 30/04/2026 before the Joint Registrar"
+    new RegExp(String.raw`\bon\s+\b` + datePat + String.raw`\b[^\.\n]{0,80}\bbefore\b[^\.\n]{0,40}\b(?:joint\s+registrar|registrar|hon'?ble)`, 'gi'),
+    // "Next date of hearing: 30 April 2026"
+    new RegExp(String.raw`next\s+date(?:\s+of\s+hearing)?\s*[:\-=]?\s*\b` + datePat + String.raw`\b`, 'gi'),
+    // "Adjourned to 30.04.2026" — covered by stem above too, kept as a
+    // safety net since "adjourned to" is the single most common phrasing
+    new RegExp(String.raw`\badjourned\s+to\b[^\.\n]{0,40}\b` + datePat + String.raw`\b`, 'gi'),
+    // Generic "before <Court|Bench|Registrar> on DATE" — handles the
+    // 'returnable before Court on 30.04.2026' shape directly, plus any
+    // similar phrasing where the stem keyword is non-standard but the
+    // structural cue 'before X on DATE' is unambiguous.
+    new RegExp(String.raw`\bbefore\b[^\.\n]{0,40}\b(?:hon'?ble\s+)?(?:court|bench|judge|joint\s+registrar|registrar)\b[^\.\n]{0,40}\bon\s+\b` + datePat + String.raw`\b`, 'gi'),
   ];
 
   for (const re of sources) {
@@ -429,7 +514,8 @@ function extractListingDates(orderText, orderDateISO) {
     let m;
     while ((m = re.exec(orderText))) {
       const dateStr = m[1];
-      const iso = normaliseDate(dateStr);
+      // Try numeric first (faster), fall back to textual normaliser.
+      const iso = normaliseDate(dateStr) || normaliseTextDate(dateStr);
       if (!iso) continue;
       // Only forward-looking dates (after the order itself).
       if (orderDateISO && iso <= orderDateISO) continue;
@@ -454,7 +540,10 @@ function extractListingDates(orderText, orderDateISO) {
         orderText.slice(sentStart, m.index + m[0].length) +
         (sentEndOff !== Infinity ? after.slice(0, sentEndOff) : after.slice(0, 80))
       ).toLowerCase();
-      const beforeLabel = /\b(?:joint\s+registrar|registrar)\b/.test(window) ? 'jr' : 'court';
+      // 'jr' if Registrar/Joint Registrar/JR is in the sentence-bounded
+      // window. The standalone 'JR' check requires 'the JR' or 'before JR'
+      // to avoid matching arbitrary 2-letter sequences.
+      const beforeLabel = /\b(?:joint\s+registrar|registrar|(?:before|the)\s+jr)\b/i.test(window) ? 'jr' : 'court';
       const key = `${iso}|${beforeLabel}`;
       if (!found.has(key)) found.set(key, { date: iso, before: beforeLabel });
     }
