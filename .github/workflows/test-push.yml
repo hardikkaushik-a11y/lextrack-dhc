@@ -19,10 +19,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    # 3 min was too tight: cold `npm install web-push` pulls in old
-    # transitive deps (rimraf, glob, inflight) and can take 2-3 min
-    # alone before the actual send. 6 gives headroom.
-    timeout-minutes: 6
+    # `npm install web-push` cold consistently hits ~4 min on GitHub's
+    # ubuntu-latest because it pulls deprecated transitive deps that
+    # don't cache well. 10 gives 2x headroom; the actual push step is
+    # ~1 second. Future optimisation: pin web-push in a checked-in
+    # package-lock.json + use npm ci with actions/setup-node cache.
+    timeout-minutes: 10
     permissions:
       contents: read
 
