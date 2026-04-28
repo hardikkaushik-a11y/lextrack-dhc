@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-04-28T06:39:40Z",
+  "scraped_at": "2026-04-28T09:01:57Z",
   "for_dates": [
     "2026-04-28",
     "2026-04-29"
@@ -10,6 +10,27 @@
     {
       "file": "combined_adv_list_29.04.2026.pdf",
       "date": "2026-04-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_girish_k._28.04.2026.pdf",
+      "date": "2026-04-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_28.04.2026_2.pdf",
+      "date": "2026-04-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_28.04.2026_1.pdf",
+      "date": "2026-04-28",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
