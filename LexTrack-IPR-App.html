@@ -3113,6 +3113,45 @@ function matterRowHTML(m, showDelete=true) {
 
 // ── RENDER ────────────────────────────────────────────────────────────────────
 
+// All forward-looking hearings for a matter, merging:
+//   1. m.nextDate (DHC case-status main court date)
+//   2. m.additionalDates (JR / IA dates extracted from order text)
+//   3. m.causelist (entries from cause-list PDFs for today/tomorrow)
+// Returns array of { date, kind: 'court'|'jr'|'causelist', source } sorted
+// earliest-first. Past dates are dropped.
+function getMatterHearings(m) {
+  if (!m) return [];
+  const todayStr = fmt(today);
+  const seen = new Map();   // key: date|kind → entry (first wins)
+  const add = (date, kind, source) => {
+    if (!date || date < todayStr) return;
+    const k = `${date}|${kind}`;
+    if (!seen.has(k)) seen.set(k, { date, kind, source });
+  };
+  if (m.nextDate) add(m.nextDate, 'court', 'case-status');
+  for (const e of (m.additionalDates || [])) {
+    add(e.date, e.before === 'jr' ? 'jr' : 'court', 'order');
+  }
+  for (const cl of (m.causelist || [])) {
+    add(cl.date, 'causelist', 'cause-list');
+  }
+  return [...seen.values()].sort((a, b) => a.date.localeCompare(b.date));
+}
+
+// Earliest upcoming hearing across all sources. Used to drive the "Next"
+// chip on dashboard / matter rows so JR / cause-list listings get
+// surfaced even when they're sooner than the case-status nextDate.
+function getEffectiveNextHearing(m) {
+  return getMatterHearings(m)[0] || null;
+}
+
+// Pretty label for the kind tag.
+function hearingKindLabel(kind) {
+  return kind === 'jr' ? 'JR'
+       : kind === 'causelist' ? 'Cause list'
+       : '';
+}
+
 function renderDashboard() {
   const todayStr = fmt(today);
 
@@ -3130,11 +3169,19 @@ function renderDashboard() {
   }).length;
 
   // ── Hearings This Week ────────────────────────────────────────────
+  // Counts distinct (matter, hearing) pairs across all sources — case
+  // status nextDate + JR/IA dates from order text + cause-list entries.
+  // A matter with both a JR listing on Mon and a court listing on Fri
+  // counts as 2 hearings.
   const thisWeek = matters
-    .map(m => ({ m, d: daysUntil(m.nextDate) }))
+    .flatMap(m => getMatterHearings(m).map(h => ({ m, h, d: daysUntil(h.date) })))
     .filter(x => x.d !== null && x.d >= 0 && x.d <= 7)
     .sort((a, b) => a.d - b.d);
   const nextHearing = thisWeek[0];
+
+  // Breakdown: how many of those are NOT the basic case-status next date
+  // (i.e., extracted from JR / cause-list)? Tile shows this as a hint.
+  const extraHearings = thisWeek.filter(x => x.h.kind !== 'court').length;
 
   // ── Tasks Pending + Overdue ───────────────────────────────────────
   const allTasks = matters.flatMap(m => m.tasks || []);
@@ -3157,9 +3204,14 @@ function renderDashboard() {
     : `${addedThisMonth} added this month`;
   document.getElementById('stat-active-sub').textContent = activeSub;
 
+  const kindTag = nextHearing
+    ? (nextHearing.h.kind === 'jr' ? ' · JR' :
+       nextHearing.h.kind === 'causelist' ? ' · cause list' : '')
+    : '';
   const hearingsSub = thisWeek.length === 0
     ? (allMattersHaveNextDate(matters) ? 'No hearings in next 7 days' : 'No upcoming hearings')
-    : `Next: ${describeWhen(nextHearing.m.nextDate)}`;
+    : `Next: ${describeWhen(nextHearing.h.date)}${kindTag}` +
+      (extraHearings > 0 ? ` · ${extraHearings} JR/list` : '');
   document.getElementById('stat-hearings-sub').textContent = hearingsSub;
 
   const tasksSub = pending.length === 0
@@ -3544,7 +3596,17 @@ function openDetail(id) {
   if (!m) return;
   showView('detail');
 
-  const d = daysUntil(m.nextDate);
+  // "Next" reflects the EARLIEST forward-looking hearing across all
+  // sources (case status, JR/IA from order text, cause list). When the
+  // earliest one is a JR/cause-list listing rather than the main court
+  // date, we tag it so Ishi knows what kind of listing it is.
+  const eff = getEffectiveNextHearing(m);
+  const effDate = eff?.date || m.nextDate;
+  const effKind = eff?.kind || 'court';
+  const effTag  = effKind === 'jr' ? ' (JR)'
+                : effKind === 'causelist' ? ' (cause list)'
+                : '';
+  const d = daysUntil(effDate);
   const urgentClass = d !== null && d <= 3 ? 'date-urgent' : '';
 
   document.getElementById('detail-content').innerHTML = `
@@ -3557,7 +3619,7 @@ function openDetail(id) {
             <span class="detail-meta-item">${tagHTML(m.type)}</span>
             <span class="detail-meta-item">${stageHTML(m.stage)}</span>
             <span class="detail-meta-item">Client: <strong>${m.client || '—'}</strong></span>
-            <span class="detail-meta-item ${urgentClass}">Next: <strong>${formatDate(m.nextDate)}</strong></span>
+            <span class="detail-meta-item ${urgentClass}">Next: <strong>${formatDate(effDate)}${effTag}</strong></span>
             <span class="detail-meta-item">Last: <strong>${formatDate(m.lastDate)}</strong></span>
           </div>
         </div>
@@ -4844,7 +4906,11 @@ function setupGitHubToken() {
 // Distinct from loadScrapedData() which only RE-FETCHES the cached
 // scraped.json (used by pull-to-refresh).
 const SYNC_STATE_KEY = 'lextrack_sync_state_v1';
-const SYNC_TIMEOUT_MS = 5 * 60 * 1000;
+// Scraper takes ~5 min for 12 cases (Puppeteer + each case's order PDFs +
+// classifier + JR-date extraction) plus ~30-60s for Pages to redeploy.
+// Old 5-min timeout fired right before the data actually landed and
+// surfaced as "sync fails" in the UI. 10 min is the realistic ceiling.
+const SYNC_TIMEOUT_MS = 10 * 60 * 1000;
 
 let __dhcSyncInFlight = false;
 
@@ -4930,7 +4996,7 @@ async function triggerFullSync() {
 
     // Persist that a sync is now in flight — survives app close/reopen
     setSyncState({ startedAt: Date.now(), beforeTs });
-    toast('DHC scrape running… ~2–3 min', '');
+    toast('DHC scrape running… ~5–7 min (per-case order PDFs + classification)', '');
 
     await pollUntilSyncCompletes(beforeTs, SYNC_TIMEOUT_MS);
     toast('✓ DHC sync complete — fresh data loaded', 'success');
