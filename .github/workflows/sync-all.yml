@@ -147,8 +147,9 @@ jobs:
           # any reset. Files may not exist (e.g. case-status skipped on
           # quarter-hour cron), so guard each cp.
           mkdir -p /tmp/snap
-          [ -f data/scraped.json ]   && cp data/scraped.json   /tmp/snap/scraped.json   || true
-          [ -f data/causelist.json ] && cp data/causelist.json /tmp/snap/causelist.json || true
+          [ -f data/scraped.json ]            && cp data/scraped.json            /tmp/snap/scraped.json            || true
+          [ -f data/causelist.json ]          && cp data/causelist.json          /tmp/snap/causelist.json          || true
+          [ -f data/last-pushed-state.json ]  && cp data/last-pushed-state.json  /tmp/snap/last-pushed-state.json  || true
 
           for attempt in 1 2 3; do
             echo "── attempt $attempt ──"
@@ -156,10 +157,11 @@ jobs:
             git reset --hard origin/main
 
             # Re-apply our snapshot on top of the freshest origin/main.
-            [ -f /tmp/snap/scraped.json ]   && cp /tmp/snap/scraped.json   data/scraped.json   || true
-            [ -f /tmp/snap/causelist.json ] && cp /tmp/snap/causelist.json data/causelist.json || true
+            [ -f /tmp/snap/scraped.json ]            && cp /tmp/snap/scraped.json            data/scraped.json            || true
+            [ -f /tmp/snap/causelist.json ]          && cp /tmp/snap/causelist.json          data/causelist.json          || true
+            [ -f /tmp/snap/last-pushed-state.json ]  && cp /tmp/snap/last-pushed-state.json  data/last-pushed-state.json  || true
 
-            git add data/scraped.json data/causelist.json 2>/dev/null || true
+            git add data/scraped.json data/causelist.json data/last-pushed-state.json 2>/dev/null || true
             if git diff --staged --quiet; then
               echo "No net change vs origin — nothing to push."
               exit 0

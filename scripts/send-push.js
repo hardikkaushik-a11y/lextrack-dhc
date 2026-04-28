@@ -97,17 +97,40 @@ if (subs.length === 0) { console.log('No subscribers, skipping push.'); process.
 
 webpush.setVapidDetails(SUBJ, PUB, PRIV);
 
-// ── Load current + previous state from git ──────────────────────────────────
+// ── Load current + previous state ───────────────────────────────────────────
+// Baseline used to be `git show HEAD:data/file.json` — the previous commit.
+// That broke the moment a workflow committed data WITHOUT firing send-push
+// (e.g. scrape-causelist.yml before its push step landed): the next run saw
+// HEAD already had the new entries, diffed empty, and the push window was
+// permanently lost.
+//
+// Fix: persist what we LAST successfully push-notified into
+// data/last-pushed-state.json and diff against THAT instead of HEAD. If a
+// window is missed (workflow crashed mid-flight, fix-deploy gap, secrets
+// wrong), the next run catches up automatically. Successful runs advance
+// the file so users never see replays.
+const STATE_PATH = 'data/last-pushed-state.json';
+
 function readJSON(path)        { try { return JSON.parse(fs.readFileSync(path, 'utf8')); } catch (e) { return null; } }
 function readJSONFromHEAD(path) {
   try { return JSON.parse(execSync(`git show HEAD:${path}`, { encoding: 'utf8' })); }
   catch (e) { return null; }
 }
 
-const causeNow  = readJSON('data/causelist.json')         || { entries: [] };
-const causePrev = readJSONFromHEAD('data/causelist.json') || { entries: [] };
-const scrapedNow  = readJSON('data/scraped.json')         || [];
-const scrapedPrev = readJSONFromHEAD('data/scraped.json') || [];
+const causeNow   = readJSON('data/causelist.json') || { entries: [] };
+const scrapedNow = readJSON('data/scraped.json')   || [];
+
+// Baseline: prefer last-pushed-state.json. Fall back to HEAD on first run
+// (file doesn't exist yet) so existing behaviour is preserved bootstrap.
+const lastPushed = readJSON(STATE_PATH);
+const causePrev   = (lastPushed && lastPushed.causelist) ? lastPushed.causelist : (readJSONFromHEAD('data/causelist.json') || { entries: [] });
+const scrapedPrev = (lastPushed && lastPushed.scraped)   ? lastPushed.scraped   : (readJSONFromHEAD('data/scraped.json')   || []);
+
+if (lastPushed) {
+  console.log(`Diff baseline: last-pushed-state.json (last updated ${lastPushed.updatedAt || 'unknown'}).`);
+} else {
+  console.log('Diff baseline: HEAD (no last-pushed-state.json yet — bootstrap).');
+}
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 function entryKey(e)   { return `${e.caseNo}|${e.date}|${e.item || ''}`; }
@@ -253,9 +276,38 @@ async function runDiffMode() {
     }
   }
 
-  if (events.length === 0) { console.log('No new events — nothing to push.'); return; }
+  if (events.length === 0) {
+    console.log('No new events — nothing to push.');
+    // Even when empty, advance the baseline. The "no diff" itself is a
+    // confirmation that the prior state has been fully observed; advancing
+    // means a future race won't try to re-push these entries.
+    persistLastPushedState();
+    return;
+  }
   console.log(`Sending ${events.length} push event(s) to ${subs.length} subscriber(s)…`);
   for (const ev of events) await sendToAll(ev);
+  // Only commit the new baseline after every event was at least attempted.
+  // sendToAll() handles per-subscriber failures internally and returns; if
+  // it threw catastrophically we wouldn't reach here, baseline stays old,
+  // next run retries. That's the recovery path that got us here.
+  persistLastPushedState();
+}
+
+// Snapshot the just-observed state so the NEXT run diffs against this
+// instead of git HEAD. Idempotent — overwrites the file each time. Cheap
+// (a few KB). Committed alongside scraper outputs by the workflow.
+function persistLastPushedState() {
+  try {
+    const payload = {
+      updatedAt: new Date().toISOString(),
+      causelist: causeNow,
+      scraped:   scrapedNow,
+    };
+    fs.writeFileSync(STATE_PATH, JSON.stringify(payload));
+    console.log(`Updated ${STATE_PATH} (next run uses this as baseline).`);
+  } catch (e) {
+    console.warn('Failed to persist last-pushed-state — next run will fall back to HEAD diff:', e.message);
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
