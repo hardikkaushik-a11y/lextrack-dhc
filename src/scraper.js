@@ -469,45 +469,74 @@ function extractListingDates(orderText, orderDateISO) {
   const datePat     = String.raw`(${numericDate}|${textDateA}|${textDateB})`;
 
   // Phrases that introduce a forward listing. Indian court orders use
-  // many — covering the common ones drastically improves recall.
-  // Real-world example that motivated 'returnable':
-  //   "Issue notice to the Defendant through all permissible modes,
-  //    returnable before Court on 30.04.2026."
+  // a sprawling vocabulary — every stem we miss is a potentially missed
+  // hearing date for a real lawyer. List grows; never shrinks.
+  //
+  // Real-world examples that motivated each cluster:
+  //   - 'returnable':    Reliance vs Ripton (returnable before Court on …)
+  //   - 'fixed for':     "fixed for arguments on …"
+  //   - 'posted':        "matter is posted to …"
+  //   - 'shall be …':    "shall be listed/heard/taken up on …"
+  //   - 'come up':       "matter shall come up on …"
+  //   - 'make returnable':  "make it returnable for …"
   const stem = String.raw`(?:` +
-    String.raw`re-?notif(?:y|ied|ication)?` +
-    String.raw`|list(?:ed)?(?:\s+for\s+\w+)?` +
-    String.raw`|fix(?:ed)?` +
-    String.raw`|next\s+date(?:\s+of\s+hearing)?` +
-    String.raw`|put\s+up` +
-    String.raw`|adjourn(?:ed)?` +
-    String.raw`|stand(?:s|ing)?\s+over` +
-    String.raw`|stand(?:s|ing)?\s+adjourned` +
-    String.raw`|to\s+be\s+listed` +
-    String.raw`|matter\s+is\s+listed` +
-    String.raw`|returnable` +
-    String.raw`|come\s+up` +
+    // Re-listing
+    String.raw`re-?notif(?:y|ied|ication|ying)?` +
+    String.raw`|re-?list(?:ed|ing)?` +
+    // Listing / fixing
+    String.raw`|(?:may|shall|will|to)\s+be\s+(?:listed|heard|posted|taken\s+up|fixed)` +
+    String.raw`|be\s+listed` +
+    String.raw`|list(?:ed|ing)?(?:\s+for\s+\w+)?` +
+    String.raw`|fix(?:ed|ing)?(?:\s+for\s+\w+(?:\s+\w+){0,2})?` +
+    String.raw`|(?:the\s+)?matter\s+(?:is|shall\s+be|will\s+be|to\s+be)\s+(?:listed|heard|posted|fixed|taken\s+up)` +
+    String.raw`|(?:matter\s+(?:shall|will|may|to))?\s*come\s+up` +
     String.raw`|taken\s+up` +
+    String.raw`|put\s+up` +
+    String.raw`|posted\s+(?:to|on|for)` +
+    // Adjourn / stand over
+    String.raw`|adjourn(?:ed|ing|ment)?` +
+    String.raw`|stand(?:s|ing)?\s+(?:over|adjourned)` +
+    // Next date
+    String.raw`|next\s+date(?:\s+of\s+hearing)?` +
+    // Returnable / notice
+    String.raw`|returnable` +
     String.raw`|notice\s+returnable` +
+    String.raw`|make(?:\s+it)?\s+returnable` +
     String.raw`|show\s+cause` +
+    // Hearing-specific
+    String.raw`|hearing\s+(?:fixed|posted|listed)` +
+    String.raw`|shall\s+(?:be\s+heard|come\s+up\s+for)` +
     String.raw`)`;
 
   const sources = [
-    // "List before the learned Joint Registrar on 30th April, 2026"
-    // "returnable before Court on 30.04.2026"
+    // Primary: stem + (up to 200 chars same-sentence) + DATE
+    // Catches: "List before the Joint Registrar on 30th April, 2026"
+    //          "returnable before Court on 30.04.2026"
+    //          "fixed for arguments on 30 April 2026"
     new RegExp(stem + String.raw`[^\.\n]{0,200}\b` + datePat + String.raw`\b`, 'gi'),
-    // "Re-notify on 30/04/2026 before the Joint Registrar"
-    new RegExp(String.raw`\bon\s+\b` + datePat + String.raw`\b[^\.\n]{0,80}\bbefore\b[^\.\n]{0,40}\b(?:joint\s+registrar|registrar|hon'?ble)`, 'gi'),
-    // "Next date of hearing: 30 April 2026"
+    // "On DATE … before … (Registrar|Court)" — date precedes the forum
+    new RegExp(String.raw`\bon\s+\b` + datePat + String.raw`\b[^\.\n]{0,80}\bbefore\b[^\.\n]{0,40}\b(?:joint\s+registrar|registrar|hon'?ble|court|bench)`, 'gi'),
+    // "Next date of hearing: DATE"  (colon shape)
     new RegExp(String.raw`next\s+date(?:\s+of\s+hearing)?\s*[:\-=]?\s*\b` + datePat + String.raw`\b`, 'gi'),
-    // "Adjourned to 30.04.2026" — covered by stem above too, kept as a
-    // safety net since "adjourned to" is the single most common phrasing
+    // "Adjourned to DATE" — covered by stem above too, kept as safety net
     new RegExp(String.raw`\badjourned\s+to\b[^\.\n]{0,40}\b` + datePat + String.raw`\b`, 'gi'),
-    // Generic "before <Court|Bench|Registrar> on DATE" — handles the
-    // 'returnable before Court on 30.04.2026' shape directly, plus any
-    // similar phrasing where the stem keyword is non-standard but the
-    // structural cue 'before X on DATE' is unambiguous.
-    new RegExp(String.raw`\bbefore\b[^\.\n]{0,40}\b(?:hon'?ble\s+)?(?:court|bench|judge|joint\s+registrar|registrar)\b[^\.\n]{0,40}\bon\s+\b` + datePat + String.raw`\b`, 'gi'),
+    // Generic "before <forum> on DATE" — structural cue alone is enough
+    new RegExp(String.raw`\bbefore\b[^\.\n]{0,40}\b(?:hon'?ble\s+)?(?:court|bench|judge|joint\s+registrar|registrar|roster)\b[^\.\n]{0,40}\bon\s+\b` + datePat + String.raw`\b`, 'gi'),
+    // "for hearing/arguments/orders on DATE"
+    new RegExp(String.raw`\bfor\s+(?:hearing|arguments?|orders?|directions?|reply|rejoinder|evidence|oral\s+arguments?)\b[^\.\n]{0,30}\bon\s+\b` + datePat + String.raw`\b`, 'gi'),
+    // "Listed on DATE before X" — date precedes the forum mention
+    new RegExp(String.raw`\b(?:listed|posted|fixed|adjourned|re-?notified)\s+(?:to|on|for)\s+\b` + datePat + String.raw`\b`, 'gi'),
   ];
+
+  // Sanity bounds. Dates >5 years in the future are almost certainly typos
+  // ("30.04.2076" vs "30.04.2026" — common in hand-typed orders). Dates
+  // earlier than today-30d are stale and useless even if the order is old.
+  // Both filters are forgiving enough to never reject a real listing.
+  const today = new Date();
+  const earliestAcceptable = new Date(today.getTime() - 30 * 86400_000).toISOString().slice(0, 10);
+  const latestAcceptable = new Date(today);
+  latestAcceptable.setFullYear(latestAcceptable.getFullYear() + 5);
+  const latestAcceptableISO = latestAcceptable.toISOString().slice(0, 10);
 
   for (const re of sources) {
     re.lastIndex = 0;
@@ -519,6 +548,9 @@ function extractListingDates(orderText, orderDateISO) {
       if (!iso) continue;
       // Only forward-looking dates (after the order itself).
       if (orderDateISO && iso <= orderDateISO) continue;
+      // Defensive bounds — typo guard + stale-date filter.
+      if (iso < earliestAcceptable) continue;
+      if (iso > latestAcceptableISO) continue;
       // Sentence-bounded window: walk back to the previous sentence
       // terminator (`.` or blank line) so adjacent sentences can't leak
       // their "Registrar" mention into this date's classification.
@@ -536,16 +568,42 @@ function extractListingDates(orderText, orderDateISO) {
           return i === -1 ? Infinity : i;
         })
       );
-      const window = (
+      const windowText = (
         orderText.slice(sentStart, m.index + m[0].length) +
-        (sentEndOff !== Infinity ? after.slice(0, sentEndOff) : after.slice(0, 80))
-      ).toLowerCase();
+        (sentEndOff !== Infinity ? after.slice(0, sentEndOff) : after.slice(0, 120))
+      );
+      const lc = windowText.toLowerCase();
+
       // 'jr' if Registrar/Joint Registrar/JR is in the sentence-bounded
       // window. The standalone 'JR' check requires 'the JR' or 'before JR'
       // to avoid matching arbitrary 2-letter sequences.
-      const beforeLabel = /\b(?:joint\s+registrar|registrar|(?:before|the)\s+jr)\b/i.test(window) ? 'jr' : 'court';
+      const beforeLabel = /\b(?:joint\s+registrar|registrar|(?:before|the)\s+jr)\b/.test(lc) ? 'jr' : 'court';
+
+      // Optional time of day. Patterns: "at 11 AM" / "at 11:00 AM" /
+      // "at 2:30 PM" / "11.00 AM" (no 'at') / "at 11.30 a.m."
+      // Stored alongside the date so the UI can show e.g. "30 Apr · 11:30 AM".
+      let time = null;
+      const timeMatch = windowText.match(/\b(?:at\s+)?(\d{1,2})[:\.\s]?(\d{2})?\s*([AaPp])\.?\s*[Mm]\.?\b/);
+      if (timeMatch) {
+        let h = parseInt(timeMatch[1], 10);
+        const mi = parseInt(timeMatch[2] || '0', 10);
+        const isPM = /p/i.test(timeMatch[3]);
+        if (isPM && h < 12) h += 12;
+        if (!isPM && h === 12) h = 0;
+        if (h >= 0 && h <= 23 && mi >= 0 && mi <= 59) {
+          time = `${String(h).padStart(2, '0')}:${String(mi).padStart(2, '0')}`;
+        }
+      }
+
       const key = `${iso}|${beforeLabel}`;
-      if (!found.has(key)) found.set(key, { date: iso, before: beforeLabel });
+      // First match wins to keep dedupe stable, but if a later match has
+      // a time and the first didn't, upgrade.
+      const existing = found.get(key);
+      if (!existing) {
+        found.set(key, { date: iso, before: beforeLabel, ...(time ? { time } : {}) });
+      } else if (time && !existing.time) {
+        existing.time = time;
+      }
     }
   }
   return [...found.values()].sort((a, b) => a.date.localeCompare(b.date));
