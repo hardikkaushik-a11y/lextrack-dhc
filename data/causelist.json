@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-04-28T03:58:59Z",
+  "scraped_at": "2026-04-28T06:39:40Z",
   "for_dates": [
     "2026-04-28",
     "2026-04-29"
@@ -10,6 +10,27 @@
     {
       "file": "combined_adv_list_29.04.2026.pdf",
       "date": "2026-04-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_a.j._bhambhani_28.04.2026.pdf",
+      "date": "2026-04-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_chandrasekharan_s_28.04.2026.pdf",
+      "date": "2026-04-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "today_suppl.28.04.2026.pdf",
+      "date": "2026-04-28",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
