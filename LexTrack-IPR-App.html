@@ -511,6 +511,15 @@ body {
 }
 .cal-day.today.has-hearing::after { background: var(--gold2); }
 .cal-day.other-month { color: var(--ink3); opacity: 0.4; }
+.cal-day.selected {
+  background: var(--gold);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px rgba(201,168,76,0.35);
+}
+.cal-day.selected.today { background: var(--gold2); color: white; }
+.cal-day.selected.has-hearing::after { background: white; }
+.cal-nav { padding: 8px 14px !important; user-select: none; }
 
 .upcoming-hearings {
   background: white;
@@ -2097,7 +2106,7 @@ CRL.M.C./3456/2023&#10;…or paste a column from a sheet"
           <div class="cal-days" id="cal-days"></div>
         </div>
         <div class="upcoming-hearings">
-          <div class="card-title">Upcoming Hearings</div>
+          <div class="card-title" id="upcoming-header">Upcoming Hearings</div>
           <div id="upcoming-list"></div>
         </div>
       </div>
@@ -2524,6 +2533,9 @@ let matters = [
 ];
 
 let calCurrentDate = new Date();
+// When the user taps a date in the calendar, we filter the right-hand
+// "Upcoming Hearings" panel to that day. null = show all upcoming.
+let calSelectedDate = null;
 
 // ── GITHUB SYNC ──────────────────────────────────────────────────────────────
 // Fetches real scraped data from the lextrack-dhc GitHub repo.
@@ -3380,7 +3392,9 @@ function renderCalendar() {
     const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
     const isToday = dateStr === fmt(today);
     const hasH = hearingDates.has(dateStr);
-    html += `<div class="cal-day${isToday?' today':''}${hasH?' has-hearing':''}" title="${hasH?'Hearing scheduled':''}">${day}</div>`;
+    const isSel = calSelectedDate === dateStr;
+    const cls = `cal-day${isToday?' today':''}${hasH?' has-hearing':''}${isSel?' selected':''}`;
+    html += `<div class="${cls}" onclick="selectCalDay('${dateStr}')" title="${hasH?'Has hearing — tap to filter':'Tap to filter upcoming list'}">${day}</div>`;
   }
   document.getElementById('cal-days').innerHTML = html;
 
@@ -3399,7 +3413,28 @@ function renderCalendar() {
     }
   }
   allUpcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
-  const upcoming = allUpcoming.slice(0, 8);
+
+  // If the user tapped a date in the grid, filter to that day. Otherwise
+  // show the next ~8 hearings.
+  const upcoming = calSelectedDate
+    ? allUpcoming.filter(x => x.date === calSelectedDate)
+    : allUpcoming.slice(0, 8);
+
+  // Header + clear-filter affordance — render above the list.
+  const headerEl = document.getElementById('upcoming-header');
+  if (headerEl) {
+    if (calSelectedDate) {
+      const nd = new Date(calSelectedDate + 'T00:00:00');
+      const pretty = nd.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+      headerEl.innerHTML = `<div style="display:flex;align-items:center;gap:8px;">
+        <span>${pretty}</span>
+        <span style="font-size:11px;color:var(--ink3);font-weight:400;letter-spacing:0;text-transform:none;">${upcoming.length} listing${upcoming.length === 1 ? '' : 's'}</span>
+        <button onclick="selectCalDay(null)" style="margin-left:auto;background:none;border:none;color:var(--ink3);font-size:11px;cursor:pointer;letter-spacing:0.5px;">✕ Clear</button>
+      </div>`;
+    } else {
+      headerEl.innerHTML = 'Upcoming Hearings';
+    }
+  }
 
   const tagFor = (kind) =>
       kind === 'jr'        ? '<span class="hearing-source-tag" title="From order text">📋 JR</span>'
@@ -3430,6 +3465,22 @@ function renderCalendar() {
 
 function changeMonth(dir) {
   calCurrentDate.setMonth(calCurrentDate.getMonth() + dir);
+  renderCalendar();
+}
+
+// Tap a calendar day → filter the upcoming-hearings panel to that day.
+// Re-tapping the same day OR passing null clears the filter. Also flips
+// the calendar to the right month if the date is outside the current view.
+function selectCalDay(dateStr) {
+  if (dateStr === calSelectedDate || dateStr === null) {
+    calSelectedDate = null;
+  } else {
+    calSelectedDate = dateStr;
+    const d = new Date(dateStr + 'T00:00:00');
+    if (d.getMonth() !== calCurrentDate.getMonth() || d.getFullYear() !== calCurrentDate.getFullYear()) {
+      calCurrentDate = new Date(d.getFullYear(), d.getMonth(), 1);
+    }
+  }
   renderCalendar();
 }
 
