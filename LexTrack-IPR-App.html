@@ -2364,7 +2364,36 @@ CRL.M.C./3456/2023&#10;…or paste a column from a sheet"
     </div>
 
   </div>
+
+  <!-- Legal / data-source footer. Required so we have a clean DPDPA Section
+       3(c)(ii) posture and a takedown channel before scaling. Discreet but
+       always visible — anyone who wants to know where the data comes from
+       can find it without hunting. -->
+  <div style="text-align:center;padding:18px 16px 28px;font-size:11px;color:#94a3b8;line-height:1.5;">
+    LexTrack reads publicly available court records · Not affiliated with the Delhi High Court or eCourts ·
+    <a href="#" onclick="event.preventDefault();document.getElementById('legal-modal').classList.add('open');" style="color:#94a3b8;text-decoration:underline;cursor:pointer;">Sources &amp; legal notice</a>
+  </div>
 </main>
+
+<!-- LEGAL / SOURCES MODAL -->
+<div class="modal-overlay" id="legal-modal" onclick="if(event.target===this)this.classList.remove('open');">
+  <div class="modal" style="max-width:520px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px;">
+      <div class="modal-title" style="margin-bottom:0;">Sources &amp; legal notice</div>
+      <button class="dz-action" onclick="document.getElementById('legal-modal').classList.remove('open');" style="font-size:18px;line-height:1;padding:4px 10px;">×</button>
+    </div>
+    <div style="font-size:13px;line-height:1.7;color:#475569;">
+      <p>LexTrack reads publicly available court records. We are not affiliated with, endorsed by, or operated by any court or government agency.</p>
+      <p style="margin-top:10px;"><strong>Data sources</strong></p>
+      <ul style="padding-left:18px;margin-top:4px;">
+        <li><a href="https://delhihighcourt.nic.in" target="_blank" rel="noopener" style="color:#475569;">delhihighcourt.nic.in</a> — Delhi High Court cause-list and case-status pages</li>
+        <li><a href="https://services.ecourts.gov.in" target="_blank" rel="noopener" style="color:#475569;">services.ecourts.gov.in</a> — eCourts services portal</li>
+      </ul>
+      <p style="margin-top:10px;"><strong>Legal basis</strong> — Court records are public under the Open Justice doctrine (<em>Naresh Shridhar Mirajkar v. State of Maharashtra</em>, SC 1966) and are not protected by copyright (<em>Eastern Book Company v. D.B. Modak</em>, SC 2008; Section 52(1)(q), Copyright Act 1957). Personal data within these records is processed under the Section 3(c)(ii) exemption of the DPDP Act, 2023, which excludes data made publicly available by a third party under a legal obligation.</p>
+      <p style="margin-top:10px;"><strong>Report a data issue or request takedown</strong> — <a href="mailto:legal@lextrack.app" style="color:#475569;">legal@lextrack.app</a>. We respond within 48 hours.</p>
+    </div>
+  </div>
+</div>
 
 <!-- ADD MATTER MODAL -->
 <div class="modal-overlay" id="add-modal">
