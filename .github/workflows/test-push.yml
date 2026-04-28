@@ -19,7 +19,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    # 3 min was too tight: cold `npm install web-push` pulls in old
+    # transitive deps (rimraf, glob, inflight) and can take 2-3 min
+    # alone before the actual send. 6 gives headroom.
+    timeout-minutes: 6
     permissions:
       contents: read
 
