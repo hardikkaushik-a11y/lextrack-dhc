@@ -2018,6 +2018,36 @@ body {
       </div>
 
       <div class="lookup-result" id="lookup-result"></div>
+
+      <!-- ── BULK PASTE — import many cases at once ─────────────────────
+           Paste a column of case numbers (one per line, with or without
+           parties / titles), we parse them, dedupe against your tracked
+           list, push to config/cases.json on GitHub, and trigger a single
+           sync run so the scraper batches them. -->
+      <div class="lookup-panel" style="margin-top:24px;">
+        <div class="lookup-title" style="font-size:18px;">Bulk import</div>
+        <div class="lookup-sub">
+          Paste a list — one per line. We auto-detect the case type (CS(COMM), W.P.(C), CRL.M.C., etc.) and queue them for tracking.
+        </div>
+        <textarea id="bulk-paste" rows="7" placeholder="CS(COMM)/108/2025
+CS(COMM) 331/2025  ABC Ltd v. XYZ Ltd
+W.P.(C)-456/2024
+CRL.M.C./3456/2023&#10;…or paste a column from a sheet"
+          style="width:100%;font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:12px;border:1px solid rgba(255,255,255,0.12);border-radius:8px;resize:vertical;color:rgba(255,255,255,0.95);background:rgba(0,0,0,0.25);box-sizing:border-box;margin-top:12px;"
+          oninput="renderBulkPreview()"></textarea>
+
+        <div id="bulk-preview" style="margin-top:14px;font-size:12.5px;color:rgba(255,255,255,0.55);min-height:24px;"></div>
+
+        <div style="display:flex;gap:10px;margin-top:14px;align-items:center;">
+          <button class="btn-lookup" id="bulk-import-btn" type="button" onclick="bulkImportCases()" disabled
+            style="opacity:0.5;cursor:not-allowed;">
+            Import 0 cases
+          </button>
+          <span style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5;flex:1;">
+            Pushes to GitHub config + triggers one sync run (~3 min). Duplicates skipped.
+          </span>
+        </div>
+      </div>
     </div>
 
     <!-- ── ALL MATTERS VIEW ── -->
@@ -4998,6 +5028,213 @@ async function addToScraper(caseNo) {
   } catch(err) {
     toast(`Failed: ${err.message}`, 'error');
     console.error(err);
+  }
+}
+
+// ── BULK CASE IMPORT ─────────────────────────────────────────────────────────
+// Tab toggle in the Add Matter modal lets the user paste a list of case
+// numbers — one per line, optional title/parties after — and we parse,
+// dedupe, push to config/cases.json on GitHub, then dispatch ONE workflow
+// run so the scraper batches them.
+
+// Recognised case-type prefixes. Order matters: longer prefixes first so
+// "FAO(OS)(COMM)" matches before "FAO(OS)" / "FAO". Each entry maps a
+// canonical form → list of patterns DHC users actually paste (with/without
+// brackets, with/without dots).
+const BULK_TYPES = [
+  { canonical: 'FAO(OS)(COMM)', patterns: [/^FAO[\s\.\(\)]*OS[\s\.\(\)]*COMM[\s\.\(\)]*/i] },
+  { canonical: 'OMP(I)(COMM)',   patterns: [/^OMP[\s\.\(\)]*I[\s\.\(\)]*COMM[\s\.\(\)]*/i] },
+  { canonical: 'RFA(OS)(COMM)',  patterns: [/^RFA[\s\.\(\)]*OS[\s\.\(\)]*COMM[\s\.\(\)]*/i] },
+  { canonical: 'FAO(COMM)',      patterns: [/^FAO[\s\.\(\)]*COMM[\s\.\(\)]*/i] },
+  { canonical: 'OMP(COMM)',      patterns: [/^OMP[\s\.\(\)]*COMM[\s\.\(\)]*/i] },
+  { canonical: 'CS(COMM)',       patterns: [/^CS[\s\.\(\)]*COMM[\s\.\(\)]*/i] },
+  { canonical: 'CS(OS)',         patterns: [/^CS[\s\.\(\)]*OS[\s\.\(\)]*GP/i, /^CS[\s\.\(\)]*OS[\s\.\(\)]*/i] },
+  { canonical: 'W.P.(C)',        patterns: [/^W[\s\.]*P[\s\.\(\)]*C[\s\.\(\)]*/i] },
+  { canonical: 'CONT.CAS(C)',    patterns: [/^CONT[\s\.]*CAS[\s\.\(\)]*C[\s\.\(\)]*/i] },
+  { canonical: 'CRL.M.C.',       patterns: [/^CRL[\s\.]*M[\s\.]*C[\s\.]*/i] },
+  { canonical: 'CRL.A.',         patterns: [/^CRL[\s\.]*A[\s\.]*/i] },
+  { canonical: 'BAIL APPLN.',    patterns: [/^BAIL[\s\.]*APPLN?[\s\.]*/i] },
+  { canonical: 'MAT.APP.',       patterns: [/^MAT[\s\.]*APP[\s\.]*/i] },
+  { canonical: 'LPA',            patterns: [/^LPA[\s\.]*/i] },
+  { canonical: 'ARB.P.',         patterns: [/^ARB[\s\.]*P[\s\.]*/i] },
+  { canonical: 'ARB.A.(COMM.)',  patterns: [/^ARB[\s\.]*A[\s\.\(\)]*COMM[\s\.\(\)]*/i] },
+];
+
+function parseBulkLine(raw) {
+  // Returns { caseNo, title } | { error } | null (skip).
+  const line = (raw || '').trim();
+  if (!line) return null;
+  // Skip comment-style lines
+  if (/^[#\/\-\*]+/.test(line)) return null;
+
+  // Try each known type pattern; whichever consumes the longest prefix wins.
+  let bestMatch = null;
+  for (const t of BULK_TYPES) {
+    for (const re of t.patterns) {
+      const m = line.match(re);
+      if (m && (!bestMatch || m[0].length > bestMatch.consumed)) {
+        bestMatch = { canonical: t.canonical, consumed: m[0].length };
+      }
+    }
+  }
+  if (!bestMatch) return { error: 'unknown case type' };
+
+  // Pull the number/year out of the rest of the line. Accept many separators:
+  //   123/2025, 123-2025, 123 2025, 123 of 2025
+  const rest = line.slice(bestMatch.consumed);
+  const numYear = rest.match(/^[\s\-\/\.\(\)]*0*(\d{1,6})[\s\-\/\.]+(?:OF\s+)?(\d{4})/i);
+  if (!numYear) return { error: 'no number/year' };
+
+  const caseNo = `${bestMatch.canonical}/${numYear[1]}/${numYear[2]}`;
+  const after  = rest.slice(numYear[0].length).replace(/^[\s\-\.,;:]+/, '').trim();
+  return { caseNo, title: after || null };
+}
+
+function renderBulkPreview() {
+  const text = document.getElementById('bulk-paste').value;
+  const lines = text.split(/\r?\n/);
+  const preview = document.getElementById('bulk-preview');
+  const btn = document.getElementById('bulk-import-btn');
+
+  // Track existing case nos to flag duplicates inline.
+  const existing = new Set((matters || []).map(m => (m.caseNo || '').replace(/[\s\/]/g, '').toLowerCase()));
+  const norm = s => s.replace(/[\s\/]/g, '').toLowerCase();
+
+  let ok = [], errors = [], duplicates = [];
+  const seenInPaste = new Set();
+  for (const line of lines) {
+    const parsed = parseBulkLine(line);
+    if (parsed === null) continue;
+    if (parsed.error) { errors.push({ line: line.trim(), why: parsed.error }); continue; }
+    const k = norm(parsed.caseNo);
+    if (seenInPaste.has(k)) continue;          // dedupe within paste
+    seenInPaste.add(k);
+    if (existing.has(k)) duplicates.push(parsed);
+    else ok.push(parsed);
+  }
+
+  let html = '';
+  if (ok.length) {
+    html += `<div style="color:#34d399;font-weight:500;margin-bottom:6px;">✓ ${ok.length} new case${ok.length > 1 ? 's' : ''} ready to import</div>`;
+    html += '<div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.6;color:rgba(255,255,255,0.7);max-height:140px;overflow-y:auto;">' +
+      ok.map(c => `<div>${c.caseNo}${c.title ? ' <span style="color:rgba(255,255,255,0.4);">— ' + c.title.replace(/</g,'&lt;').slice(0, 60) + '</span>' : ''}</div>`).join('') +
+      '</div>';
+  }
+  if (duplicates.length) {
+    html += `<div style="color:rgba(255,255,255,0.5);margin-top:8px;">↻ ${duplicates.length} already tracked — will skip</div>`;
+  }
+  if (errors.length) {
+    html += `<div style="color:#fca5a5;margin-top:8px;">✗ ${errors.length} couldn't parse:</div>`;
+    html += '<div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;line-height:1.5;color:#fca5a5;max-height:80px;overflow-y:auto;">' +
+      errors.slice(0, 8).map(e => `<div>${e.line.replace(/</g,'&lt;').slice(0, 70)} — <span style="color:rgba(255,255,255,0.4);">${e.why}</span></div>`).join('') +
+      '</div>';
+  }
+  if (!ok.length && !duplicates.length && !errors.length) {
+    html = '<span style="color:rgba(255,255,255,0.4);">Paste case numbers above to preview.</span>';
+  }
+  preview.innerHTML = html;
+
+  btn.disabled = ok.length === 0;
+  btn.style.opacity = ok.length === 0 ? '0.5' : '1';
+  btn.style.cursor = ok.length === 0 ? 'not-allowed' : 'pointer';
+  btn.textContent = `Import ${ok.length} case${ok.length === 1 ? '' : 's'}`;
+}
+
+async function bulkImportCases() {
+  const text = document.getElementById('bulk-paste').value;
+  const lines = text.split(/\r?\n/);
+  const norm = s => s.replace(/[\s\/]/g, '').toLowerCase();
+  const existing = new Set((matters || []).map(m => norm(m.caseNo || '')));
+
+  const toAdd = [];
+  const seen = new Set();
+  for (const line of lines) {
+    const p = parseBulkLine(line);
+    if (!p || p.error) continue;
+    const k = norm(p.caseNo);
+    if (seen.has(k) || existing.has(k)) continue;
+    seen.add(k);
+    toAdd.push(p);
+  }
+  if (toAdd.length === 0) { toast('Nothing new to import', ''); return; }
+
+  // Need GitHub PAT to write to cases.json. Reuse the existing flow.
+  let token = getGitHubToken();
+  if (!token) {
+    token = setupGitHubToken();
+    if (!token) return;
+  }
+
+  const btn = document.getElementById('bulk-import-btn');
+  btn.disabled = true; btn.textContent = `Importing ${toAdd.length}…`;
+
+  try {
+    const ghHeaders = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' };
+    // 1. Read current cases.json (need its sha)
+    const fileRes = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_CONFIG_PATH}?ref=${GH_BRANCH}`, { headers: ghHeaders });
+    if (!fileRes.ok) {
+      if (fileRes.status === 401) { localStorage.removeItem('lextrack_gh_token'); throw new Error('Invalid token — re-enter it'); }
+      throw new Error(`GitHub read failed (${fileRes.status})`);
+    }
+    const fileData = await fileRes.json();
+    const cases = JSON.parse(atob(fileData.content.replace(/\n/g, '')));
+
+    // 2. Append new ones (skip any that have appeared in cases.json since we
+    //    last loaded matters — defence against race conditions).
+    const remoteNorm = new Set(cases.map(c => norm(c)));
+    const actuallyNew = toAdd.filter(p => !remoteNorm.has(norm(p.caseNo)));
+    if (actuallyNew.length === 0) { toast('All cases already in scraper config', ''); btn.disabled = false; renderBulkPreview(); return; }
+    for (const p of actuallyNew) cases.push(p.caseNo);
+
+    // 3. Single PUT
+    const newContent = btoa(JSON.stringify(cases, null, 2) + '\n');
+    const writeRes = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_CONFIG_PATH}`, {
+      method: 'PUT',
+      headers: { ...ghHeaders, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: `feat: bulk add ${actuallyNew.length} case${actuallyNew.length > 1 ? 's' : ''} via app`,
+        content: newContent,
+        sha: fileData.sha,
+        branch: GH_BRANCH,
+      }),
+    });
+    if (!writeRes.ok) throw new Error(`GitHub write failed (${writeRes.status})`);
+
+    // 4. Add placeholders locally so they show up immediately while scraper runs.
+    for (const p of actuallyNew) {
+      const m = p.caseNo.match(/^(.+?)\/(\d+)\/(\d{4})$/);
+      if (!m) continue;
+      const id = `m_${m[1].replace(/[^a-z0-9]/gi, '')}_${m[2]}_${m[3]}`;
+      if (!matters.find(x => x.id === id)) {
+        matters.push({
+          id, caseNo: p.caseNo,
+          title: p.title || p.caseNo,
+          type: 'other', stage: 'filed',
+          client: null, judge: null, lastDate: null, nextDate: null,
+          notes: null, timeline: [], tasks: [], docs: [],
+        });
+      }
+    }
+
+    // 5. ONE workflow dispatch (full sync covers all the new cases).
+    const triggerRes = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/sync-all.yml/dispatches`, {
+      method: 'POST',
+      headers: { ...ghHeaders, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ref: GH_BRANCH, inputs: {} }),
+    });
+    if (!triggerRes.ok) console.warn('Workflow dispatch failed', triggerRes.status);
+
+    toast(`✓ ${actuallyNew.length} case${actuallyNew.length > 1 ? 's' : ''} added — full sync running, ~3 min`, 'success');
+    document.getElementById('bulk-paste').value = '';
+    renderBulkPreview();
+    renderDashboard();
+    if (document.getElementById('all-matters-list')) renderAllMatters();
+  } catch (err) {
+    console.error('bulk import:', err);
+    toast(`Import failed: ${err.message}`, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Import';
   }
 }
 
