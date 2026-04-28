@@ -1,30 +1,22 @@
 name: Sync DHC (all scrapers)
 
-# Unified workflow — the ONE scheduled job for the repo. Runs:
-#   1. Cause-list scraper   (scripts/scrape_causelist.py — HTTP + pdftotext)
-#   2. Case-status scraper  (src/scraper.js — Puppeteer)
-# Triggered by:
-#   - Schedule (every 10 min cause list, every 30 min full — see crons below)
+# Unified workflow — runs both the cause-list scraper and the case-status
+# scraper. Triggered EXTERNALLY now:
+#   - cron-job.org pings the workflow_dispatch endpoint every 30 min
+#     (https://console.cron-job.org → "LexTrack — full sync")
 #   - The "Sync DHC" button in the app (workflow_dispatch via REST API)
 #   - Manual run from the GitHub Actions UI
 #
-# Why one workflow instead of two scheduled crons: GitHub's scheduler is more
-# reliable when only one cron is registered per repo (frequent edits to
-# multiple cron files put their schedulers into a "settling" state where
-# runs silently drop). Consolidating means one place to debug.
-#
-# Public repo → unlimited free Actions minutes, so 15-min cadence is fine.
+# GitHub's internal `schedule:` was removed. Reasons:
+#   1. GitHub silently de-prioritises schedules on workflows you edit
+#      frequently — we hit "stuck" scheduler state twice while building
+#      this. cron-job.org's external scheduler doesn't have that issue.
+#   2. Having BOTH GitHub schedule + cron-job.org would cause double-fires
+#      back-to-back, which breaks DHC's rate limit faster.
+#   3. Cadence changes are now a 5-second tweak in cron-job.org's UI
+#      instead of a workflow file edit + push + scheduler-resettle wait.
 
 on:
-  schedule:
-    # ONE cron, hourly. Covers both cause list + case status (full sync).
-    # Aggressive sub-hour cadences (*/10, */15, even */30) were tripping
-    # DHC's rate-limit on the GitHub runner IP, surfacing as silent
-    # "0 results" across every tracked case. Hourly is the cadence DHC
-    # consistently allows without throttling, and is plenty fresh for
-    # the things we care about (DHC publishes cause-list PDFs only a
-    # few times a day; orders trickle in throughout business hours).
-    - cron: '0 * * * *'
   workflow_dispatch:
     inputs:
       include_case_scrape:
