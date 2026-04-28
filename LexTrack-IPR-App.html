@@ -1725,8 +1725,8 @@ body {
     color: var(--ink2);
     margin-right: 16px;
   }
-  .matter-row > :nth-child(4)::before { content: "Last: "; color: var(--ink3); }
-  .matter-row > :nth-child(5)::before { content: "Next: "; color: var(--ink3); }
+  .matter-row > :nth-child(4)::before { content: "Next: "; color: var(--ink3); }
+  .matter-row > :nth-child(5)::before { content: "Last: "; color: var(--ink3); }
   .matter-row > :nth-child(6) {  /* delete button */
     display: block;
     text-align: right;
@@ -1986,8 +1986,8 @@ body {
           <span>Matter</span>
           <span>Case No.</span>
           <span>Type</span>
-          <span>Last Date</span>
           <span>Next Date</span>
+          <span>Last Date</span>
           <span></span>
         </div>
         <div id="dashboard-matters"></div>
@@ -2074,8 +2074,8 @@ CRL.M.C./3456/2023&#10;…or paste a column from a sheet"
           <span>Matter</span>
           <span>Case No.</span>
           <span>Type</span>
-          <span>Last Date</span>
           <span>Next Date</span>
+          <span>Last Date</span>
           <span></span>
         </div>
         <div id="all-matters-list"></div>
@@ -3125,8 +3125,8 @@ function matterRowHTML(m, showDelete=true) {
       </div>
       <div><span class="matter-sub" style="font-family:var(--font-mono,monospace);font-size:12px">${m.caseNo}</span></div>
       <div>${tagHTML(m.type)}</div>
-      <div>${formatDate(m.lastDate)}</div>
       <div>${dateHTML(effDate)}${kindTag}</div>
+      <div>${formatDate(m.lastDate)}</div>
       <div class="row-actions" onclick="event.stopPropagation()">
         ${showDelete ? `<button class="btn btn-danger" onclick="confirmDelete('${m.id}')">Delete</button>` : ''}
       </div>
