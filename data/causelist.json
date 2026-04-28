@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-04-28T18:16:15Z",
+  "scraped_at": "2026-04-28T18:31:31Z",
   "for_dates": [
-    "2026-04-28",
-    "2026-04-29"
+    "2026-04-29",
+    "2026-04-30"
   ],
   "tracked_cases": 12,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_adv_list_30.04.2026.pdf",
+      "date": "2026-04-30",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "combined_targteed_29.04.2026.pdf",
       "date": "2026-04-29",
@@ -76,56 +83,21 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_tejas_k_28.04.2026.pdf",
-      "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_jasmeet_singh_28.04.2026.pdf",
-      "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_girish_k._28.04.2026.pdf",
-      "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_28.04.2026_2.pdf",
-      "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_28.04.2026_1.pdf",
-      "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_a.j._bhambhani_28.04.2026.pdf",
-      "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_chandrasekharan_s_28.04.2026.pdf",
-      "date": "2026-04-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "46",
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 305,
+      "context": "46        CS(COMM)-195/2026    RELIANCE CONSUMER ISHI SINGH",
+      "caseNo": "CS(COMM)/195/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-195/2026",
+      "date": "2026-04-30",
+      "source_pdf": "combined_adv_list_30.04.2026.pdf"
+    }
+  ]
 }
