@@ -160,26 +160,92 @@ async function runDiffMode() {
     });
   }
 
-  // 2) New order PDFs on tracked matters
+  // 2) Per-matter changes: orders, next-date, additional listings (JR/court
+  //    extracted from order text), stage, judge, status, and timeline length.
+  //    Any meaningful state change in DHC's view of a tracked case triggers
+  //    a push so Ishi never has to check manually.
   const prevByCase = new Map(scrapedPrev.map(s => [shortCase(s.caseNo), s]));
+  const fmtDate = iso => {
+    if (!iso) return '—';
+    const d = new Date(iso);
+    return isNaN(d) ? iso : d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+  };
   for (const m of scrapedNow) {
     const old = prevByCase.get(shortCase(m.caseNo));
-    if (!old) continue;
+    if (!old) {
+      // First time we see this case (e.g. via bulk import) — one push.
+      events.push({
+        title: `🆕 Tracking: ${m.title || m.caseNo}`,
+        body:  `${m.caseNo}${m.nextDate ? '\nNext: ' + fmtDate(m.nextDate) : ''}`,
+        tag:   `tracked-${m.caseNo}`,
+        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+      });
+      continue;
+    }
+
+    // 2a. New order PDFs uploaded to DHC
     const oldOrders = new Set((old.orders || []).map(o => o.url || o.date));
     const newOrders = (m.orders || []).filter(o => !oldOrders.has(o.url || o.date));
     if (newOrders.length) {
       events.push({
-        title: `📄 New order in ${m.title || m.caseNo}`,
-        body:  `${newOrders.length} new order${newOrders.length > 1 ? 's' : ''} uploaded`,
+        title: `📄 New order — ${m.title || m.caseNo}`,
+        body:  `${newOrders.length} new order${newOrders.length > 1 ? 's' : ''} uploaded${newOrders[0]?.date ? '\nLatest: ' + fmtDate(newOrders[0].date) : ''}`,
         tag:   `orders-${m.caseNo}`,
         url:   './#/matter/' + encodeURIComponent(m.caseNo),
       });
     }
+
+    // 2b. Main court next-date moved
     if (old.nextDate && m.nextDate && old.nextDate !== m.nextDate) {
       events.push({
-        title: `📅 Next date changed: ${m.title || m.caseNo}`,
-        body:  `${old.nextDate} → ${m.nextDate}`,
+        title: `📅 Next date changed — ${m.title || m.caseNo}`,
+        body:  `${fmtDate(old.nextDate)} → ${fmtDate(m.nextDate)}`,
         tag:   `nextdate-${m.caseNo}`,
+        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+      });
+    }
+
+    // 2c. New JR / additional listings extracted from order text. Match by
+    //     date+before so a single JR listing doesn't push on every sync.
+    const oldAdd = new Set((old.additionalDates || []).map(e => `${e.date}|${e.before}`));
+    const newAdd = (m.additionalDates || []).filter(e => !oldAdd.has(`${e.date}|${e.before}`));
+    for (const e of newAdd) {
+      const before = e.before === 'jr' ? 'Joint Registrar' : "Hon'ble Court";
+      events.push({
+        title: `📋 New listing — ${m.title || m.caseNo}`,
+        body:  `Listed ${fmtDate(e.date)} before the ${before}`,
+        tag:   `additional-${m.caseNo}-${e.date}-${e.before}`,
+        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+        requireInteraction: true,
+      });
+    }
+
+    // 2d. Stage transition (filed → pleadings → arguments → reserved → disposed)
+    if (old.stage && m.stage && old.stage !== m.stage) {
+      events.push({
+        title: `⚖️ Stage changed — ${m.title || m.caseNo}`,
+        body:  `${old.stage} → ${m.stage}`,
+        tag:   `stage-${m.caseNo}`,
+        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+      });
+    }
+
+    // 2e. Judge / coram changed (re-allocation, new bench)
+    if (old.judge && m.judge && old.judge !== m.judge) {
+      events.push({
+        title: `👨‍⚖️ Judge changed — ${m.title || m.caseNo}`,
+        body:  `${old.judge} → ${m.judge}`,
+        tag:   `judge-${m.caseNo}`,
+        url:   './#/matter/' + encodeURIComponent(m.caseNo),
+      });
+    }
+
+    // 2f. Status string changed (e.g. "PENDING" → "DISPOSED OF")
+    if (old.status && m.status && old.status !== m.status) {
+      events.push({
+        title: `🔄 Status — ${m.title || m.caseNo}`,
+        body:  `${old.status} → ${m.status}`,
+        tag:   `status-${m.caseNo}`,
         url:   './#/matter/' + encodeURIComponent(m.caseNo),
       });
     }
