@@ -34,9 +34,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      - name: Install web-push
-        run: npm install --no-save web-push
+      - name: Install dependencies
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
+        run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Send digest push (silent if no events)
         # PUSH_SUBSCRIPTIONS, PUSH_SUBSCRIPTIONS_2, etc. — one per device.

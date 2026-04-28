@@ -36,9 +36,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          # Caches node_modules keyed on package-lock.json hash. First
+          # run is still ~4 min cold; subsequent runs hit the cache and
+          # finish in ~10s. Was the bottleneck killing test-push before.
+          cache: 'npm'
 
-      - name: Install web-push
-        run: npm install --no-save web-push
+      - name: Install dependencies
+        # web-push is pinned in package.json (with the puppeteer family
+        # for src/scraper.js). PUPPETEER_SKIP_DOWNLOAD makes puppeteer's
+        # postinstall skip the ~500 MB Chromium download — we don't need
+        # the browser for sending pushes, just the web-push library.
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
+        run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Send test push to every subscriber
         env:
