@@ -1,0 +1,48 @@
+name: Test push notifications
+
+# Manual-only workflow that fires ONE synthetic push to every subscriber.
+# Use this to verify the full chain works without waiting for DHC to
+# publish a real change:
+#   VAPID secrets configured ✓ → script runs ✓ → push service delivers ✓ →
+#   SW handler fires ✓ → lock-screen notification visible ✓
+#
+# Trigger from:
+#   - GitHub Actions UI → "Test push notifications" → Run workflow
+#   - Or curl the dispatch endpoint directly with a PAT
+#
+# Never scheduled. Spamming subscribers with test pushes would train them
+# to ignore the channel — defeats the whole point.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install web-push
+        run: npm install --no-save web-push
+
+      - name: Send test push to every subscriber
+        env:
+          VAPID_PUBLIC_KEY:      ${{ secrets.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY:     ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT:         ${{ secrets.VAPID_SUBJECT }}
+          PUSH_SUBSCRIPTIONS:    ${{ secrets.PUSH_SUBSCRIPTIONS }}
+          PUSH_SUBSCRIPTIONS_2:  ${{ secrets.PUSH_SUBSCRIPTIONS_2 }}
+          PUSH_SUBSCRIPTIONS_3:  ${{ secrets.PUSH_SUBSCRIPTIONS_3 }}
+          PUSH_SUBSCRIPTIONS_4:  ${{ secrets.PUSH_SUBSCRIPTIONS_4 }}
+          PUSH_SUBSCRIPTIONS_5:  ${{ secrets.PUSH_SUBSCRIPTIONS_5 }}
+        run: node scripts/send-push.js --test

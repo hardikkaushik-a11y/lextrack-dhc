@@ -42,7 +42,9 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 const webpush = require('web-push');
 
-const MODE = process.argv.includes('--digest') ? 'digest' : 'diff';
+const MODE = process.argv.includes('--digest') ? 'digest'
+           : process.argv.includes('--test')   ? 'test'
+           :                                     'diff';
 
 // ── Load secrets ────────────────────────────────────────────────────────────
 const PUB  = process.env.VAPID_PUBLIC_KEY;
@@ -303,10 +305,28 @@ async function runDigestMode() {
   });
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// TEST MODE — synthetic push to verify the whole chain (VAPID keys, signing,
+// subscriptions, push service delivery, SW handler, lock-screen rendering)
+// without needing DHC to publish anything new.
+// ─────────────────────────────────────────────────────────────────────────────
+async function runTestMode() {
+  const now = new Date();
+  const stamp = now.toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit', hour12: true });
+  await sendToAll({
+    title: '🧪 LexTrack test',
+    body:  `Push notifications are working — fired ${stamp}. ${subs.length} device${subs.length > 1 ? 's' : ''} reached.`,
+    tag:   'test-' + Date.now(),    // unique tag → never replaces a previous notif
+    url:   './',
+    requireInteraction: false,
+  });
+}
+
 (async () => {
   try {
-    if (MODE === 'digest') await runDigestMode();
-    else                   await runDiffMode();
+    if      (MODE === 'digest') await runDigestMode();
+    else if (MODE === 'test')   await runTestMode();
+    else                        await runDiffMode();
   } catch (e) {
     console.error('send-push.js error:', e);
     process.exit(0); // never fail the workflow
