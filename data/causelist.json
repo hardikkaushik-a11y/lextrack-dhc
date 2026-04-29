@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-04-29T13:46:17Z",
+  "scraped_at": "2026-04-29T14:01:56Z",
   "for_dates": [
     "2026-04-29",
     "2026-04-30"
@@ -7,6 +7,20 @@
   "tracked_cases": 14,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_pro_30.04.2026.pdf",
+      "date": "2026-04-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_30042026.pdf",
+      "date": "2026-04-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_targetted_30.04.2026.pdf",
       "date": "2026-04-30",
@@ -107,20 +121,6 @@
     },
     {
       "file": "combined_29.04.2026.pdf",
-      "date": "2026-04-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_29.04.2026.pdf",
-      "date": "2026-04-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_sup_1_29.04.2026.pdf",
       "date": "2026-04-29",
       "matched": 0,
       "regex_matches": 0,
