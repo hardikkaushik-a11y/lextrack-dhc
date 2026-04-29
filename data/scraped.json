@@ -547,7 +547,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:02:01.873Z"
+    "lastScraped": "2026-04-29T14:33:24.421Z"
   },
   {
     "id": "m_CSCOMM_331_2025",
@@ -684,7 +684,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:02:09.376Z"
+    "lastScraped": "2026-04-29T14:33:31.922Z"
   },
   {
     "id": "m_CSCOMM_89_2026",
@@ -696,7 +696,7 @@
     "judge": null,
     "client": null,
     "lastDate": "2026-04-29",
-    "nextDate": "2026-07-24",
+    "nextDate": "2026-08-10",
     "notes": null,
     "timeline": [
       {
@@ -794,7 +794,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:02:16.858Z"
+    "lastScraped": "2026-04-29T14:33:39.388Z"
   },
   {
     "id": "m_CSCOMM_81_2026",
@@ -806,7 +806,7 @@
     "judge": null,
     "client": null,
     "lastDate": "2026-04-29",
-    "nextDate": "2026-07-24",
+    "nextDate": "2026-08-10",
     "notes": null,
     "timeline": [
       {
@@ -890,7 +890,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:02:24.383Z"
+    "lastScraped": "2026-04-29T14:33:46.846Z"
   },
   {
     "id": "m_CSCOMM_313_2026",
@@ -924,7 +924,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:02:31.890Z"
+    "lastScraped": "2026-04-29T14:33:54.318Z"
   },
   {
     "id": "m_CSCOMM_319_2026",
@@ -981,7 +981,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:02:39.373Z"
+    "lastScraped": "2026-04-29T14:34:02.389Z"
   },
   {
     "id": "m_CSCOMM_756_2025",
@@ -1146,7 +1146,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:02:46.858Z"
+    "lastScraped": "2026-04-29T14:34:09.909Z"
   },
   {
     "id": "m_CSCOMM_810_2025",
@@ -1427,7 +1427,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:02:56.087Z"
+    "lastScraped": "2026-04-29T14:34:17.415Z"
   },
   {
     "id": "m_CSCOMM_195_2026",
@@ -1498,7 +1498,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:03:03.639Z"
+    "lastScraped": "2026-04-29T14:34:26.268Z"
   },
   {
     "id": "m_CSCOMM_582_2025",
@@ -1635,7 +1635,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:03:11.138Z"
+    "lastScraped": "2026-04-29T14:34:33.790Z"
   },
   {
     "id": "m_CSCOMM_1306_2025",
@@ -1692,7 +1692,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:03:18.753Z"
+    "lastScraped": "2026-04-29T14:34:41.284Z"
   },
   {
     "caseNo": "CS(COMM)/1306/2026",
@@ -1711,10 +1711,17 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2025-12-10",
-    "nextDate": "2026-04-29",
+    "lastDate": "2026-04-29",
+    "nextDate": "2026-04-30",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-04-29",
+        "event": "Court Order",
+        "detail": "At the request of learned counsel for Plaintiffs, list on 30.04.2026.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1777473000_f90ae4226dc71f25_jis_2692024.pdf/2026",
+        "orderText": "$~26 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 269/2024 & I.As. 7290/2024 , I.A. 7292/2024 RAZORPAY SOFTWARE PRIVATE LIMITED & ANR. .....Plaintiffs Through: Mr. Akshay Maloo and Ms. Ishi Singh, Advocates. versus JOHN DOE & ORS. .....Defendants Through: Mr. Gitanjali Kapoor and Mr. Yubaraj Chatterjee, Advocates for D-15. CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 29.04.2026 At the request of learned counsel for Plaintiffs, list on 30.04.2026. JYOTI SINGH, J APRIL 29, 2026/VP This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 29/04/2026 at 20:04:49"
+      },
       {
         "date": "2025-12-10",
         "event": "Court Order",
@@ -1817,6 +1824,10 @@
     "additionalDates": [
       {
         "date": "2026-04-29",
+        "before": "court"
+      },
+      {
+        "date": "2026-04-30",
         "before": "court"
       }
     ],
@@ -1921,7 +1932,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:03:26.241Z"
+    "lastScraped": "2026-04-29T14:34:50.326Z"
   },
   {
     "id": "m_CSCOMM_997_2025",
@@ -2016,7 +2027,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:03:33.803Z"
+    "lastScraped": "2026-04-29T14:34:58.149Z"
   },
   {
     "id": "m_CSCOMM_536_2025",
@@ -2195,6 +2206,6 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-29T14:03:41.472Z"
+    "lastScraped": "2026-04-29T14:35:05.792Z"
   }
 ]
