@@ -1978,7 +1978,7 @@ body {
           <div class="stat-sub" id="stat-active-sub">&nbsp;</div>
         </div>
         <div class="stat-card stat-red" onclick="showView('calendar')" style="cursor:pointer;" role="button" tabindex="0" title="Open Hearings Calendar">
-          <div class="stat-label">Hearings This Week</div>
+          <div class="stat-label" id="stat-hearings-label">Hearings This Week</div>
           <div class="stat-value" id="stat-hearings">—</div>
           <div class="stat-sub" id="stat-hearings-sub">&nbsp;</div>
         </div>
@@ -3275,15 +3275,35 @@ function renderDashboard() {
     return earliest && earliest.startsWith(monthKey);
   }).length;
 
-  // ── Hearings This Week ────────────────────────────────────────────
-  // Counts distinct (matter, hearing) pairs across all sources — case
-  // status nextDate + JR/IA dates from order text + cause-list entries.
-  // A matter with both a JR listing on Mon and a court listing on Fri
-  // counts as 2 hearings.
+  // ── Hearings This (Work) Week ─────────────────────────────────────
+  // Mon-Thu: shows the rest of THIS calendar week (today through Fri).
+  // Fri / Sat / Sun: rolls forward to NEXT week's Mon-Fri — by Friday
+  // morning the lawyer is already planning next week, and weekends
+  // shouldn't show "0 hearings" for a workless period.
+  // Indian courts don't sit on Sat/Sun so weekend dates are excluded
+  // defensively. Sources combined: case-status nextDate + JR/IA dates
+  // from order text + cause-list. A matter with both a JR listing on
+  // Mon and a court listing on Fri counts as 2 hearings.
+  const _wk = (() => {
+    const t = new Date(today); t.setHours(0, 0, 0, 0);
+    const dow = t.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+    const start = new Date(t);
+    if (dow === 0)      start.setDate(t.getDate() + 1);  // Sun → Mon
+    else if (dow === 5) start.setDate(t.getDate() + 3);  // Fri → next Mon
+    else if (dow === 6) start.setDate(t.getDate() + 2);  // Sat → next Mon
+    const end = new Date(start);
+    end.setDate(start.getDate() + (5 - start.getDay()));
+    return { start: fmt(start), end: fmt(end), isNextWeek: dow === 5 || dow === 6 || dow === 0 };
+  })();
   const thisWeek = matters
     .flatMap(m => getMatterHearings(m).map(h => ({ m, h, d: daysUntil(h.date) })))
-    .filter(x => x.d !== null && x.d >= 0 && x.d <= 7)
-    .sort((a, b) => a.d - b.d);
+    .filter(x => {
+      if (!x.h.date) return false;
+      if (x.h.date < _wk.start || x.h.date > _wk.end) return false;
+      const dow = new Date(x.h.date + 'T00:00:00').getDay();
+      return dow >= 1 && dow <= 5;
+    })
+    .sort((a, b) => (a.d ?? 0) - (b.d ?? 0));
   const nextHearing = thisWeek[0];
 
   // Breakdown: how many of those are NOT the basic case-status next date
@@ -3311,12 +3331,18 @@ function renderDashboard() {
     : `${addedThisMonth} added this month`;
   document.getElementById('stat-active-sub').textContent = activeSub;
 
+  // Label flips Mon-Thu vs Fri-Sun: "this week" while we're still in the
+  // current week, "next week" once Friday rolls in.
+  const _hearingsLabel = document.getElementById('stat-hearings-label');
+  if (_hearingsLabel) _hearingsLabel.textContent = _wk.isNextWeek ? 'Hearings Next Week' : 'Hearings This Week';
+
   const kindTag = nextHearing
     ? (nextHearing.h.kind === 'jr' ? ' · JR' :
        nextHearing.h.kind === 'causelist' ? ' · cause list' : '')
     : '';
+  const _emptyLabel = _wk.isNextWeek ? 'No hearings next week' : 'No hearings this week';
   const hearingsSub = thisWeek.length === 0
-    ? (allMattersHaveNextDate(matters) ? 'No hearings in next 7 days' : 'No upcoming hearings')
+    ? (allMattersHaveNextDate(matters) ? _emptyLabel : 'No upcoming hearings')
     : `Next: ${describeWhen(nextHearing.h.date)}${kindTag}` +
       (extraHearings > 0 ? ` · ${extraHearings} JR/list` : '');
   document.getElementById('stat-hearings-sub').textContent = hearingsSub;
