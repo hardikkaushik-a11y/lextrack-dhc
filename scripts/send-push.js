@@ -170,9 +170,20 @@ async function runDiffMode() {
   const events = [];
 
   // 1) New cause-list entries for tracked matters
+  // Dedup: if the date is ALREADY in the matter's additionalDates (we
+  // pulled it earlier from an order's text), the user got a "📋 New
+  // listing" push when the order arrived. The cause-list confirmation
+  // is the same hearing — skip the duplicate. Lawyer doesn't need to
+  // hear "your hearing is on 30 Apr" twice.
   const prevKeys = new Set((causePrev.entries || []).map(entryKey));
   const newCauseEntries = (causeNow.entries || []).filter(e => !prevKeys.has(entryKey(e)));
   for (const e of newCauseEntries) {
+    const matter = scrapedNow.find(s => shortCase(s.caseNo) === shortCase(e.caseNo));
+    const alreadyInAdditional = matter?.additionalDates?.some(ad => ad.date === e.date);
+    if (alreadyInAdditional) {
+      console.log(`  ↷ skip cause-list push: ${e.caseNo} ${e.date} already in additionalDates`);
+      continue;
+    }
     const title = findCaseTitle(e.caseNo);
     const when  = e.date || 'tomorrow';
     const where = [e.court && `Court ${e.court}`, e.item && `Item ${e.item}`, e.judge].filter(Boolean).join(' · ');
@@ -232,9 +243,19 @@ async function runDiffMode() {
 
     // 2c. New JR / additional listings extracted from order text. Match by
     //     date+before so a single JR listing doesn't push on every sync.
+    // Dedup: if the cause-list already has this date for this matter, the
+    // user is already getting / will get the cause-list push. Skip the
+    // additionalDates push to avoid two notifications for the same hearing.
     const oldAdd = new Set((old.additionalDates || []).map(e => `${e.date}|${e.before}`));
     const newAdd = (m.additionalDates || []).filter(e => !oldAdd.has(`${e.date}|${e.before}`));
     for (const e of newAdd) {
+      const inCauseList = (causeNow.entries || []).some(c =>
+        shortCase(c.caseNo) === shortCase(m.caseNo) && c.date === e.date
+      );
+      if (inCauseList) {
+        console.log(`  ↷ skip additionalDates push: ${m.caseNo} ${e.date} already in cause-list`);
+        continue;
+      }
       const before = e.before === 'jr' ? 'Joint Registrar' : "Hon'ble Court";
       events.push({
         title: `📋 New listing — ${m.title || m.caseNo}`,
