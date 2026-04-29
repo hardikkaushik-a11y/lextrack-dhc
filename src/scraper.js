@@ -730,18 +730,33 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
   orders.sort((a, b) => b.date.localeCompare(a.date));
   const lastDate = orders[0]?.date || null;
 
-  // Fetch + parse EVERY order PDF so analysis sees the full case body.
-  // Runs PDF_CONCURRENCY fetches in parallel batches — for a 37-order
-  // case at 4-way concurrency that's ~10 batches × ~3s = ~30s instead
-  // of ~110s sequential.
+  // PDF text cache: order PDFs on DHC are immutable once published — the
+  // orderLink is a stable URL keyed by date + filename. So if we already
+  // parsed it on a previous sync, the text is identical. Caching it saves
+  // ~3s per existing order, which is the single biggest sync-cost win:
+  // a typical case with 10 prior orders + 1 new order goes from ~33s of
+  // PDF work to ~3s. Over 50 cases that's many minutes saved per sync.
+  const priorTextByLink = new Map();
+  for (const t of (priorEntry?.timeline || [])) {
+    if (t.orderLink && t.orderText) priorTextByLink.set(t.orderLink, t.orderText);
+  }
+  let pdfCacheHits = 0, pdfFresh = 0;
   for (let i = 0; i < orders.length; i += PDF_CONCURRENCY) {
     const batch = orders.slice(i, i + PDF_CONCURRENCY);
-    const texts = await Promise.all(batch.map(o => fetchPdfText(o.orderLink)));
-    batch.forEach((o, j) => { o.orderText = texts[j]; });
+    await Promise.all(batch.map(async o => {
+      const cached = priorTextByLink.get(o.orderLink);
+      if (cached) {
+        o.orderText = cached;
+        pdfCacheHits++;
+      } else {
+        o.orderText = await fetchPdfText(o.orderLink);
+        pdfFresh++;
+      }
+    }));
   }
   const parsedTexts = orders.map(o => o.orderText);
   const parsedCount = parsedTexts.filter(Boolean).length;
-  console.log(`  [pdf] parsed ${parsedCount}/${orders.length} orders (parallel x${PDF_CONCURRENCY})`);
+  console.log(`  [pdf] ${parsedCount}/${orders.length} parsed · cache: ${pdfCacheHits} hits, ${pdfFresh} fresh`);
 
   // ── AI Order Intelligence ────────────────────────────────────────────────
   // Per-order structured extraction (relief, costs, citations, directions,
@@ -932,16 +947,24 @@ async function main() {
   const results = [];
 
   for (const caseNo of cases) {
+    let succeeded = false;
     try {
       const data = await scrapeCase(browser, caseNo);
       results.push(data);
+      // Treat "case found and parsed" as success — a 0-results error
+      // response shouldn't trigger the polite delay since it didn't
+      // actually load DHC's case-status full path.
+      succeeded = !data?.error;
     } catch (err) {
-      // Don't let one malformed case kill the entire run
       console.error(`  ✗ Skipping ${caseNo}: ${err.message}`);
       results.push({ caseNo, error: err.message, lastScraped: new Date().toISOString() });
     }
-    // Polite delay — don't hammer DHC
-    await new Promise(r => setTimeout(r, 5000));
+    // Polite delay between successful case-status loads only — DHC's
+    // page already takes ~10-15s per scrape so we're not hammering them
+    // even at 2s spacing. Skipping the delay for failed/0-result cases
+    // shaves ~5s × N off every sync where N is the count of stale cases
+    // in config (e.g. typo'd case numbers, disposed cases delisted).
+    if (succeeded) await new Promise(r => setTimeout(r, 2000));
   }
 
   await browser.close();
