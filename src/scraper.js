@@ -829,6 +829,7 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
   const todayISO = new Date().toISOString().slice(0, 10);
   const seenAdd = new Set();
   const additionalDates = [];
+  let fromOrders = 0, fromHistory = 0;
   for (const o of orders) {
     if (!o.orderText) continue;
     for (const e of extractListingDates(o.orderText, o.date)) {
@@ -837,11 +838,32 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
       if (seenAdd.has(key)) continue;
       seenAdd.add(key);
       additionalDates.push(e);
+      fromOrders++;
+    }
+  }
+  // Also scan the case-history page text itself. The case-status / case-
+  // history page on DHC is the MOST up-to-date source: it reflects what
+  // happened in court within minutes, often before the order PDF is
+  // uploaded and days before the cause list publishes the new date.
+  // E.g. matter heard Mon, pushed to Wed → case-history shows Wed
+  // immediately; cause-list for Wed only publishes Tue evening; order
+  // PDF may be uploaded later. Running extractListingDates on pageText
+  // gives us a third independent capture path for those forward dates.
+  // The existing seenAdd dedup ensures pageText doesn't duplicate any
+  // entry we already pulled from order PDFs.
+  if (pageText) {
+    for (const e of extractListingDates(pageText, todayISO)) {
+      if (e.date < todayISO) continue;
+      const key = `${e.date}|${e.before}`;
+      if (seenAdd.has(key)) continue;
+      seenAdd.add(key);
+      additionalDates.push(e);
+      fromHistory++;
     }
   }
   additionalDates.sort((a, b) => a.date.localeCompare(b.date));
   if (additionalDates.length) {
-    console.log(`  [listings] +${additionalDates.length} across ${orders.length} order(s): ${additionalDates.map(d => d.date + '(' + d.before + ')').join(', ')}`);
+    console.log(`  [listings] +${additionalDates.length} (orders:${fromOrders}, history:${fromHistory}): ${additionalDates.map(d => d.date + '(' + d.before + ')').join(', ')}`);
   }
 
   const docs = orders.map(o => ({
