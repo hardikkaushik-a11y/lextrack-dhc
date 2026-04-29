@@ -17,10 +17,20 @@ on:
   # refresh without paying the ~2 min cost of the case-status scraper.
   workflow_dispatch:
 
-# Share the sync-all concurrency group so a manual cause-list run can't
-# clash with an in-flight scheduled sync (which writes the same file).
+# Own concurrency group — separate from sync-all. Originally we shared
+# 'sync-all' to prevent simultaneous writes to data/causelist.json, but
+# both workflows use a snapshot-and-retry git-push pattern that handles
+# concurrent writes safely. The shared group's actual effect was that
+# every 15-min cause-list tick CANCELLED any in-flight 30-min sync-all
+# run, so sync-all stopped being able to complete from ~01:00 UTC
+# onwards (when cause-list cron starts). Symptom: 'Canceling since a
+# higher priority waiting request for sync-all exists' on every sync.
+#
+# With distinct groups, the two workflows can run concurrently. Each
+# still serialises against itself (newer cancels older within the
+# same group), which is the only race we actually need to prevent.
 concurrency:
-  group: sync-all
+  group: causelist
   cancel-in-progress: true
 
 jobs:
