@@ -2065,10 +2065,18 @@ body {
            list, push to config/cases.json on GitHub, and trigger a single
            sync run so the scraper batches them. -->
       <div class="lookup-panel" style="margin-top:24px;">
-        <div class="lookup-title" style="font-size:18px;">Bulk import</div>
-        <div class="lookup-sub">
-          Paste a list — one per line. Or paste a CSV with header columns: <code style="font-size:11px;">caseNo, title, client, type, stage, lastDate, nextDate, notes</code> (caseNo required, others optional).
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+          <div class="lookup-title" style="font-size:18px;margin:0;">Bulk import</div>
+          <button type="button" onclick="importBulkFromPhoto()" id="bulk-photo-btn"
+            style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.85);font-size:12px;cursor:pointer;font-family:inherit;"
+            title="Take a photo of handwritten case numbers; AI extracts them and fills the import textarea">
+            📷 Scan from photo
+          </button>
         </div>
+        <div class="lookup-sub" style="margin-top:8px;">
+          Paste a list — one per line. Or paste a CSV with header columns: <code style="font-size:11px;">caseNo, title, client, type, stage, lastDate, nextDate, notes</code> (caseNo required, others optional). Or click <strong>Scan from photo</strong> to extract from a handwritten / printed page.
+        </div>
+        <input type="file" id="bulk-photo-input" accept="image/*" capture="environment" style="display:none;" onchange="_handleBulkPhotoFiles(this.files)">
         <textarea id="bulk-paste" rows="7" placeholder="Plain mode — one case per line:
 CS(COMM)/108/2025
 CS(COMM) 331/2025  ABC Ltd v. XYZ Ltd
@@ -5499,6 +5507,116 @@ function renderBulkPreview() {
   btn.style.opacity = ok.length === 0 ? '0.5' : '1';
   btn.style.cursor = ok.length === 0 ? 'not-allowed' : 'pointer';
   btn.textContent = `Import ${ok.length} case${ok.length === 1 ? '' : 's'}`;
+}
+
+// ── Bulk import from photo (handwritten / printed list) ───────────────────
+// Uses DeepSeek (existing key — same as analysis / drafting / judgment rank).
+// OpenAI-compatible image_url format. Browser → DeepSeek direct, never us.
+// On success, dumps extracted cases into bulk-paste textarea so the existing
+// parse → preview → import → workflow-dispatch pipeline handles the rest.
+function importBulkFromPhoto() {
+  if (!getDeepSeekKey()) {
+    setupDeepSeekKey();
+    if (!getDeepSeekKey()) return;
+  }
+  document.getElementById('bulk-photo-input').click();
+}
+
+async function _handleBulkPhotoFiles(fileList) {
+  const files = [...(fileList || [])];
+  if (!files.length) return;
+  const btn = document.getElementById('bulk-photo-btn');
+  const origLabel = btn?.textContent || '📷 Scan from photo';
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ Reading photo…'; btn.style.opacity = '0.7'; }
+  try {
+    let totalAdded = 0;
+    for (const f of files) {
+      try {
+        const cases = await _extractCasesFromImage(f);
+        if (cases && cases.length) {
+          const lines = cases.map(c => c.title ? `${c.caseNo}  ${c.title}` : c.caseNo).join('\n');
+          const ta = document.getElementById('bulk-paste');
+          ta.value = (ta.value && !ta.value.endsWith('\n') ? ta.value + '\n' : ta.value) + lines + '\n';
+          totalAdded += cases.length;
+        }
+      } catch (e) {
+        console.error('photo scan failed', e);
+        toast(`Photo failed: ${e.message || e}`, 'error');
+      }
+    }
+    if (totalAdded > 0) {
+      renderBulkPreview();
+      toast(`✓ Extracted ${totalAdded} case${totalAdded === 1 ? '' : 's'} from photo`, 'success');
+    } else {
+      toast('No cases recognised in the photo', '');
+    }
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = origLabel; btn.style.opacity = '1'; }
+    document.getElementById('bulk-photo-input').value = '';
+  }
+}
+
+async function _extractCasesFromImage(file) {
+  const key = getDeepSeekKey();
+  if (!key) throw new Error('No DeepSeek key configured');
+
+  const dataUrl = await new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload  = () => resolve(r.result);
+    r.onerror = () => reject(new Error('failed to read image'));
+    r.readAsDataURL(file);
+  });
+
+  const promptText = [
+    'You are extracting Indian Delhi High Court case numbers from a handwritten or printed page.',
+    'Common case-type prefixes: CS(COMM), CS(OS), W.P.(C), CRL.M.C., CRL.A., FAO(OS)(COMM),',
+    'FAO(COMM), OMP(I)(COMM), OMP(COMM), RFA(OS)(COMM), CONT.CAS(C), BAIL APPLN., MAT.APP.,',
+    'LPA, ARB.P., ARB.A.(COMM.).',
+    'Canonical format: PREFIX/NUMBER/YEAR — e.g. CS(COMM)/108/2025.',
+    '',
+    'For each case visible, extract the case number and (if visible) the party titles.',
+    'Return ONLY valid JSON, no markdown:',
+    '{ "cases": [ { "caseNo": "CS(COMM)/108/2025", "title": "ABC Ltd v. XYZ Ltd" }, ... ] }',
+    '',
+    'If no readable case numbers, return {"cases":[]}.',
+    'If unsure about a specific case, SKIP it rather than guess.',
+  ].join('\n');
+
+  const resp = await fetch('https://api.deepseek.com/v1/chat/completions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
+    body: JSON.stringify({
+      model: 'deepseek-chat',
+      messages: [{
+        role: 'user',
+        content: [
+          { type: 'text', text: promptText },
+          { type: 'image_url', image_url: { url: dataUrl } },
+        ],
+      }],
+      max_tokens: 2000,
+      temperature: 0.1,
+      response_format: { type: 'json_object' },
+    }),
+  });
+  if (!resp.ok) {
+    const txt = await resp.text().catch(() => '');
+    if (resp.status === 401) {
+      throw new Error('DeepSeek key invalid — re-enter');
+    }
+    if (resp.status === 400 && /image|vision|multimodal/i.test(txt)) {
+      throw new Error('DeepSeek model on this account doesn\'t support images yet.');
+    }
+    throw new Error(`DeepSeek ${resp.status}: ${txt.slice(0, 200)}`);
+  }
+  const data = await resp.json();
+  const content = data.choices?.[0]?.message?.content || '{}';
+  const cleaned = content.replace(/^```(?:json)?\s*|\s*```\s*$/g, '').trim();
+  let parsed;
+  try { parsed = JSON.parse(cleaned); }
+  catch { throw new Error('DeepSeek returned non-JSON'); }
+  if (!Array.isArray(parsed.cases)) return [];
+  return parsed.cases.filter(c => c && typeof c.caseNo === 'string' && /\d/.test(c.caseNo));
 }
 
 async function bulkImportCases() {
