@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-04-29T13:16:36Z",
+  "scraped_at": "2026-04-29T13:31:24Z",
   "for_dates": [
     "2026-04-29",
     "2026-04-30"
@@ -7,6 +7,20 @@
   "tracked_cases": 14,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "finals_30.04.2026.pdf",
+      "date": "2026-04-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_30.04.2026.pdf",
+      "date": "2026-04-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "rl30042026.pdf",
       "date": "2026-04-30",
@@ -107,20 +121,6 @@
     },
     {
       "file": "29042026m.pdf",
-      "date": "2026-04-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl29042026.pdf",
-      "date": "2026-04-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_29.04.2026.pdf",
       "date": "2026-04-29",
       "matched": 0,
       "regex_matches": 0,
