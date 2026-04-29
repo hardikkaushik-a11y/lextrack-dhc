@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-04-29T18:16:13Z",
+  "scraped_at": "2026-04-29T18:31:18Z",
   "for_dates": [
-    "2026-04-29",
-    "2026-04-30"
+    "2026-04-30",
+    "2026-05-01"
   ],
   "tracked_cases": 14,
   "matched_cases": 1,
@@ -82,41 +82,6 @@
       "date": "2026-04-30",
       "matched": 1,
       "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_for_today_29.04.pdf",
-      "date": "2026-04-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_for_29.04.26.pdf",
-      "date": "2026-04-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-9_for_29.04.26.pdf",
-      "date": "2026-04-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-8_for_29.04.26.pdf",
-      "date": "2026-04-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sups_29.04.2026.pdf",
-      "date": "2026-04-29",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
