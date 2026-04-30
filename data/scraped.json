@@ -282,7 +282,8 @@
     "additionalDates": [
       {
         "date": "2026-05-26",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -547,7 +548,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:01:47.354Z"
+    "lastScraped": "2026-04-30T10:01:37.380Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_331_2025",
@@ -622,7 +624,8 @@
     "additionalDates": [
       {
         "date": "2026-07-02",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -684,7 +687,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:01:54.955Z"
+    "lastScraped": "2026-04-30T10:01:44.801Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_89_2026",
@@ -745,11 +749,13 @@
     "additionalDates": [
       {
         "date": "2026-07-24",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       },
       {
         "date": "2026-08-10",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -790,7 +796,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:02:02.360Z"
+    "lastScraped": "2026-04-30T10:01:52.269Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_81_2026",
@@ -844,11 +851,13 @@
     "additionalDates": [
       {
         "date": "2026-07-24",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       },
       {
         "date": "2026-08-10",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -882,7 +891,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:02:09.815Z"
+    "lastScraped": "2026-04-30T10:01:59.716Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_313_2026",
@@ -916,7 +926,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:02:17.366Z"
+    "lastScraped": "2026-04-30T10:02:07.181Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_319_2026",
@@ -949,11 +960,13 @@
     "additionalDates": [
       {
         "date": "2026-05-19",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       },
       {
         "date": "2026-07-21",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -973,7 +986,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:02:24.816Z"
+    "lastScraped": "2026-04-30T10:02:14.647Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_756_2025",
@@ -1062,7 +1076,8 @@
     "additionalDates": [
       {
         "date": "2026-07-15",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -1138,7 +1153,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:02:32.358Z"
+    "lastScraped": "2026-04-30T10:02:22.868Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_810_2025",
@@ -1283,11 +1299,13 @@
     "additionalDates": [
       {
         "date": "2026-07-15",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       },
       {
         "date": "2026-07-21",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -1419,7 +1437,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:02:39.866Z"
+    "lastScraped": "2026-04-30T10:02:30.460Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_195_2026",
@@ -1459,11 +1478,13 @@
     "additionalDates": [
       {
         "date": "2026-04-30",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       },
       {
         "date": "2026-08-05",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -1490,7 +1511,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:02:47.400Z"
+    "lastScraped": "2026-04-30T10:02:37.997Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_582_2025",
@@ -1565,7 +1587,8 @@
     "additionalDates": [
       {
         "date": "2026-08-21",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -1627,7 +1650,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:02:56.101Z"
+    "lastScraped": "2026-04-30T10:02:45.499Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_1306_2025",
@@ -1660,11 +1684,13 @@
     "additionalDates": [
       {
         "date": "2026-05-06",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       },
       {
         "date": "2026-05-20",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -1684,7 +1710,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:03:03.582Z"
+    "lastScraped": "2026-04-30T10:02:53.030Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "caseNo": "CS(COMM)/1306/2026",
@@ -1816,7 +1843,8 @@
     "additionalDates": [
       {
         "date": "2026-04-30",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -1920,7 +1948,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:03:11.103Z"
+    "lastScraped": "2026-04-30T10:03:00.499Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_997_2025",
@@ -1974,7 +2003,8 @@
     "additionalDates": [
       {
         "date": "2026-07-16",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -2015,7 +2045,8 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:03:20.704Z"
+    "lastScraped": "2026-04-30T10:03:08.012Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
     "id": "m_CSCOMM_536_2025",
@@ -2111,7 +2142,8 @@
     "additionalDates": [
       {
         "date": "2026-08-14",
-        "before": "court"
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z"
       }
     ],
     "tasks": [],
@@ -2194,6 +2226,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T09:03:28.172Z"
+    "lastScraped": "2026-04-30T10:03:15.465Z",
+    "_scraperVersion": "v9-firstseen-2026-04-30"
   }
 ]
