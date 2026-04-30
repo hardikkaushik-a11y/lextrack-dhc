@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-04-30T09:31:18Z",
+  "scraped_at": "2026-04-30T09:45:54Z",
   "for_dates": [
     "2026-04-30",
     "2026-05-01"
   ],
   "tracked_cases": 14,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup-13_for_30.04.26.pdf",
+      "date": "2026-04-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup-12_for_30.04.26.pdf",
       "date": "2026-04-30",
@@ -97,28 +104,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_30.04.2026.pdf",
-      "date": "2026-04-30",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "46",
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 443,
-      "context": "46        CS(COMM)-195/2026    RELIANCE CONSUMER ISHI SINGH",
-      "caseNo": "CS(COMM)/195/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-195/2026",
-      "date": "2026-04-30",
-      "source_pdf": "combined_cause_list_30.04.2026.pdf"
-    }
-  ]
+  "entries": []
 }
