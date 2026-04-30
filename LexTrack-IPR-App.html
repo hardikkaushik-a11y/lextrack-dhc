@@ -2655,6 +2655,46 @@ function loadUserState() {
   } catch (e) { console.warn('LexTrack: failed to load user state:', e); }
 }
 
+// ── DELETED CASES TOMBSTONE ───────────────────────────────────────────────────
+// `matters = matters.filter(...)` only clears the in-memory array. Without a
+// tombstone, `loadScrapedData()` re-merges the case from scraped.json on the
+// next boot/sync, and the scraper itself keeps fetching it because cases.json
+// still lists it. The tombstone makes deletes survive sync until the user
+// re-adds the case via Case Lookup → Add to Daily Sync (which clears it).
+const DELETED_CASES_KEY = 'lextrack_deleted_cases_v1';
+const __normCaseNo = s => String(s || '').replace(/[\s\/]/g, '').toLowerCase();
+function getDeletedCases() {
+  try { return JSON.parse(localStorage.getItem(DELETED_CASES_KEY) || '[]'); }
+  catch { return []; }
+}
+function isCaseDeleted(caseNo) {
+  if (!caseNo) return false;
+  const target = __normCaseNo(caseNo);
+  return getDeletedCases().some(c => __normCaseNo(c) === target);
+}
+function addDeletedCase(caseNo) {
+  if (!caseNo) return;
+  const list = getDeletedCases();
+  if (!list.some(c => __normCaseNo(c) === __normCaseNo(caseNo))) {
+    list.push(caseNo);
+    try { localStorage.setItem(DELETED_CASES_KEY, JSON.stringify(list)); }
+    catch (e) { console.warn('LexTrack: failed to persist tombstone:', e); }
+  }
+}
+function removeDeletedCase(caseNo) {
+  if (!caseNo) return;
+  const target = __normCaseNo(caseNo);
+  const list = getDeletedCases().filter(c => __normCaseNo(c) !== target);
+  try { localStorage.setItem(DELETED_CASES_KEY, JSON.stringify(list)); }
+  catch (e) { console.warn('LexTrack: failed to persist tombstone:', e); }
+}
+function pruneDeletedFromMatters() {
+  if (!Array.isArray(matters) || !matters.length) return;
+  const before = matters.length;
+  matters = matters.filter(m => !isCaseDeleted(m.caseNo));
+  if (matters.length !== before) console.log(`LexTrack: pruned ${before - matters.length} tombstoned matter(s)`);
+}
+
 // ── AI INSIGHTS → CHECKLIST ROUTING ───────────────────────────────────────────
 // Routes AI-generated actionItems to m.tasks and documentsNeeded to
 // m.docsNeeded with idempotent dedup, so re-running analysis doesn't pile up
@@ -2741,11 +2781,21 @@ async function loadScrapedData() {
     const scraped = await res.json();
     if (!Array.isArray(scraped) || scraped.length === 0) throw new Error('Empty data');
 
+    // Drop any tombstoned matters that may still be sitting in the hardcoded
+    // placeholder array — the merge below also skips them, but pruning here
+    // means a delete is reflected in the dashboard immediately on the next
+    // boot, before scraped.json comes back.
+    pruneDeletedFromMatters();
+
     // Merge scraped data into matters:
     // - For each scraped case, update matching matter (by caseNo) OR add as new
     // - Preserve client, tasks, docsNeeded, notes Ishi added manually
+    // - Skip any case the user has explicitly deleted (tombstone). The scraper
+    //   may still emit it until cases.json is updated; we ignore those entries
+    //   so deletes feel permanent in the UI.
     scraped.forEach(fresh => {
       if (fresh.error) return; // skip failed scrapes
+      if (isCaseDeleted(fresh.caseNo)) return; // tombstoned — don't re-add
       const norm = s => s.replace(/[\s\/]/g,'').toLowerCase();
       const idx = matters.findIndex(m => norm(m.caseNo) === norm(fresh.caseNo));
       if (idx >= 0) {
@@ -5320,6 +5370,11 @@ async function resumeInFlightSync() {
 }
 
 async function addToScraper(caseNo) {
+  // Re-adding a case un-tombstones it so the next loadScrapedData() merge
+  // accepts it again. Otherwise the case would show up in cases.json but
+  // never reach the dashboard.
+  removeDeletedCase(caseNo);
+
   let token = getGitHubToken();
   if (!token) {
     token = setupGitHubToken();
@@ -5399,6 +5454,56 @@ async function addToScraper(caseNo) {
   } catch(err) {
     toast(`Failed: ${err.message}`, 'error');
     console.error(err);
+  }
+}
+
+// ── REMOVE CASE FROM GITHUB SCRAPER CONFIG ───────────────────────────────────
+// Mirror of addToScraper for the delete path. Best-effort: if the user has no
+// GitHub PAT we still tombstone locally (so the case disappears from the
+// dashboard) but skip the cases.json edit and surface a soft hint that the
+// scraper will keep fetching it until they remove it manually.
+async function removeFromScraper(caseNo, { silent = false } = {}) {
+  const token = getGitHubToken();
+  if (!token) {
+    if (!silent) toast('Removed locally — set GitHub token to also stop scraping', '');
+    return false;
+  }
+  try {
+    const ghHeaders = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' };
+    const fileRes = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_CONFIG_PATH}?ref=${GH_BRANCH}`, { headers: ghHeaders });
+    if (!fileRes.ok) {
+      if (fileRes.status === 401) { localStorage.removeItem('lextrack_gh_token'); throw new Error('Invalid token — re-enter it'); }
+      throw new Error(`GitHub read failed (${fileRes.status})`);
+    }
+    const fileData = await fileRes.json();
+    const cases = JSON.parse(atob(fileData.content.replace(/\n/g,'')));
+
+    const norm = s => String(s || '').replace(/[\s\/]/g,'').toLowerCase();
+    const target = norm(caseNo);
+    const filtered = cases.filter(c => norm(c) !== target);
+    if (filtered.length === cases.length) {
+      // Not in cases.json — manual matter, no scraper touch needed.
+      return true;
+    }
+
+    const newContent = btoa(JSON.stringify(filtered, null, 2) + '\n');
+    const writeRes = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_CONFIG_PATH}`, {
+      method: 'PUT',
+      headers: { ...ghHeaders, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: `chore: remove ${caseNo} from scraper config (via app)`,
+        content: newContent,
+        sha: fileData.sha,
+        branch: GH_BRANCH
+      })
+    });
+    if (!writeRes.ok) throw new Error(`GitHub write failed (${writeRes.status})`);
+    if (!silent) toast(`✓ ${caseNo} removed from daily sync`, 'success');
+    return true;
+  } catch (err) {
+    if (!silent) toast(`Couldn't update scraper: ${err.message}`, 'error');
+    console.error('removeFromScraper:', err);
+    return false;
   }
 }
 
@@ -5857,13 +5962,20 @@ function addMatter() {
 function confirmDelete(id) {
   const m = matters.find(x => x.id === id);
   if (!m) return;
-  document.getElementById('confirm-sub').textContent = `"${m.title}" (${m.caseNo}) and all linked tasks will be removed.`;
-  document.getElementById('confirm-action-btn').onclick = () => {
+  document.getElementById('confirm-sub').textContent = `"${m.title}" (${m.caseNo}) will be removed from the dashboard AND from the daily DHC scraper. Re-add it later via Case Lookup if needed.`;
+  document.getElementById('confirm-action-btn').onclick = async () => {
+    // 1) Tombstone locally so loadScrapedData() won't re-merge it on next sync.
+    if (m.caseNo) addDeletedCase(m.caseNo);
+    // 2) Remove from in-memory list so the UI updates immediately.
     matters = matters.filter(x => x.id !== id);
     closeModal('confirm-modal');
     toast('Matter deleted', 'success');
     if (document.getElementById('view-detail').classList.contains('active')) showView('dashboard');
     else { renderDashboard(); renderAllMatters(); }
+    // 3) Best-effort: also strip it from config/cases.json so the scraper
+    //    stops fetching it. Runs after the UI has already updated so the
+    //    user doesn't wait on a network round-trip.
+    if (m.caseNo) removeFromScraper(m.caseNo).catch(err => console.warn('removeFromScraper failed:', err));
   };
   openModal('confirm-modal');
 }
@@ -5934,6 +6046,10 @@ document.getElementById('f-year').value = currentYear;
 
 // Restore user-saved tasks/docsNeeded/notes from localStorage BEFORE first render
 loadUserState();
+
+// Drop any tombstoned matters from the hardcoded placeholder array so a
+// previously-deleted case never flashes into view on cold boot.
+pruneDeletedFromMatters();
 
 // Seed view history so swipe-back from the first navigation has a home base
 __pushHistory('dashboard');

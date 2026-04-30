@@ -246,9 +246,23 @@ async function runDiffMode() {
     // Dedup: if the cause-list already has this date for this matter, the
     // user is already getting / will get the cause-list push. Skip the
     // additionalDates push to avoid two notifications for the same hearing.
+    //
+    // Freshness gate: only push if the scraper observed this listing for
+    // the first time today. `firstSeenAt` is stamped in src/scraper.js
+    // and carried forward across runs. Without this, any improvement to
+    // extractListingDates() retroactively floods the user with pushes for
+    // dates that have been on the case-history page for weeks (the user
+    // hit this once on 2026-04-29 after pageText extraction shipped).
+    const todayISO = new Date().toISOString().slice(0, 10);
     const oldAdd = new Set((old.additionalDates || []).map(e => `${e.date}|${e.before}`));
     const newAdd = (m.additionalDates || []).filter(e => !oldAdd.has(`${e.date}|${e.before}`));
     for (const e of newAdd) {
+      // Only "first seen today" counts as a new listing worth pushing.
+      // Missing firstSeenAt → legacy entry, treat as old (don't push).
+      if (!e.firstSeenAt || !e.firstSeenAt.startsWith(todayISO)) {
+        console.log(`  ↷ skip additionalDates push: ${m.caseNo} ${e.date} not first-seen today (${e.firstSeenAt || 'legacy'})`);
+        continue;
+      }
       const inCauseList = (causeNow.entries || []).some(c =>
         shortCase(c.caseNo) === shortCase(m.caseNo) && c.date === e.date
       );

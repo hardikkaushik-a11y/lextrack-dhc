@@ -22,6 +22,13 @@ const ORDER_TEXT_LIMIT = 6000;       // chars of extracted text per order
 const PDF_CONCURRENCY  = 4;          // simultaneous PDF fetches per case
                                      // — don't hammer DHC but still finish in reasonable time
 
+// Bump this whenever extractListingDates() or the surfaces it scans (orders,
+// pageText, etc.) change. send-push.js uses it to decide whether a date
+// missing from the prior scrape is a genuine new event (push) or just an
+// artifact of the new logic seeing old data (silence). See buildCaseObject
+// for the detailed rationale.
+const SCRAPER_LOGIC_VERSION = 'v9-firstseen-2026-04-30';
+
 // Module-level lookup map for AI-extracted order intelligence cache.
 // Populated by main() before the scrape loop. scrapeCase reads it and
 // passes the matching prior entry into buildCaseObject so already-
@@ -827,6 +834,28 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
   // separate IA was disposed on 15.04.2026 without speaking to that
   // JR listing. Scanning only the latest order missed 29.04.2026.
   const todayISO = new Date().toISOString().slice(0, 10);
+  const nowISO = new Date().toISOString();
+  // Carry forward `firstSeenAt` from the prior scrape so we can tell the
+  // push layer "this date was first observed today" vs. "we already knew
+  // about this last week, just re-emitted."
+  //
+  // The discriminator for "genuinely new event vs. regex artifact" is the
+  // scraper logic version. If priorEntry was written by the SAME version,
+  // then any date missing from it is a real new event (cause list changed,
+  // new order uploaded) — push. If priorEntry was written by an OLDER
+  // version, missing dates might just mean "today's regex is smarter," so
+  // silence them. Without this gate, every scraper logic ship flooded the
+  // user (Ishi hit this once on 2026-04-29 after pageText extraction).
+  //
+  // Bump SCRAPER_LOGIC_VERSION whenever extractListingDates or the scan
+  // surfaces change. The first sync after a bump silences additionalDates
+  // pushes for the affected cases; subsequent syncs work normally.
+  const priorAddByKey = new Map();
+  for (const e of (priorEntry?.additionalDates || [])) {
+    if (e && e.date && e.before) priorAddByKey.set(`${e.date}|${e.before}`, e);
+  }
+  const sameLogicVersion = priorEntry?._scraperVersion === SCRAPER_LOGIC_VERSION;
+  const OLD_SENTINEL = '2000-01-01T00:00:00Z';
   const seenAdd = new Set();
   const additionalDates = [];
   let fromOrders = 0, fromHistory = 0;
@@ -837,6 +866,13 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
       const key = `${e.date}|${e.before}`;
       if (seenAdd.has(key)) continue;
       seenAdd.add(key);
+      const prior = priorAddByKey.get(key);
+      // Prior carries firstSeenAt → reuse (date is old).
+      // Prior exists but no firstSeenAt → legacy entry, treat as old.
+      // No prior + same logic version → genuinely new event today → push-eligible.
+      // No prior + older/missing logic version → could be regex artifact → silence.
+      e.firstSeenAt = prior?.firstSeenAt
+        || (prior ? OLD_SENTINEL : (sameLogicVersion ? nowISO : OLD_SENTINEL));
       additionalDates.push(e);
       fromOrders++;
     }
@@ -857,13 +893,21 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
       const key = `${e.date}|${e.before}`;
       if (seenAdd.has(key)) continue;
       seenAdd.add(key);
+      const prior = priorAddByKey.get(key);
+      // Prior carries firstSeenAt → reuse (date is old).
+      // Prior exists but no firstSeenAt → legacy entry, treat as old.
+      // No prior + same logic version → genuinely new event today → push-eligible.
+      // No prior + older/missing logic version → could be regex artifact → silence.
+      e.firstSeenAt = prior?.firstSeenAt
+        || (prior ? OLD_SENTINEL : (sameLogicVersion ? nowISO : OLD_SENTINEL));
       additionalDates.push(e);
       fromHistory++;
     }
   }
   additionalDates.sort((a, b) => a.date.localeCompare(b.date));
   if (additionalDates.length) {
-    console.log(`  [listings] +${additionalDates.length} (orders:${fromOrders}, history:${fromHistory}): ${additionalDates.map(d => d.date + '(' + d.before + ')').join(', ')}`);
+    const newToday = additionalDates.filter(d => d.firstSeenAt && d.firstSeenAt.startsWith(todayISO)).length;
+    console.log(`  [listings] +${additionalDates.length} (orders:${fromOrders}, history:${fromHistory}, new-today:${newToday}): ${additionalDates.map(d => d.date + '(' + d.before + ')').join(', ')}`);
   }
 
   const docs = orders.map(o => ({
@@ -913,7 +957,11 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
     additionalDates,
     tasks:       [],
     docs,
-    lastScraped: new Date().toISOString()
+    lastScraped: new Date().toISOString(),
+    // Stamped so send-push.js can tell whether absence of a date in the
+    // prior run was a real "didn't happen yet" or just "older logic
+    // didn't extract it." See SCRAPER_LOGIC_VERSION declaration up top.
+    _scraperVersion: SCRAPER_LOGIC_VERSION
   };
 }
 
