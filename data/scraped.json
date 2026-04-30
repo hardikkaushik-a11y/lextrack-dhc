@@ -548,7 +548,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:01:15.925Z",
+    "lastScraped": "2026-04-30T15:01:22.106Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -687,7 +687,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:01:23.328Z",
+    "lastScraped": "2026-04-30T15:01:29.590Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -796,7 +796,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:01:30.704Z",
+    "lastScraped": "2026-04-30T15:01:37.132Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -891,7 +891,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:01:38.130Z",
+    "lastScraped": "2026-04-30T15:01:44.690Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -926,7 +926,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:01:45.603Z",
+    "lastScraped": "2026-04-30T15:01:52.247Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -986,7 +986,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:01:53.068Z",
+    "lastScraped": "2026-04-30T15:01:59.680Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -1153,7 +1153,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:02:00.611Z",
+    "lastScraped": "2026-04-30T15:02:07.216Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -1437,7 +1437,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:02:08.548Z",
+    "lastScraped": "2026-04-30T15:02:14.767Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -1450,7 +1450,7 @@
     "judge": null,
     "client": null,
     "lastDate": "2026-04-23",
-    "nextDate": "2026-08-05",
+    "nextDate": "2026-09-15",
     "notes": null,
     "timeline": [
       {
@@ -1511,7 +1511,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:02:16.119Z",
+    "lastScraped": "2026-04-30T15:02:22.382Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -1650,7 +1650,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:02:23.538Z",
+    "lastScraped": "2026-04-30T15:02:29.864Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -1710,7 +1710,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:02:46.734Z",
+    "lastScraped": "2026-04-30T15:02:37.431Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -1731,7 +1731,7 @@
     "judge": null,
     "client": null,
     "lastDate": "2026-04-29",
-    "nextDate": "2026-04-30",
+    "nextDate": "2026-09-16",
     "notes": null,
     "timeline": [
       {
@@ -1948,7 +1948,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:02:54.154Z",
+    "lastScraped": "2026-04-30T15:02:45.016Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   },
   {
@@ -2226,7 +2226,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-04-30T14:03:01.691Z",
+    "lastScraped": "2026-04-30T15:02:52.653Z",
     "_scraperVersion": "v9-firstseen-2026-04-30"
   }
 ]
