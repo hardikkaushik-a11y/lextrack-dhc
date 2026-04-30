@@ -1,40 +1,11 @@
 {
-  "scraped_at": "2026-04-30T19:00:55Z",
+  "scraped_at": "2026-04-30T19:16:39Z",
   "for_dates": [
     "2026-05-01",
     "2026-05-02"
   ],
   "tracked_cases": 13,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "jud_02052026.pdf",
-      "date": "2026-05-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_final_02.05.pdf",
-      "date": "2026-05-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "cause_list_for_02.05.2026.pdf.pdf",
-      "date": "2026-05-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "cause_list_for_02.05.2026.pdf",
-      "date": "2026-05-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
