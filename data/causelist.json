@@ -1,64 +1,36 @@
 {
-  "scraped_at": "2026-04-30T18:15:40Z",
+  "scraped_at": "2026-04-30T18:30:50Z",
   "for_dates": [
-    "2026-04-30",
-    "2026-05-01"
+    "2026-05-01",
+    "2026-05-02"
   ],
   "tracked_cases": 13,
   "matched_cases": 0,
   "sources": [
     {
-      "file": "sup-13_for_30.04.26.pdf",
-      "date": "2026-04-30",
+      "file": "jud_02052026.pdf",
+      "date": "2026-05-02",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "sup-12_for_30.04.26.pdf",
-      "date": "2026-04-30",
+      "file": "sup_final_02.05.pdf",
+      "date": "2026-05-02",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "sup-11_for_30.04.26.pdf",
-      "date": "2026-04-30",
+      "file": "cause_list_for_02.05.2026.pdf.pdf",
+      "date": "2026-05-02",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "sup_9_10_for_30.04.26.pdf",
-      "date": "2026-04-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_30.04.2026_1.pdf",
-      "date": "2026-04-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_30042026.pdf",
-      "date": "2026-04-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "last_suppl.30.04.2026.pdf",
-      "date": "2026-04-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_30.04.2026.pdf",
-      "date": "2026-04-30",
+      "file": "cause_list_for_02.05.2026.pdf",
+      "date": "2026-05-02",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
