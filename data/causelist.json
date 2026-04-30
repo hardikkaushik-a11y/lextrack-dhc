@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-04-30T12:31:03Z",
+  "scraped_at": "2026-04-30T12:45:53Z",
   "for_dates": [
     "2026-04-30",
     "2026-05-01"
@@ -79,13 +79,6 @@
     },
     {
       "file": "combined_targetted_30.04.2026.pdf",
-      "date": "2026-04-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_30.04.2026.pdf",
       "date": "2026-04-30",
       "matched": 0,
       "regex_matches": 0,
