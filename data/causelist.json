@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-04-30T16:30:55Z",
+  "scraped_at": "2026-04-30T16:45:54Z",
   "for_dates": [
     "2026-04-30",
     "2026-05-01"
@@ -58,13 +58,6 @@
     },
     {
       "file": "deletion_note_30.04.2026.pdf",
-      "date": "2026-04-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_30.04.2026.pdf",
       "date": "2026-04-30",
       "matched": 0,
       "regex_matches": 0,
