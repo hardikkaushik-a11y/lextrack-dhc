@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-02T06:30:55Z",
+  "scraped_at": "2026-05-02T06:45:48Z",
   "for_dates": [
     "2026-05-02",
     "2026-05-03"
@@ -7,6 +7,20 @@
   "tracked_cases": 13,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup-6_for_02.05.26.pdf",
+      "date": "2026-05-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "7777-zzaa_02-05-2026-1.pdf",
+      "date": "2026-05-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "jud_02052026.pdf",
       "date": "2026-05-02",
