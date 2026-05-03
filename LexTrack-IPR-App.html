@@ -5416,18 +5416,18 @@ async function addToScraper(caseNo) {
     });
     if (!writeRes.ok) throw new Error(`GitHub write failed (${writeRes.status})`);
 
-    // 4. Trigger the scraper workflow in single-case mode (fast path: ~30-60s)
+    // 4. Trigger a FULL DHC sync. We used to dispatch with `case_no` so the
+    //    scraper ran in single-case fast-path mode, but the user wants every
+    //    add to refresh ALL tracked cases — single-case mode left the rest
+    //    of the dashboard going stale until the next 30-min cron tick.
     const triggerRes = await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/sync-all.yml/dispatches`, {
       method: 'POST',
       headers: { ...ghHeaders, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        ref: GH_BRANCH,
-        inputs: { case_no: caseNo }   // ← scraper only runs for this case
-      })
+      body: JSON.stringify({ ref: GH_BRANCH, inputs: {} })
     });
     if (!triggerRes.ok) console.warn('Workflow dispatch failed', triggerRes.status);
 
-    toast(`✓ ${caseNo} added — scraping now, data appears in ~60s`, 'success');
+    toast(`✓ ${caseNo} added — full DHC sync running, ~3 min`, 'success');
 
     // Add a placeholder so it shows up immediately
     const parsed = caseNo.match(/^(.+?)\/(\d+)\/(\d{4})$/);
@@ -5444,12 +5444,12 @@ async function addToScraper(caseNo) {
 
     showView('matters');
 
-    // Auto-refresh scraped data after 75s — the single-case run should be done by then
+    // Auto-refresh scraped data after ~3 min — the full sync should be done.
     setTimeout(async () => {
       toast('Pulling fresh data from DHC...', '');
       await loadScrapedData();
       toast(`✓ ${caseNo} now live`, 'success');
-    }, 75000);
+    }, 180000);
 
   } catch(err) {
     toast(`Failed: ${err.message}`, 'error');
@@ -5938,6 +5938,9 @@ function addMatter() {
   const caseNo = `${prefix}/${number}/${year}`;
   document.getElementById('f-caseno').value = caseNo;
 
+  // Re-adding a previously deleted case via "+ New Matter" un-tombstones it.
+  removeDeletedCase(caseNo);
+
   matters.push({
     id: 'm' + Date.now(),
     title,
@@ -5954,9 +5957,77 @@ function addMatter() {
   });
 
   closeModal('add-modal');
-  toast('Matter added', 'success');
+  toast('Matter added — registering with DHC scraper…', 'success');
   renderDashboard();
   if (document.getElementById('all-matters-list')) renderAllMatters();
+
+  // Push to config/cases.json + dispatch a full DHC sync so the new matter
+  // gets real hearing dates / orders / cause-list matches on the next run.
+  // Best-effort: if the user hasn't set a GitHub token yet, the matter still
+  // exists locally and they can wire the scraper later.
+  registerWithDhcScraper(caseNo).catch(err => console.warn('addMatter scraper hookup:', err));
+}
+
+// Shared "push caseNo to config/cases.json + dispatch full sync-all" helper.
+// Used by both addMatter (manual entry) and addToScraper (Case Lookup) so
+// either path lands the case in the daily scraper AND kicks off a full
+// refresh — the user explicitly wants every add to trigger SYNC ALL, not
+// just a single-case fast-path. Returns true on success.
+async function registerWithDhcScraper(caseNo) {
+  let token = getGitHubToken();
+  if (!token) {
+    // Don't gate the manual add on a GitHub PAT prompt — the matter still
+    // saves locally. Surface a hint so the user knows the scraper isn't
+    // wired up yet, and can configure later.
+    toast('Saved locally — set GitHub token (Case Lookup → Add to Sync) to also scrape', '');
+    return false;
+  }
+  try {
+    const ghHeaders = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' };
+    const fileRes = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_CONFIG_PATH}?ref=${GH_BRANCH}`, { headers: ghHeaders });
+    if (!fileRes.ok) {
+      if (fileRes.status === 401) { localStorage.removeItem('lextrack_gh_token'); throw new Error('Invalid token — re-enter it'); }
+      throw new Error(`GitHub read failed (${fileRes.status})`);
+    }
+    const fileData = await fileRes.json();
+    const cases = JSON.parse(atob(fileData.content.replace(/\n/g,'')));
+    const norm = s => String(s || '').replace(/[\s\/]/g,'').toLowerCase();
+    const alreadyTracked = cases.some(c => norm(c) === norm(caseNo));
+
+    if (!alreadyTracked) {
+      cases.push(caseNo);
+      const newContent = btoa(JSON.stringify(cases, null, 2) + '\n');
+      const writeRes = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_CONFIG_PATH}`, {
+        method: 'PUT',
+        headers: { ...ghHeaders, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: `feat: add ${caseNo} to scraper config (via app)`,
+          content: newContent,
+          sha: fileData.sha,
+          branch: GH_BRANCH
+        })
+      });
+      if (!writeRes.ok) throw new Error(`GitHub write failed (${writeRes.status})`);
+    }
+
+    // Dispatch a full sync (not single-case mode) — every add triggers SYNC ALL.
+    await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/sync-all.yml/dispatches`, {
+      method: 'POST',
+      headers: { ...ghHeaders, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ref: GH_BRANCH, inputs: {} })
+    });
+    toast(`✓ ${caseNo} ${alreadyTracked ? 'sync triggered' : 'added to daily sync'} — ~3 min`, 'success');
+
+    // Auto-refresh scraped data once the sync should be done.
+    setTimeout(async () => {
+      try { await loadScrapedData(); } catch (e) { /* ignore */ }
+    }, 180000);
+    return true;
+  } catch (err) {
+    console.error('registerWithDhcScraper:', err);
+    toast(`Scraper hookup failed: ${err.message}`, 'error');
+    return false;
+  }
 }
 
 function confirmDelete(id) {
