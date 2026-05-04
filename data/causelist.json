@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-04T09:49:06Z",
+  "scraped_at": "2026-05-04T10:04:51Z",
   "for_dates": [
     "2026-05-04",
     "2026-05-05"
@@ -100,13 +100,6 @@
     },
     {
       "file": "original_side_finals_list_04.05.2026.pdf",
-      "date": "2026-05-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_matters_cause_list_04052026.pdf",
       "date": "2026-05-04",
       "matched": 0,
       "regex_matches": 0,
