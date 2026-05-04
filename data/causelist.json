@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-04T12:31:51Z",
+  "scraped_at": "2026-05-04T12:46:26Z",
   "for_dates": [
     "2026-05-04",
     "2026-05-05"
@@ -7,6 +7,27 @@
   "tracked_cases": 14,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "rl05052026.pdf",
+      "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_05.05.2026.pdf",
+      "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_05052026.pdf",
+      "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "c_05052026.pdf",
       "date": "2026-05-05",
@@ -79,27 +100,6 @@
     },
     {
       "file": "combined_adv_04.05.2026.pdf",
-      "date": "2026-05-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_04.05.2026.pdf",
-      "date": "2026-05-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_2nd_04.05.2026.pdf",
-      "date": "2026-05-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "cl04052026.pdf",
       "date": "2026-05-04",
       "matched": 0,
       "regex_matches": 0,
