@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-04T12:01:36Z",
+  "scraped_at": "2026-05-04T12:16:44Z",
   "for_dates": [
     "2026-05-04",
     "2026-05-05"
@@ -7,6 +7,13 @@
   "tracked_cases": 14,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "c_05052026.pdf",
+      "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_advance_list_for_05.05.2026.pdf",
       "date": "2026-05-05",
@@ -93,13 +100,6 @@
     },
     {
       "file": "cl04052026.pdf",
-      "date": "2026-05-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "original_side_finals_list_04.05.2026.pdf",
       "date": "2026-05-04",
       "matched": 0,
       "regex_matches": 0,
