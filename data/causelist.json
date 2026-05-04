@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-04T07:47:49Z",
+  "scraped_at": "2026-05-04T08:03:24Z",
   "for_dates": [
     "2026-05-04",
     "2026-05-05"
@@ -38,9 +38,7 @@
     {
       "file": "registrar_supply_list_04.05.2026_1.pdf",
       "date": "2026-05-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup-6_trf_matters_for_04.05.26.pdf",
@@ -73,7 +71,9 @@
     {
       "file": "deletion_note_04.05.2026.pdf",
       "date": "2026-05-04",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_2nd_04.05.2026.pdf",
