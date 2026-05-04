@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-04T07:20:06Z",
+  "scraped_at": "2026-05-04T07:47:49Z",
   "for_dates": [
     "2026-05-04",
     "2026-05-05"
@@ -10,6 +10,13 @@
     {
       "file": "combined_advance_list_for_05.05.2026.pdf",
       "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-9_db-dfx_trf_matters_for_04.05.26.pdf",
+      "date": "2026-05-04",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -66,9 +73,7 @@
     {
       "file": "deletion_note_04.05.2026.pdf",
       "date": "2026-05-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup_2nd_04.05.2026.pdf",
