@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-04T13:01:40Z",
+  "scraped_at": "2026-05-04T13:16:12Z",
   "for_dates": [
     "2026-05-04",
     "2026-05-05"
@@ -7,6 +7,13 @@
   "tracked_cases": 14,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "j_05052026.pdf",
+      "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "rl05052026.pdf",
       "date": "2026-05-05",
@@ -93,13 +100,6 @@
     },
     {
       "file": "combined_pronouncement_04052026.pdf",
-      "date": "2026-05-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_04.05.2026.pdf",
       "date": "2026-05-04",
       "matched": 0,
       "regex_matches": 0,
