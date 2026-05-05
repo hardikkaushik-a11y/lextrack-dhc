@@ -1,11 +1,138 @@
 {
-  "scraped_at": "2026-05-05T16:01:58Z",
+  "scraped_at": "2026-05-05T16:32:16Z",
   "for_dates": [
     "2026-05-05",
     "2026-05-06"
   ],
   "tracked_cases": 14,
-  "matched_cases": 0,
-  "sources": [],
-  "entries": []
+  "matched_cases": 1,
+  "sources": [
+    {
+      "file": "deletion_note_06.05.2026.pdf",
+      "date": "2026-05-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_fnl_2_06.05.26.pdf",
+      "date": "2026-05-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_fnl_06.05.26.pdf",
+      "date": "2026-05-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro_for_06.05.2026.pdf",
+      "date": "2026-05-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "supple-1_for_06.05.2026.pdf",
+      "date": "2026-05-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_06.05.2026.pdf",
+      "date": "2026-05-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "old_target_matters_for_06.05.2026.pdf",
+      "date": "2026-05-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl06052026.pdf",
+      "date": "2026-05-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "cause_list_for_06.05.2026.pdf",
+      "date": "2026-05-06",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_06.05.2026.pdf",
+      "date": "2026-05-06",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_10_for_05.05.26.pdf",
+      "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sups_05.05.2026.pdf",
+      "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "today_jr_suppl._judicial_05052026_sine.pdf",
+      "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_renu_bhatnagar_05.05.2026.pdf",
+      "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_suppl.05.05.2026.pdf",
+      "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_05.05.2026.pdf",
+      "date": "2026-05-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    }
+  ],
+  "entries": [
+    {
+      "item": "5",
+      "court": "48",
+      "judge": "TUSHAR RAO GEDELA NOTE",
+      "time": null,
+      "page": 471,
+      "context": "5        CS(COMM)-1306/2025 DAZN LIMITED & AISHWARYA KAUSHIQ,",
+      "caseNo": "CS(COMM)/1306/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-1306/2025",
+      "date": "2026-05-06",
+      "source_pdf": "cause_list_for_06.05.2026.pdf"
+    }
+  ]
 }
