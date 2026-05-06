@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-06T06:46:33Z",
+  "scraped_at": "2026-05-06T07:02:03Z",
   "for_dates": [
     "2026-05-06",
     "2026-05-07"
@@ -7,6 +7,13 @@
   "tracked_cases": 14,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "sup-14_trf_matters_for_06.05.26.pdf",
+      "date": "2026-05-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_adv_list_07.05.2026.pdf",
       "date": "2026-05-07",
