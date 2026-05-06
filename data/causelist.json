@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-05-06T18:16:26Z",
+  "scraped_at": "2026-05-06T18:31:29Z",
   "for_dates": [
-    "2026-05-06",
-    "2026-05-07"
+    "2026-05-07",
+    "2026-05-08"
   ],
   "tracked_cases": 14,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_adv_list_08.05.2026.pdf",
+      "date": "2026-05-08",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "jud_07052026.pdf",
       "date": "2026-05-07",
@@ -64,61 +71,26 @@
       "norm_matches": 0
     },
     {
-      "file": "sup-14_trf_matters_for_06.05.26.pdf",
-      "date": "2026-05-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
       "file": "combined_adv_list_07.05.2026.pdf",
       "date": "2026-05-07",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_06.05.2026-11.pdf",
-      "date": "2026-05-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_suppl._judicial_06052026_sine.pdf",
-      "date": "2026-05-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_db_06.05.pdf",
-      "date": "2026-05-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_06.05.2026.pdf",
-      "date": "2026-05-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_fnl_2_06.05.26.pdf",
-      "date": "2026-05-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_fnl_06.05.26.pdf",
-      "date": "2026-05-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "21",
+      "court": "47",
+      "judge": "TUSHAR RAO GEDELA NOTE",
+      "time": null,
+      "page": 333,
+      "context": "21        CS(COMM)-977/2025 JIOSTAR INDIA       GEETANJALI",
+      "caseNo": "CS(COMM)/977/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-977/2025",
+      "date": "2026-05-08",
+      "source_pdf": "combined_adv_list_08.05.2026.pdf"
+    }
+  ]
 }
