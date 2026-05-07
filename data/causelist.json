@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-07T05:46:26Z",
+  "scraped_at": "2026-05-07T06:01:43Z",
   "for_dates": [
     "2026-05-07",
     "2026-05-08"
@@ -12,6 +12,13 @@
       "date": "2026-05-08",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "today_jr_supp._judicial_07052026_sine.pdf",
+      "date": "2026-05-07",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
