@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-07T07:46:24Z",
+  "scraped_at": "2026-05-07T08:01:35Z",
   "for_dates": [
     "2026-05-07",
     "2026-05-08"
@@ -93,13 +93,6 @@
     },
     {
       "file": "combined_cause_lsit_07.05.2026.pdf",
-      "date": "2026-05-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_07.05.2026.pdf",
       "date": "2026-05-07",
       "matched": 0,
       "regex_matches": 0,
