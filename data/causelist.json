@@ -1,17 +1,24 @@
 {
-  "scraped_at": "2026-05-07T09:47:01Z",
+  "scraped_at": "2026-05-07T10:01:18Z",
   "for_dates": [
     "2026-05-07",
     "2026-05-08"
   ],
   "tracked_cases": 14,
-  "matched_cases": 3,
+  "matched_cases": 1,
   "sources": [
     {
       "file": "combined_adv_list_08.05.2026.pdf",
       "date": "2026-05-08",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_14_for_07.05.26.pdf",
+      "date": "2026-05-07",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -97,13 +104,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_lsit_07.05.2026.pdf",
-      "date": "2026-05-07",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -119,32 +119,6 @@
       "matched_on": "CS(COMM)-977/2025",
       "date": "2026-05-08",
       "source_pdf": "combined_adv_list_08.05.2026.pdf"
-    },
-    {
-      "item": null,
-      "court": "48",
-      "judge": "TUSHAR RAO GEDELA NOTE",
-      "time": null,
-      "page": 688,
-      "context": "In CS(COMM)-      V/s SERIALMAZA.MY &         MAYA, PRIYANSH\n             810/2025          ORS.                        KOHLI, MANISH",
-      "caseNo": "CS(COMM)/810/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-      V/s SERIALMAZA.MY &         MAYA, PRIYANSH\n             810/2025",
-      "date": "2026-05-07",
-      "source_pdf": "combined_cause_lsit_07.05.2026.pdf"
-    },
-    {
-      "item": null,
-      "court": "48",
-      "judge": "TUSHAR RAO GEDELA NOTE",
-      "time": null,
-      "page": 692,
-      "context": "In CS(COMM)-    LTD                        KUMAR, R MAYA,\n        108/2025        V/s IPTV SMARTER           AVISH SHARMA,",
-      "caseNo": "CS(COMM)/108/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-    LTD                        KUMAR, R MAYA,\n        108/2025",
-      "date": "2026-05-07",
-      "source_pdf": "combined_cause_lsit_07.05.2026.pdf"
     }
   ]
 }
