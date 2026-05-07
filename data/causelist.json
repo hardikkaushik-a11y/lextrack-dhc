@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-07T13:01:37Z",
+  "scraped_at": "2026-05-07T13:16:19Z",
   "for_dates": [
     "2026-05-07",
     "2026-05-08"
@@ -7,6 +7,13 @@
   "tracked_cases": 14,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "deletion_combined_08052026.pdf",
+      "date": "2026-05-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "new_c_08052026.pdf",
       "date": "2026-05-08",
@@ -86,20 +93,6 @@
     },
     {
       "file": "jud_07052026.pdf",
-      "date": "2026-05-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_07.05.2026.pdf",
-      "date": "2026-05-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_07.05.2026.pdf",
       "date": "2026-05-07",
       "matched": 0,
       "regex_matches": 0,
