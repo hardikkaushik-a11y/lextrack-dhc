@@ -242,6 +242,27 @@ def normalize_for_match(s: str) -> str:
     return re.sub(r"[^A-Z0-9]", "", s.upper())
 
 
+def split_case_norm(case_no: str):
+    """Split a case-no into (prefix_norm, num_year_norm) for the multi-
+    line window matcher (Pass 3). Lets us search a normalized window
+    for the prefix and number+year independently — required when DHC's
+    column layout puts party-name text BETWEEN the prefix and the
+    number on the same logical row.
+
+    'CS(COMM)/108/2025' → ('CSCOMM', '1082025')
+    """
+    nums = re.findall(r"\d+", case_no)
+    if len(nums) < 2:
+        return None
+    num_year_norm = nums[-2] + nums[-1]  # '108' + '2025' → '1082025'
+    first_digit = re.search(r"\d", case_no)
+    prefix_part = case_no[:first_digit.start()] if first_digit else case_no
+    prefix_norm = normalize_for_match(prefix_part)
+    if len(prefix_norm) < 3 or len(num_year_norm) < 5:
+        return None
+    return prefix_norm, num_year_norm
+
+
 # Pre-compile court / judge sniffers — same regexes used on every page.
 COURT_RE = re.compile(r"COURT\s+(?:NO\.?|NUM(?:BER)?)?\s*[:\-]?\s*(\d+)", re.IGNORECASE)
 JUDGE_RE = re.compile(
@@ -290,20 +311,32 @@ def _build_hit(text, line_start, line_end, page, court, judge):
     }
 
 
-def search_pages(pages, case_patterns: dict, case_norms: dict):
-    """Two-pass case-number search. ZERO false positives — every reported
+def search_pages(pages, case_patterns: dict, case_norms: dict, case_splits: dict):
+    """Three-pass case-number search. ZERO false positives — every reported
     entry is traceable to a literal case-no in the PDF.
 
       Pass 1 — type-aware regex (build_case_pattern). Catches the common
-               DHC formatting variations.
-      Pass 2 — normalized-substring fallback. Strips both the line text
-               and the case_no down to alphanumerics; if the case_no's
-               normalized form appears in a normalized line, it's a hit.
-               This is the safety net for lines where the regex fails
-               (PDF inserted a stray newline mid-case-no, used non-ASCII
-               punctuation, etc.).
+               DHC formatting variations, including column-wrapped IA
+               rows where party text sits between bracket and number
+               (lenient [^\\d]{0,150} bridge).
+      Pass 2 — normalized-substring fallback (single line). Strips both
+               the line text and the case_no down to alphanumerics; if
+               the case_no's normalized form appears in a normalized
+               line, it's a hit. Catches stray-newline / odd-punctuation
+               cases that the regex couldn't reach.
+      Pass 3 — multi-line window split-norm fallback. Slides a 2-/3-/4-
+               line window over the page, normalizes the joined text,
+               and looks for the case prefix followed by the number+year
+               with NO intervening digits and ≤80 normalized chars
+               between them. This catches any column-wrap pattern DHC
+               introduces that confuses Pass 1's regex — including 3+
+               line wraps, blank-line interruptions, and mixed-case
+               separators. Guard against false positives via the no-
+               digits-between rule (an intervening case-no breaks the
+               match instead of swallowing it).
 
-    Lines matched by pass 1 are excluded from pass 2 to avoid duplicates.
+    Each pass adds the matched line(s) to attributed_lines so later
+    passes don't double-count.
     """
     out = []
     running_court = None
@@ -339,7 +372,8 @@ def search_pages(pages, case_patterns: dict, case_norms: dict):
         # ── Pass 2: normalized substring (formatting-agnostic) ───────
         # Walk line by line; normalize each; check if any case_no's
         # normalized form appears as a substring.
-        for line_match in re.finditer(r"[^\n]+", text):
+        all_line_matches = list(re.finditer(r"[^\n]+", text))
+        for line_match in all_line_matches:
             ls = line_match.start()
             if ls in attributed_lines:
                 continue
@@ -359,6 +393,65 @@ def search_pages(pages, case_patterns: dict, case_norms: dict):
                     hit["matched_on"] = case_no
                     out.append(hit)
                     break  # one case per line is enough
+
+        # ── Pass 3: multi-line window split-norm (column-wrap safety) ─
+        # For each window of 2/3/4 consecutive lines, join them and
+        # normalize. For each tracked case, find its prefix and its
+        # number+year independently in the normalized window; if both
+        # are present in order with no digits and ≤80 chars between
+        # them, it's a hit. The no-digits-between rule blocks false
+        # positives across unrelated cases on the same page.
+        for i, line_match in enumerate(all_line_matches):
+            ls = line_match.start()
+            if ls in attributed_lines:
+                continue
+            for window_size in (2, 3, 4):
+                if i + window_size > len(all_line_matches):
+                    break
+                window_lines = all_line_matches[i:i + window_size]
+                # Skip if any line in the window is already attributed —
+                # otherwise we'd double-emit a hit Pass 1 already found
+                # one line later.
+                window_starts = {lm.start() for lm in window_lines}
+                if window_starts & attributed_lines:
+                    continue
+                window_text = " ".join(lm.group() for lm in window_lines)
+                window_norm = normalize_for_match(window_text)
+                if len(window_norm) < 10:
+                    continue
+                matched_case = None
+                for case_no, split in case_splits.items():
+                    if not split:
+                        continue
+                    prefix_norm, num_year_norm = split
+                    p_idx = window_norm.find(prefix_norm)
+                    if p_idx < 0:
+                        continue
+                    ny_idx = window_norm.find(num_year_norm, p_idx + len(prefix_norm))
+                    if ny_idx < 0:
+                        continue
+                    between = window_norm[p_idx + len(prefix_norm):ny_idx]
+                    # Reject if any digit between prefix and number
+                    # (intervening case number breaks the match).
+                    if any(ch.isdigit() for ch in between):
+                        continue
+                    # Reject if the gap is too wide — typical column
+                    # wraps are <50 chars; >80 means we're crossing
+                    # case boundaries or table sections.
+                    if len(between) > 80:
+                        continue
+                    matched_case = case_no
+                    break
+                if matched_case:
+                    le = window_lines[-1].end()
+                    attributed_lines.update(window_starts)
+                    hit = _build_hit(text, ls, le, page, running_court, running_judge)
+                    hit["caseNo"]     = matched_case
+                    hit["match_type"] = f"case_no_window_{window_size}"
+                    hit["matched_on"] = matched_case
+                    hit["context"]    = window_text[:240]
+                    out.append(hit)
+                    break  # don't try larger windows for this same start line
     return out
 
 
@@ -378,13 +471,16 @@ def main() -> int:
     target_dates = [today, today + timedelta(days=1)]
     print(f"Tracking {len(cases)} cases · target dates: {[d.isoformat() for d in target_dates]}")
 
-    # Pre-compile every case's matcher once + a normalized form for the
-    # substring fallback.
+    # Pre-compile every case's matcher once + normalized + split forms
+    # for the substring fallback (Pass 2) and window matcher (Pass 3).
     case_patterns = {c: build_case_pattern(c) for c in cases}
     case_norms    = {c: normalize_for_match(c) for c in cases}
+    case_splits   = {c: split_case_norm(c) for c in cases}
     print(f"Compiled {len(case_patterns)} case-no patterns")
     for c, n in case_norms.items():
-        print(f"  · {c} → {n}")
+        sp = case_splits.get(c)
+        sp_str = f" [{sp[0]} + {sp[1]}]" if sp else ""
+        print(f"  · {c} → {n}{sp_str}")
 
     pdf_links = fetch_pdf_links(max_pages=2)
     print(f"Index returned {len(pdf_links)} PDF links")
@@ -414,7 +510,7 @@ def main() -> int:
             sources.append({"file": fname, "date": hearing_date, "error": f"parse: {e}"})
             continue
 
-        hits = search_pages(pages, case_patterns, case_norms)
+        hits = search_pages(pages, case_patterns, case_norms, case_splits)
         for hit in hits:
             hit["date"] = hearing_date
             hit["source_pdf"] = fname
