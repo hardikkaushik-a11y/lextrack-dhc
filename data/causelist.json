@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-07T06:33:01Z",
+  "scraped_at": "2026-05-07T06:47:22Z",
   "for_dates": [
     "2026-05-07",
     "2026-05-08"
@@ -12,6 +12,13 @@
       "date": "2026-05-08",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-9_trf_matters_for_07.05.26.pdf",
+      "date": "2026-05-07",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -38,7 +45,9 @@
     {
       "file": "jud_07052026.pdf",
       "date": "2026-05-07",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "deletion_note_07.05.2026.pdf",
@@ -64,7 +73,9 @@
     {
       "file": "combined_sup_1_07.05.2026.pdf",
       "date": "2026-05-07",
-      "error": "download: ('Connection broken: IncompleteRead(1191011 bytes read, 50716 more expected)', IncompleteRead(1191011 bytes read, 50716 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_07.05.2026.pdf",
