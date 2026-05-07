@@ -196,6 +196,20 @@ def build_case_pattern(case_no: str) -> re.Pattern:
     """Turn 'CS(COMM)/108/2025' into a regex tolerant of DHC's formatting drift.
     Matches CS(COMM)108/2025, CS(COMM) 108/2025, CS(COMM)/108/2025,
     CS COMM 108-2025, CS(COMM) 108 of 2025, CS COMM 108 2025…
+
+    Also handles the column-wrapped layout DHC uses in IA-style cause-list
+    entries, where the type prefix and the case number live on different
+    rows of the same table cell:
+
+        15   I.A. 12869/2026 JIO STAR INDIA PVT     SUBHASHISH
+             In CS(COMM)-    LTD                    KUMAR, R MAYA,
+             108/2025        V/s IPTV SMARTER       AVISH SHARMA,
+
+    The strict regex required CS(COMM) and 108/2025 to be roughly adjacent
+    (separated by whitespace only). That misses the wrapped form because
+    `LTD ... KUMAR, R MAYA,` sits in between. We allow up to 150 non-digit
+    characters between the bracket close and the case number — bounded so
+    we can't span unrelated cases (any intervening digit fails the match).
     """
     type_match = re.match(r"^([A-Z\.\-]+)", case_no)
     type_part = type_match.group(1) if type_match else ""
@@ -209,9 +223,13 @@ def build_case_pattern(case_no: str) -> re.Pattern:
     parts = [re.escape(type_part)]
     if bracket_word:
         parts.append(rf"\s*\(?\s*{re.escape(bracket_word)}\s*\)?")
-    # Number-to-year separator: any of /, -, ., space, or 'of'. Wide
-    # enough to catch every formatting variation DHC has used.
-    parts.append(rf"\s*[\./\-]?\s*0*{num}\s*(?:[\./\-]|\s+(?:OF\s+)?)\s*{year}")
+    # Allow up to 150 non-digit characters between the bracket and the
+    # case number — covers column-wrapped cause-list rows where party-
+    # name text lives between the prefix and the suffix. Bounded by
+    # `[^\d]` so an intervening case number (e.g. another I.A.) fails the
+    # match instead of silently swallowing it. `0*<num>` (not `\d*<num>`)
+    # also blocks accidental tail-matches like 5108→108.
+    parts.append(rf"[^\d]{{0,150}}0*{num}\s*[\.\/\-]\s*{year}")
     return re.compile("".join(parts), re.IGNORECASE)
 
 
