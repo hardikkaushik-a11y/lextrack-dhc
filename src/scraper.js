@@ -27,7 +27,7 @@ const PDF_CONCURRENCY  = 4;          // simultaneous PDF fetches per case
 // missing from the prior scrape is a genuine new event (push) or just an
 // artifact of the new logic seeing old data (silence). See buildCaseObject
 // for the detailed rationale.
-const SCRAPER_LOGIC_VERSION = 'v9-firstseen-2026-04-30';
+const SCRAPER_LOGIC_VERSION = 'v10-jr-coram-2026-05-07';
 
 // Module-level lookup map for AI-extracted order intelligence cache.
 // Populated by main() before the scrape loop. scrapeCase reads it and
@@ -479,6 +479,25 @@ function extractListingDates(orderText, orderDateISO) {
   if (!orderText) return [];
   const found = new Map();   // key=`${date}|${before}` → entry
 
+  // Detect whether the order itself was passed by a Joint Registrar.
+  // The CORAM line at the top of every DHC order names the bench. When a
+  // JR authors an order with a future listing and the listing sentence
+  // doesn't explicitly name a forum (Court / Bench / Judge / Justice),
+  // the matter continues before the same forum — so we default to 'jr'
+  // instead of 'court'. Real example: DAZN vs ABBONAMENTOIPTVITALIA
+  // (CS(COMM)/1306/2025), order 2026-05-06 by JR Swati Katiyar, said
+  // "Put up for completion of pleadings on 12.08.2026" — the local
+  // regex saw no forum and defaulted to 'court', but the matter was
+  // actually before the JR (continuing the JR's own proceedings).
+  const coramMatch = orderText.match(/CORAM\s*[:\-]?\s*([^\n]{1,200})/i);
+  const coramLine  = coramMatch ? coramMatch[1].toLowerCase() : '';
+  // JR-authored: registrar mentioned AND no Justice/Judge in the same line.
+  // (Some orders read "CORAM: HON'BLE MS. JUSTICE X" with no registrar at
+  // all; some read "CORAM: JOINT REGISTRAR (JUDICIAL) MS. Y" — only the
+  // latter is a JR-authored order.)
+  const isJrAuthored = /\b(?:joint\s+registrar|registrar)\b/.test(coramLine)
+                    && !/\bjustice\b|\bjudge\b/.test(coramLine);
+
   // Date patterns. Numeric (DD.MM.YYYY, DD/MM/YYYY, DD-MM-YYYY) is the
   // common case. Textual ("30th April, 2026" / "April 30, 2026") shows up
   // in older or formal orders. Each capture group ends up in m[1].
@@ -594,10 +613,21 @@ function extractListingDates(orderText, orderDateISO) {
       );
       const lc = windowText.toLowerCase();
 
-      // 'jr' if Registrar/Joint Registrar/JR is in the sentence-bounded
-      // window. The standalone 'JR' check requires 'the JR' or 'before JR'
-      // to avoid matching arbitrary 2-letter sequences.
-      const beforeLabel = /\b(?:joint\s+registrar|registrar|(?:before|the)\s+jr)\b/.test(lc) ? 'jr' : 'court';
+      // Three-way classification:
+      //   1) Window mentions Registrar / Joint Registrar / "before JR"  → jr
+      //   2) Window explicitly names Court / Bench / Judge / Justice    → court
+      //   3) Window names neither: fall back to the order's CORAM. If a
+      //      JR authored this order, the listing is presumably a JR
+      //      continuation (matter stays before the same forum unless
+      //      the order says otherwise). Otherwise default to 'court'.
+      // The standalone 'JR' check requires 'the JR' or 'before JR' to
+      // avoid matching arbitrary 2-letter sequences.
+      const explicitJr    = /\b(?:joint\s+registrar|registrar|(?:before|the)\s+jr)\b/.test(lc);
+      const explicitCourt = /\b(?:court|bench|judge|justice|hon'?ble)\b/.test(lc);
+      let beforeLabel;
+      if (explicitJr) beforeLabel = 'jr';
+      else if (explicitCourt) beforeLabel = 'court';
+      else beforeLabel = isJrAuthored ? 'jr' : 'court';
 
       // Optional time of day. Patterns: "at 11 AM" / "at 11:00 AM" /
       // "at 2:30 PM" / "11.00 AM" (no 'at') / "at 11.30 a.m."
@@ -850,9 +880,22 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
   // Bump SCRAPER_LOGIC_VERSION whenever extractListingDates or the scan
   // surfaces change. The first sync after a bump silences additionalDates
   // pushes for the affected cases; subsequent syncs work normally.
-  const priorAddByKey = new Map();
+  //
+  // Lookup is keyed by DATE ALONE (not date|before). A reclassification
+  // (court → jr) of a known date should NOT count as a new event — it's
+  // the same listing, just re-labelled. By keying on date, the old
+  // (date, court) entry's firstSeenAt is inherited by the new (date, jr)
+  // entry, and the push layer correctly suppresses the spurious push.
+  const priorAddByDate = new Map();
   for (const e of (priorEntry?.additionalDates || [])) {
-    if (e && e.date && e.before) priorAddByKey.set(`${e.date}|${e.before}`, e);
+    if (!e || !e.date) continue;
+    // Prefer the entry with the EARLIEST firstSeenAt if multiple before-
+    // labels existed for the same date (paranoia — we never write
+    // multiple per date in one run).
+    const cur = priorAddByDate.get(e.date);
+    if (!cur || (e.firstSeenAt && cur.firstSeenAt && e.firstSeenAt < cur.firstSeenAt)) {
+      priorAddByDate.set(e.date, e);
+    }
   }
   const sameLogicVersion = priorEntry?._scraperVersion === SCRAPER_LOGIC_VERSION;
   const OLD_SENTINEL = '2000-01-01T00:00:00Z';
@@ -866,7 +909,7 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
       const key = `${e.date}|${e.before}`;
       if (seenAdd.has(key)) continue;
       seenAdd.add(key);
-      const prior = priorAddByKey.get(key);
+      const prior = priorAddByDate.get(e.date);
       // Prior carries firstSeenAt → reuse (date is old).
       // Prior exists but no firstSeenAt → legacy entry, treat as old.
       // No prior + same logic version → genuinely new event today → push-eligible.
@@ -893,7 +936,7 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
       const key = `${e.date}|${e.before}`;
       if (seenAdd.has(key)) continue;
       seenAdd.add(key);
-      const prior = priorAddByKey.get(key);
+      const prior = priorAddByDate.get(e.date);
       // Prior carries firstSeenAt → reuse (date is old).
       // Prior exists but no firstSeenAt → legacy entry, treat as old.
       // No prior + same logic version → genuinely new event today → push-eligible.
