@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-08T10:16:22Z",
+  "scraped_at": "2026-05-08T10:31:30Z",
   "for_dates": [
     "2026-05-08",
     "2026-05-09"
@@ -10,6 +10,20 @@
     {
       "file": "nla_09.05.2026.pdf",
       "date": "2026-05-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_08.05.2026_1.pdf",
+      "date": "2026-05-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_12_for_08.05.26.pdf",
+      "date": "2026-05-08",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
