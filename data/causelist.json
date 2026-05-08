@@ -1,11 +1,68 @@
 {
-  "scraped_at": "2026-05-08T16:02:06Z",
+  "scraped_at": "2026-05-08T16:01:09Z",
   "for_dates": [
     "2026-05-08",
     "2026-05-09"
   ],
   "tracked_cases": 14,
   "matched_cases": 0,
-  "sources": [],
+  "sources": [
+    {
+      "file": "nla_09.05.2026.pdf",
+      "date": "2026-05-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_08.05.2026_1.pdf",
+      "date": "2026-05-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_12_for_08.05.26.pdf",
+      "date": "2026-05-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_10_11_for_08.05.26.pdf",
+      "date": "2026-05-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-9_trf_matters_for_08.05.26.pdf",
+      "date": "2026-05-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "regular_supplementary_cause_list_08052026.pdf",
+      "date": "2026-05-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_8_for_08.05.26.pdf",
+      "date": "2026-05-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "fnl_1_08.05.pdf",
+      "date": "2026-05-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    }
+  ],
   "entries": []
 }
