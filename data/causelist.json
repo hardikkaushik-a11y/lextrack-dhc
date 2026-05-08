@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-08T12:45:51Z",
+  "scraped_at": "2026-05-08T13:00:59Z",
   "for_dates": [
     "2026-05-08",
     "2026-05-09"
@@ -58,27 +58,6 @@
     },
     {
       "file": "fnl_1_08.05.pdf",
-      "date": "2026-05-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_combined_08052026.pdf",
-      "date": "2026-05-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_08052026.pdf",
-      "date": "2026-05-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl08052026.pdf",
       "date": "2026-05-08",
       "matched": 0,
       "regex_matches": 0,
