@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-05-08T12:01:43Z",
+  "scraped_at": "2026-05-08T12:15:55Z",
   "for_dates": [
     "2026-05-08",
     "2026-05-09"
   ],
   "tracked_cases": 14,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "nla_09.05.2026.pdf",
@@ -90,35 +90,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "c_08052026.pdf",
-      "date": "2026-05-08",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_08.05.2026.pdf",
-      "date": "2026-05-08",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "21",
-      "court": "47",
-      "judge": "TUSHAR RAO GEDELA NOTE",
-      "time": null,
-      "page": 471,
-      "context": "21        CS(COMM)-977/2025 JIOSTAR INDIA       GEETANJALI",
-      "caseNo": "CS(COMM)/977/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-977/2025",
-      "date": "2026-05-08",
-      "source_pdf": "c_08052026.pdf"
-    }
-  ]
+  "entries": []
 }
