@@ -548,7 +548,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:02:21.368Z",
+    "lastScraped": "2026-05-08T10:01:49.088Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -687,7 +687,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:02:29.393Z",
+    "lastScraped": "2026-05-08T10:01:56.541Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -796,7 +796,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:02:36.788Z",
+    "lastScraped": "2026-05-08T10:02:04.006Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -891,7 +891,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:02:44.298Z",
+    "lastScraped": "2026-05-08T10:02:11.498Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -926,7 +926,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:02:51.651Z",
+    "lastScraped": "2026-05-08T10:02:18.986Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -986,7 +986,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:02:59.151Z",
+    "lastScraped": "2026-05-08T10:02:26.603Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1153,7 +1153,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:03:06.521Z",
+    "lastScraped": "2026-05-08T10:02:34.122Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1437,7 +1437,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:03:13.968Z",
+    "lastScraped": "2026-05-08T10:02:41.699Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1518,7 +1518,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:03:21.318Z",
+    "lastScraped": "2026-05-08T10:02:49.446Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1657,7 +1657,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:03:28.702Z",
+    "lastScraped": "2026-05-08T10:02:57.137Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1724,7 +1724,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:03:36.167Z",
+    "lastScraped": "2026-05-08T10:03:04.801Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1974,7 +1974,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:03:43.605Z",
+    "lastScraped": "2026-05-08T10:03:12.376Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2252,7 +2252,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:03:51.023Z",
+    "lastScraped": "2026-05-08T10:03:19.969Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2264,10 +2264,17 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-02-27",
+    "lastDate": "2026-05-04",
     "nextDate": "2026-05-08",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-05-04",
+        "event": "Court Order",
+        "detail": "Presiding Officer on leave; matter adjourned.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1778231613_9ea9e288a9b144eb_739_9772025.pdf/2026",
+        "orderText": "$~16 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 977/2025 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Ms. Ishi Singh & Ms. Shudhata Sudhir, Advs. (through VC) versus VEGAMOVIES.YACHTS & ORS. .....Defendant Through: Ms. Harshitha Rathod, Adv. for D-31 & 34. Ms. Anmol Dhindsa, Adv. for D-444. Mr. Jagdish Chandra & Ms. Maanja Saxena, Advs. for UOI. CORAM: JOINT REGISTRAR (JUDICIAL), SUDHIR KUMAR SIROHI (DHJS) O R D E R % 04.05.2026 Ld. P.O. is on leave today. List the matter before the Hon'ble Court for further directions on the date already fixed i.e. 08.05.2026. Reader a/w SUDHIR KUMAR SIROHI (DHJS) JOINT REGISTRAR (JUDICIAL) MAY 4, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 08/05/2026 at 15:33:28"
+      },
       {
         "date": "2026-02-27",
         "event": "Court Order",
@@ -2349,7 +2356,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-08T09:03:58.501Z",
+    "lastScraped": "2026-05-08T10:03:28.649Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   }
 ]
