@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-05-10T17:16:18Z",
+  "scraped_at": "2026-05-10T17:31:34Z",
   "for_dates": [
     "2026-05-10",
     "2026-05-11"
   ],
   "tracked_cases": 14,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "sup_11.05.2026.pdf",
@@ -73,9 +73,7 @@
     {
       "file": "cause_list_for_11.05.2026.pdf",
       "date": "2026-05-11",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(19214858 bytes read, 1022 more expected)', IncompleteRead(19214858 bytes read, 1022 more expected))"
     },
     {
       "file": "combined_adv_list_11.05.2026.pdf",
@@ -85,19 +83,5 @@
       "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "1",
-      "court": "5",
-      "judge": "TUSHAR RAO GEDELA NOTE",
-      "time": null,
-      "page": 704,
-      "context": "1    1536/26    CS COMM               Reliance Consumer Products          Ms. Swati Setia,              Admin\n                 195/2026              Limited VS Ripton Beverages         Adv                           Block",
-      "caseNo": "CS(COMM)/195/2026",
-      "match_type": "case_no",
-      "matched_on": "CS COMM               Reliance Consumer Products          Ms. Swati Setia,      ",
-      "date": "2026-05-11",
-      "source_pdf": "cause_list_for_11.05.2026.pdf"
-    }
-  ]
+  "entries": []
 }
