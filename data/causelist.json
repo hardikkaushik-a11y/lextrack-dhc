@@ -1,11 +1,121 @@
 {
-  "scraped_at": "2026-05-10T18:31:57Z",
+  "scraped_at": "2026-05-10T18:46:10Z",
   "for_dates": [
     "2026-05-11",
     "2026-05-12"
   ],
   "tracked_cases": 14,
-  "matched_cases": 0,
-  "sources": [],
-  "entries": []
+  "matched_cases": 2,
+  "sources": [
+    {
+      "file": "combined_advance_list_for_12.05.2026.pdf",
+      "date": "2026-05-12",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_11.05.2026.pdf",
+      "date": "2026-05-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "jud_11052026.pdf",
+      "date": "2026-05-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "jud_ori_01_for_11.05.2026.pdf",
+      "date": "2026-05-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_11.05.2026.pdf",
+      "date": "2026-05-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "old_target_matters_for_11.05.2026.pdf",
+      "date": "2026-05-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_11.05.2026.pdf",
+      "date": "2026-05-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro_for_11.05.2026.pdf",
+      "date": "2026-05-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "supple-1_for_11.05.2026.pdf",
+      "date": "2026-05-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl11052026.pdf",
+      "date": "2026-05-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "cause_list_for_11.05.2026.pdf",
+      "date": "2026-05-11",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_11.05.2026.pdf",
+      "date": "2026-05-11",
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+    }
+  ],
+  "entries": [
+    {
+      "item": "2",
+      "court": "48",
+      "judge": "TUSHAR RAO GEDELA NOTE",
+      "time": null,
+      "page": 413,
+      "context": "2       CS(COMM)-      RAZORPAY SOFTWARE      PARSHANT\n             269/2024       PRIVATE LIMITED & ANR. ARORA, KHAITAN",
+      "caseNo": "CS(COMM)/269/2024",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-      RAZORPAY SOFTWARE      PARSHANT\n             269/2024",
+      "date": "2026-05-12",
+      "source_pdf": "combined_advance_list_for_12.05.2026.pdf"
+    },
+    {
+      "item": "1",
+      "court": "5",
+      "judge": "TUSHAR RAO GEDELA NOTE",
+      "time": null,
+      "page": 704,
+      "context": "1    1536/26    CS COMM               Reliance Consumer Products          Ms. Swati Setia,              Admin\n                 195/2026              Limited VS Ripton Beverages         Adv                           Block",
+      "caseNo": "CS(COMM)/195/2026",
+      "match_type": "case_no",
+      "matched_on": "CS COMM               Reliance Consumer Products          Ms. Swati Setia,      ",
+      "date": "2026-05-11",
+      "source_pdf": "cause_list_for_11.05.2026.pdf"
+    }
+  ]
 }
