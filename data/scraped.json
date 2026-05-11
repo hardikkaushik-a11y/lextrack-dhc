@@ -548,7 +548,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:01:25.124Z",
+    "lastScraped": "2026-05-11T13:02:18.207Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -687,7 +687,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:01:32.604Z",
+    "lastScraped": "2026-05-11T13:02:25.932Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -796,7 +796,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:01:41.492Z",
+    "lastScraped": "2026-05-11T13:02:33.364Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -891,7 +891,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:01:48.846Z",
+    "lastScraped": "2026-05-11T13:02:40.739Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -926,7 +926,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:01:57.801Z",
+    "lastScraped": "2026-05-11T13:02:48.312Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -986,7 +986,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:02:05.385Z",
+    "lastScraped": "2026-05-11T13:02:55.744Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1153,7 +1153,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:02:12.907Z",
+    "lastScraped": "2026-05-11T13:03:03.212Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1444,7 +1444,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:02:20.480Z",
+    "lastScraped": "2026-05-11T13:03:10.605Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1525,7 +1525,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:02:27.957Z",
+    "lastScraped": "2026-05-11T13:03:18.113Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1664,7 +1664,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:02:35.485Z",
+    "lastScraped": "2026-05-11T13:03:25.628Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1731,7 +1731,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:02:43.138Z",
+    "lastScraped": "2026-05-11T13:03:33.127Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1981,7 +1981,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:02:50.686Z",
+    "lastScraped": "2026-05-11T13:03:40.531Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2259,7 +2259,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:02:58.286Z",
+    "lastScraped": "2026-05-11T13:03:48.147Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2271,10 +2271,17 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-05-04",
+    "lastDate": "2026-05-08",
     "nextDate": "2026-05-08",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-05-08",
+        "event": "Court Order",
+        "detail": "List on 08.10.2026.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1778502803_8fd97fc9247018de_594_9772025.pdf/2026",
+        "orderText": "$~21 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 977/2025 & I.A. 22639/2025 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Priyansh Kohli and Mr. Abhay Aren, Advocates. versus VEGAMOVIES.YACHTS & ORS. .....Defendants Through: Mr. Jagdish Chandra and Ms. Maanjha Sadena, Advocates. Mr. Mrinal Ojha, Mr. Debarshi Dutta and Mr. Nikhil Gupta, Advocates for D-444. Mr. Yash Raj, Advocate for D-31 and 34. CORAM: HON'BLE MR. JUSTICE TUSHAR RAO GEDELA O R D E R % 08.05.2026 List on 08.10.2026. TUSHAR RAO GEDELA, J MAY 8, 2026 yrj This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 11/05/2026 at 18:34:03"
+      },
       {
         "date": "2026-05-04",
         "event": "Court Order",
@@ -2318,7 +2325,13 @@
         "orderText": "CS(COMM) 977/2025 Page 1 of 13 $~8 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 977/2025 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Sidharth Chopra, Mr. Yatinder Garg, Mr. Priyansh Kohli & Ms. Ishi Singh, Advocates. versus VEGAMOVIES.YACHTS & ORS. .....Defendants Through: Ms. Aishwarya Kane, Advocate for Defendant Nos. 31 & 34. CORAM: HON'BLE MR. JUSTICE TEJAS KARIA O R D E R % 12.09.2025 I.A. 22642/2025 (O-XI R-1(4) of the Code of Civil Procedure, 1908) 1. The present Application has been filed on behalf of the Plaintiff under Order XI Rule 1(4) of the Code of Civil Procedure, 1908 (“CPC”) as applicable to Commercial Suits under the Commercial Courts Act, 2015 (“CC Act”) seeking leave to place on record additional documents. 2. The Plaintiff is permitted to file additional documents in accordance with the provisions of the CC Act and the Delhi High Court (Original Side) Rules, 2018. 3. Accordingly, the Application stands disposed of. I.A. 22643/2025 (Extension of time to file Court Fees) 4. The present Application has been filed by the Plaintiff under Section This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 03/05/2026 at 09:33:26 CS(COMM) 977/2025 Page 2 of 13 149 read with Section 151 of the CPC, seeking exemption from payment of Court Fees at the time of the filing of the Suit. 5. Considering the submissions made in the present Application, time of two weeks is granted to file the Court Fees. 6. The Application stands disposed of. I.A. 22640/2025 (Exemption from pre-institution Mediation) 7. This is an Application filed by the Plaintiff seeking exemption from instituting pre-litigation Mediation under Section 12A of the CC Act. 8. As the present matter contemplates urgent interim relief, in light of the judgment of the Supreme Court in Yamini Manohar v. T.K.D. Krithi, 2023 SCC OnLine SC 1382, exemption from the requirement of pre-institution Mediation is granted. 9. The Application stands disposed of. I.A. 22641/2025 (for exemption from giving written notice to the government authority) 10. This is an Application filed by the Plaintiff under Section 80 read with Section 151 of the CPC seeking exemption from serving two months’ prior notice under Section 80 of the CPC to Defendant No. 36, i.e., Bharat Sanchar Nigam Ltd., Defendant No. 39, i.e., Mahanagar Telephone Nigam Ltd., Defendant No. 44, i.e., Department of Telecommunications and Defendant No. 45, i.e., the Ministry of Electronics and Information Technology. 11. For the reasons stated in the Application, the same is allowed. 12. The Application stands disposed of. CS(COMM) 977/2025 13. Let the Plaint be registered as a Suit. 14. Issue Summons. The learned Counsel for Defendant Nos. 31 and 34 This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 03/05/2026 at 09:33:26 CS(COMM) 977/2025 Page 3 of 13 accepts Summons. 15. Let the Summons be served to the remaining Defendants through all permissible modes upon filing of the Process Fee. 16. The Summons shall state that the Written Statement(s) shall be filed by the Defendants within 30 days from the date of the receipt of Summons. Along with the Written Statement(s), the Defendants shall also file an Affidavit of Admission / Denial of the documents of the Plaintiff, without which the Written Statement(s) shall not be taken on record. 17. Liberty is granted to the Plaintiff to file Replication(s), if any, within 30 days from the receipt of the Written Statement(s). Along with the Replication(s) filed by the Plaintiff, an Affidavit of Admission / Denial of the documents of Defendants be filed by the Plaintiff, without which the Replication(s) shall not be taken on record. 18. In case any Party is placing reliance on a document, which is not in their power and possession, its details and source shall be mentioned in the list of reliance, which shall also be filed with the pleadings. 19. If any of the Parties wish to seek inspection of any documents, the same shall be sought and given within the prescribed timelines. 20. List before the learned Joint Registrar on 07.11.2025 for completion of service and pleadings. I.A. 22639/2025 (U/O XXXIX Rule 1 & 2 of CPC) 21. Issue Notice. The learned Counsel for Defendant Nos. 31 and 34 accepts Notice. 22. Notice to the remaining Defendants be served through all permissible modes upon filing of the Process Fees. 23. The present Suit has been filed for permanent injunction restraining This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 03/05/2026 at 09:33:26 CS(COMM) 977/2025 Page 4 of 13 Defendant Nos. 1 to 24 (“Websites”) and other unknown Parties from hosting, streaming, communicating in any manner and / or making available for viewing and downloading, without authorization, on the Websites or other platforms, the content of the upcoming film ‘Jolly LLB 3’ (“Film”). 24. The learned Counsel for the Plaintiff submitted that the Plaintiff is a leading media house and film production and distribution company in India, which has produced and / or acquired the exclusive media rights in various films across varied genres and languages. 25. The learned Counsel for the Plaintiff submitted that the Plaintiff commissioned Kangra Talkies Private Limited (“Kangra Talkies”) for the development and line production of the Film. Kangra Talkies vide its letter dated 21.08.2025, confirmed that the Plaintiff is the sole and exclusive owner of all the rights including all the Intellectual Property Rights and Exploitation Rights of the Film and its script, inter alia the rights for initiating or defending"
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-10-08",
+        "before": "court",
+        "firstSeenAt": "2026-05-11T13:04:03.717Z"
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -2357,7 +2370,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-11T12:03:05.883Z",
+    "lastScraped": "2026-05-11T13:04:03.725Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   }
 ]
