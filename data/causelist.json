@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-11T14:31:29Z",
+  "scraped_at": "2026-05-11T14:46:32Z",
   "for_dates": [
     "2026-05-11",
     "2026-05-12"
@@ -7,6 +7,20 @@
   "tracked_cases": 14,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "last_supple_12.05.2026.pdf",
+      "date": "2026-05-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_2_12.05.2026.pdf",
+      "date": "2026-05-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_12.05.2026.pdf",
       "date": "2026-05-12",
@@ -100,20 +114,6 @@
     },
     {
       "file": "sup_8_for_11.05.26.pdf",
-      "date": "2026-05-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_11.05.2026.pdf",
-      "date": "2026-05-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_11.05.2026.pdf",
       "date": "2026-05-11",
       "matched": 0,
       "regex_matches": 0,
