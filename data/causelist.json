@@ -1,12 +1,26 @@
 {
-  "scraped_at": "2026-05-11T12:31:13Z",
+  "scraped_at": "2026-05-11T12:46:20Z",
   "for_dates": [
     "2026-05-11",
     "2026-05-12"
   ],
   "tracked_cases": 14,
-  "matched_cases": 1,
+  "matched_cases": 2,
   "sources": [
+    {
+      "file": "rl12052026.pdf",
+      "date": "2026-05-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_12.05.2026.pdf",
+      "date": "2026-05-12",
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
+    },
     {
       "file": "combined_advance_list_for_12.05.2026.pdf",
       "date": "2026-05-12",
@@ -104,20 +118,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "pro_for_11.05.2026.pdf",
-      "date": "2026-05-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "supple-1_for_11.05.2026.pdf",
-      "date": "2026-05-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -126,13 +126,26 @@
       "court": "48",
       "judge": "TUSHAR RAO GEDELA NOTE",
       "time": null,
-      "page": 413,
+      "page": 551,
       "context": "2       CS(COMM)-      RAZORPAY SOFTWARE      PARSHANT\n             269/2024       PRIVATE LIMITED & ANR. ARORA, KHAITAN",
       "caseNo": "CS(COMM)/269/2024",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-      RAZORPAY SOFTWARE      PARSHANT\n             269/2024",
       "date": "2026-05-12",
-      "source_pdf": "combined_advance_list_for_12.05.2026.pdf"
+      "source_pdf": "combined_cause_list_12.05.2026.pdf"
+    },
+    {
+      "item": null,
+      "court": "48",
+      "judge": "TUSHAR RAO GEDELA NOTE",
+      "time": null,
+      "page": 723,
+      "context": "In CS(COMM)-      PRIVATE LIMITED     VISVANATHAN, R\n             810/2025          V/s SERIALMAZA.MY & MAYA, PRIYANSH",
+      "caseNo": "CS(COMM)/810/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-      PRIVATE LIMITED     VISVANATHAN, R\n             810/2025",
+      "date": "2026-05-12",
+      "source_pdf": "combined_cause_list_12.05.2026.pdf"
     }
   ]
 }
