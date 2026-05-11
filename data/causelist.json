@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-11T13:02:00Z",
+  "scraped_at": "2026-05-11T13:16:22Z",
   "for_dates": [
     "2026-05-11",
     "2026-05-12"
@@ -7,6 +7,13 @@
   "tracked_cases": 14,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_sup_1_12.05.2026.pdf",
+      "date": "2026-05-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "rl12052026.pdf",
       "date": "2026-05-12",
@@ -107,13 +114,6 @@
     },
     {
       "file": "old_target_matters_for_11.05.2026.pdf",
-      "date": "2026-05-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_11.05.2026.pdf",
       "date": "2026-05-11",
       "matched": 0,
       "regex_matches": 0,
