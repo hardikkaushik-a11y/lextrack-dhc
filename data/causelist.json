@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-05-12T12:02:03Z",
+  "scraped_at": "2026-05-12T12:16:42Z",
   "for_dates": [
     "2026-05-12",
     "2026-05-13"
   ],
   "tracked_cases": 14,
-  "matched_cases": 2,
+  "matched_cases": 3,
   "sources": [
+    {
+      "file": "cause_list_for_13.05.2026.pdf",
+      "date": "2026-05-13",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "combined_adv_list_13.05.2026.pdf",
       "date": "2026-05-13",
@@ -76,16 +83,22 @@
       "matched": 2,
       "regex_matches": 2,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_list_for_12.05.2026.pdf",
-      "date": "2026-05-12",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
   "entries": [
+    {
+      "item": null,
+      "court": "48",
+      "judge": "TUSHAR RAO GEDELA NOTE",
+      "time": null,
+      "page": 667,
+      "context": "In CS(COMM)-       LIMITED                 ABHISHEK GAUR,\n              582/2025           V/s BALAJI FOODS        ISHI SINGH",
+      "caseNo": "CS(COMM)/582/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-       LIMITED                 ABHISHEK GAUR,\n              582/2025",
+      "date": "2026-05-13",
+      "source_pdf": "cause_list_for_13.05.2026.pdf"
+    },
     {
       "item": "2",
       "court": "48",
