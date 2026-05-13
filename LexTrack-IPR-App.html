@@ -1968,6 +1968,9 @@ body {
     </button>
     <div class="topbar-title" id="topbar-title">Dashboard</div>
     <div class="topbar-right">
+      <button class="btn btn-ghost" onclick="lextrackTour.open()" title="Replay the tour of new features" style="font-size:12px;padding:6px 10px;opacity:0.7;" aria-label="What's new tour">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 015 0c0 1.5-2.5 2-2.5 3.5M12 16h.01"/></svg>
+      </button>
       <div id="sync-banner" style="display:none;align-items:center;font-size:11px;color:var(--ink3);letter-spacing:0.5px;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;gap:6px;"></div>
       <button class="btn btn-ghost btn-sync" onclick="triggerFullSync()" title="Run a fresh DHC scrape now (~2-3 min). Pull-to-refresh just reloads cached data instead.">
         <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4v5h5M20 20v-5h-5"/><path d="M20 9A9 9 0 005.3 5.3M4 15a9 9 0 0014.7 3.7"/></svg>
@@ -9684,6 +9687,310 @@ window.closeCdDrafter = closeCdDrafter;
 
 // Initialize audience mode on load
 try { aiFraming.initAudience?.(); } catch {}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// IN-APP GUIDED TOUR — "What's new" intro modal + spotlight walkthrough.
+// Fires once on first load after the v45 deploy. Persists dismissal via
+// localStorage 'lextrack_tour_seen_v1'. Re-openable from sidebar (?) icon.
+// ═══════════════════════════════════════════════════════════════════════════
+const LEXTRACK_TOUR_KEY = 'lextrack_tour_seen_v1';
+
+const lextrackTour = {
+  currentIdx: 0,
+  // Each step: a selector to spotlight (or null = centered modal),
+  // a title, a body, and an optional "before" hook to set up the page.
+  steps: [
+    {
+      target: null,
+      title: '6 new things shipped',
+      body: 'A few additions to make daily prep + drafting faster. Want a 60-second tour?',
+      isIntro: true,
+    },
+    {
+      target: 'nav-practice-profile',
+      title: '⚙️ Practice profile — set this up first',
+      body: 'A one-time interview that captures your practice areas, jurisdictions, posture, approval matrix, and house style. Every AI feature reads this before generating — so outputs sound calibrated, not generic.',
+      footnote: 'Where: Sidebar → Configuration → Practice profile',
+    },
+    {
+      target: 'nav-section-ipr-tools',
+      title: '🛠 IPR Tools — three new entries',
+      body: 'Infringement triage, TM clearance, and a Cease & Desist drafter. All accessible from the sidebar, all standalone (no matter required).',
+      footnote: 'Where: Sidebar → IPR Tools',
+    },
+    {
+      target: 'nav-infringement-triage',
+      title: '🔍 Infringement triage',
+      body: 'Walks every TMA § 29 factor and shows what cuts toward the senior mark holder vs. the accused. Loud TRIAGE-not-OPINION header. Never concludes.',
+    },
+    {
+      target: 'nav-tm-clearance',
+      title: '✓ TM clearance first pass',
+      body: 'Proposed mark + class → AI generates a structured search to-do list (variants, transliterations, adjacent classes). Or paste a clearance-service export to skip straight to the factor walk under § 11 / § 29.',
+    },
+    {
+      target: 'nav-cd-drafter',
+      title: '📝 Cease & Desist drafter',
+      body: '8-step wizard. Step 2 is a diligence dossier on the counterparty — IndianKanoon party-search + your own matter history + optional URL fetch + (when Tofler key is set) corporate data. Risk-acceptance gate before drafting unlocks.',
+      footnote: 'Also available as a 📝 Draft C&D button on every matter detail page.',
+    },
+    {
+      target: null,
+      title: '📋 AI summary in your timeline',
+      body: 'Every past order on any matter now has a small ▸ AI summary expander right under the order link. Relief, costs, directions, citations, counsel — extracted by AI on the scraper side. Already populated for all 146 historical orders across your 14 cases.',
+      footnote: 'Where: Open any matter → scroll to Timeline → click ▸ on any past order',
+    },
+    {
+      target: null,
+      title: '📱 Audience toggle on hearing briefs',
+      body: 'Every hearing prep brief now has a Partner / Client / WhatsApp toggle. Partner is full depth. Client is plain English, header stripped, safe to forward. WhatsApp is a one-line bottom-line with a copy button.',
+      footnote: 'Where: Any matter with a hearing → ✦ Generate prep brief → toggle at the top',
+    },
+    {
+      target: null,
+      title: 'Plus three quiet improvements',
+      body: '• Friday digest now catches Monday hearings.<br>• Urgency colors lock to half-open (day 7 red, 8 yellow, no overlap).<br>• Every AI output carries an India-specific privilege header, inline [verify] / [review] markers, and a reviewer note block at the bottom.',
+    },
+    {
+      target: null,
+      title: 'All caught up',
+      body: 'Start with Practice profile if you have 5 minutes — it makes everything else better. Or try Infringement triage / TM clearance / New C&D draft from the sidebar.',
+      isOutro: true,
+    },
+  ],
+
+  shouldAutoShow() {
+    try { return localStorage.getItem(LEXTRACK_TOUR_KEY) !== '1'; } catch { return true; }
+  },
+  markSeen() {
+    try { localStorage.setItem(LEXTRACK_TOUR_KEY, '1'); } catch {}
+  },
+
+  open() {
+    this.currentIdx = 0;
+    this._mountUI();
+    this.render();
+  },
+  close() {
+    this.markSeen();
+    document.getElementById('lextrack-tour-root')?.remove();
+  },
+
+  next() {
+    if (this.currentIdx < this.steps.length - 1) {
+      this.currentIdx++;
+      this.render();
+    } else {
+      this.close();
+    }
+  },
+  prev() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  _mountUI() {
+    if (document.getElementById('lextrack-tour-root')) return;
+    const root = document.createElement('div');
+    root.id = 'lextrack-tour-root';
+    root.innerHTML = `
+      <style>
+        #lextrack-tour-overlay {
+          position: fixed; inset: 0; z-index: 99998;
+          background: rgba(15, 15, 18, 0.55);
+          backdrop-filter: blur(2px);
+        }
+        #lextrack-tour-highlight {
+          position: fixed; z-index: 99999; pointer-events: none;
+          border-radius: 8px;
+          box-shadow: 0 0 0 4px var(--gold, #c9a84c), 0 0 0 9999px rgba(15,15,18,0.55);
+          transition: top 0.25s ease, left 0.25s ease, width 0.25s ease, height 0.25s ease;
+        }
+        #lextrack-tour-card {
+          position: fixed; z-index: 100000;
+          background: white; color: var(--ink, #2d2a26);
+          border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+          max-width: 420px; padding: 22px 24px;
+          font-family: inherit; line-height: 1.55;
+        }
+        #lextrack-tour-card .lt-step { font-size: 11px; color: var(--ink3, #6b6660); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+        #lextrack-tour-card .lt-title { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+        #lextrack-tour-card .lt-body { font-size: 13.5px; line-height: 1.6; color: var(--ink2, #4a4540); margin-bottom: 12px; }
+        #lextrack-tour-card .lt-footnote { font-size: 11.5px; color: var(--ink3, #6b6660); padding: 8px 12px; background: rgba(201, 168, 76, 0.08); border-left: 2px solid var(--gold, #c9a84c); border-radius: 0 4px 4px 0; margin-bottom: 14px; }
+        #lextrack-tour-card .lt-actions { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+        #lextrack-tour-card .lt-btn { font-size: 13px; padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; font-family: inherit; }
+        #lextrack-tour-card .lt-btn.lt-primary { background: var(--ink, #2d2a26); color: var(--gold2, #d4b366); font-weight: 600; }
+        #lextrack-tour-card .lt-btn.lt-primary:hover { background: var(--ink2, #4a4540); }
+        #lextrack-tour-card .lt-btn.lt-ghost { background: transparent; color: var(--ink3, #6b6660); }
+        #lextrack-tour-card .lt-btn.lt-ghost:hover { color: var(--ink, #2d2a26); }
+        #lextrack-tour-card .lt-progress { display: flex; gap: 3px; margin-bottom: 14px; }
+        #lextrack-tour-card .lt-progress > div { flex: 1; height: 2px; background: rgba(0,0,0,0.1); border-radius: 1px; }
+        #lextrack-tour-card .lt-progress > div.lt-done { background: var(--gold, #c9a84c); }
+        #lextrack-tour-card .lt-progress > div.lt-current { background: var(--gold, #c9a84c); height: 3px; }
+      </style>
+      <div id="lextrack-tour-overlay" onclick="lextrackTour.close()"></div>
+      <div id="lextrack-tour-highlight" style="display:none;"></div>
+      <div id="lextrack-tour-card"></div>
+    `;
+    document.body.appendChild(root);
+  },
+
+  render() {
+    const step = this.steps[this.currentIdx];
+    const card = document.getElementById('lextrack-tour-card');
+    const highlight = document.getElementById('lextrack-tour-highlight');
+    if (!card || !highlight) return;
+
+    // Position the highlight (or hide it for centered modals)
+    let cardPosition = 'center';
+    if (step.target) {
+      const el = this._findTarget(step.target);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        const padding = 6;
+        highlight.style.display = 'block';
+        highlight.style.top    = (rect.top - padding) + 'px';
+        highlight.style.left   = (rect.left - padding) + 'px';
+        highlight.style.width  = (rect.width + padding * 2) + 'px';
+        highlight.style.height = (rect.height + padding * 2) + 'px';
+        cardPosition = 'side';
+        this._positionCardNearElement(card, rect);
+      } else {
+        highlight.style.display = 'none';
+        this._centerCard(card);
+      }
+    } else {
+      highlight.style.display = 'none';
+      this._centerCard(card);
+    }
+
+    // Render card body
+    const total = this.steps.length;
+    const idx = this.currentIdx;
+    const progressBar = `
+      <div class="lt-progress">
+        ${this.steps.map((_, i) => {
+          const cls = i < idx ? 'lt-done' : i === idx ? 'lt-current' : '';
+          return `<div class="${cls}"></div>`;
+        }).join('')}
+      </div>`;
+    const stepLabel = step.isIntro ? '' : `<div class="lt-step">Step ${idx} of ${total - 1}</div>`;
+    const footnote = step.footnote ? `<div class="lt-footnote">${step.footnote}</div>` : '';
+
+    let actions = '';
+    if (step.isIntro) {
+      actions = `
+        <button class="lt-btn lt-ghost" onclick="lextrackTour.close()">Maybe later</button>
+        <button class="lt-btn lt-primary" onclick="lextrackTour.next()">Show me →</button>
+      `;
+    } else if (step.isOutro) {
+      actions = `
+        <button class="lt-btn lt-ghost" onclick="lextrackTour.prev()">← Back</button>
+        <button class="lt-btn lt-primary" onclick="lextrackTour.close();practiceProfileWizard.open({force:true});">Set up profile</button>
+        <button class="lt-btn lt-ghost" onclick="lextrackTour.close()">Got it</button>
+      `;
+    } else {
+      actions = `
+        <button class="lt-btn lt-ghost" onclick="lextrackTour.prev()">← Back</button>
+        <div style="display:flex;gap:4px;">
+          <button class="lt-btn lt-ghost" onclick="lextrackTour.close()">Skip tour</button>
+          <button class="lt-btn lt-primary" onclick="lextrackTour.next()">Next →</button>
+        </div>
+      `;
+    }
+
+    card.innerHTML = `
+      ${progressBar}
+      ${stepLabel}
+      <div class="lt-title">${step.title}</div>
+      <div class="lt-body">${step.body}</div>
+      ${footnote}
+      <div class="lt-actions">${actions}</div>
+    `;
+
+    // Scroll the highlighted element into view if needed
+    if (step.target) {
+      const el = this._findTarget(step.target);
+      if (el) try { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch {}
+    }
+  },
+
+  _findTarget(key) {
+    const map = {
+      'nav-practice-profile':   () => Array.from(document.querySelectorAll('.nav-item')).find(el => /practice profile/i.test(el.textContent || '')),
+      'nav-section-ipr-tools':  () => {
+        const sections = Array.from(document.querySelectorAll('.nav-section'));
+        const iprSec = sections.find(s => /ipr tools/i.test(s.textContent || ''));
+        if (!iprSec) return null;
+        // Highlight the entire IPR Tools group: section header + the 3 nav items below it
+        const items = [iprSec];
+        let next = iprSec.nextElementSibling;
+        while (next && !next.classList.contains('nav-section')) {
+          items.push(next);
+          next = next.nextElementSibling;
+        }
+        // Return a virtual bounding box covering all
+        const rects = items.map(el => el.getBoundingClientRect());
+        const minTop = Math.min(...rects.map(r => r.top));
+        const maxBot = Math.max(...rects.map(r => r.bottom));
+        const minLeft = Math.min(...rects.map(r => r.left));
+        const maxRight = Math.max(...rects.map(r => r.right));
+        return {
+          getBoundingClientRect: () => ({ top: minTop, left: minLeft, width: maxRight - minLeft, height: maxBot - minTop, right: maxRight, bottom: maxBot }),
+          scrollIntoView: (opts) => iprSec.scrollIntoView(opts),
+        };
+      },
+      'nav-infringement-triage': () => Array.from(document.querySelectorAll('.nav-item')).find(el => /infringement triage/i.test(el.textContent || '')),
+      'nav-tm-clearance':        () => Array.from(document.querySelectorAll('.nav-item')).find(el => /tm clearance/i.test(el.textContent || '')),
+      'nav-cd-drafter':          () => Array.from(document.querySelectorAll('.nav-item')).find(el => /c&?amp;?d|c&amp;d|cease/i.test(el.textContent || '') || /new c&amp;d|c&amp;d draft/i.test(el.innerHTML || '')) || Array.from(document.querySelectorAll('.nav-item')).find(el => /draft/i.test(el.textContent || '') && /c.{0,5}d/i.test(el.textContent || '')),
+    };
+    return (map[key] && map[key]()) || null;
+  },
+
+  _positionCardNearElement(card, rect) {
+    const cardWidth = 420;
+    const cardHeightEst = 260;
+    const margin = 18;
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    // Prefer right of element, fall back to below / above / center
+    let left, top;
+    if (rect.right + margin + cardWidth < viewportWidth) {
+      left = rect.right + margin;
+      top  = Math.max(margin, Math.min(rect.top, viewportHeight - cardHeightEst - margin));
+    } else if (rect.bottom + margin + cardHeightEst < viewportHeight) {
+      left = Math.max(margin, Math.min(rect.left, viewportWidth - cardWidth - margin));
+      top  = rect.bottom + margin;
+    } else if (rect.top - margin - cardHeightEst > 0) {
+      left = Math.max(margin, Math.min(rect.left, viewportWidth - cardWidth - margin));
+      top  = rect.top - margin - cardHeightEst;
+    } else {
+      this._centerCard(card);
+      return;
+    }
+    card.style.left = left + 'px';
+    card.style.top = top + 'px';
+    card.style.transform = '';
+  },
+  _centerCard(card) {
+    card.style.left = '50%';
+    card.style.top = '50%';
+    card.style.transform = 'translate(-50%, -50%)';
+  },
+};
+window.lextrackTour = lextrackTour;
+
+// Auto-fire on load for first-time-after-v45 visitors. 1.5s delay so the
+// page is fully painted (matters loaded, sidebar rendered).
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    if (lextrackTour.shouldAutoShow()) {
+      try { lextrackTour.open(); } catch (e) { console.warn('tour failed', e); }
+    }
+  }, 1500);
+});
 </script>
 
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
