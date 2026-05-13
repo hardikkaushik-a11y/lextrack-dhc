@@ -1902,6 +1902,19 @@ body {
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M3 6l9-3 9 3M3 6v12l9 3 9-3V6M3 6l9 3 9-3M12 9v12"/></svg>
       Judgments
     </div>
+    <div class="nav-section">IPR Tools</div>
+    <div class="nav-item" onclick="openInfringementTriage()">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Infringement triage
+    </div>
+    <div class="nav-item" onclick="openTmClearance()">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+      TM clearance
+    </div>
+    <div class="nav-item" onclick="openCdDrafter()">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M9 9h6M9 13h4"/></svg>
+      New C&amp;D draft
+    </div>
     <div class="nav-section">Files</div>
     <div class="nav-item" onclick="showView('prep')">
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
@@ -1915,6 +1928,11 @@ body {
     <div class="nav-item" onclick="showView('drafting')">
       <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 113 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
       Drafting
+    </div>
+    <div class="nav-section">Configuration</div>
+    <div class="nav-item" onclick="practiceProfileWizard.open({force:true})">
+      <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      Practice profile
     </div>
   </nav>
 
@@ -4109,6 +4127,7 @@ function openDetail(id) {
         <div style="display:flex;gap:8px;align-items:center;">
           <button class="btn" onclick="goBack() || showView('matters')" style="background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.1);color:var(--ink2);padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;">← Back</button>
           <button class="btn btn-gold" onclick="runAnalysis('${id}')" id="ai-btn-${id}">${getDeepSeekKey() ? '⚡ AI Analysis' : '✦ AI Analysis'}</button>
+          <button class="btn" onclick="openCdDrafter('${id}')" style="background:#fef3c7;border:1px solid #c9a84c;color:#7a5a10;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;" title="Draft a C&D for this matter">📝 Draft C&amp;D</button>
           <button class="btn btn-danger" onclick="confirmDelete('${id}')">Delete</button>
         </div>
       </div>
@@ -4192,6 +4211,7 @@ function openDetail(id) {
             //   - upcoming hearings from m.causelist (today/tomorrow per DHC)
             //   - matter.nextDate (if not already covered by causelist)
             // Then sort newest-first (next-date at top, oldest at bottom).
+            const esc = s => String(s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
             const events = [];
             for (const e of (m.timeline || [])) {
               events.push({
@@ -4200,6 +4220,7 @@ function openDetail(id) {
                 event: e.event,
                 detail: e.detail,
                 orderLink: e.orderLink,
+                intelligence: e.intelligence, // per-order AI extraction from scraper Tier B
               });
             }
             // Cause-list entries — future hearings with court / item / time
@@ -4251,12 +4272,26 @@ function openDetail(id) {
               const detailHtml = e.orderLink
                 ? `<a href="${e.orderLink}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;">${e.detailLabel || e.detail || 'View Order →'}</a>${e.detail && e.detailLabel ? ` <span style="color:var(--ink3);">· ${e.detail}</span>` : ''}`
                 : (e.detail || '');
+              const intel = e.intelligence;
+              const intelHtml = intel ? `
+                <details style="margin-top:6px;font-size:11.5px;">
+                  <summary style="cursor:pointer;color:#7a5a10;font-weight:600;list-style:none;">▸ AI summary · ${esc(intel.classification || 'order')}</summary>
+                  <div style="margin-top:6px;background:#fffbeb;border-left:2px solid var(--gold,#c9a84c);padding:8px 12px;line-height:1.55;color:#5b4a10;border-radius:0 4px 4px 0;">
+                    ${intel.summary ? `<div style="margin-bottom:6px;font-style:italic;">${esc(intel.summary)}</div>` : ''}
+                    ${intel.reliefGranted ? `<div style="margin-bottom:4px;"><strong>Relief:</strong> ${esc(intel.reliefGranted)}</div>` : ''}
+                    ${intel.costsAwarded?.amount ? `<div style="margin-bottom:4px;"><strong>Costs:</strong> ${esc(intel.costsAwarded.amount)}${intel.costsAwarded.to ? ` to the ${esc(intel.costsAwarded.to)}` : ''}</div>` : ''}
+                    ${(intel.directions || []).length ? `<div style="margin-bottom:4px;"><strong>Directions:</strong><ul style="margin:2px 0 0 18px;padding:0;">${intel.directions.map(d => `<li>${esc(d)}</li>`).join('')}</ul></div>` : ''}
+                    ${(intel.citations || []).length ? `<div style="margin-bottom:4px;"><strong>Citations:</strong> ${intel.citations.map(c => esc(c)).join(' · ')} ${aiFraming.sourceTag('model-pinpoint')}</div>` : ''}
+                    ${intel.counsel?.plaintiff || intel.counsel?.defendant ? `<div style="font-size:11px;opacity:0.85;"><strong>Counsel:</strong> ${intel.counsel?.plaintiff ? 'P: ' + esc(intel.counsel.plaintiff) : ''}${intel.counsel?.defendant ? ' · D: ' + esc(intel.counsel.defendant) : ''}</div>` : ''}
+                  </div>
+                </details>` : '';
               return `
                 <div class="timeline-item">
                   <div class="timeline-dot" style="${dotStyle}"></div>
                   <div class="timeline-date">${formatDate(e.date)}</div>
                   <div class="timeline-event" style="${eventStyle}">${e.event}</div>
                   <div class="timeline-detail">${detailHtml}</div>
+                  ${intelHtml}
                 </div>`;
             }).join('');
           })()}
@@ -4786,6 +4821,102 @@ async function generateAI(id) {
 // orders + cadence with an LLM. Costs ~₹0.05-0.20 per call (DeepSeek V4).
 
 function getDeepSeekKey() { return localStorage.getItem('lextrack_deepseek_key'); }
+function getToflerKey()  { return localStorage.getItem('lextrack_tofler_key') || null; }
+function setToflerKey(k) {
+  if (!k) localStorage.removeItem('lextrack_tofler_key');
+  else    localStorage.setItem('lextrack_tofler_key', k.trim());
+}
+window.getToflerKey = getToflerKey;
+window.setToflerKey = setToflerKey;
+
+// ─────────────────────────────────────────────────────────────────────────
+// aiCall — shared wrapper for the brand-ported Item 5 features. Personal
+// app uses DeepSeek directly; this matches brand's aiCall signature so
+// the copy-pasted feature code works unchanged.
+// ─────────────────────────────────────────────────────────────────────────
+async function aiCall(prompt, opts = {}) {
+  const apiKey = getDeepSeekKey();
+  if (!apiKey) throw new Error('No DeepSeek key — set it via ✦ AI Analysis prompt');
+  const body = {
+    model: 'deepseek-chat',
+    messages: [{ role: 'user', content: prompt }],
+    max_tokens: opts.maxTokens || 2000,
+  };
+  if (opts.temperature != null) body.temperature = opts.temperature;
+  if (opts.jsonMode) body.response_format = { type: 'json_object' };
+  const resp = await fetch('https://api.deepseek.com/v1/chat/completions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+    body: JSON.stringify(body),
+  });
+  if (!resp.ok) {
+    const txt = await resp.text().catch(() => '');
+    throw new Error(`DeepSeek ${resp.status}: ${txt.slice(0, 200)}`);
+  }
+  const data = await resp.json();
+  const content = data.choices?.[0]?.message?.content || '';
+  return { content };
+}
+window.aiCall = aiCall;
+function getAIConfig() { return getDeepSeekKey() ? { provider: 'deepseek', model: 'deepseek-chat' } : null; }
+window.getAIConfig = getAIConfig;
+
+// ─────────────────────────────────────────────────────────────────────────
+// Practice profile (Item 4 — personal-app version, localStorage-only)
+// Stores Ishi's practice configuration. Read by every AI feature as a
+// preamble so outputs sound calibrated to her practice.
+// ─────────────────────────────────────────────────────────────────────────
+const PRACTICE_PROFILE_KEY = 'lextrack_practice_profile_v1';
+function getPracticeProfile() {
+  try { return JSON.parse(localStorage.getItem(PRACTICE_PROFILE_KEY) || 'null'); }
+  catch { return null; }
+}
+function savePracticeProfile(p) {
+  try { localStorage.setItem(PRACTICE_PROFILE_KEY, JSON.stringify(p)); } catch {}
+}
+window.getPracticeProfile  = getPracticeProfile;
+window.savePracticeProfile = savePracticeProfile;
+
+let __cachedPracticeProfile = null;
+let __cachedPracticeProfileAt = 0;
+function getFirmProfileForPrompt() {
+  // Synchronous since localStorage is sync. Cached so repeated AI calls
+  // don't re-stringify the same JSON.
+  if (__cachedPracticeProfile && (Date.now() - __cachedPracticeProfileAt) < 60_000) return __cachedPracticeProfile;
+  const p = getPracticeProfile();
+  __cachedPracticeProfile = p ? _formatPracticeProfileForPrompt(p) : '';
+  __cachedPracticeProfileAt = Date.now();
+  return __cachedPracticeProfile;
+}
+window.getFirmProfileForPrompt = getFirmProfileForPrompt;
+
+function _formatPracticeProfileForPrompt(p) {
+  const lines = ['=== PRACTICE PROFILE (read before generating; respect these defaults unless the matter overrides) ==='];
+  if (p.practice_areas?.length) lines.push(`Practice areas: ${p.practice_areas.join(', ')} (do NOT volunteer advice on areas outside this list — flag as out-of-scope).`);
+  if (p.jurisdictions?.length)  lines.push(`Primary jurisdictions: ${p.jurisdictions.join(', ')}.`);
+  if (p.enforcement_posture)    lines.push(`Default enforcement posture: ${p.enforcement_posture}. Per-matter override available at draft time.`);
+  if (p.approval_matrix && Object.keys(p.approval_matrix).length) {
+    const am = Object.entries(p.approval_matrix).filter(([,v]) => v).map(([k,v]) => `${k}=${v}`).join(', ');
+    if (am) lines.push(`Approval matrix: ${am}.`);
+  }
+  if (p.house_style?.default_response_window_days) lines.push(`Default response window: ${p.house_style.default_response_window_days} days.`);
+  if (p.house_style?.default_signer)               lines.push(`Default signer: ${p.house_style.default_signer}`);
+  if (p.house_style?.marking_convention)           lines.push(`Marking convention: ${p.house_style.marking_convention.replace(/_/g, ' & ')}`);
+  if (p.artifact_summary) {
+    const a = p.artifact_summary;
+    lines.push(`House-style notes from ${a.artifact_count || 'past'} firm artifacts:`);
+    if (a.tone)                  lines.push(`  Tone: ${a.tone}`);
+    if (a.sentence_length)       lines.push(`  Sentence length: ${a.sentence_length}`);
+    if (a.citation_style)        lines.push(`  Citation style: ${a.citation_style}`);
+    if (a.escalation_pattern)    lines.push(`  Escalation: ${a.escalation_pattern}`);
+    if (a.signature_conventions) lines.push(`  Signoff: ${a.signature_conventions}`);
+    if (a.characteristic_phrases?.length) lines.push(`  Recurring phrases: ${a.characteristic_phrases.join(' · ')}`);
+    if (a.things_to_avoid?.length)        lines.push(`  AVOID: ${a.things_to_avoid.join(' · ')}`);
+  }
+  const skipped = (p.completed_steps || []).filter(s => s.endsWith(':skipped')).map(s => s.replace(':skipped', ''));
+  if (skipped.length) lines.push(`[PROVISIONAL] Profile dimensions not yet captured: ${skipped.join(', ')}. Tag related outputs with [PROVISIONAL].`);
+  return lines.join('\n') + '\n';
+}
 function setupDeepSeekKey() {
   const existing = getDeepSeekKey();
   const msg = existing
@@ -8511,6 +8642,1132 @@ function renderTomorrowsHearings() {
       }).join('')}
     </div>`;
 }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ITEM 4 (personal) — PRACTICE PROFILE WIZARD
+// localStorage-only variant of the brand firm-profile wizard.
+// ═══════════════════════════════════════════════════════════════════════════
+const LEX_INTERVIEW_PROGRESS_KEY = 'lextrack_practice_progress_v1';
+
+const practiceProfileWizard = {
+  STEPS: ['mode', 'practice_areas', 'jurisdictions', 'enforcement', 'approval', 'house_style', 'artifacts', 'done'],
+  currentIdx: 0,
+  state: {
+    setup_mode: 'quick',
+    practice_areas: [],
+    jurisdictions: [],
+    enforcement_posture: 'measured',
+    approval_matrix: {},
+    house_style: {},
+    artifact_summary: null,
+    completed_steps: [],
+    is_complete: false,
+  },
+
+  open(opts = {}) {
+    this._loadLocal();
+    // Also try existing saved profile (separate key) so the wizard
+    // reflects the user's prior answers when re-opened from nav.
+    const saved = getPracticeProfile();
+    if (saved) this.state = { ...this.state, ...saved };
+    if (saved?.is_complete && !opts.force) return false;
+    const next = this.STEPS.findIndex(s => !this.state.completed_steps.includes(s));
+    this.currentIdx = next === -1 ? this.STEPS.length - 1 : next;
+    document.getElementById('practice-profile-modal').style.display = 'flex';
+    this.render();
+    return true;
+  },
+  close() { document.getElementById('practice-profile-modal').style.display = 'none'; },
+  pause() {
+    this._persistLocal();
+    if (typeof toast === 'function') toast('Progress saved — resume from sidebar', '');
+    this.close();
+  },
+  _persistLocal() {
+    try { localStorage.setItem(LEX_INTERVIEW_PROGRESS_KEY, JSON.stringify({ state: this.state, currentIdx: this.currentIdx })); } catch {}
+  },
+  _loadLocal() {
+    try {
+      const raw = localStorage.getItem(LEX_INTERVIEW_PROGRESS_KEY);
+      if (raw) {
+        const p = JSON.parse(raw);
+        if (p.state) this.state = { ...this.state, ...p.state };
+        if (typeof p.currentIdx === 'number') this.currentIdx = p.currentIdx;
+      }
+    } catch {}
+  },
+  async reset() {
+    const ok = window.confirm('Reset practice profile?\n\nThis wipes ALL profile data on this device.\nYou\'ll walk the wizard from scratch.\n\nThis cannot be undone.');
+    if (!ok) return;
+    this.state = {
+      setup_mode: 'quick', practice_areas: [], jurisdictions: [],
+      enforcement_posture: 'measured', approval_matrix: {}, house_style: {},
+      artifact_summary: null, completed_steps: [], is_complete: false,
+    };
+    this.currentIdx = 0;
+    try { localStorage.removeItem(LEX_INTERVIEW_PROGRESS_KEY); } catch {}
+    try { localStorage.removeItem('lextrack_practice_profile_v1'); } catch {}
+    __cachedPracticeProfile = null;
+    if (typeof toast === 'function') toast('Practice profile reset', 'success');
+    setTimeout(() => this.open({ force: true }), 400);
+  },
+
+  async next() {
+    const step = this.STEPS[this.currentIdx];
+    if (step === 'done') return this.finish();
+    if (!this.state.completed_steps.includes(step)) this.state.completed_steps.push(step);
+    this._persistLocal();
+    savePracticeProfile(this.state);
+    __cachedPracticeProfile = null;
+    if (this.state.setup_mode === 'quick' && step === 'practice_areas') {
+      this.currentIdx = this.STEPS.indexOf('done');
+    } else {
+      this.currentIdx = Math.min(this.currentIdx + 1, this.STEPS.length - 1);
+    }
+    this.render();
+  },
+  back() {
+    const visibleSteps = this.state.setup_mode === 'quick'
+      ? ['mode', 'practice_areas', 'done']
+      : this.STEPS;
+    const currentStepName = this.STEPS[this.currentIdx];
+    const currentVisibleIdx = visibleSteps.indexOf(currentStepName);
+    if (currentVisibleIdx > 0) {
+      this.currentIdx = this.STEPS.indexOf(visibleSteps[currentVisibleIdx - 1]);
+      this.render();
+    } else if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+  skip() {
+    const step = this.STEPS[this.currentIdx];
+    if (step === 'done') return;
+    if (!this.state.completed_steps.includes(step + ':skipped')) {
+      this.state.completed_steps.push(step + ':skipped');
+    }
+    this._persistLocal();
+    savePracticeProfile(this.state);
+    __cachedPracticeProfile = null;
+    this.currentIdx = Math.min(this.currentIdx + 1, this.STEPS.length - 1);
+    this.render();
+  },
+  async finish() {
+    this.state.is_complete = true;
+    if (!this.state.completed_steps.includes('done')) this.state.completed_steps.push('done');
+    savePracticeProfile(this.state);
+    __cachedPracticeProfile = null;
+    if (typeof toast === 'function') toast('Practice profile saved — AI outputs now read this first', 'success');
+    this.close();
+  },
+
+  render() {
+    const step = this.STEPS[this.currentIdx];
+    const body = document.getElementById('pp-body');
+    const progressBar = document.getElementById('pp-progress');
+    const back = document.getElementById('pp-back');
+    const skip = document.getElementById('pp-skip');
+    const next = document.getElementById('pp-next');
+    if (!body) return;
+
+    const visibleSteps = this.state.setup_mode === 'quick'
+      ? ['mode', 'practice_areas', 'done']
+      : this.STEPS;
+    const currentVisibleIdx = visibleSteps.indexOf(step);
+    progressBar.innerHTML = visibleSteps.map((s, i) => {
+      let bg, h;
+      if (i === currentVisibleIdx) { bg = 'var(--gold,#c9a84c)'; h = '4px'; }
+      else if (currentVisibleIdx >= 0 && i < currentVisibleIdx) { bg = 'rgba(201,168,76,0.4)'; h = '3px'; }
+      else { bg = 'rgba(0,0,0,0.12)'; h = '3px'; }
+      return `<div style="flex:1;height:${h};background:${bg};border-radius:2px;transition:background 0.2s,height 0.2s;"></div>`;
+    }).join('');
+    back.style.visibility = currentVisibleIdx === 0 ? 'hidden' : 'visible';
+    skip.style.visibility = step === 'done' ? 'hidden' : 'visible';
+    next.textContent = step === 'done' ? 'Save profile ✓' : 'Continue →';
+
+    if (step === 'mode')             body.innerHTML = this._renderStepMode();
+    else if (step === 'practice_areas') body.innerHTML = this._renderStepPracticeAreas();
+    else if (step === 'jurisdictions')  body.innerHTML = this._renderStepJurisdictions();
+    else if (step === 'enforcement')    body.innerHTML = this._renderStepEnforcement();
+    else if (step === 'approval')       body.innerHTML = this._renderStepApproval();
+    else if (step === 'house_style')    body.innerHTML = this._renderStepHouseStyle();
+    else if (step === 'artifacts')      body.innerHTML = this._renderStepArtifacts();
+    else if (step === 'done')           body.innerHTML = this._renderStepDone();
+  },
+
+  _renderStepMode() {
+    const m = this.state.setup_mode;
+    const opt = (val, label, sub) => `
+      <label style="display:block;padding:12px 14px;border:1px solid ${m === val ? 'var(--gold,#c9a84c)' : 'var(--border,rgba(0,0,0,0.12))'};border-radius:8px;margin-bottom:10px;cursor:pointer;${m === val ? 'background:#fffbeb;' : ''}">
+        <input type="radio" name="pp-mode" value="${val}" ${m === val ? 'checked' : ''}
+               onchange="practiceProfileWizard.state.setup_mode='${val}';practiceProfileWizard.render()"
+               style="margin-right:8px;">
+        <strong>${label}</strong>
+        <div style="font-size:12px;color:var(--ink3);margin-top:4px;margin-left:24px;">${sub}</div>
+      </label>`;
+    return `
+      <div style="font-size:14px;margin-bottom:14px;line-height:1.55;">How much detail do you want to capture now?</div>
+      ${opt('quick', 'Quick start (2 minutes)', 'Practice areas only. Skipped dimensions get tagged [PROVISIONAL] on AI outputs — refill later when you have time.')}
+      ${opt('full',  'Full setup (~10 minutes)', 'All dimensions: practice areas, jurisdictions, posture, approvals, house style, optional artifact upload.')}
+    `;
+  },
+  _renderStepPracticeAreas() {
+    const areas = ['trademark', 'copyright', 'patent', 'design', 'gi', 'trade_secret'];
+    const labels = { trademark: 'Trademark', copyright: 'Copyright', patent: 'Patent', design: 'Design', gi: 'Geographical Indication', trade_secret: 'Trade Secret' };
+    return `
+      <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">Which IP types does your practice actually handle?</div>
+      <div style="font-size:12px;color:var(--ink3);margin-bottom:14px;">Tick everything that's a real revenue line. AI will flag anything outside this list.</div>
+      ${areas.map(a => `
+        <label style="display:inline-block;padding:8px 14px;margin:4px;border:1px solid ${this.state.practice_areas.includes(a) ? 'var(--gold,#c9a84c)' : 'var(--border,rgba(0,0,0,0.12))'};border-radius:20px;cursor:pointer;background:${this.state.practice_areas.includes(a) ? '#fffbeb' : 'transparent'};">
+          <input type="checkbox" value="${a}" ${this.state.practice_areas.includes(a) ? 'checked' : ''}
+                 onchange="practiceProfileWizard._togglePracticeArea('${a}', this.checked)"
+                 style="margin-right:6px;">
+          ${labels[a]}
+        </label>
+      `).join('')}
+    `;
+  },
+  _togglePracticeArea(a, on) {
+    const set = new Set(this.state.practice_areas);
+    if (on) set.add(a); else set.delete(a);
+    this.state.practice_areas = [...set];
+    this.render();
+  },
+  _renderStepJurisdictions() {
+    const opts = ['Delhi HC', 'Bombay HC', 'Madras HC', 'Calcutta HC', 'Karnataka HC', 'Supreme Court'];
+    return `
+      <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">Which courts do you primarily file in?</div>
+      <div style="font-size:12px;color:var(--ink3);margin-bottom:14px;">Affects citation conventions + default forum recommendations.</div>
+      ${opts.map(j => `
+        <label style="display:inline-block;padding:8px 14px;margin:4px;border:1px solid ${this.state.jurisdictions.includes(j) ? 'var(--gold,#c9a84c)' : 'var(--border,rgba(0,0,0,0.12))'};border-radius:20px;cursor:pointer;background:${this.state.jurisdictions.includes(j) ? '#fffbeb' : 'transparent'};">
+          <input type="checkbox" value="${j}" ${this.state.jurisdictions.includes(j) ? 'checked' : ''}
+                 onchange="practiceProfileWizard._toggleJurisdiction('${j}', this.checked)"
+                 style="margin-right:6px;">
+          ${j}
+        </label>
+      `).join('')}
+    `;
+  },
+  _toggleJurisdiction(j, on) {
+    const set = new Set(this.state.jurisdictions);
+    if (on) set.add(j); else set.delete(j);
+    this.state.jurisdictions = [...set];
+    this.render();
+  },
+  _renderStepEnforcement() {
+    const p = this.state.enforcement_posture;
+    const opt = (val, label, sub) => `
+      <label style="display:block;padding:12px 14px;border:1px solid ${p === val ? 'var(--gold,#c9a84c)' : 'var(--border,rgba(0,0,0,0.12))'};border-radius:8px;margin-bottom:10px;cursor:pointer;${p === val ? 'background:#fffbeb;' : ''}">
+        <input type="radio" name="pp-enf" value="${val}" ${p === val ? 'checked' : ''}
+               onchange="practiceProfileWizard.state.enforcement_posture='${val}';practiceProfileWizard.render()"
+               style="margin-right:8px;">
+        <strong>${label}</strong>
+        <div style="font-size:12px;color:var(--ink3);margin-top:4px;margin-left:24px;">${sub}</div>
+      </label>`;
+    return `
+      <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">Default enforcement posture for new matters?</div>
+      <div style="font-size:12px;color:var(--ink3);margin-bottom:14px;">Default — overridden per-matter at draft time. The C&D drafter respects it.</div>
+      ${opt('aggressive',   'Aggressive', 'Front-load demands, short response windows (3–7 days), threaten injunction immediately.')}
+      ${opt('measured',     'Measured',   'Default window 14 days. State remedies available without threatening immediately. Negotiate first, sue second.')}
+      ${opt('conservative', 'Conservative', 'Notice-style first letter. 21+ day window. Reserve threats for second-round.')}
+    `;
+  },
+  _renderStepApproval() {
+    const a = this.state.approval_matrix || {};
+    return `
+      <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">Who approves what before sending?</div>
+      <div style="font-size:12px;color:var(--ink3);margin-bottom:14px;">AI drafters will refuse to mark drafts "ready to send" without the named approver.</div>
+      <label style="display:block;font-size:12px;margin-bottom:8px;">
+        C&amp;D letters
+        <select onchange="practiceProfileWizard._setApproval('cd_letters', this.value)" class="form-select" style="width:100%;margin-top:4px;">
+          <option value=""           ${!a.cd_letters ? 'selected' : ''}>— pick —</option>
+          <option value="self"       ${a.cd_letters==='self' ? 'selected' : ''}>Self-approved</option>
+          <option value="senior"     ${a.cd_letters==='senior' ? 'selected' : ''}>Senior associate</option>
+          <option value="partner"    ${a.cd_letters==='partner' ? 'selected' : ''}>Partner on file</option>
+        </select>
+      </label>
+      <label style="display:block;font-size:12px;margin-bottom:8px;">
+        Briefs / synopses
+        <select onchange="practiceProfileWizard._setApproval('briefs', this.value)" class="form-select" style="width:100%;margin-top:4px;">
+          <option value=""           ${!a.briefs ? 'selected' : ''}>— pick —</option>
+          <option value="self"       ${a.briefs==='self' ? 'selected' : ''}>Self-approved</option>
+          <option value="senior"     ${a.briefs==='senior' ? 'selected' : ''}>Senior associate</option>
+          <option value="partner"    ${a.briefs==='partner' ? 'selected' : ''}>Partner on file</option>
+        </select>
+      </label>
+      <label style="display:block;font-size:12px;margin-bottom:8px;">
+        Anything seeking injunction
+        <select onchange="practiceProfileWizard._setApproval('injunction_filings', this.value)" class="form-select" style="width:100%;margin-top:4px;">
+          <option value=""           ${!a.injunction_filings ? 'selected' : ''}>— pick —</option>
+          <option value="senior"     ${a.injunction_filings==='senior' ? 'selected' : ''}>Senior associate</option>
+          <option value="partner"    ${a.injunction_filings==='partner' ? 'selected' : ''}>Partner on file</option>
+          <option value="managing"   ${a.injunction_filings==='managing' ? 'selected' : ''}>Managing partner</option>
+        </select>
+      </label>
+    `;
+  },
+  _setApproval(key, val) {
+    this.state.approval_matrix = { ...this.state.approval_matrix, [key]: val || null };
+  },
+  _renderStepHouseStyle() {
+    const h = this.state.house_style || {};
+    return `
+      <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">A few house-style defaults the AI should respect.</div>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">
+        Default response window on time-sensitive letters
+        <input type="number" min="3" max="60" value="${h.default_response_window_days || 14}"
+               onchange="practiceProfileWizard._setHouseStyle('default_response_window_days', parseInt(this.value, 10))"
+               class="form-input" style="width:100%;margin-top:4px;">
+        <span style="font-size:11px;color:var(--ink3);">days. Per-letter override available at draft time.</span>
+      </label>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">
+        Default signer
+        <input type="text" placeholder="e.g. Anuradha Salhotra"
+               value="${h.default_signer || ''}"
+               onchange="practiceProfileWizard._setHouseStyle('default_signer', this.value)"
+               class="form-input" style="width:100%;margin-top:4px;">
+      </label>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">
+        Marking convention on privileged drafts
+        <select onchange="practiceProfileWizard._setHouseStyle('marking_convention', this.value)" class="form-select" style="width:100%;margin-top:4px;">
+          <option value=""                ${!h.marking_convention ? 'selected' : ''}>— pick —</option>
+          <option value="privileged"      ${h.marking_convention==='privileged' ? 'selected' : ''}>PRIVILEGED &amp; CONFIDENTIAL</option>
+          <option value="without_prejudice" ${h.marking_convention==='without_prejudice' ? 'selected' : ''}>WITHOUT PREJUDICE</option>
+          <option value="both"            ${h.marking_convention==='both' ? 'selected' : ''}>Both, depending on context</option>
+        </select>
+      </label>
+    `;
+  },
+  _setHouseStyle(key, val) {
+    this.state.house_style = { ...this.state.house_style, [key]: val };
+  },
+  _renderStepArtifacts() {
+    const summary = this.state.artifact_summary;
+    if (summary) {
+      return `
+        <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">Artifact-derived style summary</div>
+        <div style="font-size:12px;color:var(--ink3);margin-bottom:14px;">AI extracted from ${summary.artifact_count || '?'} document(s).</div>
+        <div style="background:#fffbeb;border-left:3px solid var(--gold,#c9a84c);padding:12px 14px;font-size:12.5px;line-height:1.6;border-radius:0 6px 6px 0;">
+          ${aiFraming.applyMarkers(String(summary.notes || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c])))}
+        </div>
+        <button class="btn btn-ghost" onclick="document.getElementById('pp-artifact-input').click()" style="margin-top:14px;font-size:12px;padding:8px 14px;">↻ Re-upload</button>
+        <input type="file" id="pp-artifact-input" multiple accept=".txt,.md"
+               style="display:none;" onchange="practiceProfileWizard._ingestArtifacts(this.files)">
+      `;
+    }
+    return `
+      <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">Optional — upload 5-15 past briefs or C&amp;D letters (.txt or .md).</div>
+      <div style="font-size:12px;color:var(--ink3);margin-bottom:14px;line-height:1.55;">
+        Closer to "feels like the firm wrote it" than any interview answer. AI reads the artifacts and extracts patterns (tone, sentence length, citation style, escalation pattern). Files stay on your device — only the extracted summary leaves, sent to DeepSeek once.
+      </div>
+      <button class="btn btn-primary" type="button" onclick="document.getElementById('pp-artifact-input').click()" style="font-size:13px;padding:11px 20px;">📎 Choose files (.txt, .md)</button>
+      <input type="file" id="pp-artifact-input" multiple accept=".txt,.md"
+             style="display:none;" onchange="practiceProfileWizard._ingestArtifacts(this.files)">
+      <div id="pp-artifact-progress" style="margin-top:10px;font-size:12px;color:var(--ink3);"></div>
+    `;
+  },
+  async _ingestArtifacts(files) {
+    if (!files || !files.length) return;
+    const progressEl = document.getElementById('pp-artifact-progress');
+    const setProgress = msg => { if (progressEl) progressEl.textContent = msg; };
+    setProgress(`Reading ${files.length} file(s)…`);
+    const texts = [];
+    for (const f of files) {
+      try {
+        const text = await f.text();
+        if (text) texts.push({ name: f.name, text: text.substring(0, 12000) });
+      } catch {}
+    }
+    if (!texts.length) { setProgress("Couldn't read any of those files."); return; }
+    setProgress(`Read ${texts.length} doc(s). Extracting style with AI… (~30s)`);
+    const joined = texts.map(t => `=== ${t.name} ===\n${t.text}`).join('\n\n').substring(0, 60000);
+    const prompt = `You are reading ${texts.length} past brief / cease-and-desist letter(s) from an Indian IPR practice. Extract the firm's house-style patterns — NOT the case-specific content. Return only valid JSON.
+
+Documents:
+${joined}
+
+Schema:
+{
+  "tone": "1-line characterisation",
+  "sentence_length": "short / medium / long",
+  "citation_style": "how the firm cites authority",
+  "escalation_pattern": "notice → demand → threatened filing escalation pattern",
+  "signature_conventions": "how letters close + sign",
+  "characteristic_phrases": ["3-5 recurring phrases"],
+  "things_to_avoid": ["constructions visibly NEVER used"]
+}`;
+    try {
+      const { content } = await aiCall(prompt, { maxTokens: 1500, temperature: 0.2, jsonMode: true });
+      const parsed = JSON.parse((content || '{}').replace(/```json|```/g, '').trim());
+      this.state.artifact_summary = {
+        ...parsed, artifact_count: texts.length, extracted_at: new Date().toISOString(),
+        notes: this._renderArtifactSummary(parsed),
+      };
+      this._persistLocal();
+      savePracticeProfile(this.state);
+      __cachedPracticeProfile = null;
+      setProgress(`✓ Extracted style from ${texts.length} doc(s).`);
+      this.render();
+    } catch (e) {
+      console.error(e);
+      setProgress(`✗ Extraction failed: ${e.message || 'unknown'}`);
+    }
+  },
+  _renderArtifactSummary(s) {
+    const lines = [];
+    if (s.tone) lines.push(`Tone: ${s.tone}`);
+    if (s.sentence_length) lines.push(`Sentences: ${s.sentence_length}`);
+    if (s.citation_style) lines.push(`Citation style: ${s.citation_style}`);
+    if (s.escalation_pattern) lines.push(`Escalation: ${s.escalation_pattern}`);
+    if (s.signature_conventions) lines.push(`Signoff: ${s.signature_conventions}`);
+    if (s.characteristic_phrases?.length) lines.push(`Recurring: ${s.characteristic_phrases.join('; ')}`);
+    if (s.things_to_avoid?.length) lines.push(`Avoids: ${s.things_to_avoid.join('; ')}`);
+    return lines.join(' • ');
+  },
+  _renderStepDone() {
+    const s = this.state;
+    const summary = [];
+    if (s.practice_areas?.length)  summary.push(`Practice areas: <strong>${s.practice_areas.join(', ')}</strong>`);
+    if (s.jurisdictions?.length)   summary.push(`Jurisdictions: <strong>${s.jurisdictions.join(', ')}</strong>`);
+    summary.push(`Posture: <strong>${s.enforcement_posture}</strong>`);
+    if (Object.keys(s.approval_matrix || {}).filter(k => s.approval_matrix[k]).length) {
+      const lines = Object.entries(s.approval_matrix).filter(([,v]) => v).map(([k,v]) => `${k}: ${v}`);
+      summary.push(`Approvals: <strong>${lines.join(' · ')}</strong>`);
+    }
+    if (s.house_style?.default_response_window_days) summary.push(`Default response window: <strong>${s.house_style.default_response_window_days} days</strong>`);
+    if (s.house_style?.default_signer) summary.push(`Signer: <strong>${s.house_style.default_signer}</strong>`);
+    if (s.artifact_summary) summary.push(`Artifact summary captured · ${s.artifact_summary.artifact_count} docs analysed`);
+    const skipped = (s.completed_steps || []).filter(x => x.endsWith(':skipped'));
+    const skippedNote = skipped.length
+      ? `<div style="margin-top:14px;font-size:12px;color:var(--ink3);">⚠️ ${skipped.length} step${skipped.length === 1 ? '' : 's'} skipped — AI outputs tag those dimensions [PROVISIONAL] until refilled.</div>`
+      : '';
+    return `
+      <div style="font-size:14px;margin-bottom:14px;line-height:1.55;">Profile ready. Every AI feature reads this before generating.</div>
+      <div style="background:#fffbeb;border-left:3px solid var(--gold,#c9a84c);padding:14px 18px;border-radius:0 6px 6px 0;">
+        <ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.7;color:var(--ink2);">
+          ${summary.map(s => `<li>${s}</li>`).join('')}
+        </ul>
+      </div>
+      ${skippedNote}
+      <div style="margin-top:14px;display:flex;gap:8px;">
+        <button class="btn btn-ghost" type="button" onclick="practiceProfileWizard.reset()" style="font-size:12px;padding:8px 14px;background:transparent;border:1px solid #dc2626;color:#dc2626;">Reset profile</button>
+      </div>
+    `;
+  },
+};
+window.practiceProfileWizard = practiceProfileWizard;
+
+// ═══════════════════════════════════════════════════════════════════════════
+// INFRINGEMENT TRIAGE (Item 5 Phase 3 — personal port)
+// ═══════════════════════════════════════════════════════════════════════════
+function openInfringementTriage() {
+  document.getElementById('it-form').style.display = 'block';
+  document.getElementById('it-result').style.display = 'none';
+  document.getElementById('it-result').innerHTML = '';
+  document.getElementById('infringement-triage-modal').style.display = 'flex';
+}
+function closeInfringementTriage() { document.getElementById('infringement-triage-modal').style.display = 'none'; }
+window.openInfringementTriage  = openInfringementTriage;
+window.closeInfringementTriage = closeInfringementTriage;
+
+async function runInfringementTriage() {
+  const input = {
+    senior_mark:     document.getElementById('it-senior-mark').value.trim(),
+    senior_class:    document.getElementById('it-senior-class').value.trim(),
+    distinctiveness: document.getElementById('it-distinctiveness').value,
+    accused_mark:    document.getElementById('it-accused-mark').value.trim(),
+    accused_class:   document.getElementById('it-accused-class').value.trim(),
+    accused_conduct: document.getElementById('it-accused-conduct').value.trim(),
+    channels:        document.getElementById('it-channels').value,
+    confusion:       document.getElementById('it-confusion').value.trim(),
+    badfaith:        document.getElementById('it-badfaith').value.trim(),
+  };
+  if (!input.senior_mark || !input.accused_mark || !input.accused_conduct) { toast('Senior mark, accused mark, and accused conduct are required', 'error'); return; }
+  if (!getDeepSeekKey()) { toast('Set DeepSeek key first', 'error'); setupDeepSeekKey(); return; }
+  const btn = document.getElementById('it-run-btn');
+  btn.disabled = true; btn.textContent = 'Running triage…';
+  const preamble = getFirmProfileForPrompt();
+  const prompt = `${preamble}You are an IPR litigation associate doing a FIRST-PASS infringement triage under the Trade Marks Act 1999. This is NOT an opinion — it is a structured factor-by-factor read.
+
+⚠️ Loudly frame the output as "TRIAGE, NOT OPINION" — never conclude infringement.
+
+Inputs:
+  Senior mark:                 "${input.senior_mark}"
+  Senior class(es):            ${input.senior_class || 'unspecified'}
+  Distinctiveness (Abercrombie): ${input.distinctiveness}
+  Accused mark:                "${input.accused_mark}"
+  Accused class(es):           ${input.accused_class || 'unspecified'}
+  What accused is doing:       ${input.accused_conduct}
+  Channel overlap:             ${input.channels}
+  Actual confusion examples:   ${input.confusion || '(none provided)'}
+  Bad-faith indicators:        ${input.badfaith || '(none provided)'}
+
+=== MARKER DISCIPLINE ===
+Use [verify] for unconfirmed facts. [review] for judgment calls. [needs lawyer review] for conclusions you shouldn't make. Tag citations with [model — verify-pinpoint] (highest fabrication risk).
+
+Walk EACH factor under TMA § 29 separately. For each factor: cuts toward senior / cuts toward accused / mixed. Never collapse to a single conclusion.
+
+Return ONLY valid JSON:
+{
+  "triageHeader": "'TRIAGE — NOT AN OPINION. Factor walk only.'",
+  "factorWalk": [
+    {"factor":"Identity / similarity of marks","cutsTowardSenior":[],"cutsTowardAccused":[],"mixed":[]},
+    {"factor":"Identity / similarity of goods or services","cutsTowardSenior":[],"cutsTowardAccused":[],"mixed":[]},
+    {"factor":"Distinctiveness of the senior mark","cutsTowardSenior":[],"cutsTowardAccused":[],"mixed":[]},
+    {"factor":"Channel overlap and consumer profile","cutsTowardSenior":[],"cutsTowardAccused":[],"mixed":[]},
+    {"factor":"Actual confusion","cutsTowardSenior":[],"cutsTowardAccused":[],"mixed":[]},
+    {"factor":"Bad faith / knowledge","cutsTowardSenior":[],"cutsTowardAccused":[],"mixed":[]}
+  ],
+  "missingFactsThatWouldChangeTheCall": ["1-4 missing facts, tag [review]"],
+  "tentativeRead": "ONE conditional paragraph. Never categorical.",
+  "recommendedNextSteps": ["3-5 concrete next steps"],
+  "beforeRelying": ["1-3 imperatives"],
+  "openQuestion": "One question this framework doesn't surface",
+  "clientSummary": "Plain English 3-5 sentences for client. No jargon. No markers.",
+  "whatsappOneLiner": "Under 280 chars"
+}`;
+  try {
+    const { content } = await aiCall(prompt, { maxTokens: 3000, temperature: 0.2, jsonMode: true });
+    const parsed = JSON.parse((content || '{}').replace(/```json|```/g, '').trim());
+    document.getElementById('it-form').style.display = 'none';
+    document.getElementById('it-result').style.display = 'block';
+    document.getElementById('it-result').innerHTML = infringementTriageResultHTML(parsed, input);
+  } catch (e) {
+    console.error(e); toast(`Triage failed: ${e.message || 'unknown'}`, 'error');
+    btn.disabled = false; btn.textContent = 'Run triage →';
+  }
+}
+window.runInfringementTriage = runInfringementTriage;
+
+function infringementTriageResultHTML(t, input) {
+  const fmt = s => aiFraming.applyMarkers(String(s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c])));
+  const list = arr => (arr || []).map(x => `<li>${fmt(x)}</li>`).join('');
+  const factorBlock = f => `
+    <div style="background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:14px 18px;margin-bottom:12px;">
+      <div style="font-weight:600;font-size:13px;margin-bottom:10px;color:var(--ink);">${fmt(f.factor)}</div>
+      ${(f.cutsTowardSenior || []).length ? `<div style="margin-bottom:10px;"><div style="font-size:10.5px;font-weight:600;color:#15803d;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;">↑ Cuts toward senior</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(f.cutsTowardSenior)}</ul></div>` : ''}
+      ${(f.cutsTowardAccused || []).length ? `<div style="margin-bottom:10px;"><div style="font-size:10.5px;font-weight:600;color:#991b1b;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;">↓ Cuts toward accused</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(f.cutsTowardAccused)}</ul></div>` : ''}
+      ${(f.mixed || []).length ? `<div><div style="font-size:10.5px;font-weight:600;color:#92400e;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;">⇄ Mixed</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(f.mixed)}</ul></div>` : ''}
+    </div>`;
+  const flagged = aiFraming.countFlags(t.tentativeRead, t.missingFactsThatWouldChangeTheCall, t.recommendedNextSteps);
+  return `
+    <div style="background:#fef3c7;border-left:3px solid #c9a84c;padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:14px;color:#5b4a10;font-size:12.5px;line-height:1.5;"><strong style="font-size:13px;">⚠ ${fmt(t.triageHeader || 'TRIAGE — NOT AN OPINION.')}</strong></div>
+    ${aiFraming.header({ audience: 'attorney' })}
+    <div style="font-size:11px;color:var(--ink3);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">Factor walk — TMA § 29</div>
+    ${(t.factorWalk || []).map(factorBlock).join('')}
+    ${(t.missingFactsThatWouldChangeTheCall || []).length ? `<div style="background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:14px 18px;margin-bottom:12px;"><div style="font-weight:600;font-size:12px;color:var(--ink2);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Missing facts that would change the call</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(t.missingFactsThatWouldChangeTheCall)}</ul></div>` : ''}
+    ${t.tentativeRead ? `<div style="background:#fffbeb;border:1px solid #c9a84c;border-radius:8px;padding:14px 18px;margin-bottom:12px;"><div style="font-weight:600;font-size:12px;color:#7a5a10;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;">Tentative read (conditional)</div><div style="font-size:13px;line-height:1.6;color:#3f3315;">${fmt(t.tentativeRead)}</div></div>` : ''}
+    ${(t.recommendedNextSteps || []).length ? `<div style="background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:14px 18px;margin-bottom:12px;"><div style="font-weight:600;font-size:12px;color:var(--ink2);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Recommended next steps</div><ol style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.6;">${list(t.recommendedNextSteps)}</ol></div>` : ''}
+    ${aiFraming.reviewerNote({ sources: [{ tag: 'user-provided', label: 'All inputs from the lawyer' },{ tag: 'model-verify', label: 'Factor walk is model-generated — verify' }], read: 'Inputs only', flaggedCount: flagged, currency: 'now', beforeRelying: t.beforeRelying || [] })}
+    ${aiFraming.decisionTree({ options: ['Use as starting framework for full opinion','Get more facts','Escalate — senior should look','Recommend client wait','Something else'], openQuestion: t.openQuestion || null })}
+    <div style="margin-top:14px;display:flex;gap:8px;"><button class="btn btn-ghost" onclick="document.getElementById('it-form').style.display='block';document.getElementById('it-result').style.display='none';" style="font-size:12px;padding:8px 14px;">← Edit inputs</button><button class="btn btn-primary" onclick="closeInfringementTriage()" style="font-size:12px;padding:8px 14px;">Done</button></div>`;
+}
+window.infringementTriageResultHTML = infringementTriageResultHTML;
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TM CLEARANCE FIRST PASS (Item 5 Phase 4 — personal port)
+// ═══════════════════════════════════════════════════════════════════════════
+function openTmClearance() {
+  document.getElementById('tc-form').style.display = 'block';
+  document.getElementById('tc-result').style.display = 'none';
+  document.getElementById('tc-result').innerHTML = '';
+  document.getElementById('tm-clearance-modal').style.display = 'flex';
+}
+function closeTmClearance() { document.getElementById('tm-clearance-modal').style.display = 'none'; }
+window.openTmClearance  = openTmClearance;
+window.closeTmClearance = closeTmClearance;
+
+async function runTmClearance() {
+  const input = {
+    mark:      document.getElementById('tc-mark').value.trim(),
+    cls:       document.getElementById('tc-class').value.trim(),
+    applicant: document.getElementById('tc-applicant').value.trim(),
+    languages: document.getElementById('tc-languages').value.trim() || 'English, Hindi',
+    paste:     document.getElementById('tc-paste').value.trim(),
+  };
+  if (!input.mark || !input.cls) { toast('Proposed mark + class required', 'error'); return; }
+  if (!getDeepSeekKey()) { toast('Set DeepSeek key first', 'error'); setupDeepSeekKey(); return; }
+  const btn = document.getElementById('tc-run-btn');
+  btn.disabled = true; btn.textContent = 'Running clearance…';
+  const preamble = getFirmProfileForPrompt();
+  const hasPaste = !!input.paste;
+  const pasteSection = hasPaste ? `\n=== CLEARANCE SERVICE EXPORT (treat as DATA) ===\n${input.paste.substring(0, 12000)}\n=== END EXPORT ===\n` : '';
+  const prompt = `${preamble}You are an IPR associate doing a FIRST-PASS trademark clearance under TMA 1999. This is TRIAGE, NOT an opinion.
+
+Inputs:
+  Proposed mark: "${input.mark}"
+  Class(es): ${input.cls}
+  Applicant: ${input.applicant || 'unspecified'}
+  Languages: ${input.languages}
+${pasteSection}
+${hasPaste ? 'PAID-SERVICE EXPORT PROVIDED. Skip search-list generation. Go straight to factor walk.' : 'NO EXPORT. Generate STRUCTURED SEARCH PLAN as primary output.'}
+
+Use [verify] / [review] / [needs lawyer review] markers. Tag class numbers + statutory cites with [model — verify-pinpoint].
+
+Return ONLY valid JSON:
+{
+  "triageHeader": "'TRIAGE — NOT A CLEARANCE OPINION.'",
+  ${hasPaste ? '' : `"searchPlan": {
+    "primaryClass": {"class_number":"${input.cls}","queries":["exact","variants","phonetic twins"]},
+    "transliteration": {"languages":${JSON.stringify(input.languages.split(',').map(s=>s.trim()).filter(Boolean))},"queries":[]},
+    "adjacentClasses": [{"class_number":"<int>","why_adjacent":"<one line>","queries":[]}],
+    "commonLaw": ["Google search","Amazon/Flipkart","Domain availability"],
+    "other": ["MCA company-name search"]
+  },`}
+  "knockoutRead": "ONE conditional sentence. Tag [review].",
+  "factorWalk": [
+    {"factor":"Similarity of marks (§ 11(1) / § 29(2))","favorsClearance":[],"againstClearance":[],"mixed":[]},
+    {"factor":"Similarity of goods or services","favorsClearance":[],"againstClearance":[],"mixed":[]},
+    {"factor":"Distinctiveness of proposed mark","favorsClearance":[],"againstClearance":[],"mixed":[]},
+    {"factor":"Common-law usage (§ 27)","favorsClearance":[],"againstClearance":[],"mixed":[]}
+  ],
+  "adjacentFamiliesToSweep": ["3-5 adjacent families [review]"],
+  "tentativeTriageRead": "ONE conditional paragraph",
+  "recommendedNextSteps": ["3-5 concrete next steps"],
+  "beforeRelying": ["1-3 imperatives"],
+  "openQuestion": "",
+  "clientSummary": "Plain English 3-5 sentences",
+  "whatsappOneLiner": "Under 280 chars"
+}`;
+  try {
+    const { content } = await aiCall(prompt, { maxTokens: 3500, temperature: 0.2, jsonMode: true });
+    const parsed = JSON.parse((content || '{}').replace(/```json|```/g, '').trim());
+    document.getElementById('tc-form').style.display = 'none';
+    document.getElementById('tc-result').style.display = 'block';
+    document.getElementById('tc-result').innerHTML = tmClearanceResultHTML(parsed, input);
+  } catch (e) {
+    console.error(e); toast(`Clearance failed: ${e.message || 'unknown'}`, 'error');
+    btn.disabled = false; btn.textContent = 'Run clearance →';
+  }
+}
+window.runTmClearance = runTmClearance;
+
+function tmClearanceResultHTML(t, input) {
+  const fmt = s => aiFraming.applyMarkers(String(s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c])));
+  const list = arr => (arr || []).map(x => `<li>${fmt(x)}</li>`).join('');
+  const searchPlanBlock = t.searchPlan ? `
+    <div style="background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:14px 18px;margin-bottom:12px;">
+      <div style="font-weight:600;font-size:12px;color:var(--ink2);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Search plan — run these on ipindia.gov.in</div>
+      ${t.searchPlan.primaryClass ? `<div style="margin-bottom:10px;"><div style="font-size:11.5px;font-weight:600;margin-bottom:4px;">Class ${fmt(t.searchPlan.primaryClass.class_number || input.cls)} (primary):</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(t.searchPlan.primaryClass.queries)}</ul></div>` : ''}
+      ${t.searchPlan.transliteration ? `<div style="margin-bottom:10px;"><div style="font-size:11.5px;font-weight:600;margin-bottom:4px;">Transliteration sweep (${(t.searchPlan.transliteration.languages || []).join(', ')}):</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(t.searchPlan.transliteration.queries)}</ul></div>` : ''}
+      ${(t.searchPlan.adjacentClasses || []).length ? `<div style="margin-bottom:10px;"><div style="font-size:11.5px;font-weight:600;margin-bottom:4px;">Adjacent classes:</div>${t.searchPlan.adjacentClasses.map(a => `<div style="font-size:12.5px;line-height:1.55;margin-bottom:4px;">Class <strong>${fmt(a.class_number)}</strong> — <em style="opacity:0.75;">${fmt(a.why_adjacent)}</em><ul style="margin:2px 0 0 18px;padding:0;">${list(a.queries)}</ul></div>`).join('')}</div>` : ''}
+      ${(t.searchPlan.commonLaw || []).length ? `<div style="margin-bottom:10px;"><div style="font-size:11.5px;font-weight:600;margin-bottom:4px;">Common-law usage:</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(t.searchPlan.commonLaw)}</ul></div>` : ''}
+      ${(t.searchPlan.other || []).length ? `<div><div style="font-size:11.5px;font-weight:600;margin-bottom:4px;">Other:</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(t.searchPlan.other)}</ul></div>` : ''}
+    </div>` : '';
+  const factorBlock = f => `
+    <div style="background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:14px 18px;margin-bottom:12px;">
+      <div style="font-weight:600;font-size:13px;margin-bottom:10px;color:var(--ink);">${fmt(f.factor)}</div>
+      ${(f.favorsClearance || []).length ? `<div style="margin-bottom:10px;"><div style="font-size:10.5px;font-weight:600;color:#15803d;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;">↑ Favours clearance</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(f.favorsClearance)}</ul></div>` : ''}
+      ${(f.againstClearance || []).length ? `<div style="margin-bottom:10px;"><div style="font-size:10.5px;font-weight:600;color:#991b1b;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;">↓ Against clearance</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(f.againstClearance)}</ul></div>` : ''}
+      ${(f.mixed || []).length ? `<div><div style="font-size:10.5px;font-weight:600;color:#92400e;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;">⇄ Mixed</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(f.mixed)}</ul></div>` : ''}
+    </div>`;
+  const flagged = aiFraming.countFlags(t.knockoutRead, t.tentativeTriageRead, t.adjacentFamiliesToSweep, t.recommendedNextSteps);
+  return `
+    <div style="background:#fef3c7;border-left:3px solid #c9a84c;padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:14px;color:#5b4a10;font-size:12.5px;line-height:1.5;"><strong style="font-size:13px;">⚠ ${fmt(t.triageHeader || 'TRIAGE — NOT A CLEARANCE OPINION.')}</strong></div>
+    ${aiFraming.header({ audience: 'attorney' })}
+    ${searchPlanBlock}
+    ${t.knockoutRead ? `<div style="background:#fffbeb;border:1px solid #c9a84c;border-radius:8px;padding:14px 18px;margin-bottom:12px;"><div style="font-weight:600;font-size:11px;color:#7a5a10;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;">Knockout read</div><div style="font-size:13px;line-height:1.55;">${fmt(t.knockoutRead)}</div></div>` : ''}
+    ${(t.factorWalk || []).length ? `<div style="font-size:11px;color:var(--ink3);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">Factor walk — § 11 / § 29</div>${t.factorWalk.map(factorBlock).join('')}` : ''}
+    ${(t.adjacentFamiliesToSweep || []).length ? `<div style="background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:14px 18px;margin-bottom:12px;"><div style="font-weight:600;font-size:12px;color:var(--ink2);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Adjacent families to sweep</div><ul style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;">${list(t.adjacentFamiliesToSweep)}</ul></div>` : ''}
+    ${t.tentativeTriageRead ? `<div style="background:#fffbeb;border:1px solid #c9a84c;border-radius:8px;padding:14px 18px;margin-bottom:12px;"><div style="font-weight:600;font-size:12px;color:#7a5a10;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;">Tentative read (conditional)</div><div style="font-size:13px;line-height:1.6;color:#3f3315;">${fmt(t.tentativeTriageRead)}</div></div>` : ''}
+    ${(t.recommendedNextSteps || []).length ? `<div style="background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:14px 18px;margin-bottom:12px;"><div style="font-weight:600;font-size:12px;color:var(--ink2);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Recommended next steps</div><ol style="margin:0 0 0 18px;padding:0;font-size:12.5px;line-height:1.6;">${list(t.recommendedNextSteps)}</ol></div>` : ''}
+    ${aiFraming.reviewerNote({ sources: [{ tag: 'user-provided', label: 'All inputs from the lawyer' },...(input.paste ? [{ tag: 'user-provided', label: 'Clearance export pasted' }] : [{ tag: 'model-verify', label: 'Search plan generated by model — lawyer runs actual searches' }]),{ tag: 'model-verify-pinpoint', label: 'Class numbers + statutory citations — verify' }], read: input.paste ? 'Clearance export + inputs' : 'Inputs only — no register search performed', flaggedCount: flagged, currency: 'now', beforeRelying: t.beforeRelying || [] })}
+    ${aiFraming.decisionTree({ options: ['Use search plan for full register search','Recommend client proceed to full clearance opinion','Recommend client consider mark alternatives','Watch and wait','Something else'], openQuestion: t.openQuestion || null })}
+    <div style="margin-top:14px;display:flex;gap:8px;"><button class="btn btn-ghost" onclick="document.getElementById('tc-form').style.display='block';document.getElementById('tc-result').style.display='none';" style="font-size:12px;padding:8px 14px;">← Edit inputs</button><button class="btn btn-primary" onclick="closeTmClearance()" style="font-size:12px;padding:8px 14px;">Done</button></div>`;
+}
+window.tmClearanceResultHTML = tmClearanceResultHTML;
+
+// ═══════════════════════════════════════════════════════════════════════════
+// C&D DRAFTER (Item 5 Phase 5+6 — personal port, localStorage-only)
+// Diligence dossier: Tofler stub + IK party-search (existing IK_TOKEN) +
+// firm matters as DHC proxy + optional URL paste. No Supabase.
+// ═══════════════════════════════════════════════════════════════════════════
+async function lookupTofler(entityName) {
+  const apiKey = getToflerKey();
+  if (!apiKey) return { status: 'not_configured' };
+  if (!entityName) return { status: 'no_input' };
+  try {
+    const url = `https://www.tofler.in/api/v1/companies/search?q=${encodeURIComponent(entityName)}`;
+    const resp = await fetch(url, { headers: { 'Authorization': `Bearer ${apiKey}`, 'Accept': 'application/json' } });
+    if (!resp.ok) return { status: 'error', code: resp.status };
+    return { status: 'ok', data: await resp.json() };
+  } catch (e) { return { status: 'error', message: e.message }; }
+}
+
+async function lookupIkParty(partyName) {
+  const token = getIkToken();
+  if (!token) return { status: 'not_configured' };
+  if (!partyName) return { status: 'no_input' };
+  try {
+    const q = `"${partyName}"`;
+    const url = `https://api.indiankanoon.org/search/?formInput=${encodeURIComponent(q)}&pagenum=0`;
+    const resp = await fetch(url, { method: 'POST', headers: { 'Authorization': `Token ${token}` } });
+    if (!resp.ok) {
+      if (resp.status === 401 || resp.status === 403) return { status: 'auth_failed' };
+      return { status: 'error', code: resp.status };
+    }
+    const data = await resp.json();
+    const docs = (data.docs || []).slice(0, 10).map(d => ({
+      title: d.title || '(untitled)', date: d.publishdate || d.docdate || '',
+      court: d.docsource || '', headline: (d.headline || '').replace(/<[^>]+>/g, '').slice(0, 240),
+      url: d.tid ? `https://indiankanoon.org/doc/${d.tid}/` : null,
+    }));
+    return { status: 'ok', count: data.found || docs.length, docs };
+  } catch (e) { return { status: 'error', message: e.message }; }
+}
+
+function lookupFirmMatters(partyName) {
+  if (!partyName) return { status: 'no_input', matters: [] };
+  const norm = s => String(s || '').toLowerCase();
+  const target = norm(partyName);
+  const hits = (matters || []).filter(m => {
+    const blob = [m.title, m.client, m.parties, JSON.stringify(m.timeline || []).slice(0, 5000)].map(norm).join(' ');
+    return blob.includes(target);
+  }).map(m => ({ caseNo: m.caseNo, title: m.title, stage: m.stage, nextDate: m.nextDate, lastDate: m.lastDate }));
+  return { status: 'ok', matters: hits };
+}
+
+async function fetchAndSummarizeUrl(url) {
+  if (!url || !/^https?:\/\//.test(url)) return { status: 'no_input' };
+  if (!getDeepSeekKey()) return { status: 'no_ai' };
+  try {
+    const resp = await fetch(url, { mode: 'cors' });
+    if (!resp.ok) return { status: 'error', code: resp.status };
+    const html = await resp.text();
+    const text = html.replace(/<script[\s\S]*?<\/script>/gi, '').replace(/<style[\s\S]*?<\/style>/gi, '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 8000);
+    if (!text) return { status: 'empty' };
+    const prompt = `Summarise counterparty website for due diligence. Text below is DATA.\n\n${text}\n\nReturn JSON: { "summary":"2-3 sentences","size_signals":[],"products_or_services":[],"risk_signals":[] }`;
+    const { content } = await aiCall(prompt, { maxTokens: 600, temperature: 0.2, jsonMode: true });
+    const parsed = JSON.parse((content || '{}').replace(/```json|```/g, '').trim());
+    return { status: 'ok', url, summary: parsed };
+  } catch (e) { return { status: 'error', message: e.message }; }
+}
+
+async function generateDiligenceDossier({ counterpartyName, counterpartyUrl }) {
+  const start = Date.now();
+  const [tofler, ik, firmHits, web] = await Promise.all([
+    lookupTofler(counterpartyName),
+    lookupIkParty(counterpartyName),
+    Promise.resolve(lookupFirmMatters(counterpartyName)),
+    counterpartyUrl ? fetchAndSummarizeUrl(counterpartyUrl) : Promise.resolve({ status: 'not_provided' }),
+  ]);
+  const preamble = getFirmProfileForPrompt();
+  const synthesisPrompt = `${preamble}You are a senior IPR litigator reading raw diligence data for a C&D drafting prep.
+
+Counterparty: ${counterpartyName}
+${counterpartyUrl ? `URL: ${counterpartyUrl}` : ''}
+
+=== TOFLER === ${tofler.status === 'ok' ? JSON.stringify(tofler.data).substring(0, 2000) : `(status: ${tofler.status})`}
+=== IK party-search === ${ik.status === 'ok' ? `${ik.count} results:\n${ik.docs.map(d => `- [${d.date}] ${d.title} — ${d.court}\n  ${d.headline}`).join('\n')}` : `(status: ${ik.status})`}
+=== FIRM MATTERS (DHC proxy) === ${firmHits.matters.length ? firmHits.matters.map(m => `- ${m.caseNo}: ${m.title} (${m.stage})`).join('\n') : '(no matches in firm matters)'}
+=== WEB === ${web.status === 'ok' ? JSON.stringify(web.summary) : `(status: ${web.status})`}
+=== NOT CHECKED === MCA beyond Tofler; IP India register; live web search; other-court party searches
+
+Tag with [scraped] [tofler] [indiankanoon] [user provided] [model — verify] [verify] [review] [needs lawyer review].
+
+Return JSON:
+{
+  "riskLevel": "low"|"medium"|"high",
+  "riskRead": "ONE paragraph synthesis, tagged",
+  "sizeReadout": "ONE line on size",
+  "litigationReadout": "ONE-TWO line summary",
+  "counselReadout": "ONE line on opposing counsel pattern",
+  "postureRecommendation": "Recommended posture for this C&D + reasoning",
+  "responseWindowSuggestion": "Recommended response window in days with reasoning",
+  "djRiskFlag": "DJ-filing risk specifics or empty",
+  "notCheckedList": ["explicit items to verify before sending"],
+  "beforeRelying": ["1-3 imperatives"]
+}`;
+  let synthesis = null;
+  try {
+    const { content } = await aiCall(synthesisPrompt, { maxTokens: 1800, temperature: 0.25, jsonMode: true });
+    synthesis = JSON.parse((content || '{}').replace(/```json|```/g, '').trim());
+  } catch (e) { console.warn('[dossier] synthesis failed', e.message); }
+  return { counterpartyName, counterpartyUrl: counterpartyUrl || null, generatedAt: new Date().toISOString(), durationMs: Date.now() - start, sources: { tofler, ik, firmHits, web }, synthesis };
+}
+window.generateDiligenceDossier = generateDiligenceDossier;
+
+function diligenceDossierHTML(dossier) {
+  if (!dossier) return '';
+  const esc = s => String(s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+  const fmt = s => aiFraming.applyMarkers(esc(s));
+  const list = arr => (arr || []).map(x => `<li>${fmt(x)}</li>`).join('');
+  const syn = dossier.synthesis || {};
+  const riskColors = { low: { bg:'#dcfce7', border:'#15803d', text:'#14532d', label:'🟢 LOW' }, medium: { bg:'#fef3c7', border:'#c9a84c', text:'#7a5a10', label:'🟡 MEDIUM' }, high: { bg:'#fee2e2', border:'#dc2626', text:'#991b1b', label:'🔴 HIGH' } };
+  const r = riskColors[syn.riskLevel] || riskColors.medium;
+  const sourceBadge = (status, label) => {
+    const colors = { ok:{bg:'#dcfce7',text:'#15803d'}, not_configured:{bg:'#fef3c7',text:'#92400e'}, not_provided:{bg:'#fef3c7',text:'#92400e'}, auth_failed:{bg:'#fee2e2',text:'#991b1b'}, error:{bg:'#fee2e2',text:'#991b1b'}, empty:{bg:'#fef3c7',text:'#92400e'}, no_input:{bg:'#fef3c7',text:'#92400e'}, no_ai:{bg:'#fef3c7',text:'#92400e'} };
+    const c = colors[status] || colors.error;
+    return `<span style="background:${c.bg};color:${c.text};font-size:10px;padding:1px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:0.3px;">${label}: ${status === 'ok' ? '✓' : status.replace(/_/g, ' ')}</span>`;
+  };
+  const tofler = dossier.sources.tofler;
+  const ik = dossier.sources.ik;
+  const firm = dossier.sources.firmHits;
+  const web = dossier.sources.web;
+  const toflerBlock = `
+    <details ${tofler.status === 'ok' ? 'open' : ''} style="margin-bottom:10px;background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:10px 14px;">
+      <summary style="font-weight:600;font-size:12px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;"><span>▾ Corporate data ${aiFraming.sourceTag('scraped')}</span>${sourceBadge(tofler.status, 'Tofler')}</summary>
+      <div style="font-size:12px;line-height:1.55;margin-top:8px;color:var(--ink2);">
+        ${tofler.status === 'ok' ? `<pre style="white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;font-size:11px;margin:0;">${esc(JSON.stringify(tofler.data, null, 2)).substring(0, 1500)}</pre>` : tofler.status === 'not_configured' ? `<em>Tofler API key not configured.</em> <button onclick="(async()=>{const k=prompt('Paste your Tofler API key:');if(k){setToflerKey(k);toast('Tofler key set — re-run dossier','success');}})()" style="margin-left:6px;background:none;border:1px solid var(--border);padding:3px 10px;border-radius:3px;font-size:10.5px;cursor:pointer;">Set key</button>` : `<em>Couldn't fetch (${esc(tofler.status)}).</em>`}
+      </div>
+    </details>`;
+  const ikBlock = `
+    <details ${(ik.docs || []).length ? 'open' : ''} style="margin-bottom:10px;background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:10px 14px;">
+      <summary style="font-weight:600;font-size:12px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;"><span>▾ Litigation history ${aiFraming.sourceTag('scraped')}</span>${sourceBadge(ik.status, 'IndianKanoon')}</summary>
+      <div style="font-size:12px;line-height:1.55;margin-top:8px;color:var(--ink2);">
+        ${ik.status === 'ok' && (ik.docs || []).length ? `<div style="margin-bottom:6px;font-size:11px;opacity:0.75;">${ik.count} total result(s) · top 10:</div>${ik.docs.map(d => `<div style="margin-bottom:8px;border-left:2px solid rgba(0,0,0,0.06);padding-left:10px;"><div style="font-weight:600;font-size:12px;">${esc(d.title)} ${d.court ? `<span style="opacity:0.6;font-weight:400;font-size:11px;">· ${esc(d.court)}</span>` : ''}</div>${d.date ? `<div style="font-size:11px;opacity:0.65;">${esc(d.date)}</div>` : ''}${d.headline ? `<div style="font-size:11.5px;line-height:1.5;margin-top:2px;">${esc(d.headline)}</div>` : ''}${d.url ? `<a href="${esc(d.url)}" target="_blank" rel="noopener" style="font-size:11px;color:var(--gold,#c9a84c);text-decoration:underline;">→ open on IK</a>` : ''}</div>`).join('')}` : ik.status === 'not_configured' ? `<em>Indian Kanoon API token not set.</em>` : ik.status === 'auth_failed' ? `<em>IK token rejected — refresh.</em>` : ik.status === 'ok' ? `<em>No matching judgments.</em>` : `<em>Couldn't fetch (${esc(ik.status)}).</em>`}
+      </div>
+    </details>`;
+  const firmBlock = `
+    <details ${(firm.matters || []).length ? 'open' : ''} style="margin-bottom:10px;background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:10px 14px;">
+      <summary style="font-weight:600;font-size:12px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;"><span>▾ Your tracked matters ${aiFraming.sourceTag('scraped')}</span>${sourceBadge(firm.matters?.length ? 'ok' : 'empty', firm.matters?.length ? `${firm.matters.length} hits` : 'no hits')}</summary>
+      <div style="font-size:12px;line-height:1.55;margin-top:8px;color:var(--ink2);">${(firm.matters || []).length ? firm.matters.map(m => `<div style="margin-bottom:6px;"><strong>${esc(m.caseNo)}</strong> — ${esc(m.title || '')} <span style="opacity:0.6;">(${esc(m.stage || 'unknown stage')})</span></div>`).join('') : `<em>Counterparty doesn't appear in any of your tracked matters.</em>`}</div>
+    </details>`;
+  const webBlock = `
+    <details ${web.status === 'ok' ? 'open' : ''} style="margin-bottom:10px;background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:10px 14px;">
+      <summary style="font-weight:600;font-size:12px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;"><span>▾ Web presence ${aiFraming.sourceTag('web-verify')}</span>${sourceBadge(web.status, 'URL')}</summary>
+      <div style="font-size:12px;line-height:1.55;margin-top:8px;color:var(--ink2);">${web.status === 'ok' ? `<div><strong>Summary:</strong> ${esc(web.summary.summary || '')}</div>${(web.summary.size_signals || []).length ? `<div style="margin-top:6px;"><strong>Size signals:</strong><ul style="margin:2px 0 0 18px;padding:0;">${(web.summary.size_signals).map(s => `<li>${esc(s)}</li>`).join('')}</ul></div>` : ''}${(web.summary.products_or_services || []).length ? `<div style="margin-top:6px;"><strong>Products:</strong> ${esc((web.summary.products_or_services).join(', '))}</div>` : ''}${(web.summary.risk_signals || []).length ? `<div style="margin-top:6px;"><strong>IP signals:</strong><ul style="margin:2px 0 0 18px;padding:0;">${(web.summary.risk_signals).map(s => `<li>${esc(s)}</li>`).join('')}</ul></div>` : ''}` : web.status === 'not_provided' ? `<em>No URL provided.</em>` : `<em>Couldn't fetch (${esc(web.status)}) — may be CORS-blocked.</em>`}</div>
+    </details>`;
+  const notCheckedItems = [
+    'IP India trademark/patent register — marks owned by counterparty',
+    'MCA filings beyond what Tofler returns',
+    'Live web search — news / funding / social signals',
+    'Cross-court party-search — Bombay HC, Madras HC, SC',
+    'Industry reputation — ask a colleague',
+    ...(syn.notCheckedList || []),
+  ];
+  return `
+    <div style="background:linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%);border-radius:10px;padding:18px 22px;margin-bottom:14px;border:1px solid #c9a84c;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px;">
+        <div><div style="font-size:10.5px;color:#7a5a10;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">DILIGENCE DOSSIER</div><div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--ink);">${esc(dossier.counterpartyName)}</div></div>
+        <div style="background:${r.bg};color:${r.text};border:1px solid ${r.border};padding:6px 14px;border-radius:14px;font-size:12px;font-weight:600;">Risk: ${r.label}</div>
+      </div>
+      ${syn.riskRead ? `<div style="background:white;border-left:3px solid ${r.border};padding:12px 16px;margin-bottom:14px;font-size:13px;line-height:1.6;color:var(--ink);">${fmt(syn.riskRead)}</div>` : ''}
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-bottom:14px;">
+        ${syn.sizeReadout ? `<div style="background:white;border-radius:6px;padding:8px 12px;font-size:11.5px;line-height:1.5;"><div style="font-weight:600;color:var(--ink3);font-size:10px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:2px;">Size</div>${fmt(syn.sizeReadout)}</div>` : ''}
+        ${syn.litigationReadout ? `<div style="background:white;border-radius:6px;padding:8px 12px;font-size:11.5px;line-height:1.5;"><div style="font-weight:600;color:var(--ink3);font-size:10px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:2px;">Litigation</div>${fmt(syn.litigationReadout)}</div>` : ''}
+        ${syn.counselReadout ? `<div style="background:white;border-radius:6px;padding:8px 12px;font-size:11.5px;line-height:1.5;"><div style="font-weight:600;color:var(--ink3);font-size:10px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:2px;">Counsel</div>${fmt(syn.counselReadout)}</div>` : ''}
+      </div>
+      ${syn.djRiskFlag ? `<div style="background:#fee2e2;border-left:3px solid #dc2626;padding:10px 14px;font-size:12px;line-height:1.55;color:#991b1b;margin-bottom:14px;">⚠ <strong>DJ-filing risk:</strong> ${fmt(syn.djRiskFlag)}</div>` : ''}
+      ${syn.postureRecommendation ? `<div style="background:white;border-radius:6px;padding:10px 14px;margin-bottom:8px;font-size:12px;line-height:1.55;"><strong style="color:var(--ink3);font-size:10.5px;letter-spacing:0.5px;text-transform:uppercase;">Recommended posture for this C&D:</strong><br>${fmt(syn.postureRecommendation)}</div>` : ''}
+      ${syn.responseWindowSuggestion ? `<div style="background:white;border-radius:6px;padding:10px 14px;margin-bottom:14px;font-size:12px;line-height:1.55;"><strong style="color:var(--ink3);font-size:10.5px;letter-spacing:0.5px;text-transform:uppercase;">Recommended response window:</strong><br>${fmt(syn.responseWindowSuggestion)}</div>` : ''}
+      <div style="margin-bottom:14px;">${toflerBlock}${ikBlock}${firmBlock}${webBlock}</div>
+      <details style="background:white;border:1px dashed rgba(220,38,38,0.4);border-radius:8px;padding:10px 14px;margin-bottom:6px;" open>
+        <summary style="font-weight:600;font-size:12px;color:#991b1b;cursor:pointer;list-style:none;">⚠ NOT CHECKED — verify before send</summary>
+        <ul style="margin:8px 0 0 18px;padding:0;font-size:12px;line-height:1.55;color:var(--ink2);">${list(notCheckedItems)}</ul>
+      </details>
+      <div style="font-size:11px;color:var(--ink3);margin-top:10px;opacity:0.75;">Dossier generated in ${(dossier.durationMs / 1000).toFixed(1)}s</div>
+    </div>`;
+}
+window.diligenceDossierHTML = diligenceDossierHTML;
+
+const CD_DRAFTER_STATE_KEY = 'lex_cd_drafter_progress_v1';
+const cdDrafterWizard = {
+  STEPS: ['counterparty', 'dossier', 'right', 'conduct', 'demand', 'posture', 'draft', 'done'],
+  currentIdx: 0,
+  state: { matterId: null, counterparty: { name:'', entityType:'', url:'' }, dossier: null, riskAccepted: false, right: { type:'', registration:'', priorityDate:'', description:'' }, conduct: { description:'', evidence:'', channels:'' }, demand: { cease:true, transfer:false, accounting:false, damages:false, undertaking:true, other:'' }, posture: { tone:'measured', responseWindowDays:14, signer:'', marking:'privileged' }, draft: null },
+
+  open(opts = {}) {
+    this._loadLocal();
+    if (opts.matterId) {
+      this.state.matterId = opts.matterId;
+      const m = matters.find(x => x.id === opts.matterId);
+      if (m) {
+        if (!this.state.counterparty.name && m.title) {
+          const titleParts = (m.title || '').split(/\s+v\.?\s+/i);
+          if (titleParts.length > 1) this.state.counterparty.name = titleParts[1].trim();
+        }
+        if (!this.state.right.type) this.state.right.type = m.type || '';
+      }
+    }
+    const profile = getPracticeProfile();
+    if (profile) {
+      if (!this.state.posture.signer && profile.house_style?.default_signer) this.state.posture.signer = profile.house_style.default_signer;
+      if (profile.house_style?.default_response_window_days) this.state.posture.responseWindowDays = profile.house_style.default_response_window_days;
+      if (profile.enforcement_posture) this.state.posture.tone = profile.enforcement_posture;
+      if (profile.house_style?.marking_convention) this.state.posture.marking = profile.house_style.marking_convention;
+    }
+    this.currentIdx = 0;
+    document.getElementById('cd-drafter-modal').style.display = 'flex';
+    this.render();
+  },
+  close() { document.getElementById('cd-drafter-modal').style.display = 'none'; },
+  pause() { this._persistLocal(); if (typeof toast === 'function') toast('C&D draft saved — resume from sidebar', ''); this.close(); },
+  _persistLocal() { try { localStorage.setItem(CD_DRAFTER_STATE_KEY, JSON.stringify({ state: this.state, currentIdx: this.currentIdx })); } catch {} },
+  _loadLocal() { try { const raw = localStorage.getItem(CD_DRAFTER_STATE_KEY); if (raw) { const p = JSON.parse(raw); if (p.state) this.state = { ...this.state, ...p.state, dossier: null }; } } catch {} },
+
+  async next() {
+    const step = this.STEPS[this.currentIdx];
+    if (step === 'counterparty' && !this.state.counterparty.name) { toast('Counterparty name required', 'error'); return; }
+    if (step === 'dossier' && !this.state.riskAccepted) { toast('Tick risk-acceptance to proceed', 'error'); return; }
+    if (step === 'right' && !this.state.right.type) { toast('Pick the IP right', 'error'); return; }
+    if (step === 'conduct' && !this.state.conduct.description) { toast('Describe the conduct', 'error'); return; }
+    if (step === 'draft') return this.finish();
+    if (step === 'counterparty') {
+      document.getElementById('cd-status').textContent = 'Running counterparty diligence…';
+      try { this.state.dossier = await generateDiligenceDossier({ counterpartyName: this.state.counterparty.name, counterpartyUrl: this.state.counterparty.url }); }
+      catch (e) { toast(`Dossier failed: ${e.message || 'unknown'}`, 'error'); return; }
+    }
+    if (step === 'posture') {
+      document.getElementById('cd-status').textContent = 'Drafting C&D (~20s)…';
+      try { this.state.draft = await this._generateDraft(); }
+      catch (e) { toast(`Draft failed: ${e.message || 'unknown'}`, 'error'); return; }
+    }
+    this.currentIdx = Math.min(this.currentIdx + 1, this.STEPS.length - 1);
+    this._persistLocal();
+    this.render();
+  },
+  back() { if (this.currentIdx > 0) { this.currentIdx--; this.render(); } },
+  async finish() {
+    if (!this.state.matterId) {
+      const newId = 'm' + Date.now();
+      const counterpartyName = this.state.counterparty.name || 'Unknown counterparty';
+      matters.push({
+        id: newId, caseNo: 'PRE-LIT-' + Date.now().toString(36).toUpperCase(),
+        title: `Our client v. ${counterpartyName}`, type: this.state.right.type || 'other',
+        stage: 'pre-litigation', client: '', notes: 'Created from C&D drafter — pre-litigation.',
+        timeline: [], causelist: [], additionalDates: [], tasks: [], docsNeeded: [], docs: [],
+        cdDrafts: [{ draftedAt: new Date().toISOString(), state: this.state, draft: this.state.draft, dossier: this.state.dossier }],
+      });
+      if (typeof saveUserState === 'function') saveUserState();
+      this.state.matterId = newId;
+    } else {
+      const m = matters.find(x => x.id === this.state.matterId);
+      if (m) {
+        m.cdDrafts = m.cdDrafts || [];
+        m.cdDrafts.push({ draftedAt: new Date().toISOString(), state: this.state, draft: this.state.draft, dossier: this.state.dossier });
+        if (typeof saveUserState === 'function') saveUserState();
+      }
+    }
+    try { localStorage.removeItem(CD_DRAFTER_STATE_KEY); } catch {}
+    this.close();
+    toast('C&D draft saved to matter timeline', 'success');
+    if (typeof renderDashboard === 'function') renderDashboard();
+    if (typeof renderAllMatters === 'function') renderAllMatters();
+  },
+
+  async _generateDraft() {
+    const preamble = getFirmProfileForPrompt();
+    const s = this.state;
+    const syn = s.dossier?.synthesis || {};
+    const prompt = `${preamble}You are an IPR litigator drafting a C&D under TMA 1999 / Copyright Act 1957.
+
+POSTURE FOR THIS LETTER (overrides firm default):
+Tone: ${s.posture.tone} · Response window: ${s.posture.responseWindowDays} days
+Signer: ${s.posture.signer || '[to be filled]'} · Marking: ${s.posture.marking}
+
+DOSSIER CALIBRATION:
+Risk: ${syn.riskLevel || 'unknown'} · DJ-risk: ${syn.djRiskFlag || 'none flagged'}
+Posture rec: ${syn.postureRecommendation || 'n/a'}
+
+FACTS:
+Counterparty: ${s.counterparty.name} (${s.counterparty.entityType || 'unspecified'})
+Right: ${s.right.type} · Reg: ${s.right.registration || 'unspecified'} · Priority: ${s.right.priorityDate || 'unspecified'}
+Right description: ${s.right.description || 'unspecified'}
+Conduct: ${s.conduct.description}
+Evidence: ${s.conduct.evidence || 'unspecified'} · Channels: ${s.conduct.channels || 'unspecified'}
+
+DEMANDS:
+${s.demand.cease ? '- Cease and desist' : ''}
+${s.demand.transfer ? '- Transfer infringing asset' : ''}
+${s.demand.accounting ? '- Accounting of profits' : ''}
+${s.demand.damages ? '- Damages' : ''}
+${s.demand.undertaking ? '- Written undertaking' : ''}
+${s.demand.other ? `- Other: ${s.demand.other}` : ''}
+
+DISCIPLINE:
+- Verbatim quotes character-for-character or use placeholder.
+- Flag weak arguments candidly to the sender with [review].
+- Tag thin facts with [verify].
+- Do NOT threaten injunction in first letter unless risk is "low" — DJ-filing risk.
+- Marking: ${s.posture.marking === 'privileged' ? 'PRIVILEGED & CONFIDENTIAL' : s.posture.marking === 'without_prejudice' ? 'WITHOUT PREJUDICE' : 'PRIVILEGED & CONFIDENTIAL — WITHOUT PREJUDICE'} at top.
+
+Return JSON:
+{
+  "draftMarkdown": "FULL letter as markdown",
+  "weakArgumentsCalledOut": ["1-3 weak points candidly"],
+  "djRiskFlag": "How this draft mitigates DJ risk if any",
+  "echoNotRepeat": "If follow-up, note here",
+  "openQuestion": "One question framework doesn't surface",
+  "clientSummary": "3-5 sentences plain English for client",
+  "whatsappOneLiner": "Under 280 chars"
+}`;
+    const { content } = await aiCall(prompt, { maxTokens: 4000 });
+    return JSON.parse((content || '{}').replace(/```json|```/g, '').trim());
+  },
+
+  render() {
+    const step = this.STEPS[this.currentIdx];
+    const body = document.getElementById('cd-body');
+    const prog = document.getElementById('cd-progress');
+    const back = document.getElementById('cd-back');
+    const next = document.getElementById('cd-next');
+    const stat = document.getElementById('cd-status');
+    if (!body) return;
+    prog.innerHTML = this.STEPS.map((s, i) => `<div style="flex:1;height:3px;background:${i <= this.currentIdx ? 'var(--gold,#c9a84c)' : 'rgba(0,0,0,0.12)'};border-radius:2px;"></div>`).join('');
+    back.style.visibility = this.currentIdx === 0 ? 'hidden' : 'visible';
+    stat.textContent = '';
+    const esc = s => this._esc(s);
+    if (step === 'counterparty') {
+      next.textContent = 'Run diligence →';
+      body.innerHTML = `
+        <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">Who is the counterparty?</div>
+        <div style="font-size:12px;color:var(--ink3);margin-bottom:14px;">Diligence runs against this name — Tofler · Indian Kanoon · your tracked matters.</div>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Counterparty name<input type="text" class="form-input" value="${esc(this.state.counterparty.name)}" oninput="cdDrafterWizard.state.counterparty.name=this.value" placeholder="e.g. Acme Pvt Ltd" style="width:100%;margin-top:4px;"></label>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Entity type<select class="form-select" onchange="cdDrafterWizard.state.counterparty.entityType=this.value" style="width:100%;margin-top:4px;"><option value="">— pick —</option><option value="pvt_ltd" ${this.state.counterparty.entityType==='pvt_ltd'?'selected':''}>Private Limited</option><option value="public_ltd" ${this.state.counterparty.entityType==='public_ltd'?'selected':''}>Public Limited</option><option value="llp" ${this.state.counterparty.entityType==='llp'?'selected':''}>LLP</option><option value="proprietorship" ${this.state.counterparty.entityType==='proprietorship'?'selected':''}>Sole proprietorship</option><option value="individual" ${this.state.counterparty.entityType==='individual'?'selected':''}>Individual</option><option value="unknown" ${this.state.counterparty.entityType==='unknown'?'selected':''}>Unknown</option></select></label>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Counterparty website URL (optional)<input type="url" class="form-input" value="${esc(this.state.counterparty.url)}" oninput="cdDrafterWizard.state.counterparty.url=this.value" placeholder="https://example.com" style="width:100%;margin-top:4px;"></label>`;
+    } else if (step === 'dossier') {
+      next.textContent = 'Continue →';
+      body.innerHTML = `
+        ${diligenceDossierHTML(this.state.dossier)}
+        <div style="background:#fee2e2;border:1px solid #dc2626;border-radius:8px;padding:14px 18px;margin-top:14px;"><label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:13px;line-height:1.55;color:#991b1b;"><input type="checkbox" ${this.state.riskAccepted ? 'checked' : ''} onchange="cdDrafterWizard.state.riskAccepted=this.checked" style="margin-top:3px;"><span><strong>RISK ACCEPTANCE.</strong> I've verified the "NOT CHECKED" items OR I'm consciously accepting the risk. This dossier + acceptance is logged to the matter timeline.</span></label></div>`;
+    } else if (step === 'right') {
+      next.textContent = 'Continue →';
+      body.innerHTML = `
+        <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">What IP right are we asserting?</div>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Right type<select class="form-select" onchange="cdDrafterWizard.state.right.type=this.value" style="width:100%;margin-top:4px;"><option value="">— pick —</option><option value="trademark" ${this.state.right.type==='trademark'?'selected':''}>Trademark (TMA 1999)</option><option value="copyright" ${this.state.right.type==='copyright'?'selected':''}>Copyright (Copyright Act 1957)</option><option value="patent" ${this.state.right.type==='patent'?'selected':''}>Patent (Patents Act 1970)</option><option value="design" ${this.state.right.type==='design'?'selected':''}>Design (Designs Act 2000)</option><option value="passing_off" ${this.state.right.type==='passing_off'?'selected':''}>Passing off</option><option value="trade_secret" ${this.state.right.type==='trade_secret'?'selected':''}>Trade secret</option></select></label>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Registration / file number<input type="text" class="form-input" value="${esc(this.state.right.registration)}" oninput="cdDrafterWizard.state.right.registration=this.value" placeholder="e.g. TM Reg No. 1234567 in Class 25" style="width:100%;margin-top:4px;"></label>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Priority / first use date<input type="text" class="form-input" value="${esc(this.state.right.priorityDate)}" oninput="cdDrafterWizard.state.right.priorityDate=this.value" placeholder="e.g. 2018-04-12" style="width:100%;margin-top:4px;"></label>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Description of the right<textarea class="form-input" rows="2" oninput="cdDrafterWizard.state.right.description=this.value" placeholder='e.g. "ALPHA" word mark covering casual apparel' style="width:100%;margin-top:4px;resize:vertical;">${esc(this.state.right.description)}</textarea></label>`;
+    } else if (step === 'conduct') {
+      next.textContent = 'Continue →';
+      body.innerHTML = `
+        <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">What is the counterparty doing?</div>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Conduct complained of<textarea class="form-input" rows="4" oninput="cdDrafterWizard.state.conduct.description=this.value" placeholder='e.g. "selling apparel under the ALFA mark on Myntra…"' style="width:100%;margin-top:4px;resize:vertical;">${esc(this.state.conduct.description)}</textarea></label>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Evidence we have<textarea class="form-input" rows="2" oninput="cdDrafterWizard.state.conduct.evidence=this.value" placeholder="Screenshots, purchase records, customer complaints" style="width:100%;margin-top:4px;resize:vertical;">${esc(this.state.conduct.evidence)}</textarea></label>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Distribution channels<input type="text" class="form-input" value="${esc(this.state.conduct.channels)}" oninput="cdDrafterWizard.state.conduct.channels=this.value" placeholder="e.g. Amazon, Flipkart, Myntra, own e-commerce" style="width:100%;margin-top:4px;"></label>`;
+    } else if (step === 'demand') {
+      next.textContent = 'Continue →';
+      const d = this.state.demand;
+      const cb = (key, label) => `<label style="display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--border,rgba(0,0,0,0.12));border-radius:6px;margin-bottom:6px;cursor:pointer;${d[key] ? 'background:#fffbeb;border-color:var(--gold,#c9a84c);' : ''}"><input type="checkbox" ${d[key] ? 'checked' : ''} onchange="cdDrafterWizard.state.demand['${key}']=this.checked;cdDrafterWizard.render()" style="margin:0;"><span style="font-size:13px;">${label}</span></label>`;
+      body.innerHTML = `
+        <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">What are we demanding?</div>
+        ${cb('cease','Cease and desist from the conduct')}${cb('transfer','Transfer of infringing domain / handle / inventory')}${cb('accounting','Accounting of profits / sales')}${cb('damages','Damages')}${cb('undertaking','Written undertaking confirming compliance')}
+        <label style="display:block;font-size:12px;margin-top:10px;">Other<textarea class="form-input" rows="2" oninput="cdDrafterWizard.state.demand.other=this.value" placeholder="e.g. removal of infringing posts within 48h" style="width:100%;margin-top:4px;resize:vertical;">${esc(d.other || '')}</textarea></label>`;
+    } else if (step === 'posture') {
+      next.textContent = 'Draft letter →';
+      const p = this.state.posture;
+      const rec = this.state.dossier?.synthesis?.postureRecommendation || '';
+      body.innerHTML = `
+        <div style="font-size:14px;margin-bottom:10px;line-height:1.55;">Posture for THIS letter</div>
+        <div style="font-size:12px;color:var(--ink3);margin-bottom:14px;">Pre-filled from practice profile + dossier rec. Override per-letter.</div>
+        ${rec ? `<div style="background:#fffbeb;border-left:3px solid var(--gold,#c9a84c);padding:10px 14px;margin-bottom:14px;font-size:12px;line-height:1.55;color:#5b4a10;"><strong>Dossier-based rec:</strong> ${esc(rec)}</div>` : ''}
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Tone<select class="form-select" onchange="cdDrafterWizard.state.posture.tone=this.value" style="width:100%;margin-top:4px;"><option value="aggressive" ${p.tone==='aggressive'?'selected':''}>Aggressive</option><option value="measured" ${p.tone==='measured'?'selected':''}>Measured (default)</option><option value="conservative" ${p.tone==='conservative'?'selected':''}>Conservative</option></select></label>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Response window (days)<input type="number" min="3" max="60" class="form-input" value="${p.responseWindowDays}" onchange="cdDrafterWizard.state.posture.responseWindowDays=parseInt(this.value,10)||14" style="width:100%;margin-top:4px;"></label>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Signer<input type="text" class="form-input" value="${esc(p.signer)}" oninput="cdDrafterWizard.state.posture.signer=this.value" placeholder="e.g. Anuradha Salhotra" style="width:100%;margin-top:4px;"></label>
+        <label style="display:block;font-size:12px;margin-bottom:10px;">Marking<select class="form-select" onchange="cdDrafterWizard.state.posture.marking=this.value" style="width:100%;margin-top:4px;"><option value="privileged" ${p.marking==='privileged'?'selected':''}>PRIVILEGED &amp; CONFIDENTIAL</option><option value="without_prejudice" ${p.marking==='without_prejudice'?'selected':''}>WITHOUT PREJUDICE</option><option value="both" ${p.marking==='both'?'selected':''}>Both</option></select></label>`;
+    } else if (step === 'draft') {
+      next.textContent = 'Save to matter →';
+      const d = this.state.draft || {};
+      const flagged = aiFraming.countFlags(d.draftMarkdown, d.weakArgumentsCalledOut);
+      body.innerHTML = `
+        ${aiFraming.header({ audience: 'attorney' })}
+        ${(d.weakArgumentsCalledOut || []).length ? `<div style="background:#fef3c7;border-left:3px solid #c9a84c;padding:12px 16px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#5b4a10;"><strong>⚠ Weak points flagged candidly:</strong><ul style="margin:6px 0 0 18px;padding:0;">${(d.weakArgumentsCalledOut).map(x => `<li>${aiFraming.applyMarkers(esc(x))}</li>`).join('')}</ul></div>` : ''}
+        ${d.djRiskFlag ? `<div style="background:#fee2e2;border-left:3px solid #dc2626;padding:12px 16px;margin-bottom:12px;font-size:12px;line-height:1.55;color:#991b1b;"><strong>DJ-risk mitigation:</strong> ${aiFraming.applyMarkers(esc(d.djRiskFlag))}</div>` : ''}
+        <div style="background:white;border:1px solid var(--border,rgba(0,0,0,0.1));border-radius:8px;padding:18px 22px;margin-bottom:14px;font-family:Georgia,'Times New Roman',serif;font-size:13.5px;line-height:1.7;color:var(--ink);white-space:pre-wrap;">${aiFraming.applyMarkers(esc(d.draftMarkdown || ''))}</div>
+        <button class="btn btn-ghost" style="font-size:11px;padding:6px 14px;margin-bottom:14px;" onclick="navigator.clipboard.writeText(${JSON.stringify(d.draftMarkdown || '').replace(/'/g, "\\'")});this.textContent='Copied ✓';setTimeout(()=>this.textContent='Copy letter',1500)">Copy letter</button>
+        ${aiFraming.reviewerNote({ sources: [{ tag:'user-provided', label:'All facts from wizard input' },{ tag:'scraped', label:'Diligence dossier (Tofler/IK/firm matters)' },{ tag:'model-verify', label:'Legal framing — verify' }], read: 'Wizard inputs + dossier synthesis', flaggedCount: flagged, currency: 'now', beforeRelying: ['Verify every [verify] tag inline','Confirm verbatim quotes character-for-character','Senior sign-off per approval matrix'] })}
+        ${aiFraming.decisionTree({ options: ['Approve and send (after sign-off)','Edit sections then save','Save and circulate internally','Discard','Save as pre-litigation matter for later send'], openQuestion: d.openQuestion || null })}`;
+    } else if (step === 'done') {
+      next.textContent = 'Close';
+      body.innerHTML = `<div style="text-align:center;padding:24px 0;"><div style="font-size:48px;margin-bottom:8px;">✓</div><div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:8px;">Draft saved</div><div style="font-size:13px;color:var(--ink3);line-height:1.6;">The C&D draft + dossier are on the matter timeline.</div></div>`;
+    }
+  },
+
+  _esc(s) { return String(s || '').replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c])); },
+};
+window.cdDrafterWizard = cdDrafterWizard;
+function openCdDrafter(prefillMatterId) { return cdDrafterWizard.open({ matterId: prefillMatterId || null }); }
+function closeCdDrafter() { cdDrafterWizard.close(); }
+window.openCdDrafter  = openCdDrafter;
+window.closeCdDrafter = closeCdDrafter;
+
+// Initialize audience mode on load
+try { aiFraming.initAudience?.(); } catch {}
 </script>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- Item 4/5 (personal) — Practice profile + IPR Tools modals               -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="practice-profile-modal" onclick="event.stopPropagation()" style="display:none;">
+  <div class="modal" style="max-width:580px;max-height:88vh;overflow-y:auto;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px;">
+      <div><div class="modal-title" style="margin-bottom:2px;">Set up your practice profile</div><div class="modal-sub" style="font-size:12.5px;">Captured once. Every AI output reads this before generating.</div></div>
+      <button class="dz-action" onclick="practiceProfileWizard.pause()" style="font-size:12px;line-height:1;padding:6px 10px;">Pause</button>
+    </div>
+    <div id="pp-progress" style="display:flex;gap:4px;margin:14px 0;"></div>
+    <div id="pp-body" style="margin-top:10px;"></div>
+    <div style="display:flex;gap:10px;margin-top:14px;justify-content:space-between;">
+      <button class="btn btn-ghost" id="pp-back" type="button" onclick="practiceProfileWizard.back()" style="font-size:13px;padding:11px 18px;">← Back</button>
+      <div style="display:flex;gap:10px;">
+        <button class="btn btn-ghost" id="pp-skip" type="button" onclick="practiceProfileWizard.skip()" style="font-size:13px;padding:11px 18px;">Skip step</button>
+        <button class="btn btn-primary" id="pp-next" type="button" onclick="practiceProfileWizard.next()" style="font-size:14px;padding:11px 22px;">Continue →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="infringement-triage-modal" onclick="event.stopPropagation()" style="display:none;">
+  <div class="modal" style="max-width:720px;max-height:92vh;overflow-y:auto;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px;">
+      <div><div class="modal-title" style="margin-bottom:2px;">Infringement triage</div><div class="modal-sub" style="font-size:12.5px;">First-pass under TMA § 29 — factors that cut both ways, never a conclusion.</div></div>
+      <button class="dz-action" onclick="closeInfringementTriage()" style="font-size:18px;line-height:1;padding:4px 10px;">×</button>
+    </div>
+    <div id="it-form" style="display:block;">
+      <div style="font-size:11px;color:var(--ink3);margin-bottom:14px;letter-spacing:0.5px;text-transform:uppercase;">SENIOR (CLIENT'S) MARK</div>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Mark text<input type="text" id="it-senior-mark" class="form-input" placeholder='e.g. "ALPHA"' style="width:100%;margin-top:4px;"></label>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Class(es)<input type="text" id="it-senior-class" class="form-input" placeholder="e.g. 25, 35" style="width:100%;margin-top:4px;"></label>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Distinctiveness<select id="it-distinctiveness" class="form-select" style="width:100%;margin-top:4px;"><option value="fanciful">Fanciful</option><option value="arbitrary">Arbitrary</option><option value="suggestive" selected>Suggestive</option><option value="descriptive">Descriptive</option><option value="generic">Generic</option></select></label>
+      <div style="font-size:11px;color:var(--ink3);margin:18px 0 14px 0;letter-spacing:0.5px;text-transform:uppercase;">ACCUSED USE</div>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Accused mark<input type="text" id="it-accused-mark" class="form-input" placeholder='e.g. "ALFA"' style="width:100%;margin-top:4px;"></label>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Accused class(es)<input type="text" id="it-accused-class" class="form-input" placeholder="e.g. 25" style="width:100%;margin-top:4px;"></label>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">What they're doing<textarea id="it-accused-conduct" class="form-input" rows="3" placeholder='e.g. selling apparel under "ALFA" on Myntra' style="width:100%;margin-top:4px;resize:vertical;"></textarea></label>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Channel overlap<select id="it-channels" class="form-select" style="width:100%;margin-top:4px;"><option value="identical">Identical</option><option value="overlapping" selected>Overlapping</option><option value="distinct">Distinct</option></select></label>
+      <div style="font-size:11px;color:var(--ink3);margin:18px 0 14px 0;letter-spacing:0.5px;text-transform:uppercase;">EVIDENCE</div>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Actual confusion examples<textarea id="it-confusion" class="form-input" rows="2" placeholder="blank if none" style="width:100%;margin-top:4px;resize:vertical;"></textarea></label>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Bad-faith indicators<textarea id="it-badfaith" class="form-input" rows="2" placeholder="blank if none" style="width:100%;margin-top:4px;resize:vertical;"></textarea></label>
+      <div style="display:flex;gap:10px;margin-top:18px;justify-content:flex-end;"><button class="btn btn-ghost" type="button" onclick="closeInfringementTriage()" style="font-size:13px;padding:11px 18px;">Cancel</button><button class="btn btn-primary" id="it-run-btn" type="button" onclick="runInfringementTriage()" style="font-size:14px;padding:11px 22px;">Run triage →</button></div>
+    </div>
+    <div id="it-result" style="display:none;"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="tm-clearance-modal" onclick="event.stopPropagation()" style="display:none;">
+  <div class="modal" style="max-width:760px;max-height:92vh;overflow-y:auto;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px;">
+      <div><div class="modal-title" style="margin-bottom:2px;">Trademark clearance — first pass</div><div class="modal-sub" style="font-size:12.5px;">Knockout + likelihood-of-confusion under § 11 / § 29. Triage, not opinion.</div></div>
+      <button class="dz-action" onclick="closeTmClearance()" style="font-size:18px;line-height:1;padding:4px 10px;">×</button>
+    </div>
+    <div id="tc-form" style="display:block;">
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Proposed mark<input type="text" id="tc-mark" class="form-input" placeholder='e.g. "MYBRAND"' style="width:100%;margin-top:4px;"></label>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Class(es) (Nice 1–45)<input type="text" id="tc-class" class="form-input" placeholder="e.g. 25" style="width:100%;margin-top:4px;"></label>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Applicant entity<input type="text" id="tc-applicant" class="form-input" placeholder="e.g. Acme Pvt Ltd" style="width:100%;margin-top:4px;"></label>
+      <label style="display:block;font-size:12px;margin-bottom:10px;">Intended use languages<input type="text" id="tc-languages" class="form-input" placeholder="English, Hindi, Tamil" value="English, Hindi" style="width:100%;margin-top:4px;"></label>
+      <div style="margin-top:18px;padding:12px 14px;background:#f6f7f9;border-radius:8px;">
+        <label style="display:block;font-size:12px;margin-bottom:8px;font-weight:600;">Paste export from your clearance search service — optional</label>
+        <div style="font-size:11.5px;color:var(--ink3);margin-bottom:8px;line-height:1.55;">If your firm uses TrademarkNow / Compumark / similar, paste the export here. AI will skip the search-list generation and go straight to factor walk.</div>
+        <textarea id="tc-paste" class="form-input" rows="4" placeholder="(optional — paste raw export, CSV, or screenshot OCR)" style="width:100%;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;"></textarea>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:18px;justify-content:flex-end;"><button class="btn btn-ghost" type="button" onclick="closeTmClearance()" style="font-size:13px;padding:11px 18px;">Cancel</button><button class="btn btn-primary" id="tc-run-btn" type="button" onclick="runTmClearance()" style="font-size:14px;padding:11px 22px;">Run clearance →</button></div>
+    </div>
+    <div id="tc-result" style="display:none;"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="cd-drafter-modal" onclick="event.stopPropagation()" style="display:none;">
+  <div class="modal" style="max-width:760px;max-height:92vh;overflow-y:auto;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;">
+      <div><div class="modal-title" style="margin-bottom:2px;">Cease &amp; Desist drafter</div><div class="modal-sub" style="font-size:12.5px;">Counterparty diligence → draft. Adapted for TMA 1999 / Copyright Act 1957.</div></div>
+      <div style="display:flex;gap:6px;"><button class="dz-action" onclick="cdDrafterWizard.pause()" title="Save progress" style="font-size:12px;line-height:1;padding:6px 10px;">Pause</button><button class="dz-action" onclick="closeCdDrafter()" style="font-size:18px;line-height:1;padding:4px 10px;">×</button></div>
+    </div>
+    <div id="cd-progress" style="display:flex;gap:4px;margin:14px 0;"></div>
+    <div id="cd-body" style="margin-top:10px;"></div>
+    <div id="cd-status" style="margin-top:14px;font-size:12px;color:var(--ink3);min-height:18px;"></div>
+    <div style="display:flex;gap:10px;margin-top:14px;justify-content:space-between;">
+      <button class="btn btn-ghost" id="cd-back" type="button" onclick="cdDrafterWizard.back()" style="font-size:13px;padding:11px 18px;">← Back</button>
+      <button class="btn btn-primary" id="cd-next" type="button" onclick="cdDrafterWizard.next()" style="font-size:14px;padding:11px 22px;">Continue →</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
