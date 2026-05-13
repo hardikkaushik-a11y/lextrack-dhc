@@ -13,7 +13,7 @@
  * Bumping CACHE_VERSION evicts old caches on activation. The version string
  * also includes a build timestamp so each push triggers a clean refresh.
  */
-const CACHE_VERSION = 'lextrack-v42-syncall-onadd';
+const CACHE_VERSION = 'lextrack-v43-aiframing-halfopen';
 const APP_SHELL = [
   './LexTrack-IPR-App.html',
   './manifest.json',

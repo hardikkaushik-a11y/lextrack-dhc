@@ -916,6 +916,14 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
       // No prior + older/missing logic version → could be regex artifact → silence.
       e.firstSeenAt = prior?.firstSeenAt
         || (prior ? OLD_SENTINEL : (sameLogicVersion ? nowISO : OLD_SENTINEL));
+      // Provenance: stamp where this date came from so the UI can render
+      // a "← from Order_2026-05-06.pdf" badge and the lawyer can verify
+      // in one click. Don't clobber an existing source (a date may now
+      // show up in the case-history scan after first being seen in an
+      // order PDF; we keep the older, more specific attribution).
+      e.source = (prior && prior.source)
+        ? prior.source
+        : { kind: 'order-pdf', orderDate: o.date, orderUrl: o.orderLink || null };
       additionalDates.push(e);
       fromOrders++;
     }
@@ -943,6 +951,12 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
       // No prior + older/missing logic version → could be regex artifact → silence.
       e.firstSeenAt = prior?.firstSeenAt
         || (prior ? OLD_SENTINEL : (sameLogicVersion ? nowISO : OLD_SENTINEL));
+      // Provenance: case-history page text is independent of the order
+      // PDFs. If the prior run already tagged this date with an order-pdf
+      // source, keep that — it's more specific.
+      e.source = (prior && prior.source)
+        ? prior.source
+        : { kind: 'case-history-page' };
       additionalDates.push(e);
       fromHistory++;
     }

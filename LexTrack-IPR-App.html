@@ -3207,6 +3207,198 @@ function daysUntil(s) {
   return diff;
 }
 
+// ── Urgency bands (half-open intervals) ────────────────────────────────────
+// 'past':   days < 0   (overdue / no update posted yet)
+// 'red':    0 ≤ days < 8   (today through day 7 — within the week)
+// 'yellow': 8 ≤ days < 31  (day 8 through day 30 — within the month)
+// 'green':  31 ≤ days
+// Half-open prevents the day-7 boundary bug where the same day belonged
+// to both 'red' and 'yellow' depending on which comparison fired first.
+function urgencyBand(days) {
+  if (days === null || days === undefined) return 'none';
+  if (days < 0)  return 'past';
+  if (days < 8)  return 'red';
+  if (days < 31) return 'yellow';
+  return 'green';
+}
+// Same bands, vocabulary used by AI prompts ("imminent / near-term / mid-term").
+function proximityLabel(days) {
+  if (days === null || days === undefined) return null;
+  if (days < 0)  return 'past';
+  if (days < 8)  return 'imminent';
+  if (days < 22) return 'near-term';
+  return 'mid-term';
+}
+
+// ── Business-day arithmetic (mirrors scripts/send-push.js) ─────────────────
+// Conservative DHC holiday list — fixed-date national holidays only.
+// TODO(refresh-annually): replace with full court calendar each December.
+const DHC_HOLIDAYS = new Set([
+  '2026-01-26', '2026-08-15', '2026-10-02', '2026-12-25',
+]);
+function isBusinessDay(d) {
+  const day = d.getDay();
+  if (day === 0 || day === 6) return false;
+  return !DHC_HOLIDAYS.has(d.toISOString().slice(0, 10));
+}
+function prevBusinessDay(d) {
+  const r = new Date(d); r.setHours(0, 0, 0, 0);
+  do { r.setDate(r.getDate() - 1); } while (!isBusinessDay(r));
+  return r;
+}
+function nextBusinessDay(d) {
+  const r = new Date(d); r.setHours(0, 0, 0, 0);
+  do { r.setDate(r.getDate() + 1); } while (!isBusinessDay(r));
+  return r;
+}
+
+// ── AI output framing components ───────────────────────────────────────────
+// Every AI-generated panel in LexTrack passes through these helpers so the
+// lawyer sees consistent India-specific privilege framing, inline markers
+// for unconfirmed / judgment-call items, source tags on cites, a Reviewer
+// Note block summarising what to look at, and a Decision Tree close so the
+// next step is explicit. Reference: docs/quality-checklist.md (Item 1 in
+// the May plan — built off the claude-for-legal pattern audit).
+//
+// Audience: 'attorney' (full privilege framing), 'paralegal' (research
+// notes framing), 'external' (strip header — privileged copy shouldn't
+// leave the firm carrying a "draft for attorney review" banner).
+const aiFraming = {
+  header({ audience = 'attorney', isExternal = false } = {}) {
+    if (isExternal || audience === 'external') return '';
+    const isAttorney = audience === 'attorney';
+    const heading = isAttorney
+      ? 'Draft for attorney review — not legal advice'
+      : 'Research notes for attorney review — not legal advice';
+    const subline = isAttorney
+      ? 'Privileged work product. Evidence Act §§ 126/129 + Bar Council Rules. AI-assisted draft — verify before relying.'
+      : 'Research summary by a non-attorney user. Attorney must independently review every factual + legal conclusion before any client communication or court filing.';
+    return `
+      <div style="background:linear-gradient(135deg,#fdf4f4 0%,#fce4e4 100%);border-left:3px solid #c94c4c;padding:10px 14px;font-size:12px;line-height:1.5;color:#7a2a2a;margin-bottom:10px;border-radius:0 6px 6px 0;">
+        <div style="font-weight:600;letter-spacing:0.3px;">${heading}</div>
+        <div style="font-size:11px;opacity:0.85;margin-top:2px;">${subline}</div>
+      </div>`;
+  },
+
+  reviewerNote({ sources = [], read = null, flaggedCount = 0, currency = null, beforeRelying = [] } = {}) {
+    const onlyTrustedSources = sources.length === 0 || sources.every(s => s.tag === 'scraped' || s.tag === 'user-provided');
+    const clean = onlyTrustedSources && flaggedCount === 0 && beforeRelying.length === 0;
+    if (clean) {
+      return `
+        <div style="font-size:11.5px;color:var(--ink3);font-style:italic;margin-top:10px;padding-top:8px;border-top:1px dashed rgba(0,0,0,0.1);">
+          Reviewer note: ${sources.length ? 'sources are scraped or user-provided · ' : ''}no items flagged${currency ? ' · currency: ' + currency : ''}.
+        </div>`;
+    }
+    const sourceLines = sources.length
+      ? sources.map(s => `<li><span style="opacity:0.7;">[${s.tag}]</span> ${s.label}</li>`).join('')
+      : '<li><span style="opacity:0.6;">None recorded.</span></li>';
+    const beforeRelyingLines = beforeRelying.length
+      ? beforeRelying.map(b => `<li>${b}</li>`).join('')
+      : '<li><span style="opacity:0.6;">None — proceed.</span></li>';
+    return `
+      <details style="margin-top:12px;border-top:1px dashed rgba(0,0,0,0.12);padding-top:10px;" open>
+        <summary style="font-size:12px;font-weight:600;color:#5b4a10;cursor:pointer;list-style:none;">▾ Reviewer note (${flaggedCount} flag${flaggedCount === 1 ? '' : 's'})</summary>
+        <div style="font-size:12px;color:#5b4a10;line-height:1.55;margin-top:8px;padding-left:14px;">
+          <div style="font-weight:600;margin-bottom:2px;">Sources</div>
+          <ul style="margin:0 0 8px 18px;padding:0;">${sourceLines}</ul>
+          ${read ? `<div style="font-weight:600;margin-bottom:2px;">Read</div><div style="margin-bottom:8px;">${read}</div>` : ''}
+          <div style="font-weight:600;margin-bottom:2px;">Flagged for your judgment</div>
+          <div style="margin-bottom:8px;">${flaggedCount} item${flaggedCount === 1 ? '' : 's'} marked [verify] / [review] inline.</div>
+          ${currency ? `<div style="font-weight:600;margin-bottom:2px;">Currency</div><div style="margin-bottom:8px;">${currency}</div>` : ''}
+          <div style="font-weight:600;margin-bottom:2px;">Before relying</div>
+          <ul style="margin:0 0 0 18px;padding:0;">${beforeRelyingLines}</ul>
+        </div>
+      </details>`;
+  },
+
+  decisionTree({ options = null, openQuestion = null } = {}) {
+    const defaults = [
+      'Use as-is — paste into a draft / brief',
+      'Get more facts — list questions for the client / colleague',
+      'Escalate — send to a senior partner for a sanity check',
+      'Watch and wait — file this and revisit closer to the hearing',
+      'Something else',
+    ];
+    const opts = options || defaults;
+    return `
+      <div style="margin-top:14px;padding-top:10px;border-top:1px dashed rgba(0,0,0,0.12);font-size:12px;color:#5b4a10;">
+        <div style="font-weight:600;margin-bottom:6px;">Next step — pick one</div>
+        <ol style="margin:0 0 8px 18px;padding:0;line-height:1.65;">
+          ${opts.map(o => `<li>${o}</li>`).join('')}
+        </ol>
+        ${openQuestion ? `<div style="font-size:11px;font-style:italic;opacity:0.75;margin-top:4px;">One question I'd ask that isn't in the framework above: ${openQuestion}</div>` : ''}
+      </div>`;
+  },
+
+  // Inline marker chip used inside body text.
+  //   verify        — factual claim not yet confirmed
+  //   review        — judgment call (forum choice, claim merit, etc.)
+  //   needs-lawyer  — anything the AI shouldn't have concluded on its own
+  marker(kind = 'verify') {
+    const styles = {
+      verify:         'background:#fef3c7;color:#92400e;',
+      review:         'background:#dbeafe;color:#1e40af;',
+      'needs-lawyer': 'background:#fee2e2;color:#991b1b;font-weight:600;',
+    };
+    const labels = { verify: 'verify', review: 'review', 'needs-lawyer': 'needs lawyer review' };
+    const s = styles[kind] || styles.verify;
+    const l = labels[kind] || kind;
+    return `<span style="${s}padding:1px 6px;border-radius:3px;font-size:10.5px;letter-spacing:0.3px;text-transform:uppercase;margin:0 2px;">${l}</span>`;
+  },
+
+  // Walk a body string and replace literal `[verify]` / `[review]` /
+  // `[needs lawyer review]` and source-tag tokens with styled chips.
+  // Order matters: longer patterns must run before shorter ones so e.g.
+  // `[settled — verify date]` doesn't get partially captured by `[verify]`.
+  applyMarkers(s) {
+    if (s == null) return '';
+    const patterns = [
+      [/\[needs lawyer review\]/gi, () => this.marker('needs-lawyer')],
+      [/\[settled\s*—\s*verify\s*date\]|\[settled\]/gi, () => this.sourceTag('model-settled')],
+      [/\[model\s*—\s*verify-pinpoint\]|\[model knowledge\s*—\s*verify-pinpoint\]|\[verify-pinpoint\]/gi, () => this.sourceTag('model-pinpoint')],
+      [/\[model\s*—\s*verify\]|\[model knowledge\s*—\s*verify\]/gi, () => this.sourceTag('model-verify')],
+      [/\[web\s*—\s*verify\]|\[web search\s*—\s*verify\]/gi, () => this.sourceTag('web-verify')],
+      [/\[scraped\]/gi, () => this.sourceTag('scraped')],
+      [/\[user provided\]/gi, () => this.sourceTag('user-provided')],
+      [/\[verify\]/gi, () => this.marker('verify')],
+      [/\[review\]/gi, () => this.marker('review')],
+    ];
+    let out = String(s);
+    for (const [re, fn] of patterns) out = out.replace(re, fn);
+    return out;
+  },
+
+  // Count flagged items (verify / review / needs-lawyer) inside the body
+  // strings of an AI output object. Used to populate the Reviewer Note.
+  countFlags(...bodyStrings) {
+    const txt = bodyStrings.flat().filter(Boolean).join(' ');
+    const m = txt.match(/\[verify\]|\[review\]|\[needs lawyer review\]/gi);
+    return m ? m.length : 0;
+  },
+
+  // Source tag — appended to inline citations.
+  //   scraped         — primary scraped source (DHC etc.)
+  //   user-provided   — typed / uploaded by the user
+  //   model-settled   — model knowledge with confirmed date, low fabrication risk
+  //   model-verify    — model knowledge, real but should be checked
+  //   model-pinpoint  — section / article numbers — highest fabrication risk
+  //   web-verify      — web search — check against the issuing authority
+  sourceTag(kind = 'model-verify') {
+    const labels = {
+      scraped:          '[scraped]',
+      'user-provided':  '[user provided]',
+      'model-settled':  '[settled — verify date]',
+      'model-verify':   '[model — verify]',
+      'model-pinpoint': '[model — verify-pinpoint]',
+      'web-verify':     '[web — verify]',
+    };
+    const lbl = labels[kind] || labels['model-verify'];
+    const danger = (kind === 'model-pinpoint' || kind === 'web-verify') ? 'font-weight:600;' : '';
+    // currentColor + opacity so the tag works on both light and dark backgrounds.
+    return `<span style="font-size:10.5px;opacity:0.65;${danger}margin-left:2px;">${lbl}</span>`;
+  },
+};
+
 function tagHTML(type) {
   const map = { trademark:'tag-trademark Trademark', patent:'tag-patent Patent', copyright:'tag-copyright Copyright', design:'tag-design Design', gi:'tag-trademark GI' };
   if (!type || type === 'other') {
@@ -3740,7 +3932,7 @@ function renderPrepChecklist() {
     </div>
     ${Object.entries(byMatter).map(([mid, group]) => {
       const dDays = daysUntil(group.nextDate);
-      const urgency = dDays !== null && dDays <= 7 ? 'color:var(--red);' : 'color:var(--ink3);';
+      const urgency = urgencyBand(dDays) === 'red' ? 'color:var(--red);' : 'color:var(--ink3);';
       return `
         <div class="matter-prep-card" style="background:white;border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin-bottom:12px;">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
@@ -3854,7 +4046,8 @@ function openDetail(id) {
                 : effKind === 'causelist' ? ' (cause list)'
                 : '';
   const d = daysUntil(effDate);
-  const urgentClass = d !== null && d <= 3 ? 'date-urgent' : '';
+  // Narrow "urgent" band — only today through day 3, half-open (d ∈ [0, 4)).
+  const urgentClass = (d !== null && d >= 0 && d < 4) ? 'date-urgent' : '';
 
   document.getElementById('detail-content').innerHTML = `
     <div class="detail-header">
@@ -3921,12 +4114,24 @@ function openDetail(id) {
             <div class="causelist-banner-icon">📋</div>
             <div style="flex:1;">
               <div class="causelist-banner-title" style="color:#9a3412;">Additional listing${filtered.length > 1 ? 's' : ''} from the latest order</div>
-              ${filtered.map(e => `
+              ${filtered.map(e => {
+                // Provenance badge — lets the lawyer click through to the
+                // exact order PDF that produced this listing date.
+                let sourceTag = '';
+                if (e.source && e.source.kind === 'order-pdf') {
+                  const lbl = e.source.orderDate ? `Order ${e.source.orderDate}` : 'order PDF';
+                  sourceTag = e.source.orderUrl
+                    ? ` <a href="${e.source.orderUrl}" target="_blank" rel="noopener" style="font-size:11px;color:#9a3412;opacity:0.7;text-decoration:underline;">[from ${lbl}]</a>`
+                    : ` <span style="font-size:11px;color:#9a3412;opacity:0.7;">[from ${lbl}]</span>`;
+                } else if (e.source && e.source.kind === 'case-history-page') {
+                  sourceTag = ` <span style="font-size:11px;color:#9a3412;opacity:0.7;">[from case-status page]</span>`;
+                }
+                return `
                 <div class="causelist-banner-line">
                   <strong>${formatDate(e.date)}</strong>
-                  <span class="causelist-judge">· before the ${e.before === 'jr' ? 'Joint Registrar' : "Hon'ble Court"}</span>
+                  <span class="causelist-judge">· before the ${e.before === 'jr' ? 'Joint Registrar' : "Hon'ble Court"}</span>${sourceTag}
                 </div>
-              `).join('')}
+              `;}).join('')}
             </div>
           </div>`;
       })()}
@@ -4288,7 +4493,8 @@ function deriveNextDatePurpose(m, c, cadence) {
   if (!m.nextDate) return 'No next hearing date posted yet on DHC.';
   const next = formatDate(m.nextDate);
   const days = daysUntil(m.nextDate);
-  const proximity = days <= 7 ? 'imminent' : days <= 21 ? 'near-term' : 'mid-term';
+  // Half-open: past / 0-7 / 8-21 / 22+. Negative days no longer fall into 'imminent'.
+  const proximity = proximityLabel(days) || 'mid-term';
 
   // If the latest order was an adjournment, the next date is just routine listing
   const real = readLatestOrderText(m);
@@ -4389,9 +4595,11 @@ function deriveActionItems(m, c, cadence) {
 
   // Calendar-driven action
   const days = m.nextDate ? daysUntil(m.nextDate) : null;
-  if (days !== null && days <= 7) {
+  // Half-open: only treat 0-7 day-out hearings as URGENT. Past dates
+  // (days < 0) fall through — a hearing two days ago isn't "urgent."
+  if (days !== null && days >= 0 && days < 8) {
     actions.unshift(`URGENT: Next hearing in ${days} day${days === 1 ? '' : 's'} — finalise brief and synopsis today`);
-  } else if (days !== null && days <= 14) {
+  } else if (days !== null && days >= 8 && days < 15) {
     actions.unshift(`Brief client on next-date strategy — ${days} days remaining`);
   }
 
@@ -4876,7 +5084,23 @@ function renderDeepAnalysis(id, ai, ordersCount, cachedAt) {
   const cacheInfo = cachedAt
     ? `<span style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;">CACHED · ${new Date(cachedAt).toLocaleString('en-IN', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' })}${cachedLabel}</span>`
     : `<span style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;">DEEPSEEK V4 · ${ordersCount} ORDERS REASONED</span>`;
+
+  // Apply marker chips to every body string; count flags for the Reviewer Note.
+  const fmt = s => aiFraming.applyMarkers(String(s || ''));
+  const fmtList = arr => (arr || []).map(x => `<li>${fmt(x)}</li>`).join('');
+  const flagged = aiFraming.countFlags(
+    ai.lastDateSummary, ai.nextDatePurpose, ai.caseSummary,
+    ai.actionItems, ai.documentsNeeded, ai.strategicInsight,
+  );
+  const m = matters.find(x => x.id === id);
+  const reviewerSources = [
+    { tag: 'scraped', label: `DHC order PDFs for ${m?.caseNo || 'matter'} (${ordersCount} order${ordersCount === 1 ? '' : 's'} reasoned)` },
+    ...(m?.notes ? [{ tag: 'user-provided', label: 'Internal notes typed into the matter' }] : []),
+    { tag: 'model-verify', label: 'Model knowledge for procedural framing — verify any cited authority before relying' },
+  ];
+
   block.innerHTML = `
+    ${aiFraming.header({ audience: 'attorney' })}
     <div class="ai-card" style="margin-bottom:20px;">
       <div class="ai-card-header">
         <div class="ai-card-title">⚡ Deep Analysis</div>
@@ -4885,27 +5109,27 @@ function renderDeepAnalysis(id, ai, ordersCount, cachedAt) {
       <div class="ai-sections">
         <div class="ai-section">
           <div class="ai-section-title">Last date — what happened</div>
-          <div class="ai-section-content">${ai.lastDateSummary}</div>
+          <div class="ai-section-content">${fmt(ai.lastDateSummary)}</div>
         </div>
         <div class="ai-section">
           <div class="ai-section-title">Next date — purpose</div>
-          <div class="ai-section-content">${ai.nextDatePurpose}</div>
+          <div class="ai-section-content">${fmt(ai.nextDatePurpose)}</div>
         </div>
         <div class="ai-section ai-full">
           <div class="ai-section-title">Full case summary</div>
-          <div class="ai-section-content">${ai.caseSummary}</div>
+          <div class="ai-section-content">${fmt(ai.caseSummary)}</div>
         </div>
         <div class="ai-section">
           <div class="ai-section-title">Actions needed</div>
-          <div class="ai-section-content"><ul>${(ai.actionItems || []).map(a => `<li>${a}</li>`).join('')}</ul></div>
+          <div class="ai-section-content"><ul>${fmtList(ai.actionItems)}</ul></div>
         </div>
         <div class="ai-section">
           <div class="ai-section-title">Documents needed</div>
-          <div class="ai-section-content"><ul>${(ai.documentsNeeded || []).map(d => `<li>${d}</li>`).join('')}</ul></div>
+          <div class="ai-section-content"><ul>${fmtList(ai.documentsNeeded)}</ul></div>
         </div>
         <div class="ai-section ai-full" style="border-color:rgba(201,168,76,0.3);">
           <div class="ai-section-title" style="color:var(--gold2);">Strategic insight</div>
-          <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">${ai.strategicInsight}</div>
+          <div class="ai-section-content" style="color:rgba(255,255,255,0.9);">${fmt(ai.strategicInsight)}</div>
         </div>
       </div>
       <div style="margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
@@ -4916,6 +5140,16 @@ function renderDeepAnalysis(id, ai, ordersCount, cachedAt) {
           ✓ Save to Checklist
         </button>
       </div>
+    </div>
+    <div style="background:#fefce8;border-left:3px solid var(--gold,#c9a84c);border-radius:0 8px 8px 0;padding:12px 18px;margin-bottom:20px;">
+      ${aiFraming.reviewerNote({
+        sources: reviewerSources,
+        read: `${ordersCount} order PDF${ordersCount === 1 ? '' : 's'} (full text) + matter timeline + open tasks + pending docs.`,
+        flaggedCount: flagged,
+        currency: m?.lastDate ? `last DHC order ${formatDate(m.lastDate)}` : 'as of last DHC sync',
+        beforeRelying: ai.beforeRelying || [],
+      })}
+      ${aiFraming.decisionTree({ openQuestion: ai.openQuestion || null })}
     </div>`;
   window.__lastAiByMatter[id] = ai;
 }
@@ -5030,7 +5264,19 @@ ${olderOrdersList}
 
 CRITICAL INSTRUCTIONS:
 - You have the FULL order history above. Use it. Trace how the case has progressed across orders — what's been disposed of, what's pending, what the bench keeps directing.
-- For "lastDateSummary": describe what the most recent order actually says. Quote or paraphrase its directions. Do NOT speculate about hearings that didn't happen (e.g. if P.O. was on leave, say so — don't invent arguments).
+=== MARKER + SOURCE-TAG DISCIPLINE (mandatory) ===
+Inline markers — append AFTER the relevant sentence/phrase, in literal square brackets:
+  [verify]   = factual claim not directly supported by the order text above
+  [review]   = judgment call the lawyer should sanity-check (forum / claim merit / strategy)
+  [needs lawyer review] = anything you shouldn't conclude on your own
+Source tags — append AFTER any cited authority / rule / section:
+  [scraped]              for facts pulled from the order text above
+  [user provided]        for facts from the user's internal notes
+  [settled — verify date] for stable doctrines with a date to confirm
+  [model — verify]       for general model knowledge — real but should be checked
+  [model — verify-pinpoint] for section / article / paragraph numbers — HIGHEST fabrication risk
+
+- For "lastDateSummary": describe what the most recent order actually says. Quote or paraphrase its directions. Do NOT speculate about hearings that didn't happen (e.g. if P.O. was on leave, say so — don't invent arguments). Tag anything inferred (not directly stated) with [verify].
 ${m.causelist && m.causelist.length ? `- For "nextDatePurpose": THE CASE IS ON THE DHC DAILY CAUSE LIST FOR ${m.causelist.map(c => formatDate(c.date)).join(', ')}. Reference this directly. Mention Court ${m.causelist[0].court || '?'}, Item ${m.causelist[0].item || '?'}, before ${m.causelist[0].judge || 'the assigned bench'}. Then derive the likely purpose from the latest order's directions.` : '- For "nextDatePurpose": derive from the latest order\'s directions and the historical pattern (e.g. if the case has had 5 IA-related listings, the next one is probably IA-related too).'}
 - For "caseSummary": 6-8 sentences. Reference specific inflection points from the order history — when interim was granted, when defendants were added, when pleadings closed, etc. This is where the full timeline pays off.
 - "actionItems": be specific to what the recent orders directed. If WS is due, name the deadline. If a reply to an IA is pending, name the IA number.${m.causelist && m.causelist.length ? ` SINCE THE CASE IS LISTED IN THE NEXT 48 HOURS, action items should reflect the immediate prep — confirm appearance, brief partner, prepare arguments per the last order's directions, file any pending replies/affidavits.` : ''}
@@ -5038,12 +5284,14 @@ ${m.causelist && m.causelist.length ? `- For "nextDatePurpose": THE CASE IS ON T
 
 Return EXACTLY this JSON (no markdown, no preamble, pure JSON):
 {
-  "lastDateSummary": "Summary of what the order on ${m.lastDate ? formatDate(m.lastDate) : 'the most recent date'} actually says. 2-3 sentences. Quote/paraphrase the order's directions; cite the IA numbers or party references it mentions.",
-  "nextDatePurpose": "What ${m.nextDate ? formatDate(m.nextDate) : 'the next hearing'} will be for, based on the latest order's directions PLUS the historical pattern of this case.",
-  "caseSummary": "6-8 sentence narrative summary based on the full order history — dispute archetype, key inflection points, current stage, trajectory.",
-  "actionItems": ["concrete action 1 with specifics (deadlines, IA numbers, doc names)", "action 2", "action 3", "action 4", "action 5"],
+  "lastDateSummary": "Summary of what the order on ${m.lastDate ? formatDate(m.lastDate) : 'the most recent date'} actually says. 2-3 sentences. Quote/paraphrase; cite IA numbers or party references. Tag inferred claims with [verify].",
+  "nextDatePurpose": "What ${m.nextDate ? formatDate(m.nextDate) : 'the next hearing'} will be for. Tag predictions with [review].",
+  "caseSummary": "6-8 sentence narrative. Tag any inferred dispute archetype with [review] and any cited authority with [model — verify].",
+  "actionItems": ["concrete action 1 — tag with [review] if it's a judgment call", "action 2", "action 3", "action 4", "action 5"],
   "documentsNeeded": ["specific doc 1 referenced by name/IA in the orders", "doc 2", "doc 3", "doc 4"],
-  "strategicInsight": "2-3 sentence tactical observation grounded in the order pattern. What's the bench sensitive to? What failure mode is showing up across orders? What should be pre-empted?"
+  "strategicInsight": "2-3 sentence tactical observation. Tag tactical guesses with [review].",
+  "beforeRelying": ["1-3 short imperatives — what the lawyer should confirm before relying (or empty array)"],
+  "openQuestion": "One short question a thoughtful reviewer would ask that this framework doesn't prompt (or empty string)"
 }`;
 
   try {
@@ -5123,7 +5371,7 @@ async function performLookup() {
   if (found) {
     // ── Case found in your records ──
     const dUntil = found.nextDate ? daysUntil(found.nextDate) : null;
-    const urgentClass = dUntil !== null && dUntil <= 7 ? 'value-urgent' : 'value-normal';
+    const urgentClass = urgencyBand(dUntil) === 'red' ? 'value-urgent' : 'value-normal';
 
     result.innerHTML = `
       <div class="result-header">
@@ -7954,6 +8202,19 @@ async function generateHearingPrep(matterId, hearingDate, kind) {
     `You are an IPR litigation associate preparing a senior partner for a hearing tomorrow before ${before}.`,
     `Produce a tight prep brief. Be specific to THIS matter, not generic. Skip pleasantries.`,
     ``,
+    `=== MARKER + SOURCE-TAG DISCIPLINE (mandatory) ===`,
+    `Inline markers — append AFTER the relevant sentence/phrase, in literal square brackets:`,
+    `  [verify]   = a factual claim you state but haven't confirmed from the timeline or notes`,
+    `  [review]   = a judgment call the lawyer should sanity-check (forum choice, claim merit, etc.)`,
+    `  [needs lawyer review] = anything you shouldn't have concluded on your own`,
+    `Source tags — append AFTER any cited authority / rule / section:`,
+    `  [scraped]              for facts pulled from the matter timeline above`,
+    `  [user provided]        for facts from the user's internal notes`,
+    `  [settled — verify date] for stable doctrines (DHC rules, TMA, Copyright Act) with a date to confirm`,
+    `  [model — verify]       for general model knowledge — real but should be checked`,
+    `  [model — verify-pinpoint] for section / article / paragraph numbers — HIGHEST fabrication risk`,
+    `Do NOT skip these. If you assert something, tag it. If you have nothing to flag, that's fine — but be honest.`,
+    ``,
     `Matter: ${m.title || m.caseNo}`,
     `Case No: ${m.caseNo}`,
     `Type: ${m.type || 'unspecified'}`,
@@ -7973,12 +8234,14 @@ async function generateHearingPrep(matterId, hearingDate, kind) {
     ``,
     `Return ONLY valid JSON in this exact schema (no prose, no markdown fences):`,
     `{`,
-    `  "lastHearingRecap": "2-3 sentences on what most likely happened at the prior hearing, grounded in the timeline above",`,
+    `  "lastHearingRecap": "2-3 sentences on what most likely happened at the prior hearing, grounded in the timeline above. Tag uncertain claims with [verify].",`,
     `  "purposeOfHearing": "1-2 sentences on what THIS hearing is specifically for",`,
-    `  "keyIssues": ["3-5 bullets on the actual issues likely to be argued"],`,
-    `  "exhibitsReady": ["3-5 documents/exhibits that should be in hand"],`,
+    `  "keyIssues": ["3-5 bullets — tag judgment calls with [review]"],`,
+    `  "exhibitsReady": ["3-5 documents/exhibits — tag any cited rule/section with [settled — verify date] or [model — verify-pinpoint]"],`,
     `  "talkingPoints": ["3-5 specific things the lawyer should be ready to say"],`,
-    `  "risks": ["1-3 things that could go wrong, with a one-line mitigation each"]`,
+    `  "risks": ["1-3 things that could go wrong, with a one-line mitigation each"],`,
+    `  "beforeRelying": ["1-3 short imperatives — what the lawyer should confirm before walking into court (or empty array if nothing)"],`,
+    `  "openQuestion": "One short question a thoughtful reviewer would ask that the framework above doesn't prompt (or empty string)"`,
     `}`,
   ].filter(Boolean).join('\n');
 
@@ -8045,21 +8308,38 @@ function collapsedHearingPrepHTML(matterId, hearingDate) {
 
 function hearingPrepHTML(prep, matterId, hearingDate) {
   if (!prep) return '';
+  // Escape HTML then transform marker / source-tag tokens into styled chips.
   const esc  = s => String(s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
-  const list = arr => (arr || []).map(x => `<li>${esc(x)}</li>`).join('');
+  const fmt  = s => aiFraming.applyMarkers(esc(s));
+  const list = arr => (arr || []).map(x => `<li>${fmt(x)}</li>`).join('');
   const dismissBtn = (matterId && hearingDate) ? `
     <button onclick="event.stopPropagation();dismissHearingPrep('${matterId}','${hearingDate}')"
       title="Hide brief (cached — click Show to see it again, no re-charge)"
       aria-label="Dismiss brief"
       style="position:absolute;top:8px;right:10px;background:none;border:none;color:#7a5a10;font-size:18px;cursor:pointer;padding:0 8px;line-height:1;opacity:0.4;transition:opacity 0.15s;"
       onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">×</button>` : '';
+
+  // Reviewer-note metadata — sources, what was read, flag count, currency.
+  const m = matters.find(x => x.id === matterId);
+  const flagged = aiFraming.countFlags(
+    prep.lastHearingRecap, prep.purposeOfHearing,
+    prep.keyIssues, prep.exhibitsReady, prep.talkingPoints, prep.risks,
+  );
+  const reviewerSources = [
+    { tag: 'scraped',      label: `DHC case-status page for ${m?.caseNo || 'matter'} (timeline + order PDFs)` },
+    ...(m?.notes ? [{ tag: 'user-provided', label: 'Internal notes typed into the matter' }] : []),
+    { tag: 'model-verify', label: 'Model knowledge for procedural framing — verify any cited authority before relying' },
+  ];
+  const reviewerCurrency = m?.lastDate ? `matter last heard ${formatDate(m.lastDate)}` : 'as of last DHC sync';
+
   return `
     <div style="position:relative;background:linear-gradient(135deg,#fefce8 0%,#fef3c7 100%);border-left:3px solid var(--gold,#c9a84c);border-radius:0 8px 8px 0;padding:14px 18px 14px 18px;font-size:13px;line-height:1.65;color:#5b4a10;">
       ${dismissBtn}
+      ${aiFraming.header({ audience: 'attorney' })}
       <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;padding-right:30px;">Last hearing recap</div>
-      <div style="margin-bottom:12px;">${esc(prep.lastHearingRecap)}</div>
+      <div style="margin-bottom:12px;">${fmt(prep.lastHearingRecap)}</div>
       <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Purpose of this hearing</div>
-      <div style="margin-bottom:12px;">${esc(prep.purposeOfHearing)}</div>
+      <div style="margin-bottom:12px;">${fmt(prep.purposeOfHearing)}</div>
       <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Key issues</div>
       <ul style="margin:0 0 12px 18px;padding:0;">${list(prep.keyIssues)}</ul>
       <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Exhibits to have ready</div>
@@ -8067,7 +8347,15 @@ function hearingPrepHTML(prep, matterId, hearingDate) {
       <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Talking points</div>
       <ul style="margin:0 0 12px 18px;padding:0;">${list(prep.talkingPoints)}</ul>
       <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Risks</div>
-      <ul style="margin:0 0 0 18px;padding:0;">${list(prep.risks)}</ul>
+      <ul style="margin:0 0 12px 18px;padding:0;">${list(prep.risks)}</ul>
+      ${aiFraming.reviewerNote({
+        sources: reviewerSources,
+        read: `Matter timeline (most recent 5 events) + open tasks + pending documents. Did NOT read order PDFs in full.`,
+        flaggedCount: flagged,
+        currency: reviewerCurrency,
+        beforeRelying: prep.beforeRelying || [],
+      })}
+      ${aiFraming.decisionTree({ openQuestion: prep.openQuestion || null })}
     </div>`;
 }
 

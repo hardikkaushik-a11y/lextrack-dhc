@@ -136,6 +136,37 @@ if (lastPushed) {
 function entryKey(e)   { return `${e.caseNo}|${e.date}|${e.item || ''}`; }
 function shortCase(no) { return (no || '').replace(/\s+/g, ''); }
 
+// ── Business-day arithmetic ────────────────────────────────────────────────
+// DHC observed closed days for 2026. Conservative list — only fixed-date
+// public holidays I'm confident about. Movable holidays (Holi, Diwali, Eid,
+// Good Friday, Buddha Purnima, Muharram, etc.) need to be added from the
+// court's published calendar at delhihighcourt.nic.in.
+// TODO(refresh-annually): replace with full DHC calendar each December.
+const DHC_HOLIDAYS = new Set([
+  // 2026 — fixed-date national holidays
+  '2026-01-26', // Republic Day
+  '2026-08-15', // Independence Day
+  '2026-10-02', // Gandhi Jayanti
+  '2026-12-25', // Christmas
+  // Add 2027 entries when planning Q4 2026 →
+]);
+
+function isBusinessDay(d) {
+  const day = d.getDay();
+  if (day === 0 || day === 6) return false; // Sunday / Saturday
+  const iso = d.toISOString().slice(0, 10);
+  return !DHC_HOLIDAYS.has(iso);
+}
+
+// Walk forward to the next working day. Result is normalized to local
+// midnight; caller sets hours if it needs end-of-day.
+function nextBusinessDay(from) {
+  const r = new Date(from);
+  r.setHours(0, 0, 0, 0);
+  do { r.setDate(r.getDate() + 1); } while (!isBusinessDay(r));
+  return r;
+}
+
 function findCaseTitle(caseNo) {
   const m = scrapedNow.find(s => shortCase(s.caseNo) === shortCase(caseNo));
   return m?.title || caseNo;
@@ -350,7 +381,14 @@ function persistLastPushedState() {
 // ─────────────────────────────────────────────────────────────────────────────
 async function runDigestMode() {
   const today    = new Date(); today.setHours(0,0,0,0);
-  const dayAfter = new Date(today.getTime() + 48 * 60 * 60 * 1000);
+  // Standard 48h window — covers today + tomorrow on a normal weekday.
+  const calendarWindow = new Date(today.getTime() + 48 * 60 * 60 * 1000);
+  // Business-day rollback: if the 48h window doesn't reach the next
+  // working day (Fri digest → calendar ends Sunday, missing Monday
+  // hearings), extend to end-of-next-business-day. Mon–Thu unaffected.
+  const nextBiz = nextBusinessDay(today);
+  nextBiz.setHours(23, 59, 59, 999);
+  const dayAfter = calendarWindow > nextBiz ? calendarWindow : nextBiz;
 
   // Hearings in the next 48h (cause list)
   const upcoming = (causeNow.entries || []).filter(e => {
@@ -377,7 +415,11 @@ async function runDigestMode() {
 
   const lines = [];
   if (upcoming.length) {
-    lines.push(`${upcoming.length} hearing${upcoming.length > 1 ? 's' : ''} in next 48h`);
+    // Friday digest covers a 4-day stretch (Fri–Mon), Mon–Thu covers 2.
+    // Match the label to whatever window we just used.
+    const spanDays = Math.round((dayAfter - today) / 86400000);
+    const windowLabel = spanDays <= 2 ? 'next 48h' : `through ${dayAfter.toLocaleDateString('en-IN', { weekday: 'short' })}`;
+    lines.push(`${upcoming.length} hearing${upcoming.length > 1 ? 's' : ''} ${windowLabel}`);
     upcoming.slice(0, 3).forEach(e => lines.push(`• ${findCaseTitle(e.caseNo)} — ${e.date}${e.court ? ` (Court ${e.court})` : ''}`));
     if (upcoming.length > 3) lines.push(`• …and ${upcoming.length - 3} more`);
   }
