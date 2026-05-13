@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-05-13T18:17:30Z",
+  "scraped_at": "2026-05-13T18:31:35Z",
   "for_dates": [
-    "2026-05-13",
-    "2026-05-14"
+    "2026-05-14",
+    "2026-05-15"
   ],
   "tracked_cases": 14,
   "matched_cases": 0,
@@ -66,62 +66,6 @@
     {
       "file": "advance_combined_list_for_14.05.2026_0.pdf",
       "date": "2026-05-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_16for_13.05.26.pdf",
-      "date": "2026-05-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_14_15_for_13.05.26.pdf",
-      "date": "2026-05-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_12-13_for_13.05.26.pdf",
-      "date": "2026-05-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_13.05.2026_2.pdf",
-      "date": "2026-05-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_10for_13.05.26.pdf",
-      "date": "2026-05-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "old_target_matters_for_13.05.2026.pdf",
-      "date": "2026-05-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_13.05.2026.pdf",
-      "date": "2026-05-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "supple-2_for_13.05.2026.pdf",
-      "date": "2026-05-13",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
