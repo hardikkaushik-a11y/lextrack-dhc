@@ -1,12 +1,26 @@
 {
-  "scraped_at": "2026-05-13T13:02:04Z",
+  "scraped_at": "2026-05-13T13:16:34Z",
   "for_dates": [
     "2026-05-13",
     "2026-05-14"
   ],
   "tracked_cases": 14,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "deletion_note_14.05.2026.pdf",
+      "date": "2026-05-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "supple-2_for_14.05.2026.pdf",
+      "date": "2026-05-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "vk_sup_2nd_for_14.05.26.pdf",
       "date": "2026-05-14",
@@ -31,7 +45,9 @@
     {
       "file": "advance_combined_list_for_14.05.2026_0.pdf",
       "date": "2026-05-14",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_16for_13.05.26.pdf",
@@ -109,28 +125,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "cause_list_for_13.05.2026_0.pdf",
-      "date": "2026-05-13",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": null,
-      "court": "48",
-      "judge": "TUSHAR RAO GEDELA NOTE",
-      "time": null,
-      "page": 667,
-      "context": "In CS(COMM)-       LIMITED                 ABHISHEK GAUR,\n              582/2025           V/s BALAJI FOODS        ISHI SINGH",
-      "caseNo": "CS(COMM)/582/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-       LIMITED                 ABHISHEK GAUR,\n              582/2025",
-      "date": "2026-05-13",
-      "source_pdf": "cause_list_for_13.05.2026_0.pdf"
-    }
-  ]
+  "entries": []
 }
