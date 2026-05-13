@@ -659,21 +659,14 @@ function extractListingDates(orderText, orderDateISO) {
   return [...found.values()].sort((a, b) => a.date.localeCompare(b.date));
 }
 
-// ── Order Intelligence (Phase B3) ───────────────────────────────────────────
-// Extract structured fields from an order's text via DeepSeek. Returns:
-//   { classification, reliefGranted, costsAwarded, directions, citations,
-//     counsel, summary }
-// or null on any failure (silent — never blocks the scrape).
-//
-// Caching: caller is responsible for skipping already-extracted orders;
-// this fn always makes an API call when invoked. See buildCaseObject for
-// the per-order cache via prior scraped.json timeline lookup.
-//
-// Cost: ~3000 input + ~300 output tokens per order on DeepSeek-chat.
-// At current pricing, ~₹0.10 per order. 50 matters × ~5 new orders/month
-// = ~₹25/month for the firm. Bootstrap (first run extracting all historic
-// orders) costs more but is one-time.
-async function extractOrderIntelligence(orderText, caseTitle) {
+// ── Order Intelligence ──────────────────────────────────────────────────────
+// MOVED to scripts/extract-order-intelligence.js (Tier B mapper).
+// This scraper (Tier A) no longer has the DEEPSEEK_API_KEY or makes the
+// extraction call. The function below is intentionally dead — kept as a
+// reference for the schema and prompt, but never invoked. Delete on a
+// future cleanup pass once the new two-script pipeline has been running
+// for a few weeks without regression.
+async function extractOrderIntelligence_DEAD_REFERENCE(orderText, caseTitle) {
   if (!orderText || orderText.length < 100) return null;
   const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey) return null;  // Silently skip when not configured
@@ -795,44 +788,29 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
   const parsedCount = parsedTexts.filter(Boolean).length;
   console.log(`  [pdf] ${parsedCount}/${orders.length} parsed · cache: ${pdfCacheHits} hits, ${pdfFresh} fresh`);
 
-  // ── AI Order Intelligence ────────────────────────────────────────────────
-  // Per-order structured extraction (relief, costs, citations, directions,
-  // counsel, summary, classification). Cached against prior scraped.json so
-  // we only re-bill for newly-published orders. Skipped silently when
-  // DEEPSEEK_API_KEY isn't configured.
+  // ── AI Order Intelligence (cache preservation only) ──────────────────────
+  // Three-tier split (Item 3 in the May plan):
+  //   Tier A — this scraper. Reads PDFs, writes scraped.json. NO API key.
+  //            Court PDFs are untrusted data; this process has filesystem
+  //            write access, so it must not be the one calling external AI
+  //            with potentially adversarial PDF text.
+  //   Tier B — scripts/extract-order-intelligence.js. Reads scraped.json's
+  //            orderText (DATA, not instructions), calls DeepSeek, writes
+  //            data/order-intel.json. Has the API key; no write to scraped.
+  //   Tier C — scripts/merge-order-intelligence.js. Reads both files,
+  //            schema-validates intel, attaches to scraped.json. No API key,
+  //            no PDF parsing.
+  // Here we only preserve previously-extracted intel from prior runs so a
+  // user toggling the secret off doesn't lose data we already paid for.
   const priorIntelByLink = new Map();
   for (const t of (priorEntry?.timeline || [])) {
     if (t.orderLink && t.intelligence) priorIntelByLink.set(t.orderLink, t.intelligence);
   }
-  const ORDER_INTEL_CONCURRENCY = 3;
-  let intelHits = 0, intelMisses = 0, intelSkipped = 0;
-  if (process.env.DEEPSEEK_API_KEY) {
-    for (let i = 0; i < orders.length; i += ORDER_INTEL_CONCURRENCY) {
-      const batch = orders.slice(i, i + ORDER_INTEL_CONCURRENCY);
-      await Promise.all(batch.map(async o => {
-        if (!o.orderText) return;
-        if (priorIntelByLink.has(o.orderLink)) {
-          o.intelligence = priorIntelByLink.get(o.orderLink);
-          intelHits++;
-          return;
-        }
-        const intel = await extractOrderIntelligence(o.orderText, row.parties || parsed.raw);
-        if (intel) {
-          o.intelligence = intel;
-          intelMisses++;
-        } else {
-          intelSkipped++;
-        }
-      }));
-    }
-    console.log(`  [order-intel] cache hits: ${intelHits}, fresh: ${intelMisses}, skipped: ${intelSkipped}`);
-  } else {
-    // Still preserve any intelligence from prior runs (in case the key was
-    // set previously but isn't now — don't lose data we already paid for).
-    for (const o of orders) {
-      if (priorIntelByLink.has(o.orderLink)) o.intelligence = priorIntelByLink.get(o.orderLink);
-    }
-    console.log('  [order-intel] DEEPSEEK_API_KEY not set, AI extraction skipped (cached results preserved)');
+  for (const o of orders) {
+    if (priorIntelByLink.has(o.orderLink)) o.intelligence = priorIntelByLink.get(o.orderLink);
+  }
+  if (priorIntelByLink.size) {
+    console.log(`  [order-intel] preserved ${priorIntelByLink.size} cached intelligence record(s) — Tier B will extract any new orders`);
   }
 
   const timeline = orders.map(o => {

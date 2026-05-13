@@ -105,17 +105,32 @@ jobs:
           kill -9 $INSTALL_PID 2>/dev/null || true
           exit 1
 
-      - name: Run case-status scraper
+      # ── Tier A: Reader ─────────────────────────────────────────────────
+      # NO DEEPSEEK_API_KEY in this step's env. Court PDFs are untrusted
+      # data — the process that calls external AI must not also be the
+      # process with filesystem write access to scraped.json.
+      - name: Run case-status scraper (Tier A — reader)
+        if: ${{ inputs.include_case_scrape != false }}
+        run: node src/scraper.js
+
+      # ── Tier B: Mapper (order intelligence extraction) ────────────────
+      # Reads scraped.json's orderText (DATA, not instructions), calls
+      # DeepSeek with a strict schema, writes only to data/order-intel.json.
+      # Has the API key; CANNOT modify scraped.json. Silent no-op when
+      # DEEPSEEK_API_KEY is not set.
+      - name: Extract order intelligence (Tier B — mapper)
         if: ${{ inputs.include_case_scrape != false }}
         env:
-          # Phase B3 — Order Intelligence Layer. When set, the scraper runs
-          # DeepSeek extraction on each newly-fetched order PDF to pull out
-          # relief / costs / citations / directions / counsel / summary. Cached
-          # against prior scraped.json — only new orders are re-billed.
-          # Cost ~₹0.10/order. If the secret isn't set, the scraper silently
-          # skips AI extraction and everything else continues normally.
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: node src/scraper.js
+        run: node scripts/extract-order-intelligence.js
+
+      # ── Tier C: Writer (merge intelligence into scraped.json) ─────────
+      # Reads both files, schema-validates every intel object, attaches
+      # the valid ones to scraped.json's timeline entries. Anything
+      # malformed is rejected + logged. NO API key. NO PDF text handling.
+      - name: Merge order intelligence (Tier C — writer)
+        if: ${{ inputs.include_case_scrape != false }}
+        run: node scripts/merge-order-intelligence.js
 
       # ── Push notifications (always — runs after data is fresh on disk
       # but BEFORE commit, so HEAD still represents the previous state and
@@ -158,6 +173,7 @@ jobs:
           [ -f data/scraped.json ]            && cp data/scraped.json            /tmp/snap/scraped.json            || true
           [ -f data/causelist.json ]          && cp data/causelist.json          /tmp/snap/causelist.json          || true
           [ -f data/last-pushed-state.json ]  && cp data/last-pushed-state.json  /tmp/snap/last-pushed-state.json  || true
+          [ -f data/order-intel.json ]        && cp data/order-intel.json        /tmp/snap/order-intel.json        || true
 
           for attempt in 1 2 3; do
             echo "── attempt $attempt ──"
@@ -168,8 +184,9 @@ jobs:
             [ -f /tmp/snap/scraped.json ]            && cp /tmp/snap/scraped.json            data/scraped.json            || true
             [ -f /tmp/snap/causelist.json ]          && cp /tmp/snap/causelist.json          data/causelist.json          || true
             [ -f /tmp/snap/last-pushed-state.json ]  && cp /tmp/snap/last-pushed-state.json  data/last-pushed-state.json  || true
+            [ -f /tmp/snap/order-intel.json ]        && cp /tmp/snap/order-intel.json        data/order-intel.json        || true
 
-            git add data/scraped.json data/causelist.json data/last-pushed-state.json 2>/dev/null || true
+            git add data/scraped.json data/causelist.json data/last-pushed-state.json data/order-intel.json 2>/dev/null || true
             if git diff --staged --quiet; then
               echo "No net change vs origin — nothing to push."
               exit 0
