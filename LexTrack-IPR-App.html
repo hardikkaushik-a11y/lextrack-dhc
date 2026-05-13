@@ -9812,8 +9812,18 @@ const lextrackTour = {
           position: fixed; z-index: 100000;
           background: white; color: var(--ink, #2d2a26);
           border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.35);
-          max-width: 420px; padding: 22px 24px;
+          width: calc(100% - 32px); max-width: 440px; padding: 22px 24px;
+          max-height: 80vh; overflow-y: auto;
           font-family: inherit; line-height: 1.55;
+          /* Stable position: bottom-center on phones, center on desktop.
+             Cards don't migrate with highlights — only the highlight moves. */
+          left: 50%; top: 50%; transform: translate(-50%, -50%);
+        }
+        @media (max-width: 720px) {
+          #lextrack-tour-card {
+            top: auto; bottom: 16px; transform: translateX(-50%);
+            max-height: 70vh;
+          }
         }
         #lextrack-tour-card .lt-step { font-size: 11px; color: var(--ink3, #6b6660); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
         #lextrack-tour-card .lt-title { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; margin-bottom: 10px; }
@@ -9843,9 +9853,14 @@ const lextrackTour = {
     const highlight = document.getElementById('lextrack-tour-highlight');
     if (!card || !highlight) return;
 
-    // Position the highlight (or hide it for centered modals)
-    let cardPosition = 'center';
-    if (step.target) {
+    // Position the highlight. Card itself stays anchored by CSS so it
+    // doesn't chase targets down the page. On mobile, the sidebar is
+    // hidden behind the hamburger, so don't try to highlight sidebar
+    // items there — the footnote text on each card already says where
+    // to look ("Sidebar → IPR Tools → …"). Cleaner than a floating
+    // yellow box pointing at an off-screen element.
+    const isMobile = window.innerWidth < 720;
+    if (step.target && !isMobile) {
       const el = this._findTarget(step.target);
       if (el) {
         const rect = el.getBoundingClientRect();
@@ -9855,15 +9870,11 @@ const lextrackTour = {
         highlight.style.left   = (rect.left - padding) + 'px';
         highlight.style.width  = (rect.width + padding * 2) + 'px';
         highlight.style.height = (rect.height + padding * 2) + 'px';
-        cardPosition = 'side';
-        this._positionCardNearElement(card, rect);
       } else {
         highlight.style.display = 'none';
-        this._centerCard(card);
       }
     } else {
       highlight.style.display = 'none';
-      this._centerCard(card);
     }
 
     // Render card body
@@ -9910,8 +9921,10 @@ const lextrackTour = {
       <div class="lt-actions">${actions}</div>
     `;
 
-    // Scroll the highlighted element into view if needed
-    if (step.target) {
+    // Scroll the highlighted element into view (desktop only — on mobile
+    // we already hid the highlight and the card has the directional
+    // footnote, so no need to scroll the page).
+    if (step.target && !isMobile) {
       const el = this._findTarget(step.target);
       if (el) try { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch {}
     }
