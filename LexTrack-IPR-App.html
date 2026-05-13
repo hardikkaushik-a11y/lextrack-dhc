@@ -3265,7 +3265,7 @@ function nextBusinessDay(d) {
 // leave the firm carrying a "draft for attorney review" banner).
 const aiFraming = {
   header({ audience = 'attorney', isExternal = false } = {}) {
-    if (isExternal || audience === 'external') return '';
+    if (isExternal || audience === 'external' || this.isExternalAudience?.()) return '';
     const isAttorney = audience === 'attorney';
     const heading = isAttorney
       ? 'Draft for attorney review — not legal advice'
@@ -3344,6 +3344,49 @@ const aiFraming = {
     const s = styles[kind] || styles.verify;
     const l = labels[kind] || kind;
     return `<span style="${s}padding:1px 6px;border-radius:3px;font-size:10.5px;letter-spacing:0.3px;text-transform:uppercase;margin:0 2px;">${l}</span>`;
+  },
+
+  // ── Audience calibration ─────────────────────────────────────────────────
+  // 'partner' — full analytical depth (default)
+  // 'client'  — plain-English, jargon stripped, no markers, header stripped
+  // 'whatsapp' — one-line bottom-line, copy-friendly
+  audienceMode: 'partner',
+  setAudience(mode) {
+    if (!['partner', 'client', 'whatsapp'].includes(mode)) return;
+    this.audienceMode = mode;
+    try { localStorage.setItem('lex_audience_mode_v1', mode); } catch {}
+  },
+  initAudience() {
+    try {
+      const saved = localStorage.getItem('lex_audience_mode_v1');
+      if (saved && ['partner', 'client', 'whatsapp'].includes(saved)) this.audienceMode = saved;
+    } catch {}
+  },
+  audienceToggleHTML(rendererFn) {
+    const m = this.audienceMode;
+    const btn = (val, lbl) => `
+      <button type="button" onclick="aiFraming.setAudience('${val}');(${rendererFn})()" style="
+        background:${m === val ? 'var(--gold,#c9a84c)' : 'transparent'};
+        color:${m === val ? 'white' : 'var(--ink3)'};
+        border:1px solid ${m === val ? 'var(--gold,#c9a84c)' : 'var(--border,rgba(0,0,0,0.12))'};
+        padding:4px 12px;border-radius:14px;font-size:11px;cursor:pointer;
+        font-weight:${m === val ? '600' : '400'};">${lbl}</button>`;
+    return `
+      <div style="display:inline-flex;gap:4px;align-items:center;font-size:11px;color:var(--ink3);">
+        <span style="margin-right:4px;">Audience:</span>
+        ${btn('partner', 'Partner')}
+        ${btn('client', 'Client')}
+        ${btn('whatsapp', 'WhatsApp')}
+      </div>`;
+  },
+  isExternalAudience() {
+    return this.audienceMode === 'client' || this.audienceMode === 'whatsapp';
+  },
+  pickForAudience(obj, partnerField, clientField, whatsappField) {
+    if (!obj) return '';
+    if (this.audienceMode === 'whatsapp') return obj[whatsappField] || obj[clientField] || obj[partnerField] || '';
+    if (this.audienceMode === 'client')   return obj[clientField]   || obj[partnerField] || '';
+    return obj[partnerField] || '';
   },
 
   // Walk a body string and replace literal `[verify]` / `[review]` /
@@ -8232,16 +8275,27 @@ async function generateHearingPrep(matterId, hearingDate, kind) {
     ``,
     `Hearing date: ${hearingDate} before ${before}.`,
     ``,
+    `=== RESTRUCTURED HEARING-PREP TEMPLATE (Item 5 in the May plan) ===`,
+    `The output now follows: one-paragraph summary → what's changed → what's next → exposure → open questions → for-the-conversation tailoring.`,
+    ``,
     `Return ONLY valid JSON in this exact schema (no prose, no markdown fences):`,
     `{`,
-    `  "lastHearingRecap": "2-3 sentences on what most likely happened at the prior hearing, grounded in the timeline above. Tag uncertain claims with [verify].",`,
-    `  "purposeOfHearing": "1-2 sentences on what THIS hearing is specifically for",`,
+    `  "oneParagraphSummary": "ONE paragraph. What this matter is, what stage it's at, what the next hearing is for. The first thing the partner reads.",`,
+    `  "whatsChanged":   "What's happened since the last hearing. 2-3 sentences. Quote the prior order if you can.",`,
+    `  "whatsNext":      "What this hearing is for + what to expect. 2-3 sentences.",`,
+    `  "exposure":       "Concrete risk to the client. Tag with [review] when it's a judgment call.",`,
+    `  "openQuestions":  ["2-4 questions to be ready for — from the bench OR the client"],`,
+    `  "conversationTailoring": "How to tailor the conversation based on bench preferences / client expectations. 1-2 sentences.",`,
+    `  "lastHearingRecap": "Legacy field, same as whatsChanged.",`,
+    `  "purposeOfHearing": "Legacy field.",`,
     `  "keyIssues": ["3-5 bullets — tag judgment calls with [review]"],`,
     `  "exhibitsReady": ["3-5 documents/exhibits — tag any cited rule/section with [settled — verify date] or [model — verify-pinpoint]"],`,
     `  "talkingPoints": ["3-5 specific things the lawyer should be ready to say"],`,
     `  "risks": ["1-3 things that could go wrong, with a one-line mitigation each"],`,
-    `  "beforeRelying": ["1-3 short imperatives — what the lawyer should confirm before walking into court (or empty array if nothing)"],`,
-    `  "openQuestion": "One short question a thoughtful reviewer would ask that the framework above doesn't prompt (or empty string)"`,
+    `  "beforeRelying": ["1-3 short imperatives — what the lawyer should confirm before walking into court (or empty array)"],`,
+    `  "openQuestion": "One short question a thoughtful reviewer would ask",`,
+    `  "clientSummary":    "3-5 sentences in PLAIN ENGLISH suitable to forward to a non-lawyer client. No jargon, no Latin, no section numbers. No markers — meant to leave the firm.",`,
+    `  "whatsappOneLiner": "ONE LINE under 280 characters for mobile share. Bottom line + next-step date."`,
     `}`,
   ].filter(Boolean).join('\n');
 
@@ -8308,7 +8362,6 @@ function collapsedHearingPrepHTML(matterId, hearingDate) {
 
 function hearingPrepHTML(prep, matterId, hearingDate) {
   if (!prep) return '';
-  // Escape HTML then transform marker / source-tag tokens into styled chips.
   const esc  = s => String(s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
   const fmt  = s => aiFraming.applyMarkers(esc(s));
   const list = arr => (arr || []).map(x => `<li>${fmt(x)}</li>`).join('');
@@ -8318,36 +8371,75 @@ function hearingPrepHTML(prep, matterId, hearingDate) {
       aria-label="Dismiss brief"
       style="position:absolute;top:8px;right:10px;background:none;border:none;color:#7a5a10;font-size:18px;cursor:pointer;padding:0 8px;line-height:1;opacity:0.4;transition:opacity 0.15s;"
       onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">×</button>` : '';
-
-  // Reviewer-note metadata — sources, what was read, flag count, currency.
   const m = matters.find(x => x.id === matterId);
-  const flagged = aiFraming.countFlags(
-    prep.lastHearingRecap, prep.purposeOfHearing,
-    prep.keyIssues, prep.exhibitsReady, prep.talkingPoints, prep.risks,
-  );
+  const rerenderFn = `function(){const t=document.getElementById('hearing-prep-${matterId}-${hearingDate}');if(t)t.innerHTML=hearingPrepHTML(${JSON.stringify(prep).replace(/'/g, "\\'")},'${matterId}','${hearingDate}');}`;
+  const audienceToggle = aiFraming.audienceToggleHTML(rerenderFn);
+
+  if (aiFraming.audienceMode === 'whatsapp') {
+    const oneLiner = prep.whatsappOneLiner || prep.oneParagraphSummary || prep.lastHearingRecap || '';
+    return `
+      <div style="position:relative;background:#f0fdf4;border-left:3px solid #15803d;border-radius:0 8px 8px 0;padding:14px 18px;font-size:13px;line-height:1.55;color:#14532d;">
+        ${dismissBtn}
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
+          <div style="font-weight:600;font-size:12px;letter-spacing:0.5px;text-transform:uppercase;">📱 WhatsApp share</div>
+          ${audienceToggle}
+        </div>
+        <div style="background:white;padding:12px 14px;border-radius:6px;border:1px solid rgba(21,128,61,0.2);font-size:13.5px;line-height:1.5;margin-bottom:10px;">${esc(oneLiner)}</div>
+        <button class="btn btn-ghost" style="font-size:11px;padding:6px 14px;" onclick="navigator.clipboard.writeText(${JSON.stringify(oneLiner).replace(/'/g, "\\'")});this.textContent='Copied ✓';setTimeout(()=>this.textContent='Copy to clipboard',1500)">Copy to clipboard</button>
+      </div>`;
+  }
+  if (aiFraming.audienceMode === 'client') {
+    const cs = prep.clientSummary || prep.oneParagraphSummary || prep.lastHearingRecap || '';
+    return `
+      <div style="position:relative;background:#eff6ff;border-left:3px solid #1e40af;border-radius:0 8px 8px 0;padding:16px 20px;font-size:14px;line-height:1.7;color:#1e3a8a;">
+        ${dismissBtn}
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+          <div style="font-weight:600;font-size:12px;letter-spacing:0.5px;text-transform:uppercase;">📧 Client summary — ready to forward</div>
+          ${audienceToggle}
+        </div>
+        <div style="background:white;padding:16px 20px;border-radius:8px;border:1px solid rgba(30,64,175,0.15);">${esc(cs).replace(/\n/g, '<br>')}</div>
+        <div style="margin-top:10px;font-size:11px;color:#1e40af;opacity:0.65;">Header + markers stripped — safe to forward.</div>
+      </div>`;
+  }
+
   const reviewerSources = [
     { tag: 'scraped',      label: `DHC case-status page for ${m?.caseNo || 'matter'} (timeline + order PDFs)` },
     ...(m?.notes ? [{ tag: 'user-provided', label: 'Internal notes typed into the matter' }] : []),
     { tag: 'model-verify', label: 'Model knowledge for procedural framing — verify any cited authority before relying' },
   ];
   const reviewerCurrency = m?.lastDate ? `matter last heard ${formatDate(m.lastDate)}` : 'as of last DHC sync';
+  const flagged = aiFraming.countFlags(
+    prep.oneParagraphSummary, prep.whatsChanged, prep.whatsNext, prep.exposure, prep.conversationTailoring,
+    prep.lastHearingRecap, prep.purposeOfHearing,
+    prep.keyIssues, prep.exhibitsReady, prep.talkingPoints, prep.risks,
+  );
+  const hasNewStructure = prep.oneParagraphSummary || prep.whatsChanged;
 
   return `
     <div style="position:relative;background:linear-gradient(135deg,#fefce8 0%,#fef3c7 100%);border-left:3px solid var(--gold,#c9a84c);border-radius:0 8px 8px 0;padding:14px 18px 14px 18px;font-size:13px;line-height:1.65;color:#5b4a10;">
       ${dismissBtn}
       ${aiFraming.header({ audience: 'attorney' })}
-      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;padding-right:30px;">Last hearing recap</div>
-      <div style="margin-bottom:12px;">${fmt(prep.lastHearingRecap)}</div>
-      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Purpose of this hearing</div>
-      <div style="margin-bottom:12px;">${fmt(prep.purposeOfHearing)}</div>
-      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Key issues</div>
-      <ul style="margin:0 0 12px 18px;padding:0;">${list(prep.keyIssues)}</ul>
-      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Exhibits to have ready</div>
-      <ul style="margin:0 0 12px 18px;padding:0;">${list(prep.exhibitsReady)}</ul>
-      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Talking points</div>
-      <ul style="margin:0 0 12px 18px;padding:0;">${list(prep.talkingPoints)}</ul>
-      <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Risks</div>
-      <ul style="margin:0 0 12px 18px;padding:0;">${list(prep.risks)}</ul>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">${audienceToggle}</div>
+
+      ${hasNewStructure ? `
+        ${prep.oneParagraphSummary ? `<div style="background:rgba(122,90,16,0.06);border-left:2px solid rgba(122,90,16,0.3);padding:10px 14px;margin-bottom:14px;font-size:13.5px;line-height:1.6;font-style:italic;">${fmt(prep.oneParagraphSummary)}</div>` : ''}
+        ${prep.whatsChanged ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">What's changed</div><div style="margin-bottom:12px;">${fmt(prep.whatsChanged)}</div>` : ''}
+        ${prep.whatsNext ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">What's next</div><div style="margin-bottom:12px;">${fmt(prep.whatsNext)}</div>` : ''}
+        ${prep.exposure ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Exposure</div><div style="margin-bottom:12px;">${fmt(prep.exposure)}</div>` : ''}
+        ${(prep.openQuestions || []).length ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Open questions</div><ul style="margin:0 0 12px 18px;padding:0;">${list(prep.openQuestions)}</ul>` : ''}
+        ${prep.conversationTailoring ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">For the conversation</div><div style="margin-bottom:12px;font-style:italic;">${fmt(prep.conversationTailoring)}</div>` : ''}
+      ` : `
+        <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;padding-right:30px;">Last hearing recap</div>
+        <div style="margin-bottom:12px;">${fmt(prep.lastHearingRecap)}</div>
+        <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Purpose of this hearing</div>
+        <div style="margin-bottom:12px;">${fmt(prep.purposeOfHearing)}</div>
+      `}
+
+      ${(prep.keyIssues || []).length ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Key issues</div><ul style="margin:0 0 12px 18px;padding:0;">${list(prep.keyIssues)}</ul>` : ''}
+      ${(prep.exhibitsReady || []).length ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Exhibits to have ready</div><ul style="margin:0 0 12px 18px;padding:0;">${list(prep.exhibitsReady)}</ul>` : ''}
+      ${(prep.talkingPoints || []).length ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Talking points</div><ul style="margin:0 0 12px 18px;padding:0;">${list(prep.talkingPoints)}</ul>` : ''}
+      ${(prep.risks || []).length ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Risks</div><ul style="margin:0 0 12px 18px;padding:0;">${list(prep.risks)}</ul>` : ''}
+
       ${aiFraming.reviewerNote({
         sources: reviewerSources,
         read: `Matter timeline (most recent 5 events) + open tasks + pending documents. Did NOT read order PDFs in full.`,
