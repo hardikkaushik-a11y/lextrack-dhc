@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-13T04:01:23Z",
+  "scraped_at": "2026-05-13T04:16:26Z",
   "for_dates": [
     "2026-05-13",
     "2026-05-14"
@@ -17,9 +17,7 @@
     {
       "file": "old_target_matters_for_13.05.2026.pdf",
       "date": "2026-05-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "deletion_note_13.05.2026.pdf",
