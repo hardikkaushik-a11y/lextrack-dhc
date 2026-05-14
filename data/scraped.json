@@ -1602,7 +1602,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:02:10.906Z",
+    "lastScraped": "2026-05-14T08:02:06.773Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1970,7 +1970,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:02:18.387Z",
+    "lastScraped": "2026-05-14T08:02:14.486Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2255,7 +2255,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:02:25.936Z",
+    "lastScraped": "2026-05-14T08:02:37.762Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2495,7 +2495,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:02:33.585Z",
+    "lastScraped": "2026-05-14T08:02:45.617Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2560,7 +2560,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:02:40.985Z",
+    "lastScraped": "2026-05-14T08:03:00.431Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2689,7 +2689,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:02:48.651Z",
+    "lastScraped": "2026-05-14T08:03:08.837Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -3144,7 +3144,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:02:56.255Z",
+    "lastScraped": "2026-05-14T08:03:17.094Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -3866,28 +3866,7 @@
         }
       }
     ],
-    "additionalDates": [
-      {
-        "date": "2026-07-15",
-        "before": "jr",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-02-19",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1771496004_0be8f4499ba5bacf_612_8102025.pdf/2026"
-        }
-      },
-      {
-        "date": "2026-07-21",
-        "before": "court",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-01-20",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1768988419_ce1ebeabb02a56d9_jis_8102025.pdf/2026"
-        }
-      }
-    ],
+    "additionalDates": [],
     "tasks": [],
     "docs": [
       {
@@ -4017,7 +3996,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:03:03.898Z",
+    "lastScraped": "2026-05-14T08:03:44.869Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -4218,7 +4197,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:03:11.518Z",
+    "lastScraped": "2026-05-14T08:03:59.385Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -4577,7 +4556,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:03:20.421Z",
+    "lastScraped": "2026-05-14T08:04:07.418Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -4746,7 +4725,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:03:28.200Z",
+    "lastScraped": "2026-05-14T08:04:15.095Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -5465,7 +5444,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:03:35.952Z",
+    "lastScraped": "2026-05-14T08:04:23.069Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -6185,7 +6164,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:03:43.416Z",
+    "lastScraped": "2026-05-14T08:04:37.386Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -6485,7 +6464,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-14T07:03:51.285Z",
+    "lastScraped": "2026-05-14T08:04:45.295Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   }
 ]
