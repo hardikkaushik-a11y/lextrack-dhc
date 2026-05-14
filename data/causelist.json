@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-14T12:01:50Z",
+  "scraped_at": "2026-05-14T12:16:51Z",
   "for_dates": [
     "2026-05-14",
     "2026-05-15"
@@ -7,6 +7,20 @@
   "tracked_cases": 14,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "rl15052026.pdf",
+      "date": "2026-05-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_15052026.pdf",
+      "date": "2026-05-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "advance_combined_list_for_15.05.2026.pdf",
       "date": "2026-05-15",
