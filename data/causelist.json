@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-05-15T18:15:49Z",
+  "scraped_at": "2026-05-15T18:30:46Z",
   "for_dates": [
-    "2026-05-15",
-    "2026-05-16"
+    "2026-05-16",
+    "2026-05-17"
   ],
   "tracked_cases": 14,
   "matched_cases": 0,
@@ -17,97 +17,6 @@
     {
       "file": "combined_advance_16052026.pdf",
       "date": "2026-05-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-14_for_15.05.26.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-13_for_15.05.26.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-note_hmj_amit_mahajan_for_15.05.26.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-9_for_15.05.26.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_and_sup-7_trf_matters_for_15.05.26.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-6a_del_nbk_for_15.05.26.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_15.05.2026_1.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_15052026.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_15052026.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_15.05.2026.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_15.05.2026.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "fnl_1_15.05.2026.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl15052026.pdf",
-      "date": "2026-05-15",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
