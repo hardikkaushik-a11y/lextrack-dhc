@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-15T13:01:41Z",
+  "scraped_at": "2026-05-15T13:15:51Z",
   "for_dates": [
     "2026-05-15",
     "2026-05-16"
@@ -107,13 +107,6 @@
     },
     {
       "file": "rl15052026.pdf",
-      "date": "2026-05-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_15052026.pdf",
       "date": "2026-05-15",
       "matched": 0,
       "regex_matches": 0,
