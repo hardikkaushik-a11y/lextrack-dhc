@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-15T05:01:18Z",
+  "scraped_at": "2026-05-15T05:16:18Z",
   "for_dates": [
     "2026-05-15",
     "2026-05-16"
@@ -7,6 +7,13 @@
   "tracked_cases": 14,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "registrar_supply_list_15.05.2026_1.pdf",
+      "date": "2026-05-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "new_c_15052026.pdf",
       "date": "2026-05-15",
