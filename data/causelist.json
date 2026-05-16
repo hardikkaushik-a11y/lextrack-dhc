@@ -1,36 +1,71 @@
 {
-  "scraped_at": "2026-05-16T18:15:51Z",
+  "scraped_at": "2026-05-16T18:31:14Z",
   "for_dates": [
-    "2026-05-16",
-    "2026-05-17"
+    "2026-05-17",
+    "2026-05-18"
   ],
   "tracked_cases": 14,
   "matched_cases": 0,
   "sources": [
     {
-      "file": "sup-5_for_16.05.26.pdf",
-      "date": "2026-05-16",
+      "file": "parcha_for_18052026.pdf",
+      "date": "2026-05-18",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "16-jud-16052026.odtttt.pdf",
-      "date": "2026-05-16",
+      "file": "combined_targeted_18.05.2026_copy.pdf",
+      "date": "2026-05-18",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "c_16052026.pdf",
-      "date": "2026-05-16",
+      "file": "deletion_note_18.05.2026.pdf",
+      "date": "2026-05-18",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "combined_advance_16052026.pdf",
-      "date": "2026-05-16",
+      "file": "combined_pro_18.05.2026.pdf",
+      "date": "2026-05-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_18.05.2026.pdf",
+      "date": "2026-05-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_18.05.2026.pdf",
+      "date": "2026-05-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl18052026.pdf",
+      "date": "2026-05-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_causelist_18.05.2026.pdf",
+      "date": "2026-05-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_18.05.2026.pdf",
+      "date": "2026-05-18",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
