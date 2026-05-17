@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-05-17T18:16:14Z",
+  "scraped_at": "2026-05-17T18:31:22Z",
   "for_dates": [
-    "2026-05-17",
-    "2026-05-18"
+    "2026-05-18",
+    "2026-05-19"
   ],
   "tracked_cases": 14,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_advance_19052026.pdf",
+      "date": "2026-05-19",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "parcha_for_18052026.pdf",
       "date": "2026-05-18",
@@ -71,5 +78,19 @@
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "82",
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 285,
+      "context": "82        CS(COMM)-319/2026 JIOSTAR INDIA           AMAN SINHA, R MAYA,",
+      "caseNo": "CS(COMM)/319/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-319/2026",
+      "date": "2026-05-19",
+      "source_pdf": "combined_advance_19052026.pdf"
+    }
+  ]
 }
