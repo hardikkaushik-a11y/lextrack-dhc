@@ -4027,5 +4027,739 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/977/2025",
     "_orderDate": "2025-09-12"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1772274981_f39e9de76967ae40_762_12102025.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Impleadment of 54 additional rogue websites and their domain name registrars as defendants; extension of earlier injunction order to newly impleaded defendants.",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to serve summons on newly impleaded defendants within two weeks via electronic mode.",
+      "Domain name registrars to lock and suspend domain names of defendant nos. 67 to 111.",
+      "Domain name registrars to furnish relevant information as per para 33(c) of order dated 13.11.2025.",
+      "ISPs and DoT & MEITY to comply with directions in para 33(d) and 33(c) of order dated 13.11.2025 regarding newly impleaded defendants."
+    ],
+    "citations": [
+      "Order 1 Rule 10, Code of Civil Procedure, 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Mukul Singh, CGSC and Mr. Adhiraj Singh, GP for D-22 and 23; Mr. Yogesh Singh and Ms. Anmol Dhindsa for GoDaddy.com LLC"
+    },
+    "summary": "The court allowed the plaintiff's application to implead 54 additional rogue websites and their domain name registrars as defendants in the suit, extending the earlier injunction order to them. The newly impleaded defendants were directed to be served via electronic mode, and the domain name registrars were ordered to lock and suspend the domain names and provide relevant information.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:38.422Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1210/2025",
+    "_orderDate": "2026-02-27"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1771582602_ac0dfb962b53c1bb_612_12102025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no.21 to file compliance affidavit within one week.",
+      "Plaintiff to move another application for impleadment of other defendants.",
+      "Put up for further proceedings on 18.05.2026.",
+      "Put up for appearance of defendants/completion of pleadings on 18.05.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Ashish Gupta for D-21; Mr. Mukul Singh and Mr. Adhiraj Singh for D-22 and 23"
+    },
+    "summary": "The Joint Registrar noted that defendant nos.1-7 were served but did not appear or file replies, closing their right to reply. Defendant no.21 was directed to file compliance within a week. The matter was adjourned to 18.05.2026 for further proceedings and appearance of defendants.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:38.422Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1210/2025",
+    "_orderDate": "2026-02-20"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1770186372_3c017cc84523f038_jis_12102025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List before concerned Joint Registrar on 20.02.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Priyansh Kohli, Mr. Yatinder Garg and Ms. Ishi Singh",
+      "defendant": "Mr. Mukul Singh, CGSC with Mr. Adhiraj Singh, Government Pleader and Mr. Aryan Dhaka (for D22 and D23)"
+    },
+    "summary": "The court listed the matter before the Joint Registrar on 20.02.2026 for further proceedings. No interim or final relief was granted.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:38.422Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1210/2025",
+    "_orderDate": "2026-02-03"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1769685856_57a9fb68ce980b02_612_12102025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no. 21 to file compliance affidavit within two weeks.",
+      "Matter to be placed before Hon'ble Court on 03.02.2026 for further directions."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Ashish Gupta (for D-21), Mr. Mukul Singh, Mr. Adhiraj Singh (for D-22 & D-23)"
+    },
+    "summary": "The Joint Registrar noted that defendants 1-21 were served but only defendant 21 appeared, submitting that directions have been complied with and a compliance affidavit will be filed. Defendants 25-66 were served on 14.01.2026. The matter was directed to be placed before the Hon'ble Court on 03.02.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:42.925Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1210/2025",
+    "_orderDate": "2026-01-29"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1766485757_85c97aa46786685a_612_12102025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": "Injunction extended to newly impleaded defendants (mirror/redirect websites and DNRs) as per earlier order dated 13.11.2025",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to serve newly impleaded defendants (nos. 25-66) via electronic mode within two weeks",
+      "Lock and suspension/blocking order dated 13.11.2025 to operate against newly impleaded defendants",
+      "Concerned DNRs to lock and suspend domain name registrations of defendant nos. 25-60 and furnish relevant information as per para 33(c) of order dated 13.11.2025",
+      "ISPs and DoT & MEITY to comply with directions in para 33(d) and 33(c) of order dated 13.11.2025 in respect of newly impleaded defendants"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Priyansh Kohli, Mr. Manish Singh (VC)",
+      "defendant": "Mr. Mukul Singh CGSC, Mr. Adhiraj Singh, GP for D-22 & 23"
+    },
+    "summary": "The court allowed the plaintiff's application to implead additional mirror/redirect websites (defendant nos. 25-60) and their DNRs (defendant nos. 61-66) in the suit. The existing injunction and blocking orders from 13.11.2025 were extended to these new defendants, and directions were issued for service, domain locking, and compliance by ISPs and government departments.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "low"
+    },
+    "_extractedAt": "2026-05-18T05:04:42.925Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1210/2025",
+    "_orderDate": "2025-12-23"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1764673073_cab6df9b48841345_612_12102025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant nos. 22 & 23 to file compliance affidavit within a week and send compliance intimation to plaintiff's counsel.",
+      "Put up for completion of pleadings on 29.01.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi (VC)",
+      "defendant": "Mr. Rishi Kapoor, Mr. Ashish Gupta (VC) for D-21; Mr. Mukul Singh, CGSC, Mr. Adhiraj Singh, GP for D-22 & 23"
+    },
+    "summary": "The Joint Registrar noted that notice was issued to defendant nos. 1-21 and they were served on 28.11.2025, but no reply was filed by defendant nos. 1-7. Defendant nos. 22-23 submitted they have complied with earlier directions and will file a compliance affidavit. No appearance for defendant nos. 8-21. The matter was adjourned for completion of pleadings.",
+    "confidence": {
+      "reliefGranted": "low",
+      "directions": "high",
+      "citations": "low"
+    },
+    "_extractedAt": "2026-05-18T05:04:42.925Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1210/2025",
+    "_orderDate": "2025-12-02"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1763113961_f75951a01646363b_589_12102025.pdf/2025": {
+    "classification": "interim",
+    "reliefGranted": "Ad-interim injunction against Defendant Nos. 1 to 7 (details not fully extracted due to truncated text)",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to file additional documents within 30 days if desired.",
+      "Summons to Defendant Nos. 1 to 7 through e-mode.",
+      "Defendants to file written statements within 30 days with affidavits of admission/denial.",
+      "Plaintiff may file replication within 30 days after written statements.",
+      "Plaintiff to file amended memo of parties within 2 weeks after receiving BSI details."
+    ],
+    "citations": [
+      "Order XI Rule 1(4) CPC",
+      "Section 151 CPC",
+      "Section 12A Commercial Courts Act, 2015",
+      "Order XXXIX Rule 1 and 2 CPC",
+      "Section 80 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Sidharth Chopra, Mr. Yatinder Garg, Mr. Priyansh Kohli, Mr. Manish Singh & Ms. Ishi Singh",
+      "defendant": "Ms. Nidhi Raman, CGSC, Mr. Om Ram (for D-22 & 23)"
+    },
+    "summary": "The court disposed of several applications: allowed leave to file additional documents, granted exemption from serving notice under Section 80 CPC for proforma defendants, and granted exemption from pre-litigation mediation. The suit was registered, summons issued to Defendant Nos. 1-7, and an ad-interim injunction was granted against Defendant Nos. 1-7 (details truncated). The matter was listed for further proceedings.",
+    "confidence": {
+      "reliefGranted": "medium",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:47.186Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1210/2025",
+    "_orderDate": "2025-11-13"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1762952847_d32b25d794effb00_589_12102025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 13.11.2025"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Siddhart Chopra, Mr. Yatinder Garg, Mr. Priyansh Kohli, Ms. Ishi Singh and Mr. Manish Singh",
+      "defendant": null
+    },
+    "summary": "The court was on leave, so the matter was simply adjourned to the next day. No substantive orders were passed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:47.186Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1210/2025",
+    "_orderDate": "2025-11-12"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1777899261_8db437fabf21e281_594_12032025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List before Joint Registrar (Judl.) on 08.07.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Akshay Maloo",
+      "defendant": "Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Arjun Mookerjee and Mr. Shivam Tiwari (for D-30)"
+    },
+    "summary": "The matter was not taken up on 03.03.2026 due to a court notification and was listed on 25.04.2026. The court directed that the matter be listed before the Joint Registrar (Judl.) on the previously fixed date of 08.07.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:47.186Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1203/2025",
+    "_orderDate": "2026-04-25"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1771907597_1dc56c226e3837f7_739_12032025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Compliance-affidavit u/O XXXIX Rule 3 taken on record",
+      "Service-affidavit taken on record",
+      "List matter for completion of pleadings/status of service on 08.07.2026",
+      "IA 27871/2025: no reply filed, but no further order",
+      "IA 4886/2026: implead defendant nos. 22 to 31; summons via email subject to PF"
+    ],
+    "citations": [
+      "Order XXXIX Rule 3 CPC",
+      "Order XXXIX Rules 1 & 2 r/w Section 151 CPC",
+      "Order I Rule 10 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Yogesh Singh & Mr. Anmol Dhindsa (for proposed D-30)"
+    },
+    "summary": "The Joint Registrar took on record compliance and service affidavits, noted no written statements filed yet, and listed the matter for 08.07.2026. The court allowed impleadment of additional rogue websites as defendant nos. 22 to 31, subject to existing interim orders, and directed summons via email.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:51.056Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1203/2025",
+    "_orderDate": "2026-02-20"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1771474537_b21fdc66c5e8de90_739_12032025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter for the purpose fixed on 20.02.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": null
+    },
+    "summary": "The matter was listed before the Joint Registrar (Judicial) on 16.02.2026, but the Presiding Officer was on leave. The court directed that the matter be listed again on 20.02.2026 for the purpose fixed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:51.056Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1203/2025",
+    "_orderDate": "2026-02-16"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1766569520_b5f79fd1752144f5_739_12032025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter for the purpose fixed on 16.02.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Priyansh Kohli & Mr. Manish Singh",
+      "defendant": null
+    },
+    "summary": "The Joint Registrar noted that the Presiding Officer was on leave and adjourned the matter to 16.02.2026. No other orders were passed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:51.056Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1203/2025",
+    "_orderDate": "2025-12-23"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1763039836_cc3d1e977e35bc32_687_12032025.pdf/2025": {
+    "classification": "interim",
+    "reliefGranted": "Exemption from pre-institution mediation and Section 80 notice; summons issued; interim injunction application notice issued.",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to deposit court fees within two weeks.",
+      "Summons to be served on defendants through all permissible modes upon filing of process fee.",
+      "Defendants to file written statements within 30 days of receipt of summons, with affidavit of admission/denial.",
+      "Plaintiff may file replication within 30 days of receipt of written statement, with affidavit of admission/denial.",
+      "List before Joint Registrar on 23.12.2025 for completion of service and pleadings."
+    ],
+    "citations": [
+      "Section 12A, Commercial Courts Act, 2015",
+      "Section 80, Code of Civil Procedure, 1908",
+      "Section 149, Code of Civil Procedure, 1908",
+      "Order XI Rule 1(4), Code of Civil Procedure, 1908",
+      "Order XXXIX Rules 1 & 2, Code of Civil Procedure, 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Garg, Mr. Priyansh Kohli, Ms. Ishi Singh, Mr. Shudhata Sudhir & Mr. Manish Singh",
+      "defendant": null
+    },
+    "summary": "The court granted exemptions from pre-institution mediation and Section 80 notice due to urgent interim relief sought. It issued summons to defendants, allowed additional documents, and set a timeline for pleadings. The interim injunction application was noticed for hearing.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:55.082Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1203/2025",
+    "_orderDate": "2025-11-11"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1778657606_afb21e3ac368dcd6_jis_1492025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 25.05.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Vaishali R Mittal, Mr. Siddhant Chamola and Ms. Pallavi Bhatnagar",
+      "defendant": "Mr. Rahul Narayan and Ms. Harshita Malik for proposed D-4; Ms. Disha Sharma and Ms. Ishi Singh for D-5 and D-6"
+    },
+    "summary": "The court listed the case for further hearing on 25.05.2026. No substantive orders were passed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:55.082Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2026-05-12"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1778482165_f6585ccc5e4cda23_762_1492025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Place the matter before Hon'ble Court on 12.05.2026 for further directions."
+    ],
+    "citations": [
+      "Order I Rule 10 CPC",
+      "Order XXII Rule 10 CPC",
+      "Section 146 CPC",
+      "Section 151 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddhant Chamola and Ms. Pallavi Bhatnagar",
+      "defendant": "Ms. Harshita Malik (for D-4), Ms. Disha Sharma (for D-5 & 6)"
+    },
+    "summary": "The Joint Registrar noted that replies from proposed defendants 4-6 are on record, and the right of proposed defendant 3 to file reply is closed. Plaintiff's rejoinder is pending scrutiny. The matter was directed to be placed before the Hon'ble Court on 12.05.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:55.082Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2026-05-07"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1776682918_18c8bbb3e92f0b7b_762_1492025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to file rejoinder to replies of proposed defendant nos. 4, 5 and 6 within two weeks",
+      "Put up for completion of pleadings on 07.05.2026"
+    ],
+    "citations": [
+      "Order I Rule 10 CPC",
+      "Order XXII Rule 10 CPC",
+      "Section 146 CPC",
+      "Section 151 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddhant Charmola, Ms. Pallavi Bhatnagar, Mr. Jitesh Prakash Gupta",
+      "defendant": "Ms. Harshita Malik (for proposed D-4), Ms. Ishi (for proposed D-5 and D-6)"
+    },
+    "summary": "The court granted time to the plaintiff to file a rejoinder to the replies filed by proposed defendants 4, 5, and 6 in an application for impleadment. The matter was adjourned for completion of pleadings.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:59.371Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2026-04-20"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1769167793_0c196201d018af5b_612_1492025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Proposed defendant no. 4's reply is on record; plaintiff to file rejoinder within 3 weeks.",
+      "Proposed defendant nos. 5 & 6 to file reply within 2 weeks, failing which right to reply shall stand closed.",
+      "Rejoinder to proposed defendant nos. 5 & 6's reply, if any, to be filed within 2 weeks of receiving advance copy.",
+      "Put up for arguments on 20.04.2026."
+    ],
+    "citations": [
+      "Order I Rule 10 CPC",
+      "Order XXII Rule 10 CPC",
+      "Section 146 CPC",
+      "Section 151 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddhant Chamola",
+      "defendant": "Ms. Harshita Malik"
+    },
+    "summary": "The court considered an application under Order I Rule 10 CPC for impleadment. Proposed defendant no. 4's reply was taken on record, and time was granted for rejoinder. Proposed defendant nos. 5 & 6 were given a final opportunity to file a reply. The matter was listed for arguments on 20.04.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:59.371Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2026-01-23"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1765468848_2511669049482354_589_1492025.pdf/2025": {
+    "classification": "directions",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant nos. 5 and 6 to communicate instructions on future use of mark CENTRAL within 2 weeks.",
+      "Defendant no. 4 to communicate instructions on intended use of mark CENTRAL within 2 weeks.",
+      "Plaintiff to take instructions on continuing proceedings against defendant nos. 4, 5, 6 after receiving their statements.",
+      "List before Joint Registrar on 23.01.2026.",
+      "List before Court on 12.05.2026."
+    ],
+    "citations": [
+      "Order I Rule 10, CPC",
+      "Order XXII Rule 10, CPC",
+      "Section 146, CPC",
+      "Section 151, CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Vaishali Mittal, Ms. Gitanjali Sharma, Ms. Pallavi Bhatnagar",
+      "defendant": "Ms. Zoya Junaid (for D-4), Ms. Disha Sharma (for proposed D-5 & 6)"
+    },
+    "summary": "The court heard an application under Order I Rule 10 CPC for impleadment. Counsel for defendant nos. 5 and 6 stated they are not using the mark CENTRAL and will take instructions on future use. Counsel for defendant no. 4 also sought time to take instructions. Plaintiff's counsel agreed to take instructions on continuing proceedings against these defendants based on their statements. The court directed communication of instructions within two weeks and listed the matter for further proceedings.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:04:59.371Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2025-12-10"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1765008659_a69a3ee0f5419d67_612_1492025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to supply suit papers to proposed defendant no. 4's counsel via email today.",
+      "Plaintiff to supply suit papers to proposed defendant nos. 5 & 6's counsel via email today.",
+      "Proposed defendant no. 4 to file reply within two weeks, else right closed.",
+      "Proposed defendant nos. 5 & 6 to file reply within four weeks.",
+      "Plaintiff to file rejoinder within three weeks of receiving reply."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Pallavi Bhatnagar",
+      "defendant": "Ms. Harshita Malik (for proposed D-4), Ms. Disha Sharma (for proposed D-5 & 6)"
+    },
+    "summary": "The Joint Registrar dealt with an application for impleadment. Proposed defendants 3-6 were served; appearance entered for D-4, D-5, D-6. No appearance for D-1, D-2, and proposed D-3, so their right to reply closed. Directions given for supply of suit papers and filing of replies and rejoinder. Matter listed before court on 10.12.2025.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:05:02.513Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2025-12-06"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1761903715_08e35a631a1c29f0_612_1492025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Issue court notice to defendant nos. 1 & 2 through all modes and to their counsel through email.",
+      "Put up for completion of pleadings on 06.12.2025."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Siddhant Chamola, Ms. Pallavi Bhatnagar",
+      "defendant": null
+    },
+    "summary": "The Joint Registrar issued fresh notice to proposed defendant nos. 3 to 6, who were served but did not appear. Court notice was ordered to defendant nos. 1 & 2. The matter was adjourned for completion of pleadings.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:05:02.513Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2025-10-30"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1759934403_7aaf74e2370e2ed0_589_1492025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiffs to verify current status of proprietorship of impugned mark in trademark register",
+      "Issue fresh notice to defendant nos. 3 to 6 through all modes, dasti in addition",
+      "List before Joint Registrar for completion of service on 30.10.2025",
+      "List before Court on 10.12.2025"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Vaishali R. Mittal, Ms. Pallavi Bhatnagar",
+      "defendant": null
+    },
+    "summary": "The court granted time to plaintiffs to verify trademark status and directed fresh notice to defendants 3-6. The matter was adjourned for service completion and further hearing.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:05:02.513Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2025-10-06"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1756980683_878297e814049c75_612_1492025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Counsel for defendant nos. 1 & 2 to supply copy of IA to defendants and intimate discharge.",
+      "Registry to follow up service on defendant nos. 3 to 6 and file report.",
+      "Matter to be placed before Hon'ble Court on 06.10.2025 for further directions."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Vaishali R. Mittal, Ms. Pallavi Bhatnagar",
+      "defendant": "Ms. Aarushi Tiku"
+    },
+    "summary": "The Joint Registrar considered an IA for impleadment of defendant nos. 3 to 6. Counsel for existing defendants appeared and is seeking discharge. Service on proposed defendants is awaited. The Registry was directed to follow up service, and the matter was adjourned to 06.10.2025.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:05:05.871Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2025-09-04"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1755774589_b06e49f9bcb4e7bb_612_1492025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Registry to henceforth mention the title of the suit as per the amended memo of parties."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Pallavi Bhatnagar",
+      "defendant": "Ms. Aarushi Tiku"
+    },
+    "summary": "The court allowed an application by the plaintiffs to change the name of plaintiff no. 1 due to its conversion into a public limited company. The defendant had no objection. The amended memo of parties was accepted, and the registry was directed to update the title accordingly.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:05:05.871Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2025-08-21"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1755604196_9ca5da1f708fa7f7_745_1492025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Matter sent back to Hon'ble Court for further direction"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Pallavi, Mr. Shivang Sharma",
+      "defendant": null
+    },
+    "summary": "The matter was listed for mediation under the Special Mediation Drive. None appeared for the defendant, so the Joint Registrar sent the matter back to the court for further directions.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:05:05.871Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2025-08-19"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1754567925_4c6cada770ec942b_612_1492025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Issue notice to counsel for proposed defendant nos. 3 to 6 and defendant nos. 1 & 2",
+      "Notice to defendant nos. 1 & 2 through email only",
+      "Notice to proposed defendant nos. 3 to 6 as per details in IA",
+      "PF be filed within a week",
+      "Reply be filed within two weeks of receiving notice; rejoinder within two weeks of receiving advance copy of reply"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Vaishali R Mittal, Ms. Pallavi Bhatnagar",
+      "defendant": null
+    },
+    "summary": "The court issued notice on an application for impleadment of proposed defendant nos. 3 to 6, directing service on all parties and setting a timeline for pleadings. The matter is adjourned to 04.09.2025 for completion of pleadings.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:05:08.907Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2025-08-04"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1753960090_a09cd2768f08fab2_612_1492025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to file application to bring on record the entity that has been transferred IP rights of defendant no. 2",
+      "Case adjourned to 04.09.2025 for further proceedings"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Pallavi Bhatnagar",
+      "defendant": "Mr. Rishi Aggrawal, Ms. Aarushi Tiku"
+    },
+    "summary": "The plaintiff sought more time to file an application to bring on record the entity that acquired IP rights of defendant no. 2, as previously recorded. The court adjourned the matter to 04.09.2025 for further proceedings.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:05:08.907Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2025-07-30"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1746006161_6811f0919c848.pdf/2025": {
+    "classification": "directions",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to take necessary steps based on defendant no.2's submission regarding transfer of marks.",
+      "List before Joint Registrar on 30th July, 2025.",
+      "List for final hearing on 6th October, 2025."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Vaishali R. Mittal, Mr. Siddhant Chamola, Mr. Shivang Sharma and Ms. Pallavi Bhatnagar",
+      "defendant": "Mr. Rishi Agrawala and Ms. Aarushi Tiku"
+    },
+    "summary": "Counsel for defendant no.2 submitted that the impugned marks were transferred to Future Lifestyle Fashions Ltd. under a scheme of arrangement, and that company is undergoing CIRP with an IRP appointed. Plaintiff's counsel stated they would take necessary steps. The court listed the matter for further proceedings before the Joint Registrar and for final hearing.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T05:05:08.907Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2025-04-29"
   }
 }
