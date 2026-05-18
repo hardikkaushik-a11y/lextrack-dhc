@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-18T06:46:24Z",
+  "scraped_at": "2026-05-18T07:01:38Z",
   "for_dates": [
     "2026-05-18",
     "2026-05-19"
@@ -12,6 +12,13 @@
       "date": "2026-05-19",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_for_18.05.2026.pdf",
+      "date": "2026-05-18",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
