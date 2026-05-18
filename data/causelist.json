@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-18T13:01:32Z",
+  "scraped_at": "2026-05-18T13:16:14Z",
   "for_dates": [
     "2026-05-18",
     "2026-05-19"
@@ -7,6 +7,27 @@
   "tracked_cases": 17,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "final_suppl.19.05.2026.pdf",
+      "date": "2026-05-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_19.05.2026.pdf",
+      "date": "2026-05-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_19.05.2026.pdf",
+      "date": "2026-05-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "finals_19.05.2026.pdf",
       "date": "2026-05-19",
@@ -65,27 +86,6 @@
     },
     {
       "file": "sup-6_for_18.05.26.pdf",
-      "date": "2026-05-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "parcha_for_18052026.pdf",
-      "date": "2026-05-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targeted_18.05.2026_copy.pdf",
-      "date": "2026-05-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_18.05.2026.pdf",
       "date": "2026-05-18",
       "matched": 0,
       "regex_matches": 0,
