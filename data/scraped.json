@@ -1602,7 +1602,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:01:52.834Z",
+    "lastScraped": "2026-05-18T09:02:13.828Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1970,7 +1970,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:02:00.859Z",
+    "lastScraped": "2026-05-18T09:02:21.404Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2255,7 +2255,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:02:08.907Z",
+    "lastScraped": "2026-05-18T09:02:28.984Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2495,7 +2495,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:02:23.881Z",
+    "lastScraped": "2026-05-18T09:02:36.596Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2560,7 +2560,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:02:31.572Z",
+    "lastScraped": "2026-05-18T09:02:44.135Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2689,7 +2689,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:02:45.788Z",
+    "lastScraped": "2026-05-18T09:02:51.715Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -3144,7 +3144,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:02:53.637Z",
+    "lastScraped": "2026-05-18T09:02:59.354Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -4017,7 +4017,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:03:07.935Z",
+    "lastScraped": "2026-05-18T09:03:07.012Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -4218,7 +4218,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:03:15.577Z",
+    "lastScraped": "2026-05-18T09:03:14.699Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -4230,10 +4230,47 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-04-13",
+    "lastDate": "2026-05-13",
     "nextDate": "2026-08-21",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-05-13",
+        "event": "Court Order",
+        "detail": "IA No. 13327/2026 (By plaintiff u/O XXII Rule 10 r/w Section 151 CPC seeking substitution of “Reliance Consumer Products Limited” as the plaintiff in place of “Reliance Retail Limi…",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1779093666_caa1320fb74de456_739_5822025.pdf/2026",
+        "orderText": "$~19 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 582/2025 RELIANCE RETAIL LIMITED .....Plaintiff Through: Ms. Ishi Singh, Adv. versus BALAJI FOODS AND BEVERAGE .....Defendant Through: Counsel (through VC). Appearance not given. CORAM: JOINT REGISTRAR (JUDICIAL), SUDHIR KUMAR SIROHI (DHJS) O R D E R % 13.05.2026 IA No. 13327/2026 (By plaintiff u/O XXII Rule 10 r/w Section 151 CPC seeking substitution of “Reliance Consumer Products Limited” as the plaintiff in place of “Reliance Retail Limited”) Issue notice. Accepted. Certification of incorporation not filed. Same, if any be filed within two weeks. Ld. counsel for the defendant seeks time to file the reply. Reply, if any be filed within two weeks, thereafter rejoinder, if any be filed in due course. List the said IA on 17.07.2026. SUDHIR KUMAR SIROHI (DHJS) JOINT REGISTRAR (JUDICIAL) MAY 13, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 18/05/2026 at 14:33:23",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Plaintiff to file certification of incorporation within two weeks",
+            "Defendant to file reply within two weeks",
+            "Plaintiff to file rejoinder in due course",
+            "List IA on 17.07.2026"
+          ],
+          "citations": [
+            "Order XXII Rule 10, CPC",
+            "Section 151, CPC"
+          ],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": null
+          },
+          "summary": "The court issued notice on plaintiff's application for substitution of party. The plaintiff was directed to file certification of incorporation within two weeks. The defendant was granted time to file a reply within two weeks, with rejoinder thereafter. The application is listed for 17.07.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-05-18T09:04:23.773Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/582/2025",
+          "_orderDate": "2026-05-13"
+        }
+      },
       {
         "date": "2026-04-13",
         "event": "Court Order",
@@ -4508,6 +4545,16 @@
     ],
     "additionalDates": [
       {
+        "date": "2026-07-17",
+        "before": "jr",
+        "firstSeenAt": "2026-05-18T09:03:23.589Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-05-13",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1779093666_caa1320fb74de456_739_5822025.pdf/2026"
+        }
+      },
+      {
         "date": "2026-08-21",
         "before": "court",
         "firstSeenAt": "2000-01-01T00:00:00Z",
@@ -4577,7 +4624,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:03:23.974Z",
+    "lastScraped": "2026-05-18T09:03:23.591Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -4746,7 +4793,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:03:31.775Z",
+    "lastScraped": "2026-05-18T09:03:32.676Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -5465,7 +5512,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:03:39.439Z",
+    "lastScraped": "2026-05-18T09:03:40.389Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -6185,7 +6232,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:03:47.089Z",
+    "lastScraped": "2026-05-18T09:03:48.018Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -6485,7 +6532,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:03:54.686Z",
+    "lastScraped": "2026-05-18T09:03:55.568Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -6844,7 +6891,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:04:02.385Z",
+    "lastScraped": "2026-05-18T09:04:03.235Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -7084,7 +7131,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:04:10.080Z",
+    "lastScraped": "2026-05-18T09:04:10.964Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -7693,7 +7740,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T08:04:17.974Z",
+    "lastScraped": "2026-05-18T09:04:18.554Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   }
 ]
