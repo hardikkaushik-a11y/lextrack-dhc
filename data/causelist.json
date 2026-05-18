@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-05-18T04:46:34Z",
+  "scraped_at": "2026-05-18T05:01:38Z",
   "for_dates": [
     "2026-05-18",
     "2026-05-19"
   ],
-  "tracked_cases": 14,
-  "matched_cases": 1,
+  "tracked_cases": 17,
+  "matched_cases": 3,
   "sources": [
     {
       "file": "combined_advance_19052026.pdf",
@@ -66,15 +66,15 @@
     {
       "file": "combined_causelist_18.05.2026.pdf",
       "date": "2026-05-18",
-      "matched": 0,
-      "regex_matches": 0,
+      "matched": 2,
+      "regex_matches": 2,
       "norm_matches": 0
     },
     {
       "file": "combined_adv_18.05.2026.pdf",
       "date": "2026-05-18",
-      "matched": 0,
-      "regex_matches": 0,
+      "matched": 1,
+      "regex_matches": 1,
       "norm_matches": 0
     }
   ],
@@ -91,6 +91,32 @@
       "matched_on": "CS(COMM)-319/2026",
       "date": "2026-05-19",
       "source_pdf": "combined_advance_19052026.pdf"
+    },
+    {
+      "item": "12",
+      "court": "48",
+      "judge": "TUSHAR RAO GEDELA NOTE",
+      "time": null,
+      "page": 539,
+      "context": "12     CS(COMM)-         JIOSTAR INDIA PRIVATE R MAYA,\n             1210/2025         LIMITED               PRIYANSH KOHLI",
+      "caseNo": "CS(COMM)/1210/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE R MAYA,\n             1210/2025",
+      "date": "2026-05-18",
+      "source_pdf": "combined_causelist_18.05.2026.pdf"
+    },
+    {
+      "item": null,
+      "court": "48",
+      "judge": "TUSHAR RAO GEDELA NOTE",
+      "time": null,
+      "page": 798,
+      "context": "In CS(COMM)-        CORPORATION       BINNY KALRA,\n             149/2025            PUBLIC COMPANY    MEHUL PARTI, ISHI",
+      "caseNo": "CS(COMM)/149/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-        CORPORATION       BINNY KALRA,\n             149/2025",
+      "date": "2026-05-18",
+      "source_pdf": "combined_causelist_18.05.2026.pdf"
     }
   ]
 }
