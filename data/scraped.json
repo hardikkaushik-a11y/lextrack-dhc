@@ -1602,7 +1602,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:02:09.483Z",
+    "lastScraped": "2026-05-18T11:01:55.112Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -1970,7 +1970,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:02:33.812Z",
+    "lastScraped": "2026-05-18T11:02:04.021Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2255,7 +2255,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:02:41.638Z",
+    "lastScraped": "2026-05-18T11:02:12.221Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2495,7 +2495,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:02:57.630Z",
+    "lastScraped": "2026-05-18T11:02:20.740Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -2560,31 +2560,21 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:03:14.967Z",
+    "lastScraped": "2026-05-18T11:02:28.351Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
+    "id": "m_CSCOMM_319_2026",
     "caseNo": "CS(COMM)/319/2026",
-    "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-05-18T10:03:36.972Z",
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2026-04-17.pdf",
-        "type": "Court Order",
-        "date": "2026-04-17",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1776424303_b37f28203a5d40d8_762_3192026.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-03-25.pdf",
-        "type": "Court Order",
-        "date": "2026-03-25",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1774591860_219c74360c06e911_jis_3192026.pdf/2026",
-        "size": "—"
-      }
-    ],
+    "title": "JIOSTAR INDIA PRIVATE LIMITED VS. ABBASI TV & ORS.",
+    "type": "copyright",
+    "stage": "filed",
+    "status": "PENDING",
+    "judge": null,
+    "client": null,
     "lastDate": "2026-04-17",
+    "nextDate": "2026-07-21",
+    "notes": null,
     "timeline": [
       {
         "date": "2026-04-17",
@@ -2659,7 +2649,48 @@
           "_orderDate": "2026-03-25"
         }
       }
-    ]
+    ],
+    "additionalDates": [
+      {
+        "date": "2026-05-19",
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-03-25",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1774591860_219c74360c06e911_jis_3192026.pdf/2026"
+        }
+      },
+      {
+        "date": "2026-07-21",
+        "before": "jr",
+        "firstSeenAt": "2000-01-01T00:00:00Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-04-17",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1776424303_b37f28203a5d40d8_762_3192026.pdf/2026"
+        }
+      }
+    ],
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2026-04-17.pdf",
+        "type": "Court Order",
+        "date": "2026-04-17",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1776424303_b37f28203a5d40d8_762_3192026.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-03-25.pdf",
+        "type": "Court Order",
+        "date": "2026-03-25",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1774591860_219c74360c06e911_jis_3192026.pdf/2026",
+        "size": "—"
+      }
+    ],
+    "lastScraped": "2026-05-18T11:02:35.871Z",
+    "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
     "id": "m_CSCOMM_756_2025",
@@ -3113,7 +3144,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:03:44.968Z",
+    "lastScraped": "2026-05-18T11:02:43.539Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -3986,7 +4017,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:04:08.406Z",
+    "lastScraped": "2026-05-18T11:02:51.190Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -4187,7 +4218,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:04:17.268Z",
+    "lastScraped": "2026-05-18T11:02:58.725Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -4593,7 +4624,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:04:26.207Z",
+    "lastScraped": "2026-05-18T11:03:06.418Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -4762,7 +4793,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:04:43.286Z",
+    "lastScraped": "2026-05-18T11:03:14.036Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -5481,7 +5512,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:04:54.757Z",
+    "lastScraped": "2026-05-18T11:03:21.695Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -6201,7 +6232,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:05:05.126Z",
+    "lastScraped": "2026-05-18T11:03:29.405Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -6501,7 +6532,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:05:13.755Z",
+    "lastScraped": "2026-05-18T11:03:37.116Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -6860,7 +6891,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:05:22.582Z",
+    "lastScraped": "2026-05-18T11:03:44.915Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -7100,7 +7131,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:05:38.160Z",
+    "lastScraped": "2026-05-18T11:03:52.665Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   },
   {
@@ -7709,7 +7740,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-18T10:06:00.265Z",
+    "lastScraped": "2026-05-18T11:04:00.290Z",
     "_scraperVersion": "v10-jr-coram-2026-05-07"
   }
 ]
