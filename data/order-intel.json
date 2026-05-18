@@ -4791,5 +4791,57 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/582/2025",
     "_orderDate": "2026-05-13"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1779103988_bab71b0e01a1b5fe_762_12102025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant nos. 1 to 7 right to file written statement closed for failure to file within 120 days.",
+      "Defendant nos. 25 to 66 right to file written statement closed for failure to file within 120 days.",
+      "Defendant nos. 67 to 120 to file written statement/replication as per rules.",
+      "Matter listed for completion of pleadings on 15.09.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Manish Singh and Ms. Ishi Singh",
+      "defendant": "Mr. Yogesh Singh (for GoDaddy.com LLC), Mr. Yubaraj Chatterjee (for D-21), Mr. Mukul Singh, Mr. Adhiraj Singh, Mr. Aryan Dhaka (for D-22 and 23), Mr. Yash Raj (for D-117)"
+    },
+    "summary": "The Joint Registrar noted that pleadings for defendant nos. 1 to 7 are complete and their right to file written statement is closed due to expiry of 120 days. Similarly, defendant nos. 25 to 66's right to file written statement is closed. Defendant nos. 67 to 120 were served and given time to file written statement. Defendant no. 117 sought deletion as a party but plaintiff objected. The matter was adjourned to 15.09.2026 for completion of pleadings.",
+    "confidence": {
+      "reliefGranted": "low",
+      "directions": "high",
+      "citations": "low"
+    },
+    "_extractedAt": "2026-05-18T12:04:45.900Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1210/2025",
+    "_orderDate": "2026-05-18"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1779103911_8779a026448542e5_762_1492025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to re-file rejoinder with supporting affidavit within 5 days",
+      "Registry to place the rejoinder on record after re-filing"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Pallavi Bhatnagar",
+      "defendant": "Ms. Zoya Jaunaid for D-4, Ms. Ishi for D-5 and 6"
+    },
+    "summary": "The court allowed the plaintiff's application for condonation of a 1-day delay in filing a rejoinder, as the defendants had no objection. The rejoinder was taken on record, and the plaintiff was directed to re-file it within 5 days.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-18T12:04:45.901Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2026-05-18"
   }
 }
