@@ -27,7 +27,7 @@ const PDF_CONCURRENCY  = 4;          // simultaneous PDF fetches per case
 // missing from the prior scrape is a genuine new event (push) or just an
 // artifact of the new logic seeing old data (silence). See buildCaseObject
 // for the detailed rationale.
-const SCRAPER_LOGIC_VERSION = 'v10-jr-coram-2026-05-07';
+const SCRAPER_LOGIC_VERSION = 'v11-jr-default-2026-05-14';
 
 // Module-level lookup map for AI-extracted order intelligence cache.
 // Populated by main() before the scrape loop. scrapeCase reads it and
@@ -616,18 +616,33 @@ function extractListingDates(orderText, orderDateISO) {
       // Three-way classification:
       //   1) Window mentions Registrar / Joint Registrar / "before JR"  → jr
       //   2) Window explicitly names Court / Bench / Judge / Justice    → court
-      //   3) Window names neither: fall back to the order's CORAM. If a
-      //      JR authored this order, the listing is presumably a JR
-      //      continuation (matter stays before the same forum unless
-      //      the order says otherwise). Otherwise default to 'court'.
+      //   3) Window names neither (a bare "List on X" / "Put up on X"
+      //      with no forum) → default to 'jr' UNLESS the listing purpose
+      //      is clearly a Court hearing (orders / judgment / pronouncement
+      //      / final arguments). Reasoning: in Indian IPR practice,
+      //      judges delegate routine continuations to the JR. A Judge's
+      //      bare "List on X" almost always means "list before whoever
+      //      handles routine matters" — which is the JR — not "list in
+      //      front of me." The earlier rule defaulted to Court for
+      //      Judge-authored orders, which misclassified ~5 of Ishi's
+      //      tracked matters (149/2025, 756/2025, 977/2025, 997/2025,
+      //      etc.) — all show as Court but actually go to JR.
+      //
+      //      The "for orders / judgment / pronouncement / final
+      //      arguments" exception preserves the narrow set of bare
+      //      listings that ARE substantive Court hearings (judgment day,
+      //      final arguments) — those stay Court even with no forum
+      //      word.
       // The standalone 'JR' check requires 'the JR' or 'before JR' to
       // avoid matching arbitrary 2-letter sequences.
       const explicitJr    = /\b(?:joint\s+registrar|registrar|(?:before|the)\s+jr)\b/.test(lc);
       const explicitCourt = /\b(?:court|bench|judge|justice|hon'?ble)\b/.test(lc);
+      const purposeIsCourtHearing = /\bfor\s+(?:orders?|judgment|pronouncement|final\s+arguments?|arguments)\b/.test(lc);
       let beforeLabel;
       if (explicitJr) beforeLabel = 'jr';
       else if (explicitCourt) beforeLabel = 'court';
-      else beforeLabel = isJrAuthored ? 'jr' : 'court';
+      else if (purposeIsCourtHearing) beforeLabel = 'court';
+      else beforeLabel = 'jr';
 
       // Optional time of day. Patterns: "at 11 AM" / "at 11:00 AM" /
       // "at 2:30 PM" / "11.00 AM" (no 'at') / "at 11.30 a.m."
