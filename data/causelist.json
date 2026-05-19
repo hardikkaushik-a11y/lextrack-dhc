@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-19T13:01:25Z",
+  "scraped_at": "2026-05-19T13:16:20Z",
   "for_dates": [
     "2026-05-19",
     "2026-05-20"
@@ -7,6 +7,41 @@
   "tracked_cases": 17,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "new_c_20052026.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_20052026_0.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_20052026.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_20.05.2026.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_advance_20052026.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "vk_suply2nd_list_for_20.05.26_0.pdf",
       "date": "2026-05-20",
@@ -31,7 +66,9 @@
     {
       "file": "combined_cause_list_20.05.2026.pdf",
       "date": "2026-05-20",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "sup-12_for_19.05.26.pdf",
@@ -70,34 +107,6 @@
     },
     {
       "file": "sup-8_and_8a_del_for_19.05.26.pdf",
-      "date": "2026-05-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_suppl.19.05.2026.pdf",
-      "date": "2026-05-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_19.05.2026.pdf",
-      "date": "2026-05-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_19.05.2026.pdf",
-      "date": "2026-05-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_19.05.2026.pdf",
       "date": "2026-05-19",
       "matched": 0,
       "regex_matches": 0,
