@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-19T13:46:12Z",
+  "scraped_at": "2026-05-19T14:01:21Z",
   "for_dates": [
     "2026-05-19",
     "2026-05-20"
@@ -16,13 +16,6 @@
     },
     {
       "file": "new_c_20052026.pdf",
-      "date": "2026-05-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_20052026_0.pdf",
       "date": "2026-05-20",
       "matched": 0,
       "regex_matches": 0,
@@ -105,6 +98,13 @@
     },
     {
       "file": "sup_hmj_manoj_jain_19.05.2026.pdf",
+      "date": "2026-05-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-8_and_8a_del_for_19.05.26.pdf",
       "date": "2026-05-19",
       "matched": 0,
       "regex_matches": 0,
