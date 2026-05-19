@@ -1,18 +1,30 @@
 {
-  "scraped_at": "2026-05-19T12:16:12Z",
+  "scraped_at": "2026-05-19T12:31:16Z",
   "for_dates": [
     "2026-05-19",
     "2026-05-20"
   ],
   "tracked_cases": 17,
-  "matched_cases": 2,
+  "matched_cases": 1,
   "sources": [
     {
-      "file": "combined_cause_list_20.05.2026.pdf",
+      "file": "rl20052026.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_20052026.pdf",
       "date": "2026-05-20",
       "matched": 1,
       "regex_matches": 1,
       "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_20.05.2026.pdf",
+      "date": "2026-05-20",
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup-12_for_19.05.26.pdf",
@@ -90,20 +102,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "rl19052026.pdf",
-      "date": "2026-05-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_19.05.2026.pdf",
-      "date": "2026-05-19",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -112,26 +110,13 @@
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 350,
+      "page": 480,
       "context": "46       CS(COMM)-         DAZN LIMITED & ANR. AISHWARYA\n             1306/2025         V/s ABBONAMENTOIPTV KAUSHIQ, KHAITAN",
       "caseNo": "CS(COMM)/1306/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         DAZN LIMITED & ANR. AISHWARYA\n             1306/2025",
       "date": "2026-05-20",
-      "source_pdf": "combined_cause_list_20.05.2026.pdf"
-    },
-    {
-      "item": "82",
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 422,
-      "context": "82        CS(COMM)-319/2026 JIOSTAR INDIA           AMAN SINHA, R MAYA,",
-      "caseNo": "CS(COMM)/319/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-319/2026",
-      "date": "2026-05-19",
-      "source_pdf": "combined_cause_list_19.05.2026.pdf"
+      "source_pdf": "c_20052026.pdf"
     }
   ]
 }
