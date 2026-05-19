@@ -1,16 +1,271 @@
 [
   {
-    "id": "m_CSCOMM_108_2025",
     "caseNo": "CS(COMM)/108/2025",
-    "title": "JIO STAR INDIA PVT LTD VS. IPTV SMARTER PRO & ORS",
-    "type": "copyright",
-    "stage": "filed",
-    "status": "PENDING",
-    "judge": null,
-    "client": null,
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-05-19T06:01:54.820Z",
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2026-03-17.pdf",
+        "type": "Court Order",
+        "date": "2026-03-17",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1774432838_aef616cf211a26d2_739_1082025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-02-18.pdf",
+        "type": "Court Order",
+        "date": "2026-02-18",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1771906905_80bece216988b357_739_1082025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-02-06.pdf",
+        "type": "Court Order",
+        "date": "2026-02-06",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1770801792_e8d8cdd653248b88_739_1082025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-02-03.pdf",
+        "type": "Court Order",
+        "date": "2026-02-03",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1770635914_056c2d367676b832_739_1082025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-02-02.pdf",
+        "type": "Court Order",
+        "date": "2026-02-02",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1770198260_19e34445c886e3c0_739_1082025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-01-29.pdf",
+        "type": "Court Order",
+        "date": "2026-01-29",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1770029020_b90616ce8333e65b_739_1082025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-01-23.pdf",
+        "type": "Court Order",
+        "date": "2026-01-23",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1769597557_a40df2488755533e_739_1082025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-01-21.pdf",
+        "type": "Court Order",
+        "date": "2026-01-21",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1769495288_80c8bc4600220f4a_739_1082025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-12-22.pdf",
+        "type": "Court Order",
+        "date": "2025-12-22",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1766567056_4aa245ed414ea8b6_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-12-05.pdf",
+        "type": "Court Order",
+        "date": "2025-12-05",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1765184638_4265a4d3e22fbc40_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-11-06.pdf",
+        "type": "Court Order",
+        "date": "2025-11-06",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1762764623_2a538dbb4850614f_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-10-13.pdf",
+        "type": "Court Order",
+        "date": "2025-10-13",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1760440242_b168168ee32a0203_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-09-24.pdf",
+        "type": "Court Order",
+        "date": "2025-09-24",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1758948021_082b460da7b73164_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-09-18.pdf",
+        "type": "Court Order",
+        "date": "2025-09-18",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1758271499_c16db4adca156c0d_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-09-12.pdf",
+        "type": "Court Order",
+        "date": "2025-09-12",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1758014312_a524592536d9f22a_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-09-02.pdf",
+        "type": "Court Order",
+        "date": "2025-09-02",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1756892184_f24b2e777fa2d39c_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-29.pdf",
+        "type": "Court Order",
+        "date": "2025-08-29",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1756539197_ea1fb56e960028c5_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-19.pdf",
+        "type": "Court Order",
+        "date": "2025-08-19",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1755604175_90a3a076b6774e07_745_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-13.pdf",
+        "type": "Court Order",
+        "date": "2025-08-13",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1755171304_e6e37b8db88e0308_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-04.pdf",
+        "type": "Court Order",
+        "date": "2025-08-04",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1754989623_b3378062bde5602d_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-07-29.pdf",
+        "type": "Court Order",
+        "date": "2025-07-29",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1754566480_409c1cc07f91e13a_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-07-17.pdf",
+        "type": "Court Order",
+        "date": "2025-07-17",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1753093107_3ad761c0e9f08649_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-07-14.pdf",
+        "type": "Court Order",
+        "date": "2025-07-14",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1752582385_e5eac2dd65f1bc25_591_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-07-07.pdf",
+        "type": "Court Order",
+        "date": "2025-07-07",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1752231009_ee6515f0a4ef6ad4_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-07-01.pdf",
+        "type": "Court Order",
+        "date": "2025-07-01",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1755083975_ce4d1740159a7d7b_739_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-05-29.pdf",
+        "type": "Court Order",
+        "date": "2025-05-29",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/59075600_1748698786_591_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-05-20.pdf",
+        "type": "Court Order",
+        "date": "2025-05-20",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/10002304_1747803609_603_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-05-01.pdf",
+        "type": "Court Order",
+        "date": "2025-05-01",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1746786403_681dd86369110.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-30.pdf",
+        "type": "Court Order",
+        "date": "2025-04-30",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1746107400_68137c0883e15.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-24.pdf",
+        "type": "Court Order",
+        "date": "2025-04-24",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1745916284_6810917cdd030.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-22.pdf",
+        "type": "Court Order",
+        "date": "2025-04-22",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041745470272048_36655_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-17.pdf",
+        "type": "Court Order",
+        "date": "2025-04-17",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041745317782913_46435_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-15.pdf",
+        "type": "Court Order",
+        "date": "2025-04-15",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041745298099423_40543_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-04.pdf",
+        "type": "Court Order",
+        "date": "2025-04-04",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041743840818618_51614_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-03-19.pdf",
+        "type": "Court Order",
+        "date": "2025-03-19",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041742555065999_1897_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-02-21.pdf",
+        "type": "Court Order",
+        "date": "2025-02-21",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041740391419847_3427_1082025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-02-10.pdf",
+        "type": "Court Order",
+        "date": "2025-02-10",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/337991751739199010913_6768_1082025.pdf/2025",
+        "size": "—"
+      }
+    ],
     "lastDate": "2026-05-07",
-    "nextDate": "2026-05-26",
-    "notes": null,
     "timeline": [
       {
         "date": "2026-05-07",
@@ -1327,283 +1582,7 @@
           "_orderDate": "2025-02-10"
         }
       }
-    ],
-    "additionalDates": [
-      {
-        "date": "2026-05-26",
-        "before": "jr",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-03-17",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1774432838_aef616cf211a26d2_739_1082025.pdf/2026"
-        }
-      }
-    ],
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2026-03-17.pdf",
-        "type": "Court Order",
-        "date": "2026-03-17",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1774432838_aef616cf211a26d2_739_1082025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-02-18.pdf",
-        "type": "Court Order",
-        "date": "2026-02-18",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1771906905_80bece216988b357_739_1082025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-02-06.pdf",
-        "type": "Court Order",
-        "date": "2026-02-06",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1770801792_e8d8cdd653248b88_739_1082025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-02-03.pdf",
-        "type": "Court Order",
-        "date": "2026-02-03",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1770635914_056c2d367676b832_739_1082025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-02-02.pdf",
-        "type": "Court Order",
-        "date": "2026-02-02",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1770198260_19e34445c886e3c0_739_1082025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-01-29.pdf",
-        "type": "Court Order",
-        "date": "2026-01-29",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1770029020_b90616ce8333e65b_739_1082025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-01-23.pdf",
-        "type": "Court Order",
-        "date": "2026-01-23",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1769597557_a40df2488755533e_739_1082025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-01-21.pdf",
-        "type": "Court Order",
-        "date": "2026-01-21",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1769495288_80c8bc4600220f4a_739_1082025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-12-22.pdf",
-        "type": "Court Order",
-        "date": "2025-12-22",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1766567056_4aa245ed414ea8b6_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-12-05.pdf",
-        "type": "Court Order",
-        "date": "2025-12-05",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1765184638_4265a4d3e22fbc40_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-11-06.pdf",
-        "type": "Court Order",
-        "date": "2025-11-06",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1762764623_2a538dbb4850614f_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-10-13.pdf",
-        "type": "Court Order",
-        "date": "2025-10-13",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1760440242_b168168ee32a0203_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-09-24.pdf",
-        "type": "Court Order",
-        "date": "2025-09-24",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1758948021_082b460da7b73164_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-09-18.pdf",
-        "type": "Court Order",
-        "date": "2025-09-18",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1758271499_c16db4adca156c0d_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-09-12.pdf",
-        "type": "Court Order",
-        "date": "2025-09-12",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1758014312_a524592536d9f22a_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-09-02.pdf",
-        "type": "Court Order",
-        "date": "2025-09-02",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1756892184_f24b2e777fa2d39c_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-29.pdf",
-        "type": "Court Order",
-        "date": "2025-08-29",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1756539197_ea1fb56e960028c5_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-19.pdf",
-        "type": "Court Order",
-        "date": "2025-08-19",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1755604175_90a3a076b6774e07_745_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-13.pdf",
-        "type": "Court Order",
-        "date": "2025-08-13",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1755171304_e6e37b8db88e0308_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-04.pdf",
-        "type": "Court Order",
-        "date": "2025-08-04",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1754989623_b3378062bde5602d_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-07-29.pdf",
-        "type": "Court Order",
-        "date": "2025-07-29",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1754566480_409c1cc07f91e13a_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-07-17.pdf",
-        "type": "Court Order",
-        "date": "2025-07-17",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1753093107_3ad761c0e9f08649_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-07-14.pdf",
-        "type": "Court Order",
-        "date": "2025-07-14",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1752582385_e5eac2dd65f1bc25_591_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-07-07.pdf",
-        "type": "Court Order",
-        "date": "2025-07-07",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1752231009_ee6515f0a4ef6ad4_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-07-01.pdf",
-        "type": "Court Order",
-        "date": "2025-07-01",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1755083975_ce4d1740159a7d7b_739_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-05-29.pdf",
-        "type": "Court Order",
-        "date": "2025-05-29",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/59075600_1748698786_591_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-05-20.pdf",
-        "type": "Court Order",
-        "date": "2025-05-20",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/10002304_1747803609_603_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-05-01.pdf",
-        "type": "Court Order",
-        "date": "2025-05-01",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1746786403_681dd86369110.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-30.pdf",
-        "type": "Court Order",
-        "date": "2025-04-30",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1746107400_68137c0883e15.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-24.pdf",
-        "type": "Court Order",
-        "date": "2025-04-24",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1745916284_6810917cdd030.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-22.pdf",
-        "type": "Court Order",
-        "date": "2025-04-22",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041745470272048_36655_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-17.pdf",
-        "type": "Court Order",
-        "date": "2025-04-17",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041745317782913_46435_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-15.pdf",
-        "type": "Court Order",
-        "date": "2025-04-15",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041745298099423_40543_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-04.pdf",
-        "type": "Court Order",
-        "date": "2025-04-04",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041743840818618_51614_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-03-19.pdf",
-        "type": "Court Order",
-        "date": "2025-03-19",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041742555065999_1897_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-02-21.pdf",
-        "type": "Court Order",
-        "date": "2025-02-21",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100023041740391419847_3427_1082025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-02-10.pdf",
-        "type": "Court Order",
-        "date": "2025-02-10",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/337991751739199010913_6768_1082025.pdf/2025",
-        "size": "—"
-      }
-    ],
-    "lastScraped": "2026-05-19T05:01:43.359Z",
-    "_scraperVersion": "v11-jr-default-2026-05-14"
+    ]
   },
   {
     "id": "m_CSCOMM_331_2025",
@@ -1970,7 +1949,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:01:51.199Z",
+    "lastScraped": "2026-05-19T06:02:11.387Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2255,7 +2234,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:01:58.666Z",
+    "lastScraped": "2026-05-19T06:02:36.648Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2495,7 +2474,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:02:06.432Z",
+    "lastScraped": "2026-05-19T06:02:44.386Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2560,7 +2539,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:02:13.968Z",
+    "lastScraped": "2026-05-19T06:02:59.759Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2689,7 +2668,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:02:29.763Z",
+    "lastScraped": "2026-05-19T06:03:14.184Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3144,7 +3123,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:02:37.273Z",
+    "lastScraped": "2026-05-19T06:03:21.841Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4017,7 +3996,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:02:44.791Z",
+    "lastScraped": "2026-05-19T06:03:31.406Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4218,21 +4197,73 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:02:52.403Z",
+    "lastScraped": "2026-05-19T06:03:47.556Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
-    "id": "m_CSCOMM_582_2025",
     "caseNo": "CS(COMM)/582/2025",
-    "title": "RELIANCE RETAIL LIMITED VS. BALAJI FOODS AND BEVERAGE",
-    "type": "trademark",
-    "stage": "filed",
-    "status": "PENDING",
-    "judge": null,
-    "client": null,
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-05-19T06:04:10.595Z",
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2026-04-13.pdf",
+        "type": "Court Order",
+        "date": "2026-04-13",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1776330053_7c9d87e08e9cc0ec_594_5822025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-04-07.pdf",
+        "type": "Court Order",
+        "date": "2026-04-07",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1775804427_275b3e9ce56b14f9_739_5822025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-01-14.pdf",
+        "type": "Court Order",
+        "date": "2026-01-14",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1768654609_49ac7b5edf96ad73_594_5822025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-12-10.pdf",
+        "type": "Court Order",
+        "date": "2025-12-10",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1765530437_b45491087be9473b_739_5822025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-10-15.pdf",
+        "type": "Court Order",
+        "date": "2025-10-15",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1760596543_0301adfc327db8f4_687_5822025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-09-04.pdf",
+        "type": "Court Order",
+        "date": "2025-09-04",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1757584007_74f23e58c215ac9f_739_5822025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-25.pdf",
+        "type": "Court Order",
+        "date": "2025-08-25",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1756116779_aa4c11821e9b4385_745_5822025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-05-30.pdf",
+        "type": "Court Order",
+        "date": "2025-05-30",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1751551530_bfd24a1d11d5fd81_591_5822025.pdf/2025",
+        "size": "—"
+      }
+    ],
     "lastDate": "2026-05-13",
-    "nextDate": "2026-08-21",
-    "notes": null,
     "timeline": [
       {
         "date": "2026-05-13",
@@ -4542,90 +4573,7 @@
           "_orderDate": "2025-05-30"
         }
       }
-    ],
-    "additionalDates": [
-      {
-        "date": "2026-07-17",
-        "before": "jr",
-        "firstSeenAt": "2026-05-18T09:03:23.589Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-05-13",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1779093666_caa1320fb74de456_739_5822025.pdf/2026"
-        }
-      },
-      {
-        "date": "2026-08-21",
-        "before": "court",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-04-13",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1776330053_7c9d87e08e9cc0ec_594_5822025.pdf/2026"
-        }
-      }
-    ],
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2026-04-13.pdf",
-        "type": "Court Order",
-        "date": "2026-04-13",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1776330053_7c9d87e08e9cc0ec_594_5822025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-04-07.pdf",
-        "type": "Court Order",
-        "date": "2026-04-07",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1775804427_275b3e9ce56b14f9_739_5822025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-01-14.pdf",
-        "type": "Court Order",
-        "date": "2026-01-14",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1768654609_49ac7b5edf96ad73_594_5822025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-12-10.pdf",
-        "type": "Court Order",
-        "date": "2025-12-10",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1765530437_b45491087be9473b_739_5822025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-10-15.pdf",
-        "type": "Court Order",
-        "date": "2025-10-15",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1760596543_0301adfc327db8f4_687_5822025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-09-04.pdf",
-        "type": "Court Order",
-        "date": "2025-09-04",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1757584007_74f23e58c215ac9f_739_5822025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-25.pdf",
-        "type": "Court Order",
-        "date": "2025-08-25",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1756116779_aa4c11821e9b4385_745_5822025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-05-30.pdf",
-        "type": "Court Order",
-        "date": "2025-05-30",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1751551530_bfd24a1d11d5fd81_591_5822025.pdf/2025",
-        "size": "—"
-      }
-    ],
-    "lastScraped": "2026-05-19T05:02:59.898Z",
-    "_scraperVersion": "v11-jr-default-2026-05-14"
+    ]
   },
   {
     "id": "m_CSCOMM_1306_2025",
@@ -4793,7 +4741,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:03:07.578Z",
+    "lastScraped": "2026-05-19T06:04:17.699Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4805,17 +4753,111 @@
     "timeline": []
   },
   {
-    "id": "m_CSCOMM_269_2024",
     "caseNo": "CS(COMM)/269/2024",
-    "title": "RAZORPAY SOFTWARE PRIVATE LIMITED & ANR. VS. JOHN DOE & ORS.",
-    "type": "copyright",
-    "stage": "filed",
-    "status": "PENDING",
-    "judge": null,
-    "client": null,
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-05-19T06:04:38.228Z",
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2025-12-10.pdf",
+        "type": "Court Order",
+        "date": "2025-12-10",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1765468854_fcb2237996d225be_589_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-11-04.pdf",
+        "type": "Court Order",
+        "date": "2025-11-04",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1762340623_cca22b370e4c730d_589_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-09-10.pdf",
+        "type": "Court Order",
+        "date": "2025-09-10",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1757604944_e6e47059891255b6_589_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-11.pdf",
+        "type": "Court Order",
+        "date": "2025-08-11",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1754913308_60fbde426dd8a328_745_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-28.pdf",
+        "type": "Court Order",
+        "date": "2025-04-28",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1746006163_6811f09352963.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-03.pdf",
+        "type": "Court Order",
+        "date": "2025-04-03",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521743767311557_70108_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-03-12.pdf",
+        "type": "Court Order",
+        "date": "2025-03-12",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521741774730299_861_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-01-24.pdf",
+        "type": "Court Order",
+        "date": "2025-01-24",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521737715842367_62667_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-11-11.pdf",
+        "type": "Court Order",
+        "date": "2024-11-11",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521731412195662_94039_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-09-03.pdf",
+        "type": "Court Order",
+        "date": "2024-09-03",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/590756001725451534684_30927_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-09-02.pdf",
+        "type": "Court Order",
+        "date": "2024-09-02",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448905239_13561_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-08-30.pdf",
+        "type": "Court Order",
+        "date": "2024-08-30",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448906481_70816_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-07-02.pdf",
+        "type": "Court Order",
+        "date": "2024-07-02",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521720003547382_48225_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-04-02.pdf",
+        "type": "Court Order",
+        "date": "2024-04-02",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100025571712236282954_30259_2692024.pdf/2024",
+        "size": "—"
+      }
+    ],
     "lastDate": "2026-05-12",
-    "nextDate": "2026-09-16",
-    "notes": null,
     "timeline": [
       {
         "date": "2026-05-12",
@@ -5388,132 +5430,7 @@
           "_orderDate": "2024-04-02"
         }
       }
-    ],
-    "additionalDates": [
-      {
-        "date": "2026-05-22",
-        "before": "jr",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-05-12",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1778581571_f92594b5531bbe97_762_2692024.pdf/2026"
-        }
-      },
-      {
-        "date": "2026-09-16",
-        "before": "court",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-04-30",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1777562288_48b24c7f928771f8_jis_2692024.pdf/2026"
-        }
-      }
-    ],
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2025-12-10.pdf",
-        "type": "Court Order",
-        "date": "2025-12-10",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1765468854_fcb2237996d225be_589_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-11-04.pdf",
-        "type": "Court Order",
-        "date": "2025-11-04",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1762340623_cca22b370e4c730d_589_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-09-10.pdf",
-        "type": "Court Order",
-        "date": "2025-09-10",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1757604944_e6e47059891255b6_589_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-11.pdf",
-        "type": "Court Order",
-        "date": "2025-08-11",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1754913308_60fbde426dd8a328_745_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-28.pdf",
-        "type": "Court Order",
-        "date": "2025-04-28",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1746006163_6811f09352963.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-03.pdf",
-        "type": "Court Order",
-        "date": "2025-04-03",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521743767311557_70108_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-03-12.pdf",
-        "type": "Court Order",
-        "date": "2025-03-12",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521741774730299_861_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-01-24.pdf",
-        "type": "Court Order",
-        "date": "2025-01-24",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521737715842367_62667_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-11-11.pdf",
-        "type": "Court Order",
-        "date": "2024-11-11",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521731412195662_94039_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-09-03.pdf",
-        "type": "Court Order",
-        "date": "2024-09-03",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/590756001725451534684_30927_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-09-02.pdf",
-        "type": "Court Order",
-        "date": "2024-09-02",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448905239_13561_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-08-30.pdf",
-        "type": "Court Order",
-        "date": "2024-08-30",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448906481_70816_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-07-02.pdf",
-        "type": "Court Order",
-        "date": "2024-07-02",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521720003547382_48225_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-04-02.pdf",
-        "type": "Court Order",
-        "date": "2024-04-02",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100025571712236282954_30259_2692024.pdf/2024",
-        "size": "—"
-      }
-    ],
-    "lastScraped": "2026-05-19T05:03:15.023Z",
-    "_scraperVersion": "v11-jr-default-2026-05-14"
+    ]
   },
   {
     "id": "m_CSCOMM_997_2025",
@@ -6232,7 +6149,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:03:22.536Z",
+    "lastScraped": "2026-05-19T06:05:00.982Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6532,7 +6449,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:03:30.028Z",
+    "lastScraped": "2026-05-19T06:05:27.064Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6925,21 +6842,52 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:03:37.561Z",
+    "lastScraped": "2026-05-19T06:05:47.813Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
-    "id": "m_CSCOMM_1203_2025",
     "caseNo": "CS(COMM)/1203/2025",
-    "title": "JIOSTAR INDIA PRIVATE LIMITED VS. CRICFY TV & ORS.",
-    "type": "copyright",
-    "stage": "filed",
-    "status": "PENDING",
-    "judge": null,
-    "client": null,
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-05-19T06:06:09.679Z",
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2026-04-25.pdf",
+        "type": "Court Order",
+        "date": "2026-04-25",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1777899261_8db437fabf21e281_594_12032025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-02-20.pdf",
+        "type": "Court Order",
+        "date": "2026-02-20",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1771907597_1dc56c226e3837f7_739_12032025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-02-16.pdf",
+        "type": "Court Order",
+        "date": "2026-02-16",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1771474537_b21fdc66c5e8de90_739_12032025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-12-23.pdf",
+        "type": "Court Order",
+        "date": "2025-12-23",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1766569520_b5f79fd1752144f5_739_12032025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-11-11.pdf",
+        "type": "Court Order",
+        "date": "2025-11-11",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1763039836_cc3d1e977e35bc32_687_12032025.pdf/2025",
+        "size": "—"
+      }
+    ],
     "lastDate": "2026-04-25",
-    "nextDate": "2026-07-08",
-    "notes": null,
     "timeline": [
       {
         "date": "2026-04-25",
@@ -7114,59 +7062,7 @@
           "_orderDate": "2025-11-11"
         }
       }
-    ],
-    "additionalDates": [
-      {
-        "date": "2026-07-08",
-        "before": "jr",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-02-20",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1771907597_1dc56c226e3837f7_739_12032025.pdf/2026"
-        }
-      }
-    ],
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2026-04-25.pdf",
-        "type": "Court Order",
-        "date": "2026-04-25",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1777899261_8db437fabf21e281_594_12032025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-02-20.pdf",
-        "type": "Court Order",
-        "date": "2026-02-20",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1771907597_1dc56c226e3837f7_739_12032025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-02-16.pdf",
-        "type": "Court Order",
-        "date": "2026-02-16",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1771474537_b21fdc66c5e8de90_739_12032025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-12-23.pdf",
-        "type": "Court Order",
-        "date": "2025-12-23",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1766569520_b5f79fd1752144f5_739_12032025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-11-11.pdf",
-        "type": "Court Order",
-        "date": "2025-11-11",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1763039836_cc3d1e977e35bc32_687_12032025.pdf/2025",
-        "size": "—"
-      }
-    ],
-    "lastScraped": "2026-05-19T05:03:45.094Z",
-    "_scraperVersion": "v11-jr-default-2026-05-14"
+    ]
   },
   {
     "id": "m_CSCOMM_149_2025",
@@ -7806,7 +7702,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-19T05:03:52.594Z",
+    "lastScraped": "2026-05-19T06:06:24.508Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
