@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-19T07:01:35Z",
+  "scraped_at": "2026-05-19T07:16:34Z",
   "for_dates": [
     "2026-05-19",
     "2026-05-20"
@@ -12,6 +12,13 @@
       "date": "2026-05-20",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-09_trf_matters_for_19.05.26.pdf",
+      "date": "2026-05-19",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -80,7 +87,9 @@
     {
       "file": "combined_advance_19052026.pdf",
       "date": "2026-05-19",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     }
   ],
   "entries": [
