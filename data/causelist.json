@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-05-19T05:31:19Z",
+  "scraped_at": "2026-05-19T05:46:20Z",
   "for_dates": [
     "2026-05-19",
     "2026-05-20"
   ],
   "tracked_cases": 17,
-  "matched_cases": 1,
+  "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_cause_list_20.05.2026.pdf",
+      "date": "2026-05-20",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "final_suppl.19.05.2026.pdf",
       "date": "2026-05-19",
@@ -65,6 +72,19 @@
     }
   ],
   "entries": [
+    {
+      "item": "46",
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 350,
+      "context": "46       CS(COMM)-         DAZN LIMITED & ANR. AISHWARYA\n             1306/2025         V/s ABBONAMENTOIPTV KAUSHIQ, KHAITAN",
+      "caseNo": "CS(COMM)/1306/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         DAZN LIMITED & ANR. AISHWARYA\n             1306/2025",
+      "date": "2026-05-20",
+      "source_pdf": "combined_cause_list_20.05.2026.pdf"
+    },
     {
       "item": "82",
       "court": "44",
