@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-19T12:01:43Z",
+  "scraped_at": "2026-05-19T12:16:12Z",
   "for_dates": [
     "2026-05-19",
     "2026-05-20"
@@ -100,13 +100,6 @@
     },
     {
       "file": "combined_cause_list_19.05.2026.pdf",
-      "date": "2026-05-19",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_19052026.pdf",
       "date": "2026-05-19",
       "matched": 1,
       "regex_matches": 1,
