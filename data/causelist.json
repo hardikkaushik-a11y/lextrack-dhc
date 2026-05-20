@@ -1,11 +1,115 @@
 {
-  "scraped_at": "2026-05-20T07:46:35Z",
+  "scraped_at": "2026-05-20T08:01:26Z",
   "for_dates": [
     "2026-05-20",
     "2026-05-21"
   ],
   "tracked_cases": 17,
-  "matched_cases": 0,
-  "sources": [],
-  "entries": []
+  "matched_cases": 1,
+  "sources": [
+    {
+      "file": "combined_advance_21052026.pdf",
+      "date": "2026-05-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-9_for_20.05.26.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-08_trf_matters_for_20.05.26.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-7_for_20.05.26.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_20.05.2026.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_20052026.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_20052026.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_20.05.2026.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_advance_20052026.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_suply2nd_list_for_20.05.26_0.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl20052026.pdf",
+      "date": "2026-05-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_20052026.pdf",
+      "date": "2026-05-20",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_20.05.2026.pdf",
+      "date": "2026-05-20",
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+    }
+  ],
+  "entries": [
+    {
+      "item": "46",
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 480,
+      "context": "46       CS(COMM)-         DAZN LIMITED & ANR. AISHWARYA\n             1306/2025         V/s ABBONAMENTOIPTV KAUSHIQ, KHAITAN",
+      "caseNo": "CS(COMM)/1306/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         DAZN LIMITED & ANR. AISHWARYA\n             1306/2025",
+      "date": "2026-05-20",
+      "source_pdf": "c_20052026.pdf"
+    }
+  ]
 }
