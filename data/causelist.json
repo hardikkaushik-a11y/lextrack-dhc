@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-05-20T18:16:23Z",
+  "scraped_at": "2026-05-20T18:31:27Z",
   "for_dates": [
-    "2026-05-20",
-    "2026-05-21"
+    "2026-05-21",
+    "2026-05-22"
   ],
   "tracked_cases": 17,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "_combined_advance_list_for_22.05.2026.pdf",
+      "date": "2026-05-22",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_21.05.2026.pdf",
       "date": "2026-05-21",
@@ -62,49 +69,21 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "sup-11_for_20.05.26.pdf",
-      "date": "2026-05-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_for_20.05.26.pdf",
-      "date": "2026-05-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-9_for_20.05.26.pdf",
-      "date": "2026-05-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-08_trf_matters_for_20.05.26.pdf",
-      "date": "2026-05-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-7_for_20.05.26.pdf",
-      "date": "2026-05-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_20.05.2026.pdf",
-      "date": "2026-05-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "4",
+      "court": "48",
+      "judge": "TUSHAR RAO GEDELA NOTE",
+      "time": null,
+      "page": 316,
+      "context": "4       CS(COMM)-269/2024 RAZORPAY SOFTWARE PARSHANT",
+      "caseNo": "CS(COMM)/269/2024",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-269/2024",
+      "date": "2026-05-22",
+      "source_pdf": "_combined_advance_list_for_22.05.2026.pdf"
+    }
+  ]
 }
