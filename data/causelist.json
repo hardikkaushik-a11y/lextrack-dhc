@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-21T07:01:37Z",
+  "scraped_at": "2026-05-21T07:16:19Z",
   "for_dates": [
     "2026-05-21",
     "2026-05-22"
@@ -12,6 +12,13 @@
       "date": "2026-05-22",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "transferred_matter_of_hmj_v.k._yadav_21.05.2026.pdf",
+      "date": "2026-05-21",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -108,9 +115,7 @@
     {
       "file": "combined_advance_21052026.pdf",
       "date": "2026-05-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": [
