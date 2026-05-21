@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-21T05:16:27Z",
+  "scraped_at": "2026-05-21T05:31:24Z",
   "for_dates": [
     "2026-05-21",
     "2026-05-22"
@@ -12,6 +12,13 @@
       "date": "2026-05-22",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_sup_21052026.pdf",
+      "date": "2026-05-21",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
