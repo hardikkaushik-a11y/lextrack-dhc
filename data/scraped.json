@@ -1602,7 +1602,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:01:49.490Z",
+    "lastScraped": "2026-05-21T06:01:53.556Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -1970,7 +1970,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:01:56.878Z",
+    "lastScraped": "2026-05-21T06:02:07.983Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2255,7 +2255,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:02:04.295Z",
+    "lastScraped": "2026-05-21T06:02:17.715Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2495,7 +2495,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:02:11.706Z",
+    "lastScraped": "2026-05-21T06:02:25.296Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2560,7 +2560,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:02:19.180Z",
+    "lastScraped": "2026-05-21T06:02:34.735Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2572,10 +2572,17 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-04-17",
+    "lastDate": "2026-05-19",
     "nextDate": "2026-09-21",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-05-19",
+        "event": "Court Order",
+        "detail": "List on 21.09.2026.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1779341694_eca19104981d3a8e_jis_3192026.pdf/2026",
+        "orderText": "$~82 *IN THE HIGH COURT OF DELHI AT NEW DELHI +CS(COMM) 319/2026 & I.A. 8049/2026 JIOSTAR INDIA PRIVATE LIMITED.....Plaintiff Through:Ms. Ishi Singh, Advocate. versus ABBASI TV & ORS......Defendants Through:Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Nikhil Gupta, Mr. Anmol Dhindsa and Mr. Aditya Dash, Advocates for D-14. Ms. Radhika Bishwajit Dubey, CGSC with Ms. Gurleen Kaur Waraich, Mr. Kritarth Upadhyay and Mr. Anuja Dev Mishra, Advocates for D-29. CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R %19.05.2026 1.List on 21.09.2026. 2.Interim order to continue, till the next date of hearing. JYOTI SINGH, J MAY 19, 2026/VP This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 21/05/2026 at 11:32:43"
+      },
       {
         "date": "2026-04-17",
         "event": "Court Order",
@@ -2660,6 +2667,16 @@
           "orderDate": "2026-04-17",
           "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1776424303_b37f28203a5d40d8_762_3192026.pdf/2026"
         }
+      },
+      {
+        "date": "2026-09-21",
+        "before": "court",
+        "firstSeenAt": "2026-05-21T06:02:43.518Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-05-19",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1779341694_eca19104981d3a8e_jis_3192026.pdf/2026"
+        }
       }
     ],
     "tasks": [],
@@ -2679,7 +2696,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:02:26.609Z",
+    "lastScraped": "2026-05-21T06:02:43.522Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3134,7 +3151,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:02:34.094Z",
+    "lastScraped": "2026-05-21T06:02:51.695Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4007,7 +4024,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:02:41.554Z",
+    "lastScraped": "2026-05-21T06:02:59.284Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4208,7 +4225,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:02:49.028Z",
+    "lastScraped": "2026-05-21T06:03:13.512Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4614,7 +4631,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:02:56.488Z",
+    "lastScraped": "2026-05-21T06:03:21.093Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4773,7 +4790,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:03:03.972Z",
+    "lastScraped": "2026-05-21T06:03:28.783Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5492,7 +5509,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:03:12.489Z",
+    "lastScraped": "2026-05-21T06:03:36.408Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6212,7 +6229,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:03:19.995Z",
+    "lastScraped": "2026-05-21T06:03:45.895Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6512,7 +6529,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:03:27.454Z",
+    "lastScraped": "2026-05-21T06:03:53.490Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6905,7 +6922,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:03:35.012Z",
+    "lastScraped": "2026-05-21T06:04:01.131Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7145,7 +7162,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:03:42.540Z",
+    "lastScraped": "2026-05-21T06:04:08.860Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7786,7 +7803,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-21T05:03:49.986Z",
+    "lastScraped": "2026-05-21T06:04:20.062Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
