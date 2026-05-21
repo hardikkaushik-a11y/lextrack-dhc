@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-21T12:01:11Z",
+  "scraped_at": "2026-05-21T12:16:16Z",
   "for_dates": [
     "2026-05-21",
     "2026-05-22"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_cause_list_22.05.2026.pdf",
+      "date": "2026-05-22",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "_combined_advance_list_for_22.05.2026.pdf",
       "date": "2026-05-22",
@@ -104,13 +111,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "pro_for_21.05.2026.pdf",
-      "date": "2026-05-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -119,13 +119,13 @@
       "court": "48",
       "judge": "TUSHAR RAO GEDELA NOTE",
       "time": null,
-      "page": 316,
+      "page": 448,
       "context": "4       CS(COMM)-269/2024 RAZORPAY SOFTWARE PARSHANT",
       "caseNo": "CS(COMM)/269/2024",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-269/2024",
       "date": "2026-05-22",
-      "source_pdf": "_combined_advance_list_for_22.05.2026.pdf"
+      "source_pdf": "combined_cause_list_22.05.2026.pdf"
     }
   ]
 }
