@@ -4843,5 +4843,30 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/149/2025",
     "_orderDate": "2026-05-18"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1779341694_eca19104981d3a8e_jis_3192026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 21.09.2026",
+      "Interim order to continue till next date of hearing"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Nikhil Gupta, Mr. Anmol Dhindsa, Mr. Aditya Dash (for D-14); Ms. Radhika Bishwajit Dubey, Ms. Gurleen Kaur Waraich, Mr. Kritarth Upadhyay, Mr. Anuja Dev Mishra (for D-29)"
+    },
+    "summary": "The court adjourned the case to 21.09.2026 and directed that the interim order shall continue until the next hearing.",
+    "confidence": {
+      "reliefGranted": "low",
+      "directions": "high",
+      "citations": "low"
+    },
+    "_extractedAt": "2026-05-21T07:04:06.189Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/319/2026",
+    "_orderDate": "2026-05-19"
   }
 }
