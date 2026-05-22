@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-05-22T18:15:56Z",
+  "scraped_at": "2026-05-22T18:30:58Z",
   "for_dates": [
-    "2026-05-22",
-    "2026-05-23"
+    "2026-05-23",
+    "2026-05-24"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
@@ -31,90 +31,6 @@
     {
       "file": "advance_cause_list_for_23.05.2026.pdf",
       "date": "2026-05-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_16_a-corrri_for_22.05.26.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_16_for_22.05.26.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_15_a-for_22.05.26.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_15_for_22.05.26.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_13_for_22.05.26.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_and_trf_matters_for_22.05.26.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "supply_note_hmj_amit_mahajan-22.05.26.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_amit_sharm_22.05.2026.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_22.05.2026.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_8_for_22.05.26.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_7a_for_22.05.26.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_22.05.2026_1.pdf",
-      "date": "2026-05-22",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
