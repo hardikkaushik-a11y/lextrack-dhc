@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T12:15:51Z",
+  "scraped_at": "2026-05-22T12:30:53Z",
   "for_dates": [
     "2026-05-22",
     "2026-05-23"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "pro_for_23.05.2026.pdf",
+      "date": "2026-05-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "listing_23.05.2026.pdf",
       "date": "2026-05-23",
