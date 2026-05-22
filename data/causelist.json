@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T16:01:02Z",
+  "scraped_at": "2026-05-22T16:15:51Z",
   "for_dates": [
     "2026-05-22",
     "2026-05-23"
@@ -114,13 +114,6 @@
     },
     {
       "file": "registrar_supply_list_22.05.2026_1.pdf",
-      "date": "2026-05-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_22.05.2026.pdf",
       "date": "2026-05-22",
       "matched": 0,
       "regex_matches": 0,
