@@ -4893,5 +4893,30 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1306/2025",
     "_orderDate": "2026-05-20"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1779440043_12a5f17a16d149fd_762_2692024.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to move application for impleadment of new defendants",
+      "Matter placed before Hon'ble Court on 16.09.2026 for further directions"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Madhav Khosla (D-8), Mr. Animesh (D-15)"
+    },
+    "summary": "The Joint Registrar noted that details from defendant no.8 were missing from the record but plaintiff's counsel confirmed receiving them and stated they will file an impleadment application. The matter was adjourned to 16.09.2026 for further directions.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-22T09:04:22.912Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/269/2024",
+    "_orderDate": "2026-05-22"
   }
 }
