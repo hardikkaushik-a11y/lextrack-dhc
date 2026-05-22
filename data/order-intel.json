@@ -4868,5 +4868,30 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/319/2026",
     "_orderDate": "2026-05-19"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1779434365_b84996134027448a_jis_13062025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 22.09.2026",
+      "Interim order to continue till next date of hearing"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Ms. Pavitra Singh, Mr. Akshay Shankar and Ms. Ananya Dewan for D-11; Mr. Yash Raj, Ms. Harshitha Rathod and Ms. Kruttika Vijay for D-12 and D-19; Ms. Swati Agarwal, Mr. Shashank Mishra and Mr. Vaarish Sawlani for D-20; Ms. Anvita Goel for D-21; Ms. Gitanjali Kapoor and Mr. Yubaraj Chatterjee for D-35; Mr. Vikrant Nilesh Goyal, Mr. Yash Basoya, Mr. Inderpreet Singh and Ms. Smriti Goyal for UOI"
+    },
+    "summary": "The court adjourned the case to 22.09.2026 and directed that the interim order shall continue until the next hearing. No final relief was granted.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-22T08:03:54.216Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1306/2025",
+    "_orderDate": "2026-05-20"
   }
 }

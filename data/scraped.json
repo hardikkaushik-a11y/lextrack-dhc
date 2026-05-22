@@ -1602,7 +1602,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:01:54.698Z",
+    "lastScraped": "2026-05-22T08:01:47.022Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -1970,7 +1970,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:02:02.106Z",
+    "lastScraped": "2026-05-22T08:01:54.484Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2255,7 +2255,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:02:09.610Z",
+    "lastScraped": "2026-05-22T08:02:01.951Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2495,7 +2495,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:02:17.080Z",
+    "lastScraped": "2026-05-22T08:02:09.465Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2560,7 +2560,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:02:24.570Z",
+    "lastScraped": "2026-05-22T08:02:16.937Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2721,7 +2721,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:02:32.103Z",
+    "lastScraped": "2026-05-22T08:02:24.319Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3176,7 +3176,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:02:39.593Z",
+    "lastScraped": "2026-05-22T08:02:31.832Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4049,7 +4049,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:02:47.071Z",
+    "lastScraped": "2026-05-22T08:02:39.403Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4250,7 +4250,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:02:54.569Z",
+    "lastScraped": "2026-05-22T08:02:46.888Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4656,7 +4656,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:03:02.086Z",
+    "lastScraped": "2026-05-22T08:02:54.349Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4668,10 +4668,42 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-05-06",
+    "lastDate": "2026-05-20",
     "nextDate": "2026-09-22",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-05-20",
+        "event": "Court Order",
+        "detail": "List on 22.09.2026.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1779434365_b84996134027448a_jis_13062025.pdf/2026",
+        "orderText": "$~46 *IN THE HIGH COURT OF DELHI AT NEW DELHI +CS(COMM) 1306/2025 & I.A. 30663/2025 DAZN LIMITED & ANR......Plaintiffs Through:Ms. Ishi Singh, Advocate. versus ABBONAMENTOIPTVITALIA.COM & ORS......Defendants Through:Ms. Pavitra Singh, Mr. Akshay Shankar and Ms. Ananya Dewan, Advocates for D-11. Mr. Yash Raj, Ms. Harshitha Rathod and Ms. Kruttika Vijay, Advocates for D-12 and D-19. Ms. Swati Agarwal, Mr. Shashank Mishra and Mr. Vaarish Sawlani, Advocates for D-20. Ms. Anvita Goel, Advocate for D-21. Ms. Gitanjali Kapoor and Mr. Yubaraj Chatterjee, Advocates for D-35. Mr. Vikrant Nilesh Goyal, Mr.Yash Basoya, Mr. Inderpreet Singh and Ms. Smriti Goyal, Advocates for UOI. CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R %20.05.2026 1.List on 22.09.2026. 2.Interim order to continue, till the next date of hearing. JYOTI SINGH, J MAY 20, 2026/VP This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 22/05/2026 at 13:33:03",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List on 22.09.2026",
+            "Interim order to continue till next date of hearing"
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Ms. Pavitra Singh, Mr. Akshay Shankar and Ms. Ananya Dewan for D-11; Mr. Yash Raj, Ms. Harshitha Rathod and Ms. Kruttika Vijay for D-12 and D-19; Ms. Swati Agarwal, Mr. Shashank Mishra and Mr. Vaarish Sawlani for D-20; Ms. Anvita Goel for D-21; Ms. Gitanjali Kapoor and Mr. Yubaraj Chatterjee for D-35; Mr. Vikrant Nilesh Goyal, Mr. Yash Basoya, Mr. Inderpreet Singh and Ms. Smriti Goyal for UOI"
+          },
+          "summary": "The court adjourned the case to 22.09.2026 and directed that the interim order shall continue until the next hearing. No final relief was granted.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-05-22T08:03:54.216Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/1306/2025",
+          "_orderDate": "2026-05-20"
+        }
+      },
       {
         "date": "2026-05-06",
         "event": "Court Order",
@@ -4796,6 +4828,16 @@
           "orderDate": "2026-05-06",
           "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1778060485_1340a27f26405f9c_762_13062025.pdf/2026"
         }
+      },
+      {
+        "date": "2026-09-22",
+        "before": "court",
+        "firstSeenAt": "2026-05-22T08:03:03.413Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-05-20",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1779434365_b84996134027448a_jis_13062025.pdf/2026"
+        }
       }
     ],
     "tasks": [],
@@ -4815,7 +4857,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:03:09.620Z",
+    "lastScraped": "2026-05-22T08:03:03.415Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5534,7 +5576,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:03:18.107Z",
+    "lastScraped": "2026-05-22T08:03:10.893Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6254,7 +6296,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:03:25.670Z",
+    "lastScraped": "2026-05-22T08:03:18.381Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6554,7 +6596,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:03:33.136Z",
+    "lastScraped": "2026-05-22T08:03:25.912Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6947,7 +6989,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:03:40.635Z",
+    "lastScraped": "2026-05-22T08:03:33.446Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7187,7 +7229,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:03:48.181Z",
+    "lastScraped": "2026-05-22T08:03:41.012Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7828,7 +7870,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-22T07:03:55.635Z",
+    "lastScraped": "2026-05-22T08:03:48.428Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
