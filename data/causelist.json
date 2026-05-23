@@ -1,54 +1,107 @@
 {
-  "scraped_at": "2026-05-23T18:15:34Z",
+  "scraped_at": "2026-05-23T18:31:15Z",
   "for_dates": [
-    "2026-05-23",
-    "2026-05-24"
+    "2026-05-24",
+    "2026-05-25"
   ],
   "tracked_cases": 17,
-  "matched_cases": 0,
+  "matched_cases": 2,
   "sources": [
     {
-      "file": "sup-10_for_23.05.26.pdf",
-      "date": "2026-05-23",
+      "file": "deletion_note_25.05.2026.pdf",
+      "date": "2026-05-25",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "sup-9_for_23.05.26.pdf",
-      "date": "2026-05-23",
+      "file": "fnl_1_25.05.pdf",
+      "date": "2026-05-25",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "sup_jud-23052026.pdff5689.pdf",
-      "date": "2026-05-23",
+      "file": "new_pronouncement_25.05.2026.pdf",
+      "date": "2026-05-25",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "pro_for_23.05.2026.pdf",
-      "date": "2026-05-23",
+      "file": "j_25052026.pdf",
+      "date": "2026-05-25",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "listing_23.05.2026.pdf",
-      "date": "2026-05-23",
+      "file": "dheeraj_sup_2_25.05.pdf",
+      "date": "2026-05-25",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "cause_list_for_23.05.2026.pdf",
-      "date": "2026-05-23",
+      "file": "c_25052026.pdf",
+      "date": "2026-05-25",
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_25.05.2026.pdf",
+      "date": "2026-05-25",
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+    },
+    {
+      "file": "rl25052026.pdf",
+      "date": "2026-05-25",
       "matched": 0,
       "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_25.05.2026.pdf",
+      "date": "2026-05-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_25.05.2026.pdf",
+      "date": "2026-05-25",
+      "matched": 1,
+      "regex_matches": 1,
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "23",
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 451,
+      "context": "23        CS(COMM)-149/2025   CENTRAL RETAIL     RISHI AGRAWALA,",
+      "caseNo": "CS(COMM)/149/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-149/2025",
+      "date": "2026-05-25",
+      "source_pdf": "c_25052026.pdf"
+    },
+    {
+      "item": null,
+      "court": "48",
+      "judge": "TUSHAR RAO GEDELA NOTE",
+      "time": null,
+      "page": 711,
+      "context": "In CS(COMM)-      ORS.                  KOHLI, MANISH\n             810/2025                                SINGH",
+      "caseNo": "CS(COMM)/810/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-      ORS.                  KOHLI, MANISH\n             810/2025",
+      "date": "2026-05-25",
+      "source_pdf": "c_25052026.pdf"
+    }
+  ]
 }
