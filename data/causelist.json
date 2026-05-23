@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T14:16:09Z",
+  "scraped_at": "2026-05-23T14:30:49Z",
   "for_dates": [
     "2026-05-23",
     "2026-05-24"
@@ -37,20 +37,6 @@
     },
     {
       "file": "listing_23.05.2026.pdf",
-      "date": "2026-05-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "cause_list_for_23.05.2026.pdf",
-      "date": "2026-05-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "advance_cause_list_for_23.05.2026.pdf",
       "date": "2026-05-23",
       "matched": 0,
       "regex_matches": 0,
