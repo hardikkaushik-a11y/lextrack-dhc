@@ -1,61 +1,11 @@
 {
-  "scraped_at": "2026-05-23T10:45:37Z",
+  "scraped_at": "2026-05-23T11:01:44Z",
   "for_dates": [
     "2026-05-23",
     "2026-05-24"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "sup-10_for_23.05.26.pdf",
-      "date": "2026-05-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-9_for_23.05.26.pdf",
-      "date": "2026-05-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_jud-23052026.pdff5689.pdf",
-      "date": "2026-05-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro_for_23.05.2026.pdf",
-      "date": "2026-05-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "listing_23.05.2026.pdf",
-      "date": "2026-05-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "cause_list_for_23.05.2026.pdf",
-      "date": "2026-05-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "advance_cause_list_for_23.05.2026.pdf",
-      "date": "2026-05-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
