@@ -8495,92 +8495,120 @@ function collapsedHearingPrepHTML(matterId, hearingDate) {
 
 function hearingPrepHTML(prep, matterId, hearingDate) {
   if (!prep) return '';
-  const esc  = s => String(s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
-  const fmt  = s => aiFraming.applyMarkers(esc(s));
-  const list = arr => (arr || []).map(x => `<li>${fmt(x)}</li>`).join('');
+  const esc = s => String(s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+  const fmt = s => aiFraming.applyMarkers(esc(s));
+
+  // ── Toggle mechanism ──────────────────────────────────────────────────────
+  // Store prep + a named rerender fn in globals so the onclick attribute
+  // never embeds JSON (JSON double-quotes break the onclick string).
+  const key = `${matterId}__${hearingDate}`;
+  window.__prepCache   = window.__prepCache   || {};
+  window.__lexRerender = window.__lexRerender || {};
+  window.__prepCache[key] = prep;
+  window.__lexRerender[key] = () => {
+    const t = document.getElementById(`hearing-prep-${matterId}-${hearingDate}`);
+    if (t) t.innerHTML = hearingPrepHTML(window.__prepCache[key], matterId, hearingDate);
+  };
+  // audienceToggleHTML expects a rendererFn string — it wraps it as (fn)()
+  const audienceToggle = aiFraming.audienceToggleHTML(`window.__lexRerender['${key}']`);
+
   const dismissBtn = (matterId && hearingDate) ? `
     <button onclick="event.stopPropagation();dismissHearingPrep('${matterId}','${hearingDate}')"
-      title="Hide brief (cached — click Show to see it again, no re-charge)"
-      aria-label="Dismiss brief"
-      style="position:absolute;top:8px;right:10px;background:none;border:none;color:#7a5a10;font-size:18px;cursor:pointer;padding:0 8px;line-height:1;opacity:0.4;transition:opacity 0.15s;"
-      onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">×</button>` : '';
-  const m = matters.find(x => x.id === matterId);
-  const rerenderFn = `function(){const t=document.getElementById('hearing-prep-${matterId}-${hearingDate}');if(t)t.innerHTML=hearingPrepHTML(${JSON.stringify(prep).replace(/'/g, "\\'")},'${matterId}','${hearingDate}');}`;
-  const audienceToggle = aiFraming.audienceToggleHTML(rerenderFn);
+      title="Hide brief" aria-label="Dismiss brief"
+      style="position:absolute;top:10px;right:12px;background:none;border:none;font-size:18px;cursor:pointer;padding:0 6px;line-height:1;opacity:0.35;transition:opacity 0.15s;"
+      onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.35'">×</button>` : '';
 
+  // ── WHATSAPP MODE ─────────────────────────────────────────────────────────
   if (aiFraming.audienceMode === 'whatsapp') {
-    const oneLiner = prep.whatsappOneLiner || prep.oneParagraphSummary || prep.lastHearingRecap || '';
+    const txt = prep.whatsappOneLiner || prep.oneParagraphSummary || prep.lastHearingRecap || '';
     return `
-      <div style="position:relative;background:#f0fdf4;border-left:3px solid #15803d;border-radius:0 8px 8px 0;padding:14px 18px;font-size:13px;line-height:1.55;color:#14532d;">
+      <div style="position:relative;background:#f0fdf4;border-left:3px solid #15803d;border-radius:0 10px 10px 0;padding:16px 20px;">
         ${dismissBtn}
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
-          <div style="font-weight:600;font-size:12px;letter-spacing:0.5px;text-transform:uppercase;">📱 WhatsApp share</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#15803d;">📱 WhatsApp share</div>
           ${audienceToggle}
         </div>
-        <div style="background:white;padding:12px 14px;border-radius:6px;border:1px solid rgba(21,128,61,0.2);font-size:13.5px;line-height:1.5;margin-bottom:10px;">${esc(oneLiner)}</div>
-        <button class="btn btn-ghost" style="font-size:11px;padding:6px 14px;" onclick="navigator.clipboard.writeText(${JSON.stringify(oneLiner).replace(/'/g, "\\'")});this.textContent='Copied ✓';setTimeout(()=>this.textContent='Copy to clipboard',1500)">Copy to clipboard</button>
+        <div style="background:white;padding:14px 16px;border-radius:8px;border:1px solid rgba(21,128,61,0.18);font-size:14px;line-height:1.6;color:#14532d;margin-bottom:12px;">${esc(txt)}</div>
+        <button class="btn btn-ghost" style="font-size:12px;padding:6px 16px;"
+          onclick="navigator.clipboard.writeText(this.closest('div').previousElementSibling.textContent.trim());this.textContent='Copied ✓';setTimeout(()=>this.textContent='Copy',1800)">Copy</button>
       </div>`;
   }
+
+  // ── CLIENT MODE ───────────────────────────────────────────────────────────
   if (aiFraming.audienceMode === 'client') {
     const cs = prep.clientSummary || prep.oneParagraphSummary || prep.lastHearingRecap || '';
     return `
-      <div style="position:relative;background:#eff6ff;border-left:3px solid #1e40af;border-radius:0 8px 8px 0;padding:16px 20px;font-size:14px;line-height:1.7;color:#1e3a8a;">
+      <div style="position:relative;background:#eff6ff;border-left:3px solid #1e40af;border-radius:0 10px 10px 0;padding:16px 20px;">
         ${dismissBtn}
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
-          <div style="font-weight:600;font-size:12px;letter-spacing:0.5px;text-transform:uppercase;">📧 Client summary — ready to forward</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#1e40af;">📧 Client summary</div>
           ${audienceToggle}
         </div>
-        <div style="background:white;padding:16px 20px;border-radius:8px;border:1px solid rgba(30,64,175,0.15);">${esc(cs).replace(/\n/g, '<br>')}</div>
-        <div style="margin-top:10px;font-size:11px;color:#1e40af;opacity:0.65;">Header + markers stripped — safe to forward.</div>
+        <div style="background:white;padding:16px 18px;border-radius:8px;border:1px solid rgba(30,64,175,0.14);font-size:14px;line-height:1.7;color:#1e3a8a;margin-bottom:10px;">${esc(cs).replace(/\n/g,'<br>')}</div>
+        <div style="font-size:11px;color:#1e40af;opacity:0.6;">Header + markers stripped — safe to forward.</div>
       </div>`;
   }
 
-  const reviewerSources = [
-    { tag: 'scraped',      label: `DHC case-status page for ${m?.caseNo || 'matter'} (timeline + order PDFs)` },
-    ...(m?.notes ? [{ tag: 'user-provided', label: 'Internal notes typed into the matter' }] : []),
-    { tag: 'model-verify', label: 'Model knowledge for procedural framing — verify any cited authority before relying' },
-  ];
-  const reviewerCurrency = m?.lastDate ? `matter last heard ${formatDate(m.lastDate)}` : 'as of last DHC sync';
-  const flagged = aiFraming.countFlags(
-    prep.oneParagraphSummary, prep.whatsChanged, prep.whatsNext, prep.exposure, prep.conversationTailoring,
-    prep.lastHearingRecap, prep.purposeOfHearing,
-    prep.keyIssues, prep.exhibitsReady, prep.talkingPoints, prep.risks,
-  );
-  const hasNewStructure = prep.oneParagraphSummary || prep.whatsChanged;
+  // ── PARTNER MODE (default) — video-style layout ───────────────────────────
+  // Layout: italic summary → two-column grid (numbered talking points LEFT,
+  // risk exposure + open questions RIGHT). Matches the demo video exactly.
+  const summary  = prep.oneParagraphSummary || prep.lastHearingRecap || '';
+  const tps      = prep.talkingPoints || [];
+  const risks    = prep.risks || [];
+  const oqs      = prep.openQuestions || [];
+  // talkingPoints may be strings or {title, detail} objects — handle both
+  const tpHTML = tps.map((tp, i) => {
+    const title  = typeof tp === 'string' ? tp : (tp.title  || tp.point || String(tp));
+    const detail = typeof tp === 'object' ? (tp.detail || tp.sub || '') : '';
+    return `
+      <div style="display:grid;grid-template-columns:44px 1fr;gap:10px;padding:11px 0;
+                  border-bottom:${i < tps.length-1 ? '1px solid rgba(201,168,76,0.15)' : 'none'};">
+        <div style="font-family:Georgia,serif;font-style:italic;font-size:22px;color:var(--gold,#c9a84c);
+                    line-height:1;padding-top:2px;">0${i+1}</div>
+        <div>
+          <div style="font-weight:600;font-size:14px;color:var(--ink,#1a1a18);line-height:1.35;margin-bottom:${detail?'3px':'0'};">${fmt(title)}</div>
+          ${detail ? `<div style="font-size:12.5px;color:var(--ink2,#444);line-height:1.5;">${fmt(detail)}</div>` : ''}
+        </div>
+      </div>`;
+  }).join('');
+
+  const riskHTML = risks.length ? `
+    <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:600;letter-spacing:0.5px;
+                  text-transform:uppercase;color:#b91c1c;margin-bottom:10px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#b91c1c;flex-shrink:0;"></span>Risk exposure
+      </div>
+      ${risks.map(r => `<div style="font-size:13px;color:var(--ink2);line-height:1.55;padding:3px 0;">${fmt(typeof r === 'object' ? (r.risk||r.text||String(r)) : r)}</div>`).join('')}
+    </div>` : '';
+
+  const oqHTML = oqs.length ? `
+    <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:14px 16px;">
+      <div style="font-size:10.5px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;">Open questions</div>
+      ${oqs.map((q,i) => `<div style="font-size:13px;color:var(--ink2);line-height:1.55;padding:4px 0;
+        ${i < oqs.length-1 ? 'border-bottom:1px solid var(--border);' : ''}">— ${fmt(q)}</div>`).join('')}
+    </div>` : '';
 
   return `
-    <div style="position:relative;background:linear-gradient(135deg,#fefce8 0%,#fef3c7 100%);border-left:3px solid var(--gold,#c9a84c);border-radius:0 8px 8px 0;padding:14px 18px 14px 18px;font-size:13px;line-height:1.65;color:#5b4a10;">
+    <div style="position:relative;background:var(--paper,#faf9f6);border:1px solid var(--border);border-radius:10px;padding:16px 18px;font-size:13px;line-height:1.6;color:var(--ink);">
       ${dismissBtn}
-      ${aiFraming.header({ audience: 'attorney' })}
-      <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">${audienceToggle}</div>
-
-      ${hasNewStructure ? `
-        ${prep.oneParagraphSummary ? `<div style="background:rgba(122,90,16,0.06);border-left:2px solid rgba(122,90,16,0.3);padding:10px 14px;margin-bottom:14px;font-size:13.5px;line-height:1.6;font-style:italic;">${fmt(prep.oneParagraphSummary)}</div>` : ''}
-        ${prep.whatsChanged ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">What's changed</div><div style="margin-bottom:12px;">${fmt(prep.whatsChanged)}</div>` : ''}
-        ${prep.whatsNext ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">What's next</div><div style="margin-bottom:12px;">${fmt(prep.whatsNext)}</div>` : ''}
-        ${prep.exposure ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Exposure</div><div style="margin-bottom:12px;">${fmt(prep.exposure)}</div>` : ''}
-        ${(prep.openQuestions || []).length ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Open questions</div><ul style="margin:0 0 12px 18px;padding:0;">${list(prep.openQuestions)}</ul>` : ''}
-        ${prep.conversationTailoring ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">For the conversation</div><div style="margin-bottom:12px;font-style:italic;">${fmt(prep.conversationTailoring)}</div>` : ''}
-      ` : `
-        <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;padding-right:30px;">Last hearing recap</div>
-        <div style="margin-bottom:12px;">${fmt(prep.lastHearingRecap)}</div>
-        <div style="font-weight:600;margin-bottom:6px;color:#7a5a10;">Purpose of this hearing</div>
-        <div style="margin-bottom:12px;">${fmt(prep.purposeOfHearing)}</div>
-      `}
-
-      ${(prep.keyIssues || []).length ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Key issues</div><ul style="margin:0 0 12px 18px;padding:0;">${list(prep.keyIssues)}</ul>` : ''}
-      ${(prep.exhibitsReady || []).length ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Exhibits to have ready</div><ul style="margin:0 0 12px 18px;padding:0;">${list(prep.exhibitsReady)}</ul>` : ''}
-      ${(prep.talkingPoints || []).length ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Talking points</div><ul style="margin:0 0 12px 18px;padding:0;">${list(prep.talkingPoints)}</ul>` : ''}
-      ${(prep.risks || []).length ? `<div style="font-weight:600;margin-bottom:6px;color:#7a5a10;text-transform:uppercase;font-size:11px;letter-spacing:0.5px;">Risks</div><ul style="margin:0 0 12px 18px;padding:0;">${list(prep.risks)}</ul>` : ''}
-
-      ${aiFraming.reviewerNote({
-        sources: reviewerSources,
-        read: `Matter timeline (most recent 5 events) + open tasks + pending documents. Did NOT read order PDFs in full.`,
-        flaggedCount: flagged,
-        currency: reviewerCurrency,
-        beforeRelying: prep.beforeRelying || [],
-      })}
-      ${aiFraming.decisionTree({ openQuestion: prep.openQuestion || null })}
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:var(--ink3);">Hearing prep · Partner</div>
+        ${audienceToggle}
+      </div>
+      ${summary ? `
+        <div style="background:rgba(201,168,76,0.08);border-left:2px solid var(--gold,#c9a84c);padding:10px 14px;
+                    border-radius:0 6px 6px 0;font-size:13.5px;line-height:1.65;font-style:italic;color:var(--ink2);
+                    margin-bottom:14px;">${fmt(summary)}</div>` : ''}
+      ${tps.length || riskHTML || oqHTML ? `
+        <div style="display:grid;grid-template-columns:${(riskHTML||oqHTML) ? '1.35fr 1fr' : '1fr'};gap:16px;align-items:start;">
+          ${tps.length ? `
+            <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:16px 18px;">
+              <div style="font-size:10.5px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;
+                          color:var(--ink3);margin-bottom:4px;">${tps.length} talking points · in order</div>
+              ${tpHTML}
+            </div>` : ''}
+          ${(riskHTML || oqHTML) ? `<div style="display:flex;flex-direction:column;gap:12px;">${riskHTML}${oqHTML}</div>` : ''}
+        </div>` : ''}
     </div>`;
 }
 
