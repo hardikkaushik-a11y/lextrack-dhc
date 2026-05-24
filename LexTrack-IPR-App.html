@@ -3854,7 +3854,7 @@ function renderCalendar() {
       const nd = new Date(date + 'T00:00:00');
       const diff = daysUntil(date);
       const sub = cl
-        ? `${cl.court ? `Court ${cl.court}` : ''}${cl.item ? ` · Item ${cl.item}` : ''}${cl.time ? ` · ${cl.time}` : ''}`
+        ? `${cl.court ? (cl.court === 'JR' ? 'JR' : `Court ${cl.court}`) : ''}${cl.item ? ` · Item ${cl.item}` : ''}${cl.time ? ` · ${cl.time}` : ''}`
         : (diff === 0 ? 'Today' : (diff === 1 ? 'Tomorrow' : diff + ' days away'));
       return `<div class="hearing-item" onclick="openDetail('${m.id}')" style="cursor:pointer;">
         <div class="hearing-date-badge">
@@ -4233,7 +4233,7 @@ function openDetail(id) {
                 ? `https://delhihighcourt.nic.in/files/${(cl.date || '').slice(0,7)}/cause-list/${cl.source_pdf}`
                 : null;
               const meta = [
-                cl.court ? `Court ${cl.court}` : null,
+                cl.court ? (cl.court === 'JR' ? 'JR' : `Court ${cl.court}`) : null,
                 cl.item ? `Item ${cl.item}` : null,
                 cl.time || null,
                 cl.judge || null,
@@ -5412,7 +5412,7 @@ async function generateDeepAnalysis(id, forceRefresh = false) {
       m.causelist.map((cl, i) => {
         const parts = [
           `#${i+1} · ${formatDate(cl.date)}`,
-          cl.court ? `Court ${cl.court}` : null,
+          cl.court ? (cl.court === 'JR' ? 'JR' : `Court ${cl.court}`) : null,
           cl.item ? `Item ${cl.item}` : null,
           cl.time || null,
           cl.judge ? `before ${cl.judge}` : null,
@@ -8233,7 +8233,7 @@ function exportCalendarIcs() {
         m.caseNo,
         m.client ? `Client: ${m.client}` : null,
         cl?.judge ? `Coram: ${cl.judge}` : null,
-        cl?.court ? `Court ${cl.court}` : null,
+        cl?.court ? (cl.court === 'JR' ? 'JR' : `Court ${cl.court}`) : null,
         cl?.item  ? `Item ${cl.item}`   : null,
         m.notes   ? `Notes: ${m.notes}` : null,
         `Source: ${tag}`,

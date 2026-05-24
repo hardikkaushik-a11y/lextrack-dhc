@@ -271,6 +271,25 @@ JUDGE_RE = re.compile(
 ITEM_RE = re.compile(r"^\s*(\d{1,4})[\.\s]")
 TIME_RE = re.compile(r"\b(\d{1,2}[:\.]\d{2}(?:\s*[AP]\.?M\.?)?)\b", re.IGNORECASE)
 
+# JR section header — appears in DHC combined advance lists AND standalone JR
+# cause-list PDFs. Neither matches COURT_RE (no numeric court number), so
+# running_court would stay at whatever numeric court preceded the JR section.
+# We detect these explicitly and reset running_court to "JR".
+#   "JOINT REGISTRAR (JUDICIAL)"                    — standard coram line
+#   "BEFORE MS. SWATI KATIYAR, JOINT REGISTRAR"     — cause-list header
+#   "BEFORE THE JOINT REGISTRAR"                    — order text form
+JR_SECTION_RE = re.compile(
+    r"JOINT\s+REGISTRAR\s*\(?JUDICIAL\)?"
+    r"|\bBEFORE\s+(?:MS|MR|MRS)\.?\s+[A-Z][A-Z\s\.]+,\s*JOINT\s+REGISTRAR"
+    r"|\bBEFORE\s+THE\s+(?:JOINT\s+)?REGISTRAR\b",
+    re.IGNORECASE,
+)
+# Capture the JR's name from "BEFORE MS. SWATI KATIYAR, JOINT REGISTRAR".
+JR_JUDGE_RE = re.compile(
+    r"BEFORE\s+(?:MS|MR|MRS)\.?\s+([A-Z][A-Z\s\.]{3,40}),\s*JOINT\s+REGISTRAR",
+    re.IGNORECASE,
+)
+
 # ── Matching strategy ────────────────────────────────────────────────────────
 #
 # We match on case number ONLY. Two passes:
@@ -344,11 +363,28 @@ def search_pages(pages, case_patterns: dict, case_norms: dict, case_splits: dict
 
     for page in pages:
         text = page["text"]
-        cm = COURT_RE.findall(text)
-        if cm:
-            running_court = cm[-1]
+
+        # Determine the court section in effect for this page.
+        # Prefer position-aware logic: whichever section header appears
+        # LAST on the page (numeric COURT_RE or JR_SECTION_RE) wins.
+        # This correctly handles pages that straddle two sections
+        # (e.g. last few Court-48 items at the top, then JR section below).
+        court_iter = list(COURT_RE.finditer(text))
+        jr_iter    = list(JR_SECTION_RE.finditer(text))
+        if court_iter or jr_iter:
+            last_court_pos = court_iter[-1].end()  if court_iter else -1
+            last_jr_pos    = jr_iter[-1].end()     if jr_iter    else -1
+            if last_jr_pos > last_court_pos:
+                running_court = "JR"
+                # Also capture the JR officer's name as judge.
+                jrj = JR_JUDGE_RE.search(text)
+                if jrj:
+                    running_judge = re.sub(r"\s+", " ", jrj.group(1)).strip(" .,") + " (JR)"
+            else:
+                running_court = court_iter[-1].group(1)
+
         jm = JUDGE_RE.findall(text)
-        if jm:
+        if jm and running_court != "JR":
             running_judge = re.sub(r"\s+", " ", jm[-1]).strip(" .,")
 
         attributed_lines = set()  # line_start positions already claimed
