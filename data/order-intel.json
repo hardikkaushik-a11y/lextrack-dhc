@@ -4918,5 +4918,32 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/269/2024",
     "_orderDate": "2026-05-22"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1779697001_da2f86e691d68574_762_8102025.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Injunction against newly impleaded rogue websites; DNRs directed to lock/suspend/deactivate those websites",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to serve copy of IA on existing DNR defendants",
+      "Plaintiff to take steps to serve newly impleaded defendants with summons within two weeks via electronic mode",
+      "Concerned DNRs to lock, suspend, or deactivate the newly impleaded rogue websites",
+      "Concerned DNRs to disclose complete details of new rogue websites in an affidavit within four weeks"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi",
+      "defendant": "Mr. Yogesh Singh for D-39"
+    },
+    "summary": "The court allowed three IAs filed by the plaintiff to implead additional rogue websites (defendant nos. 2107-2262) engaged in infringing activities. The existing injunction order dated 08.08.2025 was extended to these new defendants, and the concerned DNRs were directed to lock/suspend/deactivate the websites and file an affidavit with details within four weeks.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "low"
+    },
+    "_extractedAt": "2026-05-25T10:03:55.689Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/810/2025",
+    "_orderDate": "2026-05-25"
   }
 }
