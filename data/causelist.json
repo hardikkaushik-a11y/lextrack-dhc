@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-05-25T18:16:11Z",
+  "scraped_at": "2026-05-25T18:31:24Z",
   "for_dates": [
-    "2026-05-25",
-    "2026-05-26"
+    "2026-05-26",
+    "2026-05-27"
   ],
   "tracked_cases": 17,
   "matched_cases": 1,
@@ -89,27 +89,6 @@
       "date": "2026-05-26",
       "matched": 1,
       "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-9_for_25.05.26.pdf",
-      "date": "2026-05-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "su_hmj_jasmeet_singh_25.05.2026.pdf",
-      "date": "2026-05-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_pla_25.05.2026.pdf",
-      "date": "2026-05-25",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
