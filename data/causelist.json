@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-25T09:31:17Z",
+  "scraped_at": "2026-05-25T09:46:15Z",
   "for_dates": [
     "2026-05-25",
     "2026-05-26"
@@ -12,6 +12,13 @@
       "date": "2026-05-26",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-9_for_25.05.26.pdf",
+      "date": "2026-05-25",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -93,13 +100,6 @@
     },
     {
       "file": "rl25052026.pdf",
-      "date": "2026-05-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_25.05.2026.pdf",
       "date": "2026-05-25",
       "matched": 0,
       "regex_matches": 0,
