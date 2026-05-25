@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-25T13:31:27Z",
+  "scraped_at": "2026-05-25T13:46:04Z",
   "for_dates": [
     "2026-05-25",
     "2026-05-26"
@@ -7,6 +7,20 @@
   "tracked_cases": 17,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "finals_26.05.2026.pdf",
+      "date": "2026-05-26",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_2_26.05.2026.pdf",
+      "date": "2026-05-26",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_26.05.2026.pdf",
       "date": "2026-05-26",
@@ -38,9 +52,7 @@
     {
       "file": "advance_combined_list_for_26.05.2026.pdf",
       "date": "2026-05-26",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup-9_for_25.05.26.pdf",
@@ -86,20 +98,6 @@
     },
     {
       "file": "fnl_1_25.05.pdf",
-      "date": "2026-05-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_pronouncement_25.05.2026.pdf",
-      "date": "2026-05-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_25052026.pdf",
       "date": "2026-05-25",
       "matched": 0,
       "regex_matches": 0,
