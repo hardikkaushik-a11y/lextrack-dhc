@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-25T07:16:25Z",
+  "scraped_at": "2026-05-25T07:31:28Z",
   "for_dates": [
     "2026-05-25",
     "2026-05-26"
@@ -87,9 +87,7 @@
     {
       "file": "pla_25.05.2026.pdf",
       "date": "2026-05-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "rl25052026.pdf",
