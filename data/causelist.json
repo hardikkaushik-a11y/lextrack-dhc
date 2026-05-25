@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-25T12:46:14Z",
+  "scraped_at": "2026-05-25T13:01:50Z",
   "for_dates": [
     "2026-05-25",
     "2026-05-26"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 3,
   "sources": [
+    {
+      "file": "combined_cause_list_26.05.2026.pdf",
+      "date": "2026-05-26",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "advance_combined_list_for_26.05.2026.pdf",
       "date": "2026-05-26",
@@ -105,13 +112,13 @@
       "court": "JR",
       "judge": "SUDHIR KUMAR SIROHI (JR)",
       "time": null,
-      "page": 338,
+      "page": 469,
       "context": "7       CS(COMM)-         JIO STAR INDIA PVT    SUBHASHISH\n             108/2025          LTD                   KUMAR, R MAYA,",
       "caseNo": "CS(COMM)/108/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIO STAR INDIA PVT    SUBHASHISH\n             108/2025",
       "date": "2026-05-26",
-      "source_pdf": "advance_combined_list_for_26.05.2026.pdf"
+      "source_pdf": "combined_cause_list_26.05.2026.pdf"
     },
     {
       "item": "23",
