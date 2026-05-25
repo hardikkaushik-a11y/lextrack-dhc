@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-25T05:01:34Z",
+  "scraped_at": "2026-05-25T05:01:38Z",
   "for_dates": [
     "2026-05-25",
     "2026-05-26"
@@ -17,7 +17,9 @@
     {
       "file": "deletion_note_25.05.2026.pdf",
       "date": "2026-05-25",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "fnl_1_25.05.pdf",
@@ -57,7 +59,9 @@
     {
       "file": "pla_25.05.2026.pdf",
       "date": "2026-05-25",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "rl25052026.pdf",
