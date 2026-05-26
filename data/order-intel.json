@@ -4945,5 +4945,29 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/810/2025",
     "_orderDate": "2026-05-25"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1779778209_701564522b7e6867_jis_1492025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 24.08.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Priti",
+      "defendant": "Mr. Lakshya Govindani"
+    },
+    "summary": "The court noted that lawyers are abstaining from work and adjourned the matter to 24.08.2026. No substantive orders were passed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-26T07:04:03.513Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2026-05-25"
   }
 }

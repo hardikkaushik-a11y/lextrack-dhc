@@ -1602,7 +1602,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:01:54.352Z",
+    "lastScraped": "2026-05-26T07:01:53.112Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -1970,7 +1970,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:02:01.838Z",
+    "lastScraped": "2026-05-26T07:02:00.582Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2255,7 +2255,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:02:09.468Z",
+    "lastScraped": "2026-05-26T07:02:08.093Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2495,7 +2495,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:02:16.951Z",
+    "lastScraped": "2026-05-26T07:02:15.559Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2560,7 +2560,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:02:24.786Z",
+    "lastScraped": "2026-05-26T07:02:23.112Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2721,7 +2721,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:02:32.256Z",
+    "lastScraped": "2026-05-26T07:02:30.728Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3176,7 +3176,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:02:39.736Z",
+    "lastScraped": "2026-05-26T07:02:40.360Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4083,7 +4083,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:02:47.342Z",
+    "lastScraped": "2026-05-26T07:02:47.976Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4284,7 +4284,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:02:54.885Z",
+    "lastScraped": "2026-05-26T07:02:55.527Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4690,7 +4690,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:03:02.517Z",
+    "lastScraped": "2026-05-26T07:03:04.912Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4891,7 +4891,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:03:10.316Z",
+    "lastScraped": "2026-05-26T07:03:12.455Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5632,7 +5632,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:03:18.801Z",
+    "lastScraped": "2026-05-26T07:03:19.948Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6352,7 +6352,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:03:26.515Z",
+    "lastScraped": "2026-05-26T07:03:27.523Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6652,7 +6652,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:03:34.065Z",
+    "lastScraped": "2026-05-26T07:03:35.068Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7045,7 +7045,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:03:41.532Z",
+    "lastScraped": "2026-05-26T07:03:42.621Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7285,7 +7285,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:03:49.141Z",
+    "lastScraped": "2026-05-26T07:03:50.106Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7297,10 +7297,41 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-05-18",
+    "lastDate": "2026-05-25",
     "nextDate": "2026-08-24",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-05-25",
+        "event": "Court Order",
+        "detail": "I.A. 18673/2025 1. Lawyers are abstaining from work. 2. List on 24.08.2026. JYOTI SINGH, J MAY 25, 2026/VP This is a digitally signed order. The authenticity of the order can be re…",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1779778209_701564522b7e6867_jis_1492025.pdf/2026",
+        "orderText": "$~23 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 149/2025 & I.A. 13124/2026 CENTRAL RETAIL CORPORATION PUBLIC COMPANY LTD. & ANR .....Plaintiff Through: Ms. Priti, Proxy Counsel. versus FUTURE BRANDS LTD & ANR A+ .....Defendants Through: Mr. Lakshya Govindani, Proxy Counsel. CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 25.05.2026 I.A. 18673/2025 1. Lawyers are abstaining from work. 2. List on 24.08.2026. JYOTI SINGH, J MAY 25, 2026/VP This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 26/05/2026 at 12:33:58",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List on 24.08.2026"
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Priti",
+            "defendant": "Mr. Lakshya Govindani"
+          },
+          "summary": "The court noted that lawyers are abstaining from work and adjourned the matter to 24.08.2026. No substantive orders were passed.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-05-26T07:04:03.513Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/149/2025",
+          "_orderDate": "2026-05-25"
+        }
+      },
       {
         "date": "2026-05-18",
         "event": "Court Order",
@@ -7813,7 +7844,18 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-08-24",
+        "before": "jr",
+        "firstSeenAt": "2026-05-26T07:03:59.230Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-05-25",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1779778209_701564522b7e6867_jis_1492025.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -7915,7 +7957,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-05-26T06:03:56.681Z",
+    "lastScraped": "2026-05-26T07:03:59.232Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
