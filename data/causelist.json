@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-26T14:45:41Z",
+  "scraped_at": "2026-05-26T15:01:15Z",
   "for_dates": [
     "2026-05-26",
     "2026-05-27"
@@ -16,27 +16,6 @@
     },
     {
       "file": "sup_hmj_jasmeet_singh_26.05.2026.pdf",
-      "date": "2026-05-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_for_today_26.05.pdf",
-      "date": "2026-05-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_16_for_26.05.26.pdf",
-      "date": "2026-05-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_15_for_26.05.26.pdf",
       "date": "2026-05-26",
       "matched": 0,
       "regex_matches": 0,
