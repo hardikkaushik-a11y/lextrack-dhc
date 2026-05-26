@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-26T14:30:54Z",
+  "scraped_at": "2026-05-26T14:45:41Z",
   "for_dates": [
     "2026-05-26",
     "2026-05-27"
@@ -37,27 +37,6 @@
     },
     {
       "file": "sup_15_for_26.05.26.pdf",
-      "date": "2026-05-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rev_sup_13_and_14_for_26.05.26.pdf",
-      "date": "2026-05-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_12_for_26.05.26.pdf",
-      "date": "2026-05-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_11_for_26.05.26.pdf",
       "date": "2026-05-26",
       "matched": 0,
       "regex_matches": 0,
