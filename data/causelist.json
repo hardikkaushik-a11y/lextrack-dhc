@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-27T10:16:00Z",
+  "scraped_at": "2026-05-27T10:30:45Z",
   "for_dates": [
     "2026-05-27",
     "2026-05-28"
@@ -16,20 +16,6 @@
     },
     {
       "file": "new_original_sup_listing-01_for_28.05.2026.pdf",
-      "date": "2026-05-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_28052026.pdf",
-      "date": "2026-05-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_28052026.pdf",
       "date": "2026-05-28",
       "matched": 0,
       "regex_matches": 0,
