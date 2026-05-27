@@ -1,12 +1,89 @@
 {
-  "scraped_at": "2026-05-27T18:15:45Z",
+  "scraped_at": "2026-05-27T18:31:28Z",
   "for_dates": [
-    "2026-05-27",
-    "2026-05-28"
+    "2026-05-28",
+    "2026-05-29"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "pro_29.05.2026.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_29.05.2026.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_supply_fnl_29.05.2026.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro_29052026pdfff_0.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_29052026_2.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_29.05.2026.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_29052026.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_29.05.2026.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_29052026.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl29052026.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_29.05.2026.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_28.05.2026.pdf",
       "date": "2026-05-28",
