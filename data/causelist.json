@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-28T13:01:27Z",
+  "scraped_at": "2026-05-28T13:16:06Z",
   "for_dates": [
     "2026-05-28",
     "2026-05-29"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "jud_29052026.pdf",
+      "date": "2026-05-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "pro_29.05.2026_hmj_prateek_jalan.pdf",
       "date": "2026-05-29",
@@ -93,13 +100,6 @@
     },
     {
       "file": "rl29052026.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_29.05.2026.pdf",
       "date": "2026-05-29",
       "matched": 0,
       "regex_matches": 0,
