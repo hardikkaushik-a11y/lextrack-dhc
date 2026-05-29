@@ -4969,5 +4969,35 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/149/2025",
     "_orderDate": "2026-05-25"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1780051283_7229e2cfd28bfafb_739_1082025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no. 45 to file compliance-affidavit within four weeks.",
+      "List matter for completion of pleadings on 25.09.2026.",
+      "Registry to do needful regarding IAs already allowed/disposed off."
+    ],
+    "citations": [
+      "Order I Rule 10 CPC",
+      "Section 151 CPC",
+      "Order VI Rule 16 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Yogesh Singh & Mr. Aditya Dash (D-7), Mr. Avish Sharma (D-1 to 4 & 36), Ms. Harshitha Rathod (D-45), Mr. Ishkaran Singh Bhandari & Mr. Piyush Yadav (UOI)"
+    },
+    "summary": "The Joint Registrar noted that defendants 41-103 have been served via email. Time for filing written statements has not expired. Defendant no. 45 sought time to file compliance affidavit. Several IAs were previously allowed or disposed off. The matter is listed for completion of pleadings on 25.09.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-05-29T11:03:31.301Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/108/2025",
+    "_orderDate": "2026-05-26"
   }
 }
