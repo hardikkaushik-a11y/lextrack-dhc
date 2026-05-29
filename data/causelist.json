@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-05-29T18:15:47Z",
+  "scraped_at": "2026-05-29T18:30:51Z",
   "for_dates": [
-    "2026-05-29",
-    "2026-05-30"
+    "2026-05-30",
+    "2026-05-31"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
@@ -24,104 +24,6 @@
     {
       "file": "cause_list_for_30.05.2026.pdf",
       "date": "2026-05-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_girish_k_29.05.2026.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_p.k._kaurav_29.05.2026.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_purushaindra_k._kaurav_29.05.2026.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_manoj_jain_29.05.2026.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_29.05.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_db_i_29.05.2026.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-23_for_29.05.26.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_amit_sharma_29.05.2026.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_22-a_for_29.05.26.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_21_22_for_29.05.26.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "dheeraj_sup_29.05_20a.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "29.05_sup_20.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_pla_29052026.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_jr_judicial_29052026_sine.pdf",
-      "date": "2026-05-29",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
