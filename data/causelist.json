@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-29T13:15:48Z",
+  "scraped_at": "2026-05-29T13:31:00Z",
   "for_dates": [
     "2026-05-29",
     "2026-05-30"
@@ -7,6 +7,20 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "targeted_matters30052026.pdf",
+      "date": "2026-05-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro_for_30.05.2026.pdf",
+      "date": "2026-05-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "cause_list_for_30.05.2026.pdf",
       "date": "2026-05-30",
@@ -107,20 +121,6 @@
     },
     {
       "file": "deletion_note_jr_judicial_29052026_sine.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_note_for_29.05.26.pdf",
-      "date": "2026-05-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_19-for_29.05.26.pdf",
       "date": "2026-05-29",
       "matched": 0,
       "regex_matches": 0,
