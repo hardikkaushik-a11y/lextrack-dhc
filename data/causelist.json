@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-30T12:30:51Z",
+  "scraped_at": "2026-05-30T12:45:51Z",
   "for_dates": [
     "2026-05-30",
     "2026-05-31"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "causelist_31.05.2026.pdf",
+      "date": "2026-05-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "targeted_matters30052026.pdf",
       "date": "2026-05-30",
