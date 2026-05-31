@@ -1,33 +1,11 @@
 {
-  "scraped_at": "2026-05-31T01:30:44Z",
+  "scraped_at": "2026-05-31T01:46:30Z",
   "for_dates": [
     "2026-05-31",
     "2026-06-01"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "sup_01062026.pdf",
-      "date": "2026-06-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_list_vacation_01.06.2026.pdf",
-      "date": "2026-06-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "causelist_31.05.2026.pdf",
-      "date": "2026-05-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
