@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-05-31T18:15:37Z",
+  "scraped_at": "2026-05-31T18:30:39Z",
   "for_dates": [
-    "2026-05-31",
-    "2026-06-01"
+    "2026-06-01",
+    "2026-06-02"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
@@ -24,13 +24,6 @@
     {
       "file": "combined_list_vacation_01.06.2026.pdf",
       "date": "2026-06-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "causelist_31.05.2026.pdf",
-      "date": "2026-05-31",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
