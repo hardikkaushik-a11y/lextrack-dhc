@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-06-01T18:15:42Z",
+  "scraped_at": "2026-06-01T18:31:15Z",
   "for_dates": [
-    "2026-06-01",
-    "2026-06-02"
+    "2026-06-02",
+    "2026-06-03"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
@@ -17,48 +17,6 @@
     {
       "file": "c_02062026.pdf",
       "date": "2026-06-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_today_s_suppl.01.06.2025.pdf",
-      "date": "2026-06-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vac_supp._list_for_01.06.2026.pdf",
-      "date": "2026-06-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_s_suppl.01.06.2025.pdf",
-      "date": "2026-06-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "up_01062026.pdf",
-      "date": "2026-06-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_01062026.pdf",
-      "date": "2026-06-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_list_vacation_01.06.2026.pdf",
-      "date": "2026-06-01",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
