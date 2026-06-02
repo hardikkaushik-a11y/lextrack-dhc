@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-06-02T18:15:48Z",
+  "scraped_at": "2026-06-02T18:30:55Z",
   "for_dates": [
-    "2026-06-02",
-    "2026-06-03"
+    "2026-06-03",
+    "2026-06-04"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
@@ -17,20 +17,6 @@
     {
       "file": "c_03062026.pdf",
       "date": "2026-06-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jud_02062026.pdf",
-      "date": "2026-06-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_02062026.pdf",
-      "date": "2026-06-02",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
