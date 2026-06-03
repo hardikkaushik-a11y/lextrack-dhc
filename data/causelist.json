@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-06-03T18:15:51Z",
+  "scraped_at": "2026-06-03T18:31:02Z",
   "for_dates": [
-    "2026-06-03",
-    "2026-06-04"
+    "2026-06-04",
+    "2026-06-05"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
@@ -17,48 +17,6 @@
     {
       "file": "combined_cause_list_04.06.2026.pdf",
       "date": "2026-06-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_vac_ben_03.06.2026.pdf",
-      "date": "2026-06-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_vac_bench_03.06.2026.pdf",
-      "date": "2026-06-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_vb_03.06.2026.pdf",
-      "date": "2026-06-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vac_supp._list_for_03.06.2026.pdf",
-      "date": "2026-06-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_03.06.2026.pdf",
-      "date": "2026-06-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_03062026.pdf",
-      "date": "2026-06-03",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
