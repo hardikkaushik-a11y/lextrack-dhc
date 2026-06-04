@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-06-04T18:15:52Z",
+  "scraped_at": "2026-06-04T18:30:48Z",
   "for_dates": [
-    "2026-06-04",
-    "2026-06-05"
+    "2026-06-05",
+    "2026-06-06"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
@@ -24,20 +24,6 @@
     {
       "file": "combined_cause_list_05.06.2026.pdf",
       "date": "2026-06-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sher-04.06.2026.pdf",
-      "date": "2026-06-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_04.06.2026.pdf",
-      "date": "2026-06-04",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
