@@ -1,47 +1,11 @@
 {
-  "scraped_at": "2026-06-05T18:15:49Z",
+  "scraped_at": "2026-06-05T18:30:47Z",
   "for_dates": [
-    "2026-06-05",
-    "2026-06-06"
+    "2026-06-06",
+    "2026-06-07"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "vk_today_suppl.05.06.2026.pdf",
-      "date": "2026-06-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c-83_sup_05062026.pdf",
-      "date": "2026-06-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jud_05062026.pdf",
-      "date": "2026-06-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_05.06.2026.pdf",
-      "date": "2026-06-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_05.06.2026.pdf",
-      "date": "2026-06-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
