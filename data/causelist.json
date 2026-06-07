@@ -1,11 +1,33 @@
 {
-  "scraped_at": "2026-06-07T02:01:49Z",
+  "scraped_at": "2026-06-07T02:00:57Z",
   "for_dates": [
     "2026-06-07",
     "2026-06-08"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
-  "sources": [],
+  "sources": [
+    {
+      "file": "supple_08.06.2026.pdf",
+      "date": "2026-06-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c-83_sup._for_08062026.pdf",
+      "date": "2026-06-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_08062026.pdf",
+      "date": "2026-06-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    }
+  ],
   "entries": []
 }
