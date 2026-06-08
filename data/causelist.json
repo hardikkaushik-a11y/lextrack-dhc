@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-08T13:15:51Z",
+  "scraped_at": "2026-06-08T13:31:03Z",
   "for_dates": [
     "2026-06-08",
     "2026-06-09"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "cause_list_for_09.06.2026.pdf",
+      "date": "2026-06-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_vc_madhu_jain_08.06.2026.pdf",
       "date": "2026-06-08",
