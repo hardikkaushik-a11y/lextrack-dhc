@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-06-08T18:15:48Z",
+  "scraped_at": "2026-06-08T18:30:53Z",
   "for_dates": [
-    "2026-06-08",
-    "2026-06-09"
+    "2026-06-09",
+    "2026-06-10"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
@@ -10,62 +10,6 @@
     {
       "file": "cause_list_for_09.06.2026.pdf",
       "date": "2026-06-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_vc_madhu_jain_08.06.2026.pdf",
-      "date": "2026-06-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "org_side_vac_list_supp_for_08.06.2026.pdf",
-      "date": "2026-06-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_today_supply_for_08.06.2026.pdf",
-      "date": "2026-06-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_db_2nd_08.06.2026.pdf",
-      "date": "2026-06-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_db_08.06.2026.pdf",
-      "date": "2026-06-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "supple_08.06.2026.pdf",
-      "date": "2026-06-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c-83_sup._for_08062026.pdf",
-      "date": "2026-06-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_08062026.pdf",
-      "date": "2026-06-08",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
