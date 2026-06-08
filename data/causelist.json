@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-08T09:16:16Z",
+  "scraped_at": "2026-06-08T09:30:58Z",
   "for_dates": [
     "2026-06-08",
     "2026-06-09"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "org_side_vac_list_supp_for_08.06.2026.pdf",
+      "date": "2026-06-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "vk_today_supply_for_08.06.2026.pdf",
       "date": "2026-06-08",
