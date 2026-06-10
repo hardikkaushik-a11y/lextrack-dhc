@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-06-10T18:16:04Z",
+  "scraped_at": "2026-06-10T18:30:57Z",
   "for_dates": [
-    "2026-06-10",
-    "2026-06-11"
+    "2026-06-11",
+    "2026-06-12"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
@@ -10,55 +10,6 @@
     {
       "file": "mediation_list_11062026.pdf",
       "date": "2026-06-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup-3_for_10.06.26.pdf",
-      "date": "2026-06-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup-2_dfx_note_for_10.06.26.pdf",
-      "date": "2026-06-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup-1_for_10.06.26.pdf",
-      "date": "2026-06-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pronouncement_notes_10.06.26.pdf",
-      "date": "2026-06-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl._causelist_10.06.2026.pdf",
-      "date": "2026-06-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro_10.06.2026_0.pdf",
-      "date": "2026-06-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_10.06.2026.pdf",
-      "date": "2026-06-10",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
