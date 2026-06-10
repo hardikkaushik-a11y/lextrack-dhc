@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-10T09:30:57Z",
+  "scraped_at": "2026-06-10T09:45:55Z",
   "for_dates": [
     "2026-06-10",
     "2026-06-11"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "vk_sup-2_dfx_note_for_10.06.26.pdf",
+      "date": "2026-06-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "vk_sup-1_for_10.06.26.pdf",
       "date": "2026-06-10",
