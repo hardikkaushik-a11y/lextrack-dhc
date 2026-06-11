@@ -1,19 +1,11 @@
 {
-  "scraped_at": "2026-06-11T06:00:55Z",
+  "scraped_at": "2026-06-11T06:16:49Z",
   "for_dates": [
     "2026-06-11",
     "2026-06-12"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "mediation_list_11062026.pdf",
-      "date": "2026-06-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
