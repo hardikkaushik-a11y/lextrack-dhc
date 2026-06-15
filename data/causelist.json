@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-15T12:01:13Z",
+  "scraped_at": "2026-06-15T12:16:12Z",
   "for_dates": [
     "2026-06-15",
     "2026-06-16"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "c_16062026.pdf",
+      "date": "2026-06-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_for_today_15.06_db.pdf",
       "date": "2026-06-15",
