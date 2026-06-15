@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-15T08:15:59Z",
+  "scraped_at": "2026-06-15T08:31:02Z",
   "for_dates": [
     "2026-06-15",
     "2026-06-16"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup_for_today_15.06_hmj_tejas_karia.pdf",
+      "date": "2026-06-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_for_today_15.06_0.pdf",
       "date": "2026-06-15",
