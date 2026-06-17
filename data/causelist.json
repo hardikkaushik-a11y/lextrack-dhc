@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-06-17T18:15:55Z",
+  "scraped_at": "2026-06-17T18:31:25Z",
   "for_dates": [
-    "2026-06-17",
-    "2026-06-18"
+    "2026-06-18",
+    "2026-06-19"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
@@ -10,48 +10,6 @@
     {
       "file": "combined_cause_list_18.06.2026.pdf",
       "date": "2026-06-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro_17.06.2026_0.pdf",
-      "date": "2026-06-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "revised_del_and_sup_17.06.2026.pdf",
-      "date": "2026-06-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro_17.06.2026.pdf",
-      "date": "2026-06-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "del_and_sup_17.06.2026.pdf",
-      "date": "2026-06-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "17062026.pdf",
-      "date": "2026-06-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_causel_list_17.06.2026.pdf",
-      "date": "2026-06-17",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
