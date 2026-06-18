@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-18T12:01:12Z",
+  "scraped_at": "2026-06-18T12:16:05Z",
   "for_dates": [
     "2026-06-18",
     "2026-06-19"
@@ -7,6 +7,20 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_cause_lsit_19.06.2026.pdf",
+      "date": "2026-06-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "jud_19.06.2026.pdf",
+      "date": "2026-06-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_cause_list_18.06.2026.pdf",
       "date": "2026-06-18",
