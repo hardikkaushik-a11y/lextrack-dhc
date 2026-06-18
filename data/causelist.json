@@ -1,19 +1,11 @@
 {
-  "scraped_at": "2026-06-18T04:01:03Z",
+  "scraped_at": "2026-06-18T04:01:20Z",
   "for_dates": [
     "2026-06-18",
     "2026-06-19"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "combined_cause_list_18.06.2026.pdf",
-      "date": "2026-06-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
