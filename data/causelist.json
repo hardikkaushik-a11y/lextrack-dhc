@@ -1,11 +1,33 @@
 {
-  "scraped_at": "2026-06-19T07:31:50Z",
+  "scraped_at": "2026-06-19T07:45:46Z",
   "for_dates": [
     "2026-06-19",
     "2026-06-20"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
-  "sources": [],
+  "sources": [
+    {
+      "file": "jud_19062026.pdf",
+      "date": "2026-06-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_lsit_19.06.2026.pdf",
+      "date": "2026-06-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "jud_19.06.2026.pdf",
+      "date": "2026-06-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    }
+  ],
   "entries": []
 }
