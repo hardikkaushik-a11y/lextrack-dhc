@@ -1639,7 +1639,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:01:21.682Z",
+    "lastScraped": "2026-06-19T10:01:24.221Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2007,7 +2007,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:01:29.205Z",
+    "lastScraped": "2026-06-19T10:01:31.624Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2292,7 +2292,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:01:36.654Z",
+    "lastScraped": "2026-06-19T10:01:39.074Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2532,7 +2532,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:01:44.160Z",
+    "lastScraped": "2026-06-19T10:01:46.536Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2597,7 +2597,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:01:52.805Z",
+    "lastScraped": "2026-06-19T10:01:53.976Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2758,7 +2758,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:02:00.235Z",
+    "lastScraped": "2026-06-19T10:02:01.438Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3213,7 +3213,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:02:07.818Z",
+    "lastScraped": "2026-06-19T10:02:08.923Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4120,7 +4120,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:02:15.356Z",
+    "lastScraped": "2026-06-19T10:02:16.803Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4321,7 +4321,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:02:22.893Z",
+    "lastScraped": "2026-06-19T10:02:24.240Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4727,7 +4727,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:02:30.484Z",
+    "lastScraped": "2026-06-19T10:02:31.725Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4928,7 +4928,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:02:38.083Z",
+    "lastScraped": "2026-06-19T10:02:39.224Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5669,7 +5669,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:02:45.513Z",
+    "lastScraped": "2026-06-19T10:02:46.696Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6389,7 +6389,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:02:54.351Z",
+    "lastScraped": "2026-06-19T10:03:01.541Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6689,7 +6689,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:03:01.817Z",
+    "lastScraped": "2026-06-19T10:03:09.243Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7082,7 +7082,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:03:09.351Z",
+    "lastScraped": "2026-06-19T10:03:16.777Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7272,18 +7272,7 @@
         }
       }
     ],
-    "additionalDates": [
-      {
-        "date": "2026-07-08",
-        "before": "jr",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-02-20",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1771907597_1dc56c226e3837f7_739_12032025.pdf/2026"
-        }
-      }
-    ],
+    "additionalDates": [],
     "tasks": [],
     "docs": [
       {
@@ -7322,7 +7311,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:03:18.687Z",
+    "lastScraped": "2026-06-19T10:03:43.881Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7994,7 +7983,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-06-19T09:03:26.187Z",
+    "lastScraped": "2026-06-19T10:03:51.591Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
