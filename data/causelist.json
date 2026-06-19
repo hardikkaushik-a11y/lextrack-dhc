@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-19T11:31:03Z",
+  "scraped_at": "2026-06-19T11:45:51Z",
   "for_dates": [
     "2026-06-19",
     "2026-06-20"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "rev_supply_list-6_19.06.2026_db.pdf",
+      "date": "2026-06-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "supply_list-6_19.06.2026_db.pdf",
       "date": "2026-06-19",
