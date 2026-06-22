@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-22T08:16:01Z",
+  "scraped_at": "2026-06-22T08:31:02Z",
   "for_dates": [
     "2026-06-22",
     "2026-06-23"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "supply_2_cause_list_for_22.06.2026.pdf",
+      "date": "2026-06-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "del_and_sup_22.06.2026.pdf",
       "date": "2026-06-22",
