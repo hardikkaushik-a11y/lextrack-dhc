@@ -1,68 +1,11 @@
 {
-  "scraped_at": "2026-06-24T18:15:53Z",
+  "scraped_at": "2026-06-24T18:30:57Z",
   "for_dates": [
-    "2026-06-24",
-    "2026-06-25"
+    "2026-06-25",
+    "2026-06-26"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "last_supple_hmj_vinod_kumar_24.06.2026.pdf",
-      "date": "2026-06-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vac_list_01_for_24.06.2026_0.pdf",
-      "date": "2026-06-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_24.06.pdf",
-      "date": "2026-06-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_db_for_24.06.pdf",
-      "date": "2026-06-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vac_list_01_for_24.06.2026.pdf",
-      "date": "2026-06-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "original_vac_list_01_for_24.06.2026.pdf",
-      "date": "2026-06-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "original_pro_24.06.2026.pdf",
-      "date": "2026-06-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_24.06.2026.pdf",
-      "date": "2026-06-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
