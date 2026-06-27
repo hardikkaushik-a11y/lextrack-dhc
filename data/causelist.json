@@ -1,11 +1,19 @@
 {
-  "scraped_at": "2026-06-27T05:30:57Z",
+  "scraped_at": "2026-06-27T05:45:49Z",
   "for_dates": [
     "2026-06-27",
     "2026-06-28"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
-  "sources": [],
+  "sources": [
+    {
+      "file": "27062026m.pdf",
+      "date": "2026-06-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    }
+  ],
   "entries": []
 }
