@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-29T08:01:14Z",
+  "scraped_at": "2026-06-29T08:15:51Z",
   "for_dates": [
     "2026-06-29",
     "2026-06-30"
@@ -7,6 +7,13 @@
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "cause_list_30.06.pdf",
+      "date": "2026-06-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_for_today_29.06.pdf",
       "date": "2026-06-29",
