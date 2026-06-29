@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-06-29T18:15:49Z",
+  "scraped_at": "2026-06-29T18:31:10Z",
   "for_dates": [
-    "2026-06-29",
-    "2026-06-30"
+    "2026-06-30",
+    "2026-07-01"
   ],
   "tracked_cases": 17,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_cause_list_01.07.2026.pdf",
+      "date": "2026-07-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "30062026m.pdf",
       "date": "2026-06-30",
@@ -17,20 +24,6 @@
     {
       "file": "cause_list_30.06.pdf",
       "date": "2026-06-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_for_today_29.06.pdf",
-      "date": "2026-06-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_29.06.2026.pdf",
-      "date": "2026-06-29",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
