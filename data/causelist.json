@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-06-30T12:45:51Z",
+  "scraped_at": "2026-06-30T13:01:38Z",
   "for_dates": [
     "2026-06-30",
     "2026-07-01"
   ],
   "tracked_cases": 17,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "cause_list_for_01.07.2026.pdf",
+      "date": "2026-07-01",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "finals_01.07.2026.pdf",
       "date": "2026-07-01",
@@ -43,5 +50,19 @@
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 448,
+      "context": "In CS(COMM)-      PRIVATE LIMITED      MAYA, ISHI SINGH,\n             319/2026          V/s ABBASI TV & ORS. SHUDHATA SUDHIR",
+      "caseNo": "CS(COMM)/319/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-      PRIVATE LIMITED      MAYA, ISHI SINGH,\n             319/2026",
+      "date": "2026-07-01",
+      "source_pdf": "cause_list_for_01.07.2026.pdf"
+    }
+  ]
 }
