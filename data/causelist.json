@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-30T13:01:39Z",
+  "scraped_at": "2026-06-30T13:16:22Z",
   "for_dates": [
     "2026-06-30",
     "2026-07-01"
@@ -7,6 +7,20 @@
   "tracked_cases": 17,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "pro_for_01.07.2026.pdf",
+      "date": "2026-07-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "2nd_supplementary_list_01.07.2026.pdf",
+      "date": "2026-07-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "cause_list_for_01.07.2026.pdf",
       "date": "2026-07-01",
