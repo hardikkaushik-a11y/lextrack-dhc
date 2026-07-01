@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-01T08:16:18Z",
+  "scraped_at": "2026-07-01T08:31:42Z",
   "for_dates": [
     "2026-07-01",
     "2026-07-02"
@@ -8,17 +8,17 @@
   "matched_cases": 2,
   "sources": [
     {
-      "file": "vk_sup_7_for_01.07.26.pdf",
-      "date": "2026-07-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
       "file": "advance_combined_list_for_02.07.2026.pdf",
       "date": "2026-07-02",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_7_for_01.07.26.pdf",
+      "date": "2026-07-01",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
