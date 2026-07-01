@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-07-01T13:31:55Z",
+  "scraped_at": "2026-07-01T13:46:15Z",
   "for_dates": [
     "2026-07-01",
     "2026-07-02"
   ],
   "tracked_cases": 17,
-  "matched_cases": 2,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "7777-1_02072026.pdf",
+      "date": "2026-07-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_02072026.pdf",
       "date": "2026-07-02",
@@ -64,6 +71,13 @@
       "norm_matches": 0
     },
     {
+      "file": "7777-zzaa_01072026.pdf",
+      "date": "2026-07-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "vk_sup_7_for_01.07.26.pdf",
       "date": "2026-07-01",
       "matched": 0,
@@ -104,20 +118,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "cause_list_for_01.07.2026.pdf",
-      "date": "2026-07-01",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_01.07.2026.pdf",
-      "date": "2026-07-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -133,19 +133,6 @@
       "matched_on": "CS(COMM)-           STAR INDIA PVT     SWATI AGARWAL,\n             331/2025",
       "date": "2026-07-02",
       "source_pdf": "c_02072026.pdf"
-    },
-    {
-      "item": null,
-      "court": "JR",
-      "judge": "SWATI KATIYAR (JR)",
-      "time": null,
-      "page": 448,
-      "context": "In CS(COMM)-      PRIVATE LIMITED      MAYA, ISHI SINGH,\n             319/2026          V/s ABBASI TV & ORS. SHUDHATA SUDHIR",
-      "caseNo": "CS(COMM)/319/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-      PRIVATE LIMITED      MAYA, ISHI SINGH,\n             319/2026",
-      "date": "2026-07-01",
-      "source_pdf": "cause_list_for_01.07.2026.pdf"
     }
   ]
 }
