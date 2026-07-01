@@ -4999,5 +4999,35 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/108/2025",
     "_orderDate": "2026-05-26"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1782896763_dd27bb15532a000a_762_3192026.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Plaintiff's application to implead additional defendants (nos. 69-70) allowed; existing blocking and injunction order extended to newly impleaded defendants.",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to serve summons on newly impleaded defendants within two weeks via electronic mode.",
+      "Domain name registrars (DNRs) to lock and suspend/deactivate the rogue websites/applications/UI impleaded today.",
+      "ISPs/TSPs to take necessary action to block the rogue websites/applications/UI.",
+      "Plaintiff to comply with Order 39 Rule 3 CPC and file compliance affidavit within a week.",
+      "Plaintiff to supply copy of the application to defendant nos. 14, 29, and 30."
+    ],
+    "citations": [
+      "Order 39 Rule 3 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Priyansh Kohli",
+      "defendant": "Mr. Yogesh Singh and Mr. Nikhil Gupta (for D-14 GoDaddy.com LLC); Ms. Radhika Biswajit Dubey, CGSC and Mr. Kritarth Upadhyay"
+    },
+    "summary": "The Joint Registrar allowed the plaintiff's application to implead additional rogue websites/applications/UI and their domain name registrars as defendants. The existing blocking and injunction order was extended to the newly impleaded defendants. Directions were issued for service, suspension of domains, and compliance with procedural requirements.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-01T10:04:16.674Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/319/2026",
+    "_orderDate": "2026-07-01"
   }
 }

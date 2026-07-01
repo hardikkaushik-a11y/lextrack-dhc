@@ -1639,7 +1639,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:02:16.509Z",
+    "lastScraped": "2026-07-01T10:02:01.253Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2007,7 +2007,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:02:23.940Z",
+    "lastScraped": "2026-07-01T10:02:08.706Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2292,7 +2292,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:02:31.472Z",
+    "lastScraped": "2026-07-01T10:02:16.108Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2532,7 +2532,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:02:38.872Z",
+    "lastScraped": "2026-07-01T10:02:23.645Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2597,7 +2597,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:02:46.765Z",
+    "lastScraped": "2026-07-01T10:02:31.157Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2609,10 +2609,47 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-05-19",
+    "lastDate": "2026-07-01",
     "nextDate": "2026-09-21",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-07-01",
+        "event": "Court Order",
+        "detail": "Fresh I.A. 16370/2026 on behalf of the plaintiffs seeking impleadment of additional applications/associated domains/ URLs/ UIs and their domain name registrars engaged in infringin…",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1782896763_dd27bb15532a000a_762_3192026.pdf/2026",
+        "orderText": "$~17 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 319/2026 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Priyansh Kohli, Adv (VC). versus ABBASI TV & ORS. .....Defendants Through: Mr. Yogesh Singh and Mr. Nikhil Gupta, Advs for D-14 (GoDaddy.com LLC). Ms. Radhika Biswajit Dubey, CGSC and Mr. Kritarth Upadhyay, Advs. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 01.07.2026 Fresh I.A. 16370/2026 on behalf of the plaintiffs seeking impleadment of additional applications/associated domains/ URLs/ UIs and their domain name registrars engaged in infringing activities as the original defendant nos. 32-70. 1. Vide the present application, the plaintiff is seeking to implead additional rogue-website (s) / application (s) / UI (s) and their domain name registrars as defendant nos. 32-70 because the website (s) / application (s) / UI (s) have been found to be indulging in illegally disseminating the copyrighted material belonging to the plaintiff. Proposed defendant nos. 32-68 are rogue-website (s) / application (s) / UI (s) and the defendant no. 69 to 70 are DNR of proposed defendants. The application is supported by the required affidavit. Keeping in view the contents This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 01/07/2026 at 15:32:39 of the suit and the application, the same is allowed. The proposed defendants are impleaded as defendant nos. 69 to 70. 2. The amended memo filed alongwith this IA is taken on record. Steps be taken to serve the newly impleaded defendants with summons within two weeks, through the electronic mode only, on filing of PF, returnable for date already fixed i.e. 29.07.2026. 3. The order blocking the rogue-website (s) / application (s) / UI (s) and injunction order passed by the Hon’ble Court on 25.03.2026 (in terms of paragraph no.38 and 39 ) shall operate qua the freshly impleaded defendants as well. Further, the concerned DNR’s are directed to lock and suspend / deactivate the rogue-website (s) / application (s) / UI (s) impleaded today. The concerned ISPs /TSPs are directed to take necessary action. Plaintiff shall comply with Order 39 Rule 3 CPC and file compliance affidavit within a week. IA is allowed and disposed off accordingly. 4. At this stage, Ld counsel for defendant no. 14, 29 and 30 submits that they have not received copy of present application and the same may be supplied to them for compliance, if any. Let the copy of the application be supplied by the plaintiff at the earliest. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) JULY 1, 2026/bk This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 01/07/2026 at 15:32:39",
+        "intelligence": {
+          "classification": "interim",
+          "reliefGranted": "Plaintiff's application to implead additional defendants (nos. 69-70) allowed; existing blocking and injunction order extended to newly impleaded defendants.",
+          "costsAwarded": null,
+          "directions": [
+            "Plaintiff to serve summons on newly impleaded defendants within two weeks via electronic mode.",
+            "Domain name registrars (DNRs) to lock and suspend/deactivate the rogue websites/applications/UI impleaded today.",
+            "ISPs/TSPs to take necessary action to block the rogue websites/applications/UI.",
+            "Plaintiff to comply with Order 39 Rule 3 CPC and file compliance affidavit within a week.",
+            "Plaintiff to supply copy of the application to defendant nos. 14, 29, and 30."
+          ],
+          "citations": [
+            "Order 39 Rule 3 CPC"
+          ],
+          "counsel": {
+            "plaintiff": "Mr. Priyansh Kohli",
+            "defendant": "Mr. Yogesh Singh and Mr. Nikhil Gupta (for D-14 GoDaddy.com LLC); Ms. Radhika Biswajit Dubey, CGSC and Mr. Kritarth Upadhyay"
+          },
+          "summary": "The Joint Registrar allowed the plaintiff's application to implead additional rogue websites/applications/UI and their domain name registrars as defendants. The existing blocking and injunction order was extended to the newly impleaded defendants. Directions were issued for service, suspension of domains, and compliance with procedural requirements.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-07-01T10:04:16.674Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/319/2026",
+          "_orderDate": "2026-07-01"
+        }
+      },
       {
         "date": "2026-05-19",
         "event": "Court Order",
@@ -2758,7 +2795,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:02:54.299Z",
+    "lastScraped": "2026-07-01T10:02:40.172Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3213,7 +3250,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:03:01.689Z",
+    "lastScraped": "2026-07-01T10:02:48.069Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4120,7 +4157,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:03:09.293Z",
+    "lastScraped": "2026-07-01T10:02:55.661Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4321,7 +4358,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:03:16.879Z",
+    "lastScraped": "2026-07-01T10:03:03.202Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4727,7 +4764,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:03:25.280Z",
+    "lastScraped": "2026-07-01T10:03:11.022Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4928,7 +4965,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:03:32.913Z",
+    "lastScraped": "2026-07-01T10:03:18.541Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5669,7 +5706,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:03:40.303Z",
+    "lastScraped": "2026-07-01T10:03:26.004Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6389,7 +6426,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:03:47.712Z",
+    "lastScraped": "2026-07-01T10:03:33.595Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6689,7 +6726,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:03:55.195Z",
+    "lastScraped": "2026-07-01T10:03:41.065Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7082,7 +7119,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:04:02.826Z",
+    "lastScraped": "2026-07-01T10:03:48.568Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7322,7 +7359,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:04:10.413Z",
+    "lastScraped": "2026-07-01T10:03:55.988Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7994,7 +8031,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-01T09:04:17.865Z",
+    "lastScraped": "2026-07-01T10:04:10.013Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
