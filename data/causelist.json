@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-07-01T18:16:08Z",
+  "scraped_at": "2026-07-01T18:31:45Z",
   "for_dates": [
-    "2026-07-01",
-    "2026-07-02"
+    "2026-07-02",
+    "2026-07-03"
   ],
   "tracked_cases": 17,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_advance_03.07.2026.pdf",
+      "date": "2026-07-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "7777-1_02072026.pdf",
       "date": "2026-07-02",
@@ -68,55 +75,6 @@
       "date": "2026-07-02",
       "matched": 1,
       "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "7777-zzaa_01072026.pdf",
-      "date": "2026-07-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_7_for_01.07.26.pdf",
-      "date": "2026-07-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jud_01_for_01.07.2026.pdf",
-      "date": "2026-07-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_01072026.pdf",
-      "date": "2026-07-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jud_supple_2_01072026.odtttt123.pdf",
-      "date": "2026-07-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro_for_01.07.2026.pdf",
-      "date": "2026-07-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "2nd_supplementary_list_01.07.2026.pdf",
-      "date": "2026-07-01",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
