@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-01T12:16:15Z",
+  "scraped_at": "2026-07-01T12:31:55Z",
   "for_dates": [
     "2026-07-01",
     "2026-07-02"
@@ -7,6 +7,20 @@
   "tracked_cases": 17,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "c_02072026.pdf",
+      "date": "2026-07-02",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl02072026.pdf",
+      "date": "2026-07-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "finals_02.07.2026.pdf",
       "date": "2026-07-02",
@@ -105,13 +119,13 @@
       "court": "JR",
       "judge": "SUDHIR KUMAR SIROHI (JR)",
       "time": null,
-      "page": 139,
+      "page": 274,
       "context": "2       CS(COMM)-           STAR INDIA PVT     SWATI AGARWAL,\n             331/2025            LTD                MAYANK MIKHAIL",
       "caseNo": "CS(COMM)/331/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-           STAR INDIA PVT     SWATI AGARWAL,\n             331/2025",
       "date": "2026-07-02",
-      "source_pdf": "advance_combined_list_for_02.07.2026.pdf"
+      "source_pdf": "c_02072026.pdf"
     },
     {
       "item": null,
