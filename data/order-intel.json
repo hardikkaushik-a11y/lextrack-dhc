@@ -5029,5 +5029,607 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/319/2026",
     "_orderDate": "2026-07-01"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1782918953_2b537ae00738985b_jis_6722026.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Exemption from pre-institution mediation and from issuing notices to certain defendants; summons issued; ad interim injunction application pending notice.",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff exempted from pre-institution mediation.",
+      "Plaintiff exempted from issuing notices to Defendants 15, 18, 23, and 24.",
+      "Plaintiff may file additional documents later as per Commercial Courts Act.",
+      "Summons issued to all defendants returnable on 04.08.2026.",
+      "Written statements due within 30 days of summons; replications within 30 days of written statements."
+    ],
+    "citations": [
+      "Section 12-A, Commercial Courts Act, 2015",
+      "Section 151 CPC",
+      "Order XXXIX Rules 1 and 2 CPC",
+      "Order XI Rule 1(4), Commercial Courts Act, 2015",
+      "Section 80 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Garg, Mr. Akshay Maloo, Ms. Ishi Singh, Mr. Manish Singh, Ms. Shudhata",
+      "defendant": null
+    },
+    "summary": "The court granted the plaintiff's applications for exemption from pre-institution mediation and from issuing notices to certain defendants, allowed filing of additional documents, and issued summons to all defendants. The ad interim injunction application was directed to be served and listed for hearing on 09.10.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:03.689Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/672/2026",
+    "_orderDate": "2026-07-01"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1778932363_e0596e8e7c9d5140_jis_2562026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 21.09.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Garg, Ms. Disha Sharma and Ms. Ishi Singh",
+      "defendant": "Mr. Darpan Wadhwa, Senior Advocate with Mr. Sandeep Das, Ms. Kanak Malik and Mr. Tejasvi Mahajan"
+    },
+    "summary": "The court listed the matter for further hearing on 21.09.2026. No interim or final relief was granted. The order is purely procedural.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:03.689Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/256/2026",
+    "_orderDate": "2026-05-13"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1775555741_3533a09ef995f011_762_2562026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no. 1 to file written statement as per rules.",
+      "Replication, if any, to be filed within timeline already indicated by Hon'ble Court.",
+      "Put up for completion of pleadings/admission/denial of documents and marking of exhibits on 14.07.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Sandeep Das, Ms. Anandini Rathore and Mr. Tejasvi Mahajan"
+    },
+    "summary": "The matter was listed for completion of pleadings. Counsel for defendant no. 1 submitted that they will file their written statement as per rules. The court directed that replication, if any, be filed within the timeline already indicated, and listed the matter for further proceedings on 14.07.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:03.689Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/256/2026",
+    "_orderDate": "2026-04-06"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1773855515_7d6820f9d1d30df9_jis_2562026.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Exemption from pre-institution mediation; extension of time to file court fees; permission to file additional documents and videos; direction to provide subscriber information; no ex parte injunction granted but defendant's statement recorded.",
+    "costsAwarded": null,
+    "directions": [
+      "Defendant No. 1 to provide Basic Subscriber Information of users in Document-A within one week.",
+      "Defendant No. 1 to file written statement within 30 days with affidavit of admission/denial.",
+      "Plaintiff may file replication within 30 days of receipt of written statement.",
+      "List before Joint Registrar on 06.04.2026 for admission/denial and marking of exhibits.",
+      "Defendant No. 1 to file reply to injunction application within four weeks; rejoinder within two weeks thereafter."
+    ],
+    "citations": [
+      "Section 12-A, Commercial Courts Act, 2015",
+      "Section 151 CPC",
+      "Order XXXIX Rules 1 and 2 CPC",
+      "Order XI Rule 1(4) Commercial Courts Act, 2015",
+      "Section 149 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Saikrishna Rajagopal, Mr. Yatinder Garg, Ms. Disha Sharama, Ms. Ishi Singh",
+      "defendant": "Mr. Darpan Wadhwa (Senior Advocate), Mr. Sandeep Das, Ms. Anandini Rathore, Mr. Tejasvi Mahajan"
+    },
+    "summary": "The court granted the plaintiff exemption from pre-institution mediation, extension to file court fees, and permission to file additional documents and videos. It issued summons and directed the defendant to provide subscriber information of allegedly infringing users. No ex parte injunction was granted as the defendant stated the impugned URLs were taken down.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:07.849Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/256/2026",
+    "_orderDate": "2026-03-18"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1775554159_36915557b6a468be_739_11862024.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Impleadment of defendants 18-22 and extension of earlier injunction order dated 23.03.2024 to them.",
+    "costsAwarded": null,
+    "directions": [
+      "Issue notice on IA 8634/2026.",
+      "Defendants 18 to 22 are impleaded as defendants.",
+      "Order dated 23.03.2024 is extended to defendants 18 to 22.",
+      "Issue summons to defendants 18 to 22 through all permissible modes subject to filing of process fee."
+    ],
+    "citations": [
+      "Order I Rule 10 CPC",
+      "Section 151 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Akshay Maloo & Ms. Ishi Singh",
+      "defendant": "Mr. Yash Karunakaran & Ms. Nitya Nath (D-6), Mr. Saksham Chaturvedi (D-7), Mr. Vaarish Sawlani & Ms. Rithika Mathur (D-8), Ms. Anmol Dhindsa (D-9), Ms. Nidhi Raman, Mr. Om Ram & Ms. Nikita Singh (D-15 & 16)"
+    },
+    "summary": "The court allowed the plaintiff's application for impleadment of proposed defendants 18 to 22, who were allegedly involved in defrauding victims using the plaintiff's brand name. The court extended the earlier injunction order dated 23.03.2024 to these new defendants and directed issuance of summons.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:07.849Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2026-04-01"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1774607790_eac95fda63fea3e3_739_11862024.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to file impleadment application for newly identified rogue websites",
+      "List matter for further proceedings on 14.08.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Srishti Dhoundiyal",
+      "defendant": "Ms. Ekta Sharma, Mr. Udit Tewari, Ms. Surabhi Katare (for D-4); Mr. Yash Karunakaran, Ms. Nitya Nath (for D-6); Mr. Saurabh Kumar, Ms. Vedanshi Jalan (for D-7); Mr. Vaarish Sawlani, Ms. Rithika Mathur (for D-8); Mr. Nikhil Gupta, Mr. Shivam Tiwari (for D-9); Ms. Gitanjali Kapoor, Mr. Yubaraj Chatterjee (for D-13); Ms. Nidhi Raman, Mr. Om Ram, Ms. Nikita Rathi (for D-15 & 16)"
+    },
+    "summary": "The Joint Registrar noted that rights of certain defendants to file written statements have been closed, and that defendants 6, 7, 8 are proforma parties and defendant 17 is John Doe. Plaintiff's counsel indicated that an impleadment application will be filed for additional rogue websites. The matter was adjourned to 14.08.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:07.849Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2026-03-25"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1772289728_943da2e90575bd0c_jis_11852024.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List matters before learned Joint Registrar for further proceedings on 25.03.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Srishti Dhoundiyal, Mr. Akshay Maloo",
+      "defendant": "Mr. Shashank Mishra, Mr. Varish Sawlani, Ms. Rithika Mathur, Mr. Varun Pathak, Mr. Yash Karunakaran, Ms. Nitya Nath, Mr. Saurabh Kumar, Mr. Nikhil Gupta, Mr. Yogesh Singh, Mr. Shivam Tiwari, Mr. Varun Mishra, Ms. Shreeya Sud, Mr. Ashar Hussain, Ms. Ekta Sharma, Ms. Pragya Jain, Mr. Udit Tewari, Mr. Deepak Gogia, Mr. Aadhar Nautiyal, Ms. Shivangi Kohli, Mr. Puneet Singh, Mr. Onkar Roy, Mr. Yash Goyal, Mr. Parth Rishik, Ms. Malvika Sharma, Ms. Nidhi Raman, Mr. Om Ram, Ms. Nikita Singh, Mr. Sagar Shivam Jaiswal, Mr. Rishabh Yadav"
+    },
+    "summary": "The court listed three connected commercial suits (CS(COMM) 1185/2024, 1186/2024, and 125/2025) before the Joint Registrar for further proceedings on 25.03.2026. No substantive relief was granted; the order is purely procedural.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:10.997Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2026-02-27"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1762508160_56da98aa89718de7_739_11862024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter before the Hon'ble Court on 27.02.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Abhishek Kumar Singh, Mr. Saurabh Kumar, Ms. Rose Maria Sebi, Mr. Simran Jain for D-7; Mr. Yash Karunakaran, Ms. Nitya Nath for D-6; Mr. Vaarish Sawlani, Ms. Rithika Mathur for D-8; Mr. Yogesh Singh, Mr. Nikhil Gupta, Mr. Arjun Mookerjee for D-9; Ms. Nidhi Raman (CGSC), Mr. Mayank Sansanwal, Mr. Om Ram for D-15 & 16"
+    },
+    "summary": "The Joint Registrar noted that the rights of defendant nos. 1 to 5, 10 to 12, 14 & 16 to file written statements have been closed. Defendant nos. 6, 7 & 8 are proforma parties, and defendant no. 17 is John Doe. At the joint request of parties, the matter was directed to be listed before the Hon'ble Court on the already fixed date of 27.02.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:10.997Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-11-04"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1757433522_0e19125f5407a086_589_11852024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 27.02.2026 at joint request."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Disha Sharma, Mr. Akshay Maloo and Ms. Srishti Dhondiyal",
+      "defendant": "Mr. Varun Pathak, Mr. Yash, Ms. Nitya Nath, Mr. Sanjay Kumar, Mr. Saurabh Kumar, Mr. Saksham Chaturvedi, Mr. Shashank Mishra, Mr. Vaarish Sawlani, Ms. Saumya Pawar, Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Nikhil Gupta, Mr. Arjun Mookerjee, Ms. Nidhi Raman, Mr. Om Ram, Mr. Neel Mason, Ms. Pragya Jain, Ms. Surabhi Katare, Mr. Deepak Gogia, Mr. Aadhar Nautiyal, Ms. Shivangi Kohli, Mr. Puneet Singh, Mr. Abhay Mani Tripathi, Mr. Suryans Agarwal, Inspector Devendra Singh"
+    },
+    "summary": "The court, upon joint request of the parties, adjourned the matter and listed it for further hearing on 27.02.2026. No interim relief or final orders were passed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:10.997Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-09-08"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1754997452_8585870c3c4d50f7_744_11862024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Matter sent back to Hon'ble Court for further direction due to non-appearance of plaintiff."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": null,
+      "defendant": "Mr. Vaarish Sawlani and Ms. Rithika Mathur (for D8); Mr. Yash Karunakaran and Ms. Nitya Nath (for D6); Ms. Nidhi Raman and Mr. Saurabh Kumar (for D7)"
+    },
+    "summary": "The matter was listed for mediation drive. None appeared for the plaintiff, so the Joint Registrar sent the matter back to the court for further directions.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:14.934Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-08-12"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1755514162_b5ca030956ee86d6_739_11862024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no. 1 to 5, 10 to 12, 14 & 16's right to file written statements closed.",
+      "Plaintiff's right to file replication closed.",
+      "Registry to ensure written statement of defendant no. 7 appears in pleadings.",
+      "Contesting parties to file photocopies of admitted documents and joint schedule of documents.",
+      "List matter for admission-denial and marking of exhibits on 04.11.2025."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Rimjhim Tiwari",
+      "defendant": "Mr. Yash K. & Ms. Nitya Nath (D-6), Mr. Abhishek K. Sing, Mr. Saurabh Kumar, Ms. Rose Maria Sebi & Mr. Saksham Chaturvedi (D-7), Mr. Vaarish K. Sawlani & Ms. Rithika Mathur (D-8), Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Nikhil Gupta & Mr. Arjun Mookerjee (D-9), Ms. Nidhi Raman (CGSC), Ms. Archana S. (GP) & Mr. Om Ram (D-15 & 16)"
+    },
+    "summary": "The Joint Registrar noted that defendants 1-16 were served via email. Compliance affidavits were filed by defendants 9 and 15. No written statements were filed by defendants 1-5, 9-12, and 14-16, so their right to file was closed. Plaintiff's right to file replication was also closed as the period expired. The registry was directed to ensure the written statement of defendant 7 appears in pleadings. Parties were directed to file admitted documents and a joint schedule, and the matter was listed for admission-denial on 04.11.2025.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:14.934Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-08-11"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/59075600_1747654661_591_11862024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Renotify on 08.09.2025"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": null,
+      "defendant": "Mr. Shyamal Anand and Ms. Nitya Nath, Advocates. Mr. Abhishek K. Singh, Mr. Saurabh Kumar and Mr. Saksham Chaturvedi, Advocates for D-7. Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Arjun Mookerjeet, Mr. Nikhil Gupta and Ms. Nikita Rathi, Advocates for D-9. Ms. Nidhi Raman, CGSC for D-15 & D-16."
+    },
+    "summary": "The court was unable to hold proceedings due to the judge's official visit. The matter was renotified for 08.09.2025.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:14.934Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-05-19"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1747219542_68247456b12bf.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendants to file written statements/compliance affidavits as per law.",
+      "Plaintiff to file replications as per law.",
+      "List matter for completion of pleadings/compliance affidavits on 11.08.2025.",
+      "IA No. 11914/2025 for condonation of delay in filing written statement by defendant no. 7 is allowed."
+    ],
+    "citations": [
+      "Order 8 Rule 1 CPC",
+      "Section 151 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Rimjhim Tiwari",
+      "defendant": "Mr. Shyamal Anand & Ms. Nitya Nath (D-6), Mr. Abhishek Kumar Singh & ors. (D-7), Mr. Mohit Singh & ors. (D-8), Mr. Mrinal Ojha & ors. (D-9), Mr. Sumeet Kapoor & ors. (D-13), Mr. Nidhi Raman & ors. (D-15 & 16)"
+    },
+    "summary": "The court noted that service on defendants was effected through various modes and took on record written statements of defendants 6, 7, and 8. It allowed an application by defendant 7 for condonation of delay in filing written statement. The matter was adjourned for completion of pleadings.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:18.848Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-05-09"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/590756001744895825941_90280_11862024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no.8 to file reply to I.A.49537/2024 within one week",
+      "Rejoinder, if any, to be filed within two weeks thereafter",
+      "Parties to file written synopsis not exceeding five pages within four weeks",
+      "List on 19.05.2025"
+    ],
+    "citations": [
+      "Order XXXIX Rules 1 and 2, CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Akshay Maloo",
+      "defendant": "Mr. Varun Pathak, Mr. Shyamal Anand, Mr. Nitya Nath (D-6); Mr. Abhishek Kumar Singh, Mr. Saurabh Kumar, Ms. Rose Maria Sebi, Mr. Saksham Chaturvedi (D-7); Mr. Shashank Mishra, Mr. Mohit Singh, Mr. Vaarish Sawlani, Ms. Rithika Mathur (D-8); Ms. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Arjun Mookerjee, Mr. Shivam Tiwari, Ms. Nikita Rathi (D-15/Godaddy.com LLC); Ms. Nidhi Raman, CGSC with Mr. Debasish Mishraa, Mr. Arnav Mittal (DoT & Meity)"
+    },
+    "summary": "The court allowed defendant no.8's application to condone a 21-day delay in filing a reply to the plaintiff's interim application, as the plaintiff had no objection. The court directed defendant no.8 to file the reply within one week and set a schedule for rejoinder and written synopses, listing the matter for 19.05.2025.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:18.848Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-04-16"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/100023041744195614536_91119_11862024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Written statement of defendant no. 8 taken on record.",
+      "Replication to be filed in accordance with law.",
+      "List matter on 09.05.2025.",
+      "IA No. 9441/2025 for condonation of delay allowed."
+    ],
+    "citations": [
+      "Order VIII Rule 1, Code of Civil Procedure, 1908",
+      "Section 151, Code of Civil Procedure, 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Rimjhim Tiwari",
+      "defendant": "Mr. Shyamal Anand & Ms. Nitya Nath (D-6); Mr. Sanjay Kumar, Mr. Abhishek K. Singh, Mr. Saurabh Kumar & Ms. Rose Maria Sebi (D-7); Mr. Vaarish K. Sawlani & Ms. Rithika Mathur (D-8); Mr. Mrinal Ojha, Mr. Debarshi Dutta, Ms. Nikita Rathi, Mr. Yogesh Singh & Mr. Shivam Tiwari (D-9); Ms. Nidhi Raman (CGSC), Mr. Arnav Mittal & Ms. Archana Surve (GP) (D-15 & 16)"
+    },
+    "summary": "The Joint Registrar took the written statement of defendant no. 8 on record and directed the plaintiff to file a replication. An application by defendant no. 8 seeking condonation of delay in filing the written statement was allowed without objection from the plaintiff. The matter was adjourned to 09.05.2025.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:18.848Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-04-09"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/337991751743517688915_37484_11862024.pdf/2025": {
+    "classification": "interim",
+    "reliefGranted": "Modification of earlier order to remove domain name www.ril.co.in from suspension; direction to restore access for email use only.",
+    "costsAwarded": null,
+    "directions": [
+      "GoDaddy.com, LLC to remove lock and suspension on domain name www.ril.co.in within three days.",
+      "Defendant nos. 11 to 16 to restore domain name www.ril.co.in.",
+      "Defendant nos. 15 and 16 to issue fresh notification withdrawing earlier blocking notification."
+    ],
+    "citations": [
+      "Section 151, Code of Civil Procedure, 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Gang, Mr. Akshay Maloo, Ms. Rimjhim Tiwari",
+      "defendant": "Mr. Varun Pathak, Mr. Shyamal Anand, Mr. Vishwajeet Deshmukh (D-6); Mr. Abhishek Kumar Singh, Mr. Saurabh Kumar, Mr. Saksham Chaturvedi (D-7); Mr. Shashank Mishra, Mr. Mohit Singh, Mr. Vaarish Sawlani, Ms. Rithika Mathur (D-8); Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Arjun Mookerjee, Mr. Nikhil Gupta (D-9); Ms. Nidhi Raman, CGSC with Ms. Archana Surve, Mr. Aakash Mishra, Mr. Debasish Mishra (D-15 & 16); Mr. N. Mahabir, Ms. Noopur Biswas (Applicant)"
+    },
+    "summary": "The court modified its earlier order of 23rd December 2024 to exclude the domain name www.ril.co.in from suspension, after the applicant Ramco Industries Limited demonstrated bonafide use since 2001 for email only. With plaintiff's consent, the domain was allowed for email use, and GoDaddy was directed to restore access within three days.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:22.853Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-04-01"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/590756001743249128816_46173_11862024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Date of hearing preponed to 01.04.2025 before Justice Ms. Mini Pushkarna",
+      "Previous date 07.04.2025 cancelled"
+    ],
+    "citations": [
+      "Section 151, Code of Civil Procedure, 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Yatinder Garg",
+      "defendant": "Mr. Abhishek K Singh, Mr. Saurabh Kumar, Mr. Rose Maria Sebi (for D-7); Mr. Mohit Singh, Ms. Ritika Mathur, Mr. Vibhu Pahuja (for D-8); Ms. Mrinal Ojha, Ms. Debanshi Dutta, Mr. Arjun Mookerjee, Mr. Yogesh Singh, Ms. Nikita Rathi (for D-9); Ms. Nidhi Raman, Mr. Arnav Mittal, Ms. Ridhi Kapoor, Ms. Archana Surve (for D-15 & 16); Mr. P.C. Arya, Mr. Udit Gupta (for applicant)"
+    },
+    "summary": "The court allowed an application by a non-party to prepone the hearing of an application seeking modification of a previous order. The matter was re-listed before Justice Ms. Mini Pushkarna on 01.04.2025, cancelling the earlier date of 07.04.2025.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:22.853Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-03-28"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/100025621742903332315_31774_11862024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant No. 6's delay of 6 days in filing written statement condoned; written statement taken on record.",
+      "Plaintiff to file replication to written statement of Defendant No. 6 within statutory period.",
+      "List I.A. 7420/2025 before Hon'ble Ms. Justice Mini Pushkarna on 07.04.2025."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatindera Garg, Mr. Akshay Maloo and Ms. Rimjhim Tiwari",
+      "defendant": "Mr. Varun Pathak (D-6), Mr. Sanjay Kumar and Mr. Saksham Chaturvedi (D-7), Mr. Shashank Mishra, Mr. Mohit Singh, Mr. Vaarish Sawlani and Ms. Rithika Mathur (D-8/WhatsApp LLC), Mr. Mrimal Ojha, Mr. Oebarshi Dutta, Mr. Arjun Mookerjee, Mr. Yogesh Singh and Ms. Nikita Rathi (D-9/GoDaddy.com), Ms. Nidhi Raman, CGSC with Mr. Debashish Mishra and Ms. Archana Survi (D-15 and 16), Mr. N. Mahabir and Mr. Udit Gupta (applicant in I.A. 7420/2025)"
+    },
+    "summary": "The court allowed Defendant No. 6's application for condonation of 6 days delay in filing written statement, as it was within the statutory 120-day period and plaintiff had no objection. The court also listed another application (I.A. 7420/2025) by Ramco Industries Limited seeking modification of a prior order before the original judge.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:22.853Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-03-24"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/100023041742975303788_246_11862024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter on 09.05.2025 for the purpose fixed.",
+      "IA No. 7420/2025: Notice already issued; no further order.",
+      "IA No. 7596/2025: Allowed (condonation of delay in filing written statement)."
+    ],
+    "citations": [
+      "Section 151 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Y. Garg, Mr. Akshay M. & Mr. Abhay Aren",
+      "defendant": "Mr. Shyamal Anand & Mr. Vishwajeet Deshmukh (D-6), Mr. Abhishek Kumar Singh & Ms. Rose Maria Sebi (D-7), Mr. Mohit Singh, Mr. Vaarish Sawlani & Ms. Rithika Mathur (D-8), Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Nikhil Gupta & Mr. Arjun Mookerjee (D-9)"
+    },
+    "summary": "The Joint Registrar listed the matter for 09.05.2025. IA No. 7420/2025 by plaintiff seeking modification of order dated 23.12.2024 was noted as notice already issued. IA No. 7596/2025 by defendant no. 6 seeking condonation of delay in filing written statement was allowed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:26.349Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-03-24"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/100025621742911958977_16824_11862024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 24.03.2025"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Yatinder Garg",
+      "defendant": "Mr. Varun Pathak, Mr. Shyamal Anand, Mr. Vishwajeet Deshmukh for D6; Mr. Abhishek K. Singh, Mr. Saurabh Kumar, Mr. Saksham Chaturvedi for D7; Mr. Shashank Mishra, Mr. Vaarish K. Sawlani, Ms. Rithika Mathur for D8; Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Arjun Mookerjee, Mr. Yogesh Singh, Ms. Nikita Rathi for D9; Ms. Nidhi Raman, Ms. Archana Surve, Mr. Zubin Singh, Mr. Arnav Mittal for D16-17; Mr. N. Mahabit, Mr. P.C. Arya for applicant"
+    },
+    "summary": "The court was not holding session today due to the judge's absence. The matter was adjourned to March 24, 2025, by the court master.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:26.349Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-03-21"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/100023041739964324522_69936_11862024.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to file service-affidavit regarding email service on 14.02.2025.",
+      "Defendants 14 & 15 to file written statements/compliance-affidavits as per law.",
+      "Plaintiff to supply paper-book to defendant no. 7 via email/whatsapp within a week.",
+      "Defendant no. 7 to file written statement/compliance-affidavit after receiving paper-book.",
+      "List matter for completion of service/pleadings on 09.05.2025."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Rimjhim Tiwari",
+      "defendant": "Mr. Shyamal Anand & Mr. Vishwajeet Deshmukh (D-6), Mr. Abhishek Kumar Singh, Mr. Saksham Chaturvedi & Mr. Saurabh Kumar (D-7), Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Yogesh Singh, Mr. Rishabh Agarwal & Ms. Nikita Rathi (D-9), Ms. Nidhi Raman (CGSC), Mr. Arnav Mittal & Mr. Zubin Singh (D-15 & 16), Ms. Archana Surve (GP) (D-15 & 16)"
+    },
+    "summary": "The court noted that all defendants have been served via email on 14.02.2025 and that defendants 14 & 15 were served via ordinary means on 13.02.2025. The plaintiff was directed to file a service-affidavit and to provide the paper-book to defendant no. 7. The matter was listed for completion of service/pleadings on 09.05.2025.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:26.349Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2025-02-18"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/337991751735021006204_59543_11862024.pdf/2024": {
+    "classification": "interim",
+    "reliefGranted": "Exemption from pre-institution mediation and advance service granted; no substantive injunction granted.",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to file certified/clearer/proper/translated copies of documents with proper margins before next hearing.",
+      "Plaintiff may file additional documents strictly as per Commercial Courts Act and Delhi High Court Rules.",
+      "Application for directions to police is pending; no specific direction issued yet."
+    ],
+    "citations": [
+      "Section 151, Code of Civil Procedure, 1908",
+      "Section 12A, Commercial Courts Act, 2015",
+      "Order XI Rule 1(4), CPC",
+      "Rule 22, Delhi High Court Intellectual Property Rights Division Rules, 2022"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Sidharth Chopra, Mr. Yatinder Gang, Mr. Akshay Maloo, Ms. Rimjhim Tiwari, Ms. Reeva Gujral Singhal, Ms. Taarika Pillai",
+      "defendant": "Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Arjun Mookerjee, Ms. Nikita Rathi (for D-9); Ms. Nidhi Raman, CGSC with Ms. Archana Surve, GP, Mr. Aakash Mishra, Mr. Zubin Singh (for R-15 & 16)"
+    },
+    "summary": "The court disposed of several interim applications filed by the plaintiff in a commercial suit for trademark and copyright infringement. Exemption from pre-institution mediation and advance service on certain defendants was granted. The plaintiff was directed to file proper copies of documents and may file additional documents later as per rules. An application seeking directions to the police was not finally decided.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-02T05:14:30.359Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2024-12-23"
   }
 }
