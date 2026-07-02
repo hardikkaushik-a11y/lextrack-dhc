@@ -2,7 +2,7 @@
   {
     "caseNo": "CS(COMM)/108/2025",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T21:03:55.781Z",
+    "lastScraped": "2026-07-02T22:03:30.381Z",
     "tasks": [],
     "docs": [
       {
@@ -1624,7 +1624,7 @@
   {
     "caseNo": "CS(COMM)/331/2025",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T21:05:10.215Z",
+    "lastScraped": "2026-07-02T22:05:06.587Z",
     "tasks": [],
     "docs": [
       {
@@ -1971,7 +1971,7 @@
   {
     "caseNo": "CS(COMM)/89/2026",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T21:06:25.050Z",
+    "lastScraped": "2026-07-02T22:06:21.137Z",
     "tasks": [],
     "docs": [
       {
@@ -2225,7 +2225,7 @@
   {
     "caseNo": "CS(COMM)/81/2026",
     "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T21:07:26.209Z",
+    "lastScraped": "2026-07-02T22:07:40.511Z",
     "tasks": [],
     "docs": [
       {
@@ -2433,8 +2433,8 @@
   },
   {
     "caseNo": "CS(COMM)/313/2026",
-    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T21:08:39.937Z",
+    "error": "Navigation timeout of 30000 ms exceeded",
+    "lastScraped": "2026-07-02T22:09:16.719Z",
     "tasks": [],
     "docs": [
       {
@@ -2489,7 +2489,7 @@
   {
     "caseNo": "CS(COMM)/319/2026",
     "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T21:09:37.281Z",
+    "lastScraped": "2026-07-02T22:10:28.444Z",
     "tasks": [],
     "docs": [
       {
@@ -2656,7 +2656,7 @@
   {
     "caseNo": "CS(COMM)/756/2025",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T21:11:13.483Z",
+    "lastScraped": "2026-07-02T22:12:02.367Z",
     "tasks": [],
     "docs": [
       {
@@ -3089,8 +3089,8 @@
   },
   {
     "caseNo": "CS(COMM)/810/2025",
-    "error": "net::ERR_CONNECTION_REFUSED at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T21:12:48.415Z",
+    "error": "Navigation timeout of 30000 ms exceeded",
+    "lastScraped": "2026-07-02T22:12:39.280Z",
     "tasks": [],
     "docs": [
       {
@@ -3965,8 +3965,8 @@
   },
   {
     "caseNo": "CS(COMM)/195/2026",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T21:14:04.019Z",
+    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T22:13:49.153Z",
     "tasks": [],
     "docs": [
       {
@@ -4136,7 +4136,7 @@
   {
     "caseNo": "CS(COMM)/582/2025",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T21:15:21.908Z",
+    "lastScraped": "2026-07-02T22:14:50.883Z",
     "tasks": [],
     "docs": [
       {
@@ -4510,8 +4510,8 @@
   },
   {
     "caseNo": "CS(COMM)/1306/2025",
-    "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-02T21:16:12.012Z",
+    "error": "Navigation timeout of 30000 ms exceeded",
+    "lastScraped": "2026-07-02T22:16:27.103Z",
     "tasks": [],
     "docs": [
       {
@@ -4689,7 +4689,7 @@
   {
     "caseNo": "CS(COMM)/269/2024",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T21:17:08.547Z",
+    "lastScraped": "2026-07-02T22:17:38.820Z",
     "tasks": [],
     "docs": [
       {
@@ -5640,7 +5640,7 @@
   {
     "caseNo": "CS(COMM)/536/2025",
     "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T21:18:33.857Z",
+    "lastScraped": "2026-07-02T22:18:39.964Z",
     "tasks": [],
     "docs": [
       {
@@ -6099,8 +6099,8 @@
   },
   {
     "caseNo": "CS(COMM)/977/2025",
-    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T21:18:54.337Z",
+    "error": "Navigation timeout of 30000 ms exceeded",
+    "lastScraped": "2026-07-02T22:19:44.633Z",
     "tasks": [],
     "docs": [
       {
@@ -6378,8 +6378,8 @@
   },
   {
     "caseNo": "CS(COMM)/1210/2025",
-    "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-02T21:20:12.736Z",
+    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T22:20:46.940Z",
     "tasks": [],
     "docs": [
       {
@@ -6750,8 +6750,8 @@
   },
   {
     "caseNo": "CS(COMM)/1203/2025",
-    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T21:20:53.125Z",
+    "error": "Navigation timeout of 30000 ms exceeded",
+    "lastScraped": "2026-07-02T22:21:53.903Z",
     "tasks": [],
     "docs": [
       {
@@ -6969,8 +6969,8 @@
   },
   {
     "caseNo": "CS(COMM)/149/2025",
-    "error": "net::ERR_CONNECTION_REFUSED at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T21:21:59.841Z",
+    "error": "net::ERR_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T22:22:26.274Z",
     "tasks": [],
     "docs": [
       {
@@ -7620,8 +7620,8 @@
   },
   {
     "caseNo": "CS(COMM)/672/2026",
-    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T21:22:47.808Z",
+    "error": "net::ERR_CONNECTION_REFUSED at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T22:23:21.010Z",
     "tasks": [],
     "docs": [
       {
@@ -7679,8 +7679,8 @@
   },
   {
     "caseNo": "CS(COMM)/256/2026",
-    "error": "net::ERR_CONNECTION_REFUSED at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T21:23:50.954Z",
+    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T22:24:28.128Z",
     "tasks": [],
     "docs": [
       {
@@ -7816,8 +7816,8 @@
   },
   {
     "caseNo": "CS(COMM)/1186/2024",
-    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T21:24:50.693Z",
+    "error": "Navigation timeout of 30000 ms exceeded",
+    "lastScraped": "2026-07-02T22:26:04.305Z",
     "tasks": [],
     "docs": [
       {
