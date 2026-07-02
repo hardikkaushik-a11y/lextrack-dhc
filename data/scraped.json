@@ -2,7 +2,7 @@
   {
     "caseNo": "CS(COMM)/108/2025",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:03:31.787Z",
+    "lastScraped": "2026-07-02T21:03:55.781Z",
     "tasks": [],
     "docs": [
       {
@@ -1624,7 +1624,7 @@
   {
     "caseNo": "CS(COMM)/331/2025",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:05:07.981Z",
+    "lastScraped": "2026-07-02T21:05:10.215Z",
     "tasks": [],
     "docs": [
       {
@@ -1971,7 +1971,7 @@
   {
     "caseNo": "CS(COMM)/89/2026",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:06:14.496Z",
+    "lastScraped": "2026-07-02T21:06:25.050Z",
     "tasks": [],
     "docs": [
       {
@@ -2224,8 +2224,8 @@
   },
   {
     "caseNo": "CS(COMM)/81/2026",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:07:50.676Z",
+    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T21:07:26.209Z",
     "tasks": [],
     "docs": [
       {
@@ -2433,8 +2433,8 @@
   },
   {
     "caseNo": "CS(COMM)/313/2026",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:09:02.719Z",
+    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T21:08:39.937Z",
     "tasks": [],
     "docs": [
       {
@@ -2489,7 +2489,7 @@
   {
     "caseNo": "CS(COMM)/319/2026",
     "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T20:09:39.002Z",
+    "lastScraped": "2026-07-02T21:09:37.281Z",
     "tasks": [],
     "docs": [
       {
@@ -2656,7 +2656,7 @@
   {
     "caseNo": "CS(COMM)/756/2025",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:10:48.928Z",
+    "lastScraped": "2026-07-02T21:11:13.483Z",
     "tasks": [],
     "docs": [
       {
@@ -3089,8 +3089,8 @@
   },
   {
     "caseNo": "CS(COMM)/810/2025",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:11:58.563Z",
+    "error": "net::ERR_CONNECTION_REFUSED at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T21:12:48.415Z",
     "tasks": [],
     "docs": [
       {
@@ -3966,7 +3966,7 @@
   {
     "caseNo": "CS(COMM)/195/2026",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:13:34.739Z",
+    "lastScraped": "2026-07-02T21:14:04.019Z",
     "tasks": [],
     "docs": [
       {
@@ -4136,7 +4136,7 @@
   {
     "caseNo": "CS(COMM)/582/2025",
     "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:14:41.085Z",
+    "lastScraped": "2026-07-02T21:15:21.908Z",
     "tasks": [],
     "docs": [
       {
@@ -4510,8 +4510,8 @@
   },
   {
     "caseNo": "CS(COMM)/1306/2025",
-    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T20:15:51.737Z",
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-07-02T21:16:12.012Z",
     "tasks": [],
     "docs": [
       {
@@ -4687,17 +4687,111 @@
     "timeline": []
   },
   {
-    "id": "m_CSCOMM_269_2024",
     "caseNo": "CS(COMM)/269/2024",
-    "title": "RAZORPAY SOFTWARE PRIVATE LIMITED & ANR. VS. JOHN DOE & ORS.",
-    "type": "copyright",
-    "stage": "filed",
-    "status": "PENDING",
-    "judge": null,
-    "client": null,
+    "error": "Navigation timeout of 30000 ms exceeded",
+    "lastScraped": "2026-07-02T21:17:08.547Z",
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2025-12-10.pdf",
+        "type": "Court Order",
+        "date": "2025-12-10",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1765468854_fcb2237996d225be_589_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-11-04.pdf",
+        "type": "Court Order",
+        "date": "2025-11-04",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1762340623_cca22b370e4c730d_589_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-09-10.pdf",
+        "type": "Court Order",
+        "date": "2025-09-10",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1757604944_e6e47059891255b6_589_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-11.pdf",
+        "type": "Court Order",
+        "date": "2025-08-11",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1754913308_60fbde426dd8a328_745_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-28.pdf",
+        "type": "Court Order",
+        "date": "2025-04-28",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1746006163_6811f09352963.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-03.pdf",
+        "type": "Court Order",
+        "date": "2025-04-03",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521743767311557_70108_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-03-12.pdf",
+        "type": "Court Order",
+        "date": "2025-03-12",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521741774730299_861_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-01-24.pdf",
+        "type": "Court Order",
+        "date": "2025-01-24",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521737715842367_62667_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-11-11.pdf",
+        "type": "Court Order",
+        "date": "2024-11-11",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521731412195662_94039_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-09-03.pdf",
+        "type": "Court Order",
+        "date": "2024-09-03",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/590756001725451534684_30927_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-09-02.pdf",
+        "type": "Court Order",
+        "date": "2024-09-02",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448905239_13561_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-08-30.pdf",
+        "type": "Court Order",
+        "date": "2024-08-30",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448906481_70816_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-07-02.pdf",
+        "type": "Court Order",
+        "date": "2024-07-02",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521720003547382_48225_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-04-02.pdf",
+        "type": "Court Order",
+        "date": "2024-04-02",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100025571712236282954_30259_2692024.pdf/2024",
+        "size": "—"
+      }
+    ],
     "lastDate": "2026-05-22",
-    "nextDate": "2026-09-16",
-    "notes": null,
     "timeline": [
       {
         "date": "2026-05-22",
@@ -5302,122 +5396,7 @@
           "_orderDate": "2024-04-02"
         }
       }
-    ],
-    "additionalDates": [
-      {
-        "date": "2026-09-16",
-        "before": "court",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-04-30",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1777562288_48b24c7f928771f8_jis_2692024.pdf/2026"
-        }
-      }
-    ],
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2025-12-10.pdf",
-        "type": "Court Order",
-        "date": "2025-12-10",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1765468854_fcb2237996d225be_589_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-11-04.pdf",
-        "type": "Court Order",
-        "date": "2025-11-04",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1762340623_cca22b370e4c730d_589_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-09-10.pdf",
-        "type": "Court Order",
-        "date": "2025-09-10",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1757604944_e6e47059891255b6_589_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-11.pdf",
-        "type": "Court Order",
-        "date": "2025-08-11",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1754913308_60fbde426dd8a328_745_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-28.pdf",
-        "type": "Court Order",
-        "date": "2025-04-28",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1746006163_6811f09352963.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-03.pdf",
-        "type": "Court Order",
-        "date": "2025-04-03",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521743767311557_70108_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-03-12.pdf",
-        "type": "Court Order",
-        "date": "2025-03-12",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521741774730299_861_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-01-24.pdf",
-        "type": "Court Order",
-        "date": "2025-01-24",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521737715842367_62667_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-11-11.pdf",
-        "type": "Court Order",
-        "date": "2024-11-11",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521731412195662_94039_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-09-03.pdf",
-        "type": "Court Order",
-        "date": "2024-09-03",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/590756001725451534684_30927_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-09-02.pdf",
-        "type": "Court Order",
-        "date": "2024-09-02",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448905239_13561_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-08-30.pdf",
-        "type": "Court Order",
-        "date": "2024-08-30",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448906481_70816_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-07-02.pdf",
-        "type": "Court Order",
-        "date": "2024-07-02",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521720003547382_48225_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-04-02.pdf",
-        "type": "Court Order",
-        "date": "2024-04-02",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100025571712236282954_30259_2692024.pdf/2024",
-        "size": "—"
-      }
-    ],
-    "lastScraped": "2026-07-02T20:17:10.783Z",
-    "_scraperVersion": "v11-jr-default-2026-05-14"
+    ]
   },
   {
     "id": "m_CSCOMM_997_2025",
@@ -5660,8 +5639,8 @@
   },
   {
     "caseNo": "CS(COMM)/536/2025",
-    "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-02T20:18:36.907Z",
+    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T21:18:33.857Z",
     "tasks": [],
     "docs": [
       {
@@ -6120,8 +6099,8 @@
   },
   {
     "caseNo": "CS(COMM)/977/2025",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:19:45.505Z",
+    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T21:18:54.337Z",
     "tasks": [],
     "docs": [
       {
@@ -6399,8 +6378,8 @@
   },
   {
     "caseNo": "CS(COMM)/1210/2025",
-    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
-    "lastScraped": "2026-07-02T20:20:50.746Z",
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-07-02T21:20:12.736Z",
     "tasks": [],
     "docs": [
       {
@@ -6771,8 +6750,8 @@
   },
   {
     "caseNo": "CS(COMM)/1203/2025",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:22:04.769Z",
+    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T21:20:53.125Z",
     "tasks": [],
     "docs": [
       {
@@ -6990,8 +6969,8 @@
   },
   {
     "caseNo": "CS(COMM)/149/2025",
-    "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-02T20:22:58.661Z",
+    "error": "net::ERR_CONNECTION_REFUSED at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T21:21:59.841Z",
     "tasks": [],
     "docs": [
       {
@@ -7641,8 +7620,8 @@
   },
   {
     "caseNo": "CS(COMM)/672/2026",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:24:09.369Z",
+    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T21:22:47.808Z",
     "tasks": [],
     "docs": [
       {
@@ -7700,8 +7679,8 @@
   },
   {
     "caseNo": "CS(COMM)/256/2026",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-02T20:25:49.290Z",
+    "error": "net::ERR_CONNECTION_REFUSED at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T21:23:50.954Z",
     "tasks": [],
     "docs": [
       {
@@ -7837,8 +7816,8 @@
   },
   {
     "caseNo": "CS(COMM)/1186/2024",
-    "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-02T20:26:54.050Z",
+    "error": "net::ERR_CONNECTION_TIMED_OUT at https://delhihighcourt.nic.in/app/get-case-type-status",
+    "lastScraped": "2026-07-02T21:24:50.693Z",
     "tasks": [],
     "docs": [
       {
