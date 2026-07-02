@@ -1,96 +1,11 @@
 {
-  "scraped_at": "2026-07-02T03:46:17Z",
+  "scraped_at": "2026-07-02T04:02:17Z",
   "for_dates": [
     "2026-07-02",
     "2026-07-03"
   ],
   "tracked_cases": 17,
-  "matched_cases": 1,
-  "sources": [
-    {
-      "file": "combined_advance_03.07.2026.pdf",
-      "date": "2026-07-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "7777-1_02072026.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_02072026.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_2_02.07.26.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_02072026.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_02072026.pdf",
-      "date": "2026-07-02",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl02072026.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_02.07.2026.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_02.07.2026.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "advance_combined_list_for_02.07.2026.pdf",
-      "date": "2026-07-02",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    }
-  ],
-  "entries": [
-    {
-      "item": "2",
-      "court": "JR",
-      "judge": "SUDHIR KUMAR SIROHI (JR)",
-      "time": null,
-      "page": 274,
-      "context": "2       CS(COMM)-           STAR INDIA PVT     SWATI AGARWAL,\n             331/2025            LTD                MAYANK MIKHAIL",
-      "caseNo": "CS(COMM)/331/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-           STAR INDIA PVT     SWATI AGARWAL,\n             331/2025",
-      "date": "2026-07-02",
-      "source_pdf": "c_02072026.pdf"
-    }
-  ]
+  "matched_cases": 0,
+  "sources": [],
+  "entries": []
 }
