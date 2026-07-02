@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-02T18:16:29Z",
+  "scraped_at": "2026-07-02T18:31:33Z",
   "for_dates": [
-    "2026-07-02",
-    "2026-07-03"
+    "2026-07-03",
+    "2026-07-04"
   ],
   "tracked_cases": 20,
   "matched_cases": 1,
@@ -66,62 +66,6 @@
     {
       "file": "combined_advance_03.07.2026.pdf",
       "date": "2026-07-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_11-b_dfx-db-1_for_02.07.26.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_11-a_for_02.07.26.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_11_for_02.07.26.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_madhu_jain_02.07.2026.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_for_02.07.26.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "org_jud_for_02.07.2026.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_9_for_02.07.26.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_pla_02.07.2026.pdf",
-      "date": "2026-07-02",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
