@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-02T05:46:26Z",
+  "scraped_at": "2026-07-02T06:01:43Z",
   "for_dates": [
     "2026-07-02",
     "2026-07-03"
@@ -10,6 +10,13 @@
     {
       "file": "combined_advance_03.07.2026.pdf",
       "date": "2026-07-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_pla_02.07.2026.pdf",
+      "date": "2026-07-02",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
