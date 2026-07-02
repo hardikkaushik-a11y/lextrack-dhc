@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-02T13:16:22Z",
+  "scraped_at": "2026-07-02T13:31:40Z",
   "for_dates": [
     "2026-07-02",
     "2026-07-03"
@@ -7,6 +7,20 @@
   "tracked_cases": 20,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "pla_03.07.2026.pdf",
+      "date": "2026-07-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_03072026.pdf",
+      "date": "2026-07-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_3_dh_03.07.pdf",
       "date": "2026-07-03",
@@ -107,20 +121,6 @@
     },
     {
       "file": "sup_pla_02.07.2026.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_db_02.07.2026.pdf",
-      "date": "2026-07-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "7777-1_02072026.pdf",
       "date": "2026-07-02",
       "matched": 0,
       "regex_matches": 0,
