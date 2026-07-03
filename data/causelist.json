@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-07-03T08:01:50Z",
+  "scraped_at": "2026-07-03T08:01:44Z",
   "for_dates": [
     "2026-07-03",
     "2026-07-04"
   ],
   "tracked_cases": 20,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "advance_cause_list_04.07.2026.pdf",
@@ -101,9 +101,7 @@
     {
       "file": "combined_cause_list_03.07.2026.pdf",
       "date": "2026-07-03",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(5967158 bytes read, 10959014 more expected)', IncompleteRead(5967158 bytes read, 10959014 more expected))"
     },
     {
       "file": "combined_advance_03.07.2026.pdf",
@@ -113,19 +111,5 @@
       "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": null,
-      "court": "JR",
-      "judge": "SUDHIR KUMAR SIROHI (JR)",
-      "time": null,
-      "page": 474,
-      "context": "In CS(COMM)-      LTD                  KUMAR, R MAYA,\n             108/2025          V/s IPTV SMARTER PRO AVISH SHARMA,",
-      "caseNo": "CS(COMM)/108/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-      LTD                  KUMAR, R MAYA,\n             108/2025",
-      "date": "2026-07-03",
-      "source_pdf": "combined_cause_list_03.07.2026.pdf"
-    }
-  ]
+  "entries": []
 }
