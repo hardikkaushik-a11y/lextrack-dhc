@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-03T09:16:16Z",
+  "scraped_at": "2026-07-03T09:31:46Z",
   "for_dates": [
     "2026-07-03",
     "2026-07-04"
@@ -10,6 +10,20 @@
     {
       "file": "advance_cause_list_04.07.2026.pdf",
       "date": "2026-07-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-10_for_03.07.26.pdf",
+      "date": "2026-07-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_saurabh_banerjee_03.07.2026.pdf",
+      "date": "2026-07-03",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
