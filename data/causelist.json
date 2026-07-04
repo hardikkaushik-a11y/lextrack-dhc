@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-04T05:15:54Z",
+  "scraped_at": "2026-07-04T05:31:23Z",
   "for_dates": [
     "2026-07-04",
     "2026-07-05"
@@ -7,6 +7,13 @@
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup-4_for_04.07.26_db-7.pdf",
+      "date": "2026-07-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_04072026.pdf",
       "date": "2026-07-04",
