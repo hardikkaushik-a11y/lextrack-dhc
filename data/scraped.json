@@ -1639,7 +1639,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:01:42.972Z",
+    "lastScraped": "2026-07-04T06:01:54.723Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -1651,10 +1651,41 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-04-24",
+    "lastDate": "2026-07-02",
     "nextDate": "2026-08-12",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-07-02",
+        "event": "Court Order",
+        "detail": "Presiding Officer on leave — adjourned to 12.08.2026.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1783141821_0ebe041b80f3e0c9_739_3312025.pdf/2026",
+        "orderText": "$~2 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 331/2025 STAR INDIA PVT LTD .....Plaintiff Through: Ms. Ishi Singh, Adv. (through VC) versus DEVRAJ & ORS. .....Defendant Through: Mr. Yash Raj & Ms. Suvarna Singh, Advs. for proposed D-24. CORAM: JOINT REGISTRAR (JUDICIAL), SUDHIR KUMAR SIROHI (DHJS) O R D E R % 02.07.2026 Ld. P.O. is on leave today. List the matter for the purpose fixed on 12.08.2026. Reader a/w SUDHIR KUMAR SIROHI (DHJS) JOINT REGISTRAR (JUDICIAL) JULY 2, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/07/2026 at 11:32:03",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List the matter for the purpose fixed on 12.08.2026"
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Mr. Yash Raj & Ms. Suvarna Singh"
+          },
+          "summary": "The Joint Registrar noted that the Presiding Officer was on leave and adjourned the matter to 12.08.2026 for the purpose fixed earlier. No substantive orders were passed.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-07-04T06:04:23.864Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/331/2025",
+          "_orderDate": "2026-07-02"
+        }
+      },
       {
         "date": "2026-04-24",
         "event": "Court Order",
@@ -1936,7 +1967,18 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-08-12",
+        "before": "jr",
+        "firstSeenAt": "2026-07-04T06:02:03.420Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-07-02",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1783141821_0ebe041b80f3e0c9_739_3312025.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -1996,7 +2038,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:01:50.370Z",
+    "lastScraped": "2026-07-04T06:02:03.422Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2281,7 +2323,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:01:58.021Z",
+    "lastScraped": "2026-07-04T06:02:11.541Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2521,7 +2563,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:02:05.426Z",
+    "lastScraped": "2026-07-04T06:02:18.966Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2586,7 +2628,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:02:12.820Z",
+    "lastScraped": "2026-07-04T06:02:26.519Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2784,7 +2826,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:02:20.286Z",
+    "lastScraped": "2026-07-04T06:02:34.052Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3239,7 +3281,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:02:27.720Z",
+    "lastScraped": "2026-07-04T06:02:41.617Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4146,7 +4188,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:02:35.132Z",
+    "lastScraped": "2026-07-04T06:02:49.302Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4347,7 +4389,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:02:42.659Z",
+    "lastScraped": "2026-07-04T06:02:56.796Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4753,7 +4795,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:02:50.076Z",
+    "lastScraped": "2026-07-04T06:03:04.266Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4954,7 +4996,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:02:58.350Z",
+    "lastScraped": "2026-07-04T06:03:11.819Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5695,7 +5737,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:03:05.838Z",
+    "lastScraped": "2026-07-04T06:03:19.399Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6415,7 +6457,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:03:13.270Z",
+    "lastScraped": "2026-07-04T06:03:26.846Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6715,7 +6757,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:03:20.700Z",
+    "lastScraped": "2026-07-04T06:03:34.358Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7108,7 +7150,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:03:28.134Z",
+    "lastScraped": "2026-07-04T06:03:41.956Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7348,7 +7390,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:03:35.599Z",
+    "lastScraped": "2026-07-04T06:03:49.497Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8020,7 +8062,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:03:43.032Z",
+    "lastScraped": "2026-07-04T06:03:56.980Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8110,7 +8152,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:03:50.465Z",
+    "lastScraped": "2026-07-04T06:04:04.476Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8278,7 +8320,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:03:57.814Z",
+    "lastScraped": "2026-07-04T06:04:12.007Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9046,7 +9088,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-04T05:04:05.508Z",
+    "lastScraped": "2026-07-04T06:04:19.532Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

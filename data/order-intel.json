@@ -5631,5 +5631,29 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1186/2024",
     "_orderDate": "2024-12-23"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1783141821_0ebe041b80f3e0c9_739_3312025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter for the purpose fixed on 12.08.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Yash Raj & Ms. Suvarna Singh"
+    },
+    "summary": "The Joint Registrar noted that the Presiding Officer was on leave and adjourned the matter to 12.08.2026 for the purpose fixed earlier. No substantive orders were passed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-04T06:04:23.864Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/331/2025",
+    "_orderDate": "2026-07-02"
   }
 }
