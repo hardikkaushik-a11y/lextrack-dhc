@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-07-05T18:16:20Z",
+  "scraped_at": "2026-07-05T18:31:56Z",
   "for_dates": [
-    "2026-07-05",
-    "2026-07-06"
+    "2026-07-06",
+    "2026-07-07"
   ],
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "advance_combined_cause_list_for_07.07.2026.pdf",
+      "date": "2026-07-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "7777-zzaa_06.07.2026-1.pdf",
       "date": "2026-07-06",
