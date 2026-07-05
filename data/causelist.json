@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-05T10:01:54Z",
+  "scraped_at": "2026-07-05T10:16:18Z",
   "for_dates": [
     "2026-07-05",
     "2026-07-06"
@@ -7,6 +7,13 @@
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "7777-zzaa_06.07.2026-1.pdf",
+      "date": "2026-07-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_06072026.pdf",
       "date": "2026-07-06",
