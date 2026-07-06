@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-06T13:17:25Z",
+  "scraped_at": "2026-07-06T13:31:59Z",
   "for_dates": [
     "2026-07-06",
     "2026-07-07"
@@ -7,6 +7,20 @@
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "pla_07.07.2026.pdf",
+      "date": "2026-07-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_07072026.pdf",
+      "date": "2026-07-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "rl07072026.pdf",
       "date": "2026-07-07",
@@ -100,13 +114,6 @@
     },
     {
       "file": "jud_2_for_06.07.2026.pdf",
-      "date": "2026-07-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_amit_bansal_06.07.2026_0.pdf",
       "date": "2026-07-06",
       "matched": 0,
       "regex_matches": 0,
