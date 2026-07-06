@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-06T13:01:57Z",
+  "scraped_at": "2026-07-06T13:17:25Z",
   "for_dates": [
     "2026-07-06",
     "2026-07-07"
@@ -8,9 +8,39 @@
   "matched_cases": 0,
   "sources": [
     {
+      "file": "rl07072026.pdf",
+      "date": "2026-07-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_1_07072026.pdf",
+      "date": "2026-07-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_07072026.pdf",
+      "date": "2026-07-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_07.07.2026.pdf",
+      "date": "2026-07-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "c_07072026.pdf",
       "date": "2026-07-07",
-      "error": "download: ('Connection broken: IncompleteRead(9611078 bytes read, 9152605 more expected)', IncompleteRead(9611078 bytes read, 9152605 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "advance_combined_cause_list_for_07.07.2026.pdf",
@@ -77,27 +107,6 @@
     },
     {
       "file": "sup_hmj_amit_bansal_06.07.2026_0.pdf",
-      "date": "2026-07-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "7777-zzaa_06.07.2026-1.pdf",
-      "date": "2026-07-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_06072026.pdf",
-      "date": "2026-07-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_3_06.07.pdf",
       "date": "2026-07-06",
       "matched": 0,
       "regex_matches": 0,
