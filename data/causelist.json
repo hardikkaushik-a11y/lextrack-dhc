@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-06T15:46:05Z",
+  "scraped_at": "2026-07-06T16:02:10Z",
   "for_dates": [
     "2026-07-06",
     "2026-07-07"
@@ -10,9 +10,7 @@
     {
       "file": "deletion_note_07072026.pdf",
       "date": "2026-07-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(260682 bytes read, 187384 more expected)', IncompleteRead(260682 bytes read, 187384 more expected))"
     },
     {
       "file": "final_supplementary_list_07.07.2026.pdf",
@@ -80,7 +78,9 @@
     {
       "file": "c_07072026.pdf",
       "date": "2026-07-07",
-      "error": "download: ('Connection broken: IncompleteRead(2868350 bytes read, 15895333 more expected)', IncompleteRead(2868350 bytes read, 15895333 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "advance_combined_cause_list_for_07.07.2026.pdf",
