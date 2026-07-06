@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-06T06:02:17Z",
+  "scraped_at": "2026-07-06T06:02:06Z",
   "for_dates": [
     "2026-07-06",
     "2026-07-07"
@@ -17,7 +17,9 @@
     {
       "file": "sup_hmj_amit_bansal_06.07.2026_0.pdf",
       "date": "2026-07-06",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "7777-zzaa_06.07.2026-1.pdf",
