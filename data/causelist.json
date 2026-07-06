@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-06T03:46:24Z",
+  "scraped_at": "2026-07-06T04:02:07Z",
   "for_dates": [
     "2026-07-06",
     "2026-07-07"
@@ -10,7 +10,9 @@
     {
       "file": "advance_combined_cause_list_for_07.07.2026.pdf",
       "date": "2026-07-07",
-      "error": "download: ('Connection broken: IncompleteRead(5461888 bytes read, 403500 more expected)', IncompleteRead(5461888 bytes read, 403500 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "7777-zzaa_06.07.2026-1.pdf",
