@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-06T07:02:06Z",
+  "scraped_at": "2026-07-06T07:16:29Z",
   "for_dates": [
     "2026-07-06",
     "2026-07-07"
@@ -10,6 +10,13 @@
     {
       "file": "advance_combined_cause_list_for_07.07.2026.pdf",
       "date": "2026-07-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_11_trf_matters_for_06.07.26.pdf",
+      "date": "2026-07-06",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -101,7 +108,9 @@
     {
       "file": "combined_cause_list_06.07.2026.pdf",
       "date": "2026-07-06",
-      "error": "download: ('Connection broken: IncompleteRead(14693174 bytes read, 3897262 more expected)', IncompleteRead(14693174 bytes read, 3897262 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "combined_advance_06.07.2026.pdf",
