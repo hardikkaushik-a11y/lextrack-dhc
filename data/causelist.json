@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-06T15:02:04Z",
+  "scraped_at": "2026-07-06T15:16:26Z",
   "for_dates": [
     "2026-07-06",
     "2026-07-07"
@@ -7,6 +7,20 @@
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "deletion_note_07072026.pdf",
+      "date": "2026-07-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_supplementary_list_07.07.2026.pdf",
+      "date": "2026-07-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "jud_266_07072026.pdf",
       "date": "2026-07-07",
@@ -66,7 +80,9 @@
     {
       "file": "c_07072026.pdf",
       "date": "2026-07-07",
-      "error": "download: ('Connection broken: IncompleteRead(17975142 bytes read, 788541 more expected)', IncompleteRead(17975142 bytes read, 788541 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "advance_combined_cause_list_for_07.07.2026.pdf",
@@ -112,13 +128,6 @@
     },
     {
       "file": "sup_11_trf_matters_for_06.07.26.pdf",
-      "date": "2026-07-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_10_for_06.07.26.pdf",
       "date": "2026-07-06",
       "matched": 0,
       "regex_matches": 0,
