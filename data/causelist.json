@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-06T10:02:01Z",
+  "scraped_at": "2026-07-06T10:16:00Z",
   "for_dates": [
     "2026-07-06",
     "2026-07-07"
@@ -10,6 +10,13 @@
     {
       "file": "advance_combined_cause_list_for_07.07.2026.pdf",
       "date": "2026-07-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_16_for_06.07.26.pdf",
+      "date": "2026-07-06",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -93,13 +100,6 @@
     },
     {
       "file": "combined_pro_06.07.2026.pdf",
-      "date": "2026-07-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_06.07.2026.pdf",
       "date": "2026-07-06",
       "matched": 0,
       "regex_matches": 0,
