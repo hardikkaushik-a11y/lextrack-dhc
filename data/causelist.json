@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-07T09:16:31Z",
+  "scraped_at": "2026-07-07T09:32:10Z",
   "for_dates": [
     "2026-07-07",
     "2026-07-08"
@@ -122,7 +122,9 @@
     {
       "file": "advance_combined_cause_list_for_07.07.2026.pdf",
       "date": "2026-07-07",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_hmj_jasmeet_singh_07.07.2026.pdf",
