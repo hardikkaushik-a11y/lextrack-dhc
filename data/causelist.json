@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-07T04:16:22Z",
+  "scraped_at": "2026-07-07T04:32:02Z",
   "for_dates": [
     "2026-07-07",
     "2026-07-08"
@@ -94,7 +94,9 @@
     {
       "file": "advance_combined_cause_list_for_07.07.2026.pdf",
       "date": "2026-07-07",
-      "error": "download: ('Connection broken: IncompleteRead(532688 bytes read, 5332700 more expected)', IncompleteRead(532688 bytes read, 5332700 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_hmj_jasmeet_singh_07.07.2026.pdf",
