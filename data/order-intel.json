@@ -5655,5 +5655,35 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/331/2025",
     "_orderDate": "2026-07-02"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1783408677_6f8c5eda34b5befe_739_1082025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": "Impleadment of additional rogue websites (defendant nos. 104 to 106) and extension of ad-interim order dated 10.02.2026 to them",
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no. 7's compliance submissions taken on record.",
+      "Plaintiff to implead defendant nos. 104 to 106 and file amended memo of parties.",
+      "Summons to be issued to defendant nos. 104 to 106 via email only, subject to filing of PF.",
+      "Plaintiff to bring service-affidavit on record before next date.",
+      "List matter on 25.09.2026."
+    ],
+    "citations": [
+      "Order I Rule 10 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Yogesh Singh & Mr. Anmol Dhindsa (D-7), Ms. Gitanjali Kapoor & Mr. Ashish Gupta (D-16), Ms. Suvarna Singh (D-45), Mr. Ishkaran Singh B. & Mr. Piyush Yadav (MEITY & DOT)"
+    },
+    "summary": "The Joint Registrar recorded compliance by defendant no. 7 and allowed the plaintiff's application to implead three additional rogue websites (defendant nos. 104 to 106) as defendants, extending the existing interim orders to them. Summons were directed to be issued via email only, and the matter was adjourned to 25.09.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-07T08:05:18.435Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/108/2025",
+    "_orderDate": "2026-07-03"
   }
 }
