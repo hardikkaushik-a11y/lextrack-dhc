@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-07T12:02:13Z",
+  "scraped_at": "2026-07-07T12:16:43Z",
   "for_dates": [
     "2026-07-07",
     "2026-07-08"
@@ -7,6 +7,13 @@
   "tracked_cases": 20,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "c_08072026.pdf",
+      "date": "2026-07-08",
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
+    },
     {
       "file": "combined_cause_list_08.07.2026.pdf",
       "date": "2026-07-08",
@@ -125,13 +132,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "advance_combined_cause_list_for_07.07.2026.pdf",
-      "date": "2026-07-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -140,26 +140,26 @@
       "court": "JR",
       "judge": "SUDHIR KUMAR SIROHI (JR)",
       "time": null,
-      "page": 346,
+      "page": 482,
       "context": "13       CS(COMM)-         JIOSTAR INDIA PRIVATE       R MAYA,\n             1203/2025         LIMITED                     PRIYANSH KOHLI",
       "caseNo": "CS(COMM)/1203/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE       R MAYA,\n             1203/2025",
       "date": "2026-07-08",
-      "source_pdf": "combined_cause_list_08.07.2026.pdf"
+      "source_pdf": "c_08072026.pdf"
     },
     {
       "item": "17",
       "court": "JR",
       "judge": "SUDHIR KUMAR SIROHI (JR)",
       "time": null,
-      "page": 347,
+      "page": 483,
       "context": "17       CS(COMM)-         JIOSTAR INDIA PRIVATE      PARSHANT\n             313/2026          LIMITED                    ARORA,",
       "caseNo": "CS(COMM)/313/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE      PARSHANT\n             313/2026",
       "date": "2026-07-08",
-      "source_pdf": "combined_cause_list_08.07.2026.pdf"
+      "source_pdf": "c_08072026.pdf"
     }
   ]
 }
