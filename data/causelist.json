@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-07-07T16:46:10Z",
+  "scraped_at": "2026-07-07T17:01:45Z",
   "for_dates": [
     "2026-07-07",
     "2026-07-08"
   ],
   "tracked_cases": 20,
-  "matched_cases": 2,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "deletion_note_08072026.pdf",
@@ -52,14 +52,12 @@
     {
       "file": "c_08072026.pdf",
       "date": "2026-07-08",
-      "error": "download: ('Connection broken: IncompleteRead(5968654 bytes read, 12698784 more expected)', IncompleteRead(5968654 bytes read, 12698784 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(734606 bytes read, 17932832 more expected)', IncompleteRead(734606 bytes read, 17932832 more expected))"
     },
     {
       "file": "combined_cause_list_08.07.2026.pdf",
       "date": "2026-07-08",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(2328407 bytes read, 3624312 more expected)', IncompleteRead(2328407 bytes read, 3624312 more expected))"
     },
     {
       "file": "sup-16-for_07.07.26.pdf",
@@ -125,32 +123,5 @@
       "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "13",
-      "court": "JR",
-      "judge": "SUDHIR KUMAR SIROHI (JR)",
-      "time": null,
-      "page": 346,
-      "context": "13       CS(COMM)-         JIOSTAR INDIA PRIVATE       R MAYA,\n             1203/2025         LIMITED                     PRIYANSH KOHLI",
-      "caseNo": "CS(COMM)/1203/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE       R MAYA,\n             1203/2025",
-      "date": "2026-07-08",
-      "source_pdf": "combined_cause_list_08.07.2026.pdf"
-    },
-    {
-      "item": "17",
-      "court": "JR",
-      "judge": "SUDHIR KUMAR SIROHI (JR)",
-      "time": null,
-      "page": 347,
-      "context": "17       CS(COMM)-         JIOSTAR INDIA PRIVATE      PARSHANT\n             313/2026          LIMITED                    ARORA,",
-      "caseNo": "CS(COMM)/313/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE      PARSHANT\n             313/2026",
-      "date": "2026-07-08",
-      "source_pdf": "combined_cause_list_08.07.2026.pdf"
-    }
-  ]
+  "entries": []
 }
