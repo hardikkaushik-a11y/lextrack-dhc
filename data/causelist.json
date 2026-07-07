@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-07T03:16:22Z",
+  "scraped_at": "2026-07-07T03:31:40Z",
   "for_dates": [
     "2026-07-07",
     "2026-07-08"
@@ -87,16 +87,12 @@
     {
       "file": "c_07072026.pdf",
       "date": "2026-07-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(6273774 bytes read, 12489909 more expected)', IncompleteRead(6273774 bytes read, 12489909 more expected))"
     },
     {
       "file": "advance_combined_cause_list_for_07.07.2026.pdf",
       "date": "2026-07-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(3883007 bytes read, 1982381 more expected)', IncompleteRead(3883007 bytes read, 1982381 more expected))"
     },
     {
       "file": "sup_hmj_jasmeet_singh_07.07.2026.pdf",
