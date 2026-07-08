@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-08T12:32:29Z",
+  "scraped_at": "2026-07-08T12:46:59Z",
   "for_dates": [
     "2026-07-08",
     "2026-07-09"
@@ -24,7 +24,9 @@
     {
       "file": "combined_adv_list_09.07.2026.pdf",
       "date": "2026-07-09",
-      "error": "download: ('Connection broken: IncompleteRead(5192816 bytes read, 974223 more expected)', IncompleteRead(5192816 bytes read, 974223 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "registrar_supply_list_08.07.2026_1.pdf",
@@ -85,9 +87,7 @@
     {
       "file": "new_c_08072026.pdf",
       "date": "2026-07-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(733240 bytes read, 335351 more expected)', IncompleteRead(733240 bytes read, 335351 more expected))"
     },
     {
       "file": "c_08072026.pdf",
