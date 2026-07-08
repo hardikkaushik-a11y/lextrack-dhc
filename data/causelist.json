@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-08T05:32:01Z",
+  "scraped_at": "2026-07-08T05:46:21Z",
   "for_dates": [
     "2026-07-08",
     "2026-07-09"
@@ -10,6 +10,13 @@
     {
       "file": "combined_adv_list_09.07.2026.pdf",
       "date": "2026-07-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sups_08.07.2026.pdf",
+      "date": "2026-07-08",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -59,9 +66,7 @@
     {
       "file": "c_08072026.pdf",
       "date": "2026-07-08",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(11080270 bytes read, 7587168 more expected)', IncompleteRead(11080270 bytes read, 7587168 more expected))"
     },
     {
       "file": "combined_cause_list_08.07.2026.pdf",
@@ -77,26 +82,26 @@
       "court": "JR",
       "judge": "SUDHIR KUMAR SIROHI (JR)",
       "time": null,
-      "page": 482,
+      "page": 346,
       "context": "13       CS(COMM)-         JIOSTAR INDIA PRIVATE       R MAYA,\n             1203/2025         LIMITED                     PRIYANSH KOHLI",
       "caseNo": "CS(COMM)/1203/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE       R MAYA,\n             1203/2025",
       "date": "2026-07-08",
-      "source_pdf": "c_08072026.pdf"
+      "source_pdf": "combined_cause_list_08.07.2026.pdf"
     },
     {
       "item": "17",
       "court": "JR",
       "judge": "SUDHIR KUMAR SIROHI (JR)",
       "time": null,
-      "page": 483,
+      "page": 347,
       "context": "17       CS(COMM)-         JIOSTAR INDIA PRIVATE      PARSHANT\n             313/2026          LIMITED                    ARORA,",
       "caseNo": "CS(COMM)/313/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE      PARSHANT\n             313/2026",
       "date": "2026-07-08",
-      "source_pdf": "c_08072026.pdf"
+      "source_pdf": "combined_cause_list_08.07.2026.pdf"
     }
   ]
 }
