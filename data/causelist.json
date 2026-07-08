@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-08T15:32:08Z",
+  "scraped_at": "2026-07-08T15:46:22Z",
   "for_dates": [
     "2026-07-08",
     "2026-07-09"
@@ -10,7 +10,9 @@
     {
       "file": "supple-2_for_09.07.2026.pdf",
       "date": "2026-07-09",
-      "error": "download: ('Connection broken: IncompleteRead(857312 bytes read, 592723 more expected)', IncompleteRead(857312 bytes read, 592723 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "deletion_note_09072026.pdf",
@@ -57,9 +59,7 @@
     {
       "file": "cause_list_for_09.07.2026.pdf",
       "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(11844926 bytes read, 6748561 more expected)', IncompleteRead(11844926 bytes read, 6748561 more expected))"
     },
     {
       "file": "combined_adv_list_09.07.2026.pdf",
