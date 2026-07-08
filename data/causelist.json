@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-08T13:32:04Z",
+  "scraped_at": "2026-07-08T13:47:07Z",
   "for_dates": [
     "2026-07-08",
     "2026-07-09"
@@ -7,6 +7,20 @@
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "supple-2_for_09.07.2026.pdf",
+      "date": "2026-07-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_09072026.pdf",
+      "date": "2026-07-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "finals_09.07.2026.pdf",
       "date": "2026-07-09",
@@ -93,20 +107,6 @@
     },
     {
       "file": "combined_targetted_08072026.pdf",
-      "date": "2026-07-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl08072026.pdf",
-      "date": "2026-07-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_08.07.2026.pdf",
       "date": "2026-07-08",
       "matched": 0,
       "regex_matches": 0,
