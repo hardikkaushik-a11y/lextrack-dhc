@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-08T02:32:08Z",
+  "scraped_at": "2026-07-08T02:46:30Z",
   "for_dates": [
     "2026-07-08",
     "2026-07-09"
@@ -10,7 +10,9 @@
     {
       "file": "combined_adv_list_09.07.2026.pdf",
       "date": "2026-07-09",
-      "error": "download: ('Connection broken: IncompleteRead(2596848 bytes read, 3570191 more expected)', IncompleteRead(2596848 bytes read, 3570191 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "deletion_note_08072026.pdf",
