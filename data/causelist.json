@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-08T12:16:50Z",
+  "scraped_at": "2026-07-08T12:32:29Z",
   "for_dates": [
     "2026-07-08",
     "2026-07-09"
@@ -7,6 +7,13 @@
   "tracked_cases": 20,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "pla_09.07.2026.pdf",
+      "date": "2026-07-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "cause_list_for_09.07.2026.pdf",
       "date": "2026-07-09",
@@ -17,9 +24,7 @@
     {
       "file": "combined_adv_list_09.07.2026.pdf",
       "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(5192816 bytes read, 974223 more expected)', IncompleteRead(5192816 bytes read, 974223 more expected))"
     },
     {
       "file": "registrar_supply_list_08.07.2026_1.pdf",
