@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-07-09T22:01:49Z",
+  "scraped_at": "2026-07-09T23:02:00Z",
   "for_dates": [
     "2026-07-10",
     "2026-07-11"
   ],
   "tracked_cases": 20,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
     {
       "file": "deletion_note_10072026.pdf",
@@ -59,7 +59,9 @@
     {
       "file": "combinbed_cause_list_10.07.2026.pdf",
       "date": "2026-07-10",
-      "error": "download: ('Connection broken: IncompleteRead(13052238 bytes read, 5384379 more expected)', IncompleteRead(13052238 bytes read, 5384379 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combinbed_adv_10.07.2026.pdf",
@@ -69,5 +71,19 @@
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "SUDHIR KUMAR SIROHI (JR)",
+      "time": null,
+      "page": 582,
+      "context": "In CS(COMM)-    LIMITED                            PATHAK, ABHISHEK\n        1186/2024       V/s VIVEK MISHRA &                 KUMAR SINGH,",
+      "caseNo": "CS(COMM)/1186/2024",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-    LIMITED                            PATHAK, ABHISHEK\n        1186/20",
+      "date": "2026-07-10",
+      "source_pdf": "combinbed_cause_list_10.07.2026.pdf"
+    }
+  ]
 }
