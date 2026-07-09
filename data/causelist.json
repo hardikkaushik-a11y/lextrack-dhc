@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-09T13:32:08Z",
+  "scraped_at": "2026-07-09T13:46:46Z",
   "for_dates": [
     "2026-07-09",
     "2026-07-10"
@@ -7,6 +7,13 @@
   "tracked_cases": 20,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "deletion_note_10072026.pdf",
+      "date": "2026-07-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_3_10.07.pdf",
       "date": "2026-07-10",
@@ -100,13 +107,6 @@
     },
     {
       "file": "supple-2_for_09.07.2026.pdf",
-      "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_09072026.pdf",
       "date": "2026-07-09",
       "matched": 0,
       "regex_matches": 0,
