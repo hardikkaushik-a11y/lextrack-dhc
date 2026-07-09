@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-09T18:01:55Z",
+  "scraped_at": "2026-07-09T19:02:23Z",
   "for_dates": [
-    "2026-07-09",
-    "2026-07-10"
+    "2026-07-10",
+    "2026-07-11"
   ],
   "tracked_cases": 20,
   "matched_cases": 1,
@@ -66,41 +66,6 @@
     {
       "file": "combinbed_adv_10.07.2026.pdf",
       "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "second_supplementary_list_for_09-07-2026_of_company_branch.pdf",
-      "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-11_12_for_09.07.26.pdf",
-      "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_for_09.07.26.pdf",
-      "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_db-i_09.07.2026.pdf",
-      "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_amit_bansal_09.07.2026.pdf",
-      "date": "2026-07-09",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
