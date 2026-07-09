@@ -59,7 +59,7 @@
     {
       "file": "combinbed_cause_list_10.07.2026.pdf",
       "date": "2026-07-10",
-      "error": "download: ('Connection broken: IncompleteRead(1325798 bytes read, 17110819 more expected)', IncompleteRead(1325798 bytes read, 17110819 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(723758 bytes read, 17712859 more expected)', IncompleteRead(723758 bytes read, 17712859 more expected))"
     },
     {
       "file": "combinbed_adv_10.07.2026.pdf",
