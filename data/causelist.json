@@ -1,115 +1,11 @@
 {
-  "scraped_at": "2026-07-09T14:01:44Z",
+  "scraped_at": "2026-07-09T14:16:52Z",
   "for_dates": [
     "2026-07-09",
     "2026-07-10"
   ],
   "tracked_cases": 20,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "deletion_note_10072026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_3_10.07.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combinbed_sup_1_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targeeted_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl10072026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combinbed_cause_list_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "error": "download: ('Connection broken: IncompleteRead(723758 bytes read, 17712859 more expected)', IncompleteRead(723758 bytes read, 17712859 more expected))"
-    },
-    {
-      "file": "combinbed_adv_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "second_supplementary_list_for_09-07-2026_of_company_branch.pdf",
-      "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-11_12_for_09.07.26.pdf",
-      "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_for_09.07.26.pdf",
-      "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_db-i_09.07.2026.pdf",
-      "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_amit_bansal_09.07.2026.pdf",
-      "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "supple-2_for_09.07.2026.pdf",
-      "date": "2026-07-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
