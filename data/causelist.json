@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-10T18:01:33Z",
+  "scraped_at": "2026-07-10T19:01:36Z",
   "for_dates": [
-    "2026-07-10",
-    "2026-07-11"
+    "2026-07-11",
+    "2026-07-12"
   ],
   "tracked_cases": 20,
   "matched_cases": 0,
@@ -10,34 +10,6 @@
     {
       "file": "saturday_cause_list_11.07.pdf",
       "date": "2026-07-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_j.m.k.ohri_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_ajay_digpaul_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_j.manoj_j._10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_j._swarana_k._10.07.2026.pdf",
-      "date": "2026-07-10",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
