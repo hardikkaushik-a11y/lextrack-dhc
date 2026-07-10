@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-10T12:01:38Z",
+  "scraped_at": "2026-07-10T13:01:37Z",
   "for_dates": [
     "2026-07-10",
     "2026-07-11"
@@ -38,9 +38,7 @@
     {
       "file": "sup_j._swarana_k._10.07.2026.pdf",
       "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup_j.kaurav_10.07.2026.pdf",
@@ -72,27 +70,6 @@
     },
     {
       "file": "sup_hmj_sachin_d_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_deletion_supply_list_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_10072026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_3_10.07.pdf",
       "date": "2026-07-10",
       "matched": 0,
       "regex_matches": 0,
