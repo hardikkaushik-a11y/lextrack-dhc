@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-07-10T09:01:56Z",
+  "scraped_at": "2026-07-10T10:01:39Z",
   "for_dates": [
     "2026-07-10",
     "2026-07-11"
   ],
   "tracked_cases": 20,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup_j.manoj_j._10.07.2026.pdf",
+      "date": "2026-07-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_j._swarana_k._10.07.2026.pdf",
       "date": "2026-07-10",
@@ -83,49 +90,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_targeeted_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl10072026.pdf",
-      "date": "2026-07-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combinbed_cause_list_10.07.2026.pdf",
-      "date": "2026-07-10",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": null,
-      "court": "JR",
-      "judge": "SUDHIR KUMAR SIROHI (JR)",
-      "time": null,
-      "page": 582,
-      "context": "In CS(COMM)-    LIMITED                            PATHAK, ABHISHEK\n        1186/2024       V/s VIVEK MISHRA &                 KUMAR SINGH,",
-      "caseNo": "CS(COMM)/1186/2024",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-    LIMITED                            PATHAK, ABHISHEK\n        1186/20",
-      "date": "2026-07-10",
-      "source_pdf": "combinbed_cause_list_10.07.2026.pdf"
-    }
-  ]
+  "entries": []
 }
