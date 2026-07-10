@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-10T05:02:02Z",
+  "scraped_at": "2026-07-10T06:02:13Z",
   "for_dates": [
     "2026-07-10",
     "2026-07-11"
@@ -7,6 +7,34 @@
   "tracked_cases": 20,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "sup_hmj_prateek_j_10.07.2026.pdf",
+      "date": "2026-07-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_db_v_10.07.2026.pdf",
+      "date": "2026-07-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_sachin_d_10.07.2026.pdf",
+      "date": "2026-07-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_deletion_supply_list_10.07.2026.pdf",
+      "date": "2026-07-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_10072026.pdf",
       "date": "2026-07-10",
