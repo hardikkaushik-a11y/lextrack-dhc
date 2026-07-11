@@ -1,15 +1,71 @@
 {
-  "scraped_at": "2026-07-11T18:01:21Z",
+  "scraped_at": "2026-07-11T19:02:14Z",
   "for_dates": [
-    "2026-07-11",
-    "2026-07-12"
+    "2026-07-12",
+    "2026-07-13"
   ],
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
     {
-      "file": "saturday_cause_list_11.07.pdf",
-      "date": "2026-07-11",
+      "file": "deletion_note_13072026.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "supple-1_for_13.07.2026.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_13.07.2026.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro_for_13.07.2026.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "cause_list_for_13.07.2026.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl13072026.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_13.07.2026.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "old_targeted_matters_for_13.07.2026.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_13.07.2026.pdf",
+      "date": "2026-07-13",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
