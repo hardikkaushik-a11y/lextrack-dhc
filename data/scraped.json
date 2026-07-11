@@ -1676,7 +1676,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:01:43.542Z",
+    "lastScraped": "2026-07-11T14:01:42.878Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2075,7 +2075,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:01:50.926Z",
+    "lastScraped": "2026-07-11T14:01:50.333Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2360,7 +2360,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:01:58.293Z",
+    "lastScraped": "2026-07-11T14:01:57.796Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2547,7 +2547,28 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-07-24",
+        "before": "court",
+        "firstSeenAt": "2026-07-11T14:02:05.242Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-04-07",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1775634303_f2d7679c0051d17e_jis_812026.pdf/2026"
+        }
+      },
+      {
+        "date": "2026-08-10",
+        "before": "jr",
+        "firstSeenAt": "2026-07-11T14:02:05.242Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-04-29",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1777458609_8e0a5eb336d24cf1_762_812026.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -2579,7 +2600,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:02:25.299Z",
+    "lastScraped": "2026-07-11T14:02:05.244Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2644,7 +2665,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:02:33.024Z",
+    "lastScraped": "2026-07-11T14:02:12.715Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2842,7 +2863,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:02:40.530Z",
+    "lastScraped": "2026-07-11T14:02:20.264Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3297,7 +3318,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:02:47.934Z",
+    "lastScraped": "2026-07-11T14:02:28.177Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4204,7 +4225,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:02:55.370Z",
+    "lastScraped": "2026-07-11T14:02:35.722Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4405,7 +4426,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:03:03.158Z",
+    "lastScraped": "2026-07-11T14:02:43.276Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4811,7 +4832,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:03:10.580Z",
+    "lastScraped": "2026-07-11T14:02:50.808Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5012,7 +5033,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:03:18.105Z",
+    "lastScraped": "2026-07-11T14:02:58.272Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5753,7 +5774,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:03:25.566Z",
+    "lastScraped": "2026-07-11T14:03:05.750Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6473,7 +6494,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:03:33.090Z",
+    "lastScraped": "2026-07-11T14:03:13.291Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6773,7 +6794,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:03:40.608Z",
+    "lastScraped": "2026-07-11T14:03:20.774Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7166,7 +7187,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:03:48.054Z",
+    "lastScraped": "2026-07-11T14:03:28.323Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7395,7 +7416,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:03:55.520Z",
+    "lastScraped": "2026-07-11T14:03:35.920Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8067,7 +8088,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:04:02.971Z",
+    "lastScraped": "2026-07-11T14:03:43.916Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8157,7 +8178,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:04:10.489Z",
+    "lastScraped": "2026-07-11T14:03:51.503Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8325,7 +8346,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:04:18.285Z",
+    "lastScraped": "2026-07-11T14:03:59.005Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9093,7 +9114,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-11T13:04:25.816Z",
+    "lastScraped": "2026-07-11T14:04:06.540Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
