@@ -1,16 +1,18 @@
 {
-  "scraped_at": "2026-07-12T19:02:05Z",
+  "scraped_at": "2026-07-12T20:02:24Z",
   "for_dates": [
     "2026-07-13",
     "2026-07-14"
   ],
   "tracked_cases": 20,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
     {
       "file": "_combined_advance_list_for_14.07.2026.pdf",
       "date": "2026-07-14",
-      "error": "download: ('Connection broken: IncompleteRead(5190232 bytes read, 1623085 more expected)', IncompleteRead(5190232 bytes read, 1623085 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "deletion_note_13072026.pdf",
@@ -50,9 +52,7 @@
     {
       "file": "rl13072026.pdf",
       "date": "2026-07-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "finals_13.07.2026.pdf",
@@ -83,5 +83,19 @@
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "15",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 397,
+      "context": "15       CS(COMM)-         KUKU TECHNOLOGIES      ISHI SINGH\n             256/2026          PRIVATE LIMITED",
+      "caseNo": "CS(COMM)/256/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         KUKU TECHNOLOGIES      ISHI SINGH\n             256/2026",
+      "date": "2026-07-14",
+      "source_pdf": "_combined_advance_list_for_14.07.2026.pdf"
+    }
+  ]
 }
