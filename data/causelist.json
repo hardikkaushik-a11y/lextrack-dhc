@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-13T11:02:20Z",
+  "scraped_at": "2026-07-13T12:02:09Z",
   "for_dates": [
     "2026-07-13",
     "2026-07-14"
@@ -87,14 +87,14 @@
     {
       "file": "cause_list_for_13.07.2026.pdf",
       "date": "2026-07-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(10365582 bytes read, 10797784 more expected)', IncompleteRead(10365582 bytes read, 10797784 more expected))"
     },
     {
       "file": "rl13072026.pdf",
       "date": "2026-07-13",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_13.07.2026.pdf",
