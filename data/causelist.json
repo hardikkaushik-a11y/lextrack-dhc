@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-13T18:02:24Z",
+  "scraped_at": "2026-07-13T19:02:06Z",
   "for_dates": [
-    "2026-07-13",
-    "2026-07-14"
+    "2026-07-14",
+    "2026-07-15"
   ],
   "tracked_cases": 20,
   "matched_cases": 1,
@@ -68,55 +68,6 @@
       "date": "2026-07-14",
       "matched": 1,
       "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_9_10_supply_trf_matters_for_13.07.26.pdf",
-      "date": "2026-07-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "org_jud-01_for_13.07.2026.pdf",
-      "date": "2026-07-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rev_sup-8-for_13.07.26.pdf",
-      "date": "2026-07-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_deletion_supply_list_13.07.2026.pdf",
-      "date": "2026-07-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_jasmeet_singh_13.07.2026.pdf",
-      "date": "2026-07-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-8-for_13.07.26.pdf",
-      "date": "2026-07-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_13072026.pdf",
-      "date": "2026-07-13",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
