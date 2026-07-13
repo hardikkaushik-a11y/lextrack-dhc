@@ -5710,5 +5710,62 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/313/2026",
     "_orderDate": "2026-07-08"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1783933432_2f84a04c5c5e2ecb_739_12032025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Correct typographical errors in order dated 20.02.2026: defendant no. 18 to 16 read as defendant no. 8 to 16; in IA No. 4886/2026, defendant no. 22 to 31 read as defendant no. 20 to 31.",
+      "Plaintiff to file process fee within seven days for newly impleaded defendants no. 20 to 31.",
+      "Summons to be issued to defendant no. 20 to 31 (except defendant no. 30) through email after PF is filed.",
+      "Plaintiff to bring service-affidavit on record before next hearing.",
+      "Defendant no. 30 to bring compliance report on record regarding suspension of domain."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Yogesh Singh & Mr. Aditya Dash (for D-30)"
+    },
+    "summary": "The Joint Registrar corrected typographical errors in a previous order, closed the right of defendants 1-18 to file written statements due to expiry of time, directed the plaintiff to file process fee for newly impleaded defendants, and listed the matter for completion of pleadings on 27.10.2026. Defendant no. 30 was directed to file a compliance report regarding domain suspension.",
+    "confidence": {
+      "reliefGranted": "low",
+      "directions": "high",
+      "citations": "low"
+    },
+    "_extractedAt": "2026-07-13T10:05:18.487Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1203/2025",
+    "_orderDate": "2026-07-08"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1783934189_acd7709d23704fb9_739_11862024.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter for the purpose fixed on 14.08.2026",
+      "Issue summons to defendant nos. 23 to 26 through all permissible modes, subject to filing of PF",
+      "Plaintiff to file service-affidavit before next date of hearing"
+    ],
+    "citations": [
+      "Order I Rule 10 CPC",
+      "Section 151 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Akshay M. & Ms. Ishi Singh",
+      "defendant": "Mr. Yash Karunakaran & Ms. Nitya Nath (D-6), Mr. Saurabh Kumar (D-7), Mr. Vaarish Sawlani & Ms. Rithika Mathur (D-8), Mr. Yogesh Singh & Mr. Aditya Dash (D-9), Ms. Nidhi Raman (CGSC) & Ms. Somya Garg (D-15 & 16)"
+    },
+    "summary": "The Joint Registrar noted that defendants 8 and 9 have complied with a previous order. The plaintiff sought time to verify. The court allowed an impleadment application adding defendants 23 to 26, extended the earlier injunction order to them, and issued summons. The matter was adjourned to 14.08.2026.",
+    "confidence": {
+      "reliefGranted": "low",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-13T10:05:18.488Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2026-07-10"
   }
 }
