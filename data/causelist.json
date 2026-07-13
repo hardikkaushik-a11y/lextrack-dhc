@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-13T06:02:37Z",
+  "scraped_at": "2026-07-13T07:02:33Z",
   "for_dates": [
     "2026-07-13",
     "2026-07-14"
@@ -12,6 +12,27 @@
       "date": "2026-07-14",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "org_jud-01_for_13.07.2026.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rev_sup-8-for_13.07.26.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_deletion_supply_list_13.07.2026.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -66,9 +87,7 @@
     {
       "file": "rl13072026.pdf",
       "date": "2026-07-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "finals_13.07.2026.pdf",
@@ -87,13 +106,6 @@
     {
       "file": "combined_adv_list_13.07.2026.pdf",
       "date": "2026-07-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_amit_bansal_14.07.2026.pdf",
-      "date": "2026-07-14",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
