@@ -5685,5 +5685,30 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/108/2025",
     "_orderDate": "2026-07-03"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1783933395_9a3f2dce31424b32_739_3132026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to bring service-affidavit on record before next hearing",
+      "List matter for completion of pleadings on 31.08.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Manish Singh & Mr. Priyansh Kohli",
+      "defendant": "Mr. Prince Kumar & Ms. Muskan Sharma (D-8); Ms. Anindita Mitra (D-14); Ms. Gitanjali Kapoor & Mr. Rishi Kapoor (D-26); Ms. Radhika Bishwajit Dubey & Mr. Amulya Dev Mishra (D-28 & 29)"
+    },
+    "summary": "The court took note of compliance affidavit filed by plaintiff regarding service on defendants. Several defendants appeared through counsel and confirmed compliance with earlier orders. The matter was adjourned for completion of pleadings to 31.08.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-13T09:08:55.067Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/313/2026",
+    "_orderDate": "2026-07-08"
   }
 }
