@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-13T04:02:08Z",
+  "scraped_at": "2026-07-13T05:02:10Z",
   "for_dates": [
     "2026-07-13",
     "2026-07-14"
@@ -45,7 +45,7 @@
     {
       "file": "cause_list_for_13.07.2026.pdf",
       "date": "2026-07-13",
-      "error": "download: ('Connection broken: IncompleteRead(16961502 bytes read, 4201864 more expected)', IncompleteRead(16961502 bytes read, 4201864 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(17281390 bytes read, 3881976 more expected)', IncompleteRead(17281390 bytes read, 3881976 more expected))"
     },
     {
       "file": "rl13072026.pdf",
