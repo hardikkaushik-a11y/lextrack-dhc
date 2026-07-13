@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-13T05:02:10Z",
+  "scraped_at": "2026-07-13T06:02:37Z",
   "for_dates": [
     "2026-07-13",
     "2026-07-14"
@@ -12,6 +12,20 @@
       "date": "2026-07-14",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_jasmeet_singh_13.07.2026.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-8-for_13.07.26.pdf",
+      "date": "2026-07-13",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -45,7 +59,9 @@
     {
       "file": "cause_list_for_13.07.2026.pdf",
       "date": "2026-07-13",
-      "error": "download: ('Connection broken: IncompleteRead(17281390 bytes read, 3881976 more expected)', IncompleteRead(17281390 bytes read, 3881976 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "rl13072026.pdf",
