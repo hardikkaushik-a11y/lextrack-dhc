@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-14T12:02:00Z",
+  "scraped_at": "2026-07-14T13:02:53Z",
   "for_dates": [
     "2026-07-14",
     "2026-07-15"
@@ -7,6 +7,41 @@
   "tracked_cases": 20,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "vk_sup_fnl_for_15.07.26.pdf",
+      "date": "2026-07-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_15072026.pdf",
+      "date": "2026-07-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_15072026.pdf",
+      "date": "2026-07-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_15072026.pdf",
+      "date": "2026-07-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_15072026.pdf",
+      "date": "2026-07-15",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "rl15072026.pdf",
       "date": "2026-07-15",
@@ -87,7 +122,7 @@
     {
       "file": "combined_cause_list_14.07.2026.pdf",
       "date": "2026-07-14",
-      "error": "download: ('Connection broken: IncompleteRead(1508254 bytes read, 19813789 more expected)', IncompleteRead(1508254 bytes read, 19813789 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(20166734 bytes read, 1155309 more expected)', IncompleteRead(20166734 bytes read, 1155309 more expected))"
     },
     {
       "file": "_combined_advance_list_for_14.07.2026.pdf",
@@ -103,13 +138,13 @@
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 316,
+      "page": 460,
       "context": "24        CS(COMM)-756/2025 JIOSTAR INDIA PRIVATE GAURAV SARKAR,",
       "caseNo": "CS(COMM)/756/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-756/2025",
       "date": "2026-07-15",
-      "source_pdf": "combined_adv_15.07.2026.pdf"
+      "source_pdf": "c_15072026.pdf"
     },
     {
       "item": "15",
