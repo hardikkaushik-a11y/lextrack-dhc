@@ -5767,5 +5767,31 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1186/2024",
     "_orderDate": "2026-07-10"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1784018671_c876036330d749e0_762_2562026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no.1 to file written statement as per rules",
+      "Plaintiff to file replication as per timeline already indicated by the Hon’ble Court",
+      "Put up for completion of pleadings on 15.09.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": null,
+      "defendant": "Ms. Tejasvi Mahajan"
+    },
+    "summary": "The matter was listed for completion of pleadings. Defendant no.2 is a John Doe. Written statement has not been filed by defendant no.1. The court directed defendant no.1 to file written statement as per rules and plaintiff to file replication as per timeline. The case is adjourned to 15.09.2026 for completion of pleadings.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-14T09:05:14.435Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/256/2026",
+    "_orderDate": "2026-07-14"
   }
 }
