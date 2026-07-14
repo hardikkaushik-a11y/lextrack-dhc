@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-13T23:01:45Z",
+  "scraped_at": "2026-07-14T00:01:56Z",
   "for_dates": [
     "2026-07-14",
     "2026-07-15"
@@ -59,12 +59,12 @@
     {
       "file": "combined_cause_list_14.07.2026.pdf",
       "date": "2026-07-14",
-      "error": "download: ('Connection broken: IncompleteRead(6266982 bytes read, 15055061 more expected)', IncompleteRead(6266982 bytes read, 15055061 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(14535278 bytes read, 6786765 more expected)', IncompleteRead(14535278 bytes read, 6786765 more expected))"
     },
     {
       "file": "_combined_advance_list_for_14.07.2026.pdf",
       "date": "2026-07-14",
-      "error": "download: ('Connection broken: IncompleteRead(2458175 bytes read, 4355142 more expected)', IncompleteRead(2458175 bytes read, 4355142 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(2183943 bytes read, 4629374 more expected)', IncompleteRead(2183943 bytes read, 4629374 more expected))"
     }
   ],
   "entries": []
