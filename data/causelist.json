@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-14T13:02:53Z",
+  "scraped_at": "2026-07-14T14:02:31Z",
   "for_dates": [
     "2026-07-14",
     "2026-07-15"
@@ -7,6 +7,13 @@
   "tracked_cases": 20,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "vk_sup_fnl_2_for_15.07.26.pdf",
+      "date": "2026-07-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "vk_sup_fnl_for_15.07.26.pdf",
       "date": "2026-07-15",
@@ -38,9 +45,7 @@
     {
       "file": "c_15072026.pdf",
       "date": "2026-07-15",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(11844686 bytes read, 8971646 more expected)', IncompleteRead(11844686 bytes read, 8971646 more expected))"
     },
     {
       "file": "rl15072026.pdf",
@@ -122,11 +127,6 @@
     {
       "file": "combined_cause_list_14.07.2026.pdf",
       "date": "2026-07-14",
-      "error": "download: ('Connection broken: IncompleteRead(20166734 bytes read, 1155309 more expected)', IncompleteRead(20166734 bytes read, 1155309 more expected))"
-    },
-    {
-      "file": "_combined_advance_list_for_14.07.2026.pdf",
-      "date": "2026-07-14",
       "matched": 1,
       "regex_matches": 1,
       "norm_matches": 0
@@ -138,26 +138,26 @@
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 460,
+      "page": 316,
       "context": "24        CS(COMM)-756/2025 JIOSTAR INDIA PRIVATE GAURAV SARKAR,",
       "caseNo": "CS(COMM)/756/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-756/2025",
       "date": "2026-07-15",
-      "source_pdf": "c_15072026.pdf"
+      "source_pdf": "combined_adv_15.07.2026.pdf"
     },
     {
       "item": "15",
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 397,
+      "page": 541,
       "context": "15       CS(COMM)-         KUKU TECHNOLOGIES      ISHI SINGH\n             256/2026          PRIVATE LIMITED",
       "caseNo": "CS(COMM)/256/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         KUKU TECHNOLOGIES      ISHI SINGH\n             256/2026",
       "date": "2026-07-14",
-      "source_pdf": "_combined_advance_list_for_14.07.2026.pdf"
+      "source_pdf": "combined_cause_list_14.07.2026.pdf"
     }
   ]
 }
