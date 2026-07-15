@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-07-15T18:02:06Z",
+  "scraped_at": "2026-07-15T19:02:10Z",
   "for_dates": [
-    "2026-07-15",
-    "2026-07-16"
+    "2026-07-16",
+    "2026-07-17"
   ],
   "tracked_cases": 20,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_advance_list_for_17.07.2026.pdf",
+      "date": "2026-07-17",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "sup_pro_16072026.pdf",
       "date": "2026-07-16",
@@ -90,35 +97,21 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "jud_01_for_15.07.2026.pdf",
-      "date": "2026-07-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deleteion_83_15.07.2026.pdf",
-      "date": "2026-07-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_fnl_2_for_15.07.26.pdf",
-      "date": "2026-07-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_fnl_for_15.07.26.pdf",
-      "date": "2026-07-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "SUDHIR KUMAR SIROHI (JR)",
+      "time": null,
+      "page": 324,
+      "context": "In CS(COMM)-      LIMITED          MALOO,\n             582/2025          V/s BALAJI FOODS ABHISHEK",
+      "caseNo": "CS(COMM)/582/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-      LIMITED          MALOO,\n             582/2025",
+      "date": "2026-07-17",
+      "source_pdf": "combined_advance_list_for_17.07.2026.pdf"
+    }
+  ]
 }
