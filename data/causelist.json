@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-15T10:02:46Z",
+  "scraped_at": "2026-07-15T11:03:07Z",
   "for_dates": [
     "2026-07-15",
     "2026-07-16"
@@ -64,7 +64,9 @@
     {
       "file": "c_15072026.pdf",
       "date": "2026-07-15",
-      "error": "download: ('Connection broken: IncompleteRead(18940966 bytes read, 1875366 more expected)', IncompleteRead(18940966 bytes read, 1875366 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "rl15072026.pdf",
@@ -94,13 +96,13 @@
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 316,
+      "page": 460,
       "context": "24        CS(COMM)-756/2025 JIOSTAR INDIA PRIVATE GAURAV SARKAR,",
       "caseNo": "CS(COMM)/756/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-756/2025",
       "date": "2026-07-15",
-      "source_pdf": "combined_adv_15.07.2026.pdf"
+      "source_pdf": "c_15072026.pdf"
     }
   ]
 }
