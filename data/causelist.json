@@ -1,18 +1,72 @@
 {
-  "scraped_at": "2026-07-15T12:02:27Z",
+  "scraped_at": "2026-07-15T13:02:12Z",
   "for_dates": [
     "2026-07-15",
     "2026-07-16"
   ],
   "tracked_cases": 20,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
     {
-      "file": "rl16072026.pdf",
+      "file": "last_supplementary_list_16.07.2026.pdf",
       "date": "2026-07-16",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_16.07.2026.pdf",
+      "date": "2026-07-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_supplementary_list_16.07.2026.pdf",
+      "date": "2026-07-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "2nd_supplementary_list_16.07.2026.pdf",
+      "date": "2026-07-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_16072026.pdf",
+      "date": "2026-07-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro_for_16.07.2026.pdf",
+      "date": "2026-07-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "old_target_matters_for_16.07.2026.pdf",
+      "date": "2026-07-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "cause_list_for_16.07.2026.pdf",
+      "date": "2026-07-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl16072026.pdf",
+      "date": "2026-07-16",
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "finals_16.07.2026.pdf",
@@ -62,63 +116,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_15072026.pdf",
-      "date": "2026-07-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_15072026.pdf",
-      "date": "2026-07-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_15072026.pdf",
-      "date": "2026-07-15",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl15072026.pdf",
-      "date": "2026-07-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_15.07.2026.pdf",
-      "date": "2026-07-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_15.07.2026.pdf",
-      "date": "2026-07-15",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "24",
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 460,
-      "context": "24        CS(COMM)-756/2025 JIOSTAR INDIA PRIVATE GAURAV SARKAR,",
-      "caseNo": "CS(COMM)/756/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-756/2025",
-      "date": "2026-07-15",
-      "source_pdf": "c_15072026.pdf"
-    }
-  ]
+  "entries": []
 }
