@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-15T13:02:12Z",
+  "scraped_at": "2026-07-15T14:02:11Z",
   "for_dates": [
     "2026-07-15",
     "2026-07-16"
@@ -7,6 +7,13 @@
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup_pro_16072026.pdf",
+      "date": "2026-07-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "last_supplementary_list_16.07.2026.pdf",
       "date": "2026-07-16",
@@ -66,7 +73,9 @@
     {
       "file": "rl16072026.pdf",
       "date": "2026-07-16",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_16.07.2026.pdf",
@@ -85,9 +94,7 @@
     {
       "file": "jud_01_for_15.07.2026.pdf",
       "date": "2026-07-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "deleteion_83_15.07.2026.pdf",
@@ -105,13 +112,6 @@
     },
     {
       "file": "vk_sup_fnl_for_15.07.26.pdf",
-      "date": "2026-07-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_15072026.pdf",
       "date": "2026-07-15",
       "matched": 0,
       "regex_matches": 0,
