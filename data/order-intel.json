@@ -5793,5 +5793,31 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/256/2026",
     "_orderDate": "2026-07-14"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1784194637_99f772bf12c806c4_jis_7562025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List before the learned Joint Registrar on 13.08.2026",
+      "List before Court on 17.11.2026",
+      "Interim order to continue till the next date"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": null,
+      "defendant": null
+    },
+    "summary": "The court noted that lawyers were abstaining from work and adjourned the main suit to 13.08.2026 before the Joint Registrar. The interim applications were listed for hearing on 17.11.2026, and the existing interim order was directed to continue until the next date.",
+    "confidence": {
+      "reliefGranted": "low",
+      "directions": "high",
+      "citations": "low"
+    },
+    "_extractedAt": "2026-07-16T10:06:14.870Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/756/2025",
+    "_orderDate": "2026-07-15"
   }
 }

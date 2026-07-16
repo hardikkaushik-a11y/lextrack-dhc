@@ -1676,7 +1676,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:02:50.457Z",
+    "lastScraped": "2026-07-16T10:03:40.557Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2075,7 +2075,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:02:57.998Z",
+    "lastScraped": "2026-07-16T10:03:48.095Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2360,7 +2360,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:03:05.661Z",
+    "lastScraped": "2026-07-16T10:03:56.211Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2600,7 +2600,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:03:13.185Z",
+    "lastScraped": "2026-07-16T10:04:03.848Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2708,7 +2708,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:03:20.757Z",
+    "lastScraped": "2026-07-16T10:04:11.661Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2906,7 +2906,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:03:28.274Z",
+    "lastScraped": "2026-07-16T10:04:19.144Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2918,10 +2918,43 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-03-17",
+    "lastDate": "2026-07-15",
     "nextDate": "2026-07-15",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-07-15",
+        "event": "Court Order",
+        "detail": "Lawyers are abstaining from work today.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1784194637_99f772bf12c806c4_jis_7562025.pdf/2026",
+        "orderText": "$~24 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 756/2025 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: None. versus HTTPS//IPTVWORLD.IN & ORS. .....Defendants Through: None. CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 15.07.2026 1. Lawyers are abstaining from work today. CS(COMM) 756/2025 2. List before the learned Joint Registrar on 13.08.2026. I.A. 17944/2025 (u/O XXXIX Rules 1 & 2 r/w Section 151) I.A. 22889/2025 (u/O XXXIX Rules 1 & 2 r/w Section 151) 3. List before Court on 17.11.2026. 4. Interim order to continue till the next date. JYOTI SINGH, J JULY 15, 2026/RW This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 16/07/2026 at 15:34:27",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List before the learned Joint Registrar on 13.08.2026",
+            "List before Court on 17.11.2026",
+            "Interim order to continue till the next date"
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": null,
+            "defendant": null
+          },
+          "summary": "The court noted that lawyers were abstaining from work and adjourned the main suit to 13.08.2026 before the Joint Registrar. The interim applications were listed for hearing on 17.11.2026, and the existing interim order was directed to continue until the next date.",
+          "confidence": {
+            "reliefGranted": "low",
+            "directions": "high",
+            "citations": "low"
+          },
+          "_extractedAt": "2026-07-16T10:06:14.870Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/756/2025",
+          "_orderDate": "2026-07-15"
+        }
+      },
       {
         "date": "2026-03-17",
         "event": "Court Order",
@@ -3276,7 +3309,28 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-08-13",
+        "before": "jr",
+        "firstSeenAt": "2026-07-16T10:04:28.622Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-07-15",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784194637_99f772bf12c806c4_jis_7562025.pdf/2026"
+        }
+      },
+      {
+        "date": "2026-11-17",
+        "before": "court",
+        "firstSeenAt": "2026-07-16T10:04:28.622Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-07-15",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784194637_99f772bf12c806c4_jis_7562025.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -3350,7 +3404,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:03:35.816Z",
+    "lastScraped": "2026-07-16T10:04:28.625Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4247,7 +4301,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:03:43.436Z",
+    "lastScraped": "2026-07-16T10:04:36.650Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4448,7 +4502,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:03:51.042Z",
+    "lastScraped": "2026-07-16T10:04:44.412Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4854,7 +4908,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:03:58.610Z",
+    "lastScraped": "2026-07-16T10:04:52.107Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5055,7 +5109,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:04:06.241Z",
+    "lastScraped": "2026-07-16T10:04:59.729Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5796,7 +5850,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:04:20.430Z",
+    "lastScraped": "2026-07-16T10:05:07.829Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6516,7 +6570,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:04:27.956Z",
+    "lastScraped": "2026-07-16T10:05:15.663Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6816,7 +6870,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:04:35.648Z",
+    "lastScraped": "2026-07-16T10:05:23.654Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7209,7 +7263,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:04:43.256Z",
+    "lastScraped": "2026-07-16T10:05:31.082Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7484,7 +7538,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:04:50.871Z",
+    "lastScraped": "2026-07-16T10:05:38.706Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8156,7 +8210,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:05:05.087Z",
+    "lastScraped": "2026-07-16T10:05:46.424Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8246,7 +8300,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:05:12.752Z",
+    "lastScraped": "2026-07-16T10:05:54.141Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8447,7 +8501,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:05:20.321Z",
+    "lastScraped": "2026-07-16T10:06:02.838Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9251,7 +9305,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-16T09:05:28.121Z",
+    "lastScraped": "2026-07-16T10:06:10.627Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
