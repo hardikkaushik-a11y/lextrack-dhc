@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-16T05:02:05Z",
+  "scraped_at": "2026-07-16T06:02:23Z",
   "for_dates": [
     "2026-07-16",
     "2026-07-17"
@@ -10,7 +10,14 @@
     {
       "file": "combined_advance_list_for_17.07.2026.pdf",
       "date": "2026-07-17",
-      "error": "download: ('Connection broken: IncompleteRead(2230200 bytes read, 4054675 more expected)', IncompleteRead(2230200 bytes read, 4054675 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(369960 bytes read, 5914915 more expected)', IncompleteRead(369960 bytes read, 5914915 more expected))"
+    },
+    {
+      "file": "sups16.07.2026.pdf",
+      "date": "2026-07-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_pro_16072026.pdf",
@@ -71,7 +78,9 @@
     {
       "file": "cause_list_for_16.07.2026.pdf",
       "date": "2026-07-16",
-      "error": "download: ('Connection broken: IncompleteRead(12410526 bytes read, 8078769 more expected)', IncompleteRead(12410526 bytes read, 8078769 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "rl16072026.pdf",
