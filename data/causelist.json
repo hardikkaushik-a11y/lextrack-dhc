@@ -1,16 +1,18 @@
 {
-  "scraped_at": "2026-07-16T06:02:23Z",
+  "scraped_at": "2026-07-16T07:02:41Z",
   "for_dates": [
     "2026-07-16",
     "2026-07-17"
   ],
   "tracked_cases": 20,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
     {
       "file": "combined_advance_list_for_17.07.2026.pdf",
       "date": "2026-07-17",
-      "error": "download: ('Connection broken: IncompleteRead(369960 bytes read, 5914915 more expected)', IncompleteRead(369960 bytes read, 5914915 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "sups16.07.2026.pdf",
@@ -104,5 +106,19 @@
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "SUDHIR KUMAR SIROHI (JR)",
+      "time": null,
+      "page": 324,
+      "context": "In CS(COMM)-      LIMITED          MALOO,\n             582/2025          V/s BALAJI FOODS ABHISHEK",
+      "caseNo": "CS(COMM)/582/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-      LIMITED          MALOO,\n             582/2025",
+      "date": "2026-07-17",
+      "source_pdf": "combined_advance_list_for_17.07.2026.pdf"
+    }
+  ]
 }
