@@ -1,18 +1,16 @@
 {
-  "scraped_at": "2026-07-16T04:02:13Z",
+  "scraped_at": "2026-07-16T05:02:05Z",
   "for_dates": [
     "2026-07-16",
     "2026-07-17"
   ],
   "tracked_cases": 20,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "combined_advance_list_for_17.07.2026.pdf",
       "date": "2026-07-17",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(2230200 bytes read, 4054675 more expected)', IncompleteRead(2230200 bytes read, 4054675 more expected))"
     },
     {
       "file": "sup_pro_16072026.pdf",
@@ -73,9 +71,7 @@
     {
       "file": "cause_list_for_16.07.2026.pdf",
       "date": "2026-07-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(12410526 bytes read, 8078769 more expected)', IncompleteRead(12410526 bytes read, 8078769 more expected))"
     },
     {
       "file": "rl16072026.pdf",
@@ -94,22 +90,10 @@
     {
       "file": "combined_advance_16072026.pdf",
       "date": "2026-07-16",
-      "error": "download: ('Connection broken: IncompleteRead(2468296 bytes read, 3606839 more expected)', IncompleteRead(2468296 bytes read, 3606839 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": null,
-      "court": "JR",
-      "judge": "SUDHIR KUMAR SIROHI (JR)",
-      "time": null,
-      "page": 324,
-      "context": "In CS(COMM)-      LIMITED          MALOO,\n             582/2025          V/s BALAJI FOODS ABHISHEK",
-      "caseNo": "CS(COMM)/582/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-      LIMITED          MALOO,\n             582/2025",
-      "date": "2026-07-17",
-      "source_pdf": "combined_advance_list_for_17.07.2026.pdf"
-    }
-  ]
+  "entries": []
 }
