@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-16T13:02:08Z",
+  "scraped_at": "2026-07-16T14:02:23Z",
   "for_dates": [
     "2026-07-16",
     "2026-07-17"
@@ -7,6 +7,13 @@
   "tracked_cases": 20,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "prounouncement_parcha_db_17.07.2026.pdf",
+      "date": "2026-07-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_17.07.2026.pdf",
       "date": "2026-07-17",
@@ -66,7 +73,9 @@
     {
       "file": "combined_advance_list_for_17.07.2026.pdf",
       "date": "2026-07-17",
-      "error": "download: ('Connection broken: IncompleteRead(3689592 bytes read, 2595283 more expected)', IncompleteRead(3689592 bytes read, 2595283 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "sup_hmj_prateek_j_16.07.2026.pdf",
@@ -112,13 +121,6 @@
     },
     {
       "file": "2nd_supplementary_list_16.07.2026.pdf",
-      "date": "2026-07-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_16072026.pdf",
       "date": "2026-07-16",
       "matched": 0,
       "regex_matches": 0,
