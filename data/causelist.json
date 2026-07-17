@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-17T08:02:11Z",
+  "scraped_at": "2026-07-17T09:01:44Z",
   "for_dates": [
     "2026-07-17",
     "2026-07-18"
@@ -10,6 +10,20 @@
     {
       "file": "sat_advance_18.07.26.pdf",
       "date": "2026-07-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-10-11_for_17.07.26.pdf",
+      "date": "2026-07-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-10-for_17.07.26.pdf",
+      "date": "2026-07-17",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -31,9 +45,7 @@
     {
       "file": "prounouncement_parcha_db_17.07.2026.pdf",
       "date": "2026-07-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(333026 bytes read, 165254 more expected)', IncompleteRead(333026 bytes read, 165254 more expected))"
     },
     {
       "file": "deletion_note_17.07.2026.pdf",
@@ -86,13 +98,6 @@
     },
     {
       "file": "combined_causelist_17.07.2026.pdf",
-      "date": "2026-07-17",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_list_for_17.07.2026.pdf",
       "date": "2026-07-17",
       "matched": 1,
       "regex_matches": 1,
