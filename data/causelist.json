@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-17T05:01:40Z",
+  "scraped_at": "2026-07-17T06:01:55Z",
   "for_dates": [
     "2026-07-17",
     "2026-07-18"
@@ -7,6 +7,13 @@
   "tracked_cases": 20,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "sup-8-for_17.07.26.pdf",
+      "date": "2026-07-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "prounouncement_parcha_db_17.07.2026.pdf",
       "date": "2026-07-17",
