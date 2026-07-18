@@ -1,36 +1,71 @@
 {
-  "scraped_at": "2026-07-18T18:01:06Z",
+  "scraped_at": "2026-07-18T19:01:41Z",
   "for_dates": [
-    "2026-07-18",
-    "2026-07-19"
+    "2026-07-19",
+    "2026-07-20"
   ],
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
     {
-      "file": "cause_list_for_18.07.2026_0.pdf",
-      "date": "2026-07-18",
+      "file": "deletion_note_20.07.2026.pdf",
+      "date": "2026-07-20",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "cause_list_for_18.07.2026.pdf",
-      "date": "2026-07-18",
+      "file": "combined_targetted_20072026.pdf",
+      "date": "2026-07-20",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "notes_18.07.2026.pdf",
-      "date": "2026-07-18",
+      "file": "new_c_20072026.pdf",
+      "date": "2026-07-20",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "advance_combined_list_for_18.07.2026.pdf",
-      "date": "2026-07-18",
+      "file": "j_20072026.pdf",
+      "date": "2026-07-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_20072026.pdf",
+      "date": "2026-07-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_20.07.2026.pdf",
+      "date": "2026-07-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_20.07.2026.pdf",
+      "date": "2026-07-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl20072026.pdf",
+      "date": "2026-07-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_causel_list_20.07.2026.pdf",
+      "date": "2026-07-20",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
