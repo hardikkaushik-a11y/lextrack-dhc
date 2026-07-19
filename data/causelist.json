@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-19T19:01:50Z",
+  "scraped_at": "2026-07-19T20:01:50Z",
   "for_dates": [
     "2026-07-20",
     "2026-07-21"
@@ -45,7 +45,9 @@
     {
       "file": "c_20072026.pdf",
       "date": "2026-07-20",
-      "error": "download: ('Connection broken: IncompleteRead(20651814 bytes read, 1133962 more expected)', IncompleteRead(20651814 bytes read, 1133962 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "pla_20.07.2026.pdf",
