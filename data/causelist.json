@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-19T03:01:45Z",
+  "scraped_at": "2026-07-19T04:01:40Z",
   "for_dates": [
     "2026-07-19",
     "2026-07-20"
@@ -52,9 +52,7 @@
     {
       "file": "finals_20.07.2026.pdf",
       "date": "2026-07-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(415138 bytes read, 65513 more expected)', IncompleteRead(415138 bytes read, 65513 more expected))"
     },
     {
       "file": "rl20072026.pdf",
@@ -66,9 +64,7 @@
     {
       "file": "combined_adv_causel_list_20.07.2026.pdf",
       "date": "2026-07-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(2483056 bytes read, 4336143 more expected)', IncompleteRead(2483056 bytes read, 4336143 more expected))"
     }
   ],
   "entries": []
