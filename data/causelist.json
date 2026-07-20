@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-20T06:01:52Z",
+  "scraped_at": "2026-07-20T07:01:58Z",
   "for_dates": [
     "2026-07-20",
     "2026-07-21"
@@ -12,6 +12,20 @@
       "date": "2026-07-21",
       "matched": 2,
       "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_jasmeet_singh_20.07.2026.pdf",
+      "date": "2026-07-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletionnn20.07.2026.pdf",
+      "date": "2026-07-20",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -52,7 +66,7 @@
     {
       "file": "c_20072026.pdf",
       "date": "2026-07-20",
-      "error": "download: ('Connection broken: IncompleteRead(18786942 bytes read, 2998834 more expected)', IncompleteRead(18786942 bytes read, 2998834 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(11109374 bytes read, 10676402 more expected)', IncompleteRead(11109374 bytes read, 10676402 more expected))"
     },
     {
       "file": "pla_20.07.2026.pdf",
