@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-20T08:01:44Z",
+  "scraped_at": "2026-07-20T09:01:59Z",
   "for_dates": [
     "2026-07-20",
     "2026-07-21"
@@ -12,6 +12,13 @@
       "date": "2026-07-21",
       "matched": 2,
       "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-9_for_20.07.26.pdf",
+      "date": "2026-07-20",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -73,7 +80,9 @@
     {
       "file": "c_20072026.pdf",
       "date": "2026-07-20",
-      "error": "download: ('Connection broken: IncompleteRead(8634566 bytes read, 13151210 more expected)', IncompleteRead(8634566 bytes read, 13151210 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "pla_20.07.2026.pdf",
