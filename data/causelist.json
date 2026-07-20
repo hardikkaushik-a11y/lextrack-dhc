@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-20T03:01:49Z",
+  "scraped_at": "2026-07-20T04:01:50Z",
   "for_dates": [
     "2026-07-20",
     "2026-07-21"
@@ -73,7 +73,9 @@
     {
       "file": "combined_adv_causel_list_20.07.2026.pdf",
       "date": "2026-07-20",
-      "error": "download: ('Connection broken: IncompleteRead(1002704 bytes read, 5816495 more expected)', IncompleteRead(1002704 bytes read, 5816495 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": [
