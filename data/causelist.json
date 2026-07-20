@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-20T10:01:39Z",
+  "scraped_at": "2026-07-20T11:01:54Z",
   "for_dates": [
     "2026-07-20",
     "2026-07-21"
@@ -10,7 +10,7 @@
     {
       "file": "advance_combined_list_for_21.07.2026.pdf",
       "date": "2026-07-21",
-      "error": "download: ('Connection broken: IncompleteRead(417776 bytes read, 6302800 more expected)', IncompleteRead(417776 bytes read, 6302800 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(1988000 bytes read, 4732576 more expected)', IncompleteRead(1988000 bytes read, 4732576 more expected))"
     },
     {
       "file": "sup-13_for_20.07.26.pdf",
@@ -92,7 +92,9 @@
     {
       "file": "c_20072026.pdf",
       "date": "2026-07-20",
-      "error": "download: ('Connection broken: IncompleteRead(15949814 bytes read, 5835962 more expected)', IncompleteRead(15949814 bytes read, 5835962 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "pla_20.07.2026.pdf",
