@@ -1,16 +1,25 @@
 {
-  "scraped_at": "2026-07-20T11:01:54Z",
+  "scraped_at": "2026-07-20T12:01:48Z",
   "for_dates": [
     "2026-07-20",
     "2026-07-21"
   ],
   "tracked_cases": 20,
-  "matched_cases": 0,
+  "matched_cases": 2,
   "sources": [
     {
       "file": "advance_combined_list_for_21.07.2026.pdf",
       "date": "2026-07-21",
-      "error": "download: ('Connection broken: IncompleteRead(1988000 bytes read, 4732576 more expected)', IncompleteRead(1988000 bytes read, 4732576 more expected))"
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-14_for_20.07.26_r.d_on_5_pm.pdf",
+      "date": "2026-07-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup-13_for_20.07.26.pdf",
@@ -92,9 +101,7 @@
     {
       "file": "c_20072026.pdf",
       "date": "2026-07-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(12549350 bytes read, 9236426 more expected)', IncompleteRead(12549350 bytes read, 9236426 more expected))"
     },
     {
       "file": "pla_20.07.2026.pdf",
@@ -102,14 +109,34 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "finals_20.07.2026.pdf",
-      "date": "2026-07-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "34",
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 335,
+      "context": "34        CS(COMM)-810/2025   JIOSTAR INDIA         GEETANJALI",
+      "caseNo": "CS(COMM)/810/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-810/2025",
+      "date": "2026-07-21",
+      "source_pdf": "advance_combined_list_for_21.07.2026.pdf"
+    },
+    {
+      "item": "13",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 381,
+      "context": "13       CS(COMM)-         JIOSTAR INDIA        AMAN SINHA, R\n             319/2026          PRIVATE LIMITED      MAYA, ISHI SINGH",
+      "caseNo": "CS(COMM)/319/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA        AMAN SINHA, R\n             319/2026",
+      "date": "2026-07-21",
+      "source_pdf": "advance_combined_list_for_21.07.2026.pdf"
+    }
+  ]
 }
