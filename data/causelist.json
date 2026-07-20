@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-20T05:01:34Z",
+  "scraped_at": "2026-07-20T06:01:52Z",
   "for_dates": [
     "2026-07-20",
     "2026-07-21"
@@ -12,6 +12,13 @@
       "date": "2026-07-21",
       "matched": 2,
       "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "today_s_sup.20.07.2026.pdf",
+      "date": "2026-07-20",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -45,7 +52,7 @@
     {
       "file": "c_20072026.pdf",
       "date": "2026-07-20",
-      "error": "download: ('Connection broken: IncompleteRead(15503894 bytes read, 6281882 more expected)', IncompleteRead(15503894 bytes read, 6281882 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(18786942 bytes read, 2998834 more expected)', IncompleteRead(18786942 bytes read, 2998834 more expected))"
     },
     {
       "file": "pla_20.07.2026.pdf",
@@ -71,7 +78,9 @@
     {
       "file": "combined_adv_causel_list_20.07.2026.pdf",
       "date": "2026-07-20",
-      "error": "download: ('Connection broken: IncompleteRead(1165368 bytes read, 5653831 more expected)', IncompleteRead(1165368 bytes read, 5653831 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": [
