@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-21T13:02:45Z",
+  "scraped_at": "2026-07-21T14:01:55Z",
   "for_dates": [
     "2026-07-21",
     "2026-07-22"
@@ -7,6 +7,41 @@
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "deletion_note_22.07.2026.pdf",
+      "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_fnl_22.07.26.pdf",
+      "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_22.07.2026.pdf",
+      "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl22072026.pdf",
+      "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_22.07.2026.pdf",
+      "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_cause_list_22.07.2026.pdf",
       "date": "2026-07-22",
@@ -17,7 +52,9 @@
     {
       "file": "combined_advance_22072026.pdf",
       "date": "2026-07-22",
-      "error": "download: ('Connection broken: IncompleteRead(4168095 bytes read, 2611402 more expected)', IncompleteRead(4168095 bytes read, 2611402 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "registrar_supply_list_21.07.2026.pdf",
@@ -84,48 +121,6 @@
     },
     {
       "file": "21072026.pdf",
-      "date": "2026-07-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_21.07.2026.pdf",
-      "date": "2026-07-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_list_for_21072026.pdf",
-      "date": "2026-07-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_21072026.pdf",
-      "date": "2026-07-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_21.07.2026.pdf",
-      "date": "2026-07-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_suppl.21.07.2026.pdf",
-      "date": "2026-07-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_21072026.pdf",
       "date": "2026-07-21",
       "matched": 0,
       "regex_matches": 0,
