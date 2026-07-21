@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-21T08:01:57Z",
+  "scraped_at": "2026-07-21T09:02:04Z",
   "for_dates": [
     "2026-07-21",
     "2026-07-22"
@@ -10,6 +10,13 @@
     {
       "file": "combined_advance_22072026.pdf",
       "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-11_to_13_for_21.07.26.pdf",
+      "date": "2026-07-21",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -123,13 +130,6 @@
       "file": "rl21072026.pdf",
       "date": "2026-07-21",
       "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-    },
-    {
-      "file": "advance_combined_list_for_21.07.2026.pdf",
-      "date": "2026-07-21",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
     }
   ],
   "entries": [
