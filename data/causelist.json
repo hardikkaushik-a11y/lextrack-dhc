@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-21T06:02:30Z",
+  "scraped_at": "2026-07-21T07:02:17Z",
   "for_dates": [
     "2026-07-21",
     "2026-07-22"
@@ -10,6 +10,20 @@
     {
       "file": "combined_advance_22072026.pdf",
       "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-9_and_10_for_21.07.26.pdf",
+      "date": "2026-07-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_21.07.2026_1.pdf",
+      "date": "2026-07-21",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -101,9 +115,7 @@
     {
       "file": "rl21072026.pdf",
       "date": "2026-07-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "advance_combined_list_for_21.07.2026.pdf",
