@@ -1,15 +1,29 @@
 {
-  "scraped_at": "2026-07-21T09:02:04Z",
+  "scraped_at": "2026-07-21T10:01:32Z",
   "for_dates": [
     "2026-07-21",
     "2026-07-22"
   ],
   "tracked_cases": 20,
-  "matched_cases": 3,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "combined_advance_22072026.pdf",
       "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-15_16for_21.07.26.pdf",
+      "date": "2026-07-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-14_for_21.07.26.pdf",
+      "date": "2026-07-21",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -118,72 +132,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "c_21072026.pdf",
-      "date": "2026-07-21",
-      "matched": 4,
-      "regex_matches": 4,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl21072026.pdf",
-      "date": "2026-07-21",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
-  "entries": [
-    {
-      "item": "34",
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 481,
-      "context": "34        CS(COMM)-810/2025   JIOSTAR INDIA         GEETANJALI",
-      "caseNo": "CS(COMM)/810/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-810/2025",
-      "date": "2026-07-21",
-      "source_pdf": "c_21072026.pdf"
-    },
-    {
-      "item": "13",
-      "court": "JR",
-      "judge": "SWATI KATIYAR (JR)",
-      "time": null,
-      "page": 527,
-      "context": "13       CS(COMM)-         JIOSTAR INDIA        AMAN SINHA, R\n             319/2026          PRIVATE LIMITED      MAYA, ISHI SINGH",
-      "caseNo": "CS(COMM)/319/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA        AMAN SINHA, R\n             319/2026",
-      "date": "2026-07-21",
-      "source_pdf": "c_21072026.pdf"
-    },
-    {
-      "item": null,
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 682,
-      "context": "In CS(COMM)-          PRIVATE LIMITED\n             256/2026              (FORMERLY KNOWN",
-      "caseNo": "CS(COMM)/256/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-          PRIVATE LIMITED\n             256/2026",
-      "date": "2026-07-21",
-      "source_pdf": "c_21072026.pdf"
-    },
-    {
-      "item": null,
-      "court": "JR",
-      "judge": "SWATI KATIYAR (JR)",
-      "time": null,
-      "page": 696,
-      "context": "In CS(COMM)-      TECHNOLOGIES\n             256/2026          PRIVATE LIMITED",
-      "caseNo": "CS(COMM)/256/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-      TECHNOLOGIES\n             256/2026",
-      "date": "2026-07-21",
-      "source_pdf": "c_21072026.pdf"
-    }
-  ]
+  "entries": []
 }
