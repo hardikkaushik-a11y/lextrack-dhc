@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-21T14:01:55Z",
+  "scraped_at": "2026-07-21T15:01:53Z",
   "for_dates": [
     "2026-07-21",
     "2026-07-22"
@@ -7,6 +7,20 @@
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "old_targeted_matter_22.07.2026.pdf",
+      "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro_1_22.07.2026.pdf",
+      "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_22.07.2026.pdf",
       "date": "2026-07-22",
@@ -107,20 +121,6 @@
     },
     {
       "file": "sup-8_b_corri_for_21.07.26.pdf",
-      "date": "2026-07-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-8_a_for_21.07.26.pdf",
-      "date": "2026-07-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "21072026.pdf",
       "date": "2026-07-21",
       "matched": 0,
       "regex_matches": 0,
