@@ -5819,5 +5819,32 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/756/2025",
     "_orderDate": "2026-07-15"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1784705450_df9198db378e3ed7_jis_2562026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff granted leave to file videos in a pen drive.",
+      "List on 06.08.2026 for filing additional documents."
+    ],
+    "citations": [
+      "Section 151 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Garg, Ms. Disha Sharma, Ms. Ishi Singh",
+      "defendant": "Mr. Darpan Wadhwa, Mr. Sandeep Das, Ms. Kanak Malik, Ms. Tejasvi Mahajan, Mr. Tanishq Juneja"
+    },
+    "summary": "The court allowed the plaintiff's application to file videos on a pen drive and granted time to bring additional documents on record. The matter was adjourned to 06.08.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-22T08:04:50.128Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/256/2026",
+    "_orderDate": "2026-07-21"
   }
 }
