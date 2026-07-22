@@ -1676,7 +1676,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:02:12.521Z",
+    "lastScraped": "2026-07-22T10:02:18.668Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2075,7 +2075,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:02:20.047Z",
+    "lastScraped": "2026-07-22T10:02:26.213Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2360,7 +2360,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:02:27.525Z",
+    "lastScraped": "2026-07-22T10:02:40.274Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2600,7 +2600,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:02:35.085Z",
+    "lastScraped": "2026-07-22T10:02:48.006Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2708,7 +2708,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:02:42.693Z",
+    "lastScraped": "2026-07-22T10:02:56.071Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2896,7 +2896,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:02:50.256Z",
+    "lastScraped": "2026-07-22T10:03:03.691Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3394,7 +3394,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:03:01.942Z",
+    "lastScraped": "2026-07-22T10:03:11.520Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4280,7 +4280,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:03:09.477Z",
+    "lastScraped": "2026-07-22T10:03:19.183Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4481,7 +4481,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:03:20.660Z",
+    "lastScraped": "2026-07-22T10:03:26.591Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4493,10 +4493,47 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-05-13",
+    "lastDate": "2026-07-17",
     "nextDate": "2026-08-21",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-07-17",
+        "event": "Court Order",
+        "detail": "List the matter before the Hon'ble Court for further directions on the date already fixed i.e.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1784711182_7bfe4ab1027bb3ad_739_5822025.pdf/2026",
+        "orderText": "$~7 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 582/2025 RELIANCE RETAIL LIMITED .....Plaintiff Through: Ms. Ishi Singh, Adv. (through VC) versus BALAJI FOODS AND BEVERAGE .....Defendant Through: Mr. Dikshit & Mr. Tek Chand, Advs. for D-7 (through VC) CORAM: JOINT REGISTRAR (JUDICIAL), SUDHIR KUMAR SIROHI (DHJS) O R D E R % 17.07.2026 List the matter before the Hon'ble Court for further directions on the date already fixed i.e. 21.08.2026. IA No. 13327/2026 (By plaintiff u/O XXII Rule 10 r/w Section 151 CPC seeking substitution of “Reliance Consumer Products Limited” as the plaintiff in place of “Reliance Retail Limited”) No reply has been filed by the defendant. The right of the defendant to file the reply is closed. Ld. counsel for the plaintiff submits that the matter has already been settled with the defendant and the copy of the order of the NCLT dated 06.11.2025 has also been attached with the application. The order of the NCLT dated 06.11.2025 perused and in terms of the submissions made in the application, Reliance Consumer Product Limited is substituted as plaintiff. The amended memo of parties be taken on record. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 22/07/2026 at 15:33:35 Accordingly, the present IA stands disposed off. SUDHIR KUMAR SIROHI (DHJS) JOINT REGISTRAR (JUDICIAL) JULY 17, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 22/07/2026 at 15:33:35",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": "Substitution of plaintiff from Reliance Retail Limited to Reliance Consumer Products Limited",
+          "costsAwarded": null,
+          "directions": [
+            "List the matter before the Hon'ble Court for further directions on 21.08.2026.",
+            "Right of defendant to file reply to IA No. 13327/2026 is closed.",
+            "Reliance Consumer Products Limited is substituted as plaintiff.",
+            "Amended memo of parties be taken on record."
+          ],
+          "citations": [
+            "Order XXII Rule 10, Code of Civil Procedure, 1908",
+            "Section 151, Code of Civil Procedure, 1908"
+          ],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Mr. Dikshit & Mr. Tek Chand"
+          },
+          "summary": "The Joint Registrar disposed of an application by the plaintiff seeking substitution of the plaintiff from Reliance Retail Limited to Reliance Consumer Products Limited, citing a settlement and an NCLT order. The substitution was allowed, and the matter was listed for further directions on 21.08.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-07-22T10:04:57.031Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/582/2025",
+          "_orderDate": "2026-07-17"
+        }
+      },
       {
         "date": "2026-05-13",
         "event": "Court Order",
@@ -4877,7 +4914,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:03:28.140Z",
+    "lastScraped": "2026-07-22T10:03:35.604Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5078,7 +5115,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:03:39.905Z",
+    "lastScraped": "2026-07-22T10:03:43.613Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5819,7 +5856,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:03:47.392Z",
+    "lastScraped": "2026-07-22T10:03:51.178Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6539,7 +6576,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:03:55.080Z",
+    "lastScraped": "2026-07-22T10:03:58.656Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6839,7 +6876,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:04:02.736Z",
+    "lastScraped": "2026-07-22T10:04:06.187Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7232,7 +7269,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:04:11.587Z",
+    "lastScraped": "2026-07-22T10:04:13.786Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7507,7 +7544,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:04:19.854Z",
+    "lastScraped": "2026-07-22T10:04:21.453Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8179,7 +8216,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:04:34.039Z",
+    "lastScraped": "2026-07-22T10:04:29.054Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8269,7 +8306,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:04:48.709Z",
+    "lastScraped": "2026-07-22T10:04:37.060Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8514,7 +8551,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:04:56.384Z",
+    "lastScraped": "2026-07-22T10:04:44.601Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9318,7 +9355,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-22T09:05:04.026Z",
+    "lastScraped": "2026-07-22T10:04:52.295Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

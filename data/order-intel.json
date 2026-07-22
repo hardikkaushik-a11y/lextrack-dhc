@@ -5846,5 +5846,35 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/256/2026",
     "_orderDate": "2026-07-21"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1784711182_7bfe4ab1027bb3ad_739_5822025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": "Substitution of plaintiff from Reliance Retail Limited to Reliance Consumer Products Limited",
+    "costsAwarded": null,
+    "directions": [
+      "List the matter before the Hon'ble Court for further directions on 21.08.2026.",
+      "Right of defendant to file reply to IA No. 13327/2026 is closed.",
+      "Reliance Consumer Products Limited is substituted as plaintiff.",
+      "Amended memo of parties be taken on record."
+    ],
+    "citations": [
+      "Order XXII Rule 10, Code of Civil Procedure, 1908",
+      "Section 151, Code of Civil Procedure, 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Dikshit & Mr. Tek Chand"
+    },
+    "summary": "The Joint Registrar disposed of an application by the plaintiff seeking substitution of the plaintiff from Reliance Retail Limited to Reliance Consumer Products Limited, citing a settlement and an NCLT order. The substitution was allowed, and the matter was listed for further directions on 21.08.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-22T10:04:57.031Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/582/2025",
+    "_orderDate": "2026-07-17"
   }
 }
