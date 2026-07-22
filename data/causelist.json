@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-22T13:01:50Z",
+  "scraped_at": "2026-07-22T15:02:15Z",
   "for_dates": [
     "2026-07-22",
     "2026-07-23"
@@ -7,6 +7,48 @@
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "supple_pro_23.07.2026_0.pdf",
+      "date": "2026-07-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_23.07.2026.pdf",
+      "date": "2026-07-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "supple_pro_23.07.2026.pdf",
+      "date": "2026-07-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_23.07.2026.pdf",
+      "date": "2026-07-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "old_target_for_23.07.2026.pdf",
+      "date": "2026-07-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_supplementary_list_23.07.2026.pdf",
+      "date": "2026-07-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "pro_for_23.07.2026.pdf",
       "date": "2026-07-23",
@@ -79,46 +121,6 @@
     },
     {
       "file": "sup_for_today_2_22.07.pdf",
-      "date": "2026-07-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_harish_v._22.07.2026.pdf",
-      "date": "2026-07-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_for_jud_22.07.2026.pdf",
-      "date": "2026-07-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "original_jud_for_22.07.2026.pdf",
-      "date": "2026-07-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "old_targeted_matter_22.07.2026.pdf",
-      "date": "2026-07-22",
-      "error": "download: ('Connection broken: IncompleteRead(1198768 bytes read, 513459 more expected)', IncompleteRead(1198768 bytes read, 513459 more expected))"
-    },
-    {
-      "file": "pro_1_22.07.2026.pdf",
-      "date": "2026-07-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_22.07.2026.pdf",
       "date": "2026-07-22",
       "matched": 0,
       "regex_matches": 0,
