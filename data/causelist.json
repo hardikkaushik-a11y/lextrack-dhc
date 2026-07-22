@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-22T06:02:02Z",
+  "scraped_at": "2026-07-22T07:02:18Z",
   "for_dates": [
     "2026-07-22",
     "2026-07-23"
@@ -10,7 +10,9 @@
     {
       "file": "combined_adv_list_23.07.2026.pdf",
       "date": "2026-07-23",
-      "error": "download: ('Connection broken: IncompleteRead(2750800 bytes read, 3300692 more expected)', IncompleteRead(2750800 bytes read, 3300692 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_hmj_harish_v._22.07.2026.pdf",
@@ -92,9 +94,7 @@
     {
       "file": "combined_advance_22072026.pdf",
       "date": "2026-07-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": []
