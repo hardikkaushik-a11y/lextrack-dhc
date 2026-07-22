@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-22T05:01:44Z",
+  "scraped_at": "2026-07-22T06:02:02Z",
   "for_dates": [
     "2026-07-22",
     "2026-07-23"
@@ -10,6 +10,25 @@
     {
       "file": "combined_adv_list_23.07.2026.pdf",
       "date": "2026-07-23",
+      "error": "download: ('Connection broken: IncompleteRead(2750800 bytes read, 3300692 more expected)', IncompleteRead(2750800 bytes read, 3300692 more expected))"
+    },
+    {
+      "file": "sup_hmj_harish_v._22.07.2026.pdf",
+      "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_for_jud_22.07.2026.pdf",
+      "date": "2026-07-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "original_jud_for_22.07.2026.pdf",
+      "date": "2026-07-22",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -38,7 +57,9 @@
     {
       "file": "vk_sup_fnl_22.07.26.pdf",
       "date": "2026-07-22",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_22.07.2026.pdf",
@@ -71,7 +92,9 @@
     {
       "file": "combined_advance_22072026.pdf",
       "date": "2026-07-22",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": []
