@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-22T04:01:39Z",
+  "scraped_at": "2026-07-22T05:01:44Z",
   "for_dates": [
     "2026-07-22",
     "2026-07-23"
@@ -38,9 +38,7 @@
     {
       "file": "vk_sup_fnl_22.07.26.pdf",
       "date": "2026-07-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "finals_22.07.2026.pdf",
@@ -66,14 +64,14 @@
     {
       "file": "combined_cause_list_22.07.2026.pdf",
       "date": "2026-07-22",
-      "error": "download: ('Connection broken: IncompleteRead(11774334 bytes read, 9299158 more expected)', IncompleteRead(11774334 bytes read, 9299158 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "combined_advance_22072026.pdf",
       "date": "2026-07-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": []
