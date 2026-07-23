@@ -1,17 +1,22 @@
 {
-  "scraped_at": "2026-07-23T06:02:40Z",
+  "scraped_at": "2026-07-23T07:05:28Z",
   "for_dates": [
     "2026-07-23",
     "2026-07-24"
   ],
   "tracked_cases": 20,
-  "matched_cases": 2,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "advance_combined_list_for_24.07.2026.pdf",
       "date": "2026-07-24",
-      "matched": 2,
-      "regex_matches": 2,
+      "error": "download: ('Connection broken: IncompleteRead(1290263 bytes read, 5071501 more expected)', IncompleteRead(1290263 bytes read, 5071501 more expected))"
+    },
+    {
+      "file": "sup_11_for_23.07.26.pdf",
+      "date": "2026-07-23",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -66,7 +71,9 @@
     {
       "file": "final_supplementary_list_23.07.2026.pdf",
       "date": "2026-07-23",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "pro_for_23.07.2026.pdf",
@@ -92,7 +99,9 @@
     {
       "file": "rl23072026.pdf",
       "date": "2026-07-23",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "cause_list_for_23.07.2026.pdf",
@@ -104,35 +113,10 @@
     {
       "file": "combined_adv_list_23.07.2026.pdf",
       "date": "2026-07-23",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": null,
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 265,
-      "context": "In CS(COMM)-89/2026 LIMITED               KOHLI",
-      "caseNo": "CS(COMM)/89/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-89/2026",
-      "date": "2026-07-24",
-      "source_pdf": "advance_combined_list_for_24.07.2026.pdf"
-    },
-    {
-      "item": null,
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 265,
-      "context": "In CS(COMM)-81/2026 LIMITED",
-      "caseNo": "CS(COMM)/81/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-81/2026",
-      "date": "2026-07-24",
-      "source_pdf": "advance_combined_list_for_24.07.2026.pdf"
-    }
-  ]
+  "entries": []
 }

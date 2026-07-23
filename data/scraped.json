@@ -1,8 +1,8 @@
 [
   {
     "caseNo": "CS(COMM)/108/2025",
-    "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:03:17.479Z",
+    "error": "Navigation timeout of 30000 ms exceeded",
+    "lastScraped": "2026-07-23T07:07:17.230Z",
     "tasks": [],
     "docs": [
       {
@@ -1661,7 +1661,7 @@
   {
     "caseNo": "CS(COMM)/331/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:03:41.329Z",
+    "lastScraped": "2026-07-23T07:08:46.658Z",
     "tasks": [],
     "docs": [
       {
@@ -2039,7 +2039,7 @@
   {
     "caseNo": "CS(COMM)/89/2026",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:04:13.492Z",
+    "lastScraped": "2026-07-23T07:10:01.743Z",
     "tasks": [],
     "docs": [
       {
@@ -2291,41 +2291,17 @@
     ]
   },
   {
+    "id": "m_CSCOMM_81_2026",
     "caseNo": "CS(COMM)/81/2026",
-    "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:04:50.292Z",
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2026-04-07.pdf",
-        "type": "Court Order",
-        "date": "2026-04-07",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1775634303_f2d7679c0051d17e_jis_812026.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-03-24.pdf",
-        "type": "Court Order",
-        "date": "2026-03-24",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1774346928_1247b62d4481ebe1_762_812026.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-02-26.pdf",
-        "type": "Court Order",
-        "date": "2026-02-26",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1772102917_f383af69aa571f15_612_812026.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-01-29.pdf",
-        "type": "Court Order",
-        "date": "2026-01-29",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1769706617_148c474b403eab1b_jis_812026.pdf/2026",
-        "size": "—"
-      }
-    ],
+    "title": "JIOSTAR INDIA PRIVATE LIMITED VS. HTTPS//CRICHDBEST.COM & ORS.",
+    "type": "copyright",
+    "stage": "filed",
+    "status": "PENDING",
+    "judge": null,
+    "client": null,
     "lastDate": "2026-04-29",
+    "nextDate": "2026-08-10",
+    "notes": null,
     "timeline": [
       {
         "date": "2026-04-29",
@@ -2497,23 +2473,75 @@
           "_orderDate": "2026-01-29"
         }
       }
-    ]
-  },
-  {
-    "caseNo": "CS(COMM)/313/2026",
-    "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:05:24.623Z",
+    ],
+    "additionalDates": [
+      {
+        "date": "2026-07-24",
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-04-07",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1775634303_f2d7679c0051d17e_jis_812026.pdf/2026"
+        }
+      },
+      {
+        "date": "2026-08-10",
+        "before": "jr",
+        "firstSeenAt": "2000-01-01T00:00:00Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-04-29",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1777458609_8e0a5eb336d24cf1_762_812026.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
-        "name": "Order_2026-03-25.pdf",
+        "name": "Order_2026-04-07.pdf",
         "type": "Court Order",
-        "date": "2026-03-25",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1774530664_4d01b4a9a2b2cc23_594_3132026.pdf/2026",
+        "date": "2026-04-07",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1775634303_f2d7679c0051d17e_jis_812026.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-03-24.pdf",
+        "type": "Court Order",
+        "date": "2026-03-24",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1774346928_1247b62d4481ebe1_762_812026.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-02-26.pdf",
+        "type": "Court Order",
+        "date": "2026-02-26",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1772102917_f383af69aa571f15_612_812026.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-01-29.pdf",
+        "type": "Court Order",
+        "date": "2026-01-29",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1769706617_148c474b403eab1b_jis_812026.pdf/2026",
         "size": "—"
       }
     ],
+    "lastScraped": "2026-07-23T07:11:04.080Z",
+    "_scraperVersion": "v11-jr-default-2026-05-14"
+  },
+  {
+    "id": "m_CSCOMM_313_2026",
+    "caseNo": "CS(COMM)/313/2026",
+    "title": "JIOSTAR INDIA PRIVATE LIMITED VS. HTTPS//DADDYLIVES.NL & ORS.",
+    "type": "copyright",
+    "stage": "filed",
+    "status": "PENDING",
+    "judge": null,
+    "client": null,
     "lastDate": "2026-07-08",
+    "nextDate": "2026-09-29",
+    "notes": null,
     "timeline": [
       {
         "date": "2026-07-08",
@@ -2584,12 +2612,36 @@
           "_orderDate": "2026-03-25"
         }
       }
-    ]
+    ],
+    "additionalDates": [
+      {
+        "date": "2026-08-31",
+        "before": "jr",
+        "firstSeenAt": "2000-01-01T00:00:00Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-07-08",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1783933395_9a3f2dce31424b32_739_3132026.pdf/2026"
+        }
+      }
+    ],
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2026-03-25.pdf",
+        "type": "Court Order",
+        "date": "2026-03-25",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1774530664_4d01b4a9a2b2cc23_594_3132026.pdf/2026",
+        "size": "—"
+      }
+    ],
+    "lastScraped": "2026-07-23T07:13:07.220Z",
+    "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
     "caseNo": "CS(COMM)/319/2026",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:05:55.708Z",
+    "lastScraped": "2026-07-23T07:14:12.514Z",
     "tasks": [],
     "docs": [
       {
@@ -2754,83 +2806,17 @@
     ]
   },
   {
+    "id": "m_CSCOMM_756_2025",
     "caseNo": "CS(COMM)/756/2025",
-    "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:06:26.855Z",
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2026-03-17.pdf",
-        "type": "Court Order",
-        "date": "2026-03-17",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1773905809_adf193a0af1dfbfc_jis_7562025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-02-24.pdf",
-        "type": "Court Order",
-        "date": "2026-02-24",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1771934657_6886f5e9a5662767_612_7562025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-01-27.pdf",
-        "type": "Court Order",
-        "date": "2026-01-27",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1769511613_1b7c907d99a9e6be_612_7562025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-01-13.pdf",
-        "type": "Court Order",
-        "date": "2026-01-13",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1768297892_5b4a9d430e5fe6a5_612_7562025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-01-08.pdf",
-        "type": "Court Order",
-        "date": "2026-01-08",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1767874330_7badc546c575e790_jis_7562025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-10-29.pdf",
-        "type": "Court Order",
-        "date": "2025-10-29",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1761904742_8b622128a1445479_589_7562025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-10-10.pdf",
-        "type": "Court Order",
-        "date": "2025-10-10",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1760506395_c253aadbbc031073_612_7562025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-09-15.pdf",
-        "type": "Court Order",
-        "date": "2025-09-15",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1758202779_d6fcab1053f05964_589_7562025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-12.pdf",
-        "type": "Court Order",
-        "date": "2025-08-12",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1755348853_6742b975114f2994_589_7562025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-07-29.pdf",
-        "type": "Court Order",
-        "date": "2025-07-29",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1753976543_ea432201b329e187_589_7562025.pdf/2025",
-        "size": "—"
-      }
-    ],
+    "title": "JIOSTAR INDIA PRIVATE LIMITED VS. HTTPS//IPTVWORLD.IN & ORS.",
+    "type": "copyright",
+    "stage": "filed",
+    "status": "PENDING",
+    "judge": null,
+    "client": null,
     "lastDate": "2026-07-15",
+    "nextDate": "2026-11-17",
+    "notes": null,
     "timeline": [
       {
         "date": "2026-07-15",
@@ -3218,12 +3204,109 @@
           "_orderDate": "2025-07-29"
         }
       }
-    ]
+    ],
+    "additionalDates": [
+      {
+        "date": "2026-08-13",
+        "before": "jr",
+        "firstSeenAt": "2000-01-01T00:00:00Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-07-15",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784194637_99f772bf12c806c4_jis_7562025.pdf/2026"
+        }
+      },
+      {
+        "date": "2026-11-17",
+        "before": "court",
+        "firstSeenAt": "2000-01-01T00:00:00Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-07-15",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784194637_99f772bf12c806c4_jis_7562025.pdf/2026"
+        }
+      }
+    ],
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2026-03-17.pdf",
+        "type": "Court Order",
+        "date": "2026-03-17",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1773905809_adf193a0af1dfbfc_jis_7562025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-02-24.pdf",
+        "type": "Court Order",
+        "date": "2026-02-24",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1771934657_6886f5e9a5662767_612_7562025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-01-27.pdf",
+        "type": "Court Order",
+        "date": "2026-01-27",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1769511613_1b7c907d99a9e6be_612_7562025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-01-13.pdf",
+        "type": "Court Order",
+        "date": "2026-01-13",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1768297892_5b4a9d430e5fe6a5_612_7562025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-01-08.pdf",
+        "type": "Court Order",
+        "date": "2026-01-08",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1767874330_7badc546c575e790_jis_7562025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-10-29.pdf",
+        "type": "Court Order",
+        "date": "2025-10-29",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1761904742_8b622128a1445479_589_7562025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-10-10.pdf",
+        "type": "Court Order",
+        "date": "2025-10-10",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1760506395_c253aadbbc031073_612_7562025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-09-15.pdf",
+        "type": "Court Order",
+        "date": "2025-09-15",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1758202779_d6fcab1053f05964_589_7562025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-12.pdf",
+        "type": "Court Order",
+        "date": "2025-08-12",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1755348853_6742b975114f2994_589_7562025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-07-29.pdf",
+        "type": "Court Order",
+        "date": "2025-07-29",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1753976543_ea432201b329e187_589_7562025.pdf/2025",
+        "size": "—"
+      }
+    ],
+    "lastScraped": "2026-07-23T07:16:09.094Z",
+    "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
     "caseNo": "CS(COMM)/810/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:06:59.020Z",
+    "lastScraped": "2026-07-23T07:17:25.562Z",
     "tasks": [],
     "docs": [
       {
@@ -4099,7 +4182,7 @@
   {
     "caseNo": "CS(COMM)/195/2026",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:07:34.634Z",
+    "lastScraped": "2026-07-23T07:18:41.655Z",
     "tasks": [],
     "docs": [
       {
@@ -4269,7 +4352,7 @@
   {
     "caseNo": "CS(COMM)/582/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:08:14.199Z",
+    "lastScraped": "2026-07-23T07:19:47.268Z",
     "tasks": [],
     "docs": [
       {
@@ -4681,7 +4764,7 @@
   {
     "caseNo": "CS(COMM)/1306/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:08:53.699Z",
+    "lastScraped": "2026-07-23T07:20:48.603Z",
     "tasks": [],
     "docs": [
       {
@@ -4859,7 +4942,7 @@
   {
     "caseNo": "CS(COMM)/269/2024",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:09:33.264Z",
+    "lastScraped": "2026-07-23T07:21:35.026Z",
     "tasks": [],
     "docs": [
       {
@@ -5810,7 +5893,7 @@
   {
     "caseNo": "CS(COMM)/536/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:10:35.843Z",
+    "lastScraped": "2026-07-23T07:22:11.581Z",
     "tasks": [],
     "docs": [
       {
@@ -6270,7 +6353,7 @@
   {
     "caseNo": "CS(COMM)/977/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:11:33.657Z",
+    "lastScraped": "2026-07-23T07:22:45.972Z",
     "tasks": [],
     "docs": [
       {
@@ -6549,7 +6632,7 @@
   {
     "caseNo": "CS(COMM)/1210/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:12:21.233Z",
+    "lastScraped": "2026-07-23T07:23:22.428Z",
     "tasks": [],
     "docs": [
       {
@@ -6921,7 +7004,7 @@
   {
     "caseNo": "CS(COMM)/1203/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:13:21.055Z",
+    "lastScraped": "2026-07-23T07:23:52.459Z",
     "tasks": [],
     "docs": [
       {
@@ -7175,7 +7258,7 @@
   {
     "caseNo": "CS(COMM)/149/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:13:52.357Z",
+    "lastScraped": "2026-07-23T07:24:22.205Z",
     "tasks": [],
     "docs": [
       {
@@ -7826,7 +7909,7 @@
   {
     "caseNo": "CS(COMM)/672/2026",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:14:25.574Z",
+    "lastScraped": "2026-07-23T07:24:48.047Z",
     "tasks": [],
     "docs": [
       {
@@ -7885,7 +7968,7 @@
   {
     "caseNo": "CS(COMM)/256/2026",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-07-23T06:15:24.570Z",
+    "lastScraped": "2026-07-23T07:25:11.587Z",
     "tasks": [],
     "docs": [
       {
@@ -8088,8 +8171,8 @@
   },
   {
     "caseNo": "CS(COMM)/1186/2024",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-07-23T06:16:48.040Z",
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-07-23T07:25:37.551Z",
     "tasks": [],
     "docs": [
       {
