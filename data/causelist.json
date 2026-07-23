@@ -1,16 +1,25 @@
 {
-  "scraped_at": "2026-07-23T07:05:28Z",
+  "scraped_at": "2026-07-23T08:01:45Z",
   "for_dates": [
     "2026-07-23",
     "2026-07-24"
   ],
   "tracked_cases": 20,
-  "matched_cases": 0,
+  "matched_cases": 2,
   "sources": [
     {
       "file": "advance_combined_list_for_24.07.2026.pdf",
       "date": "2026-07-24",
-      "error": "download: ('Connection broken: IncompleteRead(1290263 bytes read, 5071501 more expected)', IncompleteRead(1290263 bytes read, 5071501 more expected))"
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_12_for_23.07.26.pdf",
+      "date": "2026-07-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_11_for_23.07.26.pdf",
@@ -113,10 +122,35 @@
     {
       "file": "combined_adv_list_23.07.2026.pdf",
       "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": null,
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 265,
+      "context": "In CS(COMM)-89/2026 LIMITED               KOHLI",
+      "caseNo": "CS(COMM)/89/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-89/2026",
+      "date": "2026-07-24",
+      "source_pdf": "advance_combined_list_for_24.07.2026.pdf"
+    },
+    {
+      "item": null,
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 265,
+      "context": "In CS(COMM)-81/2026 LIMITED",
+      "caseNo": "CS(COMM)/81/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-81/2026",
+      "date": "2026-07-24",
+      "source_pdf": "advance_combined_list_for_24.07.2026.pdf"
+    }
+  ]
 }
