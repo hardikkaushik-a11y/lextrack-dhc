@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-23T09:02:13Z",
+  "scraped_at": "2026-07-23T10:01:57Z",
   "for_dates": [
     "2026-07-23",
     "2026-07-24"
@@ -12,6 +12,13 @@
       "date": "2026-07-24",
       "matched": 2,
       "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_14_for_23.07.26.pdf",
+      "date": "2026-07-23",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -114,13 +121,6 @@
     },
     {
       "file": "rl23072026.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "cause_list_for_23.07.2026.pdf",
       "date": "2026-07-23",
       "matched": 0,
       "regex_matches": 0,
