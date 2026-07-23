@@ -5876,5 +5876,55 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/582/2025",
     "_orderDate": "2026-07-17"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1784794206_564fb1c2646c4745_762_3192026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to file fresh process for defendants 32 to 70 within seven days",
+      "Summons to be issued to defendants 32 to 70 through all permissible modes",
+      "Matter listed for service status/completion of pleadings on 15.10.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Ms. Ananya Dewan and Mr. Vishal Hablani (D-6), Mr. Yogesh Singh (D-14), Mr. Ayushmaan and Mr. Siddhartha Makhija (D-27), Ms. Radhika Biswajit Dubey and Mr. Kritarth Upadhyay (D-29,30)"
+    },
+    "summary": "The Joint Registrar noted that pleadings are pending. Plaintiff confirmed service on defendants 1-30 via email and sought fresh process for defendants 32-70. Defendants 6 and 14 confirmed compliance with prior orders regarding domain name details. The court directed issuance of fresh process for defendants 32-70 and adjourned to 15.10.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-23T09:05:24.739Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/319/2026",
+    "_orderDate": "2026-07-21"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1784794192_25b8615ff8cbd531_762_2562026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List matter for further proceedings on 15.09.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Sandeep Das, Ms. Kanak Malik and Mr. Tejasvi Mahajan"
+    },
+    "summary": "The court disposed of an IA seeking leave to file videos on a pen drive. The matter was listed for further proceedings on 15.09.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-23T09:05:24.739Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/256/2026",
+    "_orderDate": "2026-07-21"
   }
 }

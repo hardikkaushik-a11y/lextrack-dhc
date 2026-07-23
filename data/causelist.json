@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-23T08:01:45Z",
+  "scraped_at": "2026-07-23T09:02:13Z",
   "for_dates": [
     "2026-07-23",
     "2026-07-24"
@@ -12,6 +12,13 @@
       "date": "2026-07-24",
       "matched": 2,
       "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_j._manoj_jain_23.07.2026.pdf",
+      "date": "2026-07-23",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -118,11 +125,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_23.07.2026.pdf",
-      "date": "2026-07-23",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": [
