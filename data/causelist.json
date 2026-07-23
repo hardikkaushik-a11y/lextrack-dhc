@@ -1,18 +1,23 @@
 {
-  "scraped_at": "2026-07-23T11:01:32Z",
+  "scraped_at": "2026-07-23T12:01:41Z",
   "for_dates": [
     "2026-07-23",
     "2026-07-24"
   ],
   "tracked_cases": 20,
-  "matched_cases": 2,
+  "matched_cases": 3,
   "sources": [
+    {
+      "file": "combined_cause_list_24.07.2026.pdf",
+      "date": "2026-07-24",
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
+    },
     {
       "file": "advance_combined_list_for_24.07.2026.pdf",
       "date": "2026-07-24",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup_14_for_23.07.26.pdf",
@@ -118,13 +123,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "rl23072026.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -133,26 +131,39 @@
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 265,
+      "page": 407,
       "context": "In CS(COMM)-89/2026 LIMITED               KOHLI",
       "caseNo": "CS(COMM)/89/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-89/2026",
       "date": "2026-07-24",
-      "source_pdf": "advance_combined_list_for_24.07.2026.pdf"
+      "source_pdf": "combined_cause_list_24.07.2026.pdf"
     },
     {
       "item": null,
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 265,
+      "page": 407,
       "context": "In CS(COMM)-81/2026 LIMITED",
       "caseNo": "CS(COMM)/81/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-81/2026",
       "date": "2026-07-24",
-      "source_pdf": "advance_combined_list_for_24.07.2026.pdf"
+      "source_pdf": "combined_cause_list_24.07.2026.pdf"
+    },
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 618,
+      "context": "In CS(COMM)-        V/s SERIALMAZA.MY & MAYA, ABHISHEK\n             810/2025            ORS.                SAKET, PRIYANSH",
+      "caseNo": "CS(COMM)/810/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-        V/s SERIALMAZA.MY & MAYA, ABHISHEK\n             810/2025",
+      "date": "2026-07-24",
+      "source_pdf": "combined_cause_list_24.07.2026.pdf"
     }
   ]
 }
