@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-23T18:01:46Z",
+  "scraped_at": "2026-07-23T19:01:40Z",
   "for_dates": [
-    "2026-07-23",
-    "2026-07-24"
+    "2026-07-24",
+    "2026-07-25"
   ],
   "tracked_cases": 20,
   "matched_cases": 3,
@@ -68,55 +68,6 @@
       "date": "2026-07-24",
       "matched": 2,
       "regex_matches": 2,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_14_for_23.07.26.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_j._manoj_jain_23.07.2026.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_12_for_23.07.26.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_11_for_23.07.26.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_9_for_23.07.26.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_vk_sup_8_for_23.07.26.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "supple_pro_23.07.2026_0.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
