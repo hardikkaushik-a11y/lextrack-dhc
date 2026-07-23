@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-07-23T17:01:33Z",
+  "scraped_at": "2026-07-23T18:01:46Z",
   "for_dates": [
     "2026-07-23",
     "2026-07-24"
   ],
   "tracked_cases": 20,
-  "matched_cases": 2,
+  "matched_cases": 3,
   "sources": [
     {
       "file": "deletion_note_24.07.2026.pdf",
@@ -59,7 +59,9 @@
     {
       "file": "combined_cause_list_24.07.2026.pdf",
       "date": "2026-07-24",
-      "error": "download: ('Connection broken: IncompleteRead(14108414 bytes read, 4804216 more expected)', IncompleteRead(14108414 bytes read, 4804216 more expected))"
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
     },
     {
       "file": "advance_combined_list_for_24.07.2026.pdf",
@@ -124,26 +126,39 @@
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 265,
+      "page": 407,
       "context": "In CS(COMM)-89/2026 LIMITED               KOHLI",
       "caseNo": "CS(COMM)/89/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-89/2026",
       "date": "2026-07-24",
-      "source_pdf": "advance_combined_list_for_24.07.2026.pdf"
+      "source_pdf": "combined_cause_list_24.07.2026.pdf"
     },
     {
       "item": null,
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 265,
+      "page": 407,
       "context": "In CS(COMM)-81/2026 LIMITED",
       "caseNo": "CS(COMM)/81/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-81/2026",
       "date": "2026-07-24",
-      "source_pdf": "advance_combined_list_for_24.07.2026.pdf"
+      "source_pdf": "combined_cause_list_24.07.2026.pdf"
+    },
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 618,
+      "context": "In CS(COMM)-        V/s SERIALMAZA.MY & MAYA, ABHISHEK\n             810/2025            ORS.                SAKET, PRIYANSH",
+      "caseNo": "CS(COMM)/810/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-        V/s SERIALMAZA.MY & MAYA, ABHISHEK\n             810/2025",
+      "date": "2026-07-24",
+      "source_pdf": "combined_cause_list_24.07.2026.pdf"
     }
   ]
 }
