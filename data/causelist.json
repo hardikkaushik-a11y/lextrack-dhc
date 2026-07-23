@@ -1,12 +1,40 @@
 {
-  "scraped_at": "2026-07-23T13:01:57Z",
+  "scraped_at": "2026-07-23T14:01:40Z",
   "for_dates": [
     "2026-07-23",
     "2026-07-24"
   ],
   "tracked_cases": 20,
-  "matched_cases": 3,
+  "matched_cases": 2,
   "sources": [
+    {
+      "file": "deletion_note_24.07.2026.pdf",
+      "date": "2026-07-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_24.07.2026_0.pdf",
+      "date": "2026-07-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "dh_sup_3_24.07.pdf",
+      "date": "2026-07-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_24.07.2026.pdf",
+      "date": "2026-07-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "finals_24.07.2026.pdf",
       "date": "2026-07-24",
@@ -31,9 +59,7 @@
     {
       "file": "combined_cause_list_24.07.2026.pdf",
       "date": "2026-07-24",
-      "matched": 3,
-      "regex_matches": 3,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(5145854 bytes read, 13766776 more expected)', IncompleteRead(5145854 bytes read, 13766776 more expected))"
     },
     {
       "file": "advance_combined_list_for_24.07.2026.pdf",
@@ -90,41 +116,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_23.07.2026.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "supple_pro_23.07.2026.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_23.07.2026.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "old_target_for_23.07.2026.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_supplementary_list_23.07.2026.pdf",
-      "date": "2026-07-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -133,39 +124,26 @@
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 407,
+      "page": 265,
       "context": "In CS(COMM)-89/2026 LIMITED               KOHLI",
       "caseNo": "CS(COMM)/89/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-89/2026",
       "date": "2026-07-24",
-      "source_pdf": "combined_cause_list_24.07.2026.pdf"
+      "source_pdf": "advance_combined_list_for_24.07.2026.pdf"
     },
     {
       "item": null,
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 407,
+      "page": 265,
       "context": "In CS(COMM)-81/2026 LIMITED",
       "caseNo": "CS(COMM)/81/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-81/2026",
       "date": "2026-07-24",
-      "source_pdf": "combined_cause_list_24.07.2026.pdf"
-    },
-    {
-      "item": null,
-      "court": "JR",
-      "judge": "SWATI KATIYAR (JR)",
-      "time": null,
-      "page": 618,
-      "context": "In CS(COMM)-        V/s SERIALMAZA.MY & MAYA, ABHISHEK\n             810/2025            ORS.                SAKET, PRIYANSH",
-      "caseNo": "CS(COMM)/810/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-        V/s SERIALMAZA.MY & MAYA, ABHISHEK\n             810/2025",
-      "date": "2026-07-24",
-      "source_pdf": "combined_cause_list_24.07.2026.pdf"
+      "source_pdf": "advance_combined_list_for_24.07.2026.pdf"
     }
   ]
 }
