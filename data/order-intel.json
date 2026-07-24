@@ -5951,5 +5951,32 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/810/2025",
     "_orderDate": "2026-07-21"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1784890199_e0b1fd71695030dd_762_8102025.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Impleadment of additional rogue websites and domain name registrars; existing blocking and injunction orders extended to newly impleaded defendants.",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to serve copy of IA on existing DNR defendants.",
+      "Plaintiff to take steps to serve newly impleaded defendants with summons within two weeks via electronic mode.",
+      "Concerned DNRs to lock and suspend/deactivate the newly impleaded rogue websites.",
+      "Concerned DNRs to disclose complete details of new rogue websites in an affidavit within four weeks."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh and Mr. Manish Singh",
+      "defendant": "Ms. Palak Kaushal (D-38), Ms. Anmol Dhindsa and Mr. Aditya Singh (D-39), Mr. Suvarna Singh (D-40 and D-140), Ms. Manisha Agrawal Narain and Ms. Aditi Singh (D-56 and 57), Mr. Abhishek Saket, Mr. Manish Madhukar, Ms. Shahama Farah, Ms. Reya Paul (D-1735)"
+    },
+    "summary": "The court allowed two applications by the plaintiff to implead additional rogue websites (defendants 2263-2313 and 2314-2366) that were infringing copyright. The existing blocking and injunction orders from August 8, 2025 were extended to these new defendants. The court directed the plaintiff to serve the applications on existing DNR defendants and to take steps for summons. The concerned DNRs were ordered to lock/suspend the rogue websites and file an affidavit with details within four weeks.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "low"
+    },
+    "_extractedAt": "2026-07-24T11:05:02.166Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/810/2025",
+    "_orderDate": "2026-07-24"
   }
 }
