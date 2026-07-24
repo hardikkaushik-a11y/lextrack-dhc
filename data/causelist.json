@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-24T06:02:03Z",
+  "scraped_at": "2026-07-24T07:02:25Z",
   "for_dates": [
     "2026-07-24",
     "2026-07-25"
@@ -7,6 +7,27 @@
   "tracked_cases": 20,
   "matched_cases": 3,
   "sources": [
+    {
+      "file": "sup_9_for_24.07.26.pdf",
+      "date": "2026-07-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro._24.07.2026.pdf",
+      "date": "2026-07-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_24.07.2026.pdf",
+      "date": "2026-07-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_24.07.2026.pdf",
       "date": "2026-07-24",
