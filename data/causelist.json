@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-24T08:01:50Z",
+  "scraped_at": "2026-07-24T09:02:18Z",
   "for_dates": [
     "2026-07-24",
     "2026-07-25"
@@ -7,6 +7,34 @@
   "tracked_cases": 20,
   "matched_cases": 3,
   "sources": [
+    {
+      "file": "sup_14_for_24.07.26.pdf",
+      "date": "2026-07-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_12_for_24.07.26.pdf",
+      "date": "2026-07-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_11_for_24.07.26.pdf",
+      "date": "2026-07-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_10_for_24.07.26.pdf",
+      "date": "2026-07-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_9_for_24.07.26.pdf",
       "date": "2026-07-24",
@@ -87,9 +115,7 @@
     {
       "file": "advance_combined_list_for_24.07.2026.pdf",
       "date": "2026-07-24",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(2864279 bytes read, 3497485 more expected)', IncompleteRead(2864279 bytes read, 3497485 more expected))"
     }
   ],
   "entries": [
