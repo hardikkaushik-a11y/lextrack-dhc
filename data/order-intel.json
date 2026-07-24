@@ -5926,5 +5926,30 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/256/2026",
     "_orderDate": "2026-07-21"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1784878355_d1d10cee9445b254_jis_8102025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 06.11.2026",
+      "Interim order to continue till the next date"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Priyansh Kohli and Mr. Manish Singh",
+      "defendant": "Ms. Palak Kaushal and Ms. Khushbu Turki (D-38); Mr. Arjun Mookerjee, Mr. Shivam Tiwari, Mr. Mrinal Ojha, Mr. Debarshi Dutta and Mr. Nikhil Gupta (D-39); Ms. Manisha Agrawal Narain, CGSC and Ms. Aditi Singh, GP with Mr. Divanshu Vajpayee (D-56 & D-57); Mr. Abhishek Saket, Ms. Shahana Farah, Mr. Manish Madhukar and Mr. Abhigyan and Ms. Reya Paul (D-1735/Marcaria.com International, Inc.)"
+    },
+    "summary": "The court adjourned the case to 06.11.2026 and directed that the interim order continue until the next date. No final relief was granted.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-24T08:04:48.286Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/810/2025",
+    "_orderDate": "2026-07-21"
   }
 }
