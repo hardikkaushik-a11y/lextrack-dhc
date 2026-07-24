@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-24T12:01:27Z",
+  "scraped_at": "2026-07-24T13:01:36Z",
   "for_dates": [
     "2026-07-24",
     "2026-07-25"
@@ -114,13 +114,6 @@
     },
     {
       "file": "combined_pro_24.07.2026.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_24.07.2026.pdf",
       "date": "2026-07-24",
       "matched": 0,
       "regex_matches": 0,
