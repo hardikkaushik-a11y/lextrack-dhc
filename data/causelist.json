@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-24T18:01:18Z",
+  "scraped_at": "2026-07-24T19:01:10Z",
   "for_dates": [
-    "2026-07-24",
-    "2026-07-25"
+    "2026-07-25",
+    "2026-07-26"
   ],
   "tracked_cases": 20,
   "matched_cases": 0,
@@ -10,111 +10,6 @@
     {
       "file": "c_25072026.pdf",
       "date": "2026-07-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_19_24.07.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_18a_24.07.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_17-18_for_24.07.26.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_15_for_24.07.26.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_14_for_24.07.26.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_12_for_24.07.26.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_11_for_24.07.26.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_10_for_24.07.26.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_9_for_24.07.26.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._24.07.2026.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_24.07.2026.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_24.07.2026.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_24.07.2026_0.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "dh_sup_3_24.07.pdf",
-      "date": "2026-07-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_24.07.2026.pdf",
-      "date": "2026-07-24",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
