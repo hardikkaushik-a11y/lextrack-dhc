@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-07-26T18:01:54Z",
+  "scraped_at": "2026-07-26T19:01:50Z",
   "for_dates": [
-    "2026-07-26",
-    "2026-07-27"
+    "2026-07-27",
+    "2026-07-28"
   ],
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combinbed_adv_28.07.2026.pdf",
+      "date": "2026-07-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_27.07.2026.pdf",
       "date": "2026-07-27",
@@ -66,7 +73,9 @@
     {
       "file": "rl27072026.pdf",
       "date": "2026-07-27",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "combined_adv_list_27.07.2026.pdf",
