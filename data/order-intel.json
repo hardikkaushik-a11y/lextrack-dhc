@@ -5978,5 +5978,31 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/810/2025",
     "_orderDate": "2026-07-24"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1784988379_70f3710ddfa306d2_jis_812026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Matter be placed before Joint Registrar on 10.08.2026 for completion of pleadings.",
+      "List before Court on 09.12.2026.",
+      "Interim order to continue till next date of hearing."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Priyansh Kohli and Mr. Manish Singh",
+      "defendant": "Mr. Rishi Kapoor, Ms. Gitanjali Kapoor and Mr. Siddhartha Makhija (for Vodafone Idea Ltd.); Mr. Akshay Shankar (for D9); Mr. Vinay Yadav, CGSC with Mr. Ansh Kalra (for D19-20); Mr. Mrinal Ojha, Mr. Debarshi Dutta and Mr. Yogesh Singh (for D151)"
+    },
+    "summary": "The court adjourned the matters for completion of pleadings before the Joint Registrar on 10.08.2026 and listed the interim applications for hearing on 09.12.2026, directing that the interim order continue until the next date.",
+    "confidence": {
+      "reliefGranted": "low",
+      "directions": "high",
+      "citations": "low"
+    },
+    "_extractedAt": "2026-07-26T11:04:14.630Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/81/2026",
+    "_orderDate": "2026-07-24"
   }
 }
