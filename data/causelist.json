@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-27T08:02:05Z",
+  "scraped_at": "2026-07-27T09:04:32Z",
   "for_dates": [
     "2026-07-27",
     "2026-07-28"
@@ -24,16 +24,12 @@
     {
       "file": "sup_reg_bhawani_sharma_27.07.2026.pdf",
       "date": "2026-07-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "transferred_matter_to_vimal_k_yadav_27.07.2026.pdf",
       "date": "2026-07-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup_hmj_swarana_k._sharma_27.07.2026.pdf",
