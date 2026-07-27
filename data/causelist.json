@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-27T13:02:00Z",
+  "scraped_at": "2026-07-27T14:01:55Z",
   "for_dates": [
     "2026-07-27",
     "2026-07-28"
@@ -7,6 +7,41 @@
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "pla_28.07.2026.pdf",
+      "date": "2026-07-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_28.07.2026.pdf",
+      "date": "2026-07-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_28.07.2026.pdf",
+      "date": "2026-07-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_28.07.2026.pdf",
+      "date": "2026-07-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_28.07.2026.pdf",
+      "date": "2026-07-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "finals_28.07.2026.pdf",
       "date": "2026-07-28",
@@ -31,7 +66,9 @@
     {
       "file": "combinbed_adv_28.07.2026.pdf",
       "date": "2026-07-28",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_hmj_jasmeet_singh_27.07.2026.pdf",
@@ -56,27 +93,6 @@
     },
     {
       "file": "sup_hmj_swarana_k._sharma_27.07.2026.pdf",
-      "date": "2026-07-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_27.07.2026.pdf",
-      "date": "2026-07-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_fnl_27.07.2026.pdf",
-      "date": "2026-07-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro_for_27.07.2026.pdf",
       "date": "2026-07-27",
       "matched": 0,
       "regex_matches": 0,
