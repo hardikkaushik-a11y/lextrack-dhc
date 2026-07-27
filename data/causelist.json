@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-27T07:04:58Z",
+  "scraped_at": "2026-07-27T08:02:05Z",
   "for_dates": [
     "2026-07-27",
     "2026-07-28"
@@ -10,6 +10,20 @@
     {
       "file": "combinbed_adv_28.07.2026.pdf",
       "date": "2026-07-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_jasmeet_singh_27.07.2026.pdf",
+      "date": "2026-07-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_reg_bhawani_sharma_27.07.2026.pdf",
+      "date": "2026-07-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -79,20 +93,6 @@
     },
     {
       "file": "cause_list_for_27.07.2026.pdf",
-      "date": "2026-07-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl27072026.pdf",
-      "date": "2026-07-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_27.07.2026.pdf",
       "date": "2026-07-27",
       "matched": 0,
       "regex_matches": 0,
