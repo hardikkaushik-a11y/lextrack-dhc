@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-07-27T18:01:43Z",
+  "scraped_at": "2026-07-27T19:02:06Z",
   "for_dates": [
-    "2026-07-27",
-    "2026-07-28"
+    "2026-07-28",
+    "2026-07-29"
   ],
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_adv_list_29.07.2026.pdf",
+      "date": "2026-07-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "pla_28.07.2026.pdf",
       "date": "2026-07-28",
@@ -66,34 +73,6 @@
     {
       "file": "combinbed_adv_28.07.2026.pdf",
       "date": "2026-07-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_jasmeet_singh_27.07.2026.pdf",
-      "date": "2026-07-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_reg_bhawani_sharma_27.07.2026.pdf",
-      "date": "2026-07-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "transferred_matter_to_vimal_k_yadav_27.07.2026.pdf",
-      "date": "2026-07-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_swarana_k._sharma_27.07.2026.pdf",
-      "date": "2026-07-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
