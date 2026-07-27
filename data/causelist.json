@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-27T16:01:34Z",
+  "scraped_at": "2026-07-27T17:01:41Z",
   "for_dates": [
     "2026-07-27",
     "2026-07-28"
@@ -66,7 +66,9 @@
     {
       "file": "combinbed_adv_28.07.2026.pdf",
       "date": "2026-07-28",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_hmj_jasmeet_singh_27.07.2026.pdf",
