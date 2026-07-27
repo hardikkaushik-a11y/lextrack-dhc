@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-27T06:02:11Z",
+  "scraped_at": "2026-07-27T07:04:58Z",
   "for_dates": [
     "2026-07-27",
     "2026-07-28"
@@ -10,6 +10,20 @@
     {
       "file": "combinbed_adv_28.07.2026.pdf",
       "date": "2026-07-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "transferred_matter_to_vimal_k_yadav_27.07.2026.pdf",
+      "date": "2026-07-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_swarana_k._sharma_27.07.2026.pdf",
+      "date": "2026-07-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -80,7 +94,9 @@
     {
       "file": "combined_adv_list_27.07.2026.pdf",
       "date": "2026-07-27",
-      "error": "download: ('Connection broken: IncompleteRead(2475416 bytes read, 4137377 more expected)', IncompleteRead(2475416 bytes read, 4137377 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": []
