@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-28T18:01:45Z",
+  "scraped_at": "2026-07-28T19:01:54Z",
   "for_dates": [
-    "2026-07-28",
-    "2026-07-29"
+    "2026-07-29",
+    "2026-07-30"
   ],
   "tracked_cases": 20,
   "matched_cases": 0,
@@ -36,6 +36,13 @@
       "norm_matches": 0
     },
     {
+      "file": "combined_adv_list_30.07.2026.pdf",
+      "date": "2026-07-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "rl29072026.pdf",
       "date": "2026-07-29",
       "matched": 0,
@@ -52,62 +59,6 @@
     {
       "file": "combined_adv_list_29.07.2026.pdf",
       "date": "2026-07-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_11_12_for_28.07.26.pdf",
-      "date": "2026-07-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sups_28.07.26.pdf",
-      "date": "2026-07-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "zzz-supply-28.07.pdf",
-      "date": "2026-07-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_8_for_28.07.26.pdf",
-      "date": "2026-07-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_7_for_28.07.26.pdf",
-      "date": "2026-07-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._28.07.2026.pdf",
-      "date": "2026-07-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_28.07.2026.pdf",
-      "date": "2026-07-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_28.07.2026.pdf",
-      "date": "2026-07-28",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
