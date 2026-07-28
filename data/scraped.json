@@ -1676,7 +1676,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:02:23.177Z",
+    "lastScraped": "2026-07-28T13:02:09.197Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2075,7 +2075,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:02:30.530Z",
+    "lastScraped": "2026-07-28T13:02:16.726Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2087,10 +2087,43 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-04-29",
+    "lastDate": "2026-07-24",
     "nextDate": "2026-12-09",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-07-24",
+        "event": "Court Order",
+        "detail": ". The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 28/07/2026…",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1784988379_70f3710ddfa306d2_jis_812026.pdf/2026",
+        "orderText": "CS(COMM) 81/2026 and connected matter Page 1 of 2 $~32 and 35 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 81/2026 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Priyansh Kohli and Mr. Manish Singh, Advocates. versus HTTPS//CRICHDBEST.COM & ORS. .....Defendants Through: Mr. Rishi Kapoor, Ms. Gitanjali Kapoor and Mr. Siddhartha Makhija, Advocates for Vodafone Idea Ltd. Mr. Akshay Shankar, Advocate for D9. 35 + CS(COMM) 89/2026 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Priyansh Kohli and Mr. Manish Singh, Advocates. versus GHD SPORTS & ORS. .....Defendants Through: Mr. Akshay Shankar, Advocate for D8. Mr. Vinay Yadav, CGSC with Mr. Ansh Kalra, Advocate for D19-20. Mr. Rishi Kapoor, Ms. Gitanjali Kapoor and Mr. Siddhartha Makhija, Advocates for Vodafone Idea Ltd. Mr. Mrinal Ojha, Mr. Debarshi Dutta and Mr. Yogesh Singh, Advocates for D151. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 28/07/2026 at 18:32:25 CS(COMM) 81/2026 and connected matter Page 2 of 2 CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 24.07.2026 CS(COMM) 81/2026 & CS(COMM) 89/2026 1. Matter be placed before the learned Joint Registrar on the date fixed i.e., 10.08.2026 for completion of pleadings. I.A. 2385/2026 in CS(COMM) 81/2026 I.A. 2587/2026 in CS(COMM) 89/2026 2. List before Court on 09.12.2026. 3. Interim order to continue till next date of hearing. JYOTI SINGH, J JULY 24, 2026/YA This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 28/07/2026 at 18:32:25",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Matter be placed before Joint Registrar on 10.08.2026 for completion of pleadings.",
+            "List before Court on 09.12.2026.",
+            "Interim order to continue till next date of hearing."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Priyansh Kohli and Mr. Manish Singh",
+            "defendant": "Mr. Rishi Kapoor, Ms. Gitanjali Kapoor and Mr. Siddhartha Makhija (for Vodafone Idea Ltd.); Mr. Akshay Shankar (for D9); Mr. Vinay Yadav, CGSC with Mr. Ansh Kalra (for D19-20); Mr. Mrinal Ojha, Mr. Debarshi Dutta and Mr. Yogesh Singh (for D151)"
+          },
+          "summary": "The court adjourned the matters for completion of pleadings before the Joint Registrar on 10.08.2026 and listed the interim applications for hearing on 09.12.2026, directing that the interim order continue until the next date.",
+          "confidence": {
+            "reliefGranted": "low",
+            "directions": "high",
+            "citations": "low"
+          },
+          "_extractedAt": "2026-07-26T11:04:14.630Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/81/2026",
+          "_orderDate": "2026-07-24"
+        }
+      },
       {
         "date": "2026-04-29",
         "event": "Court Order",
@@ -2310,6 +2343,16 @@
           "orderDate": "2026-04-29",
           "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1777458613_3dde60ee8cae963c_762_892026.pdf/2026"
         }
+      },
+      {
+        "date": "2026-12-09",
+        "before": "court",
+        "firstSeenAt": "2026-07-28T13:02:26.002Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-07-24",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784988379_70f3710ddfa306d2_jis_812026.pdf/2026"
+        }
       }
     ],
     "tasks": [],
@@ -2350,7 +2393,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:02:38.180Z",
+    "lastScraped": "2026-07-28T13:02:26.010Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2623,7 +2666,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:02:45.738Z",
+    "lastScraped": "2026-07-28T13:02:33.925Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2731,7 +2774,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:02:53.284Z",
+    "lastScraped": "2026-07-28T13:02:41.537Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2962,7 +3005,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:03:07.361Z",
+    "lastScraped": "2026-07-28T13:02:50.689Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3460,7 +3503,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:03:14.947Z",
+    "lastScraped": "2026-07-28T13:02:58.123Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4433,7 +4476,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:03:22.618Z",
+    "lastScraped": "2026-07-28T13:03:06.103Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4634,7 +4677,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:03:30.107Z",
+    "lastScraped": "2026-07-28T13:03:13.738Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5067,7 +5110,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:03:37.892Z",
+    "lastScraped": "2026-07-28T13:03:22.881Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5268,7 +5311,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:03:45.773Z",
+    "lastScraped": "2026-07-28T13:03:30.510Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6009,7 +6052,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:03:53.677Z",
+    "lastScraped": "2026-07-28T13:03:38.104Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6729,7 +6772,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:04:01.276Z",
+    "lastScraped": "2026-07-28T13:03:45.722Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7029,7 +7072,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:04:08.954Z",
+    "lastScraped": "2026-07-28T13:03:53.310Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7422,7 +7465,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:04:16.508Z",
+    "lastScraped": "2026-07-28T13:04:00.803Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7697,7 +7740,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:04:24.055Z",
+    "lastScraped": "2026-07-28T13:04:08.420Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8369,7 +8412,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:04:31.645Z",
+    "lastScraped": "2026-07-28T13:04:17.608Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8459,7 +8502,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:04:39.254Z",
+    "lastScraped": "2026-07-28T13:04:31.541Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8735,7 +8778,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:04:53.621Z",
+    "lastScraped": "2026-07-28T13:04:39.068Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9539,7 +9582,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-28T12:05:01.299Z",
+    "lastScraped": "2026-07-28T13:04:46.752Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
