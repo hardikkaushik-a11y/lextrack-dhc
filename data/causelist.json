@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-28T15:01:38Z",
+  "scraped_at": "2026-07-28T16:01:46Z",
   "for_dates": [
     "2026-07-28",
     "2026-07-29"
@@ -45,14 +45,14 @@
     {
       "file": "combined_cause_list_29.07.2026.pdf",
       "date": "2026-07-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(16982806 bytes read, 2848014 more expected)', IncompleteRead(16982806 bytes read, 2848014 more expected))"
     },
     {
       "file": "combined_adv_list_29.07.2026.pdf",
       "date": "2026-07-29",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_11_12_for_28.07.26.pdf",
