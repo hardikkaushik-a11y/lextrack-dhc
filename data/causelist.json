@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-29T13:01:48Z",
+  "scraped_at": "2026-07-29T14:01:39Z",
   "for_dates": [
     "2026-07-29",
     "2026-07-30"
@@ -7,6 +7,41 @@
   "tracked_cases": 20,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "deletion_note_30.07.2026.pdf",
+      "date": "2026-07-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "old_target_for_30.07.2026.pdf",
+      "date": "2026-07-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "last_supplementary_list_30.07.2026.pdf",
+      "date": "2026-07-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_supplementary_list_30.07.2026.pdf",
+      "date": "2026-07-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_30.07.2026.pdf",
+      "date": "2026-07-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "supple-1_for_30.07.2026.pdf",
       "date": "2026-07-30",
@@ -56,55 +91,6 @@
     },
     {
       "file": "sup_11_12_for_29.07.26.pdf",
-      "date": "2026-07-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_manoj_jain_29.07.2026_0.pdf",
-      "date": "2026-07-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_29.07.2026.pdf",
-      "date": "2026-07-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_29.07.2026_0.pdf",
-      "date": "2026-07-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_29.07.2026.pdf",
-      "date": "2026-07-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_sup_1_29.07.2026.pdf",
-      "date": "2026-07-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_30.07.2026.pdf",
-      "date": "2026-07-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl29072026.pdf",
       "date": "2026-07-29",
       "matched": 0,
       "regex_matches": 0,
