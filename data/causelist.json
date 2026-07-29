@@ -1,18 +1,37 @@
 {
-  "scraped_at": "2026-07-29T12:01:52Z",
+  "scraped_at": "2026-07-29T13:01:48Z",
   "for_dates": [
     "2026-07-29",
     "2026-07-30"
   ],
   "tracked_cases": 20,
-  "matched_cases": 0,
+  "matched_cases": 2,
   "sources": [
     {
-      "file": "rl30072026.pdf",
+      "file": "supple-1_for_30.07.2026.pdf",
       "date": "2026-07-30",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
+    },
+    {
+      "file": "finals_30.07.2026.pdf",
+      "date": "2026-07-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "cause_list_for_30.07.2026.pdf",
+      "date": "2026-07-30",
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl30072026.pdf",
+      "date": "2026-07-30",
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup_15_for_29.07.26-db-iii.pdf",
@@ -90,21 +109,34 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_29.07.2026.pdf",
-      "date": "2026-07-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_29.07.2026.pdf",
-      "date": "2026-07-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": null,
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 605,
+      "context": "In CS(COMM)-      PRIVATE LIMITED\n             256/2026          (FORMERLY KNOWN AS",
+      "caseNo": "CS(COMM)/256/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-      PRIVATE LIMITED\n             256/2026",
+      "date": "2026-07-30",
+      "source_pdf": "cause_list_for_30.07.2026.pdf"
+    },
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "SUDHIR KUMAR SIROHI (JR)",
+      "time": null,
+      "page": 631,
+      "context": "In CS(COMM)-    LTD                      KUMAR, R MAYA,\n        108/2025        V/s IPTV SMARTER         AVISH SHARMA,",
+      "caseNo": "CS(COMM)/108/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-    LTD                      KUMAR, R MAYA,\n        108/2025",
+      "date": "2026-07-30",
+      "source_pdf": "cause_list_for_30.07.2026.pdf"
+    }
+  ]
 }
