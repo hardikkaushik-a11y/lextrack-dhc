@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-29T08:01:46Z",
+  "scraped_at": "2026-07-29T09:02:16Z",
   "for_dates": [
     "2026-07-29",
     "2026-07-30"
@@ -52,9 +52,7 @@
     {
       "file": "combined_adv_list_30.07.2026.pdf",
       "date": "2026-07-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(3824888 bytes read, 2260636 more expected)', IncompleteRead(3824888 bytes read, 2260636 more expected))"
     },
     {
       "file": "rl29072026.pdf",
@@ -73,7 +71,9 @@
     {
       "file": "combined_adv_list_29.07.2026.pdf",
       "date": "2026-07-29",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": []
