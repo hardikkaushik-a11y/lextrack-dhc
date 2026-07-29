@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-29T10:02:38Z",
+  "scraped_at": "2026-07-29T11:02:10Z",
   "for_dates": [
     "2026-07-29",
     "2026-07-30"
@@ -66,14 +66,14 @@
     {
       "file": "combined_adv_list_30.07.2026.pdf",
       "date": "2026-07-30",
-      "error": "download: ('Connection broken: IncompleteRead(1729896 bytes read, 4355628 more expected)', IncompleteRead(1729896 bytes read, 4355628 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "rl29072026.pdf",
       "date": "2026-07-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "combined_cause_list_29.07.2026.pdf",
@@ -85,7 +85,9 @@
     {
       "file": "combined_adv_list_29.07.2026.pdf",
       "date": "2026-07-29",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": []
