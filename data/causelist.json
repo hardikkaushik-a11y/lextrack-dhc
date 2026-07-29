@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-29T11:02:10Z",
+  "scraped_at": "2026-07-29T12:01:52Z",
   "for_dates": [
     "2026-07-29",
     "2026-07-30"
@@ -7,6 +7,20 @@
   "tracked_cases": 20,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "rl30072026.pdf",
+      "date": "2026-07-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_15_for_29.07.26-db-iii.pdf",
+      "date": "2026-07-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_hmj_madhu_jain_29.07.2026.pdf",
       "date": "2026-07-29",
@@ -73,7 +87,9 @@
     {
       "file": "rl29072026.pdf",
       "date": "2026-07-29",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "combined_cause_list_29.07.2026.pdf",
