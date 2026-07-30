@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-30T21:01:37Z",
+  "scraped_at": "2026-07-30T22:01:25Z",
   "for_dates": [
     "2026-07-31",
     "2026-08-01"
@@ -66,9 +66,7 @@
     {
       "file": "_combined_advance_list_for_31.07.2026.pdf",
       "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": [
