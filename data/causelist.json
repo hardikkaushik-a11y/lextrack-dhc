@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-30T05:01:39Z",
+  "scraped_at": "2026-07-30T06:01:43Z",
   "for_dates": [
     "2026-07-30",
     "2026-07-31"
@@ -10,6 +10,20 @@
     {
       "file": "_combined_advance_list_for_31.07.2026.pdf",
       "date": "2026-07-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro_30.07.2026.pdf",
+      "date": "2026-07-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_10_for_30.07.26.pdf",
+      "date": "2026-07-30",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
