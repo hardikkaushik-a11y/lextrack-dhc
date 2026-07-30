@@ -1,17 +1,59 @@
 {
-  "scraped_at": "2026-07-30T13:01:48Z",
+  "scraped_at": "2026-07-30T13:39:08Z",
   "for_dates": [
     "2026-07-30",
     "2026-07-31"
   ],
-  "tracked_cases": 20,
-  "matched_cases": 2,
+  "tracked_cases": 21,
+  "matched_cases": 3,
   "sources": [
+    {
+      "file": "deletion_note_31.07.2026.pdf",
+      "date": "2026-07-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_31.07.2026.pdf",
+      "date": "2026-07-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_31.07.2026.pdf",
+      "date": "2026-07-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_31.07.2026.pdf",
+      "date": "2026-07-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_31.07.2026.pdf",
+      "date": "2026-07-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl31072026.pdf",
+      "date": "2026-07-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_causelist_31.07.2026_0.pdf",
       "date": "2026-07-31",
-      "matched": 2,
-      "regex_matches": 2,
+      "matched": 3,
+      "regex_matches": 3,
       "norm_matches": 0
     },
     {
@@ -55,44 +97,22 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_30.07.2026.pdf",
-      "date": "2026-07-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "old_target_for_30.07.2026.pdf",
-      "date": "2026-07-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "last_supplementary_list_30.07.2026.pdf",
-      "date": "2026-07-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_supplementary_list_30.07.2026.pdf",
-      "date": "2026-07-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_30.07.2026.pdf",
-      "date": "2026-07-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
+    {
+      "item": null,
+      "court": "48",
+      "judge": "ANUP JAIRAM BHAMBHANI NOTE",
+      "time": null,
+      "page": 583,
+      "context": "In CS(COMM)-                           DINESH JOTWANI,\n             1152/2025                              PRIYANSH KOHLI,",
+      "caseNo": "CS(COMM)/1152/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-                           DINESH JOTWANI,\n             1152/2025",
+      "date": "2026-07-31",
+      "source_pdf": "combined_causelist_31.07.2026_0.pdf"
+    },
     {
       "item": null,
       "court": "JR",

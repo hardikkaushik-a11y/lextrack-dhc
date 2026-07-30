@@ -6004,5 +6004,255 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/81/2026",
     "_orderDate": "2026-07-24"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1776853477_dfb93461685d2a44_739_11522025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Issue summons to defendant no. 49 to 402 through all permissible modes, subject to filing of PF.",
+      "Plaintiff to file service-affidavit before next hearing.",
+      "List matter for status of service/completion of pleadings qua defendant no. 49 to 402 on 06.08.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh & Mr. Shudhata Sudhir",
+      "defendant": "Ms. Deeksha Pokhriyal (D-27), Ms. Amnol Dhindsa & Mr. Nikhil Gupta (D-30), Ms. Nidhi Raman, Mr. Arnav Mittal, Ms. Nikita Singh & Mr. Om Ram (D-46 & 47)"
+    },
+    "summary": "The Joint Registrar closed the right of defendants 1-47 to file written statements as time had expired. Summons were ordered to be issued to newly impleaded defendants 49-402 via email. The matter was listed for further proceedings on 06.08.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-30T13:42:06.860Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2026-04-20"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1776332686_8702f95aa1fab7dc_739_11522025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter for the purpose fixed on 20.04.2026.",
+      "IA No. 10115/2026 allowed; implead defendant nos. 403 to 823.",
+      "Amended memo of parties be taken on record.",
+      "Summons be issued to defendant nos. 403 to 823 through all permissible modes, subject to filing of PF.",
+      "Summons may be issued via email as requested by plaintiff."
+    ],
+    "citations": [
+      "Order I Rule 10 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Priyansh Kohli",
+      "defendant": "Mr. Parth Rishik, Ms. Anmol Dhindsa, Mr. Yogesh Singh, Ms. Nidhi Pathak, Mr. Arnav Mittal, Mr. Om Ram, Ms. Nikita Singh"
+    },
+    "summary": "The court allowed the plaintiff's application to implead additional rogue websites (defendant nos. 403 to 823) for infringing copyrighted content. The newly added defendants are subject to existing interim orders. Summons to be issued via email and other modes upon payment of process fee.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-30T13:42:06.861Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2026-04-13"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1775476335_a397fa8391befdef_594_11522025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 10.08.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Yatinder Garg, Mr. Priyansh Kohli, Ms. Ishi Singh and Mr. Manish Singh",
+      "defendant": "Ms. Shweta Sahu and Ms. Deeksha Pokhriyal for D-27; Mr. Moazzam Khan, Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Shivam Tiwari, Mr. Prince Kumar and Mr. Vedant Mohite for D-30; Ms. Nidhi Raman, CGSC with Mr. Om Ram and Ms. Nikita Singh for D-46 and 47"
+    },
+    "summary": "The court listed the case for further hearing on 10.08.2026. No interim or final relief was granted. The order is purely procedural.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-30T13:42:06.861Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2026-04-01"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1773050058_720993b37b6b2e95_594_11522025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 01.04.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Sneha Jain, Mr. Yatinder Garg, Ms. Ishi Singh and Mr. Manish Singh",
+      "defendant": "Mr. Parth Rishik for RJIL/Proforma Defendant; Ms. Nidhi Raman, CGSC with Mr. Om Ram and Ms. Nikita Singh for D-46 and 47; Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Shivam Tiwari, Mr. Nikhil Gupta and Mr. Yogesh Singh for D-30"
+    },
+    "summary": "The court listed the matter for further hearing on 01.04.2026. No substantive relief was granted; the order is procedural in nature.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-30T13:42:10.170Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2026-02-27"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1771058287_cfe20fad0a78aee4_594_11522025.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Ex-parte ad interim order dated 06.11.2025 extended to newly impleaded defendant nos. 49 to 402",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiffs to file amended memo of parties",
+      "Defendant no.30 to file reply to I.A. 1413/2026 by 16.02.2026",
+      "List on 27.02.2026"
+    ],
+    "citations": [
+      "Order I Rule 10, Code of Civil Procedure, 1908",
+      "Order XXXIX Rule 2A, Code of Civil Procedure, 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Yatinder Garg, Ms. Ishi Singh, Mr. Manish Singh",
+      "defendant": "Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Arjun Mookerjee (for D-30); Ms. Nidhi Raman, Mr. Om Ram, Ms. Nikita Singh (for D-46 & 47)"
+    },
+    "summary": "The court allowed the plaintiffs' application to implead additional rogue websites (defendant nos. 49 to 402) and extended the existing ex-parte ad interim order to them. The court also granted time to defendant no.30 to file a reply to the contempt application and listed the matter for further hearing on 27.02.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-30T13:42:10.170Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2026-02-10"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1768998471_d5ce56c6ff3c41f6_594_11522025.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no.30 to file reply to contempt application within two weeks.",
+      "Plaintiffs to file rejoinder within one week thereafter.",
+      "Defendant no.30 to file registrant details in sealed cover within a week.",
+      "Plaintiffs permitted to furnish details of unauthorised listings to defendant no.30 per para 34 of order dated 06.11.2025.",
+      "Issue notice to defendant no.29 by all permissible modes, returnable on 27.02.2026."
+    ],
+    "citations": [
+      "Order XXXIX Rule 2A, Code of Civil Procedure, 1908",
+      "Section 151, Code of Civil Procedure, 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Garg, Mr. Priyansh Kohli, Ms. Ishi Singh, Mr. Manish Singh",
+      "defendant": "Mr. Arjun Mookerjee, Mr. Nikhil Gupta (for D-30)"
+    },
+    "summary": "The court heard two contempt applications (I.A. 1412/2026 and I.A. 1413/2026) filed by plaintiffs against defendants no.30 and 29 for alleged disobedience of the order dated 06.11.2025. For defendant no.30, notice was accepted and time granted to file reply; defendant no.30 also undertook to file registrant details in sealed cover. For defendant no.29, notice was ordered to be issued. The main suit was listed for 27.02.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-30T13:42:10.170Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2026-01-19"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1767588400_9fff63f173e7ea7d_739_11522025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to verify compliance by defendant no. 46 & 47 with order dated 06.11.2025",
+      "Parties to file written statements and replications as per law",
+      "Parties to file photocopies of admitted documents and joint schedule of documents",
+      "Parties to inspect and flag documents before admission/denial date",
+      "List matter for admission-denial and marking of exhibits on 20.04.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Priyansh Kohli & Mr. Manish Singh",
+      "defendant": "Mr. Arjun Mookerjee & Ms. Anmol Dhingra (for D-30); Ms. Nidhi Raman, Mr. Om Ram & Mr. Arnav Mittal (for DOT & MEITY)"
+    },
+    "summary": "The Joint Registrar took on record the compliance affidavit and service affidavit, noting that all defendants have been duly served. The court directed the plaintiff to verify compliance by defendant no. 46 & 47, and set a schedule for filing written statements, replications, and document inspection. The matter was listed for admission-denial on 20.04.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-30T13:42:13.710Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2025-12-24"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1762521809_d2c0f227b48f5ffd_687_11522025.pdf/2025": {
+    "classification": "interim",
+    "reliefGranted": "Exemption from pre-institution mediation and from 2-month notice under Section 80 CPC; summons issued; notice issued on interim application",
+    "costsAwarded": null,
+    "directions": [
+      "Exempt plaintiffs from pre-institution mediation under Section 12A of Commercial Courts Act",
+      "Exempt plaintiffs from two months' prior notice under Section 80 CPC to Defendant Nos. 38, 41, 46, 47",
+      "Register plaint as suit and issue summons to remaining defendants",
+      "Defendants to file written statements within 4 weeks with affidavit of admission/denial",
+      "Plaintiffs to file replication within 30 days with affidavit of admission/denial"
+    ],
+    "citations": [
+      "Section 12A, Commercial Courts Act, 2015",
+      "Section 80, Code of Civil Procedure, 1908",
+      "Order XI Rule 1(4), Code of Civil Procedure, 1908",
+      "Order XXXIX Rule 1 & 2, Code of Civil Procedure, 1908",
+      "Yamini Manohar v. T.K.D. Krithi, 2023 SCC OnLine SC 1382"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Garg, Mr. Priyansh Kohli & Ms. Ishi Singh",
+      "defendant": "Ms. Nidhi Raman, Mr. Mayank Sansanwal & Mr. OmRam (for D-46&47)"
+    },
+    "summary": "The court granted exemptions from pre-institution mediation and Section 80 notice due to urgent interim relief sought. It issued summons to defendants, set timelines for pleadings, and permitted additional documents. Notice was also issued on the interim injunction application.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-30T13:42:13.710Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2025-11-06"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1761824712_876f8c560c8bf8ff_687_11522025.pdf/2025": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 06.11.2025"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Yatinder Garg & Mr. Priyansh Kohli",
+      "defendant": null
+    },
+    "summary": "The court was not holding session on 29.10.2025, so the matter was simply adjourned to 06.11.2025. No orders on merits were passed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-07-30T13:42:13.710Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2025-10-29"
   }
 }
