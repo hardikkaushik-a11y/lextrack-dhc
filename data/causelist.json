@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-30T10:01:53Z",
+  "scraped_at": "2026-07-30T11:01:32Z",
   "for_dates": [
     "2026-07-30",
     "2026-07-31"
@@ -17,9 +17,7 @@
     {
       "file": "deleteion_86_30.07.2026.pdf",
       "date": "2026-07-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup_13_for_30.07.26.pdf",
@@ -86,13 +84,6 @@
     },
     {
       "file": "supple-1_for_30.07.2026.pdf",
-      "date": "2026-07-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_30.07.2026.pdf",
       "date": "2026-07-30",
       "matched": 0,
       "regex_matches": 0,
