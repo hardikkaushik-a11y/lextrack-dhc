@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-31T07:02:15Z",
+  "scraped_at": "2026-07-31T08:01:45Z",
   "for_dates": [
     "2026-07-31",
     "2026-08-01"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 3,
   "sources": [
+    {
+      "file": "sup_15_for_31.07.26.pdf",
+      "date": "2026-07-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_14_for_31.07.26.pdf",
       "date": "2026-07-31",
