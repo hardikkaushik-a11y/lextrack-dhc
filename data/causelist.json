@@ -1,12 +1,33 @@
 {
-  "scraped_at": "2026-07-31T05:01:45Z",
+  "scraped_at": "2026-07-31T06:01:36Z",
   "for_dates": [
     "2026-07-31",
     "2026-08-01"
   ],
   "tracked_cases": 21,
-  "matched_cases": 0,
+  "matched_cases": 3,
   "sources": [
+    {
+      "file": "registrar_supply_list_31.07.2026_01_1.pdf",
+      "date": "2026-07-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_31.07.2026_01.pdf",
+      "date": "2026-07-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_amit_bansal_31.07.2026.pdf",
+      "date": "2026-07-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_sup_1_31.07.2026.pdf",
       "date": "2026-07-31",
@@ -59,7 +80,9 @@
     {
       "file": "combined_causelist_31.07.2026_0.pdf",
       "date": "2026-07-31",
-      "error": "download: ('Connection broken: IncompleteRead(8334438 bytes read, 10755447 more expected)', IncompleteRead(8334438 bytes read, 10755447 more expected))"
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
     },
     {
       "file": "_combined_advance_list_for_31.07.2026.pdf",
@@ -69,5 +92,45 @@
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": null,
+      "court": "48",
+      "judge": "ANUP JAIRAM BHAMBHANI NOTE",
+      "time": null,
+      "page": 583,
+      "context": "In CS(COMM)-                           DINESH JOTWANI,\n             1152/2025                              PRIYANSH KOHLI,",
+      "caseNo": "CS(COMM)/1152/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-                           DINESH JOTWANI,\n             1152/2025",
+      "date": "2026-07-31",
+      "source_pdf": "combined_causelist_31.07.2026_0.pdf"
+    },
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 599,
+      "context": "In CS(COMM)-    PRIVATE LIMITED     MANISH SINGH\n           81/2026         V/s HTTPS//CRICHDBE",
+      "caseNo": "CS(COMM)/81/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-    PRIVATE LIMITED     MANISH SINGH\n           81/2026",
+      "date": "2026-07-31",
+      "source_pdf": "combined_causelist_31.07.2026_0.pdf"
+    },
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "SUDHIR KUMAR SIROHI (JR)",
+      "time": null,
+      "page": 602,
+      "context": "In CS(COMM)-       PRIVATE LIMITED      ANINDITA MITRA,\n              313/2026           V/s HTTPS//DADDYLIVE PRIYANSH KOHLI,",
+      "caseNo": "CS(COMM)/313/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-       PRIVATE LIMITED      ANINDITA MITRA,\n              313/2026",
+      "date": "2026-07-31",
+      "source_pdf": "combined_causelist_31.07.2026_0.pdf"
+    }
+  ]
 }
