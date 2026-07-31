@@ -1676,7 +1676,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:01:58.039Z",
+    "lastScraped": "2026-07-31T11:01:59.362Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2075,7 +2075,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:02:05.535Z",
+    "lastScraped": "2026-07-31T11:02:07.076Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2393,7 +2393,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:02:13.052Z",
+    "lastScraped": "2026-07-31T11:02:14.674Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2405,10 +2405,45 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-07-24",
+    "lastDate": "2026-07-31",
     "nextDate": "2026-12-09",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-07-31",
+        "event": "Court Order",
+        "detail": "Fresh I.A. 20371/2026 on behalf of the plaintiff seeking impleadment of additional websites and their domain name registrars engaged in infringing activities as the original Defend…",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1785495288_d33a1c02319c2c53_762_812026.pdf/2026",
+        "orderText": "$~24 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010027102026 + CS(COMM) 81/2026 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Manish Singh and Mr. Priyansh Kohli, Advs. versus HTTPS//CRICHDBEST.COM & ORS. .....Defendants Through: Ms. Ananya Dewan, Adv for D-9 (VC). (Ananya.dewan@amsshardu l.com) Mr. Yogesh Singh, Adv for Defendant (GoDaddy.com LLC) CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 31.07.2026 Fresh I.A. 20371/2026 on behalf of the plaintiff seeking impleadment of additional websites and their domain name registrars engaged in infringing activities as the original Defendant nos. 25-466. 1. The plaintiff is seeking to implead additional rogue-websites as defendant nos. 25-426 because they have been found to be indulging in illegally disseminating the copyrighted material belonging to the plaintiff. Proposed defendant no. 427 to 466 are the concerned DNRs. The application is supported by the required affidavit. Keeping in view the contents of the suit and the application, the same is allowed. The proposed defendants are impleaded as defendant nos. 25-426. Ld. Counsel for the plaintiff is also directed to serve a copy of this IA on the defendant DNR’s This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 31/07/2026 at 16:32:23 who are already in the array since these DNR’s may be concerned with some of the rogue websites which have been impleaded today. 2. The amended memo filed alongwith this IA is taken on record. Steps be taken to serve the newly impleaded defendants with summons within two weeks, through the electronic mode only, on filing of PF, returnable for next date i.e. 10.08.2026. 3. The order blocking the rogue-websites passed by the Hon’ble Court on 29.01.2026 shall operate qua the freshly impleaded defendants as well, in terms of directions contained in para 33 of the order dated 29.01.2026. The concerned DNR’s /ISPs /TSPs are directed to block and suspend the domain names of defendant no.25 to 426 and disclose complete details of the new rogue websites in an affidavit within four weeks, to be filed in the Court. Defendant no.22 and 23 are also directed to issue necessary directions to the ISPs for blocking / removing access to the rogue websites impleaded today. IA is allowed and disposed off accordingly. Plaintiff is directed to comply with Order 39 Rule 3 CPC within two days and file compliance affidavit within two weeks. 4. Ld counsel for defendant no.9 submits that she has not received the copy of the present application and the same may be supplied to her. Plaintiff is directed to supply copy of the present application to defendant no.9 within one week. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) JULY 31, 2026/BK This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 31/07/2026 at 16:32:23",
+        "intelligence": {
+          "classification": "interim",
+          "reliefGranted": "Impleadment of additional defendants and extension of blocking order to newly impleaded rogue websites",
+          "costsAwarded": null,
+          "directions": [
+            "Plaintiff to serve copy of IA on defendant DNRs already in array",
+            "Plaintiff to take steps to serve newly impleaded defendants with summons within two weeks via electronic mode",
+            "Concerned DNRs/ISPs/TSPs to block and suspend domain names of defendant nos. 25-426 and disclose details in affidavit within four weeks",
+            "Defendant nos. 22 and 23 to issue directions to ISPs for blocking/removing access to rogue websites",
+            "Plaintiff to comply with Order 39 Rule 3 CPC within two days and file compliance affidavit within two weeks"
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Manish Singh and Mr. Priyansh Kohli",
+            "defendant": "Ms. Ananya Dewan (D-9), Mr. Yogesh Singh (GoDaddy.com LLC)"
+          },
+          "summary": "The Joint Registrar allowed the plaintiff's application to implead additional rogue websites (defendant nos. 25-426) and their domain name registrars (defendant nos. 427-466) in a copyright infringement suit. The court directed blocking of these websites and issuance of summons, while extending the earlier blocking order to the new defendants.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "low"
+          },
+          "_extractedAt": "2026-07-31T11:04:52.323Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/81/2026",
+          "_orderDate": "2026-07-31"
+        }
+      },
       {
         "date": "2026-07-24",
         "event": "Court Order",
@@ -2666,7 +2701,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:02:20.630Z",
+    "lastScraped": "2026-07-31T11:02:23.912Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2774,7 +2809,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:02:28.155Z",
+    "lastScraped": "2026-07-31T11:02:33.591Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3005,7 +3040,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:02:35.650Z",
+    "lastScraped": "2026-07-31T11:02:41.081Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3503,7 +3538,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:02:43.192Z",
+    "lastScraped": "2026-07-31T11:02:56.154Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4476,7 +4511,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:02:51.793Z",
+    "lastScraped": "2026-07-31T11:03:03.906Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4677,7 +4712,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:02:59.376Z",
+    "lastScraped": "2026-07-31T11:03:11.484Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5110,7 +5145,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:03:06.783Z",
+    "lastScraped": "2026-07-31T11:03:19.081Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5311,7 +5346,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:03:14.383Z",
+    "lastScraped": "2026-07-31T11:03:26.848Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6052,7 +6087,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:03:34.972Z",
+    "lastScraped": "2026-07-31T11:03:34.506Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6772,7 +6807,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:03:42.597Z",
+    "lastScraped": "2026-07-31T11:03:42.157Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7072,7 +7107,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:03:50.143Z",
+    "lastScraped": "2026-07-31T11:03:49.981Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7465,7 +7500,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:03:57.731Z",
+    "lastScraped": "2026-07-31T11:03:59.172Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7740,7 +7775,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:04:05.964Z",
+    "lastScraped": "2026-07-31T11:04:07.013Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8412,7 +8447,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:04:13.430Z",
+    "lastScraped": "2026-07-31T11:04:14.709Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8502,7 +8537,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:04:20.950Z",
+    "lastScraped": "2026-07-31T11:04:22.361Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8778,7 +8813,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:04:28.365Z",
+    "lastScraped": "2026-07-31T11:04:31.463Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9582,7 +9617,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:04:36.001Z",
+    "lastScraped": "2026-07-31T11:04:39.038Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9990,7 +10025,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T10:04:43.323Z",
+    "lastScraped": "2026-07-31T11:04:46.728Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

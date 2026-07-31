@@ -6254,5 +6254,33 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1152/2025",
     "_orderDate": "2025-10-29"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1785495288_d33a1c02319c2c53_762_812026.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Impleadment of additional defendants and extension of blocking order to newly impleaded rogue websites",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to serve copy of IA on defendant DNRs already in array",
+      "Plaintiff to take steps to serve newly impleaded defendants with summons within two weeks via electronic mode",
+      "Concerned DNRs/ISPs/TSPs to block and suspend domain names of defendant nos. 25-426 and disclose details in affidavit within four weeks",
+      "Defendant nos. 22 and 23 to issue directions to ISPs for blocking/removing access to rogue websites",
+      "Plaintiff to comply with Order 39 Rule 3 CPC within two days and file compliance affidavit within two weeks"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Manish Singh and Mr. Priyansh Kohli",
+      "defendant": "Ms. Ananya Dewan (D-9), Mr. Yogesh Singh (GoDaddy.com LLC)"
+    },
+    "summary": "The Joint Registrar allowed the plaintiff's application to implead additional rogue websites (defendant nos. 25-426) and their domain name registrars (defendant nos. 427-466) in a copyright infringement suit. The court directed blocking of these websites and issuance of summons, while extending the earlier blocking order to the new defendants.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "low"
+    },
+    "_extractedAt": "2026-07-31T11:04:52.323Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/81/2026",
+    "_orderDate": "2026-07-31"
   }
 }
