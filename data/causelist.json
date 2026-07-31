@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-31T18:01:18Z",
+  "scraped_at": "2026-07-31T19:01:05Z",
   "for_dates": [
-    "2026-07-31",
-    "2026-08-01"
+    "2026-08-01",
+    "2026-08-02"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
@@ -17,111 +17,6 @@
     {
       "file": "c_01082026.pdf",
       "date": "2026-08-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_j._jasmett_singh_31.07.2026.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_16_and_17_for_31.07.26.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_15_for_31.07.26.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_14_for_31.07.26.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "transferred_matter_to_j_amit_mahajan_31.07.2026.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jud_01_for_31.07.2026_1.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_31.07.2026_01_1.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_31.07.2026_01.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_amit_bansal_31.07.2026.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_sup_1_31.07.2026.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_31.07.2026.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_31.07.2026.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_31.07.2026.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_31.07.2026.pdf",
-      "date": "2026-07-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_31.07.2026.pdf",
-      "date": "2026-07-31",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
