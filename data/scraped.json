@@ -1676,7 +1676,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:01:36.940Z",
+    "lastScraped": "2026-07-31T17:01:41.324Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2075,7 +2075,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:01:44.350Z",
+    "lastScraped": "2026-07-31T17:01:48.789Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2393,7 +2393,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:01:51.862Z",
+    "lastScraped": "2026-07-31T17:01:56.266Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2701,7 +2701,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:02:00.032Z",
+    "lastScraped": "2026-07-31T17:02:03.726Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2809,7 +2809,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:02:07.502Z",
+    "lastScraped": "2026-07-31T17:02:11.248Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3040,7 +3040,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:02:14.877Z",
+    "lastScraped": "2026-07-31T17:02:18.734Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3538,7 +3538,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:02:22.412Z",
+    "lastScraped": "2026-07-31T17:02:26.249Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4511,7 +4511,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:02:29.855Z",
+    "lastScraped": "2026-07-31T17:02:33.826Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4712,14 +4712,14 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:02:37.426Z",
+    "lastScraped": "2026-07-31T17:02:41.399Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
     "id": "m_CSCOMM_582_2025",
     "caseNo": "CS(COMM)/582/2025",
     "title": "RELIANCE RETAIL LIMITED VS. BALAJI FOODS AND BEVERAGE",
-    "type": "copyright",
+    "type": "trademark",
     "stage": "filed",
     "status": "PENDING",
     "judge": null,
@@ -5074,7 +5074,18 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-08-21",
+        "before": "court",
+        "firstSeenAt": "2026-07-31T17:02:48.895Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-04-13",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1776330053_7c9d87e08e9cc0ec_594_5822025.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -5134,7 +5145,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:03:04.500Z",
+    "lastScraped": "2026-07-31T17:02:48.897Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5335,7 +5346,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:03:12.208Z",
+    "lastScraped": "2026-07-31T17:02:56.462Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6076,7 +6087,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:03:19.832Z",
+    "lastScraped": "2026-07-31T17:03:03.982Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6796,7 +6807,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:03:27.326Z",
+    "lastScraped": "2026-07-31T17:03:11.552Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7096,7 +7107,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:03:34.719Z",
+    "lastScraped": "2026-07-31T17:03:19.112Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7489,7 +7500,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:03:42.431Z",
+    "lastScraped": "2026-07-31T17:03:26.669Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7764,7 +7775,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:03:49.973Z",
+    "lastScraped": "2026-07-31T17:03:35.250Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8436,7 +8447,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:03:57.376Z",
+    "lastScraped": "2026-07-31T17:03:42.754Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8526,7 +8537,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:04:04.804Z",
+    "lastScraped": "2026-07-31T17:03:50.313Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8835,7 +8846,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:04:12.227Z",
+    "lastScraped": "2026-07-31T17:03:57.829Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9639,7 +9650,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:04:19.706Z",
+    "lastScraped": "2026-07-31T17:04:05.445Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10047,7 +10058,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-07-31T16:04:27.272Z",
+    "lastScraped": "2026-07-31T17:04:12.931Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
