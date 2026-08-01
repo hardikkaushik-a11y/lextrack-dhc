@@ -1,22 +1,78 @@
 {
-  "scraped_at": "2026-08-01T18:01:41Z",
+  "scraped_at": "2026-08-01T19:01:43Z",
   "for_dates": [
-    "2026-08-01",
-    "2026-08-02"
+    "2026-08-02",
+    "2026-08-03"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
     {
-      "file": "maushmi_adv_01.08.2026.pdf",
-      "date": "2026-08-01",
+      "file": "original_listing_01_for_03.08.2026.pdf",
+      "date": "2026-08-03",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "c_01082026.pdf",
-      "date": "2026-08-01",
+      "file": "deletion_note_03.08.2026.pdf",
+      "date": "2026-08-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "2nd_supplementary_list_03.08.2026.pdf",
+      "date": "2026-08-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_03082026.pdf",
+      "date": "2026-08-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_03082026.pdf",
+      "date": "2026-08-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_03082026.pdf",
+      "date": "2026-08-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_03.08.2026.pdf",
+      "date": "2026-08-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_03.08.2026.pdf",
+      "date": "2026-08-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl03082026.pdf",
+      "date": "2026-08-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_03.08.2026.pdf",
+      "date": "2026-08-03",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
