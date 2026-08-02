@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-02T12:01:25Z",
+  "scraped_at": "2026-08-02T13:01:41Z",
   "for_dates": [
     "2026-08-02",
     "2026-08-03"
@@ -45,14 +45,14 @@
     {
       "file": "c_03082026.pdf",
       "date": "2026-08-03",
-      "error": "download: ('Connection broken: IncompleteRead(10064630 bytes read, 9435836 more expected)', IncompleteRead(10064630 bytes read, 9435836 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_03.08.2026.pdf",
       "date": "2026-08-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "pla_03.08.2026.pdf",
