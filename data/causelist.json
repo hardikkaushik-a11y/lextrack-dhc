@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-02T11:01:28Z",
+  "scraped_at": "2026-08-02T12:01:25Z",
   "for_dates": [
     "2026-08-02",
     "2026-08-03"
@@ -45,7 +45,7 @@
     {
       "file": "c_03082026.pdf",
       "date": "2026-08-03",
-      "error": "download: ('Connection broken: IncompleteRead(18819430 bytes read, 681036 more expected)', IncompleteRead(18819430 bytes read, 681036 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(10064630 bytes read, 9435836 more expected)', IncompleteRead(10064630 bytes read, 9435836 more expected))"
     },
     {
       "file": "finals_03.08.2026.pdf",
