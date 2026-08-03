@@ -6308,5 +6308,62 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/256/2026",
     "_orderDate": "2026-07-30"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1785742268_ebebb926bdc21456_739_1082025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": "Impleadment of additional rogue websites and their domain name registrars as defendant no. 107, subject to interim orders already passed.",
+    "costsAwarded": null,
+    "directions": [
+      "List the matter for the purpose fixed on the date already fixed i.e. 25.09.2026.",
+      "Amended memo of parties be taken on record.",
+      "Summons be issued to defendant no. 107 through all permissible modes, subject to filing of PF.",
+      "Summons to be issued via email to defendant no. 107, subject to filing of PF."
+    ],
+    "citations": [
+      "Order I Rule 10 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Ms. Palak Kaushal & Ms. Ayushi Jain (D-2), Mr. Shivam Tiwari & Mr. Aditya Dash (D-7), Ms. Gitanjali Kapoor & Mr. Yubaraj Chatterjee (D-16), Ms. Suvarna Singh (D-45), Mr. Ishkaran Singh Bhandari (CGSC) & Mr. Piyush Yadav (UOI)"
+    },
+    "summary": "The court allowed the plaintiff's application to implead additional rogue websites and their domain name registrars as defendant no. 107, subject to existing interim orders. The amended memo of parties was directed to be taken on record, and summons were ordered to be issued to the new defendant via email, subject to filing of process fee. The matter was listed for the next date already fixed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-03T08:05:39.581Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/108/2025",
+    "_orderDate": "2026-07-30"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1785742581_c0e686e72771655d_739_3132026.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Plaintiff's application to implead additional rogue websites and domain name registrars as defendants is allowed.",
+    "costsAwarded": null,
+    "directions": [
+      "Amended memo of parties be taken on record.",
+      "Summons be issued to defendant nos. 31 to 700 through all permissible modes, subject to filing of process fee.",
+      "Summons to be issued via email only as requested by plaintiff's counsel, subject to filing of process fee."
+    ],
+    "citations": [
+      "Order I Rule 10 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh & Ms. Falguni Mundhra",
+      "defendant": "Ms. Ayushi Jain (D-8), Ms. A. Mitra & Ms. Shivani Choudhary (D-14), Mr. Rishi Kapoor, Ms. Gitanjali Kapoor & Mr. Ashish Gupta (D-26), Ms. Radhika Bishogit Dubey & Mr. Kritarth Upadhyay (D-28 & 29/UOI)"
+    },
+    "summary": "The court allowed the plaintiff's application to implead additional rogue websites and their domain name registrars as defendants in the suit. The newly impleaded defendants are subject to the earlier order dated 25.03.2026. Summons were directed to be issued to the new defendants via email, subject to filing of process fee.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-03T08:05:39.581Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/313/2026",
+    "_orderDate": "2026-07-31"
   }
 }

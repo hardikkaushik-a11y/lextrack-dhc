@@ -8,10 +8,46 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-07-03",
+    "lastDate": "2026-07-30",
     "nextDate": "2026-09-25",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-07-30",
+        "event": "Court Order",
+        "detail": "List the matter for the purpose fixed on the date already fixed i.e.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1785742268_ebebb926bdc21456_739_1082025.pdf/2026",
+        "orderText": "$~21 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No: DLHC010057752025 + CS(COMM) 108/2025 JIO STAR INDIA PVT LTD .....Plaintiff Through: Ms. Ishi Singh, Adv. versus IPTV SMARTER PRO & ORS .....Defendant Through: Ms. Palak Kaushal & Ms. Ayushi Jain, Advs. for D-2 (through VC) Mr. Shivam Tiwari & Mr. Aditya Dash, Advs. for D-7. Ms. Gitanjali Kapoor & Mr. Yubaraj Chatterjee, Advs. for D-16 (through VC) (admin@kapoorandcompany.com) Ms. Suvarna Singh, Adv. for D-45. (M- 9968973293) Mr. Ishkaran Singh Bhandari (CGSC) & Mr. Piyush Yadav, Advs. for UOI (DOT & MEITY) CORAM: JOINT REGISTRAR (JUDICIAL), SUDHIR KUMAR SIROHI (DHJS) O R D E R % 30.07.2026 List the matter for the purpose fixed on the date already fixed i.e. 25.09.2026. IA No. 20141/2026 (By plaintiff u/O I Rule 10 CPC seeking impleadment of newly identified associated domains/URLs/UIs engaged in infringing activities as defendants (associated rogue domains/URLs/UIs) & extension of ad-interim order dated This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 03/08/2026 at 13:32:38 10.02.2025) The plaintiff is seeking to implead additional rogue websites & their domain name registrars as the defendant no. 107 since it is illegally distributing the copyrighted content of the plaintiff. The relevant details of this infringer are mentioned in para no.5 of the application. Keeping in view, the contents of this application so read in the light of the prayers made in the suit, the same is allowed. It is worthwhile to note that the additional rogue websites & their domain name registrars impleaded as the defendant no. 107 shall be subject to the interim orders already passed in the suit. The amended memo of parties be taken on record. Summons be issued to the defendant no. 107 through all permissible modes, subject to the filing of PF. At this stage, ld. counsel for the plaintiff requests to issue summons through email only as the newly identified defendant is rogue websites, therefore the summons be issued via email, subject to the filing of PF. SUDHIR KUMAR SIROHI (DHJS) JOINT REGISTRAR (JUDICIAL) JULY 30, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 03/08/2026 at 13:32:38",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": "Impleadment of additional rogue websites and their domain name registrars as defendant no. 107, subject to interim orders already passed.",
+          "costsAwarded": null,
+          "directions": [
+            "List the matter for the purpose fixed on the date already fixed i.e. 25.09.2026.",
+            "Amended memo of parties be taken on record.",
+            "Summons be issued to defendant no. 107 through all permissible modes, subject to filing of PF.",
+            "Summons to be issued via email to defendant no. 107, subject to filing of PF."
+          ],
+          "citations": [
+            "Order I Rule 10 CPC"
+          ],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Ms. Palak Kaushal & Ms. Ayushi Jain (D-2), Mr. Shivam Tiwari & Mr. Aditya Dash (D-7), Ms. Gitanjali Kapoor & Mr. Yubaraj Chatterjee (D-16), Ms. Suvarna Singh (D-45), Mr. Ishkaran Singh Bhandari (CGSC) & Mr. Piyush Yadav (UOI)"
+          },
+          "summary": "The court allowed the plaintiff's application to implead additional rogue websites and their domain name registrars as defendant no. 107, subject to existing interim orders. The amended memo of parties was directed to be taken on record, and summons were ordered to be issued to the new defendant via email, subject to filing of process fee. The matter was listed for the next date already fixed.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-08-03T08:05:39.581Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/108/2025",
+          "_orderDate": "2026-07-30"
+        }
+      },
       {
         "date": "2026-07-03",
         "event": "Court Order",
@@ -1676,7 +1712,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:02:07.354Z",
+    "lastScraped": "2026-08-03T08:02:39.217Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2075,7 +2111,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:02:15.307Z",
+    "lastScraped": "2026-08-03T08:02:47.308Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2393,7 +2429,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:02:22.756Z",
+    "lastScraped": "2026-08-03T08:02:55.137Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2701,7 +2737,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:02:30.519Z",
+    "lastScraped": "2026-08-03T08:03:09.361Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2713,10 +2749,45 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-07-08",
+    "lastDate": "2026-07-31",
     "nextDate": "2026-09-29",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-07-31",
+        "event": "Court Order",
+        "detail": "List the matter for the purpose fixed on the date already fixed i.e.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1785742581_c0e686e72771655d_739_3132026.pdf/2026",
+        "orderText": "$~27 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010115042026 + CS(COMM) 313/2026 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Ms. Ishi Singh & Ms. Falguni Mundhra, Advs. (through VC) versus HTTPS//DADDYLIVES.NL & ORS. .....Defendant Through: Ms. Ayushi Jain, Adv. for D-8 (through VC) Ms. A. Mitra & Ms. Shivani Choudhary, Advs. for D-14. Mr. Rishi Kapoor, Ms. Gitanjali Kapoor & Mr. Ashish Gupta, Advs. for D-26. (through VC) Ms. Radhika Bishogit Dubey (CGSC) & Mr. Kritarth Upadhyay, Advs. for D- 28 & 29/UOI. CORAM: JOINT REGISTRAR (JUDICIAL), SUDHIR KUMAR SIROHI (DHJS) O R D E R % 31.07.2026 List the matter for the purpose fixed on the date already fixed i.e. 31.08.2026. IA No. 20379/2026 (By plaintiff u/O I Rule 10 CPC seeking impleadment of additional rogue websites (notified on affidavits ) along with their domain name registrars engaged in infringing activities as defendants in the instant suit) This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 03/08/2026 at 13:33:17 The plaintiff is seeking to implead additional rogue websites & their domain name registrars as the defendant nos. 31 to 700 since they are illegally distributing the copyrighted content of the plaintiff. The relevant details of these infringers are mentioned in para no.6 & 7 of the application. Keeping in view, the contents of this application so read in the light of the prayers made in the suit, the same is allowed. It is worthwhile to note that the additional rogue websites (defendant no. 31 to 661) & their domain name registrars (defendant no. 662 to 700) impleaded as the defendant nos. 31 to 700 shall be subject to the order of the Hon'ble Court already passed on 25.03.2026. The amended memo of parties be taken on record. Summons be issued to the defendant nos. 31 to 700 through all permissible modes, subject to the filing of PF. At this stage, ld. counsel for the plaintiff requests to issue summons through email only as the newly identified defendants are rogue websites, therefore the summons be issued via emails, subject to the filing of PF. SUDHIR KUMAR SIROHI (DHJS) JOINT REGISTRAR (JUDICIAL) JULY 31, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 03/08/2026 at 13:33:17",
+        "intelligence": {
+          "classification": "interim",
+          "reliefGranted": "Plaintiff's application to implead additional rogue websites and domain name registrars as defendants is allowed.",
+          "costsAwarded": null,
+          "directions": [
+            "Amended memo of parties be taken on record.",
+            "Summons be issued to defendant nos. 31 to 700 through all permissible modes, subject to filing of process fee.",
+            "Summons to be issued via email only as requested by plaintiff's counsel, subject to filing of process fee."
+          ],
+          "citations": [
+            "Order I Rule 10 CPC"
+          ],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh & Ms. Falguni Mundhra",
+            "defendant": "Ms. Ayushi Jain (D-8), Ms. A. Mitra & Ms. Shivani Choudhary (D-14), Mr. Rishi Kapoor, Ms. Gitanjali Kapoor & Mr. Ashish Gupta (D-26), Ms. Radhika Bishogit Dubey & Mr. Kritarth Upadhyay (D-28 & 29/UOI)"
+          },
+          "summary": "The court allowed the plaintiff's application to implead additional rogue websites and their domain name registrars as defendants in the suit. The newly impleaded defendants are subject to the earlier order dated 25.03.2026. Summons were directed to be issued to the new defendants via email, subject to filing of process fee.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-08-03T08:05:39.581Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/313/2026",
+          "_orderDate": "2026-07-31"
+        }
+      },
       {
         "date": "2026-07-08",
         "event": "Court Order",
@@ -2809,7 +2880,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:02:38.114Z",
+    "lastScraped": "2026-08-03T08:03:17.956Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3040,7 +3111,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:02:45.667Z",
+    "lastScraped": "2026-08-03T08:03:25.638Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3538,7 +3609,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:02:53.186Z",
+    "lastScraped": "2026-08-03T08:03:33.347Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4511,7 +4582,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:03:00.949Z",
+    "lastScraped": "2026-08-03T08:03:41.069Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4712,7 +4783,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:03:08.449Z",
+    "lastScraped": "2026-08-03T08:03:55.264Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5145,7 +5216,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:03:16.000Z",
+    "lastScraped": "2026-08-03T08:04:03.070Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5346,7 +5417,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:03:23.600Z",
+    "lastScraped": "2026-08-03T08:04:10.724Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6087,7 +6158,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:03:31.387Z",
+    "lastScraped": "2026-08-03T08:04:18.284Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6807,7 +6878,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:03:38.966Z",
+    "lastScraped": "2026-08-03T08:04:25.998Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7107,7 +7178,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:03:53.218Z",
+    "lastScraped": "2026-08-03T08:04:33.676Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7500,7 +7571,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:04:01.506Z",
+    "lastScraped": "2026-08-03T08:04:41.321Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7775,115 +7846,21 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:04:09.231Z",
+    "lastScraped": "2026-08-03T08:04:48.988Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
+    "id": "m_CSCOMM_149_2025",
     "caseNo": "CS(COMM)/149/2025",
-    "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-08-03T07:04:35.343Z",
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2026-05-12.pdf",
-        "type": "Court Order",
-        "date": "2026-05-12",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1778657606_afb21e3ac368dcd6_jis_1492025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-05-07.pdf",
-        "type": "Court Order",
-        "date": "2026-05-07",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1778482165_f6585ccc5e4cda23_762_1492025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-04-20.pdf",
-        "type": "Court Order",
-        "date": "2026-04-20",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1776682918_18c8bbb3e92f0b7b_762_1492025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-01-23.pdf",
-        "type": "Court Order",
-        "date": "2026-01-23",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1769167793_0c196201d018af5b_612_1492025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-12-10.pdf",
-        "type": "Court Order",
-        "date": "2025-12-10",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1765468848_2511669049482354_589_1492025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-12-06.pdf",
-        "type": "Court Order",
-        "date": "2025-12-06",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1765008659_a69a3ee0f5419d67_612_1492025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-10-30.pdf",
-        "type": "Court Order",
-        "date": "2025-10-30",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1761903715_08e35a631a1c29f0_612_1492025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-10-06.pdf",
-        "type": "Court Order",
-        "date": "2025-10-06",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1759934403_7aaf74e2370e2ed0_589_1492025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-09-04.pdf",
-        "type": "Court Order",
-        "date": "2025-09-04",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1756980683_878297e814049c75_612_1492025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-21.pdf",
-        "type": "Court Order",
-        "date": "2025-08-21",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1755774589_b06e49f9bcb4e7bb_612_1492025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-19.pdf",
-        "type": "Court Order",
-        "date": "2025-08-19",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1755604196_9ca5da1f708fa7f7_745_1492025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-04.pdf",
-        "type": "Court Order",
-        "date": "2025-08-04",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1754567925_4c6cada770ec942b_612_1492025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-07-30.pdf",
-        "type": "Court Order",
-        "date": "2025-07-30",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1753960090_a09cd2768f08fab2_612_1492025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-29.pdf",
-        "type": "Court Order",
-        "date": "2025-04-29",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1746006161_6811f0919c848.pdf/2025",
-        "size": "—"
-      }
-    ],
+    "title": "CENTRAL RETAIL CORPORATION PUBLIC COMPANY LTD. & ANR VS. FUTURE BRANDS LTD & ANR A+",
+    "type": "trademark",
+    "stage": "filed",
+    "status": "PENDING",
+    "judge": null,
+    "client": null,
     "lastDate": "2026-05-25",
+    "nextDate": "2026-08-24",
+    "notes": null,
     "timeline": [
       {
         "date": "2026-05-25",
@@ -8427,7 +8404,122 @@
           "_orderDate": "2025-04-29"
         }
       }
-    ]
+    ],
+    "additionalDates": [
+      {
+        "date": "2026-08-24",
+        "before": "jr",
+        "firstSeenAt": "2000-01-01T00:00:00Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-05-25",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1779778209_701564522b7e6867_jis_1492025.pdf/2026"
+        }
+      }
+    ],
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2026-05-12.pdf",
+        "type": "Court Order",
+        "date": "2026-05-12",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1778657606_afb21e3ac368dcd6_jis_1492025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-05-07.pdf",
+        "type": "Court Order",
+        "date": "2026-05-07",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1778482165_f6585ccc5e4cda23_762_1492025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-04-20.pdf",
+        "type": "Court Order",
+        "date": "2026-04-20",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1776682918_18c8bbb3e92f0b7b_762_1492025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-01-23.pdf",
+        "type": "Court Order",
+        "date": "2026-01-23",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1769167793_0c196201d018af5b_612_1492025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-12-10.pdf",
+        "type": "Court Order",
+        "date": "2025-12-10",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1765468848_2511669049482354_589_1492025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-12-06.pdf",
+        "type": "Court Order",
+        "date": "2025-12-06",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1765008659_a69a3ee0f5419d67_612_1492025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-10-30.pdf",
+        "type": "Court Order",
+        "date": "2025-10-30",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1761903715_08e35a631a1c29f0_612_1492025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-10-06.pdf",
+        "type": "Court Order",
+        "date": "2025-10-06",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1759934403_7aaf74e2370e2ed0_589_1492025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-09-04.pdf",
+        "type": "Court Order",
+        "date": "2025-09-04",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1756980683_878297e814049c75_612_1492025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-21.pdf",
+        "type": "Court Order",
+        "date": "2025-08-21",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1755774589_b06e49f9bcb4e7bb_612_1492025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-19.pdf",
+        "type": "Court Order",
+        "date": "2025-08-19",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1755604196_9ca5da1f708fa7f7_745_1492025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-04.pdf",
+        "type": "Court Order",
+        "date": "2025-08-04",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1754567925_4c6cada770ec942b_612_1492025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-07-30.pdf",
+        "type": "Court Order",
+        "date": "2025-07-30",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1753960090_a09cd2768f08fab2_612_1492025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-29.pdf",
+        "type": "Court Order",
+        "date": "2025-04-29",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1746006161_6811f0919c848.pdf/2025",
+        "size": "—"
+      }
+    ],
+    "lastScraped": "2026-08-03T08:04:56.651Z",
+    "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
     "id": "m_CSCOMM_672_2026",
@@ -8516,7 +8608,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:04:42.081Z",
+    "lastScraped": "2026-08-03T08:05:10.947Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8825,7 +8917,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:04:49.632Z",
+    "lastScraped": "2026-08-03T08:05:18.466Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9629,7 +9721,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:04:58.308Z",
+    "lastScraped": "2026-08-03T08:05:26.198Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10037,7 +10129,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-03T07:05:06.622Z",
+    "lastScraped": "2026-08-03T08:05:33.915Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
