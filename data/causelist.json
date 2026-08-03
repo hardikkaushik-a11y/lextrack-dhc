@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-03T10:02:44Z",
+  "scraped_at": "2026-08-03T11:02:12Z",
   "for_dates": [
     "2026-08-03",
     "2026-08-04"
@@ -15,9 +15,18 @@
       "norm_matches": 0
     },
     {
+      "file": "listing_02_for_03.08.2026.pdf",
+      "date": "2026-08-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "sup-9-for_03.08.26_trf_matters.pdf",
       "date": "2026-08-03",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "jud_1_for_03.08.2026.pdf",
@@ -84,13 +93,6 @@
     },
     {
       "file": "rl03082026.pdf",
-      "date": "2026-08-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_03.08.2026.pdf",
       "date": "2026-08-03",
       "matched": 0,
       "regex_matches": 0,
