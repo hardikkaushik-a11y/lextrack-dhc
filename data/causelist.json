@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-03T06:01:41Z",
+  "scraped_at": "2026-08-03T07:01:44Z",
   "for_dates": [
     "2026-08-03",
     "2026-08-04"
@@ -12,6 +12,13 @@
       "date": "2026-08-04",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "jud_1_for_03.08.2026.pdf",
+      "date": "2026-08-03",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -52,7 +59,7 @@
     {
       "file": "c_03082026.pdf",
       "date": "2026-08-03",
-      "error": "download: ('Connection broken: IncompleteRead(5723822 bytes read, 13776644 more expected)', IncompleteRead(5723822 bytes read, 13776644 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(1187126 bytes read, 18313340 more expected)', IncompleteRead(1187126 bytes read, 18313340 more expected))"
     },
     {
       "file": "finals_03.08.2026.pdf",
