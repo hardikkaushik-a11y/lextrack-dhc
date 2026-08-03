@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-03T13:02:02Z",
+  "scraped_at": "2026-08-03T14:02:07Z",
   "for_dates": [
     "2026-08-03",
     "2026-08-04"
@@ -7,6 +7,55 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "pro_for_04.08.2026.pdf",
+      "date": "2026-08-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_04.08.26.pdf",
+      "date": "2026-08-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "listing_01_04.08.2026.pdf",
+      "date": "2026-08-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_04.08.2026.pdf",
+      "date": "2026-08-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "old_target_matters_for_04.08.2026.pdf",
+      "date": "2026-08-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "last_supp.04.08.2026.pdf",
+      "date": "2026-08-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_04.08.2026.pdf",
+      "date": "2026-08-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "second_suppl.04.08.26.pdf",
       "date": "2026-08-04",
@@ -31,7 +80,9 @@
     {
       "file": "combined_adv_list_04.08.2026.pdf",
       "date": "2026-08-04",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "listing_02_for_03.08.2026.pdf",
@@ -49,48 +100,6 @@
     },
     {
       "file": "jud_1_for_03.08.2026.pdf",
-      "date": "2026-08-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "original_listing_01_for_03.08.2026.pdf",
-      "date": "2026-08-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_03.08.2026.pdf",
-      "date": "2026-08-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "2nd_supplementary_list_03.08.2026.pdf",
-      "date": "2026-08-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_03082026.pdf",
-      "date": "2026-08-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_03082026.pdf",
-      "date": "2026-08-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_03082026.pdf",
       "date": "2026-08-03",
       "matched": 0,
       "regex_matches": 0,
