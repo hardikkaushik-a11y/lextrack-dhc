@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-04T11:01:21Z",
+  "scraped_at": "2026-08-04T12:01:21Z",
   "for_dates": [
     "2026-08-04",
     "2026-08-05"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "rl05082026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_advance_05082026.pdf",
       "date": "2026-08-05",
@@ -93,20 +100,6 @@
     },
     {
       "file": "finals_04.08.2026.pdf",
-      "date": "2026-08-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "second_suppl.04.08.26.pdf",
-      "date": "2026-08-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl04.082026.pdf",
       "date": "2026-08-04",
       "matched": 0,
       "regex_matches": 0,
