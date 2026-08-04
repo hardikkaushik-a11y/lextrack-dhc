@@ -1712,7 +1712,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:02:05.993Z",
+    "lastScraped": "2026-08-04T11:01:40.685Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2111,7 +2111,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:02:13.587Z",
+    "lastScraped": "2026-08-04T11:01:48.214Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2429,7 +2429,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:02:21.180Z",
+    "lastScraped": "2026-08-04T11:01:56.034Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2737,7 +2737,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:02:28.891Z",
+    "lastScraped": "2026-08-04T11:02:06.255Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2880,7 +2880,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:02:36.632Z",
+    "lastScraped": "2026-08-04T11:02:13.846Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3111,7 +3111,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:02:44.326Z",
+    "lastScraped": "2026-08-04T11:02:21.416Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3609,7 +3609,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:02:51.827Z",
+    "lastScraped": "2026-08-04T11:02:29.441Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4582,7 +4582,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:02:59.693Z",
+    "lastScraped": "2026-08-04T11:02:37.225Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4783,7 +4783,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:03:14.458Z",
+    "lastScraped": "2026-08-04T11:02:44.729Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5216,7 +5216,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:03:22.243Z",
+    "lastScraped": "2026-08-04T11:02:52.329Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5417,7 +5417,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:03:30.206Z",
+    "lastScraped": "2026-08-04T11:02:59.901Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6158,7 +6158,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:03:37.661Z",
+    "lastScraped": "2026-08-04T11:03:07.395Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6878,7 +6878,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:03:45.226Z",
+    "lastScraped": "2026-08-04T11:03:14.942Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7178,7 +7178,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:03:52.726Z",
+    "lastScraped": "2026-08-04T11:03:22.525Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7571,7 +7571,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:04:01.063Z",
+    "lastScraped": "2026-08-04T11:03:30.159Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7846,7 +7846,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:04:08.721Z",
+    "lastScraped": "2026-08-04T11:03:37.944Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8518,7 +8518,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:04:16.274Z",
+    "lastScraped": "2026-08-04T11:03:45.476Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8530,10 +8530,42 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-07-01",
+    "lastDate": "2026-08-04",
     "nextDate": "2026-10-09",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-08-04",
+        "event": "Court Order",
+        "detail": "Matter is listed for completion of pleadings.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1785839126_35d8201eae36537c_762_6722026.pdf/2026",
+        "orderText": "$~13 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010268752026 + CS(COMM) 672/2026 SONY PICTURES NETWORKS INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Manish Singh and Ms. Ishi Singh, Advs (VC). versus CRICFREE.CYOU & ORS. .....Defendant Through: None. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 04.08.2026 1. Matter is listed for completion of pleadings. 2. Affidavit of compliance under Order 39 Rule 3 CPC filed on behalf of plaintiff is on record. 3. As per Registry report, defendant no.15 and defendant no.20 to 23 have been served on 27.07.2026 through ordinary mode. 4. As per affidavit of service filed by plaintiff, Defendant no.1 to 24 have been served via email on 30.07.2026. 5. Defendant no.25 is John Doe. 6. Let written statement / replication if any be filed as per rules. 7. Put up for completion of pleadings on 04.11.2026. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) AUGUST 4, 2026/BK This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/08/2026 at 16:33:54",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "File written statement/replication as per rules",
+            "List for completion of pleadings on 04.11.2026"
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Manish Singh and Ms. Ishi Singh",
+            "defendant": null
+          },
+          "summary": "The court noted that pleadings were not complete. The plaintiff had filed an affidavit of compliance under Order 39 Rule 3 CPC. Service was effected on defendants via ordinary mode and email. The court directed filing of written statement/replication and listed the matter for completion of pleadings on 04.11.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-08-04T11:04:22.216Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/672/2026",
+          "_orderDate": "2026-08-04"
+        }
+      },
       {
         "date": "2026-07-01",
         "event": "Court Order",
@@ -8596,6 +8628,16 @@
           "orderDate": "2026-07-01",
           "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1782918953_2b537ae00738985b_jis_6722026.pdf/2026"
         }
+      },
+      {
+        "date": "2026-11-04",
+        "before": "jr",
+        "firstSeenAt": "2026-08-04T11:03:54.411Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-08-04",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1785839126_35d8201eae36537c_762_6722026.pdf/2026"
+        }
       }
     ],
     "tasks": [],
@@ -8608,7 +8650,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:04:24.287Z",
+    "lastScraped": "2026-08-04T11:03:54.417Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8917,7 +8959,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:04:31.823Z",
+    "lastScraped": "2026-08-04T11:04:02.426Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9721,7 +9763,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:04:39.464Z",
+    "lastScraped": "2026-08-04T11:04:10.185Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10129,7 +10171,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-04T10:05:04.587Z",
+    "lastScraped": "2026-08-04T11:04:17.882Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

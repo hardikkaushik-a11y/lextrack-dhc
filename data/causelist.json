@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-08-04T10:01:46Z",
+  "scraped_at": "2026-08-04T11:01:21Z",
   "for_dates": [
     "2026-08-04",
     "2026-08-05"
   ],
   "tracked_cases": 21,
-  "matched_cases": 2,
+  "matched_cases": 1,
   "sources": [
     {
       "file": "combined_advance_05082026.pdf",
@@ -111,13 +111,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "cause_list_for_04.08.2026.pdf",
-      "date": "2026-08-04",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -133,19 +126,6 @@
       "matched_on": "CS(COMM)-         RELIANCE CONSUMER SEWA SINGH,\n             195/2026",
       "date": "2026-08-05",
       "source_pdf": "combined_advance_05082026.pdf"
-    },
-    {
-      "item": "13",
-      "court": "JR",
-      "judge": "SWATI KATIYAR (JR)",
-      "time": null,
-      "page": 518,
-      "context": "13       CS(COMM)-672/2026   SONY PICTURES            ISHI SINGH",
-      "caseNo": "CS(COMM)/672/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-672/2026",
-      "date": "2026-08-04",
-      "source_pdf": "cause_list_for_04.08.2026.pdf"
     }
   ]
 }

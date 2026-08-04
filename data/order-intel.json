@@ -6365,5 +6365,30 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/313/2026",
     "_orderDate": "2026-07-31"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1785839126_35d8201eae36537c_762_6722026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "File written statement/replication as per rules",
+      "List for completion of pleadings on 04.11.2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Manish Singh and Ms. Ishi Singh",
+      "defendant": null
+    },
+    "summary": "The court noted that pleadings were not complete. The plaintiff had filed an affidavit of compliance under Order 39 Rule 3 CPC. Service was effected on defendants via ordinary mode and email. The court directed filing of written statement/replication and listed the matter for completion of pleadings on 04.11.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-04T11:04:22.216Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/672/2026",
+    "_orderDate": "2026-08-04"
   }
 }
