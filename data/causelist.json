@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-04T12:01:21Z",
+  "scraped_at": "2026-08-04T13:01:56Z",
   "for_dates": [
     "2026-08-04",
     "2026-08-05"
@@ -7,6 +7,69 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "deletion_note_1_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combinbed_pro_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_supplementary_list_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl05082026_0.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combinbed_cause_list_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "rl05082026.pdf",
       "date": "2026-08-05",
@@ -55,55 +118,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "pro_for_04.08.2026.pdf",
-      "date": "2026-08-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_04.08.26.pdf",
-      "date": "2026-08-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "listing_01_04.08.2026.pdf",
-      "date": "2026-08-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_04.08.2026.pdf",
-      "date": "2026-08-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "old_target_matters_for_04.08.2026.pdf",
-      "date": "2026-08-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "last_supp.04.08.2026.pdf",
-      "date": "2026-08-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_04.08.2026.pdf",
-      "date": "2026-08-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -112,13 +126,13 @@
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 326,
+      "page": 458,
       "context": "8        CS(COMM)-         RELIANCE CONSUMER SEWA SINGH,\n             195/2026          PRODUCTS LIMITED     ISHI SINGH",
       "caseNo": "CS(COMM)/195/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         RELIANCE CONSUMER SEWA SINGH,\n             195/2026",
       "date": "2026-08-05",
-      "source_pdf": "combined_advance_05082026.pdf"
+      "source_pdf": "combinbed_cause_list_05.08.2026.pdf"
     }
   ]
 }
