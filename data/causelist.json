@@ -1,16 +1,18 @@
 {
-  "scraped_at": "2026-08-04T19:01:42Z",
+  "scraped_at": "2026-08-04T20:01:55Z",
   "for_dates": [
     "2026-08-05",
     "2026-08-06"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 3,
   "sources": [
     {
       "file": "combined_advance_06082026.pdf",
       "date": "2026-08-06",
-      "error": "download: ('Connection broken: IncompleteRead(1465080 bytes read, 4913006 more expected)', IncompleteRead(1465080 bytes read, 4913006 more expected))"
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
     },
     {
       "file": "deletion_note_1_05.08.2026.pdf",
@@ -91,6 +93,32 @@
     }
   ],
   "entries": [
+    {
+      "item": null,
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 290,
+      "context": "In CS(COMM)-      MEBIGO LABS PRIVATE\n             256/2026          LIMITED)",
+      "caseNo": "CS(COMM)/256/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-      MEBIGO LABS PRIVATE\n             256/2026",
+      "date": "2026-08-06",
+      "source_pdf": "combined_advance_06082026.pdf"
+    },
+    {
+      "item": "19",
+      "court": "JR",
+      "judge": "SUDHIR KUMAR SIROHI (JR)",
+      "time": null,
+      "page": 343,
+      "context": "19       CS(COMM)-         DAZN LIMITED & ANR.    R MAYA, BINSY\n             1152/2025         V/s 9GOALS.IO & ORS.   SUSAN BABY,",
+      "caseNo": "CS(COMM)/1152/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         DAZN LIMITED & ANR.    R MAYA, BINSY\n             1152/2025",
+      "date": "2026-08-06",
+      "source_pdf": "combined_advance_06082026.pdf"
+    },
     {
       "item": "8",
       "court": "JR",
