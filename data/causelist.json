@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-04T09:02:04Z",
+  "scraped_at": "2026-08-04T10:01:46Z",
   "for_dates": [
     "2026-08-04",
     "2026-08-05"
@@ -12,6 +12,20 @@
       "date": "2026-08-05",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_j.kaurav_04.08.2026.pdf",
+      "date": "2026-08-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_prateeek_j_04.08.2026.pdf",
+      "date": "2026-08-04",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -100,13 +114,6 @@
     },
     {
       "file": "cause_list_for_04.08.2026.pdf",
-      "date": "2026-08-04",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_04.08.2026.pdf",
       "date": "2026-08-04",
       "matched": 1,
       "regex_matches": 1,
