@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-05T07:01:59Z",
+  "scraped_at": "2026-08-05T08:01:48Z",
   "for_dates": [
     "2026-08-05",
     "2026-08-06"
@@ -12,6 +12,27 @@
       "date": "2026-08-06",
       "matched": 2,
       "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_db-ii_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_j._saurabh_b_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_05.08.2026_1.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -93,20 +114,6 @@
     },
     {
       "file": "combinbed_cause_list_05.08.2026.pdf",
-      "date": "2026-08-05",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl05082026.pdf",
-      "date": "2026-08-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_05082026.pdf",
       "date": "2026-08-05",
       "matched": 1,
       "regex_matches": 1,
