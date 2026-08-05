@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-05T05:01:59Z",
+  "scraped_at": "2026-08-05T06:02:02Z",
   "for_dates": [
     "2026-08-05",
     "2026-08-06"
@@ -12,6 +12,27 @@
       "date": "2026-08-06",
       "matched": 2,
       "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "deleteion_83_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_format_jr_advance_judicial_05.08.2026.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-7-for_05.08.26.pdf",
+      "date": "2026-08-05",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
