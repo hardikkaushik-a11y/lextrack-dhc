@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-05T12:01:31Z",
+  "scraped_at": "2026-08-05T13:01:45Z",
   "for_dates": [
     "2026-08-05",
     "2026-08-06"
@@ -7,6 +7,34 @@
   "tracked_cases": 21,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "finals_06.08.2026.pdf",
+      "date": "2026-08-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl06082026.pdf",
+      "date": "2026-08-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "supple-1_for_06.08.2026.pdf",
+      "date": "2026-08-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "cause_list_for_06.08.2026.pdf",
+      "date": "2026-08-06",
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
+    },
     {
       "file": "combined_advance_06082026.pdf",
       "date": "2026-08-06",
@@ -69,41 +97,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combinbed_pro_05.08.2026.pdf",
-      "date": "2026-08-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_05.08.2026.pdf",
-      "date": "2026-08-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_supplementary_list_05.08.2026.pdf",
-      "date": "2026-08-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_05.08.2026.pdf",
-      "date": "2026-08-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_05.08.2026.pdf",
-      "date": "2026-08-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -112,26 +105,39 @@
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 290,
+      "page": 422,
       "context": "In CS(COMM)-      MEBIGO LABS PRIVATE\n             256/2026          LIMITED)",
       "caseNo": "CS(COMM)/256/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-      MEBIGO LABS PRIVATE\n             256/2026",
       "date": "2026-08-06",
-      "source_pdf": "combined_advance_06082026.pdf"
+      "source_pdf": "cause_list_for_06.08.2026.pdf"
     },
     {
       "item": "19",
       "court": "JR",
       "judge": "SUDHIR KUMAR SIROHI (JR)",
       "time": null,
-      "page": 343,
+      "page": 475,
       "context": "19       CS(COMM)-         DAZN LIMITED & ANR.    R MAYA, BINSY\n             1152/2025         V/s 9GOALS.IO & ORS.   SUSAN BABY,",
       "caseNo": "CS(COMM)/1152/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         DAZN LIMITED & ANR.    R MAYA, BINSY\n             1152/2025",
       "date": "2026-08-06",
-      "source_pdf": "combined_advance_06082026.pdf"
+      "source_pdf": "cause_list_for_06.08.2026.pdf"
+    },
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 637,
+      "context": "NOTE: I.A. 21085/2026 SHALL BE TAKEN UP ALONGWITH CS(COMM) 1152/2025.",
+      "caseNo": "CS(COMM)/1152/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM) 1152/2025",
+      "date": "2026-08-06",
+      "source_pdf": "cause_list_for_06.08.2026.pdf"
     }
   ]
 }
