@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-05T00:01:55Z",
+  "scraped_at": "2026-08-05T01:01:41Z",
   "for_dates": [
     "2026-08-05",
     "2026-08-06"
@@ -73,9 +73,7 @@
     {
       "file": "combinbed_cause_list_05.08.2026.pdf",
       "date": "2026-08-05",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(9917702 bytes read, 8809673 more expected)', IncompleteRead(9917702 bytes read, 8809673 more expected))"
     },
     {
       "file": "rl05082026.pdf",
@@ -124,13 +122,13 @@
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 458,
+      "page": 326,
       "context": "8        CS(COMM)-         RELIANCE CONSUMER SEWA SINGH,\n             195/2026          PRODUCTS LIMITED     ISHI SINGH",
       "caseNo": "CS(COMM)/195/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         RELIANCE CONSUMER SEWA SINGH,\n             195/2026",
       "date": "2026-08-05",
-      "source_pdf": "combinbed_cause_list_05.08.2026.pdf"
+      "source_pdf": "combined_advance_05082026.pdf"
     }
   ]
 }
