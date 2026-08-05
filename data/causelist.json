@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-05T16:01:37Z",
+  "scraped_at": "2026-08-05T17:02:00Z",
   "for_dates": [
     "2026-08-05",
     "2026-08-06"
@@ -59,7 +59,9 @@
     {
       "file": "cause_list_for_06.08.2026.pdf",
       "date": "2026-08-06",
-      "error": "download: ('Connection broken: IncompleteRead(5348022 bytes read, 13735424 more expected)', IncompleteRead(5348022 bytes read, 13735424 more expected))"
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
     },
     {
       "file": "combined_advance_06082026.pdf",
@@ -110,26 +112,39 @@
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 290,
+      "page": 422,
       "context": "In CS(COMM)-      MEBIGO LABS PRIVATE\n             256/2026          LIMITED)",
       "caseNo": "CS(COMM)/256/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-      MEBIGO LABS PRIVATE\n             256/2026",
       "date": "2026-08-06",
-      "source_pdf": "combined_advance_06082026.pdf"
+      "source_pdf": "cause_list_for_06.08.2026.pdf"
     },
     {
       "item": "19",
       "court": "JR",
       "judge": "SUDHIR KUMAR SIROHI (JR)",
       "time": null,
-      "page": 343,
+      "page": 475,
       "context": "19       CS(COMM)-         DAZN LIMITED & ANR.    R MAYA, BINSY\n             1152/2025         V/s 9GOALS.IO & ORS.   SUSAN BABY,",
       "caseNo": "CS(COMM)/1152/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         DAZN LIMITED & ANR.    R MAYA, BINSY\n             1152/2025",
       "date": "2026-08-06",
-      "source_pdf": "combined_advance_06082026.pdf"
+      "source_pdf": "cause_list_for_06.08.2026.pdf"
+    },
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 637,
+      "context": "NOTE: I.A. 21085/2026 SHALL BE TAKEN UP ALONGWITH CS(COMM) 1152/2025.",
+      "caseNo": "CS(COMM)/1152/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM) 1152/2025",
+      "date": "2026-08-06",
+      "source_pdf": "cause_list_for_06.08.2026.pdf"
     }
   ]
 }
