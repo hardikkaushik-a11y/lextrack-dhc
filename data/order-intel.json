@@ -6390,5 +6390,29 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/672/2026",
     "_orderDate": "2026-08-04"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1786006329_4255443b4828f815_762_1952026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Place the matter before the Hon'ble Court on 15.09.2026 for further directions."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh and Mr. Shudhata Sudhir",
+      "defendant": null
+    },
+    "summary": "The counsels for the parties informed the Joint Registrar that the matter has been settled. The Joint Registrar directed that the matter be placed before the Hon'ble Court on the already fixed date of 15.09.2026 for further directions.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-06T09:04:57.536Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/195/2026",
+    "_orderDate": "2026-08-05"
   }
 }
