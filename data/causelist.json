@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-06T02:01:37Z",
+  "scraped_at": "2026-08-06T03:01:47Z",
   "for_dates": [
     "2026-08-06",
     "2026-08-07"
@@ -73,7 +73,9 @@
     {
       "file": "combined_advance_06082026.pdf",
       "date": "2026-08-06",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
     },
     {
       "file": "rev_sup-9-for_07.08.26_trf_matters.pdf",
