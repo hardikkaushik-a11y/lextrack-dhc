@@ -6414,5 +6414,34 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/195/2026",
     "_orderDate": "2026-08-05"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1786112541_d2538fae07383c70_jis_2562026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Issue notice to Defendant No. 1 in I.A. 18834/2026 returnable on 21.09.2026.",
+      "Issue notice to Defendants in I.A. 20038/2026 returnable on 21.09.2026.",
+      "List I.A. 6856/2026 before Court on 21.09.2026."
+    ],
+    "citations": [
+      "Section 151 CPC",
+      "Order XXXIX Rules 1 and 2 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Garg, Ms. Disha Sharma, Ms. Ishi Singh",
+      "defendant": "Mr. Darpan Wadhwa, Mr. Sandeep Devashish Das, Ms. Kanak Malik, Mr. Tejasvi Mahajan, Mr. Tanishq Juneja"
+    },
+    "summary": "The court considered three applications filed by the plaintiff. It issued notice on an application seeking further directions against Defendant No. 1 and on an application to bring on record the plaintiff's name change. The court also listed the plaintiff's application for interim injunction for hearing. All matters were listed for 21.09.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-07T15:04:25.700Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/256/2026",
+    "_orderDate": "2026-08-06"
   }
 }
