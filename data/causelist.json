@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-07T07:01:54Z",
+  "scraped_at": "2026-08-07T08:01:36Z",
   "for_dates": [
     "2026-08-07",
     "2026-08-08"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup-10_12-for_07.08.26_trf_matters.pdf",
+      "date": "2026-08-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup-9-for_07.08.26.pdf",
       "date": "2026-08-07",
