@@ -1,115 +1,11 @@
 {
-  "scraped_at": "2026-08-07T11:01:56Z",
+  "scraped_at": "2026-08-07T12:01:05Z",
   "for_dates": [
     "2026-08-07",
     "2026-08-08"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "sup-21-for_07.08.26_trf_matter.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-19-for_07.08.26.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-17-for_07.08.26.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_12-for_07.08.26_trf_matters.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-9-for_07.08.26.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_07.08.2026.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_suppl_07082026.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_07.08.2026.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_07.08.2026.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_07082026_0.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_07082026.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_07.08.2026.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "dh_sup_2_07.08.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_07082026.pdf",
-      "date": "2026-08-07",
-      "error": "download: ('Connection broken: IncompleteRead(4496446 bytes read, 13696368 more expected)', IncompleteRead(4496446 bytes read, 13696368 more expected))"
-    },
-    {
-      "file": "rl07082026.pdf",
-      "date": "2026-08-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
