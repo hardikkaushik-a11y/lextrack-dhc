@@ -1,11 +1,122 @@
 {
-  "scraped_at": "2026-08-08T18:01:04Z",
+  "scraped_at": "2026-08-08T19:01:37Z",
   "for_dates": [
-    "2026-08-08",
-    "2026-08-09"
+    "2026-08-09",
+    "2026-08-10"
   ],
   "tracked_cases": 21,
-  "matched_cases": 0,
-  "sources": [],
-  "entries": []
+  "matched_cases": 3,
+  "sources": [
+    {
+      "file": "deletion_note_10.08.2026.pdf",
+      "date": "2026-08-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "dh_sup_3_10.08.pdf",
+      "date": "2026-08-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_advance_10082026_0.pdf",
+      "date": "2026-08-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_10.08.2026.pdf",
+      "date": "2026-08-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_10082026.pdf",
+      "date": "2026-08-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_10082026.pdf",
+      "date": "2026-08-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_10.08.2026.pdf",
+      "date": "2026-08-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_10082026.pdf",
+      "date": "2026-08-10",
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl10082026.pdf",
+      "date": "2026-08-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_advance_10082026.pdf",
+      "date": "2026-08-10",
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
+    }
+  ],
+  "entries": [
+    {
+      "item": "28",
+      "court": "48",
+      "judge": "ANUP JAIRAM BHAMBHANI NOTE",
+      "time": null,
+      "page": 509,
+      "context": "28        CS(COMM)-         DAZN LIMITED & ANR.    R MAYA, BINSY\n             1152/2025         V/s 9GOALS.IO & ORS.   SUSAN BABY,",
+      "caseNo": "CS(COMM)/1152/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         DAZN LIMITED & ANR.    R MAYA, BINSY\n             1152/2025",
+      "date": "2026-08-10",
+      "source_pdf": "c_10082026.pdf"
+    },
+    {
+      "item": "9",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 549,
+      "context": "9       CS(COMM)-89/2026 JIOSTAR INDIA PRIVATE R MAYA, PRIYANSH",
+      "caseNo": "CS(COMM)/89/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-89/2026",
+      "date": "2026-08-10",
+      "source_pdf": "c_10082026.pdf"
+    },
+    {
+      "item": "8",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 549,
+      "context": "8       CS(COMM)-81/2026 JIOSTAR INDIA PRIVATE PRIYANSH KOHLI",
+      "caseNo": "CS(COMM)/81/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-81/2026",
+      "date": "2026-08-10",
+      "source_pdf": "c_10082026.pdf"
+    }
+  ]
 }
