@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-09T15:01:41Z",
+  "scraped_at": "2026-08-09T16:01:37Z",
   "for_dates": [
     "2026-08-09",
     "2026-08-10"
@@ -59,9 +59,7 @@
     {
       "file": "c_10082026.pdf",
       "date": "2026-08-10",
-      "matched": 3,
-      "regex_matches": 3,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(19169990 bytes read, 416629 more expected)', IncompleteRead(19169990 bytes read, 416629 more expected))"
     },
     {
       "file": "rl10082026.pdf",
@@ -84,39 +82,39 @@
       "court": "48",
       "judge": "ANUP JAIRAM BHAMBHANI NOTE",
       "time": null,
-      "page": 509,
+      "page": 376,
       "context": "28        CS(COMM)-         DAZN LIMITED & ANR.    R MAYA, BINSY\n             1152/2025         V/s 9GOALS.IO & ORS.   SUSAN BABY,",
       "caseNo": "CS(COMM)/1152/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         DAZN LIMITED & ANR.    R MAYA, BINSY\n             1152/2025",
       "date": "2026-08-10",
-      "source_pdf": "c_10082026.pdf"
+      "source_pdf": "combined_advance_10082026.pdf"
     },
     {
       "item": "9",
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 549,
+      "page": 416,
       "context": "9       CS(COMM)-89/2026 JIOSTAR INDIA PRIVATE R MAYA, PRIYANSH",
       "caseNo": "CS(COMM)/89/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-89/2026",
       "date": "2026-08-10",
-      "source_pdf": "c_10082026.pdf"
+      "source_pdf": "combined_advance_10082026.pdf"
     },
     {
       "item": "8",
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 549,
+      "page": 416,
       "context": "8       CS(COMM)-81/2026 JIOSTAR INDIA PRIVATE PRIYANSH KOHLI",
       "caseNo": "CS(COMM)/81/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-81/2026",
       "date": "2026-08-10",
-      "source_pdf": "c_10082026.pdf"
+      "source_pdf": "combined_advance_10082026.pdf"
     }
   ]
 }
