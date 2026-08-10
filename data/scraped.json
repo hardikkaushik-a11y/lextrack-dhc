@@ -1712,7 +1712,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:02:15.389Z",
+    "lastScraped": "2026-08-10T11:01:40.887Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2111,7 +2111,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:02:22.858Z",
+    "lastScraped": "2026-08-10T11:01:48.926Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2123,10 +2123,44 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-07-24",
+    "lastDate": "2026-08-10",
     "nextDate": "2026-12-09",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-08-10",
+        "event": "Court Order",
+        "detail": "Matter is listed for completion of pleadings.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1786356204_3ce80c01b08a4deb_762_892026.pdf/2026",
+        "orderText": "$~9 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010030082026 + CS(COMM) 89/2026 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Ms. Ishi Singh, Adv. versus GHD SPORTS & ORS. .....Defendant Through: Ms. Ananya Dewan, Adv for D-8. Mr. Rishi Kapoor and Mr. Siddhartha Makhija, Advs for defendant Vodafone Idea Ltd. Mr. Vinay Yadav, CGSC and Mr. Ansh Kalra, Advs for D-19 and 20. Mr. Nikhil Gupta, Mr. Shivam Tiwari and Mr. Aditya Dash, Advs for D-152(GoDaddy.com LLC). CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 10.08.2026 1. Matter is listed for completion of pleadings. 2. As per affidavits of service filed by plaintiff, defendant no.1 to 20 have been served via email on 21.02.2026. However, perusal of record shows that no written statement has been filed by defendants no. 1 to 20 within the maximum permissible period of 120 days. Hence, the right of defendant nos. 1 to 20 to file written statement stands closed. 3. Defendant no.21 is John Doe. 4. Affidavit of service has not been filed for service of Defendant nos. 22-158. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 10/08/2026 at 16:31:58 5. Ld. counsel for the plaintiff submits that fresh process may be issued for defendant no.22 to 158. 6. Heard. Let fresh process be issued qua defendant no.22 to 158 on filing of process fee within five days and thereafter, summons be issued to the defendants to be served through all permissible modes, returnable for next date. 7. Amended memo of parties filed by plaintiff is under objection. Ld counsel for plaintiff submits that they are coordinating with the registry in this regard. 8. Two affidavits filed by defendant no.151 are under objections. 9. Ld counsels for defendant no. 19, 20 and 152 submit that they have complied with orders dated 30.01.2026 and 15.04.2026. Let compliance affidavits be filed within four weeks. 10. Put up for service status of defendant no.22 to 158 / completion of pleadings on 13.10.2026. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) AUGUST 10, 2026/BK This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 10/08/2026 at 16:31:58",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Fresh process to be issued for defendant nos. 22 to 158 on filing of process fee within five days.",
+            "Summons to be issued to defendants 22-158 through all permissible modes, returnable for next date.",
+            "Compliance affidavits to be filed by defendant nos. 19, 20, and 152 within four weeks.",
+            "Put up for service status of defendant nos. 22 to 158 / completion of pleadings on 13.10.2026."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Ms. Ananya Dewan (D-8), Mr. Rishi Kapoor and Mr. Siddhartha Makhija (Vodafone Idea Ltd.), Mr. Vinay Yadav and Mr. Ansh Kalra (D-19 and 20), Mr. Nikhil Gupta, Mr. Shivam Tiwari and Mr. Aditya Dash (D-152 GoDaddy.com LLC)"
+          },
+          "summary": "The Joint Registrar noted that defendants 1-20 were served but failed to file written statements within 120 days, closing their right to do so. Fresh process was ordered for defendants 22-158, and compliance affidavits were directed for certain defendants. The matter was adjourned to 13.10.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-08-10T11:04:48.488Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/89/2026",
+          "_orderDate": "2026-08-10"
+        }
+      },
       {
         "date": "2026-07-24",
         "event": "Court Order",
@@ -2429,7 +2463,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:02:30.323Z",
+    "lastScraped": "2026-08-10T11:01:58.528Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2441,10 +2475,44 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-07-31",
+    "lastDate": "2026-08-10",
     "nextDate": "2026-12-09",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-08-10",
+        "event": "Court Order",
+        "detail": "Matter is listed for completion of pleadings.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1786356199_f13595ff7c3a5b8d_762_812026.pdf/2026",
+        "orderText": "$~8 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010027102026 + CS(COMM) 81/2026 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Ms. Ishi Singh, Adv. versus HTTPS//CRICHDBEST.COM & ORS. .....Defendant Through: Ms. Ananya Dewan, Adv for D-9. Mr. Rishi Kapoor, Mr. Siddartha Makhija and Ms. Gitanjali Kapoor, Advs for defendant Vodafone Idea Ltd. Mr. Nikhil Gupta, Mr. Shivam Tiwari and Mr. Aditya Dash, Advs for D-429 (GoDaddy.com LLC). CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 10.08.2026 1. Matter is listed for completion of pleadings. 2. As per affidavits of service filed by the plaintiff, defendant no.1 to 23 have been served via email on 23.02.2026 and defendant no.25 to 466 have been served via email on 07.08.2026. 3. Perusal of record shows that no written statement has been filed by defendant no.1 to 23 despite being served on 23.02.2026 within the maximum permissible period of 120 days. Hence, the right of defendant nos. 1 to 23 to file written statement stands closed. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 10/08/2026 at 16:32:08 4. Defendant no.24 is John Doe. 5. Written statements if any by defendant no. 25 to 466 be filed as per rules. 6. Ld Counsel for defendant no.429 Godaddy.com submits that they are under the process of taking necessary instructions for ensuring compliance with previous order and some time may be granted. Let the compliance affidavit be filed within four weeks. 7. Put up for reporting of recording of further compliances, if any / completion of pleadings on 08.12.2026. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) AUGUST 10, 2026/BK This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 10/08/2026 at 16:32:08",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Defendant nos. 1 to 23 are barred from filing written statements as the 120-day period has expired.",
+            "Defendant nos. 25 to 466 are to file written statements as per rules.",
+            "Defendant no. 429 (GoDaddy.com LLC) is to file a compliance affidavit within four weeks.",
+            "Matter listed for completion of pleadings on 08.12.2026."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Ms. Ananya Dewan (D-9), Mr. Rishi Kapoor, Mr. Siddartha Makhija, Ms. Gitanjali Kapoor (Vodafone Idea Ltd.), Mr. Nikhil Gupta, Mr. Shivam Tiwari, Mr. Aditya Dash (D-429 GoDaddy.com LLC)"
+          },
+          "summary": "The Joint Registrar noted service on defendants and closed the right of defendants 1-23 to file written statements due to expiry of the 120-day period. Defendants 25-466 were directed to file written statements as per rules, and GoDaddy was granted four weeks to file a compliance affidavit. The matter was adjourned to 08.12.2026 for completion of pleadings.",
+          "confidence": {
+            "reliefGranted": "low",
+            "directions": "high",
+            "citations": "low"
+          },
+          "_extractedAt": "2026-08-10T11:04:48.488Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/81/2026",
+          "_orderDate": "2026-08-10"
+        }
+      },
       {
         "date": "2026-07-31",
         "event": "Court Order",
@@ -2696,6 +2764,16 @@
         }
       },
       {
+        "date": "2026-12-08",
+        "before": "jr",
+        "firstSeenAt": "2026-08-10T11:02:08.724Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-08-10",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1786356199_f13595ff7c3a5b8d_762_812026.pdf/2026"
+        }
+      },
+      {
         "date": "2026-12-09",
         "before": "court",
         "firstSeenAt": "2000-01-01T00:00:00Z",
@@ -2737,7 +2815,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:02:37.801Z",
+    "lastScraped": "2026-08-10T11:02:08.726Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2880,7 +2958,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:02:45.237Z",
+    "lastScraped": "2026-08-10T11:02:17.219Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3111,7 +3189,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:02:53.170Z",
+    "lastScraped": "2026-08-10T11:02:26.584Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3609,7 +3687,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:03:00.554Z",
+    "lastScraped": "2026-08-10T11:02:41.682Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4582,7 +4660,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:03:08.307Z",
+    "lastScraped": "2026-08-10T11:02:49.663Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4804,7 +4882,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:03:15.767Z",
+    "lastScraped": "2026-08-10T11:02:57.535Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5237,7 +5315,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:03:23.320Z",
+    "lastScraped": "2026-08-10T11:03:05.564Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5438,7 +5516,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:03:30.908Z",
+    "lastScraped": "2026-08-10T11:03:13.658Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6179,7 +6257,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:03:38.470Z",
+    "lastScraped": "2026-08-10T11:03:23.788Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6899,7 +6977,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:03:46.136Z",
+    "lastScraped": "2026-08-10T11:03:31.889Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7199,7 +7277,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:03:53.654Z",
+    "lastScraped": "2026-08-10T11:03:40.085Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7592,7 +7670,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:04:01.143Z",
+    "lastScraped": "2026-08-10T11:03:48.047Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7867,7 +7945,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:04:08.586Z",
+    "lastScraped": "2026-08-10T11:03:55.962Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8539,7 +8617,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:04:16.118Z",
+    "lastScraped": "2026-08-10T11:04:04.132Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8661,7 +8739,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:04:23.554Z",
+    "lastScraped": "2026-08-10T11:04:12.296Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8996,7 +9074,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:04:30.937Z",
+    "lastScraped": "2026-08-10T11:04:27.063Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9800,7 +9878,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:04:38.356Z",
+    "lastScraped": "2026-08-10T11:04:35.173Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10208,7 +10286,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-10T10:04:45.982Z",
+    "lastScraped": "2026-08-10T11:04:43.200Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

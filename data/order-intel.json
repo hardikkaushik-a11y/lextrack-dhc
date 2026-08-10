@@ -6443,5 +6443,59 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/256/2026",
     "_orderDate": "2026-08-06"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1786356204_3ce80c01b08a4deb_762_892026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Fresh process to be issued for defendant nos. 22 to 158 on filing of process fee within five days.",
+      "Summons to be issued to defendants 22-158 through all permissible modes, returnable for next date.",
+      "Compliance affidavits to be filed by defendant nos. 19, 20, and 152 within four weeks.",
+      "Put up for service status of defendant nos. 22 to 158 / completion of pleadings on 13.10.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Ms. Ananya Dewan (D-8), Mr. Rishi Kapoor and Mr. Siddhartha Makhija (Vodafone Idea Ltd.), Mr. Vinay Yadav and Mr. Ansh Kalra (D-19 and 20), Mr. Nikhil Gupta, Mr. Shivam Tiwari and Mr. Aditya Dash (D-152 GoDaddy.com LLC)"
+    },
+    "summary": "The Joint Registrar noted that defendants 1-20 were served but failed to file written statements within 120 days, closing their right to do so. Fresh process was ordered for defendants 22-158, and compliance affidavits were directed for certain defendants. The matter was adjourned to 13.10.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-10T11:04:48.488Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/89/2026",
+    "_orderDate": "2026-08-10"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1786356199_f13595ff7c3a5b8d_762_812026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant nos. 1 to 23 are barred from filing written statements as the 120-day period has expired.",
+      "Defendant nos. 25 to 466 are to file written statements as per rules.",
+      "Defendant no. 429 (GoDaddy.com LLC) is to file a compliance affidavit within four weeks.",
+      "Matter listed for completion of pleadings on 08.12.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Ms. Ananya Dewan (D-9), Mr. Rishi Kapoor, Mr. Siddartha Makhija, Ms. Gitanjali Kapoor (Vodafone Idea Ltd.), Mr. Nikhil Gupta, Mr. Shivam Tiwari, Mr. Aditya Dash (D-429 GoDaddy.com LLC)"
+    },
+    "summary": "The Joint Registrar noted service on defendants and closed the right of defendants 1-23 to file written statements due to expiry of the 120-day period. Defendants 25-466 were directed to file written statements as per rules, and GoDaddy was granted four weeks to file a compliance affidavit. The matter was adjourned to 08.12.2026 for completion of pleadings.",
+    "confidence": {
+      "reliefGranted": "low",
+      "directions": "high",
+      "citations": "low"
+    },
+    "_extractedAt": "2026-08-10T11:04:48.488Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/81/2026",
+    "_orderDate": "2026-08-10"
   }
 }
