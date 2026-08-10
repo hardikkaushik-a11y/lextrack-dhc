@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-10T15:01:38Z",
+  "scraped_at": "2026-08-10T16:01:43Z",
   "for_dates": [
     "2026-08-10",
     "2026-08-11"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup_11082026.pdf",
+      "date": "2026-08-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "supple_pro_db_11.08.2026.pdf",
       "date": "2026-08-11",
@@ -59,7 +66,7 @@
     {
       "file": "cause_list_for_11.08.2026.pdf",
       "date": "2026-08-11",
-      "error": "download: ('Connection broken: IncompleteRead(2719174 bytes read, 16954180 more expected)', IncompleteRead(2719174 bytes read, 16954180 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(2356246 bytes read, 17317108 more expected)', IncompleteRead(2356246 bytes read, 17317108 more expected))"
     },
     {
       "file": "finals_11.08.2026.pdf",
@@ -78,7 +85,9 @@
     {
       "file": "combined_advace_11082026.pdf",
       "date": "2026-08-11",
-      "error": "download: ('Connection broken: IncompleteRead(6213088 bytes read, 781412 more expected)', IncompleteRead(6213088 bytes read, 781412 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_pla_10.08.2026.pdf",
