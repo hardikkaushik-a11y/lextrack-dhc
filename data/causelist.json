@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-10T13:01:50Z",
+  "scraped_at": "2026-08-10T14:02:00Z",
   "for_dates": [
     "2026-08-10",
     "2026-08-11"
@@ -8,9 +8,60 @@
   "matched_cases": 0,
   "sources": [
     {
+      "file": "supple_pro_db_11.08.2026.pdf",
+      "date": "2026-08-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_supplementary_list_11.08.2026.pdf",
+      "date": "2026-08-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_11.08.2026.pdf",
+      "date": "2026-08-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_11.08.2026.pdf",
+      "date": "2026-08-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "old_target_for_11.08.2026.pdf",
+      "date": "2026-08-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro_for_11.08.2026.pdf",
+      "date": "2026-08-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "supple-1_for_11.08.2026.pdf",
+      "date": "2026-08-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "cause_list_for_11.08.2026.pdf",
       "date": "2026-08-11",
-      "error": "download: ('Connection broken: IncompleteRead(19518790 bytes read, 154564 more expected)', IncompleteRead(19518790 bytes read, 154564 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_11.08.2026.pdf",
@@ -70,27 +121,6 @@
     },
     {
       "file": "sup-17_for_10.08.26.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_jasmeet_singh_10.08.2026.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_10.08.2026.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "dh_sup_3_10.08.pdf",
       "date": "2026-08-10",
       "matched": 0,
       "regex_matches": 0,
