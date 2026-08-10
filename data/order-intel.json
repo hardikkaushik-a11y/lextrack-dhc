@@ -6497,5 +6497,36 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/81/2026",
     "_orderDate": "2026-08-10"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1786360084_ea670f8dfc6c720f_ajb_11522025.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Defendant No. 708's application for vacation of interim injunction allowed; DNR directed to restore and re-activate domain name 'tas-ix.tv' subject to filing of undertaking.",
+    "costsAwarded": null,
+    "directions": [
+      "Defendant No. 708 to file an undertaking in terms of para 19 of the application within 4 weeks, with copy to opposing counsel.",
+      "Affidavit to be accompanied by requisite authorization in favor of the deponent.",
+      "Concerned DNR to restore and re-activate domain name 'tas-ix.tv'.",
+      "Re-notify before Joint Registrar on 06 August 2026.",
+      "List before court on 10 August 2026."
+    ],
+    "citations": [
+      "Section 151, Code of Civil Procedure 1908",
+      "Order XXXIX Rule 4, Code of Civil Procedure 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Dinesh Jotwani, Ms. Shivalika Midha, Mr. Rajat Sharma, Mr. Bhargav Baisoya, Mr. Adil Muneer Andrabi, Mr. Sidharth Chopra, Mr. Yatinder Garg, Mr. Priyansh Kohli, Mr. Manish Singh",
+      "defendant": "Ms. Suvarna Singh (D-12,31), Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Shivam Tiwari, Mr. Nikhil Gupta, Mr. Yogesh Singh, Ms. Pavitra Singh (D-33/DNR), Mr. Vidhatri Deoli (D-42)"
+    },
+    "summary": "The court allowed the defendant No. 708's application for condonation of delay in re-filing its application for vacation of the injunction. The court then disposed of the vacation application, directing the defendant to file an undertaking as per para 19 of the application, and ordered the DNR to restore the domain name 'tas-ix.tv' subject to such undertaking. The matter was listed for further proceedings on 10 August 2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-10T12:04:20.021Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2026-07-31"
   }
 }
