@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-10T12:01:22Z",
+  "scraped_at": "2026-08-10T13:01:50Z",
   "for_dates": [
     "2026-08-10",
     "2026-08-11"
@@ -7,6 +7,25 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "cause_list_for_11.08.2026.pdf",
+      "date": "2026-08-11",
+      "error": "download: ('Connection broken: IncompleteRead(19518790 bytes read, 154564 more expected)', IncompleteRead(19518790 bytes read, 154564 more expected))"
+    },
+    {
+      "file": "finals_11.08.2026.pdf",
+      "date": "2026-08-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl11082026.pdf",
+      "date": "2026-08-11",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_advace_11082026.pdf",
       "date": "2026-08-11",
@@ -72,34 +91,6 @@
     },
     {
       "file": "dh_sup_3_10.08.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_10082026_0.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_10.08.2026.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_10082026.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_10082026.pdf",
       "date": "2026-08-10",
       "matched": 0,
       "regex_matches": 0,
