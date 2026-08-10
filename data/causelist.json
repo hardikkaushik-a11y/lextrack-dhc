@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-08-10T18:01:59Z",
+  "scraped_at": "2026-08-10T19:01:51Z",
   "for_dates": [
-    "2026-08-10",
-    "2026-08-11"
+    "2026-08-11",
+    "2026-08-12"
   ],
   "tracked_cases": 21,
-  "matched_cases": 0,
+  "matched_cases": 2,
   "sources": [
+    {
+      "file": "advance_combined_list_for_12.08.2026.pdf",
+      "date": "2026-08-12",
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
+    },
     {
       "file": "sup_11082026.pdf",
       "date": "2026-08-11",
@@ -90,49 +97,34 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "sup_pla_10.08.2026.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_registrar_supply_10.08.2026.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "three_jud-10082026.odtttt.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "two_jud-10082026.odtttt.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "one_jud-10082026.odtttt.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-17_for_10.08.26.pdf",
-      "date": "2026-08-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "9",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 350,
+      "context": "9        CS(COMM)-1306/2025 DAZN LIMITED & ANR. AISHWARYA",
+      "caseNo": "CS(COMM)/1306/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-1306/2025",
+      "date": "2026-08-12",
+      "source_pdf": "advance_combined_list_for_12.08.2026.pdf"
+    },
+    {
+      "item": "5",
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 360,
+      "context": "5       CS(COMM)-         STAR INDIA PVT     SWATI AGARWAL,\n             331/2025          LTD                MAYANK MIKHAIL",
+      "caseNo": "CS(COMM)/331/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         STAR INDIA PVT     SWATI AGARWAL,\n             331/2025",
+      "date": "2026-08-12",
+      "source_pdf": "advance_combined_list_for_12.08.2026.pdf"
+    }
+  ]
 }
