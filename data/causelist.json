@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-11T13:01:57Z",
+  "scraped_at": "2026-08-11T14:02:21Z",
   "for_dates": [
     "2026-08-11",
     "2026-08-12"
@@ -7,6 +7,41 @@
   "tracked_cases": 21,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "deletion_note_12.08.2026.pdf",
+      "date": "2026-08-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_12.08.2026.pdf",
+      "date": "2026-08-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_fnl_for_12.08.26_revised.pdf",
+      "date": "2026-08-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_12.08.2026.pdf",
+      "date": "2026-08-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_12.08.2026.pdf",
+      "date": "2026-08-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "finals_12.08.2026.pdf",
       "date": "2026-08-12",
@@ -31,9 +66,7 @@
     {
       "file": "advance_combined_list_for_12.08.2026.pdf",
       "date": "2026-08-12",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup-12_for_11.08.26.pdf",
@@ -65,34 +98,6 @@
     },
     {
       "file": "today_registrar_sup_11082026.pdf",
-      "date": "2026-08-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_11082026.pdf",
-      "date": "2026-08-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "supple_pro_db_11.08.2026.pdf",
-      "date": "2026-08-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_supplementary_list_11.08.2026.pdf",
-      "date": "2026-08-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_11.08.2026.pdf",
       "date": "2026-08-11",
       "matched": 0,
       "regex_matches": 0,
