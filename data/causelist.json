@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-11T12:01:28Z",
+  "scraped_at": "2026-08-11T13:01:57Z",
   "for_dates": [
     "2026-08-11",
     "2026-08-12"
@@ -7,6 +7,27 @@
   "tracked_cases": 21,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "finals_12.08.2026.pdf",
+      "date": "2026-08-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl12082026.pdf",
+      "date": "2026-08-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_causelist_12.08.2026.pdf",
+      "date": "2026-08-12",
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
+    },
     {
       "file": "advance_combined_list_for_12.08.2026.pdf",
       "date": "2026-08-12",
@@ -76,27 +97,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_11.08.2026.pdf",
-      "date": "2026-08-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "old_target_for_11.08.2026.pdf",
-      "date": "2026-08-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro_for_11.08.2026.pdf",
-      "date": "2026-08-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -105,26 +105,26 @@
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 350,
+      "page": 483,
       "context": "9        CS(COMM)-1306/2025 DAZN LIMITED & ANR. AISHWARYA",
       "caseNo": "CS(COMM)/1306/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-1306/2025",
       "date": "2026-08-12",
-      "source_pdf": "advance_combined_list_for_12.08.2026.pdf"
+      "source_pdf": "combined_causelist_12.08.2026.pdf"
     },
     {
       "item": "5",
       "court": "JR",
       "judge": "EKTA GAUBA MANN (JR)",
       "time": null,
-      "page": 360,
+      "page": 493,
       "context": "5       CS(COMM)-         STAR INDIA PVT     SWATI AGARWAL,\n             331/2025          LTD                MAYANK MIKHAIL",
       "caseNo": "CS(COMM)/331/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         STAR INDIA PVT     SWATI AGARWAL,\n             331/2025",
       "date": "2026-08-12",
-      "source_pdf": "advance_combined_list_for_12.08.2026.pdf"
+      "source_pdf": "combined_causelist_12.08.2026.pdf"
     }
   ]
 }
