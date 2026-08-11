@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-08-11T18:01:57Z",
+  "scraped_at": "2026-08-11T19:01:51Z",
   "for_dates": [
-    "2026-08-11",
-    "2026-08-12"
+    "2026-08-12",
+    "2026-08-13"
   ],
   "tracked_cases": 21,
-  "matched_cases": 2,
+  "matched_cases": 3,
   "sources": [
+    {
+      "file": "combined_adv_13.08.2026.pdf",
+      "date": "2026-08-13",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "jud_12082026.pdf",
       "date": "2026-08-12",
@@ -66,9 +73,7 @@
     {
       "file": "combined_causelist_12.08.2026.pdf",
       "date": "2026-08-12",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(1410262 bytes read, 17750842 more expected)', IncompleteRead(1410262 bytes read, 17750842 more expected))"
     },
     {
       "file": "advance_combined_list_for_12.08.2026.pdf",
@@ -76,62 +81,47 @@
       "matched": 2,
       "regex_matches": 2,
       "norm_matches": 0
-    },
-    {
-      "file": "sup-12_for_11.08.26.pdf",
-      "date": "2026-08-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_for_11.08.26.pdf",
-      "date": "2026-08-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-9_for_11.08.26.pdf",
-      "date": "2026-08-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-5a_for_11.08.26_del_note_0.pdf",
-      "date": "2026-08-11",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
+    {
+      "item": "5",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 370,
+      "context": "5      CS(COMM)-         JIOSTAR INDIA PRIVATE   GAURAV SARKAR,\n             756/2025          LIMITED                 SHASHANK",
+      "caseNo": "CS(COMM)/756/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE   GAURAV SARKAR,\n             756/2025",
+      "date": "2026-08-13",
+      "source_pdf": "combined_adv_13.08.2026.pdf"
+    },
     {
       "item": "9",
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 483,
+      "page": 350,
       "context": "9        CS(COMM)-1306/2025 DAZN LIMITED & ANR. AISHWARYA",
       "caseNo": "CS(COMM)/1306/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-1306/2025",
       "date": "2026-08-12",
-      "source_pdf": "combined_causelist_12.08.2026.pdf"
+      "source_pdf": "advance_combined_list_for_12.08.2026.pdf"
     },
     {
       "item": "5",
       "court": "JR",
       "judge": "EKTA GAUBA MANN (JR)",
       "time": null,
-      "page": 493,
+      "page": 360,
       "context": "5       CS(COMM)-         STAR INDIA PVT     SWATI AGARWAL,\n             331/2025          LTD                MAYANK MIKHAIL",
       "caseNo": "CS(COMM)/331/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         STAR INDIA PVT     SWATI AGARWAL,\n             331/2025",
       "date": "2026-08-12",
-      "source_pdf": "combined_causelist_12.08.2026.pdf"
+      "source_pdf": "advance_combined_list_for_12.08.2026.pdf"
     }
   ]
 }
