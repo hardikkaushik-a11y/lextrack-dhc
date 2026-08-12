@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-12T11:01:39Z",
+  "scraped_at": "2026-08-12T12:02:09Z",
   "for_dates": [
     "2026-08-12",
     "2026-08-13"
@@ -8,10 +8,29 @@
   "matched_cases": 1,
   "sources": [
     {
+      "file": "c_13082026.pdf",
+      "date": "2026-08-13",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_13.08.2026.pdf",
+      "date": "2026-08-13",
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+    },
+    {
       "file": "combined_adv_13.08.2026.pdf",
       "date": "2026-08-13",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_12.08.2026_2.pdf",
+      "date": "2026-08-12",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -76,34 +95,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_12.08.2026.pdf",
-      "date": "2026-08-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_sup_1_12.08.2026.pdf",
-      "date": "2026-08-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_12.08.2026.pdf",
-      "date": "2026-08-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl12082026.pdf",
-      "date": "2026-08-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -112,13 +103,13 @@
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 370,
+      "page": 507,
       "context": "5      CS(COMM)-         JIOSTAR INDIA PRIVATE   GAURAV SARKAR,\n             756/2025          LIMITED                 SHASHANK",
       "caseNo": "CS(COMM)/756/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE   GAURAV SARKAR,\n             756/2025",
       "date": "2026-08-13",
-      "source_pdf": "combined_adv_13.08.2026.pdf"
+      "source_pdf": "c_13082026.pdf"
     }
   ]
 }
