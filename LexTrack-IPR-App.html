@@ -1865,14 +1865,22 @@ body {
 <body>
 
 <!-- PRANK BANNER -->
+<div id="__lex_prank_backdrop" style="
+  position:fixed; inset:0; z-index:99998;
+  background:rgba(0,0,0,0.55);
+  display:none;
+"></div>
 <div id="__lex_prank_banner" style="
-  position:fixed; top:0; left:0; right:0; z-index:99999;
+  position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+  z-index:99999; width:min(480px, 90vw);
   background:#1a1a1a; color:#f5f5f5;
   font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  font-size:14px; line-height:1.5;
-  padding:14px 48px 14px 20px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.3);
+  font-size:14px; line-height:1.6;
+  padding:24px 24px 20px;
+  border-radius:10px;
+  box-shadow:0 12px 40px rgba(0,0,0,0.5);
   display:none;
+  white-space:pre-line;
 ">
   <span id="__lex_prank_banner_text">LexTracks AI Monitoring Notice
 
@@ -1887,14 +1895,35 @@ Action required: Please contact Hardik to request reinstatement of LexTracks ser
 This notice was generated automatically by the LexTracks AI Monitoring System.
 
 Reference: LT-AI-2047</span>
-  <button onclick="document.getElementById('__lex_prank_banner').style.display='none'" style="
-    position:absolute; top:10px; right:14px;
-    background:none; border:none; color:#f5f5f5; opacity:0.6;
-    font-size:20px; line-height:1; cursor:pointer; padding:4px 8px;
-  " aria-label="Dismiss">&times;</button>
+  <button id="__lex_prank_dismiss" disabled onclick="
+    document.getElementById('__lex_prank_banner').style.display='none';
+    document.getElementById('__lex_prank_backdrop').style.display='none';
+  " style="
+    display:block; margin:18px auto 0;
+    background:#333; border:none; color:#f5f5f5; opacity:0.4;
+    font-size:13px; border-radius:6px; cursor:not-allowed;
+    padding:8px 18px;
+  ">Dismiss (5)</button>
 </div>
 <script>
+  document.getElementById('__lex_prank_backdrop').style.display = 'block';
   document.getElementById('__lex_prank_banner').style.display = 'block';
+  (function() {
+    var secondsLeft = 5;
+    var btn = document.getElementById('__lex_prank_dismiss');
+    var timer = setInterval(function() {
+      secondsLeft--;
+      if (secondsLeft > 0) {
+        btn.textContent = 'Dismiss (' + secondsLeft + ')';
+      } else {
+        clearInterval(timer);
+        btn.textContent = 'Dismiss';
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.style.cursor = 'pointer';
+      }
+    }, 1000);
+  })();
 </script>
 
 <!-- SIDEBAR -->
