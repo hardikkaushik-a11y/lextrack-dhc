@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-13T13:01:20Z",
+  "scraped_at": "2026-08-13T14:01:20Z",
   "for_dates": [
     "2026-08-13",
     "2026-08-14"
@@ -7,6 +7,34 @@
   "tracked_cases": 21,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "deletion_note_14.08.2026.pdf",
+      "date": "2026-08-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_14.08.2026.pdf",
+      "date": "2026-08-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_14.08.2026.pdf",
+      "date": "2026-08-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_14.08.2026.pdf",
+      "date": "2026-08-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "rl14082026.pdf",
       "date": "2026-08-14",
@@ -37,34 +65,6 @@
     },
     {
       "file": "sup-8-for_13.08.26_trf_matter.pdf",
-      "date": "2026-08-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_13082026.pdf",
-      "date": "2026-08-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_13.08.2026.pdf",
-      "date": "2026-08-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_13082026.pdf",
-      "date": "2026-08-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl13082026.pdf",
       "date": "2026-08-13",
       "matched": 0,
       "regex_matches": 0,
