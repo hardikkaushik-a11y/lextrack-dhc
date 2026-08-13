@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-08-13T18:01:22Z",
+  "scraped_at": "2026-08-13T19:01:37Z",
   "for_dates": [
-    "2026-08-13",
-    "2026-08-14"
+    "2026-08-14",
+    "2026-08-15"
   ],
   "tracked_cases": 21,
   "matched_cases": 2,
@@ -54,20 +54,6 @@
       "date": "2026-08-14",
       "matched": 3,
       "regex_matches": 3,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-12-for_13.08.26.pdf",
-      "date": "2026-08-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-8-for_13.08.26_trf_matter.pdf",
-      "date": "2026-08-13",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
