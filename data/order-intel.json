@@ -6556,5 +6556,29 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1306/2025",
     "_orderDate": "2026-08-12"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1786615370_1c5ddb9ed92a8700_ajb_11522025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Re-notify before the learned Joint Registrar for completion of pleading and other proceedings on 02 November 2026"
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Urfee Roomi, Mr. J. Arun, Mr. Ayush Dixit and Mr. Yagya P.",
+      "defendant": "Ms. Nidhi Raman, Mr. Rishay Raj, Mr. Arnav Mittal, Mr. Yash Raj and Ms. Svarna Singh"
+    },
+    "summary": "The court, after hearing the parties, directed that the matter be re-notified before the Joint Registrar for completion of pleadings and other proceedings on the already fixed date of 02 November 2026. No interim relief or costs were awarded.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-13T10:04:57.153Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2026-08-10"
   }
 }
