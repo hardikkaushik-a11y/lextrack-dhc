@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-13T02:01:44Z",
+  "scraped_at": "2026-08-13T03:01:43Z",
   "for_dates": [
     "2026-08-13",
     "2026-08-14"
@@ -59,9 +59,7 @@
     {
       "file": "c_13082026_0.pdf",
       "date": "2026-08-13",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(12447798 bytes read, 6814232 more expected)', IncompleteRead(12447798 bytes read, 6814232 more expected))"
     },
     {
       "file": "finals_13.08.2026.pdf",
@@ -73,7 +71,9 @@
     {
       "file": "combined_adv_13.08.2026.pdf",
       "date": "2026-08-13",
-      "error": "download: ('Connection broken: IncompleteRead(5476560 bytes read, 978765 more expected)', IncompleteRead(5476560 bytes read, 978765 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     }
   ],
   "entries": [
@@ -121,13 +121,13 @@
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 507,
+      "page": 370,
       "context": "5      CS(COMM)-         JIOSTAR INDIA PRIVATE   GAURAV SARKAR,\n             756/2025          LIMITED                 SHASHANK",
       "caseNo": "CS(COMM)/756/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE   GAURAV SARKAR,\n             756/2025",
       "date": "2026-08-13",
-      "source_pdf": "c_13082026_0.pdf"
+      "source_pdf": "combined_adv_13.08.2026.pdf"
     }
   ]
 }
