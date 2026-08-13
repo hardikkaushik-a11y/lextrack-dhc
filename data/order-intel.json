@@ -6528,5 +6528,33 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1152/2025",
     "_orderDate": "2026-07-31"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1786605113_2aa284a891fd08dd_762_13062025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no. 19 to file compliance affidavit within one week.",
+      "IA to be placed before Hon'ble Court on 22.09.2026 for further directions.",
+      "Right of defendant nos. 1 to 9 to file written statement stands closed.",
+      "No written statement to be filed by defendant nos. 10 to 37.",
+      "Matter to be placed before Hon'ble Court on 22.09.2026 for further directions."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Manish Singh and Ms. Ishi Singh",
+      "defendant": "Ms. Ananya Dewan, Ms. Harshitha Rathod, Ms. Swati Agarwal, Ms. Rithika Mathur, Ms. Saumya Pawarr, Ms. Saloni Gupta, Adv Vidhatri Deoli, Mr. Vikrant Singh Goyal, Mr. Inderpreet Singh, Mr. Siddhartha Makhija, Mr. Rishi Kapoor, Ms. Gitanjali Kapoor"
+    },
+    "summary": "The Joint Registrar noted that pleadings were incomplete. Defendant no. 19 was granted one week to file a compliance affidavit. No replies were filed in the IA. The right of defendants 1-9 to file written statements was closed as the 120-day period expired. The matter was directed to be placed before the court on 22.09.2026 for further directions.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-13T08:10:45.461Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1306/2025",
+    "_orderDate": "2026-08-12"
   }
 }
