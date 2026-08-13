@@ -6580,5 +6580,31 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1152/2025",
     "_orderDate": "2026-08-10"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1786617467_b3b9748588e1a5f8_762_7562025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no.86 to remove objections and bring written statement on record as per rules.",
+      "Defendants no.3, 6, and 73 are exempted from further appearance subject to compliance with future directions.",
+      "Put up for completion of pleadings on 05.11.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Shudhata Sudhir",
+      "defendant": "Mr. Avish Sharma (D-2), Ms. Anmol Dhindsa (D-3), Ms. Rithika Mathur and Mr. Vaarish Sawlani (D-6), Mr. Mayank Mikhail Mukherjee (D-7), Mr. Yubaraj Chatterjee (D-16), Ms. Palak Kaushal and Ms. Khushbu Turki (D-20), Mr. Yash Raj (D-73), Ms. Sana Banyal and Mr. Ranvir Batra (D-86)"
+    },
+    "summary": "The court noted that pleadings were ongoing, with settlement as to defendant no.1 and written statements filed by defendants no.2 and 6. Defendant no.86's written statement was under objection, and defendants no.3, 6, and 73 were exempted from further appearance. The matter was adjourned for completion of pleadings.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-13T11:04:57.820Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/756/2025",
+    "_orderDate": "2026-08-13"
   }
 }
