@@ -1864,68 +1864,6 @@ body {
 </head>
 <body>
 
-<!-- PRANK BANNER -->
-<div id="__lex_prank_backdrop" style="
-  position:fixed; inset:0; z-index:99998;
-  background:rgba(0,0,0,0.55);
-  display:none;
-"></div>
-<div id="__lex_prank_banner" style="
-  position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
-  z-index:99999; width:min(480px, 90vw);
-  background:#1a1a1a; color:#f5f5f5;
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  font-size:14px; line-height:1.6;
-  padding:24px 24px 20px;
-  border-radius:10px;
-  box-shadow:0 12px 40px rgba(0,0,0,0.5);
-  display:none;
-  white-space:pre-line;
-">
-  <span id="__lex_prank_banner_text">LexTracks AI Monitoring Notice
-
-Our monitoring system has detected no recent user activity, updates, or apparent commercialisation discussions associated with your LexTracks application.
-
-Based on this inactivity, LexTracks AI has classified the application as inactive / commercially unattended and has initiated withdrawal of associated services.
-
-Access and continued support may be suspended unless the application owner, Hardik, confirms that commercialisation is still intended.
-
-Action required: Please contact Hardik to request reinstatement of LexTracks services.
-
-This notice was generated automatically by the LexTracks AI Monitoring System.
-
-Reference: LT-AI-2047</span>
-  <button id="__lex_prank_dismiss" disabled onclick="
-    document.getElementById('__lex_prank_banner').style.display='none';
-    document.getElementById('__lex_prank_backdrop').style.display='none';
-  " style="
-    display:block; margin:18px auto 0;
-    background:#333; border:none; color:#f5f5f5; opacity:0.4;
-    font-size:13px; border-radius:6px; cursor:not-allowed;
-    padding:8px 18px;
-  ">Dismiss (5)</button>
-</div>
-<script>
-  document.getElementById('__lex_prank_backdrop').style.display = 'block';
-  document.getElementById('__lex_prank_banner').style.display = 'block';
-  (function() {
-    var secondsLeft = 5;
-    var btn = document.getElementById('__lex_prank_dismiss');
-    var timer = setInterval(function() {
-      secondsLeft--;
-      if (secondsLeft > 0) {
-        btn.textContent = 'Dismiss (' + secondsLeft + ')';
-      } else {
-        clearInterval(timer);
-        btn.textContent = 'Dismiss';
-        btn.disabled = false;
-        btn.style.opacity = '1';
-        btn.style.cursor = 'pointer';
-      }
-    }, 1000);
-  })();
-</script>
-
 <!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="sidebar-brand">
