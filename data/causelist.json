@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-14T06:01:32Z",
+  "scraped_at": "2026-08-14T07:01:13Z",
   "for_dates": [
     "2026-08-14",
     "2026-08-15"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "registrar_supply_list_14.08.2026_1.pdf",
+      "date": "2026-08-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_83_14.08.2026.pdf",
       "date": "2026-08-14",
