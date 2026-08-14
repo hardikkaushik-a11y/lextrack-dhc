@@ -1,40 +1,11 @@
 {
-  "scraped_at": "2026-08-14T18:01:01Z",
+  "scraped_at": "2026-08-14T19:00:57Z",
   "for_dates": [
-    "2026-08-14",
-    "2026-08-15"
+    "2026-08-15",
+    "2026-08-16"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "sup_15_for_14.08.26.pdf",
-      "date": "2026-08-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_14.08.2026_1.pdf",
-      "date": "2026-08-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_83_14.08.2026.pdf",
-      "date": "2026-08-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_del_9-10_for_14.08.26.pdf",
-      "date": "2026-08-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
