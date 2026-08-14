@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-08-14T11:01:52Z",
+  "scraped_at": "2026-08-14T12:01:05Z",
   "for_dates": [
     "2026-08-14",
     "2026-08-15"
   ],
   "tracked_cases": 21,
-  "matched_cases": 2,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup_15_for_14.08.26.pdf",
+      "date": "2026-08-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "registrar_supply_list_14.08.2026_1.pdf",
       "date": "2026-08-14",
@@ -69,54 +76,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_14082026.pdf",
-      "date": "2026-08-14",
-      "matched": 3,
-      "regex_matches": 3,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "6",
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 265,
-      "context": "6        CS(COMM)-536/2025   DAZN LIMITED & ANR. R MAYA, BINSY SUSAN",
-      "caseNo": "CS(COMM)/536/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-536/2025",
-      "date": "2026-08-14",
-      "source_pdf": "combined_advance_14082026.pdf"
-    },
-    {
-      "item": null,
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 265,
-      "context": "WITH CS(COMM)                              RAJESH SHARMA, ONKAR\n             1186/2024                                  NATH ROY, DEEP",
-      "caseNo": "CS(COMM)/1186/2024",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)                              RAJESH SHARMA, ONKAR\n             1186/202",
-      "date": "2026-08-14",
-      "source_pdf": "combined_advance_14082026.pdf"
-    },
-    {
-      "item": "5",
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 265,
-      "context": "5        CS(COMM)-1186/2024 RELIANCE RETAIL         R MAYA, VARUN PATHAK,",
-      "caseNo": "CS(COMM)/1186/2024",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-1186/2024",
-      "date": "2026-08-14",
-      "source_pdf": "combined_advance_14082026.pdf"
-    }
-  ]
+  "entries": []
 }
