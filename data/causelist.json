@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-14T08:01:21Z",
+  "scraped_at": "2026-08-14T09:01:31Z",
   "for_dates": [
     "2026-08-14",
     "2026-08-15"
@@ -17,7 +17,9 @@
     {
       "file": "deletion_83_14.08.2026.pdf",
       "date": "2026-08-14",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_del_9-10_for_14.08.26.pdf",
