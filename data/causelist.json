@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-16T07:01:18Z",
+  "scraped_at": "2026-08-16T08:01:25Z",
   "for_dates": [
     "2026-08-16",
     "2026-08-17"
@@ -52,7 +52,9 @@
     {
       "file": "cause_list_for_17.08.2026.pdf",
       "date": "2026-08-17",
-      "error": "download: ('Connection broken: IncompleteRead(12914718 bytes read, 5294678 more expected)', IncompleteRead(12914718 bytes read, 5294678 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "rl17082026.pdf",
