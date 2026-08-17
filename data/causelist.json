@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-17T10:01:30Z",
+  "scraped_at": "2026-08-17T12:01:11Z",
   "for_dates": [
     "2026-08-17",
     "2026-08-18"
@@ -10,9 +10,7 @@
     {
       "file": "advance_combined_list_for_18.08.2026.pdf",
       "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(4157496 bytes read, 1635297 more expected)', IncompleteRead(4157496 bytes read, 1635297 more expected))"
     },
     {
       "file": "sup-18_for_17.08.26_trf_matters.pdf",
@@ -79,20 +77,6 @@
     },
     {
       "file": "supple-1_for_17.08.2026.pdf",
-      "date": "2026-08-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_17.08.2026.pdf",
-      "date": "2026-08-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "cause_list_for_17.08.2026.pdf",
       "date": "2026-08-17",
       "matched": 0,
       "regex_matches": 0,
