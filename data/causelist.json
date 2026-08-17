@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-17T12:01:11Z",
+  "scraped_at": "2026-08-17T13:01:14Z",
   "for_dates": [
     "2026-08-17",
     "2026-08-18"
@@ -8,9 +8,44 @@
   "matched_cases": 0,
   "sources": [
     {
+      "file": "sup-2-supplementary_list_18.08.2026.pdf",
+      "date": "2026-08-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_18.08.2026.pdf",
+      "date": "2026-08-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_18082026.pdf",
+      "date": "2026-08-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl18082026.pdf",
+      "date": "2026-08-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_18082026.pdf",
+      "date": "2026-08-18",
+      "error": "download: ('Connection broken: IncompleteRead(3888806 bytes read, 14649921 more expected)', IncompleteRead(3888806 bytes read, 14649921 more expected))"
+    },
+    {
       "file": "advance_combined_list_for_18.08.2026.pdf",
       "date": "2026-08-18",
-      "error": "download: ('Connection broken: IncompleteRead(4157496 bytes read, 1635297 more expected)', IncompleteRead(4157496 bytes read, 1635297 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup-18_for_17.08.26_trf_matters.pdf",
@@ -42,41 +77,6 @@
     },
     {
       "file": "sup_del_7_for_17.08.26.pdf",
-      "date": "2026-08-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_17.08.2026.pdf",
-      "date": "2026-08-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro_for_17.08.2026.pdf",
-      "date": "2026-08-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_17.08.2026.pdf",
-      "date": "2026-08-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "old_target_matters_for_17.08.2026.pdf",
-      "date": "2026-08-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "supple-1_for_17.08.2026.pdf",
       "date": "2026-08-17",
       "matched": 0,
       "regex_matches": 0,
