@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-17T14:01:29Z",
+  "scraped_at": "2026-08-17T15:01:28Z",
   "for_dates": [
     "2026-08-17",
     "2026-08-18"
@@ -73,14 +73,14 @@
     {
       "file": "c_18082026.pdf",
       "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(12780854 bytes read, 5757873 more expected)', IncompleteRead(12780854 bytes read, 5757873 more expected))"
     },
     {
       "file": "advance_combined_list_for_18.08.2026.pdf",
       "date": "2026-08-18",
-      "error": "download: ('Connection broken: IncompleteRead(1686439 bytes read, 4106354 more expected)', IncompleteRead(1686439 bytes read, 4106354 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_pla_17.08.2026.pdf",
