@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-18T03:02:01Z",
+  "scraped_at": "2026-08-18T04:03:47Z",
   "for_dates": [
     "2026-08-18",
     "2026-08-19"
@@ -52,7 +52,9 @@
     {
       "file": "sup-2-supplementary_list_18.08.2026.pdf",
       "date": "2026-08-18",
-      "error": "download: ('Connection broken: IncompleteRead(779818 bytes read, 111991 more expected)', IncompleteRead(779818 bytes read, 111991 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_18.08.2026.pdf",
