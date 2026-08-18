@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-18T13:03:31Z",
+  "scraped_at": "2026-08-18T14:01:31Z",
   "for_dates": [
     "2026-08-18",
     "2026-08-19"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "last_suppl.19.08.2026.pdf",
+      "date": "2026-08-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "finals_19.08.2026.pdf",
       "date": "2026-08-19",
@@ -38,9 +45,7 @@
     {
       "file": "combined_advance_19082026.pdf",
       "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup-15_for_18.08.26.pdf",
@@ -86,20 +91,6 @@
     },
     {
       "file": "pla_18.08.2026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_18082026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_suppl._18082026.pdf",
       "date": "2026-08-18",
       "matched": 0,
       "regex_matches": 0,
