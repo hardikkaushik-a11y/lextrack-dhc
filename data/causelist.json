@@ -1,117 +1,11 @@
 {
-  "scraped_at": "2026-08-18T11:01:35Z",
+  "scraped_at": "2026-08-18T12:02:02Z",
   "for_dates": [
     "2026-08-18",
     "2026-08-19"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "combined_advance_19082026.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-15_for_18.08.26.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-13_for_18.08.26.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-11_for_18.08.26.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_for_18.08.26_trf_matters.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_18082026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_18.08.2026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_18.08.2026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_18082026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_suppl._18082026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-2-supplementary_list_18.08.2026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_18.08.2026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_18082026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl18082026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_18082026.pdf",
-      "date": "2026-08-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
