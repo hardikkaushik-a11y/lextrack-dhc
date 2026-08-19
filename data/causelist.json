@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-19T13:01:37Z",
+  "scraped_at": "2026-08-19T14:05:24Z",
   "for_dates": [
     "2026-08-19",
     "2026-08-20"
@@ -7,6 +7,41 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "pla_20.08.2026.pdf",
+      "date": "2026-08-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "old_target_for_20.08.2026.pdf",
+      "date": "2026-08-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_20.08.2026.pdf",
+      "date": "2026-08-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "supple-1_for_20.08.2026.pdf",
+      "date": "2026-08-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "hmj_anil_20082026.odtt.pdf",
+      "date": "2026-08-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "cause_list_for_20.08.2026.pdf",
       "date": "2026-08-20",
@@ -17,9 +52,7 @@
     {
       "file": "rl20082026.pdf",
       "date": "2026-08-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "finals_20.08.2026.pdf",
@@ -72,48 +105,6 @@
     },
     {
       "file": "sup_hmj_p.k._kaurav_19.08.2026.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targeeted_19.08.2026.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_19.08.2026.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_19.08.2026.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "last_suppl.19.08.2026.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_19.08.2026.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_sup_1_19.08.2026.pdf",
       "date": "2026-08-19",
       "matched": 0,
       "regex_matches": 0,
