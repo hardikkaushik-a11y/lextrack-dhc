@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-08-19T18:01:42Z",
+  "scraped_at": "2026-08-19T22:01:43Z",
   "for_dates": [
-    "2026-08-19",
-    "2026-08-20"
+    "2026-08-20",
+    "2026-08-21"
   ],
   "tracked_cases": 21,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "advance_combined_list_for_21.08.2026.pdf",
+      "date": "2026-08-21",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "pla_20.08.2026.pdf",
       "date": "2026-08-20",
@@ -45,14 +52,14 @@
     {
       "file": "cause_list_for_20.08.2026.pdf",
       "date": "2026-08-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(10514270 bytes read, 8103854 more expected)', IncompleteRead(10514270 bytes read, 8103854 more expected))"
     },
     {
       "file": "rl20082026.pdf",
       "date": "2026-08-20",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_20.08.2026.pdf",
@@ -67,49 +74,21 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "deleteion_83_19.08.2026.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-14_for_19.08.26.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_19.08.2026_1.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_manoj_jain_19.08.2026.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_ajay_digpaul_19.08.2026.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_p.k._kaurav_19.08.2026.pdf",
-      "date": "2026-08-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "20",
+      "court": "48",
+      "judge": "ANUP JAIRAM BHAMBHANI NOTE",
+      "time": null,
+      "page": 345,
+      "context": "20        CS(COMM)-         RELIANCE RETAIL     AKSHAY MALOO,\n             582/2025          LIMITED             ABHISHEK GAUR",
+      "caseNo": "CS(COMM)/582/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         RELIANCE RETAIL     AKSHAY MALOO,\n             582/2025",
+      "date": "2026-08-21",
+      "source_pdf": "advance_combined_list_for_21.08.2026.pdf"
+    }
+  ]
 }
