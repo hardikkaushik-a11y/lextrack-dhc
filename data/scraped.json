@@ -1712,7 +1712,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:02:03.826Z",
+    "lastScraped": "2026-08-20T10:02:05.947Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2100,7 +2100,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:02:11.318Z",
+    "lastScraped": "2026-08-20T10:02:13.425Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2442,7 +2442,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:02:18.716Z",
+    "lastScraped": "2026-08-20T10:02:20.896Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2784,7 +2784,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:02:26.260Z",
+    "lastScraped": "2026-08-20T10:02:28.419Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2927,7 +2927,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:02:33.914Z",
+    "lastScraped": "2026-08-20T10:02:35.960Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3158,7 +3158,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:02:41.347Z",
+    "lastScraped": "2026-08-20T10:02:43.472Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3689,7 +3689,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:02:48.864Z",
+    "lastScraped": "2026-08-20T10:02:50.891Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4662,7 +4662,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:02:56.460Z",
+    "lastScraped": "2026-08-20T10:02:58.515Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4884,7 +4884,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:03:06.131Z",
+    "lastScraped": "2026-08-20T10:03:08.670Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5317,7 +5317,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:03:13.698Z",
+    "lastScraped": "2026-08-20T10:03:16.187Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5543,7 +5543,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:03:21.380Z",
+    "lastScraped": "2026-08-20T10:03:23.703Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6284,7 +6284,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:03:36.248Z",
+    "lastScraped": "2026-08-20T10:03:31.156Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6535,10 +6535,41 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-03-23",
+    "lastDate": "2026-08-14",
     "nextDate": "2026-10-05",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-08-14",
+        "event": "Court Order",
+        "detail": "Presiding Officer on leave — adjourned to 05.10.2026.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1787217743_f616c9899d74858f_739_5362025.pdf/2026",
+        "orderText": "$~6 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010346552025 + CS(COMM) 536/2025 DAZN LIMITED & ANR. .....Plaintiff Through: Ms. Ishi Singh, Adv. (through VC) versus BUFFSPORTS. ME & ORS. .....Defendant Through: Ms. Palak Kaushal & Ms. Ayushi Jain, Advs. for D-9. Mr. Premtosh K. Mishra (CGSC), Mr. Anubhav Upadhyay, Mr. Ashutosh Kr. Tiwari & Mr. Krish Bhatia, Advs. for D-21. Mr. Shivam Tiwari, Ms. Anmol Dhindsa & Mr. Aditya Dash, Advs. for D-24. CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 14.08.2026 Ld. P.O. is on leave today. List the matter for the purpose fixed on 05.10.2026. Reader a/w EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) AUGUST 14, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 20/08/2026 at 15:33:39",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List the matter for the purpose fixed on 05.10.2026."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Ms. Palak Kaushal, Ms. Ayushi Jain, Mr. Premtosh K. Mishra, Mr. Anubhav Upadhyay, Mr. Ashutosh Kr. Tiwari, Mr. Krish Bhatia, Mr. Shivam Tiwari, Ms. Anmol Dhindsa, Mr. Aditya Dash"
+          },
+          "summary": "The Joint Registrar noted that the learned Presiding Officer was on leave and therefore adjourned the matter to 05.10.2026 for the purpose fixed. No substantive relief was granted.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-08-20T10:04:47.888Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/536/2025",
+          "_orderDate": "2026-08-14"
+        }
+      },
       {
         "date": "2026-03-23",
         "event": "Court Order",
@@ -6912,7 +6943,18 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-10-05",
+        "before": "jr",
+        "firstSeenAt": "2026-08-20T10:03:39.818Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-08-14",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1787217743_f616c9899d74858f_739_5362025.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -6993,7 +7035,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:03:52.002Z",
+    "lastScraped": "2026-08-20T10:03:39.819Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7293,7 +7335,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:03:59.555Z",
+    "lastScraped": "2026-08-20T10:03:47.418Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7686,7 +7728,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:04:07.019Z",
+    "lastScraped": "2026-08-20T10:03:54.961Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7961,7 +8003,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:04:14.533Z",
+    "lastScraped": "2026-08-20T10:04:02.484Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8633,7 +8675,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:04:22.110Z",
+    "lastScraped": "2026-08-20T10:04:09.999Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8755,7 +8797,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:04:29.608Z",
+    "lastScraped": "2026-08-20T10:04:17.498Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9090,7 +9132,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:04:37.148Z",
+    "lastScraped": "2026-08-20T10:04:25.000Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9102,10 +9144,41 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-07-10",
+    "lastDate": "2026-08-14",
     "nextDate": "2026-09-15",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-08-14",
+        "event": "Court Order",
+        "detail": "Presiding Officer on leave — adjourned to 15.09.2026.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1787217774_45eb21c7cdb9fdf2_739_11862024.pdf/2026",
+        "orderText": "$~5 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010974752024 + CS(COMM) 1186/2024 RELIANCE RETAIL LIMITED .....Plaintiff Through: Ms. Ishi Singh, Adv. (through VC) versus VIVEK MISHRA & ORS. .....Defendant Through: Mr. Yash Karunakaran & Ms. Nitya Nath, Advs. for D-6 (through VC) Mr. Abhishek K. Singh & Mr. Saksham Chaturvedi, Advs. for D-7. Mr. VaarshSawlani & Ms. Rithika Mathur, Advs. for D-8. Mr. Shivam Tiwari, Ms. Anmol Dhindsa & Mr. Aditya Dash, Advs. for D-9. Ms. Nidhi Raman (CGSC), Ms. Nikita Singh & Mr. Deepanshu, Advs. for D-15 & 16 (M- 9555672532) (nidhiraman.office@gmail.com) CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 14.08.2026 Ld. P.O. is on leave today. List the matter for the purpose fixed on 15.09.2026. Reader a/w EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) AUGUST 14, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 20/08/2026 at 15:34:33",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List the matter for the purpose fixed on 15.09.2026."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Mr. Yash Karunakaran, Ms. Nitya Nath, Mr. Abhishek K. Singh, Mr. Saksham Chaturvedi, Mr. VaarshSawlani, Ms. Rithika Mathur, Mr. Shivam Tiwari, Ms. Anmol Dhindsa, Mr. Aditya Dash, Ms. Nidhi Raman, Ms. Nikita Singh, Mr. Deepanshu"
+          },
+          "summary": "The Joint Registrar noted that the learned Presiding Officer was on leave and therefore listed the matter for the next date, 15.09.2026. No substantive orders were passed.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-08-20T10:04:47.888Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/1186/2024",
+          "_orderDate": "2026-08-14"
+        }
+      },
       {
         "date": "2026-07-10",
         "event": "Court Order",
@@ -9583,6 +9656,39 @@
       {
         "date": "2025-03-24",
         "event": "Court Order",
+        "detail": "The court allowed Defendant No. 6's application for condonation of 6 days delay in filing written statement, as it was within the statutory 120-day period and plaintiff had no objection. The court also listed another application (I.A. 7420/2025) by Ramco Industries Limited seeking modification of a prior order before the original judge.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/100025621742903332315_31774_11862024.pdf/2025",
+        "orderText": "$~53 *IN THE HIGH COURT OF DELHI AT NEW DELHI +CS(COMM) 1186/2024 RELIANCE RETAIL LIMITED.....Plaintiff Through:Mr. Siddharth Chopra, Mr. Yatindera Garg, Mr. Akshay Maloo and Ms. Rimjhim Tiwari, Advocates. versus VIVEK MISHRA & ORS......Defendants Through:Mr. Varun Pathak, Advocate for D-6. Mr. Sanjay Kumar and Mr. Saksham Chaturvedi, Advocates for D-7. Mr. Shashank Mishra, Mr. Mohit Singh, Mr. VaarishSawlaniandMs.RithikaMathur, Advocates for D-8/WhatsApp LLC. Mr. Mrimal Ojha, Mr. Oebarshi Dutta, Mr. Arjun Mookerjee, Mr. Yogesh Singh and Ms. Nikita Rathi,Advocatesfor D-9/GoDaddy.com. Ms. Nidhi Raman, CGSC with Mr. Debashish Mishra, Advocate and Ms. Archana Survi, GP for D-15 and 16. Mr. N. Mahabir and Mr. Udit Gupta, Advocates applicant in I.A. 7420/2025. CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R %24.03.2025 I.A. 7596/2025 1.This application is preferred on behalf of the Defendant No. 6 seeking condonation of delay of 6 days in filing written statement. CS(COMM) 1186/2024Page 1 of 2 This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 02/07/2026 at 10:43:56 2.Issue notice. 3.Mr. Siddharth Chopra, learned counsel accepts notice on behalf of the Plaintiff. 4.Written statement is filed within the statutory period of 120 days and counsel for Plaintiff fairly submits that he has no objection to the delay being condoned. 5.For the reasons stated in the application, the same is allowed. Delay of 6 days in filing written statement on behalf of the Defendant No. 6 stands condoned. Written statement is taken on record. 6.Application is disposed of. CS(COMM) 1186/2024 7.Replication, if any, to the written statement of Defendant No. 6 be filed by the Plaintiff within the statutory period. 8.List on 19.05.2025, the date already fixed. I.A. 7420/2025 9.This application is preferred on behalf of the applicant/Ramco Industries Limited seeking modification of order dated 23.12.2024 passed by Hon’ble Ms. Justice Mini Pushkarna. 10.Looking at the nature of reliefs sought by applicant/Ramco Industries Limited, list the application before Hon’ble Ms. Justice Mini Pushkarna on 07.04.2025, subject to orders of Hon’ble the Chief Justice. JYOTI SINGH, J MARCH 24, 2025 S.Sharma CS(COMM) 1186/2024Page 2 of 2 This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 02/07/2026 at 10:43:56",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Defendant No. 6's delay of 6 days in filing written statement condoned; written statement taken on record.",
+            "Plaintiff to file replication to written statement of Defendant No. 6 within statutory period.",
+            "List I.A. 7420/2025 before Hon'ble Ms. Justice Mini Pushkarna on 07.04.2025."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Siddharth Chopra, Mr. Yatindera Garg, Mr. Akshay Maloo and Ms. Rimjhim Tiwari",
+            "defendant": "Mr. Varun Pathak (D-6), Mr. Sanjay Kumar and Mr. Saksham Chaturvedi (D-7), Mr. Shashank Mishra, Mr. Mohit Singh, Mr. Vaarish Sawlani and Ms. Rithika Mathur (D-8/WhatsApp LLC), Mr. Mrimal Ojha, Mr. Oebarshi Dutta, Mr. Arjun Mookerjee, Mr. Yogesh Singh and Ms. Nikita Rathi (D-9/GoDaddy.com), Ms. Nidhi Raman, CGSC with Mr. Debashish Mishra and Ms. Archana Survi (D-15 and 16), Mr. N. Mahabir and Mr. Udit Gupta (applicant in I.A. 7420/2025)"
+          },
+          "summary": "The court allowed Defendant No. 6's application for condonation of 6 days delay in filing written statement, as it was within the statutory 120-day period and plaintiff had no objection. The court also listed another application (I.A. 7420/2025) by Ramco Industries Limited seeking modification of a prior order before the original judge.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-07-02T05:14:22.853Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/1186/2024",
+          "_orderDate": "2025-03-24"
+        }
+      },
+      {
+        "date": "2025-03-24",
+        "event": "Court Order",
         "detail": "The Joint Registrar listed the matter for 09.05.2025. IA No. 7420/2025 by plaintiff seeking modification of order dated 23.12.2024 was noted as notice already issued. IA No. 7596/2025 by defendant no. 6 seeking condonation of delay in filing written statement was allowed.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/100023041742975303788_246_11862024.pdf/2025",
         "orderText": "$~21 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 1186/2024 RELIANCE RETAIL LIMITED .....Plaintiff Through: Mr. Y. Garg, Mr. Akshay M. & Mr. Abhay Aren, Advs. versus VIVEK MISHRA & ORS. .....Defendant Through: Mr. Shyamal Anand & Mr. Vishwajeet Deshmukh, Advs. for D- 6 (through VC) (M- 8655081882) Mr. Abhishek Kumar Singh & Ms. Rose Maria Sebi, Advs. for D-7 (through VC) Mr. Mohit Singh, Mr. Vaarish Sawlani & Ms. Rithika Mathur, Advs. for D-8 (through VC) Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Nikhil Gupta & Mr. Arjun Mookerjee, Advs. for D-9. CORAM: SIDHARTH MATHUR (DHJS), JOINT REGISTRAR (JUDICIAL) O R D E R % 24.03.2025 List the matter for the purpose fixed on the date already fixed i.e. 09.05.2025. IA No. 7420/2025 (By plaintiff u/S 151 CPC seeking modification of order dated 23.12.2024) This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 02/07/2026 at 10:43:56 The matter was listed before the Hon'ble Court today. I am being informed that the notice has already been issued. IA No. 7596/2025 (By the defendant no. 6 u/S 151 CPC seeking condonation of the delay in filing its written statement alongwith the affidavit of admission/denial & reply to interim application no. 49537/2024) The matter was listed before the Hon'ble Court today. I am being informed that this application has been allowed. SIDHARTH MATHUR (DHJS) JOINT REGISTRAR (JUDICIAL) MARCH 24, 2025/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 02/07/2026 at 10:43:56",
@@ -9609,39 +9715,6 @@
             "citations": "high"
           },
           "_extractedAt": "2026-07-02T05:14:26.349Z",
-          "_model": "deepseek-chat",
-          "_schema": "v1",
-          "_caseNo": "CS(COMM)/1186/2024",
-          "_orderDate": "2025-03-24"
-        }
-      },
-      {
-        "date": "2025-03-24",
-        "event": "Court Order",
-        "detail": "The court allowed Defendant No. 6's application for condonation of 6 days delay in filing written statement, as it was within the statutory 120-day period and plaintiff had no objection. The court also listed another application (I.A. 7420/2025) by Ramco Industries Limited seeking modification of a prior order before the original judge.",
-        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/100025621742903332315_31774_11862024.pdf/2025",
-        "orderText": "$~53 *IN THE HIGH COURT OF DELHI AT NEW DELHI +CS(COMM) 1186/2024 RELIANCE RETAIL LIMITED.....Plaintiff Through:Mr. Siddharth Chopra, Mr. Yatindera Garg, Mr. Akshay Maloo and Ms. Rimjhim Tiwari, Advocates. versus VIVEK MISHRA & ORS......Defendants Through:Mr. Varun Pathak, Advocate for D-6. Mr. Sanjay Kumar and Mr. Saksham Chaturvedi, Advocates for D-7. Mr. Shashank Mishra, Mr. Mohit Singh, Mr. VaarishSawlaniandMs.RithikaMathur, Advocates for D-8/WhatsApp LLC. Mr. Mrimal Ojha, Mr. Oebarshi Dutta, Mr. Arjun Mookerjee, Mr. Yogesh Singh and Ms. Nikita Rathi,Advocatesfor D-9/GoDaddy.com. Ms. Nidhi Raman, CGSC with Mr. Debashish Mishra, Advocate and Ms. Archana Survi, GP for D-15 and 16. Mr. N. Mahabir and Mr. Udit Gupta, Advocates applicant in I.A. 7420/2025. CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R %24.03.2025 I.A. 7596/2025 1.This application is preferred on behalf of the Defendant No. 6 seeking condonation of delay of 6 days in filing written statement. CS(COMM) 1186/2024Page 1 of 2 This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 02/07/2026 at 10:43:56 2.Issue notice. 3.Mr. Siddharth Chopra, learned counsel accepts notice on behalf of the Plaintiff. 4.Written statement is filed within the statutory period of 120 days and counsel for Plaintiff fairly submits that he has no objection to the delay being condoned. 5.For the reasons stated in the application, the same is allowed. Delay of 6 days in filing written statement on behalf of the Defendant No. 6 stands condoned. Written statement is taken on record. 6.Application is disposed of. CS(COMM) 1186/2024 7.Replication, if any, to the written statement of Defendant No. 6 be filed by the Plaintiff within the statutory period. 8.List on 19.05.2025, the date already fixed. I.A. 7420/2025 9.This application is preferred on behalf of the applicant/Ramco Industries Limited seeking modification of order dated 23.12.2024 passed by Hon’ble Ms. Justice Mini Pushkarna. 10.Looking at the nature of reliefs sought by applicant/Ramco Industries Limited, list the application before Hon’ble Ms. Justice Mini Pushkarna on 07.04.2025, subject to orders of Hon’ble the Chief Justice. JYOTI SINGH, J MARCH 24, 2025 S.Sharma CS(COMM) 1186/2024Page 2 of 2 This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 02/07/2026 at 10:43:56",
-        "intelligence": {
-          "classification": "procedural",
-          "reliefGranted": null,
-          "costsAwarded": null,
-          "directions": [
-            "Defendant No. 6's delay of 6 days in filing written statement condoned; written statement taken on record.",
-            "Plaintiff to file replication to written statement of Defendant No. 6 within statutory period.",
-            "List I.A. 7420/2025 before Hon'ble Ms. Justice Mini Pushkarna on 07.04.2025."
-          ],
-          "citations": [],
-          "counsel": {
-            "plaintiff": "Mr. Siddharth Chopra, Mr. Yatindera Garg, Mr. Akshay Maloo and Ms. Rimjhim Tiwari",
-            "defendant": "Mr. Varun Pathak (D-6), Mr. Sanjay Kumar and Mr. Saksham Chaturvedi (D-7), Mr. Shashank Mishra, Mr. Mohit Singh, Mr. Vaarish Sawlani and Ms. Rithika Mathur (D-8/WhatsApp LLC), Mr. Mrimal Ojha, Mr. Oebarshi Dutta, Mr. Arjun Mookerjee, Mr. Yogesh Singh and Ms. Nikita Rathi (D-9/GoDaddy.com), Ms. Nidhi Raman, CGSC with Mr. Debashish Mishra and Ms. Archana Survi (D-15 and 16), Mr. N. Mahabir and Mr. Udit Gupta (applicant in I.A. 7420/2025)"
-          },
-          "summary": "The court allowed Defendant No. 6's application for condonation of 6 days delay in filing written statement, as it was within the statutory 120-day period and plaintiff had no objection. The court also listed another application (I.A. 7420/2025) by Ramco Industries Limited seeking modification of a prior order before the original judge.",
-          "confidence": {
-            "reliefGranted": "high",
-            "directions": "high",
-            "citations": "high"
-          },
-          "_extractedAt": "2026-07-02T05:14:22.853Z",
           "_model": "deepseek-chat",
           "_schema": "v1",
           "_caseNo": "CS(COMM)/1186/2024",
@@ -9753,7 +9826,18 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-09-15",
+        "before": "jr",
+        "firstSeenAt": "2026-08-20T10:04:33.538Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-08-14",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1787217774_45eb21c7cdb9fdf2_739_11862024.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -9883,7 +9967,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:04:44.764Z",
+    "lastScraped": "2026-08-20T10:04:33.542Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10349,7 +10433,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-20T09:04:52.293Z",
+    "lastScraped": "2026-08-20T10:04:43.446Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

@@ -6606,5 +6606,53 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/756/2025",
     "_orderDate": "2026-08-13"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1787217743_f616c9899d74858f_739_5362025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter for the purpose fixed on 05.10.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Ms. Palak Kaushal, Ms. Ayushi Jain, Mr. Premtosh K. Mishra, Mr. Anubhav Upadhyay, Mr. Ashutosh Kr. Tiwari, Mr. Krish Bhatia, Mr. Shivam Tiwari, Ms. Anmol Dhindsa, Mr. Aditya Dash"
+    },
+    "summary": "The Joint Registrar noted that the learned Presiding Officer was on leave and therefore adjourned the matter to 05.10.2026 for the purpose fixed. No substantive relief was granted.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-20T10:04:47.888Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/536/2025",
+    "_orderDate": "2026-08-14"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1787217774_45eb21c7cdb9fdf2_739_11862024.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter for the purpose fixed on 15.09.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Yash Karunakaran, Ms. Nitya Nath, Mr. Abhishek K. Singh, Mr. Saksham Chaturvedi, Mr. VaarshSawlani, Ms. Rithika Mathur, Mr. Shivam Tiwari, Ms. Anmol Dhindsa, Mr. Aditya Dash, Ms. Nidhi Raman, Ms. Nikita Singh, Mr. Deepanshu"
+    },
+    "summary": "The Joint Registrar noted that the learned Presiding Officer was on leave and therefore listed the matter for the next date, 15.09.2026. No substantive orders were passed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-20T10:04:47.888Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2026-08-14"
   }
 }
