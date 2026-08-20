@@ -1,16 +1,25 @@
 {
-  "scraped_at": "2026-08-20T11:01:34Z",
+  "scraped_at": "2026-08-20T12:01:56Z",
   "for_dates": [
     "2026-08-20",
     "2026-08-21"
   ],
   "tracked_cases": 21,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "rl21082026.pdf",
+      "date": "2026-08-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "advance_combined_list_for_21.08.2026.pdf",
       "date": "2026-08-21",
-      "error": "download: ('Connection broken: IncompleteRead(342600 bytes read, 6163431 more expected)', IncompleteRead(342600 bytes read, 6163431 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "sup-9_for_20.08.26.pdf",
@@ -111,5 +120,19 @@
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "20",
+      "court": "48",
+      "judge": "ANUP JAIRAM BHAMBHANI NOTE",
+      "time": null,
+      "page": 345,
+      "context": "20        CS(COMM)-         RELIANCE RETAIL     AKSHAY MALOO,\n             582/2025          LIMITED             ABHISHEK GAUR",
+      "caseNo": "CS(COMM)/582/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         RELIANCE RETAIL     AKSHAY MALOO,\n             582/2025",
+      "date": "2026-08-21",
+      "source_pdf": "advance_combined_list_for_21.08.2026.pdf"
+    }
+  ]
 }
