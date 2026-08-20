@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-20T14:01:53Z",
+  "scraped_at": "2026-08-20T15:01:36Z",
   "for_dates": [
     "2026-08-20",
     "2026-08-21"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "jud_21082026.pdf",
+      "date": "2026-08-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "finals_21.08.2026.pdf",
       "date": "2026-08-21",
@@ -52,7 +59,9 @@
     {
       "file": "rl21082026.pdf",
       "date": "2026-08-21",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "advance_combined_list_for_21.08.2026.pdf",
@@ -106,17 +115,12 @@
     {
       "file": "old_target_for_20.08.2026.pdf",
       "date": "2026-08-20",
-      "error": "download: ('Connection broken: IncompleteRead(1130464 bytes read, 500073 more expected)', IncompleteRead(1130464 bytes read, 500073 more expected))"
-    },
-    {
-      "file": "deletion_note_20.08.2026.pdf",
-      "date": "2026-08-20",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "supple-1_for_20.08.2026.pdf",
+      "file": "deletion_note_20.08.2026.pdf",
       "date": "2026-08-20",
       "matched": 0,
       "regex_matches": 0,
