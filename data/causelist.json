@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-08-21T18:01:02Z",
+  "scraped_at": "2026-08-21T19:01:00Z",
   "for_dates": [
-    "2026-08-21",
-    "2026-08-22"
+    "2026-08-22",
+    "2026-08-23"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
@@ -24,55 +24,6 @@
     {
       "file": "combined_cause_list_22.08.2026_saturday.pdf",
       "date": "2026-08-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_j._saurabh_b_21.08.2026.pdf",
-      "date": "2026-08-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_saurabh_banerjee_21.08.2026.pdf",
-      "date": "2026-08-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro_today_21.08.2026.pdf",
-      "date": "2026-08-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_manoj_jain_21.08.2026.pdf",
-      "date": "2026-08-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_court_sitting_note_21.08.26.pdf",
-      "date": "2026-08-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_21.08.2026_1.pdf",
-      "date": "2026-08-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jud_21082026.pdf",
-      "date": "2026-08-21",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
