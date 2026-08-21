@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-21T08:01:34Z",
+  "scraped_at": "2026-08-21T09:01:35Z",
   "for_dates": [
     "2026-08-21",
     "2026-08-22"
@@ -7,6 +7,34 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "pro_today_21.08.2026.pdf",
+      "date": "2026-08-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_manoj_jain_21.08.2026.pdf",
+      "date": "2026-08-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_court_sitting_note_21.08.26.pdf",
+      "date": "2026-08-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_21.08.2026_1.pdf",
+      "date": "2026-08-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "jud_21082026.pdf",
       "date": "2026-08-21",
