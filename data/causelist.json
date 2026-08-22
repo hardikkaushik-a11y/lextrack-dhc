@@ -1,40 +1,122 @@
 {
-  "scraped_at": "2026-08-22T18:01:00Z",
+  "scraped_at": "2026-08-22T19:01:45Z",
   "for_dates": [
-    "2026-08-22",
-    "2026-08-23"
+    "2026-08-23",
+    "2026-08-24"
   ],
   "tracked_cases": 21,
-  "matched_cases": 0,
+  "matched_cases": 2,
   "sources": [
     {
-      "file": "sup-5_for_22.08.26.pdf",
-      "date": "2026-08-22",
+      "file": "deletion_note_24.08.2026.pdf",
+      "date": "2026-08-24",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "deletion_note_22.08.2026.pdf",
-      "date": "2026-08-22",
+      "file": "final_sup_24.08.pdf",
+      "date": "2026-08-24",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "combined_sup_1_22.08.2026.pdf",
-      "date": "2026-08-22",
+      "file": "new_c_24082026.pdf",
+      "date": "2026-08-24",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "combined_cause_list_22.08.2026_saturday.pdf",
-      "date": "2026-08-22",
+      "file": "j_24082026.pdf",
+      "date": "2026-08-24",
       "matched": 0,
       "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_24082026.pdf",
+      "date": "2026-08-24",
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_24.08.2026.pdf",
+      "date": "2026-08-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_24082026.pdf",
+      "date": "2026-08-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_24.08.2026.pdf",
+      "date": "2026-08-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl24082026.pdf",
+      "date": "2026-08-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_advance_24082026.pdf",
+      "date": "2026-08-24",
+      "matched": 1,
+      "regex_matches": 1,
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "41",
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 500,
+      "context": "41        CS(COMM)-149/2025   CENTRAL RETAIL       RISHI AGRAWALA,",
+      "caseNo": "CS(COMM)/149/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-149/2025",
+      "date": "2026-08-24",
+      "source_pdf": "c_24082026.pdf"
+    },
+    {
+      "item": null,
+      "court": "18",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 753,
+      "context": "NOTE : I.A. 23030/2026 SHALL BE TAKEN UP ALONGWITH CS(COMM)149/2025",
+      "caseNo": "CS(COMM)/149/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)149/2025",
+      "date": "2026-08-24",
+      "source_pdf": "c_24082026.pdf"
+    },
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 785,
+      "context": "In CS(COMM)-                   AGARWAL, N\n             1186/2024                      MAHABIR,",
+      "caseNo": "CS(COMM)/1186/2024",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-                   AGARWAL, N\n             1186/2024",
+      "date": "2026-08-24",
+      "source_pdf": "c_24082026.pdf"
+    }
+  ]
 }
