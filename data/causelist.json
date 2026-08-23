@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-08-23T18:01:28Z",
+  "scraped_at": "2026-08-23T19:01:48Z",
   "for_dates": [
-    "2026-08-23",
-    "2026-08-24"
+    "2026-08-24",
+    "2026-08-25"
   ],
   "tracked_cases": 21,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_adv_list_25.08.2026.pdf",
+      "date": "2026-08-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_24.08.2026.pdf",
       "date": "2026-08-24",
