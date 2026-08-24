@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-24T05:01:32Z",
+  "scraped_at": "2026-08-24T06:01:43Z",
   "for_dates": [
     "2026-08-24",
     "2026-08-25"
@@ -10,6 +10,20 @@
     {
       "file": "combined_adv_list_25.08.2026.pdf",
       "date": "2026-08-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-7_for_24.08.26.pdf",
+      "date": "2026-08-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_master_adv_24.08.2026_revised.pdf",
+      "date": "2026-08-24",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -45,7 +59,7 @@
     {
       "file": "c_24082026.pdf",
       "date": "2026-08-24",
-      "error": "download: ('Connection broken: IncompleteRead(7834302 bytes read, 12649749 more expected)', IncompleteRead(7834302 bytes read, 12649749 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(14322766 bytes read, 6161285 more expected)', IncompleteRead(14322766 bytes read, 6161285 more expected))"
     },
     {
       "file": "pla_24.08.2026.pdf",
