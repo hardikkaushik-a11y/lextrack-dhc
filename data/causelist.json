@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-24T08:02:02Z",
+  "scraped_at": "2026-08-24T09:01:43Z",
   "for_dates": [
     "2026-08-24",
     "2026-08-25"
@@ -10,6 +10,27 @@
     {
       "file": "combined_adv_list_25.08.2026.pdf",
       "date": "2026-08-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_for_24082026.pdf",
+      "date": "2026-08-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-11_for_24.08.26.pdf",
+      "date": "2026-08-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-10_for_24.08.26.pdf",
+      "date": "2026-08-24",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -82,27 +103,6 @@
       "date": "2026-08-24",
       "matched": 0,
       "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_24.08.2026.pdf",
-      "date": "2026-08-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl24082026.pdf",
-      "date": "2026-08-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_24082026.pdf",
-      "date": "2026-08-24",
-      "matched": 1,
-      "regex_matches": 1,
       "norm_matches": 0
     }
   ],
