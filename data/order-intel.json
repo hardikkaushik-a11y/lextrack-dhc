@@ -6654,5 +6654,29 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1186/2024",
     "_orderDate": "2026-08-14"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1787564874_45e596e5876337c0_ajb_5822025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Re-notify on 15th December 2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh, Advocate",
+      "defendant": null
+    },
+    "summary": "The court could not take up the matter due to a Supreme Court directive to hear a batch of cases on a day-to-day basis. The case was re-notified for hearing on 15th December 2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-08-24T10:05:00.464Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/582/2025",
+    "_orderDate": "2026-08-21"
   }
 }
