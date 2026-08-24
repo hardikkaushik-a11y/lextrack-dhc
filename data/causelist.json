@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-08-24T18:02:07Z",
+  "scraped_at": "2026-08-24T19:01:45Z",
   "for_dates": [
-    "2026-08-24",
-    "2026-08-25"
+    "2026-08-25",
+    "2026-08-26"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
@@ -80,34 +80,6 @@
     {
       "file": "combined_adv_list_25.08.2026.pdf",
       "date": "2026-08-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-14_for_24.08.26.pdf",
-      "date": "2026-08-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_for_24082026.pdf",
-      "date": "2026-08-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-11_for_24.08.26.pdf",
-      "date": "2026-08-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_for_24.08.26.pdf",
-      "date": "2026-08-24",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
