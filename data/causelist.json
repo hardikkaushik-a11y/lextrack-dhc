@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-25T10:01:07Z",
+  "scraped_at": "2026-08-25T11:01:12Z",
   "for_dates": [
     "2026-08-25",
     "2026-08-26"
@@ -7,6 +7,20 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup17_to_19_for_25.08.26.pdf",
+      "date": "2026-08-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_for_today_25.08_d-1.pdf",
+      "date": "2026-08-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_15_for_25.08.26.pdf",
       "date": "2026-08-25",
@@ -58,20 +72,6 @@
     },
     {
       "file": "pronouncement_for_25082026.pdf",
-      "date": "2026-08-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_25.08.2026.pdf",
-      "date": "2026-08-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "again_c_25082026.pdf",
       "date": "2026-08-25",
       "matched": 0,
       "regex_matches": 0,
