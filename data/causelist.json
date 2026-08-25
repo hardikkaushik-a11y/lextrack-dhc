@@ -1,57 +1,41 @@
 {
-  "scraped_at": "2026-08-25T18:01:04Z",
+  "scraped_at": "2026-08-25T19:01:33Z",
   "for_dates": [
-    "2026-08-25",
-    "2026-08-26"
+    "2026-08-26",
+    "2026-08-27"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
     {
-      "file": "sup21_for_25.08.26.pdf",
-      "date": "2026-08-25",
+      "file": "pla_27.08.2026_0.pdf",
+      "date": "2026-08-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "sup17_to_19_for_25.08.26.pdf",
-      "date": "2026-08-25",
+      "file": "2nd_supplementary_list_27.08.2026.pdf",
+      "date": "2026-08-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "sup_for_today_25.08_d-1.pdf",
-      "date": "2026-08-25",
+      "file": "combibned_cause_list_27.08.206.pdf",
+      "date": "2026-08-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "sup_15_for_25.08.26.pdf",
-      "date": "2026-08-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "file": "combined_adv_list_27.08.2026.pdf",
+      "date": "2026-08-27",
+      "error": "download: ('Connection broken: IncompleteRead(3119136 bytes read, 2772027 more expected)', IncompleteRead(3119136 bytes read, 2772027 more expected))"
     },
     {
-      "file": "sup_hmj_db-1_25.08.2026.pdf",
-      "date": "2026-08-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_11_12_for_25.08.26.pdf",
-      "date": "2026-08-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-9_10_for_25.08.26.pdf",
-      "date": "2026-08-25",
+      "file": "combined_advance_27082026.pdf",
+      "date": "2026-08-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
