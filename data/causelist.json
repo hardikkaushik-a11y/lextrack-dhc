@@ -1,11 +1,47 @@
 {
-  "scraped_at": "2026-08-26T10:01:59Z",
+  "scraped_at": "2026-08-26T11:01:26Z",
   "for_dates": [
     "2026-08-26",
     "2026-08-27"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
-  "sources": [],
+  "sources": [
+    {
+      "file": "pla_27.08.2026_0.pdf",
+      "date": "2026-08-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "2nd_supplementary_list_27.08.2026.pdf",
+      "date": "2026-08-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combibned_cause_list_27.08.206.pdf",
+      "date": "2026-08-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_27.08.2026.pdf",
+      "date": "2026-08-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_advance_27082026.pdf",
+      "date": "2026-08-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    }
+  ],
   "entries": []
 }
