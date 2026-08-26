@@ -1712,7 +1712,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:01:56.710Z",
+    "lastScraped": "2026-08-26T13:01:50.662Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2100,7 +2100,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:02:04.551Z",
+    "lastScraped": "2026-08-26T13:01:58.056Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2442,7 +2442,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:02:12.217Z",
+    "lastScraped": "2026-08-26T13:02:05.523Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2784,7 +2784,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:02:29.253Z",
+    "lastScraped": "2026-08-26T13:02:13.369Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2927,7 +2927,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:02:38.742Z",
+    "lastScraped": "2026-08-26T13:02:20.869Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3158,7 +3158,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:02:46.459Z",
+    "lastScraped": "2026-08-26T13:02:28.452Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3689,7 +3689,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:02:54.163Z",
+    "lastScraped": "2026-08-26T13:02:36.122Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4662,7 +4662,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:03:02.025Z",
+    "lastScraped": "2026-08-26T13:02:43.761Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4884,7 +4884,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:03:09.390Z",
+    "lastScraped": "2026-08-26T13:02:51.168Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5337,7 +5337,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:03:17.098Z",
+    "lastScraped": "2026-08-26T13:02:58.618Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5563,7 +5563,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:03:24.789Z",
+    "lastScraped": "2026-08-26T13:03:06.134Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6304,7 +6304,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:03:32.282Z",
+    "lastScraped": "2026-08-26T13:03:13.605Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7055,7 +7055,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:03:39.957Z",
+    "lastScraped": "2026-08-26T13:03:21.101Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7355,7 +7355,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:03:47.793Z",
+    "lastScraped": "2026-08-26T13:03:28.608Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7748,7 +7748,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:03:55.407Z",
+    "lastScraped": "2026-08-26T13:03:36.052Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8023,7 +8023,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:04:03.221Z",
+    "lastScraped": "2026-08-26T13:03:43.635Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8035,10 +8035,41 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-05-25",
+    "lastDate": "2026-08-24",
     "nextDate": "2026-09-01",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-08-24",
+        "event": "Court Order",
+        "detail": "List on 01.09.2026.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1787746227_f4313ab44dd33b97_jis_1492025.pdf/2026",
+        "orderText": "$~41 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010081932025 + CS(COMM) 149/2025 and I.As. 18673/2025, 13124/2026 and 23030/2026 CENTRAL RETAIL CORPORATION PUBLIC COMPANY LTD. & ANR .....Plaintiffs Through: Mr. Abhishek Malhotra, Senior Advocate with Ms. Vaishali R. Mittal, Ms. Pallavi Bhatnagar, Mr. Kartikay Dutta and Ms. Anukriti Trivedi, Advocates. versus FUTURE BRANDS LTD & ANR A+ .....Defendant Through: Ms. Harshita Malik, Advocate for Proposed Defendant No. 4. Mr. Siddharth Chopra, Mr. Yatinder Garg, Ms. Disha Sharma and Ms. Ishi Singh, Advocates for D5 and 6. CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 24.08.2026 List on 01.09.2026. JYOTI SINGH, J AUGUST 24, 2026/YA This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 26/08/2026 at 18:33:54",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List on 01.09.2026"
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Abhishek Malhotra, Senior Advocate with Ms. Vaishali R. Mittal, Ms. Pallavi Bhatnagar, Mr. Kartikay Dutta and Ms. Anukriti Trivedi",
+            "defendant": "Ms. Harshita Malik, Advocate for Proposed Defendant No. 4; Mr. Siddharth Chopra, Mr. Yatinder Garg, Ms. Disha Sharma and Ms. Ishi Singh, Advocates for D5 and 6"
+          },
+          "summary": "The court listed the matter for the next hearing on 01.09.2026. No substantive relief was granted or discussed in this order.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-08-26T13:04:30.137Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/149/2025",
+          "_orderDate": "2026-08-24"
+        }
+      },
       {
         "date": "2026-05-25",
         "event": "Court Order",
@@ -8582,7 +8613,18 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-09-01",
+        "before": "court",
+        "firstSeenAt": "2026-08-26T13:03:54.815Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-08-24",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1787746227_f4313ab44dd33b97_jis_1492025.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -8684,7 +8726,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:04:10.595Z",
+    "lastScraped": "2026-08-26T13:03:54.816Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8806,7 +8848,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:04:18.421Z",
+    "lastScraped": "2026-08-26T13:04:02.844Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9141,7 +9183,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:04:26.047Z",
+    "lastScraped": "2026-08-26T13:04:10.319Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9976,7 +10018,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:04:34.123Z",
+    "lastScraped": "2026-08-26T13:04:17.969Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10442,7 +10484,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-08-26T12:04:41.538Z",
+    "lastScraped": "2026-08-26T13:04:25.549Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
