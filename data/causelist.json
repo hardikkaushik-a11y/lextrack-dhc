@@ -1,19 +1,110 @@
 {
-  "scraped_at": "2026-08-29T18:00:57Z",
+  "scraped_at": "2026-08-29T19:01:50Z",
   "for_dates": [
-    "2026-08-29",
-    "2026-08-30"
+    "2026-08-30",
+    "2026-08-31"
   ],
   "tracked_cases": 21,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
     {
-      "file": "combined_cauase_list_29.08.2026.pdf",
-      "date": "2026-08-29",
+      "file": "last_list_listing-01_for_31.08.2026.pdf",
+      "date": "2026-08-31",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
+    },
+    {
+      "file": "new_jud_original_02_for_31.08.2026.pdf",
+      "date": "2026-08-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_31.08.2026.pdf",
+      "date": "2026-08-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_31082026.pdf",
+      "date": "2026-08-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_supplementary_list_31.08.2026.pdf",
+      "date": "2026-08-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_31082026.pdf",
+      "date": "2026-08-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_31.08.2026.pdf",
+      "date": "2026-08-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_31082026.pdf",
+      "date": "2026-08-31",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_31082026.pdf",
+      "date": "2026-08-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl31082026.pdf",
+      "date": "2026-08-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_31.08.2026.pdf",
+      "date": "2026-08-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_advance_31082026.pdf",
+      "date": "2026-08-31",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "10",
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 430,
+      "context": "10      CS(COMM)-         JIOSTAR INDIA PRIVATE    PARSHANT\n             313/2026          LIMITED                  ARORA,",
+      "caseNo": "CS(COMM)/313/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE    PARSHANT\n             313/2026",
+      "date": "2026-08-31",
+      "source_pdf": "c_31082026.pdf"
+    }
+  ]
 }
