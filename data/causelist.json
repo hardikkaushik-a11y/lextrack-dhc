@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-31T11:01:36Z",
+  "scraped_at": "2026-08-31T12:01:33Z",
   "for_dates": [
     "2026-08-31",
     "2026-09-01"
@@ -24,7 +24,9 @@
     {
       "file": "last_list_listing-01_for_31.08.2026.pdf",
       "date": "2026-08-31",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "new_jud_original_02_for_31.08.2026.pdf",
