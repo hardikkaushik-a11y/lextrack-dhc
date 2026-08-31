@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-31T17:01:29Z",
+  "scraped_at": "2026-08-31T18:01:28Z",
   "for_dates": [
     "2026-08-31",
     "2026-09-01"
@@ -73,12 +73,16 @@
     {
       "file": "combined_adv_list_01.09.2026.pdf",
       "date": "2026-09-01",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "today_registrar_master_31.08.2026.pdf",
       "date": "2026-08-31",
-      "error": "download: ('Connection broken: IncompleteRead(311297 bytes read, 208981 more expected)', IncompleteRead(311297 bytes read, 208981 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": [
