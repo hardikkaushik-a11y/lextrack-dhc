@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-31T01:01:44Z",
+  "scraped_at": "2026-08-31T02:01:36Z",
   "for_dates": [
     "2026-08-31",
     "2026-09-01"
@@ -73,9 +73,7 @@
     {
       "file": "combined_targetted_31082026.pdf",
       "date": "2026-08-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "rl31082026.pdf",
