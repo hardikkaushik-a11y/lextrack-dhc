@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-08-31T09:01:54Z",
+  "scraped_at": "2026-08-31T10:01:18Z",
   "for_dates": [
     "2026-08-31",
     "2026-09-01"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "combined_adv_list_01.09.2026.pdf",
@@ -59,7 +59,9 @@
     {
       "file": "new_c_31082026.pdf",
       "date": "2026-08-31",
-      "error": "download: ('Connection broken: IncompleteRead(1035440 bytes read, 106690 more expected)', IncompleteRead(1035440 bytes read, 106690 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_31.08.2026.pdf",
@@ -71,38 +73,8 @@
     {
       "file": "c_31082026.pdf",
       "date": "2026-08-31",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_31082026.pdf",
-      "date": "2026-08-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl31082026.pdf",
-      "date": "2026-08-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(511942 bytes read, 17403242 more expected)', IncompleteRead(511942 bytes read, 17403242 more expected))"
     }
   ],
-  "entries": [
-    {
-      "item": "10",
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 430,
-      "context": "10      CS(COMM)-         JIOSTAR INDIA PRIVATE    PARSHANT\n             313/2026          LIMITED                  ARORA,",
-      "caseNo": "CS(COMM)/313/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE    PARSHANT\n             313/2026",
-      "date": "2026-08-31",
-      "source_pdf": "c_31082026.pdf"
-    }
-  ]
+  "entries": []
 }
