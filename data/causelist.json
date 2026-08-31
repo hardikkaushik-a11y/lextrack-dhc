@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-31T07:01:44Z",
+  "scraped_at": "2026-08-31T08:01:32Z",
   "for_dates": [
     "2026-08-31",
     "2026-09-01"
@@ -10,9 +10,7 @@
     {
       "file": "combined_adv_list_01.09.2026.pdf",
       "date": "2026-09-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(4936200 bytes read, 422354 more expected)', IncompleteRead(4936200 bytes read, 422354 more expected))"
     },
     {
       "file": "today_registrar_master_31.08.2026.pdf",
@@ -89,20 +87,6 @@
       "date": "2026-08-31",
       "matched": 0,
       "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_31.08.2026.pdf",
-      "date": "2026-08-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_31082026.pdf",
-      "date": "2026-08-31",
-      "matched": 1,
-      "regex_matches": 1,
       "norm_matches": 0
     }
   ],
