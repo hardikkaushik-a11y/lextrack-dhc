@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-31T13:01:33Z",
+  "scraped_at": "2026-08-31T14:01:31Z",
   "for_dates": [
     "2026-08-31",
     "2026-09-01"
@@ -7,6 +7,53 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_targeeted_01.09.2026.pdf",
+      "date": "2026-09-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_01.09.2026.pdf",
+      "date": "2026-09-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "parcha_for_01.09.2026_hmj_rao.pdf",
+      "date": "2026-09-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_01.09.2026.pdf",
+      "date": "2026-09-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_01.09.2026.pdf",
+      "date": "2026-09-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_01.09.2026.pdf",
+      "date": "2026-09-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_1_01.09.pdf",
+      "date": "2026-09-01",
+      "error": "download: ('Connection broken: IncompleteRead(667672 bytes read, 909596 more expected)', IncompleteRead(667672 bytes read, 909596 more expected))"
+    },
     {
       "file": "rl01092026.pdf",
       "date": "2026-09-01",
@@ -30,48 +77,6 @@
     },
     {
       "file": "today_registrar_master_31.08.2026.pdf",
-      "date": "2026-08-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "last_list_listing-01_for_31.08.2026.pdf",
-      "date": "2026-08-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_jud_original_02_for_31.08.2026.pdf",
-      "date": "2026-08-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_31.08.2026.pdf",
-      "date": "2026-08-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_31082026.pdf",
-      "date": "2026-08-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_supplementary_list_31.08.2026.pdf",
-      "date": "2026-08-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_31082026.pdf",
       "date": "2026-08-31",
       "matched": 0,
       "regex_matches": 0,
