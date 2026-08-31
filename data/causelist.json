@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-31T12:01:33Z",
+  "scraped_at": "2026-08-31T13:01:33Z",
   "for_dates": [
     "2026-08-31",
     "2026-09-01"
@@ -7,6 +7,20 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "rl01092026.pdf",
+      "date": "2026-09-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_01.09.2026.pdf",
+      "date": "2026-09-01",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "combined_adv_list_01.09.2026.pdf",
       "date": "2026-09-01",
@@ -62,35 +76,21 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "finals_31.08.2026.pdf",
-      "date": "2026-08-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_31082026.pdf",
-      "date": "2026-08-31",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
   "entries": [
     {
-      "item": "10",
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
+      "item": "72",
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 430,
-      "context": "10      CS(COMM)-         JIOSTAR INDIA PRIVATE    PARSHANT\n             313/2026          LIMITED                  ARORA,",
-      "caseNo": "CS(COMM)/313/2026",
+      "page": 604,
+      "context": "72   CS(COMM)-149/2025 CENTRAL RETAIL     RISHI AGRAWALA, BINNY",
+      "caseNo": "CS(COMM)/149/2025",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE    PARSHANT\n             313/2026",
-      "date": "2026-08-31",
-      "source_pdf": "c_31082026.pdf"
+      "matched_on": "CS(COMM)-149/2025",
+      "date": "2026-09-01",
+      "source_pdf": "combined_cause_list_01.09.2026.pdf"
     }
   ]
 }
