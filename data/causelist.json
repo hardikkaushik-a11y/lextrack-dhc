@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-01T16:01:36Z",
+  "scraped_at": "2026-09-01T17:01:32Z",
   "for_dates": [
     "2026-09-01",
     "2026-09-02"
@@ -73,9 +73,7 @@
     {
       "file": "combined_adv_list_02.09.2026.pdf",
       "date": "2026-09-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(3274792 bytes read, 2685189 more expected)', IncompleteRead(3274792 bytes read, 2685189 more expected))"
     },
     {
       "file": "sup-hmj_prateek_j_01.09.2026.pdf",
