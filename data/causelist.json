@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-01T11:01:14Z",
+  "scraped_at": "2026-09-01T12:01:17Z",
   "for_dates": [
     "2026-09-01",
     "2026-09-02"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "finals_02.09.2026.pdf",
+      "date": "2026-09-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "vk_advance_list_for_hon_ble_mr._justice_ajay_digpaul_02.09.26.pdf",
       "date": "2026-09-02",
@@ -93,13 +100,6 @@
     },
     {
       "file": "combined_targeeted_01.09.2026.pdf",
-      "date": "2026-09-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_01.09.2026.pdf",
       "date": "2026-09-01",
       "matched": 0,
       "regex_matches": 0,
