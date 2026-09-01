@@ -1,15 +1,36 @@
 {
-  "scraped_at": "2026-09-01T06:01:40Z",
+  "scraped_at": "2026-09-01T07:01:28Z",
   "for_dates": [
     "2026-09-01",
     "2026-09-02"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "vk_advance_list_for_hon_ble_mr._justice_ajay_digpaul_02.09.26.pdf",
+      "date": "2026-09-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_adv_list_02.09.2026.pdf",
       "date": "2026-09-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_db_vii_01.09.2026.pdf",
+      "date": "2026-09-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_pla_01.09.2026.pdf",
+      "date": "2026-09-01",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -87,9 +108,7 @@
     {
       "file": "combined_cause_list_01.09.2026.pdf",
       "date": "2026-09-01",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(10499894 bytes read, 7523350 more expected)', IncompleteRead(10499894 bytes read, 7523350 more expected))"
     },
     {
       "file": "combined_adv_list_01.09.2026.pdf",
@@ -99,19 +118,5 @@
       "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "72",
-      "court": "44",
-      "judge": "JYOTI SINGH NOTE",
-      "time": null,
-      "page": 604,
-      "context": "72   CS(COMM)-149/2025 CENTRAL RETAIL     RISHI AGRAWALA, BINNY",
-      "caseNo": "CS(COMM)/149/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-149/2025",
-      "date": "2026-09-01",
-      "source_pdf": "combined_cause_list_01.09.2026.pdf"
-    }
-  ]
+  "entries": []
 }
