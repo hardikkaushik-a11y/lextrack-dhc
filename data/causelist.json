@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-01T13:01:37Z",
+  "scraped_at": "2026-09-01T14:02:01Z",
   "for_dates": [
     "2026-09-01",
     "2026-09-02"
@@ -7,6 +7,41 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "deletion_note_02.09.2026.pdf",
+      "date": "2026-09-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_02092026.pdf",
+      "date": "2026-09-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_02.09.2026.pdf",
+      "date": "2026-09-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_02092026.pdf",
+      "date": "2026-09-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_02092026.pdf",
+      "date": "2026-09-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "c_02092026_0.pdf",
       "date": "2026-09-02",
@@ -79,27 +114,6 @@
     },
     {
       "file": "pronouncement_for_01092026_c247.pdf",
-      "date": "2026-09-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_db_vii_01.09.2026.pdf",
-      "date": "2026-09-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_pla_01.09.2026.pdf",
-      "date": "2026-09-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_mini_p_01.09.2026.pdf",
       "date": "2026-09-01",
       "matched": 0,
       "regex_matches": 0,
