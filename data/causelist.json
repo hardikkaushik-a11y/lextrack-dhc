@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-01T09:01:13Z",
+  "scraped_at": "2026-09-01T10:01:16Z",
   "for_dates": [
     "2026-09-01",
     "2026-09-02"
@@ -17,6 +17,20 @@
     {
       "file": "combined_adv_list_02.09.2026.pdf",
       "date": "2026-09-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_for_01.09.pdf",
+      "date": "2026-09-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-14_for_01092026.pdf",
+      "date": "2026-09-01",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -93,20 +107,6 @@
     },
     {
       "file": "combined_pro_01.09.2026.pdf",
-      "date": "2026-09-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_01.09.2026.pdf",
-      "date": "2026-09-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_01.09.2026.pdf",
       "date": "2026-09-01",
       "matched": 0,
       "regex_matches": 0,
