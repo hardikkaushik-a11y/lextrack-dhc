@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-09-02T04:01:34Z",
+  "scraped_at": "2026-09-02T05:01:30Z",
   "for_dates": [
     "2026-09-02",
     "2026-09-03"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "cdombined_adv_list_03.09.2026.pdf",
@@ -52,9 +52,7 @@
     {
       "file": "c_02092026_0.pdf",
       "date": "2026-09-02",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(12788814 bytes read, 6052441 more expected)', IncompleteRead(12788814 bytes read, 6052441 more expected))"
     },
     {
       "file": "rl02092026.pdf",
@@ -85,19 +83,5 @@
       "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": null,
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 604,
-      "context": "In CS(COMM)-      V/s IPTV SMARTER PRO SHARMA, PARSHANT\n             108/2025          & ORS                ARORA, RIMJHIM",
-      "caseNo": "CS(COMM)/108/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-      V/s IPTV SMARTER PRO SHARMA, PARSHANT\n             108/2025",
-      "date": "2026-09-02",
-      "source_pdf": "c_02092026_0.pdf"
-    }
-  ]
+  "entries": []
 }
