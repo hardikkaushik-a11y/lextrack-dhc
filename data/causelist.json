@@ -1,12 +1,47 @@
 {
-  "scraped_at": "2026-09-02T13:01:58Z",
+  "scraped_at": "2026-09-02T14:01:36Z",
   "for_dates": [
     "2026-09-02",
     "2026-09-03"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_targetted_list_03.09.2026.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_03.09.2026.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pronouncement_parcha_03.09.2026_patil_construction_1.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_03.09.2026.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_sup_1_03.09.2026.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "finals_03.09.2026.pdf",
       "date": "2026-09-03",
@@ -76,63 +111,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_02.09.2026.pdf",
-      "date": "2026-09-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_02092026.pdf",
-      "date": "2026-09-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_02.09.2026.pdf",
-      "date": "2026-09-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_02092026.pdf",
-      "date": "2026-09-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_02092026.pdf",
-      "date": "2026-09-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_02092026_0.pdf",
-      "date": "2026-09-02",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": null,
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 604,
-      "context": "In CS(COMM)-      V/s IPTV SMARTER PRO SHARMA, PARSHANT\n             108/2025          & ORS                ARORA, RIMJHIM",
-      "caseNo": "CS(COMM)/108/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-      V/s IPTV SMARTER PRO SHARMA, PARSHANT\n             108/2025",
-      "date": "2026-09-02",
-      "source_pdf": "c_02092026_0.pdf"
-    }
-  ]
+  "entries": []
 }
