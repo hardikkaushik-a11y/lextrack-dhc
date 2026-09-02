@@ -6702,5 +6702,29 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/149/2025",
     "_orderDate": "2026-08-24"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1788362523_20cbb55034d8d5e7_jis_1492025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List on 22.09.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Abhishek Malhotra, Senior Advocate with Ms. Vaishali Mittal, Ms. Pallavi Bhatnagar and Mr. Siddhant Chamola, Advocates.",
+      "defendant": "Ms. Harshita Malik, Advocate for proposed D-4. Mr. Siddharth Chopra, Mr. Yatinder Garg, Ms. Disha Sharma and Ms. Ishi Singh, Advocates for D-5 and 6."
+    },
+    "summary": "The court listed the matter for further hearing on 22.09.2026. No substantive relief was granted; the order is procedural in nature.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-09-02T16:04:52.634Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2026-09-01"
   }
 }
