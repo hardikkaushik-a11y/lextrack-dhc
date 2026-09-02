@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-02T12:01:45Z",
+  "scraped_at": "2026-09-02T13:01:58Z",
   "for_dates": [
     "2026-09-02",
     "2026-09-03"
@@ -8,9 +8,39 @@
   "matched_cases": 1,
   "sources": [
     {
+      "file": "finals_03.09.2026.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl03092026.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_03.09.2026.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "cdombined_adv_list_03.09.2026.pdf",
       "date": "2026-09-03",
-      "error": "download: ('Connection broken: IncompleteRead(1965984 bytes read, 3486020 more expected)', IncompleteRead(1965984 bytes read, 3486020 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_15_for_02092026.pdf",
+      "date": "2026-09-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup14_for_02092026.pdf",
@@ -87,32 +117,6 @@
       "date": "2026-09-02",
       "matched": 1,
       "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl02092026.pdf",
-      "date": "2026-09-02",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-    },
-    {
-      "file": "finals_02.09.2026.pdf",
-      "date": "2026-09-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_advance_list_for_hon_ble_mr._justice_ajay_digpaul_02.09.26.pdf",
-      "date": "2026-09-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_02.09.2026.pdf",
-      "date": "2026-09-02",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
