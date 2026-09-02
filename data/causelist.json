@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-02T11:01:40Z",
+  "scraped_at": "2026-09-02T12:01:45Z",
   "for_dates": [
     "2026-09-02",
     "2026-09-03"
@@ -10,9 +10,7 @@
     {
       "file": "cdombined_adv_list_03.09.2026.pdf",
       "date": "2026-09-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(1965984 bytes read, 3486020 more expected)', IncompleteRead(1965984 bytes read, 3486020 more expected))"
     },
     {
       "file": "sup14_for_02092026.pdf",
