@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-02T10:01:49Z",
+  "scraped_at": "2026-09-02T11:01:40Z",
   "for_dates": [
     "2026-09-02",
     "2026-09-03"
@@ -10,6 +10,13 @@
     {
       "file": "cdombined_adv_list_03.09.2026.pdf",
       "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup14_for_02092026.pdf",
+      "date": "2026-09-02",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -87,9 +94,7 @@
     {
       "file": "rl02092026.pdf",
       "date": "2026-09-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "finals_02.09.2026.pdf",
