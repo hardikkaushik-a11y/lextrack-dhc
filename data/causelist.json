@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-03T07:01:16Z",
+  "scraped_at": "2026-09-03T08:01:12Z",
   "for_dates": [
     "2026-09-03",
     "2026-09-04"
@@ -7,6 +7,11 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup_8_trf_matter_for_03092026.pdf",
+      "date": "2026-09-03",
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+    },
     {
       "file": "combined_targetted_list_03.09.2026.pdf",
       "date": "2026-09-03",
@@ -59,12 +64,12 @@
     {
       "file": "combined_cause_list_03.09.2026.pdf",
       "date": "2026-09-03",
-      "error": "download: ('Connection broken: IncompleteRead(12663678 bytes read, 5217691 more expected)', IncompleteRead(12663678 bytes read, 5217691 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(1798038 bytes read, 16083331 more expected)', IncompleteRead(1798038 bytes read, 16083331 more expected))"
     },
     {
       "file": "cdombined_adv_list_03.09.2026.pdf",
       "date": "2026-09-03",
-      "error": "download: ('Connection broken: IncompleteRead(2862527 bytes read, 2589477 more expected)', IncompleteRead(2862527 bytes read, 2589477 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(2492631 bytes read, 2959373 more expected)', IncompleteRead(2492631 bytes read, 2959373 more expected))"
     }
   ],
   "entries": []
