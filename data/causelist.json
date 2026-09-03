@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-03T02:01:19Z",
+  "scraped_at": "2026-09-03T03:01:37Z",
   "for_dates": [
     "2026-09-03",
     "2026-09-04"
@@ -59,7 +59,9 @@
     {
       "file": "combined_cause_list_03.09.2026.pdf",
       "date": "2026-09-03",
-      "error": "download: ('Connection broken: IncompleteRead(4712190 bytes read, 13169179 more expected)', IncompleteRead(4712190 bytes read, 13169179 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "cdombined_adv_list_03.09.2026.pdf",
