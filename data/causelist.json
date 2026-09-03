@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-03T08:01:12Z",
+  "scraped_at": "2026-09-03T09:01:44Z",
   "for_dates": [
     "2026-09-03",
     "2026-09-04"
@@ -8,9 +8,18 @@
   "matched_cases": 0,
   "sources": [
     {
+      "file": "sup_9_for_03092026.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "sup_8_trf_matter_for_03092026.pdf",
       "date": "2026-09-03",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "combined_targetted_list_03.09.2026.pdf",
@@ -64,12 +73,16 @@
     {
       "file": "combined_cause_list_03.09.2026.pdf",
       "date": "2026-09-03",
-      "error": "download: ('Connection broken: IncompleteRead(1798038 bytes read, 16083331 more expected)', IncompleteRead(1798038 bytes read, 16083331 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "cdombined_adv_list_03.09.2026.pdf",
       "date": "2026-09-03",
-      "error": "download: ('Connection broken: IncompleteRead(2492631 bytes read, 2959373 more expected)', IncompleteRead(2492631 bytes read, 2959373 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": []
