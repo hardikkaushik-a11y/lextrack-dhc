@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-03T11:01:38Z",
+  "scraped_at": "2026-09-03T12:01:08Z",
   "for_dates": [
     "2026-09-03",
     "2026-09-04"
@@ -86,20 +86,6 @@
     },
     {
       "file": "rl03092026.pdf",
-      "date": "2026-09-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_03.09.2026.pdf",
-      "date": "2026-09-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "cdombined_adv_list_03.09.2026.pdf",
       "date": "2026-09-03",
       "matched": 0,
       "regex_matches": 0,
