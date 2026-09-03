@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-03T10:01:35Z",
+  "scraped_at": "2026-09-03T11:01:38Z",
   "for_dates": [
     "2026-09-03",
     "2026-09-04"
@@ -7,6 +7,27 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "registrar_supply_list_03.09.2026_1.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_11_for_03092026.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_10_for_03092026.pdf",
+      "date": "2026-09-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_9_for_03092026.pdf",
       "date": "2026-09-03",
