@@ -1,15 +1,85 @@
 {
-  "scraped_at": "2026-09-05T18:00:57Z",
+  "scraped_at": "2026-09-05T19:01:30Z",
   "for_dates": [
-    "2026-09-05",
-    "2026-09-06"
+    "2026-09-06",
+    "2026-09-07"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
     {
-      "file": "combined_cause_list_05.09.2026_sat.pdf",
-      "date": "2026-09-05",
+      "file": "deletion_note_07.09.2026.pdf",
+      "date": "2026-09-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl07092026.pdf",
+      "date": "2026-09-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_07092026.pdf",
+      "date": "2026-09-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "listing_originhal-01_for_07.09.2026.pdf",
+      "date": "2026-09-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup2_fnl_07.09.26.pdf",
+      "date": "2026-09-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_07092026.pdf",
+      "date": "2026-09-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_07092026.pdf",
+      "date": "2026-09-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_07.09.2026.pdf",
+      "date": "2026-09-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_07.09.2026.pdf",
+      "date": "2026-09-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_07.09.2026.pdf",
+      "date": "2026-09-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "advance_cause_list_of_cases_for_referral_to_mediation_07.09.2026.pdf",
+      "date": "2026-09-07",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
