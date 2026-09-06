@@ -1,12 +1,26 @@
 {
-  "scraped_at": "2026-09-06T18:01:30Z",
+  "scraped_at": "2026-09-06T19:01:39Z",
   "for_dates": [
-    "2026-09-06",
-    "2026-09-07"
+    "2026-09-07",
+    "2026-09-08"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_adv_list_08.09.2026.pdf",
+      "date": "2026-09-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "advance_cause_list_of_cases_for_referral_to_mediation_08.09.2026.pdf",
+      "date": "2026-09-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_07.09.2026.pdf",
       "date": "2026-09-07",
@@ -52,7 +66,9 @@
     {
       "file": "combined_targetted_07092026.pdf",
       "date": "2026-09-07",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_07.09.2026.pdf",
