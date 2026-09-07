@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-07T14:01:35Z",
+  "scraped_at": "2026-09-07T15:01:37Z",
   "for_dates": [
     "2026-09-07",
     "2026-09-08"
@@ -59,9 +59,7 @@
     {
       "file": "c_08092026.pdf",
       "date": "2026-09-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(16188886 bytes read, 4585920 more expected)', IncompleteRead(16188886 bytes read, 4585920 more expected))"
     },
     {
       "file": "rl08092026.pdf",
@@ -73,16 +71,12 @@
     {
       "file": "combined_adv_list_08.09.2026.pdf",
       "date": "2026-09-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(3118120 bytes read, 3532110 more expected)', IncompleteRead(3118120 bytes read, 3532110 more expected))"
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_08.09.2026.pdf",
       "date": "2026-09-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(263415 bytes read, 1062599 more expected)', IncompleteRead(263415 bytes read, 1062599 more expected))"
     },
     {
       "file": "sup-18_for_07.09.26.pdf",
