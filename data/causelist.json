@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-07T17:01:39Z",
+  "scraped_at": "2026-09-07T18:01:39Z",
   "for_dates": [
     "2026-09-07",
     "2026-09-08"
@@ -94,9 +94,7 @@
     {
       "file": "sup-16_for_07.09.26_trf_matters.pdf",
       "date": "2026-09-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": []
