@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-07T08:01:37Z",
+  "scraped_at": "2026-09-07T09:01:55Z",
   "for_dates": [
     "2026-09-07",
     "2026-09-08"
@@ -17,9 +17,7 @@
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_08.09.2026.pdf",
       "date": "2026-09-08",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "deletion07.09.2026.pdf_court_16.pdf",
@@ -94,7 +92,9 @@
     {
       "file": "combined_targetted_07092026.pdf",
       "date": "2026-09-07",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_07.09.2026.pdf",
