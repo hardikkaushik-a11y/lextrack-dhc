@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-08T03:01:52Z",
+  "scraped_at": "2026-09-08T04:01:36Z",
   "for_dates": [
     "2026-09-08",
     "2026-09-09"
@@ -10,9 +10,7 @@
     {
       "file": "combined_adv_list_09.09.2026.pdf",
       "date": "2026-09-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(674448 bytes read, 6432380 more expected)', IncompleteRead(674448 bytes read, 6432380 more expected))"
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_09.09.2026.pdf",
