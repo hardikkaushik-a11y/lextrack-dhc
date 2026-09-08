@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-09-08T16:01:28Z",
+  "scraped_at": "2026-09-08T17:01:44Z",
   "for_dates": [
     "2026-09-08",
     "2026-09-09"
   ],
   "tracked_cases": 21,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
     {
       "file": "jud_09092026.pdf",
@@ -59,12 +59,16 @@
     {
       "file": "combined_cause_list_09.09.2026.pdf",
       "date": "2026-09-09",
-      "error": "download: ('Connection broken: IncompleteRead(11092926 bytes read, 9292423 more expected)', IncompleteRead(11092926 bytes read, 9292423 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combined_adv_list_09.09.2026.pdf",
       "date": "2026-09-09",
-      "error": "download: ('Connection broken: IncompleteRead(1780735 bytes read, 5326093 more expected)', IncompleteRead(1780735 bytes read, 5326093 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_09.09.2026.pdf",
@@ -81,5 +85,19 @@
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": null,
+      "court": "44",
+      "judge": "JYOTI SINGH NOTE",
+      "time": null,
+      "page": 700,
+      "context": "In CS(COMM)-      CORPORATION PUBLIC BINNY KALRA,\n             149/2025          COMPANY LTD. & ANR MEHUL PARTI, ISHI",
+      "caseNo": "CS(COMM)/149/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-      CORPORATION PUBLIC BINNY KALRA,\n             149/2025",
+      "date": "2026-09-09",
+      "source_pdf": "combined_cause_list_09.09.2026.pdf"
+    }
+  ]
 }
