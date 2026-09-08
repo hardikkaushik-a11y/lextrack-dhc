@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-08T09:01:53Z",
+  "scraped_at": "2026-09-08T10:01:34Z",
   "for_dates": [
     "2026-09-08",
     "2026-09-09"
@@ -10,9 +10,7 @@
     {
       "file": "combined_adv_list_09.09.2026.pdf",
       "date": "2026-09-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(3795552 bytes read, 3311276 more expected)', IncompleteRead(3795552 bytes read, 3311276 more expected))"
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_09.09.2026.pdf",
@@ -80,7 +78,9 @@
     {
       "file": "new_c_08092026.pdf",
       "date": "2026-09-08",
-      "error": "download: ('Connection broken: IncompleteRead(546433 bytes read, 455274 more expected)', IncompleteRead(546433 bytes read, 455274 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_08.09.2026.pdf",
