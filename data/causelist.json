@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-09T10:01:15Z",
+  "scraped_at": "2026-09-09T11:01:33Z",
   "for_dates": [
     "2026-09-09",
     "2026-09-10"
@@ -24,6 +24,13 @@
     {
       "file": "mediation_advance_cause_original_10092026.pdf",
       "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_16_a-for_09-09-2026.pdf",
+      "date": "2026-09-09",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -79,13 +86,6 @@
     },
     {
       "file": "deletion_note_09.09.2026.pdf",
-      "date": "2026-09-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_09.09.2026.pdf",
       "date": "2026-09-09",
       "matched": 0,
       "regex_matches": 0,
