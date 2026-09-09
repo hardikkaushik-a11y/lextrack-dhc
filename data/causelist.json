@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-09T16:01:49Z",
+  "scraped_at": "2026-09-09T17:01:54Z",
   "for_dates": [
     "2026-09-09",
     "2026-09-10"
@@ -52,7 +52,9 @@
     {
       "file": "c_10092026.pdf",
       "date": "2026-09-10",
-      "error": "download: ('Connection broken: IncompleteRead(20314558 bytes read, 604923 more expected)', IncompleteRead(20314558 bytes read, 604923 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_10.09.2026.pdf",
