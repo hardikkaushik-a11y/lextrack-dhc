@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-09T13:01:58Z",
+  "scraped_at": "2026-09-09T14:02:11Z",
   "for_dates": [
     "2026-09-09",
     "2026-09-10"
@@ -8,9 +8,53 @@
   "matched_cases": 0,
   "sources": [
     {
+      "file": "deletion_note_10.09.2026.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_10092026.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl10092026.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_10.09.2026.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_10092026_0.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_10092026.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "c_10092026.pdf",
       "date": "2026-09-10",
-      "error": "download: ('Connection broken: IncompleteRead(18521110 bytes read, 2398371 more expected)', IncompleteRead(18521110 bytes read, 2398371 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_10.09.2026.pdf",
@@ -56,27 +100,6 @@
     },
     {
       "file": "sup_15_trf_matter_for_09-09-2026.pdf",
-      "date": "2026-09-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jr_deletion_note_09092026.pdf",
-      "date": "2026-09-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_transfer_matters_09092026.pdf",
-      "date": "2026-09-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_12_trf_matter_and_sup_14_09-09-2026.pdf",
       "date": "2026-09-09",
       "matched": 0,
       "regex_matches": 0,
