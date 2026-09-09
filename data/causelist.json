@@ -1,11 +1,85 @@
 {
-  "scraped_at": "2026-09-09T01:02:02Z",
+  "scraped_at": "2026-09-09T02:01:33Z",
   "for_dates": [
     "2026-09-09",
     "2026-09-10"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
-  "sources": [],
+  "sources": [
+    {
+      "file": "combined_adv_list_10.09.2026.pdf",
+      "date": "2026-09-10",
+      "error": "download: ('Connection broken: IncompleteRead(3583928 bytes read, 3355079 more expected)', IncompleteRead(3583928 bytes read, 3355079 more expected))"
+    },
+    {
+      "file": "mediation_advance_cause_original_10092026.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "jud_09092026.pdf",
+      "date": "2026-09-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_09.09.2026.pdf",
+      "date": "2026-09-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_09.09.2026.pdf",
+      "date": "2026-09-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "original_sup_2_09.09.2026.pdf",
+      "date": "2026-09-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_fnl_for_090926.pdf",
+      "date": "2026-09-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl09092026.pdf",
+      "date": "2026-09-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_09.09.2026.pdf",
+      "date": "2026-09-09",
+      "error": "download: ('Connection broken: IncompleteRead(13314822 bytes read, 7070527 more expected)', IncompleteRead(13314822 bytes read, 7070527 more expected))"
+    },
+    {
+      "file": "combined_adv_list_09.09.2026.pdf",
+      "date": "2026-09-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "advance_cause_list_of_cases_for_referral_to_mediation_09.09.2026.pdf",
+      "date": "2026-09-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    }
+  ],
   "entries": []
 }
