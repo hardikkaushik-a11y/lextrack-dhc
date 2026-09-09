@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-09T12:01:10Z",
+  "scraped_at": "2026-09-09T13:01:58Z",
   "for_dates": [
     "2026-09-09",
     "2026-09-10"
@@ -7,6 +7,18 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "c_10092026.pdf",
+      "date": "2026-09-10",
+      "error": "download: ('Connection broken: IncompleteRead(18521110 bytes read, 2398371 more expected)', IncompleteRead(18521110 bytes read, 2398371 more expected))"
+    },
+    {
+      "file": "finals_10.09.2026.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "jud_for_09.09.2026_1.pdf",
       "date": "2026-09-09",
@@ -17,7 +29,9 @@
     {
       "file": "combined_adv_list_10.09.2026.pdf",
       "date": "2026-09-10",
-      "error": "download: ('Connection broken: IncompleteRead(1043040 bytes read, 5895967 more expected)', IncompleteRead(1043040 bytes read, 5895967 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "mediation_advance_cause_original_10092026.pdf",
@@ -63,27 +77,6 @@
     },
     {
       "file": "sup_12_trf_matter_and_sup_14_09-09-2026.pdf",
-      "date": "2026-09-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_madhu_jain_09.09.2026.pdf",
-      "date": "2026-09-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jud_09092026.pdf",
-      "date": "2026-09-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_09.09.2026.pdf",
       "date": "2026-09-09",
       "matched": 0,
       "regex_matches": 0,
