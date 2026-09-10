@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-10T15:01:42Z",
+  "scraped_at": "2026-09-10T16:01:32Z",
   "for_dates": [
     "2026-09-10",
     "2026-09-11"
@@ -37,20 +37,6 @@
     },
     {
       "file": "trns._to_the_court_of_hmj_c._sudha_10.09.2026.pdf",
-      "date": "2026-09-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "transferred_matter_to_db_ii_10.09.2026.pdf",
-      "date": "2026-09-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "transferred_matter_to_hmj_c._sudha_10.09.2026.pdf",
       "date": "2026-09-10",
       "matched": 0,
       "regex_matches": 0,
