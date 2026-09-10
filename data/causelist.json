@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-10T06:01:52Z",
+  "scraped_at": "2026-09-10T07:01:03Z",
   "for_dates": [
     "2026-09-10",
     "2026-09-11"
@@ -7,6 +7,55 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "transferred_matter_to_hmj_c._sudha_10.09.2026.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_p.k_kaurav_10.09.2026.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pronouncement_for_10092026_pro.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "today_jr_suppl._judicial_10092026.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_amit_bansal_10.09.2026.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sher-10.09.2026_new.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_10.09.2026_1.pdf",
+      "date": "2026-09-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "suppl_6_10.09.2026.pdf",
       "date": "2026-09-10",
@@ -16,69 +65,6 @@
     },
     {
       "file": "deletion_note_10.09.2026.pdf",
-      "date": "2026-09-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_10092026.pdf",
-      "date": "2026-09-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl10092026.pdf",
-      "date": "2026-09-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_10.09.2026.pdf",
-      "date": "2026-09-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_10092026_0.pdf",
-      "date": "2026-09-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_10092026.pdf",
-      "date": "2026-09-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_10092026.pdf",
-      "date": "2026-09-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_10.09.2026.pdf",
-      "date": "2026-09-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_10.09.2026.pdf",
-      "date": "2026-09-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "mediation_advance_cause_original_10092026.pdf",
       "date": "2026-09-10",
       "matched": 0,
       "regex_matches": 0,
