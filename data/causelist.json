@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-11T00:01:20Z",
+  "scraped_at": "2026-09-11T01:01:17Z",
   "for_dates": [
     "2026-09-11",
     "2026-09-12"
@@ -31,7 +31,7 @@
     {
       "file": "combined_11.09.2026.pdf",
       "date": "2026-09-11",
-      "error": "download: ('Connection broken: IncompleteRead(9780655 bytes read, 6750100 more expected)', IncompleteRead(9780655 bytes read, 6750100 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(260679 bytes read, 16270076 more expected)', IncompleteRead(260679 bytes read, 16270076 more expected))"
     },
     {
       "file": "combibed_adv_list_11.09.2026.pdf",
