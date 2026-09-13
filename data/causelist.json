@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-09-13T18:01:29Z",
+  "scraped_at": "2026-09-13T19:02:13Z",
   "for_dates": [
-    "2026-09-13",
-    "2026-09-14"
+    "2026-09-14",
+    "2026-09-15"
   ],
   "tracked_cases": 21,
-  "matched_cases": 2,
+  "matched_cases": 3,
   "sources": [
+    {
+      "file": "mediation_advance_15.09.2026_original.pdf",
+      "date": "2026-09-15",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_14.09.2026.pdf",
       "date": "2026-09-14",
@@ -79,6 +86,19 @@
     }
   ],
   "entries": [
+    {
+      "item": "45",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 9,
+      "context": "45       CS(COMM)-         STAR INDIA PVT      SWATI\n             331/2025          LTD                 AGARWAL,",
+      "caseNo": "CS(COMM)/331/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         STAR INDIA PVT      SWATI\n             331/2025",
+      "date": "2026-09-15",
+      "source_pdf": "mediation_advance_15.09.2026_original.pdf"
+    },
     {
       "item": "47",
       "court": "94",
