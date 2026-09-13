@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-13T05:01:35Z",
+  "scraped_at": "2026-09-13T06:01:15Z",
   "for_dates": [
     "2026-09-13",
     "2026-09-14"
@@ -59,9 +59,7 @@
     {
       "file": "combined_cause_lisdt_14.09.2026.pdf",
       "date": "2026-09-14",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(2335886 bytes read, 16998905 more expected)', IncompleteRead(2335886 bytes read, 16998905 more expected))"
     },
     {
       "file": "combibed_adv_14.09.2026.pdf",
@@ -73,7 +71,9 @@
     {
       "file": "mediation_advance_cause_original_14092026.pdf",
       "date": "2026-09-14",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
     }
   ],
   "entries": [
@@ -82,26 +82,26 @@
       "court": "94",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 520,
+      "page": 373,
       "context": "47       CS(COMM)-       JIO STAR INDIA PVT LTD    SUBHASHISH KUMAR,\n             108/2025        V/s IPTV SMARTER PRO &    R MAYA, AVISH",
       "caseNo": "CS(COMM)/108/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-       JIO STAR INDIA PVT LTD    SUBHASHISH KUMAR,\n             108/202",
       "date": "2026-09-14",
-      "source_pdf": "combined_cause_lisdt_14.09.2026.pdf"
+      "source_pdf": "combibed_adv_14.09.2026.pdf"
     },
     {
       "item": "70",
       "court": "94",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 523,
+      "page": 376,
       "context": "70       CS(COMM)-       CENTRAL RETAIL              RISHI AGRAWALA,\n             149/2025        CORPORATION PUBLIC          BINNY KALRA, MEHUL",
       "caseNo": "CS(COMM)/149/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-       CENTRAL RETAIL              RISHI AGRAWALA,\n             149/202",
       "date": "2026-09-14",
-      "source_pdf": "combined_cause_lisdt_14.09.2026.pdf"
+      "source_pdf": "combibed_adv_14.09.2026.pdf"
     }
   ]
 }
