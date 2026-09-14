@@ -1,17 +1,24 @@
 {
-  "scraped_at": "2026-09-14T08:01:29Z",
+  "scraped_at": "2026-09-14T09:02:21Z",
   "for_dates": [
     "2026-09-14",
     "2026-09-15"
   ],
   "tracked_cases": 21,
-  "matched_cases": 3,
+  "matched_cases": 1,
   "sources": [
     {
       "file": "mediation_advance_15.09.2026_original.pdf",
       "date": "2026-09-15",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "suppl_hmj_amit_bansal_10_14.09.2026.pdf",
+      "date": "2026-09-14",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -90,25 +97,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "maushmi_sl_2nd_14.09.2026.pdf",
-      "date": "2026-09-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_lisdt_14.09.2026.pdf",
-      "date": "2026-09-14",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
-    },
-    {
-      "file": "combibed_adv_14.09.2026.pdf",
-      "date": "2026-09-14",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": [
@@ -124,32 +112,6 @@
       "matched_on": "CS(COMM)-         STAR INDIA PVT      SWATI\n             331/2025",
       "date": "2026-09-15",
       "source_pdf": "mediation_advance_15.09.2026_original.pdf"
-    },
-    {
-      "item": "47",
-      "court": "94",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 520,
-      "context": "47       CS(COMM)-       JIO STAR INDIA PVT LTD    SUBHASHISH KUMAR,\n             108/2025        V/s IPTV SMARTER PRO &    R MAYA, AVISH",
-      "caseNo": "CS(COMM)/108/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-       JIO STAR INDIA PVT LTD    SUBHASHISH KUMAR,\n             108/202",
-      "date": "2026-09-14",
-      "source_pdf": "combined_cause_lisdt_14.09.2026.pdf"
-    },
-    {
-      "item": "70",
-      "court": "94",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 523,
-      "context": "70       CS(COMM)-       CENTRAL RETAIL              RISHI AGRAWALA,\n             149/2025        CORPORATION PUBLIC          BINNY KALRA, MEHUL",
-      "caseNo": "CS(COMM)/149/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-       CENTRAL RETAIL              RISHI AGRAWALA,\n             149/202",
-      "date": "2026-09-14",
-      "source_pdf": "combined_cause_lisdt_14.09.2026.pdf"
     }
   ]
 }
