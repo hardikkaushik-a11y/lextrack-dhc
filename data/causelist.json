@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-09-14T18:01:46Z",
+  "scraped_at": "2026-09-14T19:01:49Z",
   "for_dates": [
-    "2026-09-14",
-    "2026-09-15"
+    "2026-09-15",
+    "2026-09-16"
   ],
   "tracked_cases": 21,
   "matched_cases": 6,
   "sources": [
+    {
+      "file": "mediation_advance_16.09.2026_original.pdf",
+      "date": "2026-09-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "pronouncement_of_judgment_in_court_no_38_15092026.pdf",
       "date": "2026-09-15",
@@ -82,13 +89,6 @@
       "date": "2026-09-15",
       "matched": 1,
       "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_hmj_amit_bansal_10_14.09.2026.pdf",
-      "date": "2026-09-14",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
