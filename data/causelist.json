@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-14T09:02:21Z",
+  "scraped_at": "2026-09-14T10:02:11Z",
   "for_dates": [
     "2026-09-14",
     "2026-09-15"
@@ -79,20 +79,6 @@
     },
     {
       "file": "pla_14.09.2026.pdf",
-      "date": "2026-09-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_14.09.2026.pdf",
-      "date": "2026-09-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_14.09.2026.pdf",
       "date": "2026-09-14",
       "matched": 0,
       "regex_matches": 0,
