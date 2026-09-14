@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-09-14T22:01:37Z",
+  "scraped_at": "2026-09-14T23:01:30Z",
   "for_dates": [
     "2026-09-15",
     "2026-09-16"
   ],
   "tracked_cases": 21,
-  "matched_cases": 6,
+  "matched_cases": 5,
   "sources": [
     {
       "file": "mediation_advance_16.09.2026_original.pdf",
@@ -73,9 +73,7 @@
     {
       "file": "c_15092026.pdf",
       "date": "2026-09-15",
-      "matched": 8,
-      "regex_matches": 8,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(15327886 bytes read, 5511048 more expected)', IncompleteRead(15327886 bytes read, 5511048 more expected))"
     },
     {
       "file": "combined_adv_list_15.09.2026.pdf",
@@ -98,91 +96,78 @@
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 440,
+      "page": 295,
       "context": "41        CS(COMM)-195/2026    RELIANCE CONSUMER SEWA SINGH, ISHI",
       "caseNo": "CS(COMM)/195/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-195/2026",
       "date": "2026-09-15",
-      "source_pdf": "c_15092026.pdf"
+      "source_pdf": "combined_adv_list_15.09.2026.pdf"
     },
     {
       "item": "9",
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 487,
+      "page": 342,
       "context": "9       CS(COMM)-         JIOSTAR INDIA PRIVATE   R MAYA,\n             1210/2025         LIMITED                 PRIYANSH KOHLI",
       "caseNo": "CS(COMM)/1210/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE   R MAYA,\n             1210/2025",
       "date": "2026-09-15",
-      "source_pdf": "c_15092026.pdf"
+      "source_pdf": "combined_adv_list_15.09.2026.pdf"
     },
     {
       "item": "17",
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 488,
+      "page": 343,
       "context": "17       CS(COMM)-256/2026   KUKU TECHNOLOGIES        ISHI SINGH",
       "caseNo": "CS(COMM)/256/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-256/2026",
       "date": "2026-09-15",
-      "source_pdf": "c_15092026.pdf"
+      "source_pdf": "combined_adv_list_15.09.2026.pdf"
     },
     {
       "item": null,
       "court": "JR",
       "judge": "EKTA GAUBA MANN (JR)",
       "time": null,
-      "page": 499,
+      "page": 354,
       "context": "CS(COMM)                                    GOGIA, RAJESH\n             1186/2024                                   SHARMA, ONKAR",
       "caseNo": "CS(COMM)/1186/2024",
       "match_type": "case_no",
       "matched_on": "CS(COMM)                                    GOGIA, RAJESH\n             1186/2024",
       "date": "2026-09-15",
-      "source_pdf": "c_15092026.pdf"
+      "source_pdf": "combined_adv_list_15.09.2026.pdf"
     },
     {
       "item": "10",
       "court": "JR",
       "judge": "EKTA GAUBA MANN (JR)",
       "time": null,
-      "page": 499,
+      "page": 354,
       "context": "10      CS(COMM)-       RELIANCE RETAIL LIMITED     R MAYA, VARUN\n             1186/2024       V/s VIVEK MISHRA & ORS.     PATHAK,",
       "caseNo": "CS(COMM)/1186/2024",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-       RELIANCE RETAIL LIMITED     R MAYA, VARUN\n             1186/2024",
       "date": "2026-09-15",
-      "source_pdf": "c_15092026.pdf"
+      "source_pdf": "combined_adv_list_15.09.2026.pdf"
     },
     {
       "item": "45",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 525,
+      "page": 380,
       "context": "45       CS(COMM)-         STAR INDIA PVT LTD     SWATI AGARWAL,\n             331/2025          V/s DEVRAJ & ORS.      MAYANK MIKHAIL",
       "caseNo": "CS(COMM)/331/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         STAR INDIA PVT LTD     SWATI AGARWAL,\n             331/2025",
       "date": "2026-09-15",
-      "source_pdf": "c_15092026.pdf"
-    },
-    {
-      "item": null,
-      "court": "48",
-      "judge": "ANUP JAIRAM BHAMBHANI NOTE",
-      "time": null,
-      "page": 747,
-      "context": "In CS(COMM)- V/s HTTPS//DADDYLIVES.NL MITRA, PRIYANSH\n             313/2026        & ORS.                KOHLI, ANINDITA",
-      "caseNo": "CS(COMM)/313/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)- V/s HTTPS//DADDYLIVES.NL MITRA, PRIYANSH\n             313/2026",
-      "date": "2026-09-15",
-      "source_pdf": "c_15092026.pdf"
+      "source_pdf": "combined_adv_list_15.09.2026.pdf"
     }
   ]
 }
