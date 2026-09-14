@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-14T11:01:08Z",
+  "scraped_at": "2026-09-14T12:01:21Z",
   "for_dates": [
     "2026-09-14",
     "2026-09-15"
@@ -7,6 +7,11 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_adv_list_15.09.2026.pdf",
+      "date": "2026-09-15",
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+    },
     {
       "file": "mediation_advance_15.09.2026_original.pdf",
       "date": "2026-09-15",
@@ -72,13 +77,6 @@
     },
     {
       "file": "dh_sup_fnl_14.09.2026.pdf",
-      "date": "2026-09-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_14.09.2026.pdf",
       "date": "2026-09-14",
       "matched": 0,
       "regex_matches": 0,
