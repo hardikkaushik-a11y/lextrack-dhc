@@ -1712,7 +1712,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:01:57.295Z",
+    "lastScraped": "2026-09-15T06:02:26.006Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2100,7 +2100,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:02:04.749Z",
+    "lastScraped": "2026-09-15T06:02:34.719Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2442,21 +2442,45 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:02:12.228Z",
+    "lastScraped": "2026-09-15T06:02:50.096Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
-    "id": "m_CSCOMM_81_2026",
     "caseNo": "CS(COMM)/81/2026",
-    "title": "JIOSTAR INDIA PRIVATE LIMITED VS. HTTPS//CRICHDBEST.COM & ORS.Advocate: PRIYANSH KOHLI",
-    "type": "copyright",
-    "stage": "filed",
-    "status": "PENDING",
-    "judge": null,
-    "client": null,
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-09-15T06:03:12.162Z",
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2026-04-07.pdf",
+        "type": "Court Order",
+        "date": "2026-04-07",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1775634303_f2d7679c0051d17e_jis_812026.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-03-24.pdf",
+        "type": "Court Order",
+        "date": "2026-03-24",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1774346928_1247b62d4481ebe1_762_812026.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-02-26.pdf",
+        "type": "Court Order",
+        "date": "2026-02-26",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1772102917_f383af69aa571f15_612_812026.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-01-29.pdf",
+        "type": "Court Order",
+        "date": "2026-01-29",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1769706617_148c474b403eab1b_jis_812026.pdf/2026",
+        "size": "—"
+      }
+    ],
     "lastDate": "2026-08-10",
-    "nextDate": "2026-12-09",
-    "notes": null,
     "timeline": [
       {
         "date": "2026-08-10",
@@ -2730,75 +2754,23 @@
           "_orderDate": "2026-01-29"
         }
       }
-    ],
-    "additionalDates": [
-      {
-        "date": "2026-12-08",
-        "before": "jr",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-08-10",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1786356199_f13595ff7c3a5b8d_762_812026.pdf/2026"
-        }
-      },
-      {
-        "date": "2026-12-09",
-        "before": "court",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-07-24",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784988379_70f3710ddfa306d2_jis_812026.pdf/2026"
-        }
-      }
-    ],
+    ]
+  },
+  {
+    "caseNo": "CS(COMM)/313/2026",
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-09-15T06:03:30.910Z",
     "tasks": [],
     "docs": [
       {
-        "name": "Order_2026-04-07.pdf",
+        "name": "Order_2026-03-25.pdf",
         "type": "Court Order",
-        "date": "2026-04-07",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1775634303_f2d7679c0051d17e_jis_812026.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-03-24.pdf",
-        "type": "Court Order",
-        "date": "2026-03-24",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1774346928_1247b62d4481ebe1_762_812026.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-02-26.pdf",
-        "type": "Court Order",
-        "date": "2026-02-26",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1772102917_f383af69aa571f15_612_812026.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-01-29.pdf",
-        "type": "Court Order",
-        "date": "2026-01-29",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1769706617_148c474b403eab1b_jis_812026.pdf/2026",
+        "date": "2026-03-25",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1774530664_4d01b4a9a2b2cc23_594_3132026.pdf/2026",
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:02:19.683Z",
-    "_scraperVersion": "v11-jr-default-2026-05-14"
-  },
-  {
-    "id": "m_CSCOMM_313_2026",
-    "caseNo": "CS(COMM)/313/2026",
-    "title": "JIOSTAR INDIA PRIVATE LIMITED VS. HTTPS//DADDYLIVES.NL & ORS.Advocate: PRIYANSH KOHLI",
-    "type": "copyright",
-    "stage": "filed",
-    "status": "PENDING",
-    "judge": null,
-    "client": null,
     "lastDate": "2026-07-31",
-    "nextDate": "2026-12-07",
-    "notes": null,
     "timeline": [
       {
         "date": "2026-07-31",
@@ -2904,33 +2876,30 @@
           "_orderDate": "2026-03-25"
         }
       }
-    ],
-    "additionalDates": [],
+    ]
+  },
+  {
+    "caseNo": "CS(COMM)/319/2026",
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-09-15T06:03:50.160Z",
     "tasks": [],
     "docs": [
+      {
+        "name": "Order_2026-04-17.pdf",
+        "type": "Court Order",
+        "date": "2026-04-17",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1776424303_b37f28203a5d40d8_762_3192026.pdf/2026",
+        "size": "—"
+      },
       {
         "name": "Order_2026-03-25.pdf",
         "type": "Court Order",
         "date": "2026-03-25",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1774530664_4d01b4a9a2b2cc23_594_3132026.pdf/2026",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1774591860_219c74360c06e911_jis_3192026.pdf/2026",
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:02:27.143Z",
-    "_scraperVersion": "v11-jr-default-2026-05-14"
-  },
-  {
-    "id": "m_CSCOMM_319_2026",
-    "caseNo": "CS(COMM)/319/2026",
-    "title": "JIOSTAR INDIA PRIVATE LIMITED VS. ABBASI TV & ORS.Advocate: ISHI SINGH",
-    "type": "copyright",
-    "stage": "filed",
-    "status": "PENDING",
-    "judge": null,
-    "client": null,
     "lastDate": "2026-07-21",
-    "nextDate": "2026-10-15",
-    "notes": null,
     "timeline": [
       {
         "date": "2026-07-21",
@@ -3107,48 +3076,7 @@
           "_orderDate": "2026-03-25"
         }
       }
-    ],
-    "additionalDates": [
-      {
-        "date": "2026-09-21",
-        "before": "court",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-05-19",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1779341694_eca19104981d3a8e_jis_3192026.pdf/2026"
-        }
-      },
-      {
-        "date": "2026-10-15",
-        "before": "jr",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-07-21",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784794206_564fb1c2646c4745_762_3192026.pdf/2026"
-        }
-      }
-    ],
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2026-04-17.pdf",
-        "type": "Court Order",
-        "date": "2026-04-17",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1776424303_b37f28203a5d40d8_762_3192026.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-03-25.pdf",
-        "type": "Court Order",
-        "date": "2026-03-25",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1774591860_219c74360c06e911_jis_3192026.pdf/2026",
-        "size": "—"
-      }
-    ],
-    "lastScraped": "2026-09-15T05:02:34.642Z",
-    "_scraperVersion": "v11-jr-default-2026-05-14"
+    ]
   },
   {
     "id": "m_CSCOMM_756_2025",
@@ -3678,7 +3606,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:02:42.112Z",
+    "lastScraped": "2026-09-15T06:04:14.228Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4651,7 +4579,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:02:49.610Z",
+    "lastScraped": "2026-09-15T06:04:22.979Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4873,7 +4801,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:02:57.147Z",
+    "lastScraped": "2026-09-15T06:04:38.462Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5326,7 +5254,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:03:04.641Z",
+    "lastScraped": "2026-09-15T06:04:46.663Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5552,7 +5480,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:03:12.110Z",
+    "lastScraped": "2026-09-15T06:04:54.650Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6293,7 +6221,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:03:19.593Z",
+    "lastScraped": "2026-09-15T06:05:02.730Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7044,7 +6972,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:03:27.076Z",
+    "lastScraped": "2026-09-15T06:05:10.676Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7344,7 +7272,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:03:34.873Z",
+    "lastScraped": "2026-09-15T06:05:18.763Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7737,7 +7665,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:03:42.379Z",
+    "lastScraped": "2026-09-15T06:05:27.227Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8012,7 +7940,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:03:49.857Z",
+    "lastScraped": "2026-09-15T06:05:36.126Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8746,7 +8674,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:03:58.621Z",
+    "lastScraped": "2026-09-15T06:06:07.407Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8868,7 +8796,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:04:06.087Z",
+    "lastScraped": "2026-09-15T06:06:15.480Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9203,7 +9131,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:04:13.536Z",
+    "lastScraped": "2026-09-15T06:06:23.208Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10038,7 +9966,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:04:22.477Z",
+    "lastScraped": "2026-09-15T06:06:41.550Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10504,7 +10432,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-15T05:04:30.004Z",
+    "lastScraped": "2026-09-15T06:06:49.527Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
