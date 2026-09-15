@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-15T07:01:44Z",
+  "scraped_at": "2026-09-15T08:01:28Z",
   "for_dates": [
     "2026-09-15",
     "2026-09-16"
@@ -83,11 +83,6 @@
       "matched": 8,
       "regex_matches": 8,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_15.09.2026.pdf",
-      "date": "2026-09-15",
-      "error": "download: ('Connection broken: IncompleteRead(2652175 bytes read, 4293221 more expected)', IncompleteRead(2652175 bytes read, 4293221 more expected))"
     }
   ],
   "entries": [
