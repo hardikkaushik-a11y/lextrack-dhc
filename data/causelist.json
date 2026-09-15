@@ -1,12 +1,26 @@
 {
-  "scraped_at": "2026-09-15T14:01:27Z",
+  "scraped_at": "2026-09-15T15:01:39Z",
   "for_dates": [
     "2026-09-15",
     "2026-09-16"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 2,
   "sources": [
+    {
+      "file": "deletion_note_16.09.2026.pdf",
+      "date": "2026-09-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_supplementary_list_16.09.2026.pdf",
+      "date": "2026-09-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "pro_2_16.09.2026.pdf",
       "date": "2026-09-16",
@@ -59,7 +73,9 @@
     {
       "file": "combined_cause_list_16.09.2026.pdf",
       "date": "2026-09-16",
-      "error": "download: ('Connection broken: IncompleteRead(6211798 bytes read, 13655033 more expected)', IncompleteRead(6211798 bytes read, 13655033 more expected))"
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
     },
     {
       "file": "combined_advance_16092026.pdf",
@@ -71,17 +87,12 @@
     {
       "file": "mediation_advance_16.09.2026_original.pdf",
       "date": "2026-09-16",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-    },
-    {
-      "file": "today_jr_suppl._judicial_15092026.pdf",
-      "date": "2026-09-15",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "deleteion_86_15.09.2026.pdf",
+      "file": "today_jr_suppl._judicial_15092026.pdf",
       "date": "2026-09-15",
       "matched": 0,
       "regex_matches": 0,
@@ -94,13 +105,26 @@
       "court": "44",
       "judge": "JYOTI SINGH NOTE",
       "time": null,
-      "page": 309,
+      "page": 454,
       "context": "89        CS(COMM)-269/2024   RAZORPAY SOFTWARE PARSHANT ARORA,",
       "caseNo": "CS(COMM)/269/2024",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-269/2024",
       "date": "2026-09-16",
-      "source_pdf": "combined_advance_16092026.pdf"
+      "source_pdf": "combined_cause_list_16.09.2026.pdf"
+    },
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 784,
+      "context": "In CS(COMM)-    CORPORATION PUBLIC BINNY KALRA,\n        149/2025        COMPANY LTD. & ANR MEHUL PARTI, ISHI",
+      "caseNo": "CS(COMM)/149/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-    CORPORATION PUBLIC BINNY KALRA,\n        149/2025",
+      "date": "2026-09-16",
+      "source_pdf": "combined_cause_list_16.09.2026.pdf"
     }
   ]
 }
