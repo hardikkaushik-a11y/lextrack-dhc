@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-15T01:01:39Z",
+  "scraped_at": "2026-09-15T02:01:39Z",
   "for_dates": [
     "2026-09-15",
     "2026-09-16"
@@ -10,9 +10,7 @@
     {
       "file": "mediation_advance_16.09.2026_original.pdf",
       "date": "2026-09-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(969392 bytes read, 350072 more expected)', IncompleteRead(969392 bytes read, 350072 more expected))"
     },
     {
       "file": "pronouncement_of_judgment_in_court_no_38_15092026.pdf",
