@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-16T12:01:35Z",
+  "scraped_at": "2026-09-16T13:01:43Z",
   "for_dates": [
     "2026-09-16",
     "2026-09-17"
@@ -7,6 +7,41 @@
   "tracked_cases": 21,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_targetted_17092026.pdf",
+      "date": "2026-09-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_17.09.2026.pdf",
+      "date": "2026-09-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_17.09.2026.pdf",
+      "date": "2026-09-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_17092026.pdf",
+      "date": "2026-09-17",
+      "matched": 4,
+      "regex_matches": 4,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl17092026.pdf",
+      "date": "2026-09-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_adv_17.09.2026.pdf",
       "date": "2026-09-17",
@@ -17,9 +52,7 @@
     {
       "file": "advance_mediation_original_17092026.pdf",
       "date": "2026-09-17",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup_hmj_prateek_j_16.09.2026.pdf",
@@ -76,34 +109,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "pro_2_16.09.2026.pdf",
-      "date": "2026-09-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pronouncements_on_16.09.2026_amit_mahajan.pdf",
-      "date": "2026-09-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_16.09.2026.pdf",
-      "date": "2026-09-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_16.09.2026.pdf",
-      "date": "2026-09-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -112,52 +117,52 @@
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 323,
+      "page": 468,
       "context": "48      CS(COMM)-       DAZN LIMITED & ANR.        R MAYA, BINSY\n             536/2025        V/s BUFFSPORTS. ME &       SUSAN BABY, ISHI",
       "caseNo": "CS(COMM)/536/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-       DAZN LIMITED & ANR.        R MAYA, BINSY\n             536/2025",
       "date": "2026-09-17",
-      "source_pdf": "combined_adv_17.09.2026.pdf"
+      "source_pdf": "c_17092026.pdf"
     },
     {
       "item": "74",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 327,
+      "page": 472,
       "context": "74      CS(COMM)-         RELIANCE CONSUMER        AKSHAY MALOO,\n             582/2025          PRODUCTS LIMITED         ABHISHEK GAUR",
       "caseNo": "CS(COMM)/582/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         RELIANCE CONSUMER        AKSHAY MALOO,\n             582/2025",
       "date": "2026-09-17",
-      "source_pdf": "combined_adv_17.09.2026.pdf"
+      "source_pdf": "c_17092026.pdf"
     },
     {
       "item": "49",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 9,
+      "page": 726,
       "context": "49       CS(COMM)-       DAZN LIMITED &     R MAYA, BINSY\n             536/2025        ANR.               SUSAN BABY,",
       "caseNo": "CS(COMM)/536/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-       DAZN LIMITED &     R MAYA, BINSY\n             536/2025",
       "date": "2026-09-17",
-      "source_pdf": "advance_mediation_original_17092026.pdf"
+      "source_pdf": "c_17092026.pdf"
     },
     {
       "item": "76",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 13,
+      "page": 730,
       "context": "76       CS(COMM)-       RELIANCE CONSUMER AKSHAY\n             582/2025        PRODUCTS LIMITED MALOO,",
       "caseNo": "CS(COMM)/582/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-       RELIANCE CONSUMER AKSHAY\n             582/2025",
       "date": "2026-09-17",
-      "source_pdf": "advance_mediation_original_17092026.pdf"
+      "source_pdf": "c_17092026.pdf"
     }
   ]
 }
