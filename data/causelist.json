@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-16T15:01:46Z",
+  "scraped_at": "2026-09-16T16:01:49Z",
   "for_dates": [
     "2026-09-16",
     "2026-09-17"
@@ -73,7 +73,9 @@
     {
       "file": "advance_mediation_original_17092026.pdf",
       "date": "2026-09-17",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
     },
     {
       "file": "sup_hmj_prateek_j_16.09.2026.pdf",
@@ -85,7 +87,9 @@
     {
       "file": "today_jr_suppl._judicial_16092026.pdf",
       "date": "2026-09-16",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "suppl_12_16.09.2026.pdf",
