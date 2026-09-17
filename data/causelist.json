@@ -1,17 +1,22 @@
 {
-  "scraped_at": "2026-09-17T05:01:25Z",
+  "scraped_at": "2026-09-17T06:04:37Z",
   "for_dates": [
     "2026-09-17",
     "2026-09-18"
   ],
   "tracked_cases": 21,
-  "matched_cases": 4,
+  "matched_cases": 2,
   "sources": [
     {
       "file": "advance_mediation_original_18.09.2026.pdf",
       "date": "2026-09-18",
-      "matched": 2,
-      "regex_matches": 2,
+      "error": "download: ('Connection broken: IncompleteRead(678488 bytes read, 631739 more expected)', IncompleteRead(678488 bytes read, 631739 more expected))"
+    },
+    {
+      "file": "sup_hmj_amit_bansal_17.09.2026.pdf",
+      "date": "2026-09-17",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -59,7 +64,7 @@
     {
       "file": "c_17092026.pdf",
       "date": "2026-09-17",
-      "error": "download: ('Connection broken: IncompleteRead(13967454 bytes read, 6722931 more expected)', IncompleteRead(13967454 bytes read, 6722931 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(8842382 bytes read, 11848003 more expected)', IncompleteRead(8842382 bytes read, 11848003 more expected))"
     },
     {
       "file": "rl17092026.pdf",
@@ -71,7 +76,9 @@
     {
       "file": "combined_adv_17.09.2026.pdf",
       "date": "2026-09-17",
-      "error": "download: ('Connection broken: IncompleteRead(3424256 bytes read, 3506054 more expected)', IncompleteRead(3424256 bytes read, 3506054 more expected))"
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
     },
     {
       "file": "advance_mediation_original_17092026.pdf",
@@ -83,30 +90,30 @@
   ],
   "entries": [
     {
-      "item": "65",
+      "item": "48",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 12,
-      "context": "65       CS(COMM)-         JIOSTAR INDIA      GAURAV\n             756/2025          PRIVATE LIMITED    SARKAR,",
-      "caseNo": "CS(COMM)/756/2025",
+      "page": 323,
+      "context": "48      CS(COMM)-       DAZN LIMITED & ANR.        R MAYA, BINSY\n             536/2025        V/s BUFFSPORTS. ME &       SUSAN BABY, ISHI",
+      "caseNo": "CS(COMM)/536/2025",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA      GAURAV\n             756/2025",
-      "date": "2026-09-18",
-      "source_pdf": "advance_mediation_original_18.09.2026.pdf"
+      "matched_on": "CS(COMM)-       DAZN LIMITED & ANR.        R MAYA, BINSY\n             536/2025",
+      "date": "2026-09-17",
+      "source_pdf": "combined_adv_17.09.2026.pdf"
     },
     {
-      "item": "94",
+      "item": "74",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 17,
-      "context": "94       CS(COMM)-         JIOSTAR INDIA     GEETANJALI\n             810/2025          PRIVATE LIMITED   VISVANATHAN,",
-      "caseNo": "CS(COMM)/810/2025",
+      "page": 327,
+      "context": "74      CS(COMM)-         RELIANCE CONSUMER        AKSHAY MALOO,\n             582/2025          PRODUCTS LIMITED         ABHISHEK GAUR",
+      "caseNo": "CS(COMM)/582/2025",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA     GEETANJALI\n             810/2025",
-      "date": "2026-09-18",
-      "source_pdf": "advance_mediation_original_18.09.2026.pdf"
+      "matched_on": "CS(COMM)-         RELIANCE CONSUMER        AKSHAY MALOO,\n             582/2025",
+      "date": "2026-09-17",
+      "source_pdf": "combined_adv_17.09.2026.pdf"
     },
     {
       "item": "49",

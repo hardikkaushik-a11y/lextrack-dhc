@@ -1712,7 +1712,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:01:47.773Z",
+    "lastScraped": "2026-09-17T06:05:31.922Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2100,7 +2100,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:01:55.251Z",
+    "lastScraped": "2026-09-17T06:05:43.117Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2442,7 +2442,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:02:02.811Z",
+    "lastScraped": "2026-09-17T06:05:59.459Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2784,7 +2784,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:02:10.326Z",
+    "lastScraped": "2026-09-17T06:06:10.006Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2916,7 +2916,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:02:17.827Z",
+    "lastScraped": "2026-09-17T06:06:25.181Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3147,7 +3147,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:02:25.327Z",
+    "lastScraped": "2026-09-17T06:06:35.024Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3678,7 +3678,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:02:32.628Z",
+    "lastScraped": "2026-09-17T06:06:43.306Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4651,7 +4651,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:02:40.154Z",
+    "lastScraped": "2026-09-17T06:06:51.680Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4880,7 +4880,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:02:47.625Z",
+    "lastScraped": "2026-09-17T06:07:01.067Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5333,7 +5333,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:02:55.161Z",
+    "lastScraped": "2026-09-17T06:07:09.194Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5559,7 +5559,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:03:02.763Z",
+    "lastScraped": "2026-09-17T06:07:18.182Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5571,17 +5571,111 @@
     "timeline": []
   },
   {
-    "id": "m_CSCOMM_269_2024",
     "caseNo": "CS(COMM)/269/2024",
-    "title": "RAZORPAY SOFTWARE PRIVATE LIMITED & ANR. VS. JOHN DOE & ORS.Advocate: SANIDHYA MAHESHWARI",
-    "type": "copyright",
-    "stage": "filed",
-    "status": "PENDING",
-    "judge": null,
-    "client": null,
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-09-17T06:07:39.609Z",
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2025-12-10.pdf",
+        "type": "Court Order",
+        "date": "2025-12-10",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1765468854_fcb2237996d225be_589_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-11-04.pdf",
+        "type": "Court Order",
+        "date": "2025-11-04",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1762340623_cca22b370e4c730d_589_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-09-10.pdf",
+        "type": "Court Order",
+        "date": "2025-09-10",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1757604944_e6e47059891255b6_589_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-11.pdf",
+        "type": "Court Order",
+        "date": "2025-08-11",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1754913308_60fbde426dd8a328_745_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-28.pdf",
+        "type": "Court Order",
+        "date": "2025-04-28",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1746006163_6811f09352963.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-04-03.pdf",
+        "type": "Court Order",
+        "date": "2025-04-03",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521743767311557_70108_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-03-12.pdf",
+        "type": "Court Order",
+        "date": "2025-03-12",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521741774730299_861_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-01-24.pdf",
+        "type": "Court Order",
+        "date": "2025-01-24",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521737715842367_62667_2692024.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-11-11.pdf",
+        "type": "Court Order",
+        "date": "2024-11-11",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521731412195662_94039_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-09-03.pdf",
+        "type": "Court Order",
+        "date": "2024-09-03",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/590756001725451534684_30927_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-09-02.pdf",
+        "type": "Court Order",
+        "date": "2024-09-02",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448905239_13561_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-08-30.pdf",
+        "type": "Court Order",
+        "date": "2024-08-30",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448906481_70816_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-07-02.pdf",
+        "type": "Court Order",
+        "date": "2024-07-02",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521720003547382_48225_2692024.pdf/2024",
+        "size": "—"
+      },
+      {
+        "name": "Order_2024-04-02.pdf",
+        "type": "Court Order",
+        "date": "2024-04-02",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/100025571712236282954_30259_2692024.pdf/2024",
+        "size": "—"
+      }
+    ],
     "lastDate": "2026-05-22",
-    "nextDate": "2026-09-16",
-    "notes": null,
     "timeline": [
       {
         "date": "2026-05-22",
@@ -6186,111 +6280,7 @@
           "_orderDate": "2024-04-02"
         }
       }
-    ],
-    "additionalDates": [],
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2025-12-10.pdf",
-        "type": "Court Order",
-        "date": "2025-12-10",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1765468854_fcb2237996d225be_589_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-11-04.pdf",
-        "type": "Court Order",
-        "date": "2025-11-04",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1762340623_cca22b370e4c730d_589_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-09-10.pdf",
-        "type": "Court Order",
-        "date": "2025-09-10",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1757604944_e6e47059891255b6_589_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-11.pdf",
-        "type": "Court Order",
-        "date": "2025-08-11",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1754913308_60fbde426dd8a328_745_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-28.pdf",
-        "type": "Court Order",
-        "date": "2025-04-28",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1746006163_6811f09352963.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-04-03.pdf",
-        "type": "Court Order",
-        "date": "2025-04-03",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521743767311557_70108_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-03-12.pdf",
-        "type": "Court Order",
-        "date": "2025-03-12",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521741774730299_861_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-01-24.pdf",
-        "type": "Court Order",
-        "date": "2025-01-24",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521737715842367_62667_2692024.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-11-11.pdf",
-        "type": "Court Order",
-        "date": "2024-11-11",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521731412195662_94039_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-09-03.pdf",
-        "type": "Court Order",
-        "date": "2024-09-03",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/590756001725451534684_30927_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-09-02.pdf",
-        "type": "Court Order",
-        "date": "2024-09-02",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448905239_13561_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-08-30.pdf",
-        "type": "Court Order",
-        "date": "2024-08-30",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521725448906481_70816_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-07-02.pdf",
-        "type": "Court Order",
-        "date": "2024-07-02",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100013521720003547382_48225_2692024.pdf/2024",
-        "size": "—"
-      },
-      {
-        "name": "Order_2024-04-02.pdf",
-        "type": "Court Order",
-        "date": "2024-04-02",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/100025571712236282954_30259_2692024.pdf/2024",
-        "size": "—"
-      }
-    ],
-    "lastScraped": "2026-09-17T05:03:10.317Z",
-    "_scraperVersion": "v11-jr-default-2026-05-14"
+    ]
   },
   {
     "id": "m_CSCOMM_997_2025",
@@ -7040,7 +7030,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:03:17.890Z",
+    "lastScraped": "2026-09-17T06:07:45.933Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7340,7 +7330,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:03:25.457Z",
+    "lastScraped": "2026-09-17T06:08:02.879Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7740,7 +7730,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:03:33.029Z",
+    "lastScraped": "2026-09-17T06:08:18.623Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8015,7 +8005,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:03:41.948Z",
+    "lastScraped": "2026-09-17T06:08:27.183Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8749,7 +8739,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:03:56.473Z",
+    "lastScraped": "2026-09-17T06:08:36.641Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8871,7 +8861,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:04:04.038Z",
+    "lastScraped": "2026-09-17T06:08:46.470Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9213,7 +9203,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:04:11.529Z",
+    "lastScraped": "2026-09-17T06:08:54.846Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10044,7 +10034,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:04:19.081Z",
+    "lastScraped": "2026-09-17T06:09:19.035Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10510,7 +10500,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-17T05:04:26.672Z",
+    "lastScraped": "2026-09-17T06:09:28.612Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
