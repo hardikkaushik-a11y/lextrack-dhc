@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-17T09:01:46Z",
+  "scraped_at": "2026-09-17T10:01:46Z",
   "for_dates": [
     "2026-09-17",
     "2026-09-18"
@@ -17,9 +17,7 @@
     {
       "file": "advance_mediation_original_18.09.2026.pdf",
       "date": "2026-09-18",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "suppl_15_17.09.2026.pdf",
@@ -83,20 +81,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_17092026.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_17.09.2026.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -125,32 +109,6 @@
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE         GEETANJALI\n             810/2025",
       "date": "2026-09-18",
       "source_pdf": "combined_adv_list_18.09.2026.pdf"
-    },
-    {
-      "item": "65",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 12,
-      "context": "65       CS(COMM)-         JIOSTAR INDIA      GAURAV\n             756/2025          PRIVATE LIMITED    SARKAR,",
-      "caseNo": "CS(COMM)/756/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA      GAURAV\n             756/2025",
-      "date": "2026-09-18",
-      "source_pdf": "advance_mediation_original_18.09.2026.pdf"
-    },
-    {
-      "item": "94",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 17,
-      "context": "94       CS(COMM)-         JIOSTAR INDIA     GEETANJALI\n             810/2025          PRIVATE LIMITED   VISVANATHAN,",
-      "caseNo": "CS(COMM)/810/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA     GEETANJALI\n             810/2025",
-      "date": "2026-09-18",
-      "source_pdf": "advance_mediation_original_18.09.2026.pdf"
     }
   ]
 }
