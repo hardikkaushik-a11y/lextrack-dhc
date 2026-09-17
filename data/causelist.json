@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-17T00:01:26Z",
+  "scraped_at": "2026-09-17T01:01:37Z",
   "for_dates": [
     "2026-09-17",
     "2026-09-18"
@@ -59,7 +59,9 @@
     {
       "file": "c_17092026.pdf",
       "date": "2026-09-17",
-      "error": "download: ('Connection broken: IncompleteRead(12950030 bytes read, 7740355 more expected)', IncompleteRead(12950030 bytes read, 7740355 more expected))"
+      "matched": 4,
+      "regex_matches": 4,
+      "norm_matches": 0
     },
     {
       "file": "rl17092026.pdf",
@@ -115,52 +117,52 @@
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 323,
+      "page": 468,
       "context": "48      CS(COMM)-       DAZN LIMITED & ANR.        R MAYA, BINSY\n             536/2025        V/s BUFFSPORTS. ME &       SUSAN BABY, ISHI",
       "caseNo": "CS(COMM)/536/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-       DAZN LIMITED & ANR.        R MAYA, BINSY\n             536/2025",
       "date": "2026-09-17",
-      "source_pdf": "combined_adv_17.09.2026.pdf"
+      "source_pdf": "c_17092026.pdf"
     },
     {
       "item": "74",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 327,
+      "page": 472,
       "context": "74      CS(COMM)-         RELIANCE CONSUMER        AKSHAY MALOO,\n             582/2025          PRODUCTS LIMITED         ABHISHEK GAUR",
       "caseNo": "CS(COMM)/582/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         RELIANCE CONSUMER        AKSHAY MALOO,\n             582/2025",
       "date": "2026-09-17",
-      "source_pdf": "combined_adv_17.09.2026.pdf"
+      "source_pdf": "c_17092026.pdf"
     },
     {
       "item": "49",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 9,
+      "page": 726,
       "context": "49       CS(COMM)-       DAZN LIMITED &     R MAYA, BINSY\n             536/2025        ANR.               SUSAN BABY,",
       "caseNo": "CS(COMM)/536/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-       DAZN LIMITED &     R MAYA, BINSY\n             536/2025",
       "date": "2026-09-17",
-      "source_pdf": "advance_mediation_original_17092026.pdf"
+      "source_pdf": "c_17092026.pdf"
     },
     {
       "item": "76",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 13,
+      "page": 730,
       "context": "76       CS(COMM)-       RELIANCE CONSUMER AKSHAY\n             582/2025        PRODUCTS LIMITED MALOO,",
       "caseNo": "CS(COMM)/582/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-       RELIANCE CONSUMER AKSHAY\n             582/2025",
       "date": "2026-09-17",
-      "source_pdf": "advance_mediation_original_17092026.pdf"
+      "source_pdf": "c_17092026.pdf"
     }
   ]
 }
