@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-17T13:01:46Z",
+  "scraped_at": "2026-09-17T14:01:40Z",
   "for_dates": [
     "2026-09-17",
     "2026-09-18"
@@ -7,6 +7,41 @@
   "tracked_cases": 21,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "pla_18.09.2026.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_18.09.2026.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targeeted_18.09.2026.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_18.09.2026.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_2_18.09.2026.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "finals_18.09.2026.pdf",
       "date": "2026-09-18",
@@ -31,7 +66,7 @@
     {
       "file": "combined_adv_list_18.09.2026.pdf",
       "date": "2026-09-18",
-      "error": "download: ('Connection broken: IncompleteRead(4915464 bytes read, 1371366 more expected)', IncompleteRead(4915464 bytes read, 1371366 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(3705144 bytes read, 2581686 more expected)', IncompleteRead(3705144 bytes read, 2581686 more expected))"
     },
     {
       "file": "advance_mediation_original_18.09.2026.pdf",
@@ -70,27 +105,6 @@
     },
     {
       "file": "sup_1_17.09.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "transferred_to_j._manoj_k._ohri_17.09.2026.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_amit_bansal_17.09.2026.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_17.09.2026.pdf",
       "date": "2026-09-17",
       "matched": 0,
       "regex_matches": 0,
