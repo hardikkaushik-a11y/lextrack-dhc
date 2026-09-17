@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-09-17T18:01:29Z",
+  "scraped_at": "2026-09-17T19:01:37Z",
   "for_dates": [
-    "2026-09-17",
-    "2026-09-18"
+    "2026-09-18",
+    "2026-09-19"
   ],
   "tracked_cases": 21,
   "matched_cases": 2,
@@ -66,48 +66,15 @@
     {
       "file": "combined_adv_list_18.09.2026.pdf",
       "date": "2026-09-18",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
     },
     {
       "file": "advance_mediation_original_18.09.2026.pdf",
       "date": "2026-09-18",
       "matched": 2,
       "regex_matches": 2,
-      "norm_matches": 0
-    },
-    {
-      "file": "sups_for_17.09.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_15_17.09.2026.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pronouncement_for_17092026_0.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_13_17.09.2026_hmj_amit_bansal.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_1_17.09.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
