@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-09-17T07:04:29Z",
+  "scraped_at": "2026-09-17T08:01:54Z",
   "for_dates": [
     "2026-09-17",
     "2026-09-18"
   ],
   "tracked_cases": 21,
-  "matched_cases": 4,
+  "matched_cases": 2,
   "sources": [
     {
       "file": "combined_adv_list_18.09.2026.pdf",
@@ -19,6 +19,41 @@
       "date": "2026-09-18",
       "matched": 2,
       "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "suppl_15_17.09.2026.pdf",
+      "date": "2026-09-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pronouncement_for_17092026_0.pdf",
+      "date": "2026-09-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "suppl_13_17.09.2026_hmj_amit_bansal.pdf",
+      "date": "2026-09-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_1_17.09.pdf",
+      "date": "2026-09-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "transferred_to_j._manoj_k._ohri_17.09.2026.pdf",
+      "date": "2026-09-17",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -61,37 +96,6 @@
       "date": "2026-09-17",
       "matched": 0,
       "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_17.09.2026.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_17092026.pdf",
-      "date": "2026-09-17",
-      "error": "download: ('Connection broken: IncompleteRead(8280430 bytes read, 12409955 more expected)', IncompleteRead(8280430 bytes read, 12409955 more expected))"
-    },
-    {
-      "file": "rl17092026.pdf",
-      "date": "2026-09-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_17.09.2026.pdf",
-      "date": "2026-09-17",
-      "error": "download: ('Connection broken: IncompleteRead(2531552 bytes read, 4398758 more expected)', IncompleteRead(2531552 bytes read, 4398758 more expected))"
-    },
-    {
-      "file": "advance_mediation_original_17092026.pdf",
-      "date": "2026-09-17",
-      "matched": 2,
-      "regex_matches": 2,
       "norm_matches": 0
     }
   ],
@@ -147,32 +151,6 @@
       "matched_on": "CS(COMM)-         JIOSTAR INDIA     GEETANJALI\n             810/2025",
       "date": "2026-09-18",
       "source_pdf": "advance_mediation_original_18.09.2026.pdf"
-    },
-    {
-      "item": "49",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 9,
-      "context": "49       CS(COMM)-       DAZN LIMITED &     R MAYA, BINSY\n             536/2025        ANR.               SUSAN BABY,",
-      "caseNo": "CS(COMM)/536/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-       DAZN LIMITED &     R MAYA, BINSY\n             536/2025",
-      "date": "2026-09-17",
-      "source_pdf": "advance_mediation_original_17092026.pdf"
-    },
-    {
-      "item": "76",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 13,
-      "context": "76       CS(COMM)-       RELIANCE CONSUMER AKSHAY\n             582/2025        PRODUCTS LIMITED MALOO,",
-      "caseNo": "CS(COMM)/582/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-       RELIANCE CONSUMER AKSHAY\n             582/2025",
-      "date": "2026-09-17",
-      "source_pdf": "advance_mediation_original_17092026.pdf"
     }
   ]
 }
