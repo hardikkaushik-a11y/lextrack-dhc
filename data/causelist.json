@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-18T12:01:06Z",
+  "scraped_at": "2026-09-18T13:01:15Z",
   "for_dates": [
     "2026-09-18",
     "2026-09-19"
@@ -7,6 +7,20 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_causelist_19092026.pdf",
+      "date": "2026-09-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "mediation_19092026m_1.pdf",
+      "date": "2026-09-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_today_18092026.pdf",
       "date": "2026-09-18",
@@ -72,13 +86,6 @@
     },
     {
       "file": "supp_18.09.2026.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_18.09.2026_1.pdf",
       "date": "2026-09-18",
       "matched": 0,
       "regex_matches": 0,
