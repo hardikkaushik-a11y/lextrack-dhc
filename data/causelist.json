@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-18T09:01:09Z",
+  "scraped_at": "2026-09-18T10:01:05Z",
   "for_dates": [
     "2026-09-18",
     "2026-09-19"
@@ -7,6 +7,20 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup_spl_db_18.09_0.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_db-vii_18.09.2026.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "suppl_11_18.09.2026_0.pdf",
       "date": "2026-09-18",
@@ -58,34 +72,6 @@
     },
     {
       "file": "registrar_supply_list_18.09.2026_1.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_8_18.09.2026.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_18.09.2026.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_18.09.2026.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targeeted_18.09.2026.pdf",
       "date": "2026-09-18",
       "matched": 0,
       "regex_matches": 0,
