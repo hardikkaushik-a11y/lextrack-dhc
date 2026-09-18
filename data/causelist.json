@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-18T05:01:34Z",
+  "scraped_at": "2026-09-18T06:01:35Z",
   "for_dates": [
     "2026-09-18",
     "2026-09-19"
@@ -7,6 +7,48 @@
   "tracked_cases": 21,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "pronouncement_18.09.26.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "second_supplementary_list_for_18-09-2026_of_company_branch.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_saurabh_banerjee_18.09.2026.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "supp_18.09.2026.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_18.09.2026_1.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "suppl_8_18.09.2026.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "pla_18.09.2026.pdf",
       "date": "2026-09-18",
@@ -62,20 +104,6 @@
       "matched": 2,
       "regex_matches": 2,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_18.09.2026.pdf",
-      "date": "2026-09-18",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
-    },
-    {
-      "file": "advance_mediation_original_18.09.2026.pdf",
-      "date": "2026-09-18",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -104,32 +132,6 @@
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE         GEETANJALI\n             810/2025",
       "date": "2026-09-18",
       "source_pdf": "combined_cause_list_18.09.2026.pdf"
-    },
-    {
-      "item": "65",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 12,
-      "context": "65       CS(COMM)-         JIOSTAR INDIA      GAURAV\n             756/2025          PRIVATE LIMITED    SARKAR,",
-      "caseNo": "CS(COMM)/756/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA      GAURAV\n             756/2025",
-      "date": "2026-09-18",
-      "source_pdf": "advance_mediation_original_18.09.2026.pdf"
-    },
-    {
-      "item": "94",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 17,
-      "context": "94       CS(COMM)-         JIOSTAR INDIA     GEETANJALI\n             810/2025          PRIVATE LIMITED   VISVANATHAN,",
-      "caseNo": "CS(COMM)/810/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA     GEETANJALI\n             810/2025",
-      "date": "2026-09-18",
-      "source_pdf": "advance_mediation_original_18.09.2026.pdf"
     }
   ]
 }
