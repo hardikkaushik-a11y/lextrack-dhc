@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-09-18T18:01:09Z",
+  "scraped_at": "2026-09-18T19:01:40Z",
   "for_dates": [
-    "2026-09-18",
-    "2026-09-19"
+    "2026-09-19",
+    "2026-09-20"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
@@ -17,76 +17,6 @@
     {
       "file": "mediation_19092026m_1.pdf",
       "date": "2026-09-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_today_18092026.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_spl_db_18.09_0.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_db-vii_18.09.2026.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_11_18.09.2026_0.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_10_18.09.2026.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_for_18.09.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pronouncement_18.09.26.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "second_supplementary_list_for_18-09-2026_of_company_branch.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_saurabh_banerjee_18.09.2026.pdf",
-      "date": "2026-09-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "supp_18.09.2026.pdf",
-      "date": "2026-09-18",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
