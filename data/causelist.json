@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-18T11:01:16Z",
+  "scraped_at": "2026-09-18T12:01:06Z",
   "for_dates": [
     "2026-09-18",
     "2026-09-19"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_today_18092026.pdf",
+      "date": "2026-09-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_spl_db_18.09_0.pdf",
       "date": "2026-09-18",
