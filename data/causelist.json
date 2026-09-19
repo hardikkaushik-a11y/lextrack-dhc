@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-19T12:01:00Z",
+  "scraped_at": "2026-09-19T13:04:01Z",
   "for_dates": [
     "2026-09-19",
     "2026-09-20"
@@ -10,9 +10,7 @@
     {
       "file": "combined_causelist_19092026.pdf",
       "date": "2026-09-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: HTTPSConnectionPool(host='delhihighcourt.nic.in', port=443): Read timed out."
     },
     {
       "file": "mediation_19092026m_1.pdf",
