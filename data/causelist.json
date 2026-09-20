@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-20T11:00:59Z",
+  "scraped_at": "2026-09-20T12:01:06Z",
   "for_dates": [
     "2026-09-20",
     "2026-09-21"
@@ -7,6 +7,20 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "rl21092026.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_21.09.2026.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_21.09.2026.pdf",
       "date": "2026-09-21",
