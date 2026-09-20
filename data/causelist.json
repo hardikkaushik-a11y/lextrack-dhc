@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-20T17:01:41Z",
+  "scraped_at": "2026-09-20T18:01:24Z",
   "for_dates": [
     "2026-09-20",
     "2026-09-21"
@@ -31,14 +31,12 @@
     {
       "file": "dh_sup_2_21.09.pdf",
       "date": "2026-09-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(1033592 bytes read, 57691 more expected)', IncompleteRead(1033592 bytes read, 57691 more expected))"
     },
     {
       "file": "combined_cause_list_21.09.2026.pdf",
       "date": "2026-09-21",
-      "error": "download: ('Connection broken: IncompleteRead(19365686 bytes read, 1000991 more expected)', IncompleteRead(19365686 bytes read, 1000991 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(8210005 bytes read, 12156672 more expected)', IncompleteRead(8210005 bytes read, 12156672 more expected))"
     },
     {
       "file": "advance_cause_list_21.09.2026.pdf",
