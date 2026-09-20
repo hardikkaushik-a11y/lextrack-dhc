@@ -1,12 +1,59 @@
 {
-  "scraped_at": "2026-09-20T13:01:04Z",
+  "scraped_at": "2026-09-20T14:01:29Z",
   "for_dates": [
     "2026-09-20",
     "2026-09-21"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 3,
   "sources": [
+    {
+      "file": "combined_targetted_21.09.2026.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "jud_for_21.09.2026.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_21.09.2026.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "dh_sup_2_21.09.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_21.09.2026.pdf",
+      "date": "2026-09-21",
+      "error": "download: ('Connection broken: IncompleteRead(6274502 bytes read, 14092175 more expected)', IncompleteRead(6274502 bytes read, 14092175 more expected))"
+    },
+    {
+      "file": "advance_cause_list_21.09.2026.pdf",
+      "date": "2026-09-21",
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_21.09.2026.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "pla_21.09.2026.pdf",
       "date": "2026-09-21",
@@ -24,7 +71,9 @@
     {
       "file": "combined_adv_list_21.09.2026.pdf",
       "date": "2026-09-21",
-      "error": "download: ('Connection broken: IncompleteRead(1824512 bytes read, 3693400 more expected)', IncompleteRead(1824512 bytes read, 3693400 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_21.09.2026.pdf",
@@ -35,6 +84,45 @@
     }
   ],
   "entries": [
+    {
+      "item": null,
+      "court": "48",
+      "judge": "ANUP JAIRAM BHAMBHANI NOTE",
+      "time": null,
+      "page": 26,
+      "context": "In CS(COMM)-        AS MEBIGO LABS\n             256/2026            PRIVATE LIMITED)",
+      "caseNo": "CS(COMM)/256/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-        AS MEBIGO LABS\n             256/2026",
+      "date": "2026-09-21",
+      "source_pdf": "advance_cause_list_21.09.2026.pdf"
+    },
+    {
+      "item": null,
+      "court": "48",
+      "judge": "ANUP JAIRAM BHAMBHANI NOTE",
+      "time": null,
+      "page": 27,
+      "context": "In CS(COMM)-        PRIVATE LIMITED      ISHI SINGH\n             319/2026            V/s ABBASI TV & ORS.",
+      "caseNo": "CS(COMM)/319/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-        PRIVATE LIMITED      ISHI SINGH\n             319/2026",
+      "date": "2026-09-21",
+      "source_pdf": "advance_cause_list_21.09.2026.pdf"
+    },
+    {
+      "item": "50",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 167,
+      "context": "50       CS(COMM)-         JIOSTAR INDIA PRIVATE        GEETANJALI\n             977/2025          LIMITED                      VISVANATHAN, R",
+      "caseNo": "CS(COMM)/977/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE        GEETANJALI\n             977/2025",
+      "date": "2026-09-21",
+      "source_pdf": "advance_cause_list_21.09.2026.pdf"
+    },
     {
       "item": "51",
       "court": "JR",
