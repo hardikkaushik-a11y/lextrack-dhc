@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-21T08:02:29Z",
+  "scraped_at": "2026-09-21T09:01:40Z",
   "for_dates": [
     "2026-09-21",
     "2026-09-22"
@@ -12,6 +12,20 @@
       "date": "2026-09-22",
       "matched": 3,
       "regex_matches": 3,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_9_for_21.09.26.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-7_for_21.09.26_trf_matters.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -45,7 +59,9 @@
     {
       "file": "jud_for_21.09.2026.pdf",
       "date": "2026-09-21",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_21.09.2026.pdf",
@@ -71,9 +87,7 @@
     {
       "file": "advance_cause_list_21.09.2026.pdf",
       "date": "2026-09-21",
-      "matched": 3,
-      "regex_matches": 3,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(851871 bytes read, 1899758 more expected)', IncompleteRead(851871 bytes read, 1899758 more expected))"
     },
     {
       "file": "deletion_note_21.09.2026.pdf",
@@ -94,18 +108,6 @@
       "date": "2026-09-21",
       "matched": 0,
       "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_21.09.2026.pdf",
-      "date": "2026-09-21",
-      "error": "download: ('Connection broken: IncompleteRead(1047240 bytes read, 4470672 more expected)', IncompleteRead(1047240 bytes read, 4470672 more expected))"
-    },
-    {
-      "file": "advance_cause_list_of_cases_for_referral_to_mediation_21.09.2026.pdf",
-      "date": "2026-09-21",
-      "matched": 1,
-      "regex_matches": 1,
       "norm_matches": 0
     }
   ],
@@ -187,19 +189,6 @@
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE        GEETANJALI\n             977/2025",
       "date": "2026-09-21",
       "source_pdf": "combined_cause_list_21.09.2026.pdf"
-    },
-    {
-      "item": "51",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 11,
-      "context": "51       CS(COMM)-    JIOSTAR INDIA        GEETANJALI\n             977/2025     PRIVATE LIMITED      VISVANATHAN, R",
-      "caseNo": "CS(COMM)/977/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-    JIOSTAR INDIA        GEETANJALI\n             977/2025",
-      "date": "2026-09-21",
-      "source_pdf": "advance_cause_list_of_cases_for_referral_to_mediation_21.09.2026.pdf"
     }
   ]
 }
