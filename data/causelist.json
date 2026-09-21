@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-21T16:01:40Z",
+  "scraped_at": "2026-09-21T17:02:01Z",
   "for_dates": [
     "2026-09-21",
     "2026-09-22"
@@ -59,7 +59,9 @@
     {
       "file": "c_22092026_0.pdf",
       "date": "2026-09-22",
-      "error": "download: ('Connection broken: IncompleteRead(14086062 bytes read, 18499341 more expected)', IncompleteRead(14086062 bytes read, 18499341 more expected))"
+      "matched": 8,
+      "regex_matches": 8,
+      "norm_matches": 0
     },
     {
       "file": "combined_adv_22.09.2026_0.pdf",
@@ -71,7 +73,7 @@
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_22.09.2026.pdf",
       "date": "2026-09-22",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "error": "download: ('Connection broken: IncompleteRead(406767 bytes read, 910128 more expected)', IncompleteRead(406767 bytes read, 910128 more expected))"
     },
     {
       "file": "sup_db_1_21.09.2026.pdf",
@@ -101,65 +103,104 @@
       "court": "50",
       "judge": "VIKAS MAHAJAN CLICK HERE TO JOIN VC",
       "time": null,
-      "page": 320,
+      "page": 455,
       "context": "9        CS(COMM)-149/2025     CENTRAL RETAIL        RISHI AGRAWALA,",
       "caseNo": "CS(COMM)/149/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-149/2025",
       "date": "2026-09-22",
-      "source_pdf": "combined_adv_22.09.2026_0.pdf"
+      "source_pdf": "c_22092026_0.pdf"
     },
     {
       "item": "18",
       "court": "50",
       "judge": "VIKAS MAHAJAN CLICK HERE TO JOIN VC",
       "time": null,
-      "page": 321,
+      "page": 456,
       "context": "18        CS(COMM)-1306/2025",
       "caseNo": "CS(COMM)/1306/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-1306/2025",
       "date": "2026-09-22",
-      "source_pdf": "combined_adv_22.09.2026_0.pdf"
+      "source_pdf": "c_22092026_0.pdf"
     },
     {
       "item": "47",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 407,
+      "page": 542,
       "context": "47      CS(COMM)-         DAZN LIMITED &     R MAYA, BINSY SUSAN\n             1152/2025         ANR.               BABY, DINESH JOTWANI,",
       "caseNo": "CS(COMM)/1152/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         DAZN LIMITED &     R MAYA, BINSY SUSAN\n             1152/2025",
       "date": "2026-09-22",
-      "source_pdf": "combined_adv_22.09.2026_0.pdf"
+      "source_pdf": "c_22092026_0.pdf"
     },
     {
       "item": "78",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 411,
+      "page": 546,
       "context": "78      CS(COMM)-         JIOSTAR INDIA     R MAYA, PRIYANSH KOHLI\n             1210/2025         PRIVATE LIMITED",
       "caseNo": "CS(COMM)/1210/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA     R MAYA, PRIYANSH KOHLI\n             1210/202",
       "date": "2026-09-22",
-      "source_pdf": "combined_adv_22.09.2026_0.pdf"
+      "source_pdf": "c_22092026_0.pdf"
     },
     {
       "item": "74",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 411,
+      "page": 546,
       "context": "74      CS(COMM)-         JIOSTAR INDIA       R MAYA, PRIYANSH KOHLI\n             1203/2025         PRIVATE LIMITED",
       "caseNo": "CS(COMM)/1203/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA       R MAYA, PRIYANSH KOHLI\n             1203/2",
       "date": "2026-09-22",
-      "source_pdf": "combined_adv_22.09.2026_0.pdf"
+      "source_pdf": "c_22092026_0.pdf"
+    },
+    {
+      "item": "48",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 776,
+      "context": "48       CS(COMM)-       DAZN LIMITED &      R MAYA, BINSY\n             1152/2025       ANR.                SUSAN BABY,",
+      "caseNo": "CS(COMM)/1152/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-       DAZN LIMITED &      R MAYA, BINSY\n             1152/2025",
+      "date": "2026-09-22",
+      "source_pdf": "c_22092026_0.pdf"
+    },
+    {
+      "item": "75",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 780,
+      "context": "75       CS(COMM)-       JIOSTAR INDIA       R MAYA,\n             1203/2025       PRIVATE LIMITED     PRIYANSH KOHLI",
+      "caseNo": "CS(COMM)/1203/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-       JIOSTAR INDIA       R MAYA,\n             1203/2025",
+      "date": "2026-09-22",
+      "source_pdf": "c_22092026_0.pdf"
+    },
+    {
+      "item": "79",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 781,
+      "context": "79       CS(COMM)-       JIOSTAR INDIA     R MAYA,\n             1210/2025       PRIVATE LIMITED   PRIYANSH KOHLI",
+      "caseNo": "CS(COMM)/1210/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-       JIOSTAR INDIA     R MAYA,\n             1210/2025",
+      "date": "2026-09-22",
+      "source_pdf": "c_22092026_0.pdf"
     }
   ]
 }
