@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-21T06:01:50Z",
+  "scraped_at": "2026-09-21T07:01:49Z",
   "for_dates": [
     "2026-09-21",
     "2026-09-22"
@@ -12,6 +12,27 @@
       "date": "2026-09-22",
       "matched": 3,
       "regex_matches": 3,
+      "norm_matches": 0
+    },
+    {
+      "file": "pronouncement_for_21092026_0.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_05_for_21-09-2026.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pronouncement_for_21092026.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
