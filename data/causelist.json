@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-21T09:01:40Z",
+  "scraped_at": "2026-09-21T10:01:33Z",
   "for_dates": [
     "2026-09-21",
     "2026-09-22"
@@ -12,6 +12,13 @@
       "date": "2026-09-22",
       "matched": 3,
       "regex_matches": 3,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_db_1_21.09.2026.pdf",
+      "date": "2026-09-21",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -87,7 +94,9 @@
     {
       "file": "advance_cause_list_21.09.2026.pdf",
       "date": "2026-09-21",
-      "error": "download: ('Connection broken: IncompleteRead(851871 bytes read, 1899758 more expected)', IncompleteRead(851871 bytes read, 1899758 more expected))"
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
     },
     {
       "file": "deletion_note_21.09.2026.pdf",
@@ -98,13 +107,6 @@
     },
     {
       "file": "pla_21.09.2026.pdf",
-      "date": "2026-09-21",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl21092026.pdf",
       "date": "2026-09-21",
       "matched": 0,
       "regex_matches": 0,
