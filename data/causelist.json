@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-22T12:01:22Z",
+  "scraped_at": "2026-09-22T13:01:40Z",
   "for_dates": [
     "2026-09-22",
     "2026-09-23"
@@ -7,6 +7,11 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_cause_list_23.09.2026.pdf",
+      "date": "2026-09-23",
+      "error": "download: ('Connection broken: IncompleteRead(17636646 bytes read, 2846672 more expected)', IncompleteRead(17636646 bytes read, 2846672 more expected))"
+    },
     {
       "file": "combined_adv_list_23.09.2026.pdf",
       "date": "2026-09-23",
@@ -72,13 +77,6 @@
     },
     {
       "file": "deletion_note_22.09.2026.pdf",
-      "date": "2026-09-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_22092026.pdf",
       "date": "2026-09-22",
       "matched": 0,
       "regex_matches": 0,
