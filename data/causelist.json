@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-22T17:01:44Z",
+  "scraped_at": "2026-09-22T18:01:27Z",
   "for_dates": [
     "2026-09-22",
     "2026-09-23"
@@ -45,9 +45,7 @@
     {
       "file": "combined_cause_list_23.09.2026.pdf",
       "date": "2026-09-23",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(7068414 bytes read, 13414904 more expected)', IncompleteRead(7068414 bytes read, 13414904 more expected))"
     },
     {
       "file": "combined_adv_list_23.09.2026.pdf",
@@ -105,13 +103,13 @@
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 547,
+      "page": 412,
       "context": "45    CS(COMM)-         DAZN LIMITED & ANR.    AISHWARYA KAUSHIQ,\n         1306/2025         V/s ABBONAMENTOIPTVIT KHAITAN & CO., ANUJ",
       "caseNo": "CS(COMM)/1306/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         DAZN LIMITED & ANR.    AISHWARYA KAUSHIQ,\n         1306/2025",
       "date": "2026-09-23",
-      "source_pdf": "combined_cause_list_23.09.2026.pdf"
+      "source_pdf": "combined_adv_list_23.09.2026.pdf"
     },
     {
       "item": "46",
