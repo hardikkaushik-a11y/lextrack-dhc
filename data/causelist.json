@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-22T10:01:22Z",
+  "scraped_at": "2026-09-22T11:01:20Z",
   "for_dates": [
     "2026-09-22",
     "2026-09-23"
@@ -8,10 +8,22 @@
   "matched_cases": 1,
   "sources": [
     {
+      "file": "combined_adv_list_23.09.2026.pdf",
+      "date": "2026-09-23",
+      "error": "download: ('Connection broken: IncompleteRead(5011888 bytes read, 2928756 more expected)', IncompleteRead(5011888 bytes read, 2928756 more expected))"
+    },
+    {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_23.09.2026.pdf",
       "date": "2026-09-23",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_13_for_22.09.26.pdf",
+      "date": "2026-09-22",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -52,9 +64,7 @@
     {
       "file": "combined_targetted_22092026.pdf",
       "date": "2026-09-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "deletion_note_22.09.2026.pdf",
@@ -65,27 +75,6 @@
     },
     {
       "file": "new_c_22092026.pdf",
-      "date": "2026-09-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_22.09.2026.pdf",
-      "date": "2026-09-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_22092026.pdf",
-      "date": "2026-09-22",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl22092026.pdf",
       "date": "2026-09-22",
       "matched": 0,
       "regex_matches": 0,
