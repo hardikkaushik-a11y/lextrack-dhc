@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-23T11:02:06Z",
+  "scraped_at": "2026-09-23T12:02:08Z",
   "for_dates": [
     "2026-09-23",
     "2026-09-24"
@@ -94,16 +94,7 @@
     {
       "file": "combined_adv_list_23.09.2026.pdf",
       "date": "2026-09-23",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "advance_cause_list_of_cases_for_referral_to_mediation_23.09.2026.pdf",
-      "date": "2026-09-23",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(6732647 bytes read, 1207997 more expected)', IncompleteRead(6732647 bytes read, 1207997 more expected))"
     }
   ],
   "entries": [
@@ -119,19 +110,6 @@
       "matched_on": "CS(COMM)-         DAZN LIMITED & ANR.    AISHWARYA KAUSHIQ,\n         1306/2025",
       "date": "2026-09-23",
       "source_pdf": "combined_cause_list_23.09.2026.pdf"
-    },
-    {
-      "item": "46",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 10,
-      "context": "46       CS(COMM)-          DAZN LIMITED & AISHWARYA\n             1306/2025          ANR.           KAUSHIQ,",
-      "caseNo": "CS(COMM)/1306/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-          DAZN LIMITED & AISHWARYA\n             1306/2025",
-      "date": "2026-09-23",
-      "source_pdf": "advance_cause_list_of_cases_for_referral_to_mediation_23.09.2026.pdf"
     }
   ]
 }
