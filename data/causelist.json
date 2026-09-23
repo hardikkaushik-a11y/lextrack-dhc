@@ -1,12 +1,26 @@
 {
-  "scraped_at": "2026-09-23T18:01:49Z",
+  "scraped_at": "2026-09-23T19:02:05Z",
   "for_dates": [
-    "2026-09-23",
-    "2026-09-24"
+    "2026-09-24",
+    "2026-09-25"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_adv_list_25.09.2026.pdf",
+      "date": "2026-09-25",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "advance_cause_list_of_cases_for_referral_to_mediation_25.09.2026.pdf",
+      "date": "2026-09-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "jud_24092026.pdf",
       "date": "2026-09-24",
@@ -66,7 +80,9 @@
     {
       "file": "combined_adv_list_24.09.2026.pdf",
       "date": "2026-09-24",
-      "error": "download: ('Connection broken: IncompleteRead(1480319 bytes read, 6040199 more expected)', IncompleteRead(1480319 bytes read, 6040199 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_24.09.2026.pdf",
@@ -74,30 +90,22 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_23.09.2026_2.pdf",
-      "date": "2026-09-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_sachin_datta_23.09.2026.pdf",
-      "date": "2026-09-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_suppl._23092026.pdf",
-      "date": "2026-09-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
+    {
+      "item": "5",
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 336,
+      "context": "5       CS(COMM)-         JIO STAR INDIA PVT      SUBHASHISH\n             108/2025          LTD                     KUMAR, R",
+      "caseNo": "CS(COMM)/108/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIO STAR INDIA PVT      SUBHASHISH\n             108/2025",
+      "date": "2026-09-25",
+      "source_pdf": "combined_adv_list_25.09.2026.pdf"
+    },
     {
       "item": null,
       "court": "JR",
