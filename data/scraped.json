@@ -1712,7 +1712,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:02:06.343Z",
+    "lastScraped": "2026-09-23T11:02:25.985Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2100,7 +2100,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:02:17.423Z",
+    "lastScraped": "2026-09-23T11:02:39.642Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2442,7 +2442,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:02:24.824Z",
+    "lastScraped": "2026-09-23T11:02:47.126Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2784,7 +2784,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:02:32.290Z",
+    "lastScraped": "2026-09-23T11:02:54.649Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2923,7 +2923,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:02:39.726Z",
+    "lastScraped": "2026-09-23T11:03:02.260Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2935,10 +2935,17 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-07-21",
+    "lastDate": "2026-09-21",
     "nextDate": "2026-10-15",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-09-21",
+        "event": "Court Order",
+        "detail": "Learned counsel appearing for the plaintiff submits, that pleadings are yet to be completed for which purpose the matter may be sent back to the learned Joint Registrar.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1790160063_5d1cc034df765c2c_ajb_3192026.pdf/2026",
+        "orderText": "CS(COMM) 319/2026Page 1 of 2 $~29 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010115132026 +CS(COMM) 319/2026 & I.A. 8049/2026 JIOSTAR INDIA PRIVATE LIMITED.....Plaintiff Through:Ms. Ishi Singh, Advocate. versus ABBASI TV & ORS......Defendants Through:Mr. Vishal Hablani, Mr. Binsy Susan and Ms. Ananya Dewan, Advocates for D-6. Mr. Mrinal Ojha, Mr Debarshi Dutta; Mr. Shivam Tiwari and Mr. Aditya Dash, Advocates for D-14. Ms. Radhika Bishwajit Dubey, CGSC with Ms. Gurleen Kaur Waraich, Mr. KritarthUpadhyay,Mr.Vivek Sharma, Mr. Amulya Dev Mishra and Mr. Saksham Sharma, Advocates for D-29 and D-30. CORAM: HON'BLE MR. JUSTICE A. J. BHAMBHANI O R D E R %21.09.2026 Learned counsel appearing for the plaintiff submits, that pleadings are yet to be completed for which purpose the matter may be sent back to the learned Joint Registrar. Learned counsel appearing for some of the DNRs submit, that they have complied with the previous directions and have furnished to the plaintiff the requisite subscriber information/registrant details and may now be deleted from the array of party-defendants. Learned counsel for the plaintiff seeks time to take instructions. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 23/09/2026 at 16:33:10 CS(COMM) 319/2026Page 2 of 2 Re-notify before the learned Joint Registrar for further proceedings on 15 th October 2026, the date already fixed. A. J. BHAMBHANI, J SEPTEMBER 21, 2026/ak This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 23/09/2026 at 16:33:10"
+      },
       {
         "date": "2026-07-21",
         "event": "Court Order",
@@ -3117,6 +3124,16 @@
     ],
     "additionalDates": [
       {
+        "date": "2026-09-23",
+        "before": "jr",
+        "firstSeenAt": "2026-09-23T11:03:11.016Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-09-21",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1790160063_5d1cc034df765c2c_ajb_3192026.pdf/2026"
+        }
+      },
+      {
         "date": "2026-10-15",
         "before": "jr",
         "firstSeenAt": "2000-01-01T00:00:00Z",
@@ -3144,7 +3161,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:02:47.188Z",
+    "lastScraped": "2026-09-23T11:03:11.024Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3675,7 +3692,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:02:54.709Z",
+    "lastScraped": "2026-09-23T11:03:18.594Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4648,7 +4665,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:03:02.293Z",
+    "lastScraped": "2026-09-23T11:03:26.308Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4877,7 +4894,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:03:09.690Z",
+    "lastScraped": "2026-09-23T11:03:33.955Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5330,7 +5347,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:03:17.120Z",
+    "lastScraped": "2026-09-23T11:03:41.544Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5545,7 +5562,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:03:24.741Z",
+    "lastScraped": "2026-09-23T11:03:55.692Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6303,7 +6320,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:03:32.205Z",
+    "lastScraped": "2026-09-23T11:04:03.306Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7054,7 +7071,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:03:39.702Z",
+    "lastScraped": "2026-09-23T11:04:10.930Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7354,7 +7371,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:03:47.267Z",
+    "lastScraped": "2026-09-23T11:04:18.552Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7754,7 +7771,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:03:54.787Z",
+    "lastScraped": "2026-09-23T11:04:26.120Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8029,7 +8046,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:04:02.319Z",
+    "lastScraped": "2026-09-23T11:04:35.220Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8766,7 +8783,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:04:09.834Z",
+    "lastScraped": "2026-09-23T11:04:42.903Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8888,7 +8905,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:04:17.253Z",
+    "lastScraped": "2026-09-23T11:04:50.560Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9220,7 +9237,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:04:24.719Z",
+    "lastScraped": "2026-09-23T11:04:58.151Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10069,7 +10086,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:04:32.201Z",
+    "lastScraped": "2026-09-23T11:05:05.825Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10535,7 +10552,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T10:04:39.667Z",
+    "lastScraped": "2026-09-23T11:05:13.435Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
