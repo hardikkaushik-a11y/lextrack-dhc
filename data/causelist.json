@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-23T12:02:08Z",
+  "scraped_at": "2026-09-23T13:01:46Z",
   "for_dates": [
     "2026-09-23",
     "2026-09-24"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "c_24092026.pdf",
+      "date": "2026-09-24",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "combined_adv_list_24.09.2026.pdf",
       "date": "2026-09-24",
@@ -17,9 +24,7 @@
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_24.09.2026.pdf",
       "date": "2026-09-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "registrar_supply_list_23.09.2026_2.pdf",
@@ -76,40 +81,21 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_sup_1_23.09.2026.pdf",
-      "date": "2026-09-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_23.09.2026.pdf",
-      "date": "2026-09-23",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_23.09.2026.pdf",
-      "date": "2026-09-23",
-      "error": "download: ('Connection broken: IncompleteRead(6732647 bytes read, 1207997 more expected)', IncompleteRead(6732647 bytes read, 1207997 more expected))"
     }
   ],
   "entries": [
     {
-      "item": "45",
+      "item": null,
       "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
+      "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 547,
-      "context": "45    CS(COMM)-         DAZN LIMITED & ANR.    AISHWARYA KAUSHIQ,\n         1306/2025         V/s ABBONAMENTOIPTVIT KHAITAN & CO., ANUJ",
-      "caseNo": "CS(COMM)/1306/2025",
+      "page": 797,
+      "context": "In CS(COMM)- PRIVATE LIMITED                  SANDEEP\n             256/2026        (FORMERLY KNOWN AS            DEVASHISH DAS",
+      "caseNo": "CS(COMM)/256/2026",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-         DAZN LIMITED & ANR.    AISHWARYA KAUSHIQ,\n         1306/2025",
-      "date": "2026-09-23",
-      "source_pdf": "combined_cause_list_23.09.2026.pdf"
+      "matched_on": "CS(COMM)- PRIVATE LIMITED                  SANDEEP\n             256/2026",
+      "date": "2026-09-24",
+      "source_pdf": "c_24092026.pdf"
     }
   ]
 }
