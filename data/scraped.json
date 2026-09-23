@@ -1712,7 +1712,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:02:02.941Z",
+    "lastScraped": "2026-09-23T17:02:05.631Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2100,7 +2100,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:02:10.387Z",
+    "lastScraped": "2026-09-23T17:02:13.210Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2442,7 +2442,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:02:24.416Z",
+    "lastScraped": "2026-09-23T17:02:20.838Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2784,7 +2784,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:02:31.808Z",
+    "lastScraped": "2026-09-23T17:02:28.445Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2805,7 +2805,31 @@
         "event": "Court Order",
         "detail": "Subject to orders of Hon’ble the Judge In-charge (Original Side), list before the other Intellectual Property Division Bench, on 29 th September 2026, the date already fixed.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1789727015_98cedf32016d98d3_ajb_3132026.pdf/2026",
-        "orderText": "$~41 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010115042026 +CS(COMM) 313/2026, I.A. 25225/2026,I.A. 25250/2026 JIOSTAR INDIA PRIVATE LIMITED.....Plaintiff Through:Mr. Sidharth Chopra, Mr. Yatinder Garg,Mr.PriyanshKohli,Mr. ManishSinghandMr.Vinayk Trivedi, Advocates. versus HTTPS//DADDYLIVES.NL & ORS......Defendants Through:Ms. Anindita Mitra, Mr. Md. Kamran andMs.ShivaniChoudhary, Advocates for D-14. Ms. Radhika Bishwajit Dubey, CGSC with Ms. Gurleen Kaur Waraich, Mr. Kritarth Upadhyay, Mr. Amulya Dev Mishra and Mr.Saksham Sharma, Advocates for D-28&29. CORAM: HON'BLE MR. JUSTICE A. J. BHAMBHANI O R D E R %15.09.2026 Subject to orders of Hon’ble the Judge In-charge (Original Side), list before the other Intellectual Property Division Bench, on 29 th September 2026, the date already fixed. A. J. BHAMBHANI, J SEPTEMBER 15, 2026 V.Rawat This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 18/09/2026 at 16:32:06"
+        "orderText": "$~41 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010115042026 +CS(COMM) 313/2026, I.A. 25225/2026,I.A. 25250/2026 JIOSTAR INDIA PRIVATE LIMITED.....Plaintiff Through:Mr. Sidharth Chopra, Mr. Yatinder Garg,Mr.PriyanshKohli,Mr. ManishSinghandMr.Vinayk Trivedi, Advocates. versus HTTPS//DADDYLIVES.NL & ORS......Defendants Through:Ms. Anindita Mitra, Mr. Md. Kamran andMs.ShivaniChoudhary, Advocates for D-14. Ms. Radhika Bishwajit Dubey, CGSC with Ms. Gurleen Kaur Waraich, Mr. Kritarth Upadhyay, Mr. Amulya Dev Mishra and Mr.Saksham Sharma, Advocates for D-28&29. CORAM: HON'BLE MR. JUSTICE A. J. BHAMBHANI O R D E R %15.09.2026 Subject to orders of Hon’ble the Judge In-charge (Original Side), list before the other Intellectual Property Division Bench, on 29 th September 2026, the date already fixed. A. J. BHAMBHANI, J SEPTEMBER 15, 2026 V.Rawat This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 18/09/2026 at 16:32:06",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Subject to orders of Hon'ble the Judge In-charge (Original Side), list the matter before the other Intellectual Property Division Bench on 29th September 2026, the date already fixed."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Sidharth Chopra, Mr. Yatinder Garg, Mr. Priyansh Kohli, Mr. Manish Singh and Mr. Vinayak Trivedi",
+            "defendant": "Ms. Anindita Mitra, Mr. Md. Kamran and Ms. Shivani Choudhary (for D-14); Ms. Radhika Bishwajit Dubey, CGSC with Ms. Gurleen Kaur Waraich, Mr. Kritarth Upadhyay, Mr. Amulya Dev Mishra and Mr. Saksham Sharma (for D-28 & 29)"
+          },
+          "summary": "The Delhi High Court, in a commercial suit by Jiostar India Private Limited against DaddyLives.nl and others, passed a procedural order directing the matter to be listed before the other Intellectual Property Division Bench on 29th September 2026, subject to orders of the Judge In-charge (Original Side). No substantive relief or costs were awarded.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-23T17:04:48.450Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/313/2026",
+          "_orderDate": "2026-09-15"
+        }
       },
       {
         "date": "2026-07-31",
@@ -2923,7 +2947,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:02:39.333Z",
+    "lastScraped": "2026-09-23T17:02:36.039Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2944,7 +2968,33 @@
         "event": "Court Order",
         "detail": "Learned counsel appearing for the plaintiff submits, that pleadings are yet to be completed for which purpose the matter may be sent back to the learned Joint Registrar.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1790160063_5d1cc034df765c2c_ajb_3192026.pdf/2026",
-        "orderText": "CS(COMM) 319/2026Page 1 of 2 $~29 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010115132026 +CS(COMM) 319/2026 & I.A. 8049/2026 JIOSTAR INDIA PRIVATE LIMITED.....Plaintiff Through:Ms. Ishi Singh, Advocate. versus ABBASI TV & ORS......Defendants Through:Mr. Vishal Hablani, Mr. Binsy Susan and Ms. Ananya Dewan, Advocates for D-6. Mr. Mrinal Ojha, Mr Debarshi Dutta; Mr. Shivam Tiwari and Mr. Aditya Dash, Advocates for D-14. Ms. Radhika Bishwajit Dubey, CGSC with Ms. Gurleen Kaur Waraich, Mr. KritarthUpadhyay,Mr.Vivek Sharma, Mr. Amulya Dev Mishra and Mr. Saksham Sharma, Advocates for D-29 and D-30. CORAM: HON'BLE MR. JUSTICE A. J. BHAMBHANI O R D E R %21.09.2026 Learned counsel appearing for the plaintiff submits, that pleadings are yet to be completed for which purpose the matter may be sent back to the learned Joint Registrar. Learned counsel appearing for some of the DNRs submit, that they have complied with the previous directions and have furnished to the plaintiff the requisite subscriber information/registrant details and may now be deleted from the array of party-defendants. Learned counsel for the plaintiff seeks time to take instructions. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 23/09/2026 at 16:33:10 CS(COMM) 319/2026Page 2 of 2 Re-notify before the learned Joint Registrar for further proceedings on 15 th October 2026, the date already fixed. A. J. BHAMBHANI, J SEPTEMBER 21, 2026/ak This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 23/09/2026 at 16:33:10"
+        "orderText": "CS(COMM) 319/2026Page 1 of 2 $~29 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010115132026 +CS(COMM) 319/2026 & I.A. 8049/2026 JIOSTAR INDIA PRIVATE LIMITED.....Plaintiff Through:Ms. Ishi Singh, Advocate. versus ABBASI TV & ORS......Defendants Through:Mr. Vishal Hablani, Mr. Binsy Susan and Ms. Ananya Dewan, Advocates for D-6. Mr. Mrinal Ojha, Mr Debarshi Dutta; Mr. Shivam Tiwari and Mr. Aditya Dash, Advocates for D-14. Ms. Radhika Bishwajit Dubey, CGSC with Ms. Gurleen Kaur Waraich, Mr. KritarthUpadhyay,Mr.Vivek Sharma, Mr. Amulya Dev Mishra and Mr. Saksham Sharma, Advocates for D-29 and D-30. CORAM: HON'BLE MR. JUSTICE A. J. BHAMBHANI O R D E R %21.09.2026 Learned counsel appearing for the plaintiff submits, that pleadings are yet to be completed for which purpose the matter may be sent back to the learned Joint Registrar. Learned counsel appearing for some of the DNRs submit, that they have complied with the previous directions and have furnished to the plaintiff the requisite subscriber information/registrant details and may now be deleted from the array of party-defendants. Learned counsel for the plaintiff seeks time to take instructions. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 23/09/2026 at 16:33:10 CS(COMM) 319/2026Page 2 of 2 Re-notify before the learned Joint Registrar for further proceedings on 15 th October 2026, the date already fixed. A. J. BHAMBHANI, J SEPTEMBER 21, 2026/ak This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 23/09/2026 at 16:33:10",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Re-notify the matter before the learned Joint Registrar for further proceedings on 15th October 2026, the date already fixed.",
+            "Plaintiff to complete pleadings; matter sent back to the learned Joint Registrar for that purpose.",
+            "Plaintiff granted time to take instructions on the request of some DNRs to be deleted from the array of party-defendants after compliance with previous directions."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ishi Singh",
+            "defendant": "Vishal Hablani, Binsy Susan, Ananya Dewan (for D-6); Mrinal Ojha, Debarshi Dutta, Shivam Tiwari, Aditya Dash (for D-14); Radhika Bishwajit Dubey, CGSC with Gurleen Kaur Waraich, Kritarth Upadhyay, Vivek Sharma, Amulya Dev Mishra, Saksham Sharma (for D-29 and D-30)"
+          },
+          "summary": "The matter was listed before the Delhi High Court. Plaintiff's counsel submitted that pleadings are yet to be completed and sought to send the matter back to the learned Joint Registrar. Some DNRs stated they had complied with previous directions by furnishing subscriber/registrant details and sought deletion from the array of party-defendants, on which the plaintiff sought time to take instructions. The court re-notified the matter before the learned Joint Registrar on 15th October 2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-23T17:04:48.450Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/319/2026",
+          "_orderDate": "2026-09-21"
+        }
       },
       {
         "date": "2026-07-21",
@@ -3161,7 +3211,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:02:46.751Z",
+    "lastScraped": "2026-09-23T17:02:43.638Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3692,7 +3742,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:02:54.138Z",
+    "lastScraped": "2026-09-23T17:02:54.654Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4665,7 +4715,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:03:01.722Z",
+    "lastScraped": "2026-09-23T17:03:02.174Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4686,7 +4736,32 @@
         "event": "Court Order",
         "detail": "List on 12.10.2026.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1789544338_8ca0cbcaf7cff325_jis_1952026.pdf/2026",
-        "orderText": "$~41 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010073862026 + CS(COMM) 195/2026 and I.A. 5413/2026. RELIANCE CONSUMER PRODUCTS LIMITED .....Plaintiff Through: Ms. Ishi Singh and Mr. Sudhata Sudhir, Advocates. versus RIPTON BEVERAGES PRIVATE LIMITED .....Defendant Through: CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 15.09.2026 1. List on 12.10.2026. 2. Interim order to continue, till the next date of hearing. JYOTI SINGH, J SEPTEMBER 15, 2026/VP This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 16/09/2026 at 13:32:45"
+        "orderText": "$~41 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010073862026 + CS(COMM) 195/2026 and I.A. 5413/2026. RELIANCE CONSUMER PRODUCTS LIMITED .....Plaintiff Through: Ms. Ishi Singh and Mr. Sudhata Sudhir, Advocates. versus RIPTON BEVERAGES PRIVATE LIMITED .....Defendant Through: CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 15.09.2026 1. List on 12.10.2026. 2. Interim order to continue, till the next date of hearing. JYOTI SINGH, J SEPTEMBER 15, 2026/VP This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 16/09/2026 at 13:32:45",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": "Interim order to continue till the next date of hearing",
+          "costsAwarded": null,
+          "directions": [
+            "List the matter on 12.10.2026.",
+            "Interim order to continue till the next date of hearing."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh and Mr. Sudhata Sudhir",
+            "defendant": null
+          },
+          "summary": "The Delhi High Court adjourned the matter in the commercial suit filed by Reliance Consumer Products Limited against Ripton Beverages Private Limited, listing it next on 12.10.2026. The existing interim order was directed to continue until the next date of hearing. No substantive relief or costs were awarded in this order.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-23T17:04:48.450Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/195/2026",
+          "_orderDate": "2026-09-15"
+        }
       },
       {
         "date": "2026-08-05",
@@ -4894,7 +4969,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:03:09.146Z",
+    "lastScraped": "2026-09-23T17:03:09.553Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5347,7 +5422,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:03:16.616Z",
+    "lastScraped": "2026-09-23T17:03:17.180Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5562,7 +5637,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:03:24.232Z",
+    "lastScraped": "2026-09-23T17:03:24.917Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5591,7 +5666,35 @@
         "event": "Court Order",
         "detail": "CS(COMM) 269/2024 1.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1789625388_9f3898e720db809e_jis_2692024.pdf/2026",
-        "orderText": "$~89 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010170712024 + CS(COMM) 269/2024 RAZORPAY SOFTWARE PRIVATE LIMITED & ANR. .....Plaintiffs Through: Mr. Yatinder Garg and Mr. Akshay Maloo, Advocates. versus JOHN DOE & ORS. .....Defendants Through: None. CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 16.09.2026 CS(COMM) 269/2024 1. Learned counsel for the Plaintiffs submits that he has not received necessary instructions till date for impleadment of proposed Defendants. 2. At request, list before the learned Joint Registrar on 15.10.2026. I.As. 7290/2024 (u/O XXXIX Rules 1 and 2 CPC), 7292/2024 (u/S 80 r/w Section 151 CPC) 3. List before Court on 27.01.2027. JYOTI SINGH, J SEPTEMBER 16, 2026 S.Sharma This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 17/09/2026 at 12:37:21"
+        "orderText": "$~89 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010170712024 + CS(COMM) 269/2024 RAZORPAY SOFTWARE PRIVATE LIMITED & ANR. .....Plaintiffs Through: Mr. Yatinder Garg and Mr. Akshay Maloo, Advocates. versus JOHN DOE & ORS. .....Defendants Through: None. CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 16.09.2026 CS(COMM) 269/2024 1. Learned counsel for the Plaintiffs submits that he has not received necessary instructions till date for impleadment of proposed Defendants. 2. At request, list before the learned Joint Registrar on 15.10.2026. I.As. 7290/2024 (u/O XXXIX Rules 1 and 2 CPC), 7292/2024 (u/S 80 r/w Section 151 CPC) 3. List before Court on 27.01.2027. JYOTI SINGH, J SEPTEMBER 16, 2026 S.Sharma This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 17/09/2026 at 12:37:21",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List the matter before the learned Joint Registrar on 15.10.2026 at the request of counsel for the Plaintiffs.",
+            "List I.As. 7290/2024 and 7292/2024 before the Court on 27.01.2027."
+          ],
+          "citations": [
+            "Order XXXIX Rules 1 and 2, Code of Civil Procedure",
+            "Section 80 read with Section 151, Code of Civil Procedure"
+          ],
+          "counsel": {
+            "plaintiff": "Mr. Yatinder Garg and Mr. Akshay Maloo",
+            "defendant": null
+          },
+          "summary": "Counsel for the Plaintiffs submitted that necessary instructions for impleadment of the proposed Defendants had not been received till date. The Court adjourned the matter, listing it before the learned Joint Registrar on 15.10.2026 and the pending applications before the Court on 27.01.2027. No relief was granted and no costs were awarded.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-23T17:04:50.650Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/269/2024",
+          "_orderDate": "2026-09-16"
+        }
       },
       {
         "date": "2026-05-22",
@@ -6320,7 +6423,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:03:31.756Z",
+    "lastScraped": "2026-09-23T17:03:32.476Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7071,7 +7174,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:03:39.268Z",
+    "lastScraped": "2026-09-23T17:03:40.102Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7371,7 +7474,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:03:46.816Z",
+    "lastScraped": "2026-09-23T17:03:47.731Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7392,7 +7495,34 @@
         "event": "Court Order",
         "detail": "CS(COMM) 1210/2025 1.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1789550523_33e4605a5dba1d29_762_12102025.pdf/2026",
-        "orderText": "$~9 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010884212025 + CS(COMM) 1210/2025 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Manish Singh, Mr. Aditya Singh Thakur & Mr. Affan Moin, Advs. (VC) versus TIMZ1CW.2HSGWROTENFY7RHYME.SHOP & ORS. .....Defendants Through: Ms. Swati Mittal, Ms. Richa Deshpande, Adv. for D-7. (VC) Ms. Ananya Dewan, Adv. For D-8.(VC) Mr. Mukul Singh (CGSC), Mr. Aryan Dhaka & Ms. Priyal Goswami, Advs. For D-22 & D-23. Mr. Shivam Tiwari & Ms. Anmol Dhinda, Advs. For D-115. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 15.09.2026 CS(COMM) 1210/2025 1. Rights of Defendant nos. 1 to 7 and 25 to 66 to file written statement already stand closed. 2. As per order of Hon’ble Court dated 13.11.2026, defendant nos. 8 to 23 are proforma defendants. Defendant no.24 is John Doe. 3. Further, defendant nos. 67 to 120 have been served through email on 07.05.2026 as per affidavit of service filed by plaintiff, however no written statement has been filed by defendant nos. 67 to 120 within a maximum permissible period of 120 days. Hence, the right of defendant nos. 67 to 120 to file written statement stand closed. 4. Compliance affidavit filed by defendant no. 21 is on record. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 16/09/2026 at 15:33:47 5. Learned counsel for defendant no. 115 submits that they have also complied with the directions of Hon’ble Court dated 27.02.2026. Let, compliance affidavit be filed within two weeks. 6. Since there is no written statement on record, there is no admission/denial of documents to be conducted. 7. Let, the matter be placed before the Hon’ble Court on 08.10.2026 for further directions. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) SEPTEMBER 15, 2026/NI This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 16/09/2026 at 15:33:47"
+        "orderText": "$~9 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010884212025 + CS(COMM) 1210/2025 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Manish Singh, Mr. Aditya Singh Thakur & Mr. Affan Moin, Advs. (VC) versus TIMZ1CW.2HSGWROTENFY7RHYME.SHOP & ORS. .....Defendants Through: Ms. Swati Mittal, Ms. Richa Deshpande, Adv. for D-7. (VC) Ms. Ananya Dewan, Adv. For D-8.(VC) Mr. Mukul Singh (CGSC), Mr. Aryan Dhaka & Ms. Priyal Goswami, Advs. For D-22 & D-23. Mr. Shivam Tiwari & Ms. Anmol Dhinda, Advs. For D-115. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 15.09.2026 CS(COMM) 1210/2025 1. Rights of Defendant nos. 1 to 7 and 25 to 66 to file written statement already stand closed. 2. As per order of Hon’ble Court dated 13.11.2026, defendant nos. 8 to 23 are proforma defendants. Defendant no.24 is John Doe. 3. Further, defendant nos. 67 to 120 have been served through email on 07.05.2026 as per affidavit of service filed by plaintiff, however no written statement has been filed by defendant nos. 67 to 120 within a maximum permissible period of 120 days. Hence, the right of defendant nos. 67 to 120 to file written statement stand closed. 4. Compliance affidavit filed by defendant no. 21 is on record. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 16/09/2026 at 15:33:47 5. Learned counsel for defendant no. 115 submits that they have also complied with the directions of Hon’ble Court dated 27.02.2026. Let, compliance affidavit be filed within two weeks. 6. Since there is no written statement on record, there is no admission/denial of documents to be conducted. 7. Let, the matter be placed before the Hon’ble Court on 08.10.2026 for further directions. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) SEPTEMBER 15, 2026/NI This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 16/09/2026 at 15:33:47",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Right of defendant nos. 1 to 7 and 25 to 66 to file written statement stands closed.",
+            "Right of defendant nos. 67 to 120 to file written statement stands closed as no written statement was filed within the maximum permissible period of 120 days.",
+            "Defendant no. 115 to file compliance affidavit within two weeks.",
+            "Matter to be placed before the Hon'ble Court on 08.10.2026 for further directions."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Manish Singh, Mr. Aditya Singh Thakur & Mr. Affan Moin",
+            "defendant": "Ms. Swati Mittal, Ms. Richa Deshpande (D-7); Ms. Ananya Dewan (D-8); Mr. Mukul Singh (CGSC), Mr. Aryan Dhaka & Ms. Priyal Goswami (D-22 & D-23); Mr. Shivam Tiwari & Ms. Anmol Dhinda (D-115)"
+          },
+          "summary": "The Joint Registrar (Judicial) closed the right of defendant nos. 1 to 7, 25 to 66, and 67 to 120 to file written statements, the latter for failure to file within the maximum permissible 120 days despite service by email. Defendant no. 115 was directed to file a compliance affidavit within two weeks, and since no written statement is on record, no admission/denial of documents will be conducted. The matter is listed before the Hon'ble Court on 08.10.2026 for further directions.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-23T17:04:50.650Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/1210/2025",
+          "_orderDate": "2026-09-15"
+        }
       },
       {
         "date": "2026-05-18",
@@ -7771,7 +7901,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:03:54.364Z",
+    "lastScraped": "2026-09-23T17:03:58.637Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8046,7 +8176,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:04:01.993Z",
+    "lastScraped": "2026-09-23T17:04:06.198Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8067,14 +8197,62 @@
         "event": "Court Order",
         "detail": "Fresh I.A. 25431/2026 on behalf of plaintiffs seeking directions for issuing notice to the liquidator appointed for proposed defendant no. 3. 1. At request, let the IA be listed be…",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1789638879_d4c9ea53cf8e11bc_762_1492025.pdf/2026",
-        "orderText": "$~31 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010081932025 + CS(COMM) 149/2025 CENTRAL RETAIL CORPORATION PUBLIC COMPANY LTD. & ANR .....Plaintiff Through: Ms. Pallavi Bhatnagar, (VC) Adv. versus FUTURE BRANDS LTD & ANR A+ .....Defendant Through: Ms. Harshita Malik, (VC) Adv for Proposed Defendant No. 4 Ms. Ishi Singh, (VC) Adv for Proposed Defendant 5 and 6. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 16.09.2026 Fresh I.A. 25431/2026 on behalf of plaintiffs seeking directions for issuing notice to the liquidator appointed for proposed defendant no. 3. 1. At request, let the IA be listed before the Hon’ble Court on date already fixed i.e. 22.09.26. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) SEPTEMBER 16, 2026 This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 17/09/2026 at 15:35:09"
+        "orderText": "$~31 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010081932025 + CS(COMM) 149/2025 CENTRAL RETAIL CORPORATION PUBLIC COMPANY LTD. & ANR .....Plaintiff Through: Ms. Pallavi Bhatnagar, (VC) Adv. versus FUTURE BRANDS LTD & ANR A+ .....Defendant Through: Ms. Harshita Malik, (VC) Adv for Proposed Defendant No. 4 Ms. Ishi Singh, (VC) Adv for Proposed Defendant 5 and 6. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 16.09.2026 Fresh I.A. 25431/2026 on behalf of plaintiffs seeking directions for issuing notice to the liquidator appointed for proposed defendant no. 3. 1. At request, let the IA be listed before the Hon’ble Court on date already fixed i.e. 22.09.26. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) SEPTEMBER 16, 2026 This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 17/09/2026 at 15:35:09",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Fresh I.A. 25431/2026 filed by plaintiffs seeking directions for issuing notice to the liquidator appointed for proposed defendant no. 3 be listed before the Hon'ble Court on the date already fixed i.e. 22.09.2026."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Pallavi Bhatnagar",
+            "defendant": "Ms. Harshita Malik (for Proposed Defendant No. 4); Ms. Ishi Singh (for Proposed Defendants 5 and 6)"
+          },
+          "summary": "The plaintiffs filed a fresh application (I.A. 25431/2026) seeking directions to issue notice to the liquidator appointed for proposed defendant no. 3. The Joint Registrar (Judicial) directed that the application be listed before the Hon'ble Court on the already fixed date of 22.09.2026. No substantive relief was granted in this order.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-23T17:04:50.650Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/149/2025",
+          "_orderDate": "2026-09-16"
+        }
       },
       {
         "date": "2026-09-09",
         "event": "Court Order",
         "detail": "Suit decreed.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1789667817_ed91c266ed3a5955_jis_1492025.pdf/2026",
-        "orderText": "$~61 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010081932025 + CS(COMM) 149/2025 CENTRAL RETAIL CORPORATION PUBLIC COMPANY LTD. & ANR .....Plaintiffs Through: Ms. Vaishali Mittal and Ms. Pallavi Bhatnagar, Advocates. versus FUTURE BRANDS LTD & ANR A+ .....Defendants Through: CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 09.09.2026 I.A. 24596/2026 1. This application is filed on behalf of the Plaintiffs seeking ex parte decree against Defendants No. 1 and 2. 2. Court notice was issued to Defendants No. 1 and 2 by the learned Joint Registrar owing to the discharge sought by the counsels. However, there is no order thereafter pertaining to service of these Defendants. 3. Accordingly, issue fresh Court notice to Defendants No. 1 and 2 through all permissible modes, returnable on 22.09.2026, the date already fixed. JYOTI SINGH, J SEPTEMBER 9, 2026 S.Sharma This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 17/09/2026 at 23:33:52"
+        "orderText": "$~61 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010081932025 + CS(COMM) 149/2025 CENTRAL RETAIL CORPORATION PUBLIC COMPANY LTD. & ANR .....Plaintiffs Through: Ms. Vaishali Mittal and Ms. Pallavi Bhatnagar, Advocates. versus FUTURE BRANDS LTD & ANR A+ .....Defendants Through: CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 09.09.2026 I.A. 24596/2026 1. This application is filed on behalf of the Plaintiffs seeking ex parte decree against Defendants No. 1 and 2. 2. Court notice was issued to Defendants No. 1 and 2 by the learned Joint Registrar owing to the discharge sought by the counsels. However, there is no order thereafter pertaining to service of these Defendants. 3. Accordingly, issue fresh Court notice to Defendants No. 1 and 2 through all permissible modes, returnable on 22.09.2026, the date already fixed. JYOTI SINGH, J SEPTEMBER 9, 2026 S.Sharma This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 17/09/2026 at 23:33:52",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Issue fresh Court notice to Defendants No. 1 and 2 through all permissible modes, returnable on 22.09.2026."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Vaishali Mittal and Ms. Pallavi Bhatnagar",
+            "defendant": null
+          },
+          "summary": "The Plaintiffs filed I.A. 24596/2026 seeking an ex parte decree against Defendants No. 1 and 2. Since there was no order on service after the Joint Registrar issued notice upon counsels' discharge, the Court directed issuance of fresh Court notice to Defendants No. 1 and 2 through all permissible modes, returnable on 22.09.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-23T17:04:52.613Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/149/2025",
+          "_orderDate": "2026-09-09"
+        }
       },
       {
         "date": "2026-09-01",
@@ -8783,7 +8961,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:04:09.517Z",
+    "lastScraped": "2026-09-23T17:04:13.808Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8905,7 +9083,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:04:18.492Z",
+    "lastScraped": "2026-09-23T17:04:21.197Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8926,7 +9104,33 @@
         "event": "Court Order",
         "detail": "Written statement filed/taken on record.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1789550490_2cde549c016174ed_762_2562026.pdf/2026",
-        "orderText": "$~17 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010100182026 + CS(COMM) 256/2026 KUKU TECHNOLOGIES PRIVATE LIMITED (FORMERLY KNOWN AS MEBIGO LABS PRIVATE LIMITED) .....Plaintiff Through: Ms. Ishi Singu, Adv. versus MOHALLA TECH PRIVATE LIMITED & ANR. .....Defendants Through: Mr. Sandeep Devashish Das, Ms. Kanak Malik & Mr. Tanishq Juneja, Advs. for D-1. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 15.09.2026 1. Matter is listed for completion of pleadings. 2. Written statement filed on behalf of defendant no. 1 is under objection. Learned counsel for defendant no. 1 submits that he shall clear the objections within one week. Subject to clearing of objections, let the replication be filed as per rules. 3. Put up for purpose fixed on 08.12.2026. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) SEPTEMBER 15, 2026/NI This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 16/09/2026 at 15:34:20"
+        "orderText": "$~17 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010100182026 + CS(COMM) 256/2026 KUKU TECHNOLOGIES PRIVATE LIMITED (FORMERLY KNOWN AS MEBIGO LABS PRIVATE LIMITED) .....Plaintiff Through: Ms. Ishi Singu, Adv. versus MOHALLA TECH PRIVATE LIMITED & ANR. .....Defendants Through: Mr. Sandeep Devashish Das, Ms. Kanak Malik & Mr. Tanishq Juneja, Advs. for D-1. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 15.09.2026 1. Matter is listed for completion of pleadings. 2. Written statement filed on behalf of defendant no. 1 is under objection. Learned counsel for defendant no. 1 submits that he shall clear the objections within one week. Subject to clearing of objections, let the replication be filed as per rules. 3. Put up for purpose fixed on 08.12.2026. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) SEPTEMBER 15, 2026/NI This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 16/09/2026 at 15:34:20",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Defendant No. 1 to clear objections on the written statement within one week.",
+            "Replication to be filed as per rules, subject to clearing of objections.",
+            "Matter listed for the purpose fixed on 08.12.2026."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singu",
+            "defendant": "Mr. Sandeep Devashish Das, Ms. Kanak Malik & Mr. Tanishq Juneja (for D-1)"
+          },
+          "summary": "The matter was listed for completion of pleadings. The written statement filed on behalf of Defendant No. 1 is under objection, and counsel for Defendant No. 1 undertook to clear the objections within one week, after which the replication may be filed as per rules. The matter was adjourned to 08.12.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-23T17:04:52.613Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/256/2026",
+          "_orderDate": "2026-09-15"
+        }
       },
       {
         "date": "2026-08-06",
@@ -9237,7 +9441,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:04:25.992Z",
+    "lastScraped": "2026-09-23T17:04:28.638Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9258,14 +9462,68 @@
         "event": "Court Order",
         "detail": "Presiding Officer on leave — adjourned to 07.10.2026.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1789728945_a78091f395b450cd_739_11862024.pdf/2026",
-        "orderText": "$~10 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010974752024 + CS(COMM) 1186/2024 RELIANCE RETAIL LIMITED .....Plaintiff Through: Ms. Ishi Singh, Adv. versus VIVEK MISHRA & ORS. .....Defendant Through: Mr. Abhishek Kumar Singh, Mr. Saksham Chaturvedi & Mr. Chitrangda Saini, Advs. for D-7. Mr. Vaarish Sawlani & Ms. Rithika Mathur, Advs. for D-8 (through VC) Ms. Gitanjali Kapoor & Mr. Ashish Gupta, Advs. for D-13 (through VC) Ms. Nidhi Raman (CGSC) & Ms. Nikita Singh, Advs. for D-15 & 16. CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 15.09.2026 Ld. P.O. is on leave today. List the matter for the purpose fixed on 07.10.2026. IA No. 23017/2026 (u/O I Rule 10 r/w Section 151 CPC for impleadment of the proposed defendant no. 23) IA No. 23046/2026 (u/O I Rule 10 r/w Section 151 CPC for impleadment of the proposed defendant no. 30 to 36) Reader a/w EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) SEPTEMBER 15, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 18/09/2026 at 16:34:07"
+        "orderText": "$~10 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010974752024 + CS(COMM) 1186/2024 RELIANCE RETAIL LIMITED .....Plaintiff Through: Ms. Ishi Singh, Adv. versus VIVEK MISHRA & ORS. .....Defendant Through: Mr. Abhishek Kumar Singh, Mr. Saksham Chaturvedi & Mr. Chitrangda Saini, Advs. for D-7. Mr. Vaarish Sawlani & Ms. Rithika Mathur, Advs. for D-8 (through VC) Ms. Gitanjali Kapoor & Mr. Ashish Gupta, Advs. for D-13 (through VC) Ms. Nidhi Raman (CGSC) & Ms. Nikita Singh, Advs. for D-15 & 16. CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 15.09.2026 Ld. P.O. is on leave today. List the matter for the purpose fixed on 07.10.2026. IA No. 23017/2026 (u/O I Rule 10 r/w Section 151 CPC for impleadment of the proposed defendant no. 23) IA No. 23046/2026 (u/O I Rule 10 r/w Section 151 CPC for impleadment of the proposed defendant no. 30 to 36) Reader a/w EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) SEPTEMBER 15, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 18/09/2026 at 16:34:07",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List the matter for the purpose fixed on 07.10.2026 as the Ld. P.O. is on leave today."
+          ],
+          "citations": [
+            "Order I Rule 10, Code of Civil Procedure, 1908",
+            "Section 151, Code of Civil Procedure, 1908"
+          ],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Mr. Abhishek Kumar Singh, Mr. Saksham Chaturvedi, Mr. Chitrangda Saini, Mr. Vaarish Sawlani, Ms. Rithika Mathur, Ms. Gitanjali Kapoor, Mr. Ashish Gupta, Ms. Nidhi Raman (CGSC), Ms. Nikita Singh"
+          },
+          "summary": "The matter was listed before the Joint Registrar (Judicial) on 15.09.2026. As the Ld. P.O. was on leave, the matter was adjourned and listed for the purpose fixed on 07.10.2026. Two pending impleadment applications (IA No. 23017/2026 and IA No. 23046/2026) were noted.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-23T17:04:52.613Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/1186/2024",
+          "_orderDate": "2026-09-15"
+        }
       },
       {
         "date": "2026-08-24",
         "event": "Court Order",
         "detail": "Presiding Officer on leave; matter adjourned.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1789466300_de99411cccebf032_739_11862024.pdf/2026",
-        "orderText": "$~33 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010974752024 + CS(COMM) 1186/2024 RELIANCE RETAIL LIMITED .....Plaintiff Through: Mr. Ishi singh, Adv. versus VIVEK MISHRA & ORS. .....Defendant Through: Mr. Yash Karunakaran & Ms. Nitya Nath, Advs. for D-6 (through VC) Mr. Abhishek K. Singh, Mr. Saurabh Kumar & Mr. Saksham Ch., Advs. for D-7. Mr. Vaarish Sawlani & Ms. Rithika Mathur, Advs. for D-8 (through VC) Mr. Arjun Mookerjee & Mr. Shivam Tiwari, Advs. for D-9. Ms. Nidhi Raman (CGSC) & Mr. Rishay Raj, Advs. for D-15 & 16. CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 24.08.2026 Ld. P.O. is on leave today. IA No. 23017/2026 (u/O I Rule 10 r/w Section 151 CPC for impleadment of the proposed defendant no. 23) IA No. 23046/2026 (u/O I Rule 10 r/w Section 151 CPC for impleadment of the proposed defendant no. 30 to 36) This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 15/09/2026 at 15:54:38 List the IAs on the date already fixed i.e. 15.09.2026. Reader a/w EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) AUGUST 24, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 15/09/2026 at 15:54:38"
+        "orderText": "$~33 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010974752024 + CS(COMM) 1186/2024 RELIANCE RETAIL LIMITED .....Plaintiff Through: Mr. Ishi singh, Adv. versus VIVEK MISHRA & ORS. .....Defendant Through: Mr. Yash Karunakaran & Ms. Nitya Nath, Advs. for D-6 (through VC) Mr. Abhishek K. Singh, Mr. Saurabh Kumar & Mr. Saksham Ch., Advs. for D-7. Mr. Vaarish Sawlani & Ms. Rithika Mathur, Advs. for D-8 (through VC) Mr. Arjun Mookerjee & Mr. Shivam Tiwari, Advs. for D-9. Ms. Nidhi Raman (CGSC) & Mr. Rishay Raj, Advs. for D-15 & 16. CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 24.08.2026 Ld. P.O. is on leave today. IA No. 23017/2026 (u/O I Rule 10 r/w Section 151 CPC for impleadment of the proposed defendant no. 23) IA No. 23046/2026 (u/O I Rule 10 r/w Section 151 CPC for impleadment of the proposed defendant no. 30 to 36) This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 15/09/2026 at 15:54:38 List the IAs on the date already fixed i.e. 15.09.2026. Reader a/w EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) AUGUST 24, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 15/09/2026 at 15:54:38",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List IA No. 23017/2026 and IA No. 23046/2026 on the date already fixed i.e. 15.09.2026."
+          ],
+          "citations": [
+            "Order I Rule 10, Code of Civil Procedure 1908",
+            "Section 151, Code of Civil Procedure 1908"
+          ],
+          "counsel": {
+            "plaintiff": "Mr. Ishi Singh",
+            "defendant": "Mr. Yash Karunakaran & Ms. Nitya Nath (D-6); Mr. Abhishek K. Singh, Mr. Saurabh Kumar & Mr. Saksham Ch. (D-7); Mr. Vaarish Sawlani & Ms. Rithika Mathur (D-8); Mr. Arjun Mookerjee & Mr. Shivam Tiwari (D-9); Ms. Nidhi Raman (CGSC) & Mr. Rishay Raj (D-15 & 16)"
+          },
+          "summary": "The Joint Registrar (Judicial) noted that the Ld. P.O. was on leave. Two impleadment applications under Order I Rule 10 read with Section 151 CPC were listed before the court. The court directed that the IAs be listed on the already fixed date of 15.09.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-23T17:04:54.554Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/1186/2024",
+          "_orderDate": "2026-08-24"
+        }
       },
       {
         "date": "2026-08-14",
@@ -10086,7 +10344,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:04:33.503Z",
+    "lastScraped": "2026-09-23T17:04:36.209Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10552,7 +10810,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-23T16:04:41.044Z",
+    "lastScraped": "2026-09-23T17:04:43.761Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
