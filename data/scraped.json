@@ -8,10 +8,47 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-07-30",
+    "lastDate": "2026-08-19",
     "nextDate": "2026-09-25",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-08-19",
+        "event": "Court Order",
+        "detail": "On the verbal request on behalf of defendant no.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1790246644_81e2152742b1d8d2_765_1082025.pdf/2026",
+        "orderText": "$~24 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010057752025 + CS(COMM) 108/2025 JIO STAR INDIA PVT LTD .....Plaintiff Through: Ms. Ishi Singh, Adv. (through VC) versus IPTV SMARTER PRO & ORS .....Defendant Through: Ms. Palak Kaushal & Ms. Ayushi Jain, Advs. for D-6 (through VC) Ms. Anmol Dhindsa & Mr. Aditya Dash, Advs. for D-7. Mr. Ishkaran Singh Bhandari (CGSC), Mr. Piyush Yadav & Mr. Avijeet Singh, Advs. for D-17 & 18. (M- 9729924381) Ms. Harshitha Rathod, Adv. for D-45. (harshitha@ira.law) CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 19.08.2026 On the verbal request on behalf of defendant no. 7, 17, 18 & 45 copy of the impleadment applications be supplied by ld. counsel for the plaintiff to them during the course of the day. List the matter for the purpose fixed on the date already fixed i.e. 25.09.2026. IA No. 22456/2026 (By plaintiff u/O I Rule 10 CPC seeking impleadment of newly identified associated domains/URLs/UIs This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 24/09/2026 at 16:31:45 and their domain name registrars engaged in infringing activities as defendants (associated rogue domains/URLs/UIs) & extension of ad-interim order dated 10.02.2025) The plaintiff is seeking to implead additional rogue website/URLs/UIs as the defendant nos. 108 to 125 since they are illegally distributing the copyrighted content of the plaintiff. The relevant details of these infringers are mentioned in para no.5 of the application. Keeping in view, the contents of this application so read in the light of the prayers made in the suit, the same is allowed. It is worthwhile to note that the additional rogue website/URLs/UIs impleaded as the defendant nos. 108 to 125 shall be subject to the interim orders already passed in the suit. The amended memo of parties be taken on record. Summons be issued to the defendant nos. 108 to 125 through all permissible modes, subject to the filing of PF. At this stage, ld. counsel for the plaintiff requests to issue summons through email only as the newly identified defendants are rogue websites, therefore the summons be issued via emails, subject to the filing of PF. IA No. 22471/2026 By plaintiff u/O I Rule 10 CPC seeking impleadment of newly identified associated domains/URLs/UIs and their domain name registrars engaged in infringing activities as defendants (associated rogue domains/URLs/UIs) & extension of ad-interim order dated 10.02.2025) The plaintiff is seeking to implead additional rogue website/URLs/UIs as the defendant no. 126 since they are illegally distributing the copyrighted content of the plaintiff. The relevant details of this infringer are mentioned in para no.5 of the application. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 24/09/2026 at 16:31:45 Keeping in view, the contents of this application so read in the light of the prayers made in the suit, the same is allowed. It is worthwhile to note that the additional rogue website/URLs/UIs impleaded as the defendant no. 126 shall be subject to the interim orders already passed in the suit. The amended memo of parties be taken on record. Summons be issued to the defendant no. 126 through all permissible modes, subject to the filing of PF. At this stage, ld. counsel for the plaintiff requests to issue summons through email only as the newly identified defendant is a rogue website, therefore the summons be issued via emails, subject to the filing of PF. EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) AUGUST 19, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 24/09/2026 at 16:31:45",
+        "intelligence": {
+          "classification": "interim",
+          "reliefGranted": "Impleadment of additional rogue websites/URLs/UIs as defendant nos. 108 to 126 allowed, subject to interim orders already passed in the suit; summons to issue via email.",
+          "costsAwarded": null,
+          "directions": [
+            "Supply copy of the impleadment applications to defendant nos. 7, 17, 18 & 45 during the course of the day.",
+            "List the matter for the purpose fixed on the date already fixed i.e. 25.09.2026.",
+            "Take the amended memo of parties on record.",
+            "Issue summons to defendant nos. 108 to 125 through all permissible modes, subject to filing of PF; at plaintiff's request, via email only.",
+            "Issue summons to defendant no. 126 through all permissible modes, subject to filing of PF; at plaintiff's request, via email only."
+          ],
+          "citations": [
+            "Order I Rule 10, Code of Civil Procedure"
+          ],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Ms. Palak Kaushal, Ms. Ayushi Jain (D-6); Ms. Anmol Dhindsa, Mr. Aditya Dash (D-7); Mr. Ishkaran Singh Bhandari (CGSC), Mr. Piyush Yadav, Mr. Avijeet Singh (D-17 & 18); Ms. Harshitha Rathod (D-45)"
+          },
+          "summary": "The plaintiff filed two applications under Order I Rule 10 CPC seeking impleadment of newly identified rogue websites/URLs/UIs as defendant nos. 108 to 126, along with extension of the ad-interim order dated 10.02.2025. The Joint Registrar allowed both applications, noting the impleaded defendants would be subject to existing interim orders, and directed issuance of summons via email subject to filing of PF. The matter was listed for the date already fixed, i.e., 25.09.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-24T11:04:32.043Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/108/2025",
+          "_orderDate": "2026-08-19"
+        }
+      },
       {
         "date": "2026-07-30",
         "event": "Court Order",
@@ -1712,7 +1749,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:01:45.447Z",
+    "lastScraped": "2026-09-24T11:01:45.701Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -1724,10 +1761,48 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-07-02",
+    "lastDate": "2026-08-12",
     "nextDate": "2026-10-29",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-08-12",
+        "event": "Court Order",
+        "detail": "The right of defendant no.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1790245644_b923edeee43a19d3_765_3312025.pdf/2026",
+        "orderText": "$~5 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010198952025 + CS(COMM) 331/2025 STAR INDIA PVT LTD .....Plaintiff Through: Ms. Ishi Singh, Adv. (through VC) versus DEVRAJ & ORS. .....Defendant Through: Ms. Radhika Bishwajit Dubey (CGSC) & Mr. Amulya Dev Mishra, Advs. for D-14 & 15. Mr. Yash Raj, Adv. for proposed D-24. CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 12.08.2026 The right of defendant no. 1, 2 & 4 to 15 to file the written statement had already been closed, vide order dated 15.01.2026. The pleadings qua defendant no. 3 are already complete. The defendant no. 16 is John Doe. The defendant no. 13 has already been deleted, defendant no.3, 14 & 15 are exempted from further appearance. (Refer: order dated 13.10.2025) List the matter for consideration of IA Nos. 18823/2025 & 964/2026 on 29.10.2026. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 24/09/2026 at 16:31:54 IA No. 18823/2025 (By plaintiff u/O 1 R 10 of CPC) IA No. 964/2026 (By plaintiff u/o I Rule 10 CPC seeking impleadment of associated rogue domains/URLs/UIs alongwith heir domain name registrars engaged in infringing activities as the original defendants & extension of ad-interim order dated 09.04.2025) Service-affidavit has been filed by the plaintiff, vide dairy no. 262556/2026 and as per same, proposed defendant no. 17 to 23 were served on 09.02.2026 through emails. Till date no reply has been filed by proposed defendant no. 17 to 23 and the prescribed time period in terms of order dated 15.01.2026 has already expired, therefore the right of defendant no. 17 to 23 to file the reply stands closed. IA No. 11436/2026 (By proposed defendant no. 24 u/S 151 CPC for condonation of delay in filing reply to IA No. 964/2026) Issue notice. Accepted. Ld. counsel for the plaintiff submitted that the application may be allowed, subject to the costs. The delay in filing the reply to IA No. 964/2026 is condoned. The defendant no. 24 is directed to take steps to bring his reply on record and registry is also requested to do the needful. EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) AUGUST 12, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 24/09/2026 at 16:31:54",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Right of defendant nos. 1, 2 & 4 to 15 to file written statement already closed vide order dated 15.01.2026.",
+            "Right of proposed defendant nos. 17 to 23 to file reply stands closed as prescribed time expired.",
+            "List the matter for consideration of IA Nos. 18823/2025 & 964/2026 on 29.10.2026.",
+            "Delay in filing reply to IA No. 964/2026 by defendant no. 24 is condoned; defendant no. 24 to take steps to bring reply on record.",
+            "Registry requested to do the needful regarding defendant no. 24's reply."
+          ],
+          "citations": [
+            "Order I Rule 10, CPC",
+            "Section 151, CPC"
+          ],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Ms. Radhika Bishwajit Dubey (CGSC) & Mr. Amulya Dev Mishra for D-14 & 15; Mr. Yash Raj for proposed D-24"
+          },
+          "summary": "The Joint Registrar (Judicial) noted that the right of defendant nos. 1, 2 & 4 to 15 to file written statements was already closed, pleadings qua defendant no. 3 are complete, and defendant no. 16 is John Doe. The right of proposed defendant nos. 17 to 23 to file reply was closed for non-filing within the prescribed time, and the delay in filing reply by proposed defendant no. 24 to IA No. 964/2026 was condoned. The matter was listed for consideration of IA Nos. 18823/2025 & 964/2026 on 29.10.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-24T11:04:32.043Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/331/2025",
+          "_orderDate": "2026-08-12"
+        }
+      },
       {
         "date": "2026-07-02",
         "event": "Court Order",
@@ -2100,7 +2175,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:01:55.896Z",
+    "lastScraped": "2026-09-24T11:01:54.906Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2442,7 +2517,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:02:03.446Z",
+    "lastScraped": "2026-09-24T11:02:02.674Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2784,7 +2859,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:02:11.045Z",
+    "lastScraped": "2026-09-24T11:02:10.681Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2947,7 +3022,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:02:18.553Z",
+    "lastScraped": "2026-09-24T11:02:18.381Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3201,7 +3276,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:02:26.095Z",
+    "lastScraped": "2026-09-24T11:02:25.971Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3732,7 +3807,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:02:33.565Z",
+    "lastScraped": "2026-09-24T11:02:33.664Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4705,7 +4780,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:02:41.251Z",
+    "lastScraped": "2026-09-24T11:02:47.868Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4959,7 +5034,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:02:48.632Z",
+    "lastScraped": "2026-09-24T11:02:55.338Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5412,7 +5487,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:02:56.002Z",
+    "lastScraped": "2026-09-24T11:03:02.886Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5627,7 +5702,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:03:03.580Z",
+    "lastScraped": "2026-09-24T11:03:10.482Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6413,7 +6488,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:03:11.083Z",
+    "lastScraped": "2026-09-24T11:03:18.086Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7164,7 +7239,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:03:18.544Z",
+    "lastScraped": "2026-09-24T11:03:25.502Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7464,7 +7539,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:03:26.049Z",
+    "lastScraped": "2026-09-24T11:03:33.060Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7891,7 +7966,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:03:33.375Z",
+    "lastScraped": "2026-09-24T11:03:40.561Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8166,7 +8241,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:03:47.374Z",
+    "lastScraped": "2026-09-24T11:03:48.066Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8951,7 +9026,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:03:54.930Z",
+    "lastScraped": "2026-09-24T11:03:55.661Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9073,7 +9148,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:04:02.472Z",
+    "lastScraped": "2026-09-24T11:04:03.110Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9431,7 +9506,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:04:09.926Z",
+    "lastScraped": "2026-09-24T11:04:10.943Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10334,7 +10409,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:04:17.652Z",
+    "lastScraped": "2026-09-24T11:04:18.651Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10379,6 +10454,44 @@
           "_schema": "v1",
           "_caseNo": "CS(COMM)/1152/2025",
           "_orderDate": "2026-08-10"
+        }
+      },
+      {
+        "date": "2026-08-06",
+        "event": "Court Order",
+        "detail": "The defendant no.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1790244441_5f7e68186ad91583_765_11522025.pdf/2026",
+        "orderText": "$~19 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010827882025 + CS(COMM) 1152/2025 DAZN LIMITED & ANR. .....Plaintiff Through: Mr. Priyansh Kohli & Mr. Manish Singh, Advs. versus 9GOALS.IO & ORS. .....Defendant Through: Ms. Ananya Dewan, Adv. for D-27 (through VC) Mr. Yogesh Singh, Adv. for D-30. Ms. Nidhi Raman (CGSC) & Ms. Nikita Singh, Advs. for D-46 & 47. Ms. Suvarna Singh, Adv. for D-34 & 817. CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 06.08.2026 The defendant no. 1 to 26 were rogue websites, defendant no. 27 to 36 were domain name registrars, defendant no. 37 to 45 were ISPs/TSPs & defendant no. 46 & 47 were DOT & MEITY. The right of defendant no. 1 to 47 to file the written statement had been closed, vide order dated 20.04.2026. The defendant no. 48 is John Doe. Service-affidavit has been filed by the plaintiff, vide diary no. 232746/2026 and as per same, defendant no. 49 to 402 have been served on 12.05.2026 through emails. Service-affidavit has been filed by the plaintiff, vide diary no. 269100/2026 and as per same, defendant no. 403 to 823 have been served on 01.05.2026 through emails. The defendant no. 49 to 823 have been duly served. The prescribed time period to file the written statement has not expired, therefore upon filing of written statement as per law, This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 24/09/2026 at 16:34:27 then replication be filed in accordance with law. Ld. counsel for the defendant no. 30 submits that he may be deleted from the array of parties. Not opposed by ld. counsel for the plaintiff. Accordingly, the defendant no. 30 is deleted from the array of parties. Ld. counsel for the plaintiff is directed to file the amended memo of parties. List the matter for the completion of pleadings on 02.11.2026. IA No. 1412/2026 (u/O XXXIX Rule 2A r/w Section 151 CPC) The said application has become infructuous as defendant no. 30 has been deleted from the array of parties today. Accordingly, the application stands disposed of as infructuous. IA No. 21085/2026 (By plaintiffs u/O I Rule 10 CPC seeking impleadment of additional rogue websites (notified on affidavits) engaged in infringing activities & their domain name registrars as defendants in the instant suit) Notice be issued to the defendant nos. 824 to 1345, subject to the filing of PF. Ld. counsel for the plaintiff submits that all these defendants are rogue websites, therefore they may be permitted to serve through emails. Accordingly, the proposed defendant nos. 824 to 1345 be served through emails. The amended memo of parties be taken on record. EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) AUGUST 6, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 24/09/2026 at 16:34:27",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Defendant no. 30 is deleted from the array of parties.",
+            "Ld. counsel for the plaintiff is directed to file the amended memo of parties.",
+            "List the matter for completion of pleadings on 02.11.2026.",
+            "Notice be issued to defendant nos. 824 to 1345, subject to filing of PF.",
+            "Proposed defendant nos. 824 to 1345 be served through emails."
+          ],
+          "citations": [
+            "Order XXXIX Rule 2A read with Section 151 CPC",
+            "Order I Rule 10 CPC"
+          ],
+          "counsel": {
+            "plaintiff": "Mr. Priyansh Kohli & Mr. Manish Singh",
+            "defendant": "Ms. Ananya Dewan (D-27), Mr. Yogesh Singh (D-30), Ms. Nidhi Raman (CGSC) & Ms. Nikita Singh (D-46 & 47), Ms. Suvarna Singh (D-34 & 817)"
+          },
+          "summary": "The Joint Registrar (Judicial) noted that written statement rights of defendant nos. 1 to 47 were closed and that defendant nos. 49 to 823 were duly served via email. Defendant no. 30 was deleted from the array of parties, rendering IA No. 1412/2026 infructuous, and notice was issued to newly proposed defendant nos. 824 to 1345 in IA No. 21085/2026 with permission for email service. The matter was listed for completion of pleadings on 02.11.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-24T11:04:32.043Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/1152/2025",
+          "_orderDate": "2026-08-06"
         }
       },
       {
@@ -10733,7 +10846,18 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-11-02",
+        "before": "jr",
+        "firstSeenAt": "2026-09-24T11:04:27.255Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-08-06",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1790244441_5f7e68186ad91583_765_11522025.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -10800,7 +10924,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-24T10:04:25.146Z",
+    "lastScraped": "2026-09-24T11:04:27.257Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

@@ -6984,5 +6984,97 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1186/2024",
     "_orderDate": "2026-08-24"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790246644_81e2152742b1d8d2_765_1082025.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Impleadment of additional rogue websites/URLs/UIs as defendant nos. 108 to 126 allowed, subject to interim orders already passed in the suit; summons to issue via email.",
+    "costsAwarded": null,
+    "directions": [
+      "Supply copy of the impleadment applications to defendant nos. 7, 17, 18 & 45 during the course of the day.",
+      "List the matter for the purpose fixed on the date already fixed i.e. 25.09.2026.",
+      "Take the amended memo of parties on record.",
+      "Issue summons to defendant nos. 108 to 125 through all permissible modes, subject to filing of PF; at plaintiff's request, via email only.",
+      "Issue summons to defendant no. 126 through all permissible modes, subject to filing of PF; at plaintiff's request, via email only."
+    ],
+    "citations": [
+      "Order I Rule 10, Code of Civil Procedure"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Ms. Palak Kaushal, Ms. Ayushi Jain (D-6); Ms. Anmol Dhindsa, Mr. Aditya Dash (D-7); Mr. Ishkaran Singh Bhandari (CGSC), Mr. Piyush Yadav, Mr. Avijeet Singh (D-17 & 18); Ms. Harshitha Rathod (D-45)"
+    },
+    "summary": "The plaintiff filed two applications under Order I Rule 10 CPC seeking impleadment of newly identified rogue websites/URLs/UIs as defendant nos. 108 to 126, along with extension of the ad-interim order dated 10.02.2025. The Joint Registrar allowed both applications, noting the impleaded defendants would be subject to existing interim orders, and directed issuance of summons via email subject to filing of PF. The matter was listed for the date already fixed, i.e., 25.09.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-09-24T11:04:32.043Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/108/2025",
+    "_orderDate": "2026-08-19"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790245644_b923edeee43a19d3_765_3312025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Right of defendant nos. 1, 2 & 4 to 15 to file written statement already closed vide order dated 15.01.2026.",
+      "Right of proposed defendant nos. 17 to 23 to file reply stands closed as prescribed time expired.",
+      "List the matter for consideration of IA Nos. 18823/2025 & 964/2026 on 29.10.2026.",
+      "Delay in filing reply to IA No. 964/2026 by defendant no. 24 is condoned; defendant no. 24 to take steps to bring reply on record.",
+      "Registry requested to do the needful regarding defendant no. 24's reply."
+    ],
+    "citations": [
+      "Order I Rule 10, CPC",
+      "Section 151, CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Ms. Radhika Bishwajit Dubey (CGSC) & Mr. Amulya Dev Mishra for D-14 & 15; Mr. Yash Raj for proposed D-24"
+    },
+    "summary": "The Joint Registrar (Judicial) noted that the right of defendant nos. 1, 2 & 4 to 15 to file written statements was already closed, pleadings qua defendant no. 3 are complete, and defendant no. 16 is John Doe. The right of proposed defendant nos. 17 to 23 to file reply was closed for non-filing within the prescribed time, and the delay in filing reply by proposed defendant no. 24 to IA No. 964/2026 was condoned. The matter was listed for consideration of IA Nos. 18823/2025 & 964/2026 on 29.10.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-09-24T11:04:32.043Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/331/2025",
+    "_orderDate": "2026-08-12"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790244441_5f7e68186ad91583_765_11522025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant no. 30 is deleted from the array of parties.",
+      "Ld. counsel for the plaintiff is directed to file the amended memo of parties.",
+      "List the matter for completion of pleadings on 02.11.2026.",
+      "Notice be issued to defendant nos. 824 to 1345, subject to filing of PF.",
+      "Proposed defendant nos. 824 to 1345 be served through emails."
+    ],
+    "citations": [
+      "Order XXXIX Rule 2A read with Section 151 CPC",
+      "Order I Rule 10 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Priyansh Kohli & Mr. Manish Singh",
+      "defendant": "Ms. Ananya Dewan (D-27), Mr. Yogesh Singh (D-30), Ms. Nidhi Raman (CGSC) & Ms. Nikita Singh (D-46 & 47), Ms. Suvarna Singh (D-34 & 817)"
+    },
+    "summary": "The Joint Registrar (Judicial) noted that written statement rights of defendant nos. 1 to 47 were closed and that defendant nos. 49 to 823 were duly served via email. Defendant no. 30 was deleted from the array of parties, rendering IA No. 1412/2026 infructuous, and notice was issued to newly proposed defendant nos. 824 to 1345 in IA No. 21085/2026 with permission for email service. The matter was listed for completion of pleadings on 02.11.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-09-24T11:04:32.043Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1152/2025",
+    "_orderDate": "2026-08-06"
   }
 }
