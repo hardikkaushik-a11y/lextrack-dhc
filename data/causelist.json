@@ -1,18 +1,28 @@
 {
-  "scraped_at": "2026-09-24T12:01:22Z",
+  "scraped_at": "2026-09-24T13:01:34Z",
   "for_dates": [
     "2026-09-24",
     "2026-09-25"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "rl25092026.pdf",
+      "date": "2026-09-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_25.09.2026_0.pdf",
+      "date": "2026-09-25",
+      "error": "download: ('Connection broken: IncompleteRead(5141998 bytes read, 14536755 more expected)', IncompleteRead(5141998 bytes read, 14536755 more expected))"
+    },
     {
       "file": "combined_adv_list_25.09.2026.pdf",
       "date": "2026-09-25",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(5092319 bytes read, 1481540 more expected)', IncompleteRead(5092319 bytes read, 1481540 more expected))"
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_25.09.2026.pdf",
@@ -62,28 +72,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "new_c_24092026.pdf",
-      "date": "2026-09-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "5",
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 336,
-      "context": "5       CS(COMM)-         JIO STAR INDIA PVT      SUBHASHISH\n             108/2025          LTD                     KUMAR, R",
-      "caseNo": "CS(COMM)/108/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIO STAR INDIA PVT      SUBHASHISH\n             108/2025",
-      "date": "2026-09-25",
-      "source_pdf": "combined_adv_list_25.09.2026.pdf"
-    }
-  ]
+  "entries": []
 }
