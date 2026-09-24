@@ -7076,5 +7076,68 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1152/2025",
     "_orderDate": "2026-08-06"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790249001_68653c8c135e5adc_593_13062025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant nos. 11, 12, 19, 20 and 21 are deleted from the array of parties as they have complied with the directions in order dated 08.12.2025.",
+      "Plaintiffs to file the amended memo of parties within three weeks.",
+      "Plaintiffs' application under Order I Rule 10 CPC seeking impleadment of proposed defendants will be taken up for consideration when listed.",
+      "List the matter on 19.01.2027.",
+      "Defendant no.19 is granted liberty to file the compliance affidavit on record."
+    ],
+    "citations": [
+      "Order I Rule 10, Code of Civil Procedure"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Priyansh Kohli, Mr. Yatinder Garg, Mr. Manish Singh and Ms. Ishi Singh",
+      "defendant": "Ms. Pavitra Singh and Mr. Akshay Shankar (D-11); Ms. Kruttika Vijay and Ms. Harshitha Rathod (D-12 and D-19); Ms. Swati Agarwal and Ms. Saumya Pawar (D-20); Mr. Madhav Khosla (D-21); Mr. Vikrant Nilesh Goyal, Mr. Inderpreet Singh and Mr. Kunal Dixit (D-36)"
+    },
+    "summary": "In the plaintiffs' commercial suit against various defendants, plaintiffs' counsel stated that defendant nos. 11, 12, 19, 20 and 21 have complied with the directions in the order dated 08.12.2025 and had no objection to their deletion. The Court accordingly deleted those defendants from the array of parties, directed filing of an amended memo of parties within three weeks, and noted that the plaintiffs' Order I Rule 10 CPC impleadment application would be considered when listed. The matter was listed for 19.01.2027, with liberty to defendant no.19 to file a compliance affidavit.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-09-24T12:04:28.694Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1306/2025",
+    "_orderDate": "2026-09-22"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790249027_db66e39f110e6c99_593_1492025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Proposed defendant nos. 5 and 6 granted time to file affidavit in terms of para 3 of reply to I.A. 18673/2025 before next date.",
+      "Proposed defendant no. 4's counsel to pursue with Registry to remove objections on her filed affidavit before next hearing.",
+      "Issue notice to the Liquidator appointed for proposed defendant no. 3 (Mr. Sanjay Gupta, Registration No. IBBI/IPA-002/IPN00982-C01/2017-18/10354, email sanjay@sgaindia.in).",
+      "Issue notice to defendant nos. 1 and 2, as well as through counsel, by all permissible modes, returnable on 29.10.2026.",
+      "Re-notify the matter on 29.10.2026."
+    ],
+    "citations": [
+      "Order I Rule 10, CPC",
+      "Order XXII Rule 10, CPC",
+      "Section 146, CPC",
+      "Section 151, CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Abhishek Malhotra, Sr. Adv. with Ms. Vaishali R. Mittal and Ms. Pallavi Bhatnagar, Advs.",
+      "defendant": "Ms. Harshita Malik, Adv. for proposed D-4; Mr. Siddharth Chopra, Mr. Yatinder Garg, Ms. Disha Sharma and Ms. Ishi Singh, Advs. for proposed D-5 & 6"
+    },
+    "summary": "The Court heard three applications in the commercial suit. It granted time to proposed defendant nos. 5 and 6 to file an affidavit, directed proposed defendant no. 4's counsel to remove objections on her affidavit, and issued notice to the Liquidator of proposed defendant no. 3 as well as to defendant nos. 1 and 2. The matter was re-notified for 29.10.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-09-24T12:04:28.694Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2026-09-22"
   }
 }
