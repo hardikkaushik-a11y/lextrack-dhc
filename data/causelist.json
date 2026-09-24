@@ -1,12 +1,47 @@
 {
-  "scraped_at": "2026-09-24T13:01:34Z",
+  "scraped_at": "2026-09-24T14:01:48Z",
   "for_dates": [
     "2026-09-24",
     "2026-09-25"
   ],
   "tracked_cases": 21,
-  "matched_cases": 0,
+  "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_sup_1_25.09.2026.pdf",
+      "date": "2026-09-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_25.09.2026.pdf",
+      "date": "2026-09-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_25.09.2026.pdf",
+      "date": "2026-09-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_25.09.2026.pdf",
+      "date": "2026-09-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_25.09.2026.pdf",
+      "date": "2026-09-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "rl25092026.pdf",
       "date": "2026-09-25",
@@ -17,12 +52,16 @@
     {
       "file": "combined_adv_list_25.09.2026_0.pdf",
       "date": "2026-09-25",
-      "error": "download: ('Connection broken: IncompleteRead(5141998 bytes read, 14536755 more expected)', IncompleteRead(5141998 bytes read, 14536755 more expected))"
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
     },
     {
       "file": "combined_adv_list_25.09.2026.pdf",
       "date": "2026-09-25",
-      "error": "download: ('Connection broken: IncompleteRead(5092319 bytes read, 1481540 more expected)', IncompleteRead(5092319 bytes read, 1481540 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_25.09.2026.pdf",
@@ -30,49 +69,47 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "today_jr_suppl._24092026.pdf",
-      "date": "2026-09-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_madhu_jain_24.09.2026.pdf",
-      "date": "2026-09-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jud_24092026.pdf",
-      "date": "2026-09-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_24092026.pdf",
-      "date": "2026-09-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_24.09.2026.pdf",
-      "date": "2026-09-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_24.09.2026.pdf",
-      "date": "2026-09-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "5",
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 467,
+      "context": "5       CS(COMM)-         JIO STAR INDIA PVT      SUBHASHISH\n             108/2025          LTD                     KUMAR, R",
+      "caseNo": "CS(COMM)/108/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIO STAR INDIA PVT      SUBHASHISH\n             108/2025",
+      "date": "2026-09-25",
+      "source_pdf": "combined_adv_list_25.09.2026_0.pdf"
+    },
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 744,
+      "context": "In CS(COMM)-       V/s VIVEK MISHRA & SWATI AGARWAL, N\n              1186/2024          ORS.                  MAHABIR, SHASHANK",
+      "caseNo": "CS(COMM)/1186/2024",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-       V/s VIVEK MISHRA & SWATI AGARWAL, N\n              1186/2024",
+      "date": "2026-09-25",
+      "source_pdf": "combined_adv_list_25.09.2026_0.pdf"
+    },
+    {
+      "item": null,
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 745,
+      "context": "NOTE: I.A. 26622, 26627/2026 SHALL BE TAKEN UP ALONGWITH CS(COMM) 108/2025.",
+      "caseNo": "CS(COMM)/108/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM) 108/2025",
+      "date": "2026-09-25",
+      "source_pdf": "combined_adv_list_25.09.2026_0.pdf"
+    }
+  ]
 }
