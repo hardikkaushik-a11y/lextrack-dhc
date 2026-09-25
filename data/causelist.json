@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-25T10:01:11Z",
+  "scraped_at": "2026-09-25T11:01:19Z",
   "for_dates": [
     "2026-09-25",
     "2026-09-26"
@@ -38,9 +38,7 @@
     {
       "file": "suppl_hmj_amit_bansal_25.09.2026.pdf",
       "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "registrar_supply_list_25.09.2026_1.pdf",
