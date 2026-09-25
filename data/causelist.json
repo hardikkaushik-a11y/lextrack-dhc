@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-25T00:01:36Z",
+  "scraped_at": "2026-09-25T01:01:28Z",
   "for_dates": [
     "2026-09-25",
     "2026-09-26"
@@ -17,9 +17,7 @@
     {
       "file": "combined_sup_1_25.09.2026.pdf",
       "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(419016 bytes read, 1218228 more expected)', IncompleteRead(419016 bytes read, 1218228 more expected))"
     },
     {
       "file": "deletion_note_25.09.2026.pdf",
@@ -66,9 +64,7 @@
     {
       "file": "combined_adv_list_25.09.2026.pdf",
       "date": "2026-09-25",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_25.09.2026.pdf",
