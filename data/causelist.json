@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-25T11:01:19Z",
+  "scraped_at": "2026-09-25T13:01:13Z",
   "for_dates": [
     "2026-09-25",
     "2026-09-26"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_cause_list_26.09.2026_saturday.pdf",
+      "date": "2026-09-26",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "suppl_14_25.09.2026.pdf",
       "date": "2026-09-25",
@@ -38,7 +45,9 @@
     {
       "file": "suppl_hmj_amit_bansal_25.09.2026.pdf",
       "date": "2026-09-25",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "registrar_supply_list_25.09.2026_1.pdf",
@@ -91,13 +100,6 @@
     },
     {
       "file": "finals_25.09.2026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_25.09.2026.pdf",
       "date": "2026-09-25",
       "matched": 0,
       "regex_matches": 0,
