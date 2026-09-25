@@ -7139,5 +7139,32 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/149/2025",
     "_orderDate": "2026-09-22"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790321840_5925efd182451165_762_2562026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Issue notice on I.A. 26466/2026 seeking condonation of 89 days delay in filing written statement by defendant no.1.",
+      "Plaintiff to file reply, if any, within three weeks with advance copy to defendant no.1.",
+      "Defendant no.1 to file rejoinder, if any, within further two weeks thereafter.",
+      "Put up for completion of pleadings on the already fixed date i.e. 08.12.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh and Ms. Disha Sharma",
+      "defendant": "Ms. Kanak Malik and Mr. Tanishq Juneja (for D-1)"
+    },
+    "summary": "The Joint Registrar (Judicial) took up a fresh application (I.A. 26466/2026) by defendant no.1 seeking condonation of 89 days' delay in filing its written statement. Notice was issued, with the plaintiff accepting notice and being granted time to file a reply, followed by a rejoinder by defendant no.1. The matter was listed for completion of pleadings on 08.12.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-09-25T08:04:49.152Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/256/2026",
+    "_orderDate": "2026-09-24"
   }
 }
