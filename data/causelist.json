@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-09-25T18:01:20Z",
+  "scraped_at": "2026-09-25T19:01:09Z",
   "for_dates": [
-    "2026-09-25",
-    "2026-09-26"
+    "2026-09-26",
+    "2026-09-27"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
@@ -10,97 +10,6 @@
     {
       "file": "combined_cause_list_26.09.2026_saturday.pdf",
       "date": "2026-09-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_14_25.09.2026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_13_25.09.2026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_12_13_for_25.09.26.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_10_25.09.2026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_hmj_amit_bansal_25.09.2026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_25.09.2026_1.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "db-iii_note_for_25.09.2026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "targeted_matters_list_for_25-09-2026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jud_25092026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_sup_1_25.09.2026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_25.09.2026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_25.09.2026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_25.09.2026.pdf",
-      "date": "2026-09-25",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
