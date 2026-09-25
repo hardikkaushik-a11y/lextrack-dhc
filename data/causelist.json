@@ -1,12 +1,26 @@
 {
-  "scraped_at": "2026-09-25T09:01:34Z",
+  "scraped_at": "2026-09-25T10:01:11Z",
   "for_dates": [
     "2026-09-25",
     "2026-09-26"
   ],
   "tracked_cases": 21,
-  "matched_cases": 2,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "suppl_14_25.09.2026.pdf",
+      "date": "2026-09-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "suppl_13_25.09.2026.pdf",
+      "date": "2026-09-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_12_13_for_25.09.26.pdf",
       "date": "2026-09-25",
@@ -90,61 +104,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "rl25092026.pdf",
-      "date": "2026-09-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_25.09.2026_0.pdf",
-      "date": "2026-09-25",
-      "matched": 3,
-      "regex_matches": 3,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "5",
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 467,
-      "context": "5       CS(COMM)-         JIO STAR INDIA PVT      SUBHASHISH\n             108/2025          LTD                     KUMAR, R",
-      "caseNo": "CS(COMM)/108/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIO STAR INDIA PVT      SUBHASHISH\n             108/2025",
-      "date": "2026-09-25",
-      "source_pdf": "combined_adv_list_25.09.2026_0.pdf"
-    },
-    {
-      "item": null,
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 744,
-      "context": "In CS(COMM)-       V/s VIVEK MISHRA & SWATI AGARWAL, N\n              1186/2024          ORS.                  MAHABIR, SHASHANK",
-      "caseNo": "CS(COMM)/1186/2024",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-       V/s VIVEK MISHRA & SWATI AGARWAL, N\n              1186/2024",
-      "date": "2026-09-25",
-      "source_pdf": "combined_adv_list_25.09.2026_0.pdf"
-    },
-    {
-      "item": null,
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 745,
-      "context": "NOTE: I.A. 26622, 26627/2026 SHALL BE TAKEN UP ALONGWITH CS(COMM) 108/2025.",
-      "caseNo": "CS(COMM)/108/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM) 108/2025",
-      "date": "2026-09-25",
-      "source_pdf": "combined_adv_list_25.09.2026_0.pdf"
-    }
-  ]
+  "entries": []
 }
