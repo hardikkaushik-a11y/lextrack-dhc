@@ -7166,5 +7166,61 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/256/2026",
     "_orderDate": "2026-09-24"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790413855_13ae22aa1bcb9f43_765_1082025.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Impleadment of additional rogue websites as defendant nos. 127, 128 and 129 allowed, subject to interim orders already passed in the suit.",
+    "costsAwarded": null,
+    "directions": [
+      "Amended memo of parties be taken on record.",
+      "Summons be issued to defendant nos. 127, 128 and 129 through all permissible modes, subject to filing of PF.",
+      "Summons to newly impleaded rogue websites may be issued via email only, subject to filing of PF.",
+      "List the matter for the purpose fixed on the date already fixed i.e. 25.09.2026."
+    ],
+    "citations": [
+      "Order I Rule 10, Code of Civil Procedure 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Ms. Anmol Dhindsa, Mr. Aditya Dash (for D-7); Mr. Rishi Kapoor, Ms. Gitanjali Kapoor, Mr. Siddhartha Makhija (for D-16); Ms. Harshitha Rathod (for D-45); Mr. Ishkaran Singh Bhandari (CGSC), Mr. Piyush Yadav, Mr. Abhijeet Singh (for UOI)"
+    },
+    "summary": "The plaintiff filed two applications under Order I Rule 10 CPC seeking impleadment of newly identified rogue websites as defendant nos. 127, 128 and 129, along with extension of the ad-interim order dated 10.02.2025. The Joint Registrar allowed both applications, noting the impleaded defendants would be subject to existing interim orders, and directed issuance of summons via email subject to filing of PF. The matter was listed for the date already fixed, i.e. 25.09.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-09-26T10:04:16.155Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/108/2025",
+    "_orderDate": "2026-09-02"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790414050_a527e872fc81a9c0_765_3132026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Compliance-affidavit filed by defendant no. 14 is taken on record.",
+      "Plaintiff's counsel is directed to take steps to bring the service-affidavit for defendants no. 31 to 700 on record.",
+      "Registry is requested to do the needful regarding the service-affidavit.",
+      "List the matter for completion of pleadings on 07.12.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Manish Singh & Mr. Priyansh Kohli",
+      "defendant": "Mr. Akshay Shankar & Ms. Ayushi Jain (for D-8); Ms. Anindita Mitra, Mr. Mohammad Kanran & Ms. Shivani Choudhary (for D-14 & 694); Ms. Radhika B. Dubey (CGSC), Mr. Amulya Dev Mishra & Ms. Saksham Sharma (for D-28 & 29)"
+    },
+    "summary": "The Joint Registrar (Judicial) took on record the compliance-affidavit filed by defendant no. 14 and noted that defendant no. 30 is John Doe. Plaintiff's counsel was directed to bring the service-affidavit for defendants no. 31 to 700 on record, with the Registry requested to assist. The matter was listed for completion of pleadings on 07.12.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-09-26T10:04:16.156Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/313/2026",
+    "_orderDate": "2026-08-31"
   }
 }
