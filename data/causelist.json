@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-27T03:01:37Z",
+  "scraped_at": "2026-09-27T04:01:44Z",
   "for_dates": [
     "2026-09-27",
     "2026-09-28"
@@ -45,9 +45,7 @@
     {
       "file": "c_28092026.pdf",
       "date": "2026-09-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(22525078 bytes read, 78372 more expected)', IncompleteRead(22525078 bytes read, 78372 more expected))"
     },
     {
       "file": "finals_28.09.2026.pdf",
@@ -80,7 +78,9 @@
     {
       "file": "advance_mediation_28092026_original.pdf",
       "date": "2026-09-28",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": []
