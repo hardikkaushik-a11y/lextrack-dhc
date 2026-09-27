@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-27T17:01:38Z",
+  "scraped_at": "2026-09-27T18:01:49Z",
   "for_dates": [
     "2026-09-27",
     "2026-09-28"
@@ -80,7 +80,9 @@
     {
       "file": "advance_mediation_28092026_original.pdf",
       "date": "2026-09-28",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": []
