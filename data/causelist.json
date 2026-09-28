@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-09-28T16:01:49Z",
+  "scraped_at": "2026-09-28T17:02:29Z",
   "for_dates": [
     "2026-09-28",
     "2026-09-29"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 2,
   "sources": [
     {
       "file": "combined_targetted_29092026.pdf",
@@ -66,7 +66,9 @@
     {
       "file": "c_29092026.pdf",
       "date": "2026-09-29",
-      "error": "download: ('Connection broken: IncompleteRead(15447150 bytes read, 5757630 more expected)', IncompleteRead(15447150 bytes read, 5757630 more expected))"
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
     },
     {
       "file": "combined_adv_list_29.09.2026.pdf",
@@ -117,26 +119,39 @@
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 363,
+      "page": 494,
       "context": "51        CS(COMM)-      RELIANCE CONSUMER PRODUCTS      SEWA SINGH,\n             195/2026       LIMITED                         ISHI SINGH",
       "caseNo": "CS(COMM)/195/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-      RELIANCE CONSUMER PRODUCTS      SEWA SINGH,\n             195/2026",
       "date": "2026-09-29",
-      "source_pdf": "combined_adv_list_29.09.2026.pdf"
+      "source_pdf": "c_29092026.pdf"
+    },
+    {
+      "item": "21",
+      "court": "50",
+      "judge": "VIKAS MAHAJAN CLICK HERE TO JOIN VC",
+      "time": null,
+      "page": 693,
+      "context": "21   CS(COMM)-       JIOSTAR INDIA PRIVATE    PARSHANT ARORA,\n        313/2026        LIMITED                  ANINDITA MITRA,",
+      "caseNo": "CS(COMM)/313/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-       JIOSTAR INDIA PRIVATE    PARSHANT ARORA,\n        313/2026",
+      "date": "2026-09-29",
+      "source_pdf": "c_29092026.pdf"
     },
     {
       "item": "53",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 10,
+      "page": 736,
       "context": "53       CS(COMM)-         RELIANCE            SEWA SINGH,\n             195/2026          CONSUMER            ISHI SINGH",
       "caseNo": "CS(COMM)/195/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         RELIANCE            SEWA SINGH,\n             195/2026",
       "date": "2026-09-29",
-      "source_pdf": "advance_mediation_29092026_original.pdf"
+      "source_pdf": "c_29092026.pdf"
     }
   ]
 }
