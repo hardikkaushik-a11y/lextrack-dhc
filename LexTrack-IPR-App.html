@@ -1879,8 +1879,8 @@ body {
 .case-chat-overlay.open { display: flex; }
 .case-chat-drawer {
   width: 420px;
-  max-width: 100vw;
-  height: 100vh;
+  max-width: 100%;
+  height: 100%;
   background: var(--paper);
   border-left: 1px solid var(--border);
   box-shadow: var(--shadow-lg);
@@ -1928,7 +1928,7 @@ body {
   border-radius: 999px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit;
 }
 .case-chat-chip:hover { background: var(--paper2); border-color: var(--gold); }
-.case-chat-form { display: flex; gap: 8px; padding: 12px 18px; border-top: 1px solid var(--border); }
+.case-chat-form { display: flex; gap: 8px; padding: 12px 18px calc(12px + env(safe-area-inset-bottom, 0)); border-top: 1px solid var(--border); }
 .case-chat-input {
   flex: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
   font-size: 13px; font-family: inherit; background: #fff; color: var(--ink);
@@ -1941,7 +1941,7 @@ body {
 .case-chat-send:disabled { background: var(--ink3); cursor: not-allowed; }
 .case-chat-footer { padding: 0 18px 12px; font-size: 11px; color: var(--ink3); }
 @media (max-width: 640px) {
-  .case-chat-drawer { width: 100vw; }
+  .case-chat-drawer { width: 100%; }
 }
 </style>
 </head>
