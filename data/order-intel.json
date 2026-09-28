@@ -7222,5 +7222,35 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/313/2026",
     "_orderDate": "2026-08-31"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790581082_95ab2f4d5a630775_ajb_2562026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff company 'Kuku Technologies Private Limited' is substituted to 'Kuku Technologies Limited' in the suit.",
+      "Amended memo of parties to be filed before the next date.",
+      "Defendants to file replies to I.A. 6856/2026 and I.A. 18834/2026 within 03 weeks; rejoinders within 02 weeks thereafter, with copies to opposing counsel.",
+      "Parties to file brief synopses of submissions alongwith list of judicial precedents not exceeding 05 pages before the next date, with copies to opposing counsel.",
+      "Re-notify before court on 19th November 2026 and before the learned Joint Registrar on 08th December 2026."
+    ],
+    "citations": [
+      "Section 151, Code of Civil Procedure 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Garg, Ms. Disha Sharma and Ms. Ishi Singh",
+      "defendant": "Mr. Sandeep Devashish and Mr. Tanishq Juneja"
+    },
+    "summary": "The plaintiff filed an application under Section 151 CPC seeking substitution of its name from 'Kuku Technologies Private Limited' to 'Kuku Technologies Limited' following conversion from a private to a public company, supported by ROC certificates. The court allowed the substitution application and directed filing of an amended memo of parties. Replies were directed in two other pending applications, and the matter was re-notified for 19th November 2026 before the court and 08th December 2026 before the Joint Registrar.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-09-28T08:04:52.658Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/256/2026",
+    "_orderDate": "2026-09-21"
   }
 }
