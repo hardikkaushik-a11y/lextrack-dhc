@@ -8362,16 +8362,24 @@ function renderCaseChatMessages(matterId) {
   box.scrollTop = box.scrollHeight;
 }
 
+// Module-level so the onclick below can reference an entry by index instead
+// of embedding the raw string in an HTML attribute — JSON.stringify(c) here
+// used to produce a double-quoted JS string INSIDE a double-quoted onclick
+// attribute, which closed the attribute early at the first quote and left
+// every chip's onclick silently broken.
+const CASE_CHAT_SUGGESTIONS = [
+  "What's the current status?",
+  'What should I prepare before the next hearing?',
+  'Summarise the last order',
+  'What documents are still needed?',
+];
+
 function renderCaseChatSuggestions(matterId) {
   const el = document.getElementById('case-chat-suggestions');
   if (getCaseChatHistory(matterId).length) { el.innerHTML = ''; return; }
-  const chips = [
-    "What's the current status?",
-    'What should I prepare before the next hearing?',
-    'Summarise the last order',
-    'What documents are still needed?',
-  ];
-  el.innerHTML = chips.map(c => `<button type="button" class="case-chat-chip" onclick="sendCaseChat(${JSON.stringify(c)})">${escapeCaseChatHtml(c)}</button>`).join('');
+  el.innerHTML = CASE_CHAT_SUGGESTIONS.map((c, i) =>
+    `<button type="button" class="case-chat-chip" onclick="sendCaseChat(CASE_CHAT_SUGGESTIONS[${i}])">${escapeCaseChatHtml(c)}</button>`
+  ).join('');
 }
 
 function setCaseChatBusy(busy) {
