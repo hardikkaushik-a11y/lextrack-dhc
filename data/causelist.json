@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-28T09:01:39Z",
+  "scraped_at": "2026-09-28T10:01:47Z",
   "for_dates": [
     "2026-09-28",
     "2026-09-29"
@@ -19,6 +19,13 @@
       "date": "2026-09-29",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_jasmeet_singh_28.09.2026.pdf",
+      "date": "2026-09-28",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -93,11 +100,6 @@
     },
     {
       "file": "c_28092026.pdf",
-      "date": "2026-09-28",
-      "error": "download: ('Connection broken: IncompleteRead(14144134 bytes read, 8459316 more expected)', IncompleteRead(14144134 bytes read, 8459316 more expected))"
-    },
-    {
-      "file": "finals_28.09.2026.pdf",
       "date": "2026-09-28",
       "matched": 0,
       "regex_matches": 0,
