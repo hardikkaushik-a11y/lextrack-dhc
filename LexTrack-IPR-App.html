@@ -8002,12 +8002,17 @@ async function generateDraft() {
       body: JSON.stringify({
         model: 'deepseek-flash',
         messages: [{ role: 'user', content: prompt }],
-        max_tokens: 8000,
+        max_tokens: 24000,
         thinking: { type: 'enabled' }
         // deepseek-reasoner was retired 2026-07-24 — deepseek-flash's thinking
         // mode is its replacement. Left response_format/temperature unset,
         // same as the old reasoner call (unverified whether the new model
         // still rejects them with thinking on — untouched to be safe).
+        // max_tokens raised from 8000: with thinking on, reasoning_effort
+        // defaults to "high" and DeepSeek's own default budget for thinking
+        // mode is 64K — 8000 was getting eaten entirely by the reasoning
+        // trace before any draft text was written, so content came back
+        // empty (finish_reason: length). 24000 leaves real room for both.
       })
     });
     if (!resp.ok) {
@@ -8020,7 +8025,12 @@ async function generateDraft() {
     }
     const data = await resp.json();
     let draft = data.choices?.[0]?.message?.content || '';
-    if (!draft.trim()) throw new Error('Empty response from API');
+    if (!draft.trim()) {
+      const cutOff = data.choices?.[0]?.finish_reason === 'length';
+      throw new Error(cutOff
+        ? 'Reasoning used up the entire token budget before writing the draft — try again (or a shorter brief)'
+        : 'Empty response from API');
+    }
 
     // Restore client identifiers before showing the draft to the user
     draft = reverseDraftingMask(draft, maskMap);
