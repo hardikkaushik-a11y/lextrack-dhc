@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-28T05:01:52Z",
+  "scraped_at": "2026-09-28T06:02:05Z",
   "for_dates": [
     "2026-09-28",
     "2026-09-29"
@@ -19,6 +19,20 @@
       "date": "2026-09-29",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-7_for_28.09.26.pdf",
+      "date": "2026-09-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-6_for_28.09.26.pdf",
+      "date": "2026-09-28",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -59,7 +73,9 @@
     {
       "file": "c_28092026.pdf",
       "date": "2026-09-28",
-      "error": "download: ('Connection broken: IncompleteRead(17709406 bytes read, 4894044 more expected)', IncompleteRead(17709406 bytes read, 4894044 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_28.09.2026.pdf",
