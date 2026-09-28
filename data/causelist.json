@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-28T03:01:55Z",
+  "scraped_at": "2026-09-28T04:01:49Z",
   "for_dates": [
     "2026-09-28",
     "2026-09-29"
@@ -10,9 +10,7 @@
     {
       "file": "combined_adv_list_29.09.2026.pdf",
       "date": "2026-09-29",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(352112 bytes read, 6942711 more expected)', IncompleteRead(352112 bytes read, 6942711 more expected))"
     },
     {
       "file": "advance_mediation_29092026_original.pdf",
@@ -94,25 +92,10 @@
     {
       "file": "advance_mediation_28092026_original.pdf",
       "date": "2026-09-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": [
-    {
-      "item": "51",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 363,
-      "context": "51        CS(COMM)-      RELIANCE CONSUMER PRODUCTS      SEWA SINGH,\n             195/2026       LIMITED                         ISHI SINGH",
-      "caseNo": "CS(COMM)/195/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-      RELIANCE CONSUMER PRODUCTS      SEWA SINGH,\n             195/2026",
-      "date": "2026-09-29",
-      "source_pdf": "combined_adv_list_29.09.2026.pdf"
-    },
     {
       "item": "53",
       "court": "JR",
