@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-28T12:01:25Z",
+  "scraped_at": "2026-09-28T13:01:28Z",
   "for_dates": [
     "2026-09-28",
     "2026-09-29"
@@ -7,6 +7,25 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "finals_29.09.2026.pdf",
+      "date": "2026-09-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl29092026.pdf",
+      "date": "2026-09-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_29092026.pdf",
+      "date": "2026-09-29",
+      "error": "download: ('Connection broken: IncompleteRead(1780478 bytes read, 19424302 more expected)', IncompleteRead(1780478 bytes read, 19424302 more expected))"
+    },
     {
       "file": "combined_adv_list_29.09.2026.pdf",
       "date": "2026-09-29",
@@ -72,27 +91,6 @@
     },
     {
       "file": "deletion_note_28.09.2026.pdf",
-      "date": "2026-09-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_28092026.pdf",
-      "date": "2026-09-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "dh_sup_2_28.09.pdf",
-      "date": "2026-09-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_28092026.pdf",
       "date": "2026-09-28",
       "matched": 0,
       "regex_matches": 0,
