@@ -666,6 +666,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 4px;
   margin-bottom: 20px;
 }
 
@@ -924,6 +926,7 @@ body {
   .cl-dash-banner { padding: 14px 16px; }
   .cl-dash-row { flex-direction: column; align-items: flex-start; gap: 4px; }
   .cl-dash-meta { font-size: 11.5px; }
+  .ai-card { padding: 18px; }
 }
 .loading .ai-spinner { display: block; }
 
@@ -931,6 +934,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+}
+@media (max-width: 700px) {
+  .ai-sections { grid-template-columns: 1fr; }
 }
 
 .ai-section {
@@ -1859,6 +1865,83 @@ body {
     flex-direction: column;
     gap: 12px;
   }
+}
+
+/* ── CASE CHAT — persistent per-matter assistant drawer ── */
+.case-chat-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15,14,12,0.35);
+  z-index: 210;
+  justify-content: flex-end;
+}
+.case-chat-overlay.open { display: flex; }
+.case-chat-drawer {
+  width: 420px;
+  max-width: 100vw;
+  height: 100vh;
+  background: var(--paper);
+  border-left: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  animation: caseChatSlideIn 0.22s ease-out;
+}
+@keyframes caseChatSlideIn { from { transform: translateX(24px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+.case-chat-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 10px; padding: 16px 18px; border-bottom: 1px solid var(--border);
+}
+.case-chat-title { font-size: 15px; font-weight: 700; color: var(--ink); }
+.case-chat-subtitle { font-size: 12px; color: var(--ink3); margin-top: 2px; }
+.case-chat-header-actions { display: flex; gap: 6px; align-items: center; }
+.case-chat-icon-btn {
+  background: transparent; border: 1px solid var(--border); border-radius: 6px;
+  color: var(--ink3); font-size: 12px; padding: 5px 9px; cursor: pointer; font-family: inherit;
+}
+.case-chat-icon-btn:hover { background: var(--paper2); }
+.case-chat-messages {
+  flex: 1; overflow-y: auto; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px;
+}
+.case-chat-msg { display: flex; max-width: 92%; }
+.case-chat-msg.user { align-self: flex-end; justify-content: flex-end; }
+.case-chat-msg.assistant { align-self: flex-start; }
+.case-chat-bubble {
+  padding: 9px 13px; border-radius: 12px; font-size: 13px; line-height: 1.55;
+  border: 1px solid var(--border); background: #fff; color: var(--ink);
+}
+.case-chat-msg.user .case-chat-bubble { background: var(--ink); color: #fff; border-color: var(--ink); }
+.case-chat-msg.assistant .case-chat-bubble { background: var(--paper2); }
+.case-chat-bubble.error { border-color: var(--red2); background: #fdf1f1; color: #8a2e2e; }
+.case-chat-typing { display: flex; gap: 4px; padding: 2px 0; }
+.case-chat-typing span {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--ink3);
+  animation: caseChatBlink 1s infinite ease-in-out;
+}
+.case-chat-typing span:nth-child(2) { animation-delay: .15s; }
+.case-chat-typing span:nth-child(3) { animation-delay: .3s; }
+@keyframes caseChatBlink { 0%, 80%, 100% { opacity: 0.25; } 40% { opacity: 1; } }
+.case-chat-suggestions { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 18px 12px; }
+.case-chat-chip {
+  border: 1px solid var(--border); background: #fff; color: var(--ink2);
+  border-radius: 999px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit;
+}
+.case-chat-chip:hover { background: var(--paper2); border-color: var(--gold); }
+.case-chat-form { display: flex; gap: 8px; padding: 12px 18px; border-top: 1px solid var(--border); }
+.case-chat-input {
+  flex: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+  font-size: 13px; font-family: inherit; background: #fff; color: var(--ink);
+}
+.case-chat-input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.18); }
+.case-chat-send {
+  background: var(--ink); color: #fff; border: none; border-radius: 8px;
+  padding: 0 16px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit;
+}
+.case-chat-send:disabled { background: var(--ink3); cursor: not-allowed; }
+.case-chat-footer { padding: 0 18px 12px; font-size: 11px; color: var(--ink3); }
+@media (max-width: 640px) {
+  .case-chat-drawer { width: 100vw; }
 }
 </style>
 </head>
@@ -4130,6 +4213,7 @@ function openDetail(id) {
         <div style="display:flex;gap:8px;align-items:center;">
           <button class="btn" onclick="goBack() || showView('matters')" style="background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.1);color:var(--ink2);padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;">← Back</button>
           <button class="btn btn-gold" onclick="runAnalysis('${id}')" id="ai-btn-${id}">${getDeepSeekKey() ? '⚡ AI Analysis' : '✦ AI Analysis'}</button>
+          <button class="btn" onclick="openCaseChat('${id}')" style="background:#eef2f8;border:1px solid rgba(76,108,156,0.35);color:#2d4a72;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;" title="Chat with an assistant that knows this case's orders, cause list, and documents">💬 Ask</button>
           <button class="btn" onclick="openCdDrafter('${id}')" style="background:#fef3c7;border:1px solid #c9a84c;color:#7a5a10;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;" title="Draft a C&D for this matter">📝 Draft C&amp;D</button>
           <button class="btn btn-danger" onclick="confirmDelete('${id}')">Delete</button>
         </div>
@@ -4840,9 +4924,10 @@ async function aiCall(prompt, opts = {}) {
   const apiKey = getDeepSeekKey();
   if (!apiKey) throw new Error('No DeepSeek key — set it via ✦ AI Analysis prompt');
   const body = {
-    model: 'deepseek-chat',
+    model: 'deepseek-flash',
     messages: [{ role: 'user', content: prompt }],
     max_tokens: opts.maxTokens || 2000,
+    thinking: { type: 'disabled' },
   };
   if (opts.temperature != null) body.temperature = opts.temperature;
   if (opts.jsonMode) body.response_format = { type: 'json_object' };
@@ -4860,7 +4945,7 @@ async function aiCall(prompt, opts = {}) {
   return { content };
 }
 window.aiCall = aiCall;
-function getAIConfig() { return getDeepSeekKey() ? { provider: 'deepseek', model: 'deepseek-chat' } : null; }
+function getAIConfig() { return getDeepSeekKey() ? { provider: 'deepseek', model: 'deepseek-flash' } : null; }
 window.getAIConfig = getAIConfig;
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -5157,11 +5242,12 @@ Use the candidate's number (1-${docs.length}) for "index". Pick fewer than 5 onl
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
     body: JSON.stringify({
-      model: 'deepseek-chat',
+      model: 'deepseek-flash',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 800,
       temperature: 0.2,
-      response_format: { type: 'json_object' }
+      response_format: { type: 'json_object' },
+      thinking: { type: 'disabled' }
     })
   });
   if (!resp.ok) throw new Error(`DeepSeek failed (${resp.status})`);
@@ -5478,11 +5564,12 @@ Return EXACTLY this JSON (no markdown, no preamble, pure JSON):
         'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: 'deepseek-chat',
+        model: 'deepseek-flash',
         messages: [{ role: 'user', content: prompt }],
         max_tokens: 2500,
         temperature: 0.3,
-        response_format: { type: 'json_object' }
+        response_format: { type: 'json_object' },
+        thinking: { type: 'disabled' }
       })
     });
 
@@ -6141,7 +6228,7 @@ async function _extractCasesFromImage(file) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
     body: JSON.stringify({
-      model: 'deepseek-chat',
+      model: 'deepseek-flash',
       messages: [{
         role: 'user',
         content: [
@@ -6152,6 +6239,7 @@ async function _extractCasesFromImage(file) {
       max_tokens: 2000,
       temperature: 0.1,
       response_format: { type: 'json_object' },
+      thinking: { type: 'disabled' },
     }),
   });
   if (!resp.ok) {
@@ -7912,10 +8000,14 @@ async function generateDraft() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
       body: JSON.stringify({
-        model: 'deepseek-reasoner',
+        model: 'deepseek-flash',
         messages: [{ role: 'user', content: prompt }],
-        max_tokens: 8000
-        // R1 does not accept response_format or temperature — leave defaults.
+        max_tokens: 8000,
+        thinking: { type: 'enabled' }
+        // deepseek-reasoner was retired 2026-07-24 — deepseek-flash's thinking
+        // mode is its replacement. Left response_format/temperature unset,
+        // same as the old reasoner call (unverified whether the new model
+        // still rejects them with thinking on — untouched to be safe).
       })
     });
     if (!resp.ok) {
@@ -8182,6 +8274,288 @@ async function renderUploadedDocs(matterId) {
   `).join('');
 }
 
+// ── CASE CHAT — persistent per-matter assistant ─────────────────────────────
+// Grounded in the same order-text/cause-list context generateDeepAnalysis
+// builds, plus text extracted from documents Ishi uploaded for this matter.
+// Same DeepSeek key as AI Analysis; costs a bit more per turn than a single
+// Deep Analysis call since the full context is resent every message — same
+// tradeoff ask-ci-style assistants make elsewhere, and the point of this
+// feature is exactly that: let her keep talking instead of one-shotting it.
+
+const CASE_CHAT_HISTORY_LIMIT = 40;   // messages kept in localStorage per matter
+const CASE_CHAT_TURNS_SENT    = 16;   // most recent messages sent to the model
+
+let __caseChatMatterId = null;
+
+function caseChatKey(matterId) { return `lextrack_chat_${matterId}`; }
+
+function getCaseChatHistory(matterId) {
+  try { return JSON.parse(localStorage.getItem(caseChatKey(matterId)) || '[]'); }
+  catch { return []; }
+}
+
+function saveCaseChatHistory(matterId, history) {
+  const trimmed = history.slice(-CASE_CHAT_HISTORY_LIMIT);
+  try { localStorage.setItem(caseChatKey(matterId), JSON.stringify(trimmed)); } catch {}
+  return trimmed;
+}
+
+function escapeCaseChatHtml(s) {
+  return String(s).replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+}
+
+// Minimal markdown-lite: bold + bullets + line breaks. No tables — chat
+// replies here are conversational, unlike the Deep Analysis JSON output.
+function renderCaseChatMd(raw) {
+  let s = escapeCaseChatHtml(raw);
+  s = s.replace(/\*\*([\s\S]+?)\*\*/g, '<strong>$1</strong>');
+  s = s.split('\n').map(line => line.replace(/^[-*]\s+(.+)$/, '&#8226;&nbsp;$1')).join('<br>');
+  return s;
+}
+
+function openCaseChat(matterId) {
+  const m = matters.find(x => x.id === matterId);
+  if (!m) return;
+  __caseChatMatterId = matterId;
+  document.getElementById('case-chat-subtitle').textContent = `${m.caseNo} · ${m.title}`;
+  renderCaseChatMessages(matterId);
+  renderCaseChatSuggestions(matterId);
+  document.getElementById('case-chat-overlay').classList.add('open');
+  setTimeout(() => document.getElementById('case-chat-input')?.focus(), 50);
+}
+
+function closeCaseChat() {
+  document.getElementById('case-chat-overlay').classList.remove('open');
+  __caseChatMatterId = null;
+}
+
+function clearCaseChat() {
+  if (!__caseChatMatterId) return;
+  if (!confirm('Clear this conversation? This only clears the chat, not the case data.')) return;
+  localStorage.removeItem(caseChatKey(__caseChatMatterId));
+  renderCaseChatMessages(__caseChatMatterId);
+  renderCaseChatSuggestions(__caseChatMatterId);
+}
+
+function renderCaseChatMessages(matterId) {
+  const box = document.getElementById('case-chat-messages');
+  const history = getCaseChatHistory(matterId);
+  if (!history.length) {
+    box.innerHTML = `<div style="text-align:center;color:var(--ink3);font-size:12.5px;padding:20px 8px;">Ask about deadlines, what to prepare, what the last order actually said — anything in this case's file.</div>`;
+    return;
+  }
+  box.innerHTML = history.map(msg => `
+    <div class="case-chat-msg ${msg.role === 'user' ? 'user' : 'assistant'}">
+      <div class="case-chat-bubble">${msg.role === 'user' ? escapeCaseChatHtml(msg.content) : renderCaseChatMd(msg.content)}</div>
+    </div>
+  `).join('');
+  box.scrollTop = box.scrollHeight;
+}
+
+function renderCaseChatSuggestions(matterId) {
+  const el = document.getElementById('case-chat-suggestions');
+  if (getCaseChatHistory(matterId).length) { el.innerHTML = ''; return; }
+  const chips = [
+    "What's the current status?",
+    'What should I prepare before the next hearing?',
+    'Summarise the last order',
+    'What documents are still needed?',
+  ];
+  el.innerHTML = chips.map(c => `<button type="button" class="case-chat-chip" onclick="sendCaseChat(${JSON.stringify(c)})">${escapeCaseChatHtml(c)}</button>`).join('');
+}
+
+function setCaseChatBusy(busy) {
+  const input = document.getElementById('case-chat-input');
+  const send  = document.getElementById('case-chat-send');
+  input.disabled = busy;
+  send.disabled  = busy;
+  const box = document.getElementById('case-chat-messages');
+  const existing = document.getElementById('case-chat-typing-row');
+  if (busy && !existing) {
+    const row = document.createElement('div');
+    row.className = 'case-chat-msg assistant';
+    row.id = 'case-chat-typing-row';
+    row.innerHTML = `<div class="case-chat-bubble"><div class="case-chat-typing"><span></span><span></span><span></span></div></div>`;
+    box.appendChild(row);
+    box.scrollTop = box.scrollHeight;
+  } else if (!busy && existing) {
+    existing.remove();
+  }
+}
+
+// Read (and cache) extracted text for one uploaded doc, so re-opening the
+// chat doesn't re-parse the same PDF/DOCX every time.
+async function lexDocGetText(docId) {
+  const db = await lexDbOpen();
+  const record = await new Promise((resolve, reject) => {
+    const req = db.transaction(LEXTRACK_DB_STORE, 'readonly').objectStore(LEXTRACK_DB_STORE).get(docId);
+    req.onsuccess = () => resolve(req.result);
+    req.onerror   = () => reject(req.error);
+  });
+  if (!record) return '';
+  if (typeof record.text === 'string') return record.text;
+
+  let text = '';
+  try {
+    await loadDraftingLibs();
+    const file = record.blob;
+    if (record.type.includes('pdf') || /\.pdf$/i.test(record.name)) text = await extractPdfText(file);
+    else if (record.type.includes('word') || record.type.includes('document') || /\.docx$/i.test(record.name)) text = await extractDocxText(file);
+    else if (record.type.startsWith('text/') || /\.txt$/i.test(record.name)) text = await file.text();
+  } catch (e) {
+    console.warn('case chat: doc text extraction failed for', record.name, e);
+  }
+
+  try {
+    const tx = db.transaction(LEXTRACK_DB_STORE, 'readwrite');
+    tx.objectStore(LEXTRACK_DB_STORE).put({ ...record, text });
+  } catch {}
+  return text;
+}
+
+// Uploaded-documents context — separate from the scraped DHC order PDFs
+// (already covered by buildCaseChatOrdersBlock via m.timeline). Budget
+// capped so one large upload can't blow the prompt.
+async function buildCaseChatDocsContext(matterId) {
+  let docs = [];
+  try { docs = await lexDocList(matterId); } catch { return ''; }
+  if (!docs.length) return '';
+
+  const DOC_LIMIT = 8, PER_DOC_CHARS = 3000;
+  const parts = ['═══ DOCUMENTS ISHI UPLOADED FOR THIS MATTER ═══'];
+  for (const d of docs.slice(0, DOC_LIMIT)) {
+    if (d.type.startsWith('image/')) { parts.push(`[${d.name}] — image, no extractable text.`); continue; }
+    const text = await lexDocGetText(d.id);
+    if (!text.trim()) { parts.push(`[${d.name}] — uploaded, text not extractable.`); continue; }
+    parts.push(`── ${d.name} ──\n${text.slice(0, PER_DOC_CHARS).replace(/\s+/g, ' ').trim()}${text.length > PER_DOC_CHARS ? '…' : ''}`);
+  }
+  return parts.join('\n\n') + '\n═══════════════════════════════════════════════════════\n';
+}
+
+// Same order-text tiering as generateDeepAnalysis's prompt builder (full
+// text for the latest orders, then excerpts, then dates only) — kept as its
+// own copy since the two prompts have very different shapes and purposes.
+function buildCaseChatOrdersBlock(m) {
+  const timeline = (m.timeline || []).slice().sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  const ordersWithText = timeline.filter(t => t.orderText);
+  if (!ordersWithText.length) return '(no PDF text extracted — reason from dates + parties only)';
+
+  const FULL_LIMIT = 5, EXCERPT_LIMIT = 20;
+  const fullBlock = ordersWithText.slice(0, FULL_LIMIT).map((t, i) =>
+    `── Order ${i+1} of ${ordersWithText.length} (${formatDate(t.date)}) — FULL TEXT ──\n${(t.orderText||'').substring(0, 4000)}`
+  ).join('\n\n');
+  const excerptBlock = ordersWithText.slice(FULL_LIMIT, EXCERPT_LIMIT).map((t, i) =>
+    `Order ${FULL_LIMIT + i + 1} (${formatDate(t.date)}) — excerpt: ${(t.orderText||'').substring(0, 700).replace(/\s+/g,' ').trim()}`
+  ).join('\n');
+  const olderBlock = ordersWithText.slice(EXCERPT_LIMIT).map((t, i) => {
+    const summary = (t.detail && t.detail !== 'Order passed by court') ? ` — ${t.detail}` : '';
+    return `${EXCERPT_LIMIT + i + 1}. ${formatDate(t.date)}${summary}`;
+  }).join('\n');
+
+  return [
+    '═══ FULL TEXT — MOST RECENT ORDERS ═══', fullBlock,
+    excerptBlock ? '\n═══ EXCERPTS — OLDER ORDERS ═══\n' + excerptBlock : '',
+    olderBlock ? '\n═══ ORDER TIMELINE — OLDEST (dates + summaries) ═══\n' + olderBlock : '',
+  ].filter(Boolean).join('\n');
+}
+
+async function buildCaseChatSystemPrompt(m) {
+  const orders = (m.docs || []).slice().sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  const c = classifyCase(m);
+  const cadence = analyseOrderCadence(orders);
+
+  const causelistBlock = (m.causelist && m.causelist.length)
+    ? '═══ DHC CAUSE LIST — UPCOMING HEARINGS ═══\n' +
+      m.causelist.map((cl, i) => [
+        `#${i+1} · ${formatDate(cl.date)}`,
+        cl.court ? (cl.court === 'JR' ? 'JR' : `Court ${cl.court}`) : null,
+        cl.item ? `Item ${cl.item}` : null,
+        cl.time || null,
+        cl.judge ? `before ${cl.judge}` : null,
+      ].filter(Boolean).join(' · ')).join('\n') +
+      '\n═══════════════════════════════════════════════════════\n'
+    : '';
+
+  const docsBlock   = await buildCaseChatDocsContext(m.id);
+  const firmProfile = (typeof getFirmProfileForPrompt === 'function') ? getFirmProfileForPrompt() : '';
+
+  return `You are LexTrack's case assistant — a senior IPR litigation colleague helping Ishi prep for this specific Delhi High Court matter. You have read every order, the cause list, and every document she's uploaded for this case. Hold a normal conversation: answer directly, ask a clarifying question if she's vague, and always ground answers in the material below — never invent facts, dates, or order contents.
+
+${firmProfile}
+CASE: ${m.title}
+Case No: ${m.caseNo} | Delhi High Court | ${m.type === 'other' ? 'IPR (type not yet classified)' : m.type.toUpperCase()}
+Status: ${m.status || m.stage}
+Client: ${m.client || 'not specified'}
+Last hearing: ${m.lastDate ? formatDate(m.lastDate) : '—'}
+Next hearing: ${m.nextDate ? formatDate(m.nextDate) : '—'}
+Total orders on record: ${orders.length}
+Cadence: ${cadence.label}${cadence.avgGap ? ` (avg ${cadence.avgGap} days between hearings)` : ''}
+${m.notes ? `Ishi's notes: ${m.notes}` : ''}
+
+${causelistBlock}${buildCaseChatOrdersBlock(m)}
+
+${docsBlock}
+
+HOW TO ANSWER:
+- Be direct — this is a working conversation, not a report. No preamble.
+- Cite the specific order/date/document when you make a factual claim.
+- If something isn't in the material above, say so plainly instead of guessing — offer to note it as something to confirm.
+- Mark genuine judgment calls or inferences with [review] rather than stating them as fact.
+- Keep replies proportionate to the question — a quick question gets a quick answer.`;
+}
+
+async function sendCaseChat(prefillText) {
+  const matterId = __caseChatMatterId;
+  if (!matterId) return;
+  const m = matters.find(x => x.id === matterId);
+  if (!m) return;
+
+  const input = document.getElementById('case-chat-input');
+  const text = (prefillText ?? input.value).trim();
+  if (!text) return;
+
+  let apiKey = getDeepSeekKey();
+  if (!apiKey) {
+    apiKey = setupDeepSeekKey();
+    if (!apiKey) { toast('DeepSeek API key required to chat', 'error'); return; }
+  }
+
+  input.value = '';
+  let history = saveCaseChatHistory(matterId, [...getCaseChatHistory(matterId), { role: 'user', content: text }]);
+  renderCaseChatMessages(matterId);
+  document.getElementById('case-chat-suggestions').innerHTML = '';
+  setCaseChatBusy(true);
+
+  try {
+    const systemPrompt = await buildCaseChatSystemPrompt(m);
+    const messages = [
+      { role: 'system', content: systemPrompt },
+      ...history.slice(-CASE_CHAT_TURNS_SENT).map(h => ({ role: h.role, content: h.content })),
+    ];
+    const resp = await fetch('https://api.deepseek.com/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+      body: JSON.stringify({ model: 'deepseek-flash', messages, max_tokens: 1200, temperature: 0.4, thinking: { type: 'disabled' } }),
+    });
+    if (!resp.ok) {
+      const errTxt = await resp.text().catch(() => '');
+      if (resp.status === 401) { localStorage.removeItem('lextrack_deepseek_key'); throw new Error('Invalid API key — re-enter it'); }
+      throw new Error(`DeepSeek error (${resp.status}): ${errTxt.slice(0, 200)}`);
+    }
+    const data = await resp.json();
+    const reply = data.choices?.[0]?.message?.content?.trim() || "I didn't get a response — try asking again.";
+    history = saveCaseChatHistory(matterId, [...history, { role: 'assistant', content: reply }]);
+    renderCaseChatMessages(matterId);
+  } catch (err) {
+    const box = document.getElementById('case-chat-messages');
+    box.insertAdjacentHTML('beforeend', `<div class="case-chat-msg assistant"><div class="case-chat-bubble error">${escapeCaseChatHtml(err.message)}</div></div>`);
+    box.scrollTop = box.scrollHeight;
+  } finally {
+    setCaseChatBusy(false);
+    input.focus();
+  }
+}
+
 // ── Calendar export (.ics, RFC 5545) ───────────────────────────────────────
 function _icsEscape(s) {
   return String(s || '').replace(/[\\;,]/g, m => '\\' + m).replace(/\r?\n/g, '\\n');
@@ -8436,11 +8810,12 @@ async function generateHearingPrep(matterId, hearingDate, kind) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
     body: JSON.stringify({
-      model: 'deepseek-chat',
+      model: 'deepseek-flash',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 1500,
       temperature: 0.3,
       response_format: { type: 'json_object' },
+      thinking: { type: 'disabled' },
     }),
   });
   if (!resp.ok) {
@@ -10115,6 +10490,28 @@ window.addEventListener('load', () => {
       <button class="btn btn-primary" id="cd-next" type="button" onclick="cdDrafterWizard.next()" style="font-size:14px;padding:11px 22px;">Continue →</button>
     </div>
   </div>
+</div>
+
+<div class="case-chat-overlay" id="case-chat-overlay" onclick="closeCaseChat()">
+  <aside class="case-chat-drawer" onclick="event.stopPropagation()">
+    <div class="case-chat-header">
+      <div>
+        <div class="case-chat-title">💬 Ask about this case</div>
+        <div class="case-chat-subtitle" id="case-chat-subtitle"></div>
+      </div>
+      <div class="case-chat-header-actions">
+        <button class="case-chat-icon-btn" onclick="clearCaseChat()" title="Clear this conversation">Clear</button>
+        <button class="case-chat-icon-btn" onclick="closeCaseChat()" title="Close" style="font-size:14px;">×</button>
+      </div>
+    </div>
+    <div class="case-chat-messages" id="case-chat-messages"></div>
+    <div class="case-chat-suggestions" id="case-chat-suggestions"></div>
+    <form class="case-chat-form" onsubmit="event.preventDefault(); sendCaseChat();">
+      <input class="case-chat-input" id="case-chat-input" placeholder="Ask anything about this case…" autocomplete="off">
+      <button class="case-chat-send" id="case-chat-send" type="submit">Send</button>
+    </form>
+    <div class="case-chat-footer" id="case-chat-footer">Grounded in this matter's orders, cause list, and uploaded documents.</div>
+  </aside>
 </div>
 </body>
 </html>
