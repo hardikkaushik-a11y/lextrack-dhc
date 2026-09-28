@@ -4924,9 +4924,10 @@ async function aiCall(prompt, opts = {}) {
   const apiKey = getDeepSeekKey();
   if (!apiKey) throw new Error('No DeepSeek key — set it via ✦ AI Analysis prompt');
   const body = {
-    model: 'deepseek-chat',
+    model: 'deepseek-flash',
     messages: [{ role: 'user', content: prompt }],
     max_tokens: opts.maxTokens || 2000,
+    thinking: { type: 'disabled' },
   };
   if (opts.temperature != null) body.temperature = opts.temperature;
   if (opts.jsonMode) body.response_format = { type: 'json_object' };
@@ -4944,7 +4945,7 @@ async function aiCall(prompt, opts = {}) {
   return { content };
 }
 window.aiCall = aiCall;
-function getAIConfig() { return getDeepSeekKey() ? { provider: 'deepseek', model: 'deepseek-chat' } : null; }
+function getAIConfig() { return getDeepSeekKey() ? { provider: 'deepseek', model: 'deepseek-flash' } : null; }
 window.getAIConfig = getAIConfig;
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -5241,11 +5242,12 @@ Use the candidate's number (1-${docs.length}) for "index". Pick fewer than 5 onl
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
     body: JSON.stringify({
-      model: 'deepseek-chat',
+      model: 'deepseek-flash',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 800,
       temperature: 0.2,
-      response_format: { type: 'json_object' }
+      response_format: { type: 'json_object' },
+      thinking: { type: 'disabled' }
     })
   });
   if (!resp.ok) throw new Error(`DeepSeek failed (${resp.status})`);
@@ -5562,11 +5564,12 @@ Return EXACTLY this JSON (no markdown, no preamble, pure JSON):
         'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: 'deepseek-chat',
+        model: 'deepseek-flash',
         messages: [{ role: 'user', content: prompt }],
         max_tokens: 2500,
         temperature: 0.3,
-        response_format: { type: 'json_object' }
+        response_format: { type: 'json_object' },
+        thinking: { type: 'disabled' }
       })
     });
 
@@ -6225,7 +6228,7 @@ async function _extractCasesFromImage(file) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
     body: JSON.stringify({
-      model: 'deepseek-chat',
+      model: 'deepseek-flash',
       messages: [{
         role: 'user',
         content: [
@@ -6236,6 +6239,7 @@ async function _extractCasesFromImage(file) {
       max_tokens: 2000,
       temperature: 0.1,
       response_format: { type: 'json_object' },
+      thinking: { type: 'disabled' },
     }),
   });
   if (!resp.ok) {
@@ -7996,10 +8000,14 @@ async function generateDraft() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
       body: JSON.stringify({
-        model: 'deepseek-reasoner',
+        model: 'deepseek-flash',
         messages: [{ role: 'user', content: prompt }],
-        max_tokens: 8000
-        // R1 does not accept response_format or temperature — leave defaults.
+        max_tokens: 8000,
+        thinking: { type: 'enabled' }
+        // deepseek-reasoner was retired 2026-07-24 — deepseek-flash's thinking
+        // mode is its replacement. Left response_format/temperature unset,
+        // same as the old reasoner call (unverified whether the new model
+        // still rejects them with thinking on — untouched to be safe).
       })
     });
     if (!resp.ok) {
@@ -8527,7 +8535,7 @@ async function sendCaseChat(prefillText) {
     const resp = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
-      body: JSON.stringify({ model: 'deepseek-chat', messages, max_tokens: 1200, temperature: 0.4 }),
+      body: JSON.stringify({ model: 'deepseek-flash', messages, max_tokens: 1200, temperature: 0.4, thinking: { type: 'disabled' } }),
     });
     if (!resp.ok) {
       const errTxt = await resp.text().catch(() => '');
@@ -8802,11 +8810,12 @@ async function generateHearingPrep(matterId, hearingDate, kind) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
     body: JSON.stringify({
-      model: 'deepseek-chat',
+      model: 'deepseek-flash',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 1500,
       temperature: 0.3,
       response_format: { type: 'json_object' },
+      thinking: { type: 'disabled' },
     }),
   });
   if (!resp.ok) {
