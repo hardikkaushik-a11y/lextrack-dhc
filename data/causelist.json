@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-09-29T07:02:25Z",
+  "scraped_at": "2026-09-29T08:01:57Z",
   "for_dates": [
     "2026-09-29",
     "2026-09-30"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 2,
   "sources": [
     {
       "file": "combined_advance_30092026.pdf",
@@ -80,12 +80,16 @@
     {
       "file": "c_29092026.pdf",
       "date": "2026-09-29",
-      "error": "download: ('Connection broken: IncompleteRead(11588494 bytes read, 9616286 more expected)', IncompleteRead(11588494 bytes read, 9616286 more expected))"
+      "matched": 3,
+      "regex_matches": 3,
+      "norm_matches": 0
     },
     {
       "file": "combined_adv_list_29.09.2026.pdf",
       "date": "2026-09-29",
-      "error": "download: ('Connection broken: IncompleteRead(4826375 bytes read, 2468448 more expected)', IncompleteRead(4826375 bytes read, 2468448 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "advance_mediation_29092026_original.pdf",
@@ -97,17 +101,43 @@
   ],
   "entries": [
     {
+      "item": "51",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 494,
+      "context": "51        CS(COMM)-      RELIANCE CONSUMER PRODUCTS      SEWA SINGH,\n             195/2026       LIMITED                         ISHI SINGH",
+      "caseNo": "CS(COMM)/195/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-      RELIANCE CONSUMER PRODUCTS      SEWA SINGH,\n             195/2026",
+      "date": "2026-09-29",
+      "source_pdf": "c_29092026.pdf"
+    },
+    {
+      "item": "21",
+      "court": "50",
+      "judge": "VIKAS MAHAJAN CLICK HERE TO JOIN VC",
+      "time": null,
+      "page": 693,
+      "context": "21   CS(COMM)-       JIOSTAR INDIA PRIVATE    PARSHANT ARORA,\n        313/2026        LIMITED                  ANINDITA MITRA,",
+      "caseNo": "CS(COMM)/313/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-       JIOSTAR INDIA PRIVATE    PARSHANT ARORA,\n        313/2026",
+      "date": "2026-09-29",
+      "source_pdf": "c_29092026.pdf"
+    },
+    {
       "item": "53",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 10,
+      "page": 736,
       "context": "53       CS(COMM)-         RELIANCE            SEWA SINGH,\n             195/2026          CONSUMER            ISHI SINGH",
       "caseNo": "CS(COMM)/195/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         RELIANCE            SEWA SINGH,\n             195/2026",
       "date": "2026-09-29",
-      "source_pdf": "advance_mediation_29092026_original.pdf"
+      "source_pdf": "c_29092026.pdf"
     }
   ]
 }
