@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-29T13:01:52Z",
+  "scraped_at": "2026-09-29T14:01:48Z",
   "for_dates": [
     "2026-09-29",
     "2026-09-30"
@@ -8,11 +8,51 @@
   "matched_cases": 0,
   "sources": [
     {
-      "file": "combined_cause_list_30.09.2026.pdf",
+      "file": "pronouncement_parcha_30.09.2026_db_1.pdf",
       "date": "2026-09-30",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_30.09.2026.pdf",
+      "date": "2026-09-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_30.09.2026.pdf",
+      "date": "2026-09-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_30.09.2026.pdf",
+      "date": "2026-09-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_30.09.2026.pdf",
+      "date": "2026-09-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl30092026.pdf",
+      "date": "2026-09-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_30.09.2026.pdf",
+      "date": "2026-09-30",
+      "error": "download: ('Connection broken: IncompleteRead(16706582 bytes read, 2937237 more expected)', IncompleteRead(16706582 bytes read, 2937237 more expected))"
     },
     {
       "file": "combined_advance_30092026.pdf",
@@ -65,62 +105,6 @@
     },
     {
       "file": "suppl_10_29.09.2026.pdf",
-      "date": "2026-09-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_for_29.09.26.pdf",
-      "date": "2026-09-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_29092026.pdf",
-      "date": "2026-09-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_29.09.2026.pdf",
-      "date": "2026-09-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_29.09.2026.pdf",
-      "date": "2026-09-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pronouncement_greenopolis_1_29092026.pdf",
-      "date": "2026-09-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_29092026.pdf",
-      "date": "2026-09-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_29092026.pdf",
-      "date": "2026-09-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_29.09.2026.pdf",
       "date": "2026-09-29",
       "matched": 0,
       "regex_matches": 0,
