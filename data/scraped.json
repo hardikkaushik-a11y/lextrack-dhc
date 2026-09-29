@@ -1,8 +1,8 @@
 [
   {
     "caseNo": "CS(COMM)/108/2025",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-09-29T06:04:27.571Z",
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-09-29T07:04:02.706Z",
     "tasks": [],
     "docs": [
       {
@@ -1769,8 +1769,8 @@
   },
   {
     "caseNo": "CS(COMM)/331/2025",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-09-29T06:06:03.774Z",
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-09-29T07:04:50.854Z",
     "tasks": [],
     "docs": [
       {
@@ -2185,8 +2185,8 @@
   },
   {
     "caseNo": "CS(COMM)/89/2026",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-09-29T06:07:29.030Z",
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-09-29T07:05:25.931Z",
     "tasks": [],
     "docs": [
       {
@@ -2507,7 +2507,7 @@
   {
     "caseNo": "CS(COMM)/81/2026",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-09-29T06:08:39.081Z",
+    "lastScraped": "2026-09-29T07:06:17.213Z",
     "tasks": [],
     "docs": [
       {
@@ -3020,13 +3020,13 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-29T06:09:48.128Z",
+    "lastScraped": "2026-09-29T07:07:15.018Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
     "caseNo": "CS(COMM)/319/2026",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-09-29T06:10:51.084Z",
+    "lastScraped": "2026-09-29T07:07:46.627Z",
     "tasks": [],
     "docs": [
       {
@@ -3259,7 +3259,7 @@
   {
     "caseNo": "CS(COMM)/756/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-09-29T06:11:59.500Z",
+    "lastScraped": "2026-09-29T07:08:18.733Z",
     "tasks": [],
     "docs": [
       {
@@ -3759,7 +3759,7 @@
   {
     "caseNo": "CS(COMM)/810/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-09-29T06:13:03.629Z",
+    "lastScraped": "2026-09-29T07:08:48.866Z",
     "tasks": [],
     "docs": [
       {
@@ -4701,7 +4701,7 @@
   {
     "caseNo": "CS(COMM)/195/2026",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-09-29T06:14:07.326Z",
+    "lastScraped": "2026-09-29T07:09:19.233Z",
     "tasks": [],
     "docs": [
       {
@@ -4932,17 +4932,69 @@
     ]
   },
   {
-    "id": "m_CSCOMM_582_2025",
     "caseNo": "CS(COMM)/582/2025",
-    "title": "RELIANCE CONSUMER PRODUCTS LIMITED VS. BALAJI FOODS AND BEVERAGEAdvocate: AKSHAY MALOO",
-    "type": "trademark",
-    "stage": "filed",
-    "status": "PENDING",
-    "judge": null,
-    "client": null,
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-09-29T07:09:54.025Z",
+    "tasks": [],
+    "docs": [
+      {
+        "name": "Order_2026-04-13.pdf",
+        "type": "Court Order",
+        "date": "2026-04-13",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1776330053_7c9d87e08e9cc0ec_594_5822025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-04-07.pdf",
+        "type": "Court Order",
+        "date": "2026-04-07",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1775804427_275b3e9ce56b14f9_739_5822025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2026-01-14.pdf",
+        "type": "Court Order",
+        "date": "2026-01-14",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1768654609_49ac7b5edf96ad73_594_5822025.pdf/2026",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-12-10.pdf",
+        "type": "Court Order",
+        "date": "2025-12-10",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1765530437_b45491087be9473b_739_5822025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-10-15.pdf",
+        "type": "Court Order",
+        "date": "2025-10-15",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1760596543_0301adfc327db8f4_687_5822025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-09-04.pdf",
+        "type": "Court Order",
+        "date": "2025-09-04",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1757584007_74f23e58c215ac9f_739_5822025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-08-25.pdf",
+        "type": "Court Order",
+        "date": "2025-08-25",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1756116779_aa4c11821e9b4385_745_5822025.pdf/2025",
+        "size": "—"
+      },
+      {
+        "name": "Order_2025-05-30.pdf",
+        "type": "Court Order",
+        "date": "2025-05-30",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1751551530_bfd24a1d11d5fd81_591_5822025.pdf/2025",
+        "size": "—"
+      }
+    ],
     "lastDate": "2026-08-21",
-    "nextDate": "2026-12-15",
-    "notes": null,
     "timeline": [
       {
         "date": "2026-08-21",
@@ -5320,82 +5372,30 @@
           "_orderDate": "2025-05-30"
         }
       }
-    ],
-    "additionalDates": [],
+    ]
+  },
+  {
+    "caseNo": "CS(COMM)/1306/2025",
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-09-29T07:10:29.360Z",
     "tasks": [],
     "docs": [
       {
-        "name": "Order_2026-04-13.pdf",
+        "name": "Order_2026-01-19.pdf",
         "type": "Court Order",
-        "date": "2026-04-13",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1776330053_7c9d87e08e9cc0ec_594_5822025.pdf/2026",
+        "date": "2026-01-19",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1768906178_48e5d32e1664e04c_612_13062025.pdf/2026",
         "size": "—"
       },
       {
-        "name": "Order_2026-04-07.pdf",
+        "name": "Order_2025-12-08.pdf",
         "type": "Court Order",
-        "date": "2026-04-07",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1775804427_275b3e9ce56b14f9_739_5822025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2026-01-14.pdf",
-        "type": "Court Order",
-        "date": "2026-01-14",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1768654609_49ac7b5edf96ad73_594_5822025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-12-10.pdf",
-        "type": "Court Order",
-        "date": "2025-12-10",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1765530437_b45491087be9473b_739_5822025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-10-15.pdf",
-        "type": "Court Order",
-        "date": "2025-10-15",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1760596543_0301adfc327db8f4_687_5822025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-09-04.pdf",
-        "type": "Court Order",
-        "date": "2025-09-04",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1757584007_74f23e58c215ac9f_739_5822025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-08-25.pdf",
-        "type": "Court Order",
-        "date": "2025-08-25",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1756116779_aa4c11821e9b4385_745_5822025.pdf/2025",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-05-30.pdf",
-        "type": "Court Order",
-        "date": "2025-05-30",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1751551530_bfd24a1d11d5fd81_591_5822025.pdf/2025",
+        "date": "2025-12-08",
+        "url": "https://delhihighcourt.nic.in/app/showlogo/1765468922_be411c0e8a4cc2bc_589_13062025.pdf/2025",
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-29T06:16:04.589Z",
-    "_scraperVersion": "v11-jr-default-2026-05-14"
-  },
-  {
-    "id": "m_CSCOMM_1306_2025",
-    "caseNo": "CS(COMM)/1306/2025",
-    "title": "DAZN LIMITED & ANR. VS. ABBONAMENTOIPTVITALIA.COM & ORS.Advocate: PRIYANSH KOHLI",
-    "type": "copyright",
-    "stage": "filed",
-    "status": "PENDING",
-    "judge": null,
-    "client": null,
     "lastDate": "2026-09-22",
-    "nextDate": "2027-01-19",
-    "notes": null,
     "timeline": [
       {
         "date": "2026-09-22",
@@ -5614,38 +5614,7 @@
           "_orderDate": "2025-12-08"
         }
       }
-    ],
-    "additionalDates": [
-      {
-        "date": "2027-01-19",
-        "before": "jr",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-09-22",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1790249001_68653c8c135e5adc_593_13062025.pdf/2026"
-        }
-      }
-    ],
-    "tasks": [],
-    "docs": [
-      {
-        "name": "Order_2026-01-19.pdf",
-        "type": "Court Order",
-        "date": "2026-01-19",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1768906178_48e5d32e1664e04c_612_13062025.pdf/2026",
-        "size": "—"
-      },
-      {
-        "name": "Order_2025-12-08.pdf",
-        "type": "Court Order",
-        "date": "2025-12-08",
-        "url": "https://delhihighcourt.nic.in/app/showlogo/1765468922_be411c0e8a4cc2bc_589_13062025.pdf/2025",
-        "size": "—"
-      }
-    ],
-    "lastScraped": "2026-09-29T06:17:41.917Z",
-    "_scraperVersion": "v11-jr-default-2026-05-14"
+    ]
   },
   {
     "caseNo": "CS(COMM)/1306/2026",
@@ -6430,7 +6399,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-29T06:19:08.240Z",
+    "lastScraped": "2026-09-29T07:10:47.209Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7181,13 +7150,13 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-29T06:20:35.649Z",
+    "lastScraped": "2026-09-29T07:11:11.826Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
     "caseNo": "CS(COMM)/977/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-09-29T06:21:49.974Z",
+    "lastScraped": "2026-09-29T07:11:41.168Z",
     "tasks": [],
     "docs": [
       {
@@ -7466,7 +7435,7 @@
   {
     "caseNo": "CS(COMM)/1210/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-09-29T06:22:47.324Z",
+    "lastScraped": "2026-09-29T07:12:12.267Z",
     "tasks": [],
     "docs": [
       {
@@ -8141,13 +8110,13 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-29T06:24:14.944Z",
+    "lastScraped": "2026-09-29T07:12:24.081Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
     "caseNo": "CS(COMM)/149/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-09-29T06:25:15.716Z",
+    "lastScraped": "2026-09-29T07:12:50.350Z",
     "tasks": [],
     "docs": [
       {
@@ -8961,8 +8930,8 @@
   },
   {
     "caseNo": "CS(COMM)/672/2026",
-    "error": "Navigation timeout of 30000 ms exceeded",
-    "lastScraped": "2026-09-29T06:26:30.690Z",
+    "error": "No results found on DHC after 3 attempts",
+    "lastScraped": "2026-09-29T07:13:14.178Z",
     "tasks": [],
     "docs": [
       {
@@ -9053,7 +9022,7 @@
   {
     "caseNo": "CS(COMM)/256/2026",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-09-29T06:27:43.548Z",
+    "lastScraped": "2026-09-29T07:13:42.582Z",
     "tasks": [],
     "docs": [
       {
@@ -9461,7 +9430,7 @@
   {
     "caseNo": "CS(COMM)/1186/2024",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-09-29T06:28:51.025Z",
+    "lastScraped": "2026-09-29T07:14:03.328Z",
     "tasks": [],
     "docs": [
       {
@@ -10343,7 +10312,7 @@
   {
     "caseNo": "CS(COMM)/1152/2025",
     "error": "No results found on DHC after 3 attempts",
-    "lastScraped": "2026-09-29T06:29:49.655Z",
+    "lastScraped": "2026-09-29T07:14:31.895Z",
     "tasks": [],
     "docs": [
       {
