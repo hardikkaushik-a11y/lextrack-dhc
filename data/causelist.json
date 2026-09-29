@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-29T08:01:57Z",
+  "scraped_at": "2026-09-29T09:02:12Z",
   "for_dates": [
     "2026-09-29",
     "2026-09-30"
@@ -17,6 +17,34 @@
     {
       "file": "advance_mediation_30.09.2026.pdf",
       "date": "2026-09-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-11_for_29.09.26.pdf",
+      "date": "2026-09-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "today_jr_suppl._judicial_29092026.pdf",
+      "date": "2026-09-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "suppl_10_29.09.2026.pdf",
+      "date": "2026-09-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-10_for_29.09.26.pdf",
+      "date": "2026-09-29",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
