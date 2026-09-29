@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-29T05:02:05Z",
+  "scraped_at": "2026-09-29T06:02:42Z",
   "for_dates": [
     "2026-09-29",
     "2026-09-30"
@@ -17,9 +17,7 @@
     {
       "file": "advance_mediation_30.09.2026.pdf",
       "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(357743 bytes read, 951443 more expected)', IncompleteRead(357743 bytes read, 951443 more expected))"
     },
     {
       "file": "combined_targetted_29092026.pdf",
@@ -87,9 +85,7 @@
     {
       "file": "combined_adv_list_29.09.2026.pdf",
       "date": "2026-09-29",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(4234551 bytes read, 3060272 more expected)', IncompleteRead(4234551 bytes read, 3060272 more expected))"
     },
     {
       "file": "advance_mediation_29092026_original.pdf",
