@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-30T13:02:09Z",
+  "scraped_at": "2026-09-30T14:01:40Z",
   "for_dates": [
     "2026-09-30",
     "2026-10-01"
@@ -7,6 +7,48 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "deletion_note_01.10.2026.pdf",
+      "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_01102026.pdf",
+      "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_01.10.2026.pdf",
+      "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl01102026.pdf",
+      "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_01102026.pdf",
+      "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_01102026.pdf",
+      "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "finals_01.10.2026.pdf",
       "date": "2026-10-01",
@@ -24,9 +66,7 @@
     {
       "file": "combined_adv_01.10.2026.pdf",
       "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "advance_mediation_01102026.pdf",
@@ -65,48 +105,6 @@
     },
     {
       "file": "sup-8_10_for_30.09.26.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_30.09.2026_1.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_2_30.09.2026.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro_ohri_30.09.2026.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pronouncement_parcha_30.09.2026_db_1.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_30.09.2026.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_30.09.2026.pdf",
       "date": "2026-09-30",
       "matched": 0,
       "regex_matches": 0,
