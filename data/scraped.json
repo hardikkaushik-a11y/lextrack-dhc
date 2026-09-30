@@ -1774,7 +1774,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:01:33.548Z",
+    "lastScraped": "2026-09-30T11:01:44.411Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2200,7 +2200,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:01:41.173Z",
+    "lastScraped": "2026-09-30T11:01:51.901Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2542,7 +2542,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:01:48.921Z",
+    "lastScraped": "2026-09-30T11:01:59.491Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2884,7 +2884,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:01:56.666Z",
+    "lastScraped": "2026-09-30T11:02:13.572Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2896,10 +2896,48 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-09-15",
+    "lastDate": "2026-09-29",
     "nextDate": "2026-12-07",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-09-29",
+        "event": "Court Order",
+        "detail": "Written statement filed/taken on record.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1790764579_4285de1cadbe470d_593_3132026.pdf/2026",
+        "orderText": "$~21 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010115042026 +CS(COMM) 313/2026 and I.A. 7972/2026 JIOSTAR INDIA PRIVATE LIMITED.....Plaintiff Through:Mr. Siddharth Chopra, Mr. Yatinder GargandMr.PriyanshKohli, Advocates. versus HTTPS//DADDYLIVES.NL & ORS......Defendants Through:Mr. Akshay Shankar and Ms. Ayushi Jain, Advocates for D8. Mr. Jaskaran Singh, Advocate for D12. Mr. Mohammad Kamran and Ms. Shivani Choudhary, Advocates for D14. Ms. Radhika Bishwajit Dubey, CGSC with Ms. Gurleen Kaur Waraich, Mr. Kritarth Upadhyay, Mr. Amulya Dev Mishra and Mr. Saksham Sharma, Advocates for D28 and D29. CORAM: HON'BLE MR. JUSTICE VIKAS MAHAJAN O R D E R %29.09.2026 I.A. 25225/2026 (Application by the defendant no. 14 under Order XXXIX Rule 4 read with Section 151 CPC) 1.Issue notice. 2.Mr. Siddharth Chopra, learned counsel appearing on behalf of the plaintiff/non-applicant accepts notice. 3.Let reply to the application be filed within four weeks. Rejoinder thereto, if any, be filed before the next date of hearing. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 30/09/2026 at 16:32:22 I.A. 25250/2026 (Application under Section 151 CPC read with Section 5 of the Limitation Act, 1963 by the defendant No.14) 4.This is an application filed on behalf of the defendant no. 14 seeking condonation of delay of 77 days in filing the written statement. 5.The written statement has been filed within a condonable period of 120 days. 6.The learned counsel appearing on behalf of the plaintiff/non-applicant submits that he has no objection in case the present application is allowed. 7.In view of the above, the application is allowed and the written statement filed by the defendant no. 14 is taken on record. 8.Application stands disposed of. CS(COMM) 313/2026 9.Replication to the written statement filed by the defendant no. 14 be filed within the timeline prescribed under law. 10.List before the learned Joint Registrar for admission/denial of documents and for further proceedings on 07.12.2026. VIKAS MAHAJAN, J SEPTEMBER 29, 2026/jg/AA This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 30/09/2026 at 16:32:22",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Issue notice on I.A. 25225/2026 filed by defendant no. 14 under Order XXXIX Rule 4 read with Section 151 CPC; reply within four weeks and rejoinder before next hearing.",
+            "Allow I.A. 25250/2026 condoning 77 days' delay in filing the written statement by defendant no. 14, taking the written statement on record.",
+            "Replication to the written statement of defendant no. 14 to be filed within the timeline prescribed under law.",
+            "List the matter before the learned Joint Registrar for admission/denial of documents and further proceedings on 07.12.2026."
+          ],
+          "citations": [
+            "Order XXXIX Rule 4, Code of Civil Procedure, 1908",
+            "Section 151, Code of Civil Procedure, 1908",
+            "Section 5, Limitation Act, 1963"
+          ],
+          "counsel": {
+            "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Garg and Mr. Priyansh Kohli",
+            "defendant": "Mr. Akshay Shankar and Ms. Ayushi Jain (D8); Mr. Jaskaran Singh (D12); Mr. Mohammad Kamran and Ms. Shivani Choudhary (D14); Ms. Radhika Bishwajit Dubey, CGSC with Ms. Gurleen Kaur Waraich, Mr. Kritarth Upadhyay, Mr. Amulya Dev Mishra and Mr. Saksham Sharma (D28 and D29)"
+          },
+          "summary": "The Court heard two applications filed by defendant no. 14: one under Order XXXIX Rule 4 read with Section 151 CPC, on which notice was issued with time to file reply and rejoinder, and one under Section 151 CPC read with Section 5 of the Limitation Act seeking condonation of 77 days' delay in filing the written statement. The plaintiff had no objection to the condonation application, which was allowed and the written statement taken on record. The matter was listed before the learned Joint Registrar on 07.12.2026 for admission/denial of documents, with replication to be filed within the prescribed timeline.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-09-30T11:04:32.322Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/313/2026",
+          "_orderDate": "2026-09-29"
+        }
+      },
       {
         "date": "2026-09-15",
         "event": "Court Order",
@@ -3092,7 +3130,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:02:04.441Z",
+    "lastScraped": "2026-09-30T11:02:22.474Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3346,7 +3384,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:02:12.374Z",
+    "lastScraped": "2026-09-30T11:02:30.541Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3877,7 +3915,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:02:20.104Z",
+    "lastScraped": "2026-09-30T11:02:38.081Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4850,7 +4888,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:02:28.021Z",
+    "lastScraped": "2026-09-30T11:02:45.993Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5104,7 +5142,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:02:35.798Z",
+    "lastScraped": "2026-09-30T11:02:56.602Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5557,7 +5595,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:02:43.541Z",
+    "lastScraped": "2026-09-30T11:03:04.115Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5820,7 +5858,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:02:51.485Z",
+    "lastScraped": "2026-09-30T11:03:11.603Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6606,7 +6644,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:02:59.237Z",
+    "lastScraped": "2026-09-30T11:03:19.076Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7357,7 +7395,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:03:24.667Z",
+    "lastScraped": "2026-09-30T11:03:26.697Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7657,7 +7695,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:03:32.356Z",
+    "lastScraped": "2026-09-30T11:03:34.300Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8084,7 +8122,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:03:46.859Z",
+    "lastScraped": "2026-09-30T11:03:41.952Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8359,7 +8397,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:03:54.581Z",
+    "lastScraped": "2026-09-30T11:03:49.532Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9195,7 +9233,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:04:02.420Z",
+    "lastScraped": "2026-09-30T11:03:57.157Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9317,7 +9355,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:04:10.037Z",
+    "lastScraped": "2026-09-30T11:04:04.652Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9746,7 +9784,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:04:17.720Z",
+    "lastScraped": "2026-09-30T11:04:12.187Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10649,7 +10687,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:04:25.523Z",
+    "lastScraped": "2026-09-30T11:04:19.893Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11164,7 +11202,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-09-30T10:04:33.250Z",
+    "lastScraped": "2026-09-30T11:04:27.404Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

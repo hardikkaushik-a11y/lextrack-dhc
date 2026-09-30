@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-30T10:01:12Z",
+  "scraped_at": "2026-09-30T11:01:25Z",
   "for_dates": [
     "2026-09-30",
     "2026-10-01"
@@ -8,8 +8,22 @@
   "matched_cases": 0,
   "sources": [
     {
+      "file": "combined_adv_01.10.2026.pdf",
+      "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "advance_mediation_01102026.pdf",
       "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sups_30092026.pdf",
+      "date": "2026-09-30",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -86,20 +100,6 @@
     },
     {
       "file": "combined_sup_1_30.09.2026.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_30.09.2026.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl30092026.pdf",
       "date": "2026-09-30",
       "matched": 0,
       "regex_matches": 0,

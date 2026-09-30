@@ -7252,5 +7252,36 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/256/2026",
     "_orderDate": "2026-09-21"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790764579_4285de1cadbe470d_593_3132026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Issue notice on I.A. 25225/2026 filed by defendant no. 14 under Order XXXIX Rule 4 read with Section 151 CPC; reply within four weeks and rejoinder before next hearing.",
+      "Allow I.A. 25250/2026 condoning 77 days' delay in filing the written statement by defendant no. 14, taking the written statement on record.",
+      "Replication to the written statement of defendant no. 14 to be filed within the timeline prescribed under law.",
+      "List the matter before the learned Joint Registrar for admission/denial of documents and further proceedings on 07.12.2026."
+    ],
+    "citations": [
+      "Order XXXIX Rule 4, Code of Civil Procedure, 1908",
+      "Section 151, Code of Civil Procedure, 1908",
+      "Section 5, Limitation Act, 1963"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Garg and Mr. Priyansh Kohli",
+      "defendant": "Mr. Akshay Shankar and Ms. Ayushi Jain (D8); Mr. Jaskaran Singh (D12); Mr. Mohammad Kamran and Ms. Shivani Choudhary (D14); Ms. Radhika Bishwajit Dubey, CGSC with Ms. Gurleen Kaur Waraich, Mr. Kritarth Upadhyay, Mr. Amulya Dev Mishra and Mr. Saksham Sharma (D28 and D29)"
+    },
+    "summary": "The Court heard two applications filed by defendant no. 14: one under Order XXXIX Rule 4 read with Section 151 CPC, on which notice was issued with time to file reply and rejoinder, and one under Section 151 CPC read with Section 5 of the Limitation Act seeking condonation of 77 days' delay in filing the written statement. The plaintiff had no objection to the condonation application, which was allowed and the written statement taken on record. The matter was listed before the learned Joint Registrar on 07.12.2026 for admission/denial of documents, with replication to be filed within the prescribed timeline.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-09-30T11:04:32.322Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/313/2026",
+    "_orderDate": "2026-09-29"
   }
 }
