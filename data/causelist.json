@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-09-30T18:01:49Z",
+  "scraped_at": "2026-09-30T19:01:46Z",
   "for_dates": [
-    "2026-09-30",
-    "2026-10-01"
+    "2026-10-01",
+    "2026-10-02"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
@@ -66,9 +66,7 @@
     {
       "file": "c_01102026.pdf",
       "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(6387062 bytes read, 15468803 more expected)', IncompleteRead(6387062 bytes read, 15468803 more expected))"
     },
     {
       "file": "combined_adv_01.10.2026.pdf",
@@ -80,34 +78,6 @@
     {
       "file": "advance_mediation_01102026.pdf",
       "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sups_30092026.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_12_30.09.2026.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_e_judicial_30092026.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-11_for_30.09.26.pdf",
-      "date": "2026-09-30",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
