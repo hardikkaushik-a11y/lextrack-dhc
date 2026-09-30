@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-09-30T08:01:44Z",
+  "scraped_at": "2026-09-30T09:01:39Z",
   "for_dates": [
     "2026-09-30",
     "2026-10-01"
@@ -10,6 +10,13 @@
     {
       "file": "advance_mediation_01102026.pdf",
       "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "today_jr_e_judicial_30092026.pdf",
+      "date": "2026-09-30",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -59,9 +66,7 @@
     {
       "file": "combined_targetted_30.09.2026.pdf",
       "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(913880 bytes read, 729010 more expected)', IncompleteRead(913880 bytes read, 729010 more expected))"
     },
     {
       "file": "deletion_note_30.09.2026.pdf",
@@ -93,13 +98,6 @@
     },
     {
       "file": "combined_cause_list_30.09.2026.pdf",
-      "date": "2026-09-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_30092026.pdf",
       "date": "2026-09-30",
       "matched": 0,
       "regex_matches": 0,
