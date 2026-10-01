@@ -1,92 +1,15 @@
 {
-  "scraped_at": "2026-10-01T18:01:23Z",
+  "scraped_at": "2026-10-01T19:01:10Z",
   "for_dates": [
-    "2026-10-01",
-    "2026-10-02"
+    "2026-10-02",
+    "2026-10-03"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
     {
-      "file": "sup_saurbh_b_01.10.2026.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jud01102026.odtttt_0.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_amit_bansal_01.10.2026.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-19_for_01.10.26.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-17_for_01.10.26.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_jasmeet_singh_01.10.2026.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-12_trm_matters_for_01.10.26.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jud01102026.odtttt.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-11_for_01.10.26.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-10_trm_matters_for_01.10.26.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_deletion_01.10.2026.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "01102026.pdf",
-      "date": "2026-10-01",
+      "file": "cause_list_03.10.2026.pdf",
+      "date": "2026-10-03",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
