@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-01T10:01:11Z",
+  "scraped_at": "2026-10-01T11:01:40Z",
   "for_dates": [
     "2026-10-01",
     "2026-10-02"
@@ -7,6 +7,34 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "jud01102026.odtttt_0.pdf",
+      "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_amit_bansal_01.10.2026.pdf",
+      "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-19_for_01.10.26.pdf",
+      "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup-17_for_01.10.26.pdf",
+      "date": "2026-10-01",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_hmj_jasmeet_singh_01.10.2026.pdf",
       "date": "2026-10-01",
@@ -58,41 +86,6 @@
     },
     {
       "file": "deletion_note_01.10.2026.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_01102026.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_01.10.2026.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl01102026.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_01102026.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_01102026.pdf",
       "date": "2026-10-01",
       "matched": 0,
       "regex_matches": 0,
