@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-01T09:01:59Z",
+  "scraped_at": "2026-10-01T10:01:11Z",
   "for_dates": [
     "2026-10-01",
     "2026-10-02"
@@ -93,20 +93,6 @@
     },
     {
       "file": "new_c_01102026.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_01.10.2026.pdf",
-      "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_01102026.pdf",
       "date": "2026-10-01",
       "matched": 0,
       "regex_matches": 0,
