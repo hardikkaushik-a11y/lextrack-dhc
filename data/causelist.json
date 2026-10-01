@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-01T04:01:34Z",
+  "scraped_at": "2026-10-01T05:01:19Z",
   "for_dates": [
     "2026-10-01",
     "2026-10-02"
@@ -66,21 +66,17 @@
     {
       "file": "c_01102026.pdf",
       "date": "2026-10-01",
-      "error": "download: ('Connection broken: IncompleteRead(16585142 bytes read, 5270723 more expected)', IncompleteRead(16585142 bytes read, 5270723 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(2467814 bytes read, 19388051 more expected)', IncompleteRead(2467814 bytes read, 19388051 more expected))"
     },
     {
       "file": "combined_adv_01.10.2026.pdf",
       "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(455919 bytes read, 6436239 more expected)', IncompleteRead(455919 bytes read, 6436239 more expected))"
     },
     {
       "file": "advance_mediation_01102026.pdf",
       "date": "2026-10-01",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(259311 bytes read, 1053257 more expected)', IncompleteRead(259311 bytes read, 1053257 more expected))"
     }
   ],
   "entries": []

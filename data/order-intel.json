@@ -7283,5 +7283,69 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/313/2026",
     "_orderDate": "2026-09-29"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790830236_e1dc5b439584015f_765_1082025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Compliance-affidavit filed by defendant no. 45 be taken on record.",
+      "Right of defendant nos. 41 to 103 to file written statements stands closed as prescribed time expired.",
+      "Fresh PF be filed by plaintiff qua defendant nos. 107 to 129 on request of plaintiff's counsel.",
+      "List the matter for completion of pleadings on 08.12.2026.",
+      "List the IAs before the Hon'ble Court for further directions on 16.10.2026 at joint request of parties."
+    ],
+    "citations": [
+      "Order I Rule 10, CPC",
+      "Section 151, CPC",
+      "Order VI Rule 16, CPC",
+      "Order XI Rule 1, CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Ms. Mehak Thappa, Mr. Avish Sharma, Ms. Palak Kaushal, Ms. Ayushi Jain, Ms. Anmol Dhindsa, Ms. Harshitha Rathod, Mr. Ishkaran Singh Bhandari (CGSC), Mr. Piyush Yadav, Mr. Abhijeet Singh, Mr. Rishi Kapoor, Ms. Gitanjali Kapoor, Mr. Siddhartha Makhija"
+    },
+    "summary": "The Joint Registrar (Judicial) took on record the compliance affidavit of defendant no. 45 and closed the right of defendant nos. 41 to 103 to file written statements as their time had expired. Several IAs were noted as already disposed of, fresh PF was directed qua defendant nos. 107 to 129, and the matter was listed for completion of pleadings on 08.12.2026 and for IA directions on 16.10.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-01T05:04:23.034Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/108/2025",
+    "_orderDate": "2026-09-25"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790830277_baaf5349320555fb_765_11862024.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": "Impleadment of rogue websites as defendant nos. 37 & 38 allowed, subject to existing interim orders; substitution of Reliance Consumer Products Limited as plaintiff allowed.",
+    "costsAwarded": null,
+    "directions": [
+      "List the matter on the already fixed date i.e. 07.10.2026.",
+      "Amended memo of parties be taken on record.",
+      "Summons be issued to defendant nos. 37 & 38 through all permissible modes, subject to filing of PF; plaintiff permitted to serve via email only.",
+      "Reliance Consumer Products Limited be substituted in place of Reliance Retail Limited as plaintiff.",
+      "Plaintiff directed to furnish copy of amended memo of parties to all defendants."
+    ],
+    "citations": [
+      "Order I Rule 10 read with Section 151 CPC",
+      "Order XXII Rule 10 read with Section 151 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Yash Karunakaran & Ms. Nitya Nath (D-6); Mr. Vaarish Sawlani & Ms. Rithika Mathur (D-8); Mr. Saksham Chaturvedi & Mr. Kushal Sharma (D-7); Ms. Anmol Dhindsa & Mr. Aditya Dash (D-9); Ms. Nidhi Raman (CGSC), Mr. Deepanshu, Ms. Nikita Singh & Mr. Arnav Mittal (D-15 & 16)"
+    },
+    "summary": "The Joint Registrar (Judicial) heard two applications: one by the plaintiff seeking impleadment of rogue websites as defendant nos. 37 & 38 for illegally distributing copyrighted content, and another seeking substitution of Reliance Consumer Products Limited as plaintiff in place of Reliance Retail Limited. Both applications were allowed, with the newly impleaded defendants subject to existing interim orders, and the matter listed for 07.10.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-01T05:04:23.034Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2026-09-25"
   }
 }
