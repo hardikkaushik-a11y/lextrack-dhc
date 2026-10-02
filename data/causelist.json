@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-02T14:01:10Z",
+  "scraped_at": "2026-10-02T15:01:12Z",
   "for_dates": [
     "2026-10-02",
     "2026-10-03"
@@ -10,9 +10,7 @@
     {
       "file": "cause_list_03.10.2026.pdf",
       "date": "2026-10-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": []
