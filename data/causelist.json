@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-04T12:01:42Z",
+  "scraped_at": "2026-10-04T13:01:49Z",
   "for_dates": [
     "2026-10-04",
     "2026-10-05"
@@ -52,9 +52,7 @@
     {
       "file": "c_05102026.pdf",
       "date": "2026-10-05",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(19362830 bytes read, 1639243 more expected)', IncompleteRead(19362830 bytes read, 1639243 more expected))"
     },
     {
       "file": "combined_adv_list_05.10.2026.pdf",
@@ -77,13 +75,13 @@
       "court": "JR",
       "judge": "EKTA GAUBA MANN (JR)",
       "time": null,
-      "page": 466,
+      "page": 334,
       "context": "5        CS(COMM)-536/2025   DAZN LIMITED & ANR. R MAYA, BINSY SUSAN",
       "caseNo": "CS(COMM)/536/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-536/2025",
       "date": "2026-10-05",
-      "source_pdf": "c_05102026.pdf"
+      "source_pdf": "combined_adv_list_05.10.2026.pdf"
     }
   ]
 }
