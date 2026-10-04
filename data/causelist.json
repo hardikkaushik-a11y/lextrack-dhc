@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-10-04T18:01:45Z",
+  "scraped_at": "2026-10-04T19:01:37Z",
   "for_dates": [
-    "2026-10-04",
-    "2026-10-05"
+    "2026-10-05",
+    "2026-10-06"
   ],
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "advance_cause_list_of_cases_for_referral_to_mediation_06.10.2026.pdf",
+      "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "j_05102026.pdf",
       "date": "2026-10-05",
@@ -59,7 +66,7 @@
     {
       "file": "combined_adv_list_05.10.2026.pdf",
       "date": "2026-10-05",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "error": "download: ('Connection broken: IncompleteRead(2849351 bytes read, 4523193 more expected)', IncompleteRead(2849351 bytes read, 4523193 more expected))"
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_05.10.2026.pdf",
