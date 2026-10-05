@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-05T13:02:26Z",
+  "scraped_at": "2026-10-05T14:02:15Z",
   "for_dates": [
     "2026-10-05",
     "2026-10-06"
@@ -7,6 +7,41 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combibed_targetted_06.10.2026.pdf",
+      "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_06.10.2026.pdf",
+      "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_06.10.2026.pdf",
+      "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro_06.10.2026.pdf",
+      "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_fnl_for_06.10.26.pdf",
+      "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_pro_06.10.2026.pdf",
       "date": "2026-10-06",
@@ -52,7 +87,9 @@
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_06.10.2026.pdf",
       "date": "2026-10-06",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "pro._05.10.2026.pdf",
@@ -63,13 +100,6 @@
     },
     {
       "file": "regular_supplementary_cause_list_05102026.pdf",
-      "date": "2026-10-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_05102026.pdf",
       "date": "2026-10-05",
       "matched": 0,
       "regex_matches": 0,
