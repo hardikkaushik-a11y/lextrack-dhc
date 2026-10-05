@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-05T06:01:46Z",
+  "scraped_at": "2026-10-05T07:01:58Z",
   "for_dates": [
     "2026-10-05",
     "2026-10-06"
@@ -10,6 +10,13 @@
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_06.10.2026.pdf",
       "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "regular_supplementary_cause_list_05102026.pdf",
+      "date": "2026-10-05",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
