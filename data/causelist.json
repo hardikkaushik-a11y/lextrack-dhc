@@ -1,12 +1,47 @@
 {
-  "scraped_at": "2026-10-05T12:01:51Z",
+  "scraped_at": "2026-10-05T13:02:26Z",
   "for_dates": [
     "2026-10-05",
     "2026-10-06"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_pro_06.10.2026.pdf",
+      "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_06.10.2026.pdf",
+      "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_06.10.2026.pdf",
+      "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl06102026.pdf",
+      "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_06.10.2026.pdf",
+      "date": "2026-10-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_adv_list_06.10.2026_0.pdf",
       "date": "2026-10-06",
@@ -17,9 +52,7 @@
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_06.10.2026.pdf",
       "date": "2026-10-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "pro._05.10.2026.pdf",
@@ -41,63 +74,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "original_listing-01_for_05.10.2026.pdf",
-      "date": "2026-10-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_05.10.2026.pdf",
-      "date": "2026-10-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl05102026.pdf",
-      "date": "2026-10-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_05.10.2026.pdf",
-      "date": "2026-10-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_05.10.2026.pdf",
-      "date": "2026-10-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_05102026.pdf",
-      "date": "2026-10-05",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "5",
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 466,
-      "context": "5        CS(COMM)-536/2025   DAZN LIMITED & ANR. R MAYA, BINSY SUSAN",
-      "caseNo": "CS(COMM)/536/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-536/2025",
-      "date": "2026-10-05",
-      "source_pdf": "c_05102026.pdf"
-    }
-  ]
+  "entries": []
 }
