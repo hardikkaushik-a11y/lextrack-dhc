@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-10-05T18:01:57Z",
+  "scraped_at": "2026-10-05T19:02:06Z",
   "for_dates": [
-    "2026-10-05",
-    "2026-10-06"
+    "2026-10-06",
+    "2026-10-07"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "advance_cause_list_of_cases_for_referral_to_mediation_07.10.2026.pdf",
+      "date": "2026-10-07",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combibed_targetted_06.10.2026.pdf",
       "date": "2026-10-06",
@@ -59,7 +66,9 @@
     {
       "file": "combined_sup_1_06.10.2026.pdf",
       "date": "2026-10-06",
-      "error": "download: ('Connection broken: IncompleteRead(713040 bytes read, 715083 more expected)', IncompleteRead(713040 bytes read, 715083 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "rl06102026.pdf",
@@ -85,20 +94,6 @@
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_06.10.2026.pdf",
       "date": "2026-10-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._05.10.2026.pdf",
-      "date": "2026-10-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "regular_supplementary_cause_list_05102026.pdf",
-      "date": "2026-10-05",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
