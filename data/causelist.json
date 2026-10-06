@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-10-06T18:01:52Z",
+  "scraped_at": "2026-10-06T19:01:55Z",
   "for_dates": [
-    "2026-10-06",
-    "2026-10-07"
+    "2026-10-07",
+    "2026-10-08"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 5,
   "sources": [
+    {
+      "file": "advance_cause_list_of_cases_for_referral_to_mediation_08.10.2026.pdf",
+      "date": "2026-10-08",
+      "matched": 4,
+      "regex_matches": 4,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_07.10.2026.pdf",
       "date": "2026-10-07",
@@ -59,59 +66,64 @@
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_07.10.2026.pdf",
       "date": "2026-10-07",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-    },
-    {
-      "file": "today_jr_suppl._06102026.pdf",
-      "date": "2026-10-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_06.10.026_1.pdf",
-      "date": "2026-10-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "targeted_matters_list_for_06-10-2026_1.pdf",
-      "date": "2026-10-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-7_db_trf_matters_for_06.10.26.pdf",
-      "date": "2026-10-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rd_regular_hmj_tejas_karia_06102026.pdf",
-      "date": "2026-10-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro_06.10.2026_0.pdf",
-      "date": "2026-10-06",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combibed_targetted_06.10.2026.pdf",
-      "date": "2026-10-06",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     }
   ],
   "entries": [
+    {
+      "item": "25",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 6,
+      "context": "25        CS(COMM)-         JIOSTAR INDIA   R MAYA, PRIYANSH\n             89/2026           PRIVATE LIMITED KOHLI",
+      "caseNo": "CS(COMM)/89/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA   R MAYA, PRIYANSH\n             89/2026",
+      "date": "2026-10-08",
+      "source_pdf": "advance_cause_list_of_cases_for_referral_to_mediation_08.10.2026.pdf"
+    },
+    {
+      "item": "43",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 9,
+      "context": "43        CS(COMM)-         KUKU            ISHI SINGH,\n             256/2026          TECHNOLOGIES    SANDEEP",
+      "caseNo": "CS(COMM)/256/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         KUKU            ISHI SINGH,\n             256/2026",
+      "date": "2026-10-08",
+      "source_pdf": "advance_cause_list_of_cases_for_referral_to_mediation_08.10.2026.pdf"
+    },
+    {
+      "item": "49",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 10,
+      "context": "49        CS(COMM)-         JIOSTAR INDIA    PARSHANT ARORA,\n             313/2026          PRIVATE LIMITED ANINDITA MITRA,",
+      "caseNo": "CS(COMM)/313/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA    PARSHANT ARORA,\n             313/2026",
+      "date": "2026-10-08",
+      "source_pdf": "advance_cause_list_of_cases_for_referral_to_mediation_08.10.2026.pdf"
+    },
+    {
+      "item": "51",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 10,
+      "context": "51        CS(COMM)-         JIOSTAR INDIA   AMAN SINHA, R\n             319/2026          PRIVATE LIMITED MAYA, ISHI SINGH",
+      "caseNo": "CS(COMM)/319/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA   AMAN SINHA, R\n             319/2026",
+      "date": "2026-10-08",
+      "source_pdf": "advance_cause_list_of_cases_for_referral_to_mediation_08.10.2026.pdf"
+    },
     {
       "item": "6",
       "court": "JR",
