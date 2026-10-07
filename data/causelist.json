@@ -1,18 +1,58 @@
 {
-  "scraped_at": "2026-10-07T13:02:24Z",
+  "scraped_at": "2026-10-07T14:01:36Z",
   "for_dates": [
     "2026-10-07",
     "2026-10-08"
   ],
   "tracked_cases": 21,
-  "matched_cases": 7,
+  "matched_cases": 6,
   "sources": [
+    {
+      "file": "pla_08.10.2026.pdf",
+      "date": "2026-10-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targeeted_08.10.2026.pdf",
+      "date": "2026-10-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_08.10.2026.pdf",
+      "date": "2026-10-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_08.10.2026.pdf",
+      "date": "2026-10-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl08102026.pdf",
+      "date": "2026-10-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_08.10.2026.pdf",
+      "date": "2026-10-08",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_cause_list_08.10.2026.pdf",
       "date": "2026-10-08",
-      "matched": 6,
-      "regex_matches": 6,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(4378646 bytes read, 15567729 more expected)', IncompleteRead(4378646 bytes read, 15567729 more expected))"
     },
     {
       "file": "combined_adv_list_08.10.2026.pdf",
@@ -48,53 +88,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_07102026.pdf",
-      "date": "2026-10-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_07102026.pdf",
-      "date": "2026-10-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_07.10.2026.pdf",
-      "date": "2026-10-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl07102026.pdf",
-      "date": "2026-10-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_07102026.pdf",
-      "date": "2026-10-07",
-      "error": "download: ('Connection broken: IncompleteRead(12768006 bytes read, 9008111 more expected)', IncompleteRead(12768006 bytes read, 9008111 more expected))"
-    },
-    {
-      "file": "combined_advnace_07102026.pdf",
-      "date": "2026-10-07",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "advance_cause_list_of_cases_for_referral_to_mediation_07.10.2026.pdf",
-      "date": "2026-10-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -103,91 +96,78 @@
       "court": "50",
       "judge": "VIKAS MAHAJAN CLICK HERE TO JOIN VC",
       "time": null,
-      "page": 422,
+      "page": 291,
       "context": "8        CS(COMM)-         JIOSTAR INDIA PRIVATE GEETANJALI\n             977/2025          LIMITED               VISVANATHAN, R MAYA,",
       "caseNo": "CS(COMM)/977/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE GEETANJALI\n             977/2025",
       "date": "2026-10-08",
-      "source_pdf": "combined_cause_list_08.10.2026.pdf"
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
     },
     {
       "item": "9",
       "court": "50",
       "judge": "VIKAS MAHAJAN CLICK HERE TO JOIN VC",
       "time": null,
-      "page": 422,
+      "page": 291,
       "context": "9        CS(COMM)-         JIOSTAR INDIA PRIVATE R MAYA, PRIYANSH\n             1210/2025         LIMITED               KOHLI",
       "caseNo": "CS(COMM)/1210/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE R MAYA, PRIYANSH\n             1210/2025",
       "date": "2026-10-08",
-      "source_pdf": "combined_cause_list_08.10.2026.pdf"
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
     },
     {
       "item": "25",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 523,
+      "page": 392,
       "context": "25       CS(COMM)-         JIOSTAR INDIA PRIVATE      R MAYA, PRIYANSH\n             89/2026           LIMITED                    KOHLI",
       "caseNo": "CS(COMM)/89/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE      R MAYA, PRIYANSH\n             89/20",
       "date": "2026-10-08",
-      "source_pdf": "combined_cause_list_08.10.2026.pdf"
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
     },
     {
       "item": "43",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 526,
+      "page": 395,
       "context": "43       CS(COMM)-         KUKU TECHNOLOGIES          ISHI SINGH,\n             256/2026          PRIVATE LIMITED            SANDEEP",
       "caseNo": "CS(COMM)/256/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         KUKU TECHNOLOGIES          ISHI SINGH,\n             256/2026",
       "date": "2026-10-08",
-      "source_pdf": "combined_cause_list_08.10.2026.pdf"
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
     },
     {
       "item": "49",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 527,
+      "page": 396,
       "context": "49       CS(COMM)-         JIOSTAR INDIA PRIVATE    PARSHANT ARORA,\n             313/2026          LIMITED                  ANINDITA MITRA,",
       "caseNo": "CS(COMM)/313/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE    PARSHANT ARORA,\n             313/2026",
       "date": "2026-10-08",
-      "source_pdf": "combined_cause_list_08.10.2026.pdf"
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
     },
     {
       "item": "51",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 527,
+      "page": 396,
       "context": "51       CS(COMM)-         JIOSTAR INDIA PRIVATE      AMAN SINHA, R\n             319/2026          LIMITED                    MAYA, ISHI SINGH",
       "caseNo": "CS(COMM)/319/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE      AMAN SINHA, R\n             319/2026",
       "date": "2026-10-08",
-      "source_pdf": "combined_cause_list_08.10.2026.pdf"
-    },
-    {
-      "item": "6",
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 375,
-      "context": "6       CS(COMM)-1186/2024 RELIANCE RETAIL        R MAYA, VARUN",
-      "caseNo": "CS(COMM)/1186/2024",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-1186/2024",
-      "date": "2026-10-07",
-      "source_pdf": "combined_advnace_07102026.pdf"
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
     }
   ]
 }
