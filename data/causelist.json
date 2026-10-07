@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-07T09:02:09Z",
+  "scraped_at": "2026-10-07T10:01:50Z",
   "for_dates": [
     "2026-10-07",
     "2026-10-08"
@@ -66,9 +66,7 @@
     {
       "file": "c_07102026.pdf",
       "date": "2026-10-07",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(7497358 bytes read, 14278759 more expected)', IncompleteRead(7497358 bytes read, 14278759 more expected))"
     },
     {
       "file": "combined_advnace_07102026.pdf",
@@ -143,13 +141,13 @@
       "court": "JR",
       "judge": "EKTA GAUBA MANN (JR)",
       "time": null,
-      "page": 507,
+      "page": 375,
       "context": "6       CS(COMM)-1186/2024 RELIANCE RETAIL        R MAYA, VARUN",
       "caseNo": "CS(COMM)/1186/2024",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-1186/2024",
       "date": "2026-10-07",
-      "source_pdf": "c_07102026.pdf"
+      "source_pdf": "combined_advnace_07102026.pdf"
     }
   ]
 }
