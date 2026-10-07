@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-10-07T18:02:45Z",
+  "scraped_at": "2026-10-07T19:01:38Z",
   "for_dates": [
-    "2026-10-07",
-    "2026-10-08"
+    "2026-10-08",
+    "2026-10-09"
   ],
   "tracked_cases": 21,
   "matched_cases": 6,
   "sources": [
+    {
+      "file": "advance_cause_list_of_cases_for_referral_to_mediation_09.10.2026.pdf",
+      "date": "2026-10-09",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "pla_08.10.2026.pdf",
       "date": "2026-10-08",
@@ -59,36 +66,13 @@
     {
       "file": "combined_adv_list_08.10.2026.pdf",
       "date": "2026-10-08",
-      "matched": 6,
-      "regex_matches": 6,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_08.10.2026.pdf",
       "date": "2026-10-08",
       "matched": 4,
       "regex_matches": 4,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup-9_db_trf_matters_for_07.10.26.pdf",
-      "date": "2026-10-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_07.10.2026_1.pdf",
-      "date": "2026-10-07",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_07.10.2026.pdf",
-      "date": "2026-10-07",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
