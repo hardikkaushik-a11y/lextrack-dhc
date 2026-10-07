@@ -1,18 +1,23 @@
 {
-  "scraped_at": "2026-10-07T11:01:55Z",
+  "scraped_at": "2026-10-07T12:02:13Z",
   "for_dates": [
     "2026-10-07",
     "2026-10-08"
   ],
   "tracked_cases": 21,
-  "matched_cases": 5,
+  "matched_cases": 7,
   "sources": [
+    {
+      "file": "combined_adv_list_08.10.2026.pdf",
+      "date": "2026-10-08",
+      "matched": 6,
+      "regex_matches": 6,
+      "norm_matches": 0
+    },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_08.10.2026.pdf",
       "date": "2026-10-08",
-      "matched": 4,
-      "regex_matches": 4,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "sup-9_db_trf_matters_for_07.10.26.pdf",
@@ -87,56 +92,82 @@
   ],
   "entries": [
     {
+      "item": "8",
+      "court": "50",
+      "judge": "VIKAS MAHAJAN CLICK HERE TO JOIN VC",
+      "time": null,
+      "page": 291,
+      "context": "8        CS(COMM)-         JIOSTAR INDIA PRIVATE GEETANJALI\n             977/2025          LIMITED               VISVANATHAN, R MAYA,",
+      "caseNo": "CS(COMM)/977/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE GEETANJALI\n             977/2025",
+      "date": "2026-10-08",
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
+    },
+    {
+      "item": "9",
+      "court": "50",
+      "judge": "VIKAS MAHAJAN CLICK HERE TO JOIN VC",
+      "time": null,
+      "page": 291,
+      "context": "9        CS(COMM)-         JIOSTAR INDIA PRIVATE R MAYA, PRIYANSH\n             1210/2025         LIMITED               KOHLI",
+      "caseNo": "CS(COMM)/1210/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE R MAYA, PRIYANSH\n             1210/2025",
+      "date": "2026-10-08",
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
+    },
+    {
       "item": "25",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 6,
-      "context": "25        CS(COMM)-         JIOSTAR INDIA   R MAYA, PRIYANSH\n             89/2026           PRIVATE LIMITED KOHLI",
+      "page": 392,
+      "context": "25       CS(COMM)-         JIOSTAR INDIA PRIVATE      R MAYA, PRIYANSH\n             89/2026           LIMITED                    KOHLI",
       "caseNo": "CS(COMM)/89/2026",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA   R MAYA, PRIYANSH\n             89/2026",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE      R MAYA, PRIYANSH\n             89/20",
       "date": "2026-10-08",
-      "source_pdf": "advance_cause_list_of_cases_for_referral_to_mediation_08.10.2026.pdf"
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
     },
     {
       "item": "43",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 9,
-      "context": "43        CS(COMM)-         KUKU            ISHI SINGH,\n             256/2026          TECHNOLOGIES    SANDEEP",
+      "page": 395,
+      "context": "43       CS(COMM)-         KUKU TECHNOLOGIES          ISHI SINGH,\n             256/2026          PRIVATE LIMITED            SANDEEP",
       "caseNo": "CS(COMM)/256/2026",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-         KUKU            ISHI SINGH,\n             256/2026",
+      "matched_on": "CS(COMM)-         KUKU TECHNOLOGIES          ISHI SINGH,\n             256/2026",
       "date": "2026-10-08",
-      "source_pdf": "advance_cause_list_of_cases_for_referral_to_mediation_08.10.2026.pdf"
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
     },
     {
       "item": "49",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 10,
-      "context": "49        CS(COMM)-         JIOSTAR INDIA    PARSHANT ARORA,\n             313/2026          PRIVATE LIMITED ANINDITA MITRA,",
+      "page": 396,
+      "context": "49       CS(COMM)-         JIOSTAR INDIA PRIVATE    PARSHANT ARORA,\n             313/2026          LIMITED                  ANINDITA MITRA,",
       "caseNo": "CS(COMM)/313/2026",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA    PARSHANT ARORA,\n             313/2026",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE    PARSHANT ARORA,\n             313/2026",
       "date": "2026-10-08",
-      "source_pdf": "advance_cause_list_of_cases_for_referral_to_mediation_08.10.2026.pdf"
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
     },
     {
       "item": "51",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 10,
-      "context": "51        CS(COMM)-         JIOSTAR INDIA   AMAN SINHA, R\n             319/2026          PRIVATE LIMITED MAYA, ISHI SINGH",
+      "page": 396,
+      "context": "51       CS(COMM)-         JIOSTAR INDIA PRIVATE      AMAN SINHA, R\n             319/2026          LIMITED                    MAYA, ISHI SINGH",
       "caseNo": "CS(COMM)/319/2026",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA   AMAN SINHA, R\n             319/2026",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE      AMAN SINHA, R\n             319/2026",
       "date": "2026-10-08",
-      "source_pdf": "advance_cause_list_of_cases_for_referral_to_mediation_08.10.2026.pdf"
+      "source_pdf": "combined_adv_list_08.10.2026.pdf"
     },
     {
       "item": "6",
