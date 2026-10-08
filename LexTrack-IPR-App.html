@@ -8824,28 +8824,38 @@ async function generateHearingPrep(matterId, hearingDate, kind) {
     `}`,
   ].filter(Boolean).join('\n');
 
-  const resp = await fetch('https://api.deepseek.com/v1/chat/completions', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
-    body: JSON.stringify({
-      model: 'deepseek-flash',
-      messages: [{ role: 'user', content: prompt }],
-      max_tokens: 1500,
-      temperature: 0.3,
-      response_format: { type: 'json_object' },
-      thinking: { type: 'disabled' },
-    }),
-  });
-  if (!resp.ok) {
-    const txt = await resp.text().catch(() => '');
-    throw new Error(`DeepSeek failed (${resp.status}): ${txt.slice(0, 200)}`);
+  // The schema above is ~17 fields; 1500 tokens truncated it mid-string and
+  // JSON.parse failed ("AI returned non-JSON"). DeepSeek's JSON mode can also
+  // return empty content now and then, so retry once before giving up.
+  let parsed = null, lastWhy = '';
+  for (let attempt = 0; attempt < 2 && !parsed; attempt++) {
+    const resp = await fetch('https://api.deepseek.com/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+      body: JSON.stringify({
+        model: 'deepseek-flash',
+        messages: [{ role: 'user', content: prompt }],
+        max_tokens: 4000,
+        temperature: 0.3,
+        response_format: { type: 'json_object' },
+        thinking: { type: 'disabled' },
+      }),
+    });
+    if (!resp.ok) {
+      const txt = await resp.text().catch(() => '');
+      throw new Error(`DeepSeek failed (${resp.status}): ${txt.slice(0, 200)}`);
+    }
+    const data    = await resp.json();
+    const choice  = data.choices?.[0];
+    const content = choice?.message?.content || '';
+    const cleaned = content.replace(/^```(?:json)?\s*|\s*```\s*$/g, '').trim();
+    try { parsed = JSON.parse(cleaned); }
+    catch (e) {
+      lastWhy = `finish_reason=${choice?.finish_reason || '?'}, ${cleaned.length} chars`;
+      console.error('hearing-prep parse error', lastWhy, e, cleaned.slice(0, 400));
+    }
   }
-  const data    = await resp.json();
-  const content = data.choices?.[0]?.message?.content || '{}';
-  const cleaned = content.replace(/^```(?:json)?\s*|\s*```\s*$/g, '').trim();
-  let parsed;
-  try { parsed = JSON.parse(cleaned); }
-  catch (e) { console.error('hearing-prep parse error', e, cleaned.slice(0, 400)); throw new Error('AI returned non-JSON — try again'); }
+  if (!parsed) throw new Error(`AI returned non-JSON (${lastWhy}) — try again`);
   setCachedHearingPrep(matterId, hearingDate, parsed);
   return parsed;
 }
