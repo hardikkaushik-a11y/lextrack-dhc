@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-08T16:01:47Z",
+  "scraped_at": "2026-10-08T16:42:22Z",
   "for_dates": [
     "2026-10-08",
     "2026-10-09"
@@ -52,7 +52,9 @@
     {
       "file": "c_09102026.pdf",
       "date": "2026-10-09",
-      "error": "download: ('Connection broken: IncompleteRead(15020358 bytes read, 5762465 more expected)', IncompleteRead(15020358 bytes read, 5762465 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combined_advance_09102026.pdf",
@@ -113,17 +115,17 @@
   ],
   "entries": [
     {
-      "item": null,
+      "item": "14",
       "court": "51",
-      "judge": "MANOJ JAIN M",
+      "judge": "TEJAS KARIA",
       "time": null,
-      "page": 263,
+      "page": 394,
       "context": "In CS(COMM)-          NETWORKS INDIA\n             672/2026              PRIVATE LIMITED",
       "caseNo": "CS(COMM)/672/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-          NETWORKS INDIA\n             672/2026",
       "date": "2026-10-09",
-      "source_pdf": "combined_advance_09102026.pdf"
+      "source_pdf": "c_09102026.pdf"
     }
   ]
 }
