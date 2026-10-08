@@ -266,7 +266,12 @@ def split_case_norm(case_no: str):
 # Pre-compile court / judge sniffers — same regexes used on every page.
 COURT_RE = re.compile(r"COURT\s+(?:NO\.?|NUM(?:BER)?)?\s*[:\-]?\s*(\d+)", re.IGNORECASE)
 JUDGE_RE = re.compile(
-    r"HON'?BLE\s+(?:MR\.?|MS\.?|MRS\.?|JUSTICE\s+|MS\.?\s+JUSTICE\s+|MR\.?\s+JUSTICE\s+)+([A-Z][A-Z\s\.\-]{3,60})"
+    # DHC uses a curly apostrophe (HON’BLE) on newer pages. The straight-only
+    # pattern skipped those headers, so running_judge kept the PREVIOUS
+    # court's judge (Court 51 inherited Court 42's MANOJ JAIN M). The name is
+    # also line-bounded ([ ] not \s) so it no longer swallows the next line's
+    # first letter / the word NOTE.
+    r"HON[’'‘]?BLE\s+(?:MR\.?|MS\.?|MRS\.?|JUSTICE\s+|MS\.?\s+JUSTICE\s+|MR\.?\s+JUSTICE\s+)+([A-Z][A-Z \.\-]{3,60})"
 )
 ITEM_RE = re.compile(r"^\s*(\d{1,4})[\.\s]")
 TIME_RE = re.compile(r"\b(\d{1,2}[:\.]\d{2}(?:\s*[AP]\.?M\.?)?)\b", re.IGNORECASE)
