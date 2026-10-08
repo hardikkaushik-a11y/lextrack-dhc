@@ -3149,7 +3149,7 @@ function renderCauselistView() {
               badge = `<span class="cl-badge cl-badge-verify" title="Only one keyword matched. Could be a different case with the same plaintiff. Click the card to open the source PDF and confirm.">⚠ verify</span>`;
             }
             const sourceUrl = e.source_pdf
-              ? `https://delhihighcourt.nic.in/files/${(e.date || '').slice(0,7)}/cause-list/${e.source_pdf}`
+              ? `https://delhihighcourt.nic.in/files/${(e.date || '').slice(0,7)}/cause-list/${e.source_pdf}${e.page ? '#page=' + e.page : ''}`
               : null;
             // Entire card opens the source PDF in a new tab. Matter-title
             // click escalates to the matter detail (stopPropagation prevents
@@ -4226,7 +4226,7 @@ function openDetail(id) {
             <div class="causelist-banner-title">Listed in DHC Cause List · click any line to open the source PDF</div>
             ${m.causelist.map(e => {
               const pdfUrl = e.source_pdf
-                ? `https://delhihighcourt.nic.in/files/${(e.date || '').slice(0,7)}/cause-list/${e.source_pdf}`
+                ? `https://delhihighcourt.nic.in/files/${(e.date || '').slice(0,7)}/cause-list/${e.source_pdf}${e.page ? '#page=' + e.page : ''}`
                 : null;
               const click = pdfUrl ? `onclick="window.open('${pdfUrl}','_blank','noopener')"` : '';
               const cls = pdfUrl ? 'causelist-banner-line causelist-banner-line-clickable' : 'causelist-banner-line';
@@ -4314,7 +4314,7 @@ function openDetail(id) {
             for (const cl of (m.causelist || [])) {
               if (!cl.date) continue;
               const pdfUrl = cl.source_pdf
-                ? `https://delhihighcourt.nic.in/files/${(cl.date || '').slice(0,7)}/cause-list/${cl.source_pdf}`
+                ? `https://delhihighcourt.nic.in/files/${(cl.date || '').slice(0,7)}/cause-list/${cl.source_pdf}${cl.page ? '#page=' + cl.page : ''}`
                 : null;
               const meta = [
                 cl.court ? (cl.court === 'JR' ? 'JR' : `Court ${cl.court}`) : null,
