@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-08T17:01:50Z",
+  "scraped_at": "2026-10-08T18:01:45Z",
   "for_dates": [
     "2026-10-08",
     "2026-10-09"
@@ -59,9 +59,7 @@
     {
       "file": "combined_advance_09102026.pdf",
       "date": "2026-10-09",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "advance_cause_list_of_cases_for_referral_to_mediation_09.10.2026.pdf",
