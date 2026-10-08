@@ -266,14 +266,16 @@ def split_case_norm(case_no: str):
 # Pre-compile court / judge sniffers — same regexes used on every page.
 COURT_RE = re.compile(r"COURT\s+(?:NO\.?|NUM(?:BER)?)?\s*[:\-]?\s*(\d+)", re.IGNORECASE)
 JUDGE_RE = re.compile(
-    # DHC uses a curly apostrophe (HON’BLE) on newer pages. The straight-only
-    # pattern skipped those headers, so running_judge kept the PREVIOUS
-    # court's judge (Court 51 inherited Court 42's MANOJ JAIN M). The name is
-    # also line-bounded ([ ] not \s) so it no longer swallows the next line's
-    # first letter / the word NOTE.
-    r"HON[’'‘]?BLE\s+(?:MR\.?|MS\.?|MRS\.?|JUSTICE\s+|MS\.?\s+JUSTICE\s+|MR\.?\s+JUSTICE\s+)+([A-Z][A-Z \.\-]{3,60})"
+    # DHC prints the apostrophe in HON'BLE as ' ’ ‘ ‟ ... depending on the
+    # page, so match any 0-2 punctuation chars. A straight-only pattern
+    # skipped those headers and the previous court's judge leaked onto the
+    # next court's cases (Court 51 inherited Court 42's MANOJ JAIN M).
+    # Titles include DR/SMT/SHRI (e.g. "HON'BLE DR.JUSTICE ..."). The name is
+    # line-bounded ([ ] not \s) so it can't swallow the next line.
+    r"HON\W{0,2}BLE\s+(?:(?:MR|MS|MRS|DR|SMT|SHRI|JUSTICE)\b\.?\s*)+([A-Z][A-Z \.\-]{3,60})"
 )
 ITEM_RE = re.compile(r"^\s*(\d{1,4})[\.\s]")
+ITEM_ROW_RE = re.compile(r"^\s{0,12}(\d{1,3})\s{2,}\S")
 TIME_RE = re.compile(r"\b(\d{1,2}[:\.]\d{2}(?:\s*[AP]\.?M\.?)?)\b", re.IGNORECASE)
 
 # JR section header — appears in DHC combined advance lists AND standalone JR
@@ -321,6 +323,16 @@ def _build_hit(text, line_start, line_end, page, court, judge):
     im = ITEM_RE.match(line)
     if im:
         item = im.group(1)
+    else:
+        # The matched line is often a wrapped continuation of the row
+        # ("In CS(COMM)-" under "14  I.A. 16275/2026"), so the item number
+        # sits on an earlier line: nearest line above that starts with a
+        # short number then a wide gap (the ITEM column).
+        for prev in reversed(text[:line_start].rstrip("\n").split("\n")[-25:]):
+            pm = ITEM_ROW_RE.match(prev)
+            if pm:
+                item = pm.group(1)
+                break
     time_str = None
     tm = TIME_RE.search(line)
     if tm:
@@ -363,34 +375,56 @@ def search_pages(pages, case_patterns: dict, case_norms: dict, case_splits: dict
     passes don't double-count.
     """
     out = []
-    running_court = None
-    running_judge = None
+    # Section state carried across pages: (court, [judges]).
+    state = (None, [])
 
     for page in pages:
         text = page["text"]
 
-        # Determine the court section in effect for this page.
-        # Prefer position-aware logic: whichever section header appears
-        # LAST on the page (numeric COURT_RE or JR_SECTION_RE) wins.
-        # This correctly handles pages that straddle two sections
-        # (e.g. last few Court-48 items at the top, then JR section below).
-        court_iter = list(COURT_RE.finditer(text))
-        jr_iter    = list(JR_SECTION_RE.finditer(text))
-        if court_iter or jr_iter:
-            last_court_pos = court_iter[-1].end()  if court_iter else -1
-            last_jr_pos    = jr_iter[-1].end()     if jr_iter    else -1
-            if last_jr_pos > last_court_pos:
-                running_court = "JR"
-                # Also capture the JR officer's name as judge.
-                jrj = JR_JUDGE_RE.search(text)
-                if jrj:
-                    running_judge = re.sub(r"\s+", " ", jrj.group(1)).strip(" .,") + " (JR)"
-            else:
-                running_court = court_iter[-1].group(1)
+        # Position-aware section tracking. Every COURT / JR / judge heading on
+        # the page is an event; a hit takes the state of the LAST event that
+        # sits ABOVE its own line (falling back to the state carried in from
+        # the previous page). Previously the last heading on the page won for
+        # every case, so a page holding two benches mislabelled one of them,
+        # and a heading the regex missed silently kept the previous court's
+        # judge. A court heading with no parsable judge now yields judge=None
+        # instead of a wrong name. Division benches list every judge.
+        events = []
+        for m in COURT_RE.finditer(text):
+            events.append((m.start(), 0, "C", m.group(1)))
+        for m in JR_SECTION_RE.finditer(text):
+            events.append((m.start(), 1, "JR", None))
+        for m in JR_JUDGE_RE.finditer(text):
+            events.append((m.start(), 2, "JRJ", re.sub(r"\s+", " ", m.group(1)).strip(" .,") + " (JR)"))
+        for m in JUDGE_RE.finditer(text):
+            events.append((m.start(), 3, "J", re.sub(r"\s+", " ", m.group(1)).strip(" .,")))
+        events.sort()
 
-        jm = JUDGE_RE.findall(text)
-        if jm and running_court != "JR":
-            running_judge = re.sub(r"\s+", " ", jm[-1]).strip(" .,")
+        carried = (state[0], tuple(state[1]))
+        snapshots = []  # (pos, court, judges)
+        court, judges = state[0], list(state[1])
+        for pos, _, kind, val in events:
+            if kind == "C":
+                court, judges = val, []
+            elif kind == "JR":
+                if court != "JR":
+                    court, judges = "JR", []
+            elif kind == "JRJ":
+                # Each "BEFORE MS. X, JOINT REGISTRAR" opens a NEW JR section.
+                court, judges = "JR", [val]
+            elif kind == "J":
+                if court != "JR" and val not in judges:
+                    judges.append(val)
+            snapshots.append((pos, court, tuple(judges)))
+        state = (court, judges)
+
+        def section_at(pos, _snaps=snapshots, _carried=carried):
+            cur = _carried
+            for sp, sc_, sj in _snaps:
+                if sp > pos:
+                    break
+                cur = (sc_, sj)
+            return cur[0], (", ".join(cur[1]) or None)
 
         attributed_lines = set()  # line_start positions already claimed
 
@@ -404,7 +438,7 @@ def search_pages(pages, case_patterns: dict, case_norms: dict, case_splits: dict
                 if ls in attributed_lines:
                     continue
                 attributed_lines.add(ls)
-                hit = _build_hit(text, ls, le, page, running_court, running_judge)
+                hit = _build_hit(text, ls, le, page, *section_at(ls))
                 hit["caseNo"]     = case_no
                 hit["match_type"] = "case_no"
                 hit["matched_on"] = m.group(0)[:80]
@@ -428,7 +462,7 @@ def search_pages(pages, case_patterns: dict, case_norms: dict, case_splits: dict
                 # normalize to 10+ chars (CSCOMM4412024 = 13).
                 if len(norm) >= 8 and norm in line_norm:
                     attributed_lines.add(ls)
-                    hit = _build_hit(text, ls, line_match.end(), page, running_court, running_judge)
+                    hit = _build_hit(text, ls, line_match.end(), page, *section_at(ls))
                     hit["caseNo"]     = case_no
                     hit["match_type"] = "case_no_norm"
                     hit["matched_on"] = case_no
@@ -486,7 +520,7 @@ def search_pages(pages, case_patterns: dict, case_norms: dict, case_splits: dict
                 if matched_case:
                     le = window_lines[-1].end()
                     attributed_lines.update(window_starts)
-                    hit = _build_hit(text, ls, le, page, running_court, running_judge)
+                    hit = _build_hit(text, ls, le, page, *section_at(ls))
                     hit["caseNo"]     = matched_case
                     hit["match_type"] = f"case_no_window_{window_size}"
                     hit["matched_on"] = matched_case
