@@ -7347,5 +7347,53 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1186/2024",
     "_orderDate": "2026-09-25"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1791469761_a6a93117f8384b0d_593_9772025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter before the learned Joint Registrar on 07.12.2026 for admission/denial of documents and marking of exhibits."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Yatinder Garg, Mr. Priyansh Kohli and Mr. Manish Singh",
+      "defendant": "Ms. Palak Kaushal and Ms. Ayushi Jain (D-25); Ms. Kruttika Vijay and Mr. Ayush Hoonka (D-31 & 34); Ms. Gitanjali Kapoor and Mr. Rishi Kapoor (D-43); Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Shivam Tiwari, Mr. Nikhil Gupta and Mr. Aditya Dash (D-444); Mr. Jagdish Chandra, CGSC with Ms. Aishwarya Sinha, Ms. Maanya Saxena, Ms. Vinita Solanki and Ms. Sanskriti Sharma (UOI)"
+    },
+    "summary": "The suit is at the stage of admission/denial of documents and marking of exhibits. The Court adjourned the matter and listed it before the learned Joint Registrar on 07.12.2026. No substantive relief was granted in this order.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-08T15:05:21.115Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/977/2025",
+    "_orderDate": "2026-10-08"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1791469758_60b36d8ac41d9370_593_12102025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Re-notify the matter on 15.01.2027."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Yatinder Garg, Mr. Priyansh Kohli and Mr. Manish Singh",
+      "defendant": "Ms. Gitanjali Kapoor and Mr. Rishi Kapoor for D-21; Mr. Mukul Singh, CGSC with Mr. Adhiraj Singh, GP, Mr. Aryan Dhaka and Ms. Priyal Goswami for D-22 & 23; Ms. Kruttika Vijay and Mr. Ayush Hoonka for D-63 & 117; Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Shivam Tiwari, Mr. Nikhil Gupta and Mr. Aditya Dash for D-115"
+    },
+    "summary": "The matter was listed before the Delhi High Court but could not be taken up as it was already 1:30 PM and a farewell reference was scheduled for the post-lunch session. The Court accordingly adjourned the matter, directing it to be re-notified on 15.01.2027. No substantive relief or directions on the merits were passed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-08T15:05:21.115Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1210/2025",
+    "_orderDate": "2026-10-08"
   }
 }
