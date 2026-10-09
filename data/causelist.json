@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-09T10:02:22Z",
+  "scraped_at": "2026-10-09T11:01:44Z",
   "for_dates": [
     "2026-10-09",
     "2026-10-10"
@@ -76,11 +76,6 @@
       "matched": 1,
       "regex_matches": 1,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_09102026.pdf",
-      "date": "2026-10-09",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": [
