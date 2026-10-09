@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-10-09T12:01:40Z",
+  "scraped_at": "2026-10-09T13:01:20Z",
   "for_dates": [
     "2026-10-09",
     "2026-10-10"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "combibed_sat_cause_list_10.10.2026.pdf",
+      "date": "2026-10-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "registrar_supply_list_09.10.2026_1.pdf",
       "date": "2026-10-09",
@@ -62,35 +69,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "finals_09.10.2026.pdf",
-      "date": "2026-10-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_09102026.pdf",
-      "date": "2026-10-09",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "14",
-      "court": "51",
-      "judge": "TEJAS KARIA",
-      "time": null,
-      "page": 394,
-      "context": "In CS(COMM)-          NETWORKS INDIA\n             672/2026              PRIVATE LIMITED",
-      "caseNo": "CS(COMM)/672/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-          NETWORKS INDIA\n             672/2026",
-      "date": "2026-10-09",
-      "source_pdf": "c_09102026.pdf"
-    }
-  ]
+  "entries": []
 }
