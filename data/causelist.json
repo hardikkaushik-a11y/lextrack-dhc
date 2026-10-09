@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-09T13:01:20Z",
+  "scraped_at": "2026-10-09T14:01:16Z",
   "for_dates": [
     "2026-10-09",
     "2026-10-10"
@@ -10,6 +10,13 @@
     {
       "file": "combibed_sat_cause_list_10.10.2026.pdf",
       "date": "2026-10-10",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rev_combined_targetted_09.10.2026.pdf",
+      "date": "2026-10-09",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -30,41 +37,6 @@
     },
     {
       "file": "db-ii_note_for_09.10.2026.pdf",
-      "date": "2026-10-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_09.10.2026.pdf",
-      "date": "2026-10-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_09102026.pdf",
-      "date": "2026-10-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_09102026_0.pdf",
-      "date": "2026-10-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl09102026.pdf",
-      "date": "2026-10-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_09102026.pdf",
       "date": "2026-10-09",
       "matched": 0,
       "regex_matches": 0,
