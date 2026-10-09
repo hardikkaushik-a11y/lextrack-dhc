@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-09T14:01:16Z",
+  "scraped_at": "2026-10-09T15:01:17Z",
   "for_dates": [
     "2026-10-09",
     "2026-10-10"
@@ -30,13 +30,6 @@
     },
     {
       "file": "today_jr_suppl.judicial_09102026.pdf",
-      "date": "2026-10-09",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "db-ii_note_for_09.10.2026.pdf",
       "date": "2026-10-09",
       "matched": 0,
       "regex_matches": 0,
