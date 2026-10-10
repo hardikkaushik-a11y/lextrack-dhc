@@ -1,19 +1,94 @@
 {
-  "scraped_at": "2026-10-10T18:01:04Z",
+  "scraped_at": "2026-10-10T19:01:40Z",
   "for_dates": [
-    "2026-10-10",
-    "2026-10-11"
+    "2026-10-11",
+    "2026-10-12"
   ],
   "tracked_cases": 21,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
     {
-      "file": "combibed_sat_cause_list_10.10.2026.pdf",
-      "date": "2026-10-10",
+      "file": "12102026.pdf",
+      "date": "2026-10-12",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_12.10.2026.pdf",
+      "date": "2026-10-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combibed_targetted_12.10.2026.pdf",
+      "date": "2026-10-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "dh_sup_finl_12.10.pdf",
+      "date": "2026-10-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl12102026.pdf",
+      "date": "2026-10-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_12.10.2026.pdf",
+      "date": "2026-10-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_12.10.2026.pdf",
+      "date": "2026-10-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_12.10.2026.pdf",
+      "date": "2026-10-12",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_advance_12102026.pdf",
+      "date": "2026-10-12",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_sup_1_12.10.2026.pdf",
+      "date": "2026-10-12",
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "11",
+      "court": "51",
+      "judge": "TEJAS KARIA",
+      "time": null,
+      "page": 486,
+      "context": "11        CS(COMM)-195/2026 RELIANCE CONSUMER         SEWA SINGH, ISHI",
+      "caseNo": "CS(COMM)/195/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-195/2026",
+      "date": "2026-10-12",
+      "source_pdf": "combined_cause_list_12.10.2026.pdf"
+    }
+  ]
 }
