@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-11T00:01:41Z",
+  "scraped_at": "2026-10-11T01:01:31Z",
   "for_dates": [
     "2026-10-11",
     "2026-10-12"
@@ -59,14 +59,14 @@
     {
       "file": "combined_cause_list_12.10.2026.pdf",
       "date": "2026-10-12",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(9630918 bytes read, 10506593 more expected)', IncompleteRead(9630918 bytes read, 10506593 more expected))"
     },
     {
       "file": "combined_advance_12102026.pdf",
       "date": "2026-10-12",
-      "error": "download: ('Connection broken: IncompleteRead(1448503 bytes read, 6526265 more expected)', IncompleteRead(1448503 bytes read, 6526265 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combined_cause_sup_1_12.10.2026.pdf",
@@ -82,13 +82,13 @@
       "court": "51",
       "judge": "TEJAS KARIA",
       "time": null,
-      "page": 486,
+      "page": 355,
       "context": "11        CS(COMM)-195/2026 RELIANCE CONSUMER         SEWA SINGH, ISHI",
       "caseNo": "CS(COMM)/195/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-195/2026",
       "date": "2026-10-12",
-      "source_pdf": "combined_cause_list_12.10.2026.pdf"
+      "source_pdf": "combined_advance_12102026.pdf"
     }
   ]
 }
