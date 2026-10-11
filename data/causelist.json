@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-10-11T18:01:38Z",
+  "scraped_at": "2026-10-11T19:01:42Z",
   "for_dates": [
-    "2026-10-11",
-    "2026-10-12"
+    "2026-10-12",
+    "2026-10-13"
   ],
   "tracked_cases": 21,
   "matched_cases": 1,
@@ -66,7 +66,9 @@
     {
       "file": "combined_advance_12102026.pdf",
       "date": "2026-10-12",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combined_cause_sup_1_12.10.2026.pdf",
