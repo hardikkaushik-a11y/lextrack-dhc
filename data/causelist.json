@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-10-12T10:01:59Z",
+  "scraped_at": "2026-10-12T11:01:56Z",
   "for_dates": [
     "2026-10-12",
     "2026-10-13"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 5,
   "sources": [
+    {
+      "file": "combined_adv_list_13.10.2026.pdf",
+      "date": "2026-10-13",
+      "matched": 4,
+      "regex_matches": 4,
+      "norm_matches": 0
+    },
     {
       "file": "vk_sup-13_for_12.10.26.pdf",
       "date": "2026-10-12",
@@ -80,9 +87,7 @@
     {
       "file": "combined_cause_list_12.10.2026.pdf",
       "date": "2026-10-12",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(7588598 bytes read, 12548913 more expected)', IncompleteRead(7588598 bytes read, 12548913 more expected))"
     },
     {
       "file": "combined_advance_12102026.pdf",
@@ -102,16 +107,68 @@
   "entries": [
     {
       "item": "11",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 374,
+      "context": "11       CS(COMM)-         JIOSTAR INDIA           R MAYA, BINSY\n             89/2026           PRIVATE LIMITED         SUSAN BABY,",
+      "caseNo": "CS(COMM)/89/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA           R MAYA, BINSY\n             89/2026",
+      "date": "2026-10-13",
+      "source_pdf": "combined_adv_list_13.10.2026.pdf"
+    },
+    {
+      "item": "46",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 417,
+      "context": "46       CS(COMM)-1152/2025 DAZN LIMITED & ANR.     R MAYA, BINSY SUSAN",
+      "caseNo": "CS(COMM)/1152/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-1152/2025",
+      "date": "2026-10-13",
+      "source_pdf": "combined_adv_list_13.10.2026.pdf"
+    },
+    {
+      "item": "77",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 421,
+      "context": "77       CS(COMM)-1210/2025 JIOSTAR INDIA          R MAYA, BINSY SUSAN",
+      "caseNo": "CS(COMM)/1210/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-1210/2025",
+      "date": "2026-10-13",
+      "source_pdf": "combined_adv_list_13.10.2026.pdf"
+    },
+    {
+      "item": "73",
+      "court": "JR",
+      "judge": "ANIL KUMAR (JR)",
+      "time": null,
+      "page": 421,
+      "context": "73       CS(COMM)-1203/2025 JIOSTAR INDIA          R MAYA, BINSY SUSAN",
+      "caseNo": "CS(COMM)/1203/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-1203/2025",
+      "date": "2026-10-13",
+      "source_pdf": "combined_adv_list_13.10.2026.pdf"
+    },
+    {
+      "item": "11",
       "court": "51",
       "judge": "TEJAS KARIA",
       "time": null,
-      "page": 486,
+      "page": 355,
       "context": "11        CS(COMM)-195/2026 RELIANCE CONSUMER         SEWA SINGH, ISHI",
       "caseNo": "CS(COMM)/195/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-195/2026",
       "date": "2026-10-12",
-      "source_pdf": "combined_cause_list_12.10.2026.pdf"
+      "source_pdf": "combined_advance_12102026.pdf"
     }
   ]
 }
