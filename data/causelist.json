@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-12T05:01:46Z",
+  "scraped_at": "2026-10-12T06:01:37Z",
   "for_dates": [
     "2026-10-12",
     "2026-10-13"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_jud_12102026.pdf",
+      "date": "2026-10-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "12102026.pdf",
       "date": "2026-10-12",
@@ -59,7 +66,7 @@
     {
       "file": "combined_cause_list_12.10.2026.pdf",
       "date": "2026-10-12",
-      "error": "download: ('Connection broken: IncompleteRead(10059880 bytes read, 10077631 more expected)', IncompleteRead(10059880 bytes read, 10077631 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(14648118 bytes read, 5489393 more expected)', IncompleteRead(14648118 bytes read, 5489393 more expected))"
     },
     {
       "file": "combined_advance_12102026.pdf",
