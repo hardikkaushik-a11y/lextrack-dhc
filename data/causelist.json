@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-10-12T18:01:53Z",
+  "scraped_at": "2026-10-12T19:01:48Z",
   "for_dates": [
-    "2026-10-12",
-    "2026-10-13"
+    "2026-10-13",
+    "2026-10-14"
   ],
   "tracked_cases": 21,
   "matched_cases": 4,
@@ -68,62 +68,6 @@
       "date": "2026-10-13",
       "matched": 4,
       "regex_matches": 4,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup-13_for_12.10.26.pdf",
-      "date": "2026-10-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_12.10.2026_1.pdf",
-      "date": "2026-10-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_jud_12102026.pdf",
-      "date": "2026-10-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "12102026.pdf",
-      "date": "2026-10-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_12.10.2026.pdf",
-      "date": "2026-10-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combibed_targetted_12.10.2026.pdf",
-      "date": "2026-10-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "dh_sup_finl_12.10.pdf",
-      "date": "2026-10-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl12102026.pdf",
-      "date": "2026-10-12",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
