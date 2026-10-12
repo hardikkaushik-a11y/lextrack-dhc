@@ -7395,5 +7395,30 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1210/2025",
     "_orderDate": "2026-10-08"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1791788196_fa90f96cd21cda7d_687_6722026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter before the learned Joint Registrar (Judicial) on the date already fixed, i.e. 04.11.2026.",
+      "List the matter before the Court on 05.02.2027."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ishi Singh",
+      "defendant": "Radhika B. Dubey, Manish Rawat, Abhishek Mohanpuria & Deep Sharma (for D-23)"
+    },
+    "summary": "The matter was listed before the Court in a commercial suit. Learned Counsel for the Plaintiff submitted that the matter is pending before the learned Joint Registrar (Judicial) for completion of pleadings. The Court accordingly listed the matter before the Joint Registrar (Judicial) on the already fixed date of 04.11.2026 and before the Court on 05.02.2027.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-12T07:05:15.421Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/672/2026",
+    "_orderDate": "2026-10-09"
   }
 }

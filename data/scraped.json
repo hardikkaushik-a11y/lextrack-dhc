@@ -1835,7 +1835,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:02:11.907Z",
+    "lastScraped": "2026-10-12T07:02:15.458Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2261,7 +2261,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:02:21.221Z",
+    "lastScraped": "2026-10-12T07:02:23.033Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2603,7 +2603,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:02:28.716Z",
+    "lastScraped": "2026-10-12T07:02:30.587Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2945,7 +2945,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:02:36.373Z",
+    "lastScraped": "2026-10-12T07:02:38.117Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3191,7 +3191,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:02:43.972Z",
+    "lastScraped": "2026-10-12T07:02:47.439Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3445,7 +3445,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:02:51.495Z",
+    "lastScraped": "2026-10-12T07:02:59.197Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3976,7 +3976,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:02:59.171Z",
+    "lastScraped": "2026-10-12T07:03:06.855Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4949,7 +4949,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:03:06.836Z",
+    "lastScraped": "2026-10-12T07:03:14.578Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5203,7 +5203,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:03:14.397Z",
+    "lastScraped": "2026-10-12T07:03:22.145Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5656,7 +5656,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:03:22.049Z",
+    "lastScraped": "2026-10-12T07:03:36.292Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5919,7 +5919,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:03:31.381Z",
+    "lastScraped": "2026-10-12T07:03:43.811Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6705,7 +6705,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:03:39.076Z",
+    "lastScraped": "2026-10-12T07:03:51.372Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7445,7 +7445,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:03:46.630Z",
+    "lastScraped": "2026-10-12T07:03:59.044Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7776,7 +7776,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:03:54.263Z",
+    "lastScraped": "2026-10-12T07:04:06.678Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8234,7 +8234,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:04:01.949Z",
+    "lastScraped": "2026-10-12T07:04:14.283Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8509,7 +8509,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:04:09.646Z",
+    "lastScraped": "2026-10-12T07:04:21.955Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9345,7 +9345,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:04:17.217Z",
+    "lastScraped": "2026-10-12T07:04:29.618Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9357,10 +9357,42 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-08-04",
+    "lastDate": "2026-10-09",
     "nextDate": "2026-11-04",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-10-09",
+        "event": "Court Order",
+        "detail": "I.A. 16275/2026 1.Learned Counsel for the Plaintiff submits that the matter is pending before the learned Joint Registrar (Judicial) for completion of pleadings. 2.Accordingly, lis…",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1791788196_fa90f96cd21cda7d_687_6722026.pdf/2026",
+        "orderText": "$~14 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010268752026 +CS(COMM) 672/2026 SONY PICTURES NETWORKS INDIA PVT. LTD. .....Plaintiff Through:Ms. Ishi Singh, Advocate. versus CRICFREE.CYOU & ORS......Defendants Through:Ms. Radhika B. Dubey, Mr. Manish Rawat, Mr. Abhishek Mohanpuria & Mr. Deep Sharma, Advocates for D-23. CORAM: HON'BLE MR. JUSTICE TEJAS KARIA O R D E R %09.10.2026 I.A. 16275/2026 1.Learned Counsel for the Plaintiff submits that the matter is pending before the learned Joint Registrar (Judicial) for completion of pleadings. 2.Accordingly, list before the learned Joint Registrar (Judicial) on the date already fixed, i.e. 04.11.2026. 3.List before the Court on 05.02.2027. TEJAS KARIA, J OCTOBER 9, 2026 ‘gsr’ This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 12/10/2026 at 12:34:45",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List the matter before the learned Joint Registrar (Judicial) on the date already fixed, i.e. 04.11.2026.",
+            "List the matter before the Court on 05.02.2027."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ishi Singh",
+            "defendant": "Radhika B. Dubey, Manish Rawat, Abhishek Mohanpuria & Deep Sharma (for D-23)"
+          },
+          "summary": "The matter was listed before the Court in a commercial suit. Learned Counsel for the Plaintiff submitted that the matter is pending before the learned Joint Registrar (Judicial) for completion of pleadings. The Court accordingly listed the matter before the Joint Registrar (Judicial) on the already fixed date of 04.11.2026 and before the Court on 05.02.2027.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-10-12T07:05:15.421Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/672/2026",
+          "_orderDate": "2026-10-09"
+        }
+      },
       {
         "date": "2026-08-04",
         "event": "Court Order",
@@ -9445,6 +9477,16 @@
           "orderDate": "2026-08-04",
           "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1785839126_35d8201eae36537c_762_6722026.pdf/2026"
         }
+      },
+      {
+        "date": "2027-02-05",
+        "before": "court",
+        "firstSeenAt": "2026-10-12T07:04:46.147Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-10-09",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1791788196_fa90f96cd21cda7d_687_6722026.pdf/2026"
+        }
       }
     ],
     "tasks": [],
@@ -9457,7 +9499,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:04:24.811Z",
+    "lastScraped": "2026-10-12T07:04:46.148Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9886,7 +9928,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:04:33.912Z",
+    "lastScraped": "2026-10-12T07:04:54.202Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10816,7 +10858,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:04:41.666Z",
+    "lastScraped": "2026-10-12T07:05:01.974Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11331,7 +11373,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-12T06:04:49.280Z",
+    "lastScraped": "2026-10-12T07:05:11.442Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
