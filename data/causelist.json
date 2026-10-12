@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-12T09:01:48Z",
+  "scraped_at": "2026-10-12T10:01:59Z",
   "for_dates": [
     "2026-10-12",
     "2026-10-13"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "vk_sup-13_for_12.10.26.pdf",
+      "date": "2026-10-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "registrar_supply_list_12.10.2026_1.pdf",
       "date": "2026-10-12",
