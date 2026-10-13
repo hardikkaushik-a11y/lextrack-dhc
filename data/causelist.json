@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-13T20:01:51Z",
+  "scraped_at": "2026-10-13T21:01:27Z",
   "for_dates": [
     "2026-10-14",
     "2026-10-15"
@@ -38,9 +38,7 @@
     {
       "file": "combined_cause_list_14.10.2026.pdf",
       "date": "2026-10-14",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(3631798 bytes read, 16963381 more expected)', IncompleteRead(3631798 bytes read, 16963381 more expected))"
     },
     {
       "file": "advance_mediation_14.10.2026.pdf",
@@ -70,13 +68,13 @@
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 548,
-      "context": "79       CS(COMM)-         SONY PICTURES          ISHI SINGH\n             672/2026          NETWORKS INDIA",
+      "page": 15,
+      "context": "79        CS(COMM)-         SONY PICTURES ISHI SINGH\n             672/2026          NETWORKS",
       "caseNo": "CS(COMM)/672/2026",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-         SONY PICTURES          ISHI SINGH\n             672/2026",
+      "matched_on": "CS(COMM)-         SONY PICTURES ISHI SINGH\n             672/2026",
       "date": "2026-10-14",
-      "source_pdf": "combined_cause_list_14.10.2026.pdf"
+      "source_pdf": "advance_mediation_14.10.2026.pdf"
     }
   ]
 }
