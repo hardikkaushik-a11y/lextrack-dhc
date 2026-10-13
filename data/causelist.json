@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-13T08:01:48Z",
+  "scraped_at": "2026-10-13T09:01:57Z",
   "for_dates": [
     "2026-10-13",
     "2026-10-14"
@@ -7,6 +7,20 @@
   "tracked_cases": 21,
   "matched_cases": 4,
   "sources": [
+    {
+      "file": "pro._13.10.2026.pdf",
+      "date": "2026-10-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_mini_p_13.10.2026.pdf",
+      "date": "2026-10-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "vk_sup-07_for_13.10.26.pdf",
       "date": "2026-10-13",
