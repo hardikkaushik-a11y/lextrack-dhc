@@ -7420,5 +7420,37 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/672/2026",
     "_orderDate": "2026-10-09"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1791883715_a8cc80ff5f39b379_687_1952026.pdf/2026": {
+    "classification": "final",
+    "reliefGranted": "Suit decreed in terms of the Settlement Agreement dated 06.08.2026; parties bound by its terms.",
+    "costsAwarded": {
+      "amount": null,
+      "to": null
+    },
+    "directions": [
+      "Parties are directed to be bound by the terms and conditions of the Settlement Agreement.",
+      "Registry is directed to draw the Decree Sheet accordingly.",
+      "Registry is directed to issue a certificate of refund of 100% of the Court Fees in favour of the Plaintiff under Section 16 of the Court Fees Act, 1870.",
+      "If any dispute arises and either party approaches the Court for enforcement of the Settlement Agreement/Decree, that party will be liable to pay the entire Court Fees thereon."
+    ],
+    "citations": [
+      "Section 16, Court Fees Act, 1870"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Akshay Maloo, Ms. Shudhata Sudhir and Ms. Ishi Singh",
+      "defendant": null
+    },
+    "summary": "The parties amicably settled their disputes via a Settlement Agreement dated 06.08.2026, and the plaintiff sought a decree in its terms. The Delhi High Court decreed the suit in terms of the Settlement Agreement, directed the drawing of the Decree Sheet, and ordered a 100% refund of court fees to the plaintiff under Section 16 of the Court Fees Act, 1870, while noting that a party seeking enforcement later would be liable to pay the entire court fees.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-13T10:05:01.735Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/195/2026",
+    "_orderDate": "2026-10-12"
   }
 }

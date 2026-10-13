@@ -1835,7 +1835,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:02:17.105Z",
+    "lastScraped": "2026-10-13T10:02:18.939Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2261,7 +2261,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:02:31.382Z",
+    "lastScraped": "2026-10-13T10:02:26.922Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2603,7 +2603,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:02:38.984Z",
+    "lastScraped": "2026-10-13T10:02:34.505Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2945,7 +2945,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:02:46.594Z",
+    "lastScraped": "2026-10-13T10:02:42.081Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3191,7 +3191,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:02:54.362Z",
+    "lastScraped": "2026-10-13T10:02:49.618Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3445,7 +3445,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:03:02.109Z",
+    "lastScraped": "2026-10-13T10:02:57.317Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3976,7 +3976,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:03:09.851Z",
+    "lastScraped": "2026-10-13T10:03:04.941Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4949,7 +4949,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:03:17.647Z",
+    "lastScraped": "2026-10-13T10:03:14.127Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4961,10 +4961,49 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-09-15",
+    "lastDate": "2026-10-12",
     "nextDate": "2026-10-12",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-10-12",
+        "event": "Court Order",
+        "detail": "Suit decreed.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1791883715_a8cc80ff5f39b379_687_1952026.pdf/2026",
+        "orderText": "$~11 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010073862026 +CS(COMM) 195/2026 & I.A. 5413/2026 RELIANCE CONSUMER PRODUCTS LIMITED.....Plaintiff Through:Mr. Akshay Maloo, Ms. Shudhata SudhirandMs.IshiSingh, Advocates. versus RIPTON BEVERAGES PRIVATE LIMITED.....Defendant Through:None. CORAM: HON'BLE MR. JUSTICE TEJAS KARIA O R D E R %12.10.2026 CS(COMM) 195/2026 1.Learned Counsel for the Plaintiff submits that the Parties have been able to amicably settle the disputes amongst themselves and the settlement agreement dated 06.08.2026 (“Settlement Agreement”) has been entered into between them. 2.Learned Counsel for the Parties submit that the Suit may be decreed in terms of the Settlement Agreement. 3.Accordingly, the Parties are directed to be bound by the terms and conditions of the Settlement Agreement. The Suit is decreed in terms of the Settlement Agreement. Let the Decree Sheet be drawn accordingly. The Suit stands disposed of in the above terms. 4.Learned Counsel for the Plaintiff prays for refund of the Court Fees on the ground that the matter is settled at an initial stage. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 13/10/2026 at 15:33:22 5.In view of the fact that the matter has been settled at an early stage, the Registry is directed to issue a certificate of refund of 100% of the Court Fees in favour of the Plaintiff, in terms of Section 16 of the Court Fees Act, 1870. 6.It is however, made clear that in case any dispute arises between the Parties and in the event, either Party approaches this Court for enforcement of the Settlement Agreement / Decree, the said Party or Parties will become liable to pay the entire Court Fees thereon. TEJAS KARIA, J OCTOBER 12, 2026/sms This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 13/10/2026 at 15:33:22",
+        "intelligence": {
+          "classification": "final",
+          "reliefGranted": "Suit decreed in terms of the Settlement Agreement dated 06.08.2026; parties bound by its terms.",
+          "costsAwarded": {
+            "amount": null,
+            "to": null
+          },
+          "directions": [
+            "Parties are directed to be bound by the terms and conditions of the Settlement Agreement.",
+            "Registry is directed to draw the Decree Sheet accordingly.",
+            "Registry is directed to issue a certificate of refund of 100% of the Court Fees in favour of the Plaintiff under Section 16 of the Court Fees Act, 1870.",
+            "If any dispute arises and either party approaches the Court for enforcement of the Settlement Agreement/Decree, that party will be liable to pay the entire Court Fees thereon."
+          ],
+          "citations": [
+            "Section 16, Court Fees Act, 1870"
+          ],
+          "counsel": {
+            "plaintiff": "Mr. Akshay Maloo, Ms. Shudhata Sudhir and Ms. Ishi Singh",
+            "defendant": null
+          },
+          "summary": "The parties amicably settled their disputes via a Settlement Agreement dated 06.08.2026, and the plaintiff sought a decree in its terms. The Delhi High Court decreed the suit in terms of the Settlement Agreement, directed the drawing of the Decree Sheet, and ordered a 100% refund of court fees to the plaintiff under Section 16 of the Court Fees Act, 1870, while noting that a party seeking enforcement later would be liable to pay the entire court fees.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-10-13T10:05:01.735Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/195/2026",
+          "_orderDate": "2026-10-12"
+        }
+      },
       {
         "date": "2026-09-15",
         "event": "Court Order",
@@ -5192,7 +5231,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:03:25.257Z",
+    "lastScraped": "2026-10-13T10:03:22.923Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5645,7 +5684,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:03:32.966Z",
+    "lastScraped": "2026-10-13T10:03:31.058Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5908,7 +5947,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:03:40.661Z",
+    "lastScraped": "2026-10-13T10:03:39.917Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6694,7 +6733,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:03:55.061Z",
+    "lastScraped": "2026-10-13T10:03:47.517Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7434,7 +7473,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:04:02.611Z",
+    "lastScraped": "2026-10-13T10:03:55.604Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7765,7 +7804,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:04:10.356Z",
+    "lastScraped": "2026-10-13T10:04:03.298Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8223,7 +8262,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:04:18.097Z",
+    "lastScraped": "2026-10-13T10:04:10.984Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8498,7 +8537,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:04:25.844Z",
+    "lastScraped": "2026-10-13T10:04:18.598Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9334,7 +9373,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:04:33.665Z",
+    "lastScraped": "2026-10-13T10:04:26.257Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9488,7 +9527,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:04:41.257Z",
+    "lastScraped": "2026-10-13T10:04:33.790Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9917,7 +9956,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:04:48.869Z",
+    "lastScraped": "2026-10-13T10:04:41.664Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10847,7 +10886,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:04:56.643Z",
+    "lastScraped": "2026-10-13T10:04:49.421Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11362,7 +11401,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-13T09:05:05.863Z",
+    "lastScraped": "2026-10-13T10:04:57.006Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
