@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-10-13T18:01:53Z",
+  "scraped_at": "2026-10-13T19:01:52Z",
   "for_dates": [
-    "2026-10-13",
-    "2026-10-14"
+    "2026-10-14",
+    "2026-10-15"
   ],
   "tracked_cases": 21,
   "matched_cases": 1,
@@ -45,9 +45,7 @@
     {
       "file": "advance_mediation_14.10.2026.pdf",
       "date": "2026-10-14",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "combined_advance_14102026.pdf",
@@ -59,55 +57,6 @@
     {
       "file": "combined_targetted_14.10.2026.pdf",
       "date": "2026-10-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup-09_for_13.10.26.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._13.10.2026.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_mini_p_13.10.2026.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup-07_for_13.10.26.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_amit_sharma_13.10.2026.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_suppl._judicial_13102026.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "reg_supply_13.10.2026.pdf",
-      "date": "2026-10-13",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
