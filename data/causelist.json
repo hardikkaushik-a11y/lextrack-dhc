@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-13T14:01:56Z",
+  "scraped_at": "2026-10-13T15:01:57Z",
   "for_dates": [
     "2026-10-13",
     "2026-10-14"
@@ -59,9 +59,7 @@
     {
       "file": "combined_targetted_14.10.2026.pdf",
       "date": "2026-10-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "vk_sup-09_for_13.10.26.pdf",
@@ -107,13 +105,6 @@
     },
     {
       "file": "reg_supply_13.10.2026.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "supply_13.10.2026.pdf",
       "date": "2026-10-13",
       "matched": 0,
       "regex_matches": 0,
