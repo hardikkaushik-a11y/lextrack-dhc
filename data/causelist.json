@@ -1,16 +1,46 @@
 {
-  "scraped_at": "2026-10-13T13:02:22Z",
+  "scraped_at": "2026-10-13T14:01:56Z",
   "for_dates": [
     "2026-10-13",
     "2026-10-14"
   ],
   "tracked_cases": 21,
-  "matched_cases": 5,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_pro_14.10.2026.pdf",
+      "date": "2026-10-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_14.10.2026.pdf",
+      "date": "2026-10-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_14.10.2026.pdf",
+      "date": "2026-10-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl14102026.pdf",
+      "date": "2026-10-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_cause_list_14.10.2026.pdf",
       "date": "2026-10-14",
-      "error": "download: ('Connection broken: IncompleteRead(11367822 bytes read, 9227357 more expected)', IncompleteRead(11367822 bytes read, 9227357 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "advance_mediation_14.10.2026.pdf",
@@ -27,9 +57,18 @@
       "norm_matches": 0
     },
     {
+      "file": "combined_targetted_14.10.2026.pdf",
+      "date": "2026-10-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "vk_sup-09_for_13.10.26.pdf",
       "date": "2026-10-13",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "pro._13.10.2026.pdf",
@@ -79,55 +118,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_13102026.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_13.10.2026.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_13102026.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_13102026.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_13102026.pdf",
-      "date": "2026-10-13",
-      "matched": 7,
-      "regex_matches": 7,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl13102026.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_13.10.2026.pdf",
-      "date": "2026-10-13",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -136,65 +126,13 @@
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 15,
-      "context": "79        CS(COMM)-         SONY PICTURES ISHI SINGH\n             672/2026          NETWORKS",
+      "page": 548,
+      "context": "79       CS(COMM)-         SONY PICTURES          ISHI SINGH\n             672/2026          NETWORKS INDIA",
       "caseNo": "CS(COMM)/672/2026",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-         SONY PICTURES ISHI SINGH\n             672/2026",
+      "matched_on": "CS(COMM)-         SONY PICTURES          ISHI SINGH\n             672/2026",
       "date": "2026-10-14",
-      "source_pdf": "advance_mediation_14.10.2026.pdf"
-    },
-    {
-      "item": "11",
-      "court": "JR",
-      "judge": "SWATI KATIYAR (JR)",
-      "time": null,
-      "page": 506,
-      "context": "11       CS(COMM)-         JIOSTAR INDIA           R MAYA, BINSY\n             89/2026           PRIVATE LIMITED         SUSAN BABY,",
-      "caseNo": "CS(COMM)/89/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         JIOSTAR INDIA           R MAYA, BINSY\n             89/2026",
-      "date": "2026-10-13",
-      "source_pdf": "c_13102026.pdf"
-    },
-    {
-      "item": "46",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 549,
-      "context": "46       CS(COMM)-1152/2025 DAZN LIMITED & ANR.     R MAYA, BINSY SUSAN",
-      "caseNo": "CS(COMM)/1152/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-1152/2025",
-      "date": "2026-10-13",
-      "source_pdf": "c_13102026.pdf"
-    },
-    {
-      "item": "77",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 553,
-      "context": "77       CS(COMM)-1210/2025 JIOSTAR INDIA          R MAYA, BINSY SUSAN",
-      "caseNo": "CS(COMM)/1210/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-1210/2025",
-      "date": "2026-10-13",
-      "source_pdf": "c_13102026.pdf"
-    },
-    {
-      "item": "73",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 553,
-      "context": "73       CS(COMM)-1203/2025 JIOSTAR INDIA          R MAYA, BINSY SUSAN",
-      "caseNo": "CS(COMM)/1203/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-1203/2025",
-      "date": "2026-10-13",
-      "source_pdf": "c_13102026.pdf"
+      "source_pdf": "combined_cause_list_14.10.2026.pdf"
     }
   ]
 }
