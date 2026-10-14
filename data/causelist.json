@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-14T12:01:32Z",
+  "scraped_at": "2026-10-14T13:01:39Z",
   "for_dates": [
     "2026-10-14",
     "2026-10-15"
@@ -7,6 +7,25 @@
   "tracked_cases": 21,
   "matched_cases": 4,
   "sources": [
+    {
+      "file": "pla_15102026.pdf",
+      "date": "2026-10-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl15102026.pdf",
+      "date": "2026-10-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_15102026.pdf",
+      "date": "2026-10-15",
+      "error": "download: ('Connection broken: IncompleteRead(7106366 bytes read, 13552777 more expected)', IncompleteRead(7106366 bytes read, 13552777 more expected))"
+    },
     {
       "file": "combined_adv_list_15.10.2026.pdf",
       "date": "2026-10-15",
@@ -79,13 +98,6 @@
     },
     {
       "file": "finals_14.10.2026.pdf",
-      "date": "2026-10-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl14102026.pdf",
       "date": "2026-10-14",
       "matched": 0,
       "regex_matches": 0,
