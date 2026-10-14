@@ -1835,7 +1835,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:02:14.491Z",
+    "lastScraped": "2026-10-14T12:01:52.232Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2261,7 +2261,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:02:21.990Z",
+    "lastScraped": "2026-10-14T12:02:00.432Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2273,10 +2273,43 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-08-10",
+    "lastDate": "2026-10-13",
     "nextDate": "2026-12-09",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-10-13",
+        "event": "Court Order",
+        "detail": "Summons issued to defendants.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1791976957_867dd0eb33ea26c2_762_892026.pdf/2026",
+        "orderText": "$~11 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010030082026 + CS(COMM) 89/2026 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Ms. Ishi Singh, Adv (VC). versus GHD SPORTS & ORS. .....Defendants Through: Mr. Akshay Shankar, and Ms. Ananya Dewan, Advs for D-8. Mr. Vinay Yadav (CGSC) and Mr. Ansh Kalra, Adv for D-19 and 20 (VC). Ms. Anmol Dhindsa, Adv for D-151. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 13.10.2026 1. Matter is listed for completion of pleadings. 2. Perusal of record shows that rights of defendant no.1 to 20 to file written statement already stands closed. 3. Defendant no.21 is John Doe. 4. Registry report qua issuance of summons issued to defendant no.22 to 158 is still awaited. 5. Amended memo of parties filed on behalf of plaintiffs is on record. 6. Ld counsel for plaintiff submits that defendant no.22 to 158 (except D-48 and D-155 who already stands deleted) have been served with the summons yesterday and the plaintiff has also filed affidavit of service but the same must be pending under scrutiny. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 14/10/2026 at 17:32:09 7. Compliance affidavit in a sealed cover filed on behalf of defendant no. 151 is on record. 8. Put up for service report of defendant no.22 to 158 (except D-48 and D-155) / completion of pleadings on 16.02.2027. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) OCTOBER 13, 2026/BK This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 14/10/2026 at 17:32:09",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Registry to report on issuance of summons to defendant nos. 22 to 158.",
+            "Plaintiff to pursue scrutiny of the filed affidavit of service for defendant nos. 22 to 158 (except D-48 and D-155).",
+            "Matter adjourned for service report of defendant nos. 22 to 158 (except D-48 and D-155) and completion of pleadings on 16.02.2027."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Mr. Akshay Shankar, Ms. Ananya Dewan, Mr. Vinay Yadav (CGSC), Mr. Ansh Kalra, Ms. Anmol Dhindsa"
+          },
+          "summary": "The matter was listed for completion of pleadings. The court noted that the right of defendant nos. 1 to 20 to file a written statement stands closed, defendant no. 21 is John Doe, and the registry report on summons to defendant nos. 22 to 158 is awaited. The plaintiff submitted that defendant nos. 22 to 158 (except D-48 and D-155) were served the previous day and an affidavit of service has been filed but is pending scrutiny; the matter was adjourned to 16.02.2027.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-10-14T12:04:35.329Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/89/2026",
+          "_orderDate": "2026-10-13"
+        }
+      },
       {
         "date": "2026-08-10",
         "event": "Court Order",
@@ -2603,7 +2636,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:02:29.519Z",
+    "lastScraped": "2026-10-14T12:02:09.657Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2945,7 +2978,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:02:37.260Z",
+    "lastScraped": "2026-10-14T12:02:17.984Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3191,7 +3224,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:02:44.952Z",
+    "lastScraped": "2026-10-14T12:02:25.740Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3445,7 +3478,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:02:52.604Z",
+    "lastScraped": "2026-10-14T12:02:33.457Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3976,7 +4009,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:03:00.638Z",
+    "lastScraped": "2026-10-14T12:02:41.175Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4949,7 +4982,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:03:08.348Z",
+    "lastScraped": "2026-10-14T12:02:48.913Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5231,7 +5264,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:03:15.818Z",
+    "lastScraped": "2026-10-14T12:02:56.380Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5684,7 +5717,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:03:23.352Z",
+    "lastScraped": "2026-10-14T12:03:04.021Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5947,7 +5980,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:03:31.367Z",
+    "lastScraped": "2026-10-14T12:03:11.805Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6733,7 +6766,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:03:38.872Z",
+    "lastScraped": "2026-10-14T12:03:19.670Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7473,7 +7506,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:03:46.467Z",
+    "lastScraped": "2026-10-14T12:03:27.231Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7804,7 +7837,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:03:54.049Z",
+    "lastScraped": "2026-10-14T12:03:34.885Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8262,7 +8295,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:04:01.690Z",
+    "lastScraped": "2026-10-14T12:03:42.637Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8537,7 +8570,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:04:09.266Z",
+    "lastScraped": "2026-10-14T12:03:50.495Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9373,7 +9406,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:04:16.838Z",
+    "lastScraped": "2026-10-14T12:03:59.156Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9527,7 +9560,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:04:24.283Z",
+    "lastScraped": "2026-10-14T12:04:07.134Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9956,7 +9989,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:04:31.764Z",
+    "lastScraped": "2026-10-14T12:04:14.688Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10886,7 +10919,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:04:39.452Z",
+    "lastScraped": "2026-10-14T12:04:22.509Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11401,7 +11434,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-14T11:04:46.947Z",
+    "lastScraped": "2026-10-14T12:04:30.185Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

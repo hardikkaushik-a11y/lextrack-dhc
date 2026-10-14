@@ -7452,5 +7452,31 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/195/2026",
     "_orderDate": "2026-10-12"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1791976957_867dd0eb33ea26c2_762_892026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Registry to report on issuance of summons to defendant nos. 22 to 158.",
+      "Plaintiff to pursue scrutiny of the filed affidavit of service for defendant nos. 22 to 158 (except D-48 and D-155).",
+      "Matter adjourned for service report of defendant nos. 22 to 158 (except D-48 and D-155) and completion of pleadings on 16.02.2027."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Akshay Shankar, Ms. Ananya Dewan, Mr. Vinay Yadav (CGSC), Mr. Ansh Kalra, Ms. Anmol Dhindsa"
+    },
+    "summary": "The matter was listed for completion of pleadings. The court noted that the right of defendant nos. 1 to 20 to file a written statement stands closed, defendant no. 21 is John Doe, and the registry report on summons to defendant nos. 22 to 158 is awaited. The plaintiff submitted that defendant nos. 22 to 158 (except D-48 and D-155) were served the previous day and an affidavit of service has been filed but is pending scrutiny; the matter was adjourned to 16.02.2027.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-14T12:04:35.329Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/89/2026",
+    "_orderDate": "2026-10-13"
   }
 }

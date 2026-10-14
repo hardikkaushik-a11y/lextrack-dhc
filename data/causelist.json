@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-10-14T11:01:54Z",
+  "scraped_at": "2026-10-14T12:01:32Z",
   "for_dates": [
     "2026-10-14",
     "2026-10-15"
   ],
   "tracked_cases": 21,
-  "matched_cases": 5,
+  "matched_cases": 4,
   "sources": [
     {
       "file": "combined_adv_list_15.10.2026.pdf",
@@ -90,13 +90,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_14.10.2026.pdf",
-      "date": "2026-10-14",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -151,19 +144,6 @@
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE     R MAYA, BINSY\n             81/2026",
       "date": "2026-10-15",
       "source_pdf": "combined_adv_list_15.10.2026.pdf"
-    },
-    {
-      "item": "79",
-      "court": "JR",
-      "judge": "ANIL KUMAR (JR)",
-      "time": null,
-      "page": 548,
-      "context": "79       CS(COMM)-         SONY PICTURES          ISHI SINGH\n             672/2026          NETWORKS INDIA",
-      "caseNo": "CS(COMM)/672/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         SONY PICTURES          ISHI SINGH\n             672/2026",
-      "date": "2026-10-14",
-      "source_pdf": "combined_cause_list_14.10.2026.pdf"
     }
   ]
 }
