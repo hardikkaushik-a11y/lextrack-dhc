@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-14T14:01:55Z",
+  "scraped_at": "2026-10-14T16:01:59Z",
   "for_dates": [
     "2026-10-14",
     "2026-10-15"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 4,
   "sources": [
+    {
+      "file": "combined_advance_15102026.pdf",
+      "date": "2026-10-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_15.10.2026.pdf",
       "date": "2026-10-15",
@@ -24,9 +31,7 @@
     {
       "file": "new_c_15102026.pdf",
       "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "pla_15102026.pdf",
@@ -57,6 +62,13 @@
       "norm_matches": 0
     },
     {
+      "file": "vk_sup-12_db_for_14.10.26.pdf",
+      "date": "2026-10-14",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "today_jr_supp_judicial_14102026.pdf",
       "date": "2026-10-14",
       "matched": 0,
@@ -79,13 +91,6 @@
     },
     {
       "file": "registrar_supply_deletion_14.10.2026_1.pdf",
-      "date": "2026-10-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_madhu_jain_14.10.2026.pdf",
       "date": "2026-10-14",
       "matched": 0,
       "regex_matches": 0,
