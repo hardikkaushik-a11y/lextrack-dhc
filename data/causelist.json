@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-10-14T18:01:45Z",
+  "scraped_at": "2026-10-14T19:01:49Z",
   "for_dates": [
-    "2026-10-14",
-    "2026-10-15"
+    "2026-10-15",
+    "2026-10-16"
   ],
   "tracked_cases": 21,
   "matched_cases": 4,
@@ -59,42 +59,7 @@
     {
       "file": "combined_adv_list_15.10.2026.pdf",
       "date": "2026-10-15",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
-    },
-    {
-      "file": "vk_sup-12_db_for_14.10.26.pdf",
-      "date": "2026-10-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_supp_judicial_14102026.pdf",
-      "date": "2026-10-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._14.10_0.pdf",
-      "date": "2026-10-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._14.10.pdf",
-      "date": "2026-10-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_deletion_14.10.2026_1.pdf",
-      "date": "2026-10-14",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(6817119 bytes read, 749507 more expected)', IncompleteRead(6817119 bytes read, 749507 more expected))"
     }
   ],
   "entries": [
