@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-15T07:01:36Z",
+  "scraped_at": "2026-10-15T08:02:12Z",
   "for_dates": [
     "2026-10-15",
     "2026-10-16"
@@ -12,6 +12,27 @@
       "date": "2026-10-16",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro._15.10.2026_1.pdf",
+      "date": "2026-10-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup-11_db_1_for_15.10.26.pdf",
+      "date": "2026-10-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro._15.10.2026_0.pdf",
+      "date": "2026-10-15",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -87,7 +108,9 @@
     {
       "file": "c_15102026.pdf",
       "date": "2026-10-15",
-      "error": "download: ('Connection broken: IncompleteRead(534086 bytes read, 20125057 more expected)', IncompleteRead(534086 bytes read, 20125057 more expected))"
+      "matched": 4,
+      "regex_matches": 4,
+      "norm_matches": 0
     },
     {
       "file": "combined_adv_list_15.10.2026.pdf",
@@ -116,52 +139,52 @@
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 417,
+      "page": 548,
       "context": "12       CS(COMM)-         RAZORPAY SOFTWARE        PARSHANT\n             269/2024          PRIVATE LIMITED & ANR.   ARORA,",
       "caseNo": "CS(COMM)/269/2024",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         RAZORPAY SOFTWARE        PARSHANT\n             269/2024",
       "date": "2026-10-15",
-      "source_pdf": "combined_adv_list_15.10.2026.pdf"
+      "source_pdf": "c_15102026.pdf"
     },
     {
       "item": "16",
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 418,
+      "page": 549,
       "context": "16       CS(COMM)-         JIOSTAR INDIA PRIVATE    GEETANJALI\n             810/2025          LIMITED                  VISVANATHAN,",
       "caseNo": "CS(COMM)/810/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE    GEETANJALI\n             810/2025",
       "date": "2026-10-15",
-      "source_pdf": "combined_adv_list_15.10.2026.pdf"
+      "source_pdf": "c_15102026.pdf"
     },
     {
       "item": "19",
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 419,
+      "page": 550,
       "context": "19   CS(COMM)-        JIOSTAR INDIA PRIVATE     AMAN SINHA, R\n       319/2026         LIMITED                   MAYA, BINSY",
       "caseNo": "CS(COMM)/319/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-        JIOSTAR INDIA PRIVATE     AMAN SINHA, R\n       319/2026",
       "date": "2026-10-15",
-      "source_pdf": "combined_adv_list_15.10.2026.pdf"
+      "source_pdf": "c_15102026.pdf"
     },
     {
       "item": "3",
       "court": "JR",
       "judge": "ANIL KUMAR (JR)",
       "time": null,
-      "page": 457,
+      "page": 588,
       "context": "3       CS(COMM)-         JIOSTAR INDIA PRIVATE     R MAYA, BINSY\n             81/2026           LIMITED                   SUSAN BABY,",
       "caseNo": "CS(COMM)/81/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE     R MAYA, BINSY\n             81/2026",
       "date": "2026-10-15",
-      "source_pdf": "combined_adv_list_15.10.2026.pdf"
+      "source_pdf": "c_15102026.pdf"
     }
   ]
 }
