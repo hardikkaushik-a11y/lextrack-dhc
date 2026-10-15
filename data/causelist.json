@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-15T16:02:06Z",
+  "scraped_at": "2026-10-15T17:02:10Z",
   "for_dates": [
     "2026-10-15",
     "2026-10-16"
@@ -45,7 +45,9 @@
     {
       "file": "combined_cause_list_16.10.2026_0.pdf",
       "date": "2026-10-16",
-      "error": "download: ('Connection broken: IncompleteRead(13362622 bytes read, 5772594 more expected)', IncompleteRead(13362622 bytes read, 5772594 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combined_cause_list_16.10.2026.pdf",
@@ -137,7 +139,7 @@
       "match_type": "case_no",
       "matched_on": "CS(COMM)-          JIO STAR INDIA PVT      SUBHASHISH\n           108/2025",
       "date": "2026-10-16",
-      "source_pdf": "combined_cause_list_16.10.2026.pdf"
+      "source_pdf": "combined_cause_list_16.10.2026_0.pdf"
     }
   ]
 }
