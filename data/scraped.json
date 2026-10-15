@@ -1835,7 +1835,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:02:11.899Z",
+    "lastScraped": "2026-10-15T11:02:09.619Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2261,7 +2261,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:02:22.360Z",
+    "lastScraped": "2026-10-15T11:02:17.259Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2636,7 +2636,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:02:29.778Z",
+    "lastScraped": "2026-10-15T11:02:24.928Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2978,7 +2978,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:02:37.310Z",
+    "lastScraped": "2026-10-15T11:02:35.114Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3224,7 +3224,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:02:44.950Z",
+    "lastScraped": "2026-10-15T11:02:42.641Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3236,10 +3236,45 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-09-21",
+    "lastDate": "2026-10-15",
     "nextDate": "2026-10-15",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-10-15",
+        "event": "Court Order",
+        "detail": "Matter is listed for completion of pleadings.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1792062129_9cdfd4636a8a041c_762_3192026.pdf/2026",
+        "orderText": "$~19 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010115132026 + CS(COMM) 319/2026 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Ms. Ishi, Adv (VC). versus ABBASI TV & ORS. .....Defendants Through: Ms. Anmol Dhindsa and Mr. Nikhil Gupta, Advs for D-14. Ms. Radhika Biswajeet Dubey, CGSC with Mr. Amulya Dev Mishra, Adv for D-29 and 30. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 15.10.2026 1. Matter is listed for completion of pleadings. 2. Perusal of record shows that on 21.07.2026, submission of Ld counsel for plaintiff was recorded regarding service of defendant no.1 to 30. However, affidavit qua the same is not on record. Ld counsel for plaintiff submits that they have already filed affidavit of service. However, no affidavit of service is seen on record. Ld. Counsel for plaintiff submits that they shall coordinate with registry in this regard. 3. Defendant no.31 is John Doe. 4. Regarding defendant no.32 to 70, there is no service report of summons. Ld counsel for plaintiff submits that fresh summons may be issued to these defendants. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 15/10/2026 at 16:32:51 5. In view of submissions made, let fresh summons be issued to defendant no.32 to 70 to be served through all permissible modes including electronic mode on filing of process fee within seven days, returnable for next date of hearing. 6. Compliance affidavit filed by defendant no.14 is on record. 7. Ld. Counsel for defendant no.14 submits that defendant no.14 may be deleted from array of parties. Ld. Counsel for plaintiff submits that they have no objection to the prayer made on behalf of defendant no.14 and defendant no. 14 may be deleted from the array of parties. 8. In view of submissions made, defendant no.14 stands deleted from the array of parties. Let amended memo of parties be filed within two weeks. 9. Put up for service status of defendants/ completion of pleadings on 03.02.2027. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) OCTOBER 15, 2026 This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 15/10/2026 at 16:32:51",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Plaintiff to coordinate with registry regarding the affidavit of service for defendants no.1 to 30.",
+            "Fresh summons to be issued to defendants no.32 to 70 through all permissible modes including electronic mode on filing of process fee within seven days, returnable for next date of hearing.",
+            "Defendant no.14 stands deleted from the array of parties.",
+            "Amended memo of parties to be filed within two weeks.",
+            "Matter put up for service status of defendants/completion of pleadings on 03.02.2027."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ishi Singh",
+            "defendant": "Anmol Dhindsa and Nikhil Gupta (for D-14); Radhika Biswajeet Dubey, CGSC with Amulya Dev Mishra (for D-29 and 30)"
+          },
+          "summary": "The matter was listed for completion of pleadings. The court noted that the affidavit of service for defendants no.1 to 30 was not on record, directed fresh summons to defendants no.32 to 70, and deleted defendant no.14 from the array of parties with no objection from the plaintiff. The matter was adjourned to 03.02.2027 for service status and completion of pleadings.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-10-15T11:04:58.558Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/319/2026",
+          "_orderDate": "2026-10-15"
+        }
+      },
       {
         "date": "2026-09-21",
         "event": "Court Order",
@@ -3459,6 +3494,16 @@
           "orderDate": "2026-07-21",
           "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784794206_564fb1c2646c4745_762_3192026.pdf/2026"
         }
+      },
+      {
+        "date": "2027-02-03",
+        "before": "jr",
+        "firstSeenAt": "2026-10-15T11:02:51.604Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-10-15",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1792062129_9cdfd4636a8a041c_762_3192026.pdf/2026"
+        }
       }
     ],
     "tasks": [],
@@ -3478,7 +3523,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:02:52.532Z",
+    "lastScraped": "2026-10-15T11:02:51.607Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4009,7 +4054,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:03:00.110Z",
+    "lastScraped": "2026-10-15T11:02:59.763Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4021,10 +4066,42 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-07-24",
+    "lastDate": "2026-10-15",
     "nextDate": "2026-11-06",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-10-15",
+        "event": "Court Order",
+        "detail": "Summons issued to defendants.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1792062153_19244f1bc2971021_762_8102025.pdf/2026",
+        "orderText": "$~16 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010550302025 + CS(COMM) 810/2025 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Manish Singh, Adv. versus SERIALMAZA.MY & ORS. .....Defendants Through: Ms. Binsy Susan and Ms.Palak Kaushal and Ms. Khushu Turki, Advs for D-38 (VC). Ms. Anmol Dhindsa and Mr. Nikhil Gupta, Advs for D-39. Mr. Ayush Hoonka, Adv for D-40 and 140 (VC). Ms. Kavita Bardia, Adv and Ms.Manisha Agarwal Narain, CGSC, Adv for D-56 and 57 (VC). Mr. Abhishek Saket, Mr. Manish Madhukar, Mr. Abhigyan and Mr. Sourav Thakur, Advs for D-1735. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 15.10.2026 1. Matter is listed for recording of compliances, service status of defendants and completion of pleadings. 2. Compliance affidavits filed on behalf of defendant no.39 are on record. 3. Affidavits in compliance of order dated 08.08.2025 filed on behalf of Defendant no.56 and 1735 are also on record. 4. Defendant no. 58 is John Doe. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 15/10/2026 at 16:33:08 5. As per affidavits of service filed by plaintiff, defendants no. 1 to 57 and 59 to 145 stand served through email on 07.01.2026, defendants no. 146 to 448 stand served through email on 24.11.2025, defendant no. 449 to 834 stand served through email on 28.11.2025, defendant no. 835 to 942 stand served through email on 18.01.2026, defendants no. 1362 - 1415, 1203 - 1256, 1257 - 1308, 1416 – 1467 and 1309-1361 stand served via email on 26.05.26, defendants no. 1468-1520, 1521-1572, 1573-1627, 1628-1681, 1682-1736, 1789 – 1840, 1841-1893, 1894 – 1946, 1737-1788 & 2051 – 2106 stand served via email on 05.06.2026. However, no written statement has been filed by defendants no. 1 to 57, 59 to 145, 146 to 942, 1362 - 1415, 1203 - 1256, 1257 - 1308, 1416 – 1467, 1309-1361, 1468-1520, 1521-1572, 1573-1627, 1628-1681, 1682-1736, 1789 – 1840, 1841-1893, 1894 – 1946, 1737-1788 & 2051 – 2106 within the maximum permissible period of 120 days. Hence, the right of defendants no. 1 to 57, 59 to 145, 146 to 942, 1362 - 1415, 1203 - 1256, 1257 - 1308, 1416 – 1467, 1309-1361, 1468-1520, 1521-1572, 1573-1627, 1628-1681, 1682-1736, 1789 – 1840, 1841-1893, 1894 – 1946, 1737-1788 & 2051 – 2106 to file written statement stands closed. 6. Further, as per affidavit of service filed by plaintiff, defendants no. 2107-2158, D2159-2211, D2212-2262 stand served via email on 20.07.2026. However, these defendants have not filed their written statement till date. 7. There is no service report of summons issued to defendants no. 943 to 1202, 1947-2050 and 2263-2366. Ld counsel for plaintiff submits that the aforesaid defendants have been served on 21.09.2026 through email and they have filed affidavit of service which is pending under objection. Ld. counsel for plaintiff further This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 15/10/2026 at 16:33:08 submits that they shall take necessary steps for removing the objection. 8. In view of the same, put up for recording of service status of aforesaid defendants / completion of pleadings on 28.01.2027. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) OCTOBER 15, 2026 This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 15/10/2026 at 16:33:08",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Plaintiff to take necessary steps for removing objection on the affidavit of service for defendants no. 943 to 1202, 1947-2050 and 2263-2366.",
+            "Matter put up for recording of service status of defendants and completion of pleadings on 28.01.2027."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Manish Singh",
+            "defendant": "Ms. Binsy Susan, Ms. Palak Kaushal, Ms. Khushu Turki, Ms. Anmol Dhindsa, Mr. Nikhil Gupta, Mr. Ayush Hoonka, Ms. Kavita Bardia, Ms. Manisha Agarwal Narain, Mr. Abhishek Saket, Mr. Manish Madhukar, Mr. Abhigyan, Mr. Sourav Thakur"
+          },
+          "summary": "The Joint Registrar (Judicial) considered compliance affidavits, service status of defendants, and completion of pleadings in the commercial suit. The right of numerous defendants (no. 1 to 57, 59 to 145, 146 to 942, and various other numbered groups) to file written statements was closed as no written statement was filed within the maximum permissible 120 days. The matter was adjourned to 28.01.2027 for recording service status and completion of pleadings, with plaintiff directed to remove objections on the pending affidavit of service.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-10-15T11:04:58.558Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/810/2025",
+          "_orderDate": "2026-10-15"
+        }
+      },
       {
         "date": "2026-07-24",
         "event": "Court Order",
@@ -4851,6 +4928,16 @@
           "orderDate": "2026-07-21",
           "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784878355_d1d10cee9445b254_jis_8102025.pdf/2026"
         }
+      },
+      {
+        "date": "2027-01-28",
+        "before": "jr",
+        "firstSeenAt": "2026-10-15T11:03:08.971Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-10-15",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1792062153_19244f1bc2971021_762_8102025.pdf/2026"
+        }
       }
     ],
     "tasks": [],
@@ -4982,7 +5069,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:03:07.838Z",
+    "lastScraped": "2026-10-15T11:03:08.982Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5264,7 +5351,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:03:16.282Z",
+    "lastScraped": "2026-10-15T11:03:16.914Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5717,7 +5804,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:03:23.758Z",
+    "lastScraped": "2026-10-15T11:03:24.544Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5980,7 +6067,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:03:31.397Z",
+    "lastScraped": "2026-10-15T11:03:32.249Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6000,10 +6087,42 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-09-16",
+    "lastDate": "2026-10-15",
     "nextDate": "2027-01-27",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-10-15",
+        "event": "Court Order",
+        "detail": "Defendant no.1 is John Doe.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1792062122_5924453d0969d2dc_762_2692024.pdf/2026",
+        "orderText": "$~12 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010170712024 + CS(COMM) 269/2024 RAZORPAY SOFTWARE PRIVATE LIMITED & ANR. .....Plaintiff Through: Ms. Ishi, Adv (VC). versus JOHN DOE & ORS. .....Defendant Through: None. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 15.10.2026 1. Defendant no.1 is John Doe. 2. Ld counsel for plaintiff seeks some more time for filing the application seeking impleadment of proposed defendants. 3. At request, put up for further proceedings on 22.01.2027. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) OCTOBER 15, 2026 This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 15/10/2026 at 16:33:40",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Plaintiff's counsel is granted more time to file the application seeking impleadment of proposed defendants.",
+            "Matter adjourned for further proceedings on 22.01.2027."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi, Adv (VC)",
+            "defendant": null
+          },
+          "summary": "The Joint Registrar (Judicial) noted that defendant no.1 is John Doe and, at the request of plaintiff's counsel, granted additional time to file an application seeking impleadment of proposed defendants. The matter was adjourned for further proceedings on 22.01.2027. No relief or costs were awarded.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-10-15T11:04:58.558Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/269/2024",
+          "_orderDate": "2026-10-15"
+        }
+      },
       {
         "date": "2026-09-16",
         "event": "Court Order",
@@ -6655,6 +6774,16 @@
         }
       },
       {
+        "date": "2027-01-22",
+        "before": "jr",
+        "firstSeenAt": "2026-10-15T11:03:41.129Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-10-15",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1792062122_5924453d0969d2dc_762_2692024.pdf/2026"
+        }
+      },
+      {
         "date": "2027-01-27",
         "before": "court",
         "firstSeenAt": "2000-01-01T00:00:00Z",
@@ -6766,7 +6895,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:03:39.075Z",
+    "lastScraped": "2026-10-15T11:03:41.132Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7506,7 +7635,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:03:46.590Z",
+    "lastScraped": "2026-10-15T11:03:49.459Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7837,7 +7966,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:03:54.141Z",
+    "lastScraped": "2026-10-15T11:03:57.096Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8295,7 +8424,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:04:01.541Z",
+    "lastScraped": "2026-10-15T11:04:04.772Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8570,7 +8699,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:04:09.195Z",
+    "lastScraped": "2026-10-15T11:04:12.435Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9406,7 +9535,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:04:16.993Z",
+    "lastScraped": "2026-10-15T11:04:22.920Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9560,7 +9689,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:04:24.489Z",
+    "lastScraped": "2026-10-15T11:04:30.451Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9989,7 +10118,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:04:32.023Z",
+    "lastScraped": "2026-10-15T11:04:38.033Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10919,7 +11048,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:04:39.707Z",
+    "lastScraped": "2026-10-15T11:04:45.871Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11434,7 +11563,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T10:04:47.206Z",
+    "lastScraped": "2026-10-15T11:04:53.532Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

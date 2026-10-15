@@ -7478,5 +7478,83 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/89/2026",
     "_orderDate": "2026-10-13"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1792062129_9cdfd4636a8a041c_762_3192026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to coordinate with registry regarding the affidavit of service for defendants no.1 to 30.",
+      "Fresh summons to be issued to defendants no.32 to 70 through all permissible modes including electronic mode on filing of process fee within seven days, returnable for next date of hearing.",
+      "Defendant no.14 stands deleted from the array of parties.",
+      "Amended memo of parties to be filed within two weeks.",
+      "Matter put up for service status of defendants/completion of pleadings on 03.02.2027."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ishi Singh",
+      "defendant": "Anmol Dhindsa and Nikhil Gupta (for D-14); Radhika Biswajeet Dubey, CGSC with Amulya Dev Mishra (for D-29 and 30)"
+    },
+    "summary": "The matter was listed for completion of pleadings. The court noted that the affidavit of service for defendants no.1 to 30 was not on record, directed fresh summons to defendants no.32 to 70, and deleted defendant no.14 from the array of parties with no objection from the plaintiff. The matter was adjourned to 03.02.2027 for service status and completion of pleadings.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-15T11:04:58.558Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/319/2026",
+    "_orderDate": "2026-10-15"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1792062153_19244f1bc2971021_762_8102025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff to take necessary steps for removing objection on the affidavit of service for defendants no. 943 to 1202, 1947-2050 and 2263-2366.",
+      "Matter put up for recording of service status of defendants and completion of pleadings on 28.01.2027."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Manish Singh",
+      "defendant": "Ms. Binsy Susan, Ms. Palak Kaushal, Ms. Khushu Turki, Ms. Anmol Dhindsa, Mr. Nikhil Gupta, Mr. Ayush Hoonka, Ms. Kavita Bardia, Ms. Manisha Agarwal Narain, Mr. Abhishek Saket, Mr. Manish Madhukar, Mr. Abhigyan, Mr. Sourav Thakur"
+    },
+    "summary": "The Joint Registrar (Judicial) considered compliance affidavits, service status of defendants, and completion of pleadings in the commercial suit. The right of numerous defendants (no. 1 to 57, 59 to 145, 146 to 942, and various other numbered groups) to file written statements was closed as no written statement was filed within the maximum permissible 120 days. The matter was adjourned to 28.01.2027 for recording service status and completion of pleadings, with plaintiff directed to remove objections on the pending affidavit of service.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-15T11:04:58.558Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/810/2025",
+    "_orderDate": "2026-10-15"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1792062122_5924453d0969d2dc_762_2692024.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff's counsel is granted more time to file the application seeking impleadment of proposed defendants.",
+      "Matter adjourned for further proceedings on 22.01.2027."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi, Adv (VC)",
+      "defendant": null
+    },
+    "summary": "The Joint Registrar (Judicial) noted that defendant no.1 is John Doe and, at the request of plaintiff's counsel, granted additional time to file an application seeking impleadment of proposed defendants. The matter was adjourned for further proceedings on 22.01.2027. No relief or costs were awarded.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-15T11:04:58.558Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/269/2024",
+    "_orderDate": "2026-10-15"
   }
 }
