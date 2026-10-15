@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-10-15T18:01:57Z",
+  "scraped_at": "2026-10-15T19:02:14Z",
   "for_dates": [
-    "2026-10-15",
-    "2026-10-16"
+    "2026-10-16",
+    "2026-10-17"
   ],
   "tracked_cases": 21,
   "matched_cases": 1,
@@ -45,7 +45,9 @@
     {
       "file": "combined_cause_list_16.10.2026_0.pdf",
       "date": "2026-10-16",
-      "error": "download: ('Connection broken: IncompleteRead(3222894 bytes read, 15912322 more expected)', IncompleteRead(3222894 bytes read, 15912322 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combined_cause_list_16.10.2026.pdf",
@@ -59,69 +61,6 @@
       "date": "2026-10-16",
       "matched": 1,
       "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "sups_for_15.10.26.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._15.10.2026_2.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._15.10.2026_1.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup-11_db_1_for_15.10.26.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._15.10.2026_0.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup-trf_matters_for_15.10.26.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_suppl._15102026.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._15.10.2026.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup-8_db_for_15.10.26.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
@@ -137,7 +76,7 @@
       "match_type": "case_no",
       "matched_on": "CS(COMM)-          JIO STAR INDIA PVT      SUBHASHISH\n           108/2025",
       "date": "2026-10-16",
-      "source_pdf": "combined_cause_list_16.10.2026.pdf"
+      "source_pdf": "combined_cause_list_16.10.2026_0.pdf"
     }
   ]
 }
