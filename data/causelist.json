@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-15T13:01:59Z",
+  "scraped_at": "2026-10-15T14:01:55Z",
   "for_dates": [
     "2026-10-15",
     "2026-10-16"
@@ -8,9 +8,14 @@
   "matched_cases": 1,
   "sources": [
     {
+      "file": "combined_cause_list_16.10.2026_0.pdf",
+      "date": "2026-10-16",
+      "error": "download: ('Connection broken: IncompleteRead(274294 bytes read, 18860922 more expected)', IncompleteRead(274294 bytes read, 18860922 more expected))"
+    },
+    {
       "file": "combined_cause_list_16.10.2026.pdf",
       "date": "2026-10-16",
-      "error": "download: ('Connection broken: IncompleteRead(14355118 bytes read, 4743518 more expected)', IncompleteRead(14355118 bytes read, 4743518 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(17747693 bytes read, 1350943 more expected)', IncompleteRead(17747693 bytes read, 1350943 more expected))"
     },
     {
       "file": "combined_advance_16102026.pdf",
@@ -105,20 +110,6 @@
     },
     {
       "file": "new_c_15102026.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_15102026.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl15102026.pdf",
       "date": "2026-10-15",
       "matched": 0,
       "regex_matches": 0,
