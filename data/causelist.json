@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-15T14:01:55Z",
+  "scraped_at": "2026-10-15T15:02:24Z",
   "for_dates": [
     "2026-10-15",
     "2026-10-16"
@@ -8,14 +8,51 @@
   "matched_cases": 1,
   "sources": [
     {
+      "file": "combined_targetted_16.10.2026.pdf",
+      "date": "2026-10-16",
+      "error": "download: ('Connection broken: IncompleteRead(1411760 bytes read, 193492 more expected)', IncompleteRead(1411760 bytes read, 193492 more expected))"
+    },
+    {
+      "file": "finals_16.10.2026.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_16.10.2026.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_16.10.2026.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl16102026.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "combined_cause_list_16.10.2026_0.pdf",
       "date": "2026-10-16",
-      "error": "download: ('Connection broken: IncompleteRead(274294 bytes read, 18860922 more expected)', IncompleteRead(274294 bytes read, 18860922 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combined_cause_list_16.10.2026.pdf",
       "date": "2026-10-16",
-      "error": "download: ('Connection broken: IncompleteRead(17747693 bytes read, 1350943 more expected)', IncompleteRead(17747693 bytes read, 1350943 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combined_advance_16102026.pdf",
@@ -93,27 +130,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_15.10.2026.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_15.10.2026_1.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_15102026.pdf",
-      "date": "2026-10-15",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -122,13 +138,13 @@
       "court": "51",
       "judge": "TEJAS KARIA",
       "time": null,
-      "page": 244,
+      "page": 376,
       "context": "4     CS(COMM)-          JIO STAR INDIA PVT      SUBHASHISH\n           108/2025           LTD                     KUMAR, R MAYA,",
       "caseNo": "CS(COMM)/108/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-          JIO STAR INDIA PVT      SUBHASHISH\n           108/2025",
       "date": "2026-10-16",
-      "source_pdf": "combined_advance_16102026.pdf"
+      "source_pdf": "combined_cause_list_16.10.2026_0.pdf"
     }
   ]
 }
