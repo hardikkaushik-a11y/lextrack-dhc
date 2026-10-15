@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-15T06:01:44Z",
+  "scraped_at": "2026-10-15T07:01:36Z",
   "for_dates": [
     "2026-10-15",
     "2026-10-16"
@@ -12,6 +12,27 @@
       "date": "2026-10-16",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup-trf_matters_for_15.10.26.pdf",
+      "date": "2026-10-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "today_jr_suppl._15102026.pdf",
+      "date": "2026-10-15",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro._15.10.2026.pdf",
+      "date": "2026-10-15",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -66,7 +87,7 @@
     {
       "file": "c_15102026.pdf",
       "date": "2026-10-15",
-      "error": "download: ('Connection broken: IncompleteRead(4802310 bytes read, 15856833 more expected)', IncompleteRead(4802310 bytes read, 15856833 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(534086 bytes read, 20125057 more expected)', IncompleteRead(534086 bytes read, 20125057 more expected))"
     },
     {
       "file": "combined_adv_list_15.10.2026.pdf",
