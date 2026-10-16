@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-16T15:01:19Z",
+  "scraped_at": "2026-10-16T16:02:08Z",
   "for_dates": [
     "2026-10-16",
     "2026-10-17"
@@ -17,7 +17,9 @@
     {
       "file": "vk_sup-18_for_16.10.26.pdf",
       "date": "2026-10-16",
-      "error": "download: ('Connection broken: IncompleteRead(259282 bytes read, 175278 more expected)', IncompleteRead(259282 bytes read, 175278 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "registrar_supply_list_16.10.206_2.pdf",
