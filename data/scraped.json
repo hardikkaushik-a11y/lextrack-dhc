@@ -1835,7 +1835,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:02:23.901Z",
+    "lastScraped": "2026-10-16T00:02:24.363Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2261,7 +2261,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:02:31.204Z",
+    "lastScraped": "2026-10-16T00:02:31.823Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2636,7 +2636,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:02:38.749Z",
+    "lastScraped": "2026-10-16T00:02:39.290Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2978,7 +2978,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:02:46.158Z",
+    "lastScraped": "2026-10-16T00:02:46.870Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3224,7 +3224,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:02:53.551Z",
+    "lastScraped": "2026-10-16T00:02:54.353Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3486,16 +3486,6 @@
     ],
     "additionalDates": [
       {
-        "date": "2026-10-15",
-        "before": "jr",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-07-21",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784794206_564fb1c2646c4745_762_3192026.pdf/2026"
-        }
-      },
-      {
         "date": "2027-02-03",
         "before": "jr",
         "firstSeenAt": "2026-10-15T11:02:51.604Z",
@@ -3523,7 +3513,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:03:00.989Z",
+    "lastScraped": "2026-10-16T00:03:01.819Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4054,7 +4044,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:03:08.468Z",
+    "lastScraped": "2026-10-16T00:03:09.303Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4910,16 +4900,6 @@
     ],
     "additionalDates": [
       {
-        "date": "2026-10-15",
-        "before": "jr",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-07-24",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784890199_e0b1fd71695030dd_762_8102025.pdf/2026"
-        }
-      },
-      {
         "date": "2026-11-06",
         "before": "jr",
         "firstSeenAt": "2000-01-01T00:00:00Z",
@@ -5069,7 +5049,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:03:15.912Z",
+    "lastScraped": "2026-10-16T00:03:16.841Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5351,7 +5331,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:03:23.323Z",
+    "lastScraped": "2026-10-16T00:03:24.236Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5804,7 +5784,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:03:30.789Z",
+    "lastScraped": "2026-10-16T00:03:31.740Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6067,7 +6047,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:03:41.073Z",
+    "lastScraped": "2026-10-16T00:03:39.302Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6764,16 +6744,6 @@
     ],
     "additionalDates": [
       {
-        "date": "2026-10-15",
-        "before": "jr",
-        "firstSeenAt": "2000-01-01T00:00:00Z",
-        "source": {
-          "kind": "order-pdf",
-          "orderDate": "2026-09-16",
-          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1789625388_9f3898e720db809e_jis_2692024.pdf/2026"
-        }
-      },
-      {
         "date": "2027-01-22",
         "before": "jr",
         "firstSeenAt": "2026-10-15T11:03:41.129Z",
@@ -6895,7 +6865,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:03:48.514Z",
+    "lastScraped": "2026-10-16T00:03:46.831Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7635,7 +7605,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:03:55.988Z",
+    "lastScraped": "2026-10-16T00:03:54.319Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7966,7 +7936,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:04:03.470Z",
+    "lastScraped": "2026-10-16T00:04:01.722Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8424,7 +8394,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:04:11.305Z",
+    "lastScraped": "2026-10-16T00:04:09.346Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8699,7 +8669,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:04:18.803Z",
+    "lastScraped": "2026-10-16T00:04:16.902Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9535,7 +9505,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:04:26.248Z",
+    "lastScraped": "2026-10-16T00:04:24.369Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9689,7 +9659,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:04:33.773Z",
+    "lastScraped": "2026-10-16T00:04:31.902Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10118,7 +10088,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:04:41.220Z",
+    "lastScraped": "2026-10-16T00:04:45.818Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11048,7 +11018,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:04:48.772Z",
+    "lastScraped": "2026-10-16T00:04:54.676Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11563,7 +11533,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-15T23:04:56.186Z",
+    "lastScraped": "2026-10-16T00:05:02.236Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
