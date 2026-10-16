@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-16T05:02:07Z",
+  "scraped_at": "2026-10-16T06:02:15Z",
   "for_dates": [
     "2026-10-16",
     "2026-10-17"
@@ -7,6 +7,41 @@
   "tracked_cases": 21,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "supp_hmj_sachin_datta_for_16.10.2026.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup-9a_del_note_for_16.10.26.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_deletion_16.10.2026.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup-9_for_16.10.26.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "note_16102026.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_targetted_16.10.2026.pdf",
       "date": "2026-10-16",
