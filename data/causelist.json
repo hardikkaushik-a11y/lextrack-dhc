@@ -1,12 +1,40 @@
 {
-  "scraped_at": "2026-10-16T07:02:05Z",
+  "scraped_at": "2026-10-16T08:01:14Z",
   "for_dates": [
     "2026-10-16",
     "2026-10-17"
   ],
   "tracked_cases": 21,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "supplementary_cause_list-14_of_sitting_of_benches_for_16.10.2026.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "supplementary_cause_list-13_of_sitting_of_benches_for_16.10.2026.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "transferred_to_the_court_of_j._amit_mahajan_16.10.2026.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "suppl_hmj_manmeet_pritam_singh_arora_for_16.10.2026.pdf",
+      "date": "2026-10-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "vk_sup-12_del_note_for_16.10.26_2.pdf",
       "date": "2026-10-16",
@@ -62,63 +90,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "finals_16.10.2026.pdf",
-      "date": "2026-10-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_16.10.2026.pdf",
-      "date": "2026-10-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_16.10.2026.pdf",
-      "date": "2026-10-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl16102026.pdf",
-      "date": "2026-10-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_16.10.2026_0.pdf",
-      "date": "2026-10-16",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_16.10.2026.pdf",
-      "date": "2026-10-16",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "4",
-      "court": "51",
-      "judge": "TEJAS KARIA",
-      "time": null,
-      "page": 376,
-      "context": "4     CS(COMM)-          JIO STAR INDIA PVT      SUBHASHISH\n           108/2025           LTD                     KUMAR, R MAYA,",
-      "caseNo": "CS(COMM)/108/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-          JIO STAR INDIA PVT      SUBHASHISH\n           108/2025",
-      "date": "2026-10-16",
-      "source_pdf": "combined_cause_list_16.10.2026_0.pdf"
-    }
-  ]
+  "entries": []
 }
