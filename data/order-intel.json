@@ -7556,5 +7556,30 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/269/2024",
     "_orderDate": "2026-10-15"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1792150916_445bdaed012e2463_765_5362025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Ld. counsel for the plaintiff is granted one more opportunity to file an application for impleadment of other infringers.",
+      "List the matter for further proceedings on 08.12.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ishi Singh",
+      "defendant": "Palak Kaushal & Ayushi Jain (for D-9); Premtosh K. Mishra (CGSC), Krish Bhatia, Vasu Agarwal, Kuinal Tuli, Sukavya Kushwaha & Sakshi Mangla (for D-21); Nikhil Gupta & Aditya Dash (for D-24)"
+    },
+    "summary": "The matter was listed before the Joint Registrar (Judicial). Counsel for the plaintiff sought one more opportunity to file an application for impleadment of other infringers. The matter was listed for further proceedings on 08.12.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-16T12:04:16.336Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/536/2025",
+    "_orderDate": "2026-10-05"
   }
 }
