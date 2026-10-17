@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-17T06:01:05Z",
+  "scraped_at": "2026-10-17T07:01:04Z",
   "for_dates": [
     "2026-10-17",
     "2026-10-18"
@@ -7,6 +7,13 @@
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "mediation_17102026m.pdf",
+      "date": "2026-10-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "jr_advance_17.10.2026.pdf",
       "date": "2026-10-17",
