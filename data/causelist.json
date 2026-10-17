@@ -1,33 +1,11 @@
 {
-  "scraped_at": "2026-10-17T18:01:16Z",
+  "scraped_at": "2026-10-17T19:01:04Z",
   "for_dates": [
-    "2026-10-17",
-    "2026-10-18"
+    "2026-10-18",
+    "2026-10-19"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "circular_17102026_0.pdf",
-      "date": "2026-10-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "mediation_17102026m.pdf",
-      "date": "2026-10-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "jr_advance_17.10.2026.pdf",
-      "date": "2026-10-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
