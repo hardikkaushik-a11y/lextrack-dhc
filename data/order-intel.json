@@ -7581,5 +7581,35 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/536/2025",
     "_orderDate": "2026-10-05"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1792214976_9e554260c0207bbe_765_11862024.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Issue fresh court notice to defendant nos. 18 to 26, 37 & 38 through all permissible modes and email, subject to filing of PF.",
+      "List the matter for completion of pleadings on 15.12.2026.",
+      "Take the amended memo of parties on record.",
+      "Issue summons to defendant nos. 27 to 29 via email only, subject to filing of PF.",
+      "Issue summons to defendant nos. 30 to 36 via email only, subject to filing of PF."
+    ],
+    "citations": [
+      "Order I Rule 10 read with Section 151 CPC"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Sudhata Sudhir & Mr. Akshay Maloo",
+      "defendant": "Mr. Yash Karunakaran & Ms. Nitya Nath (D-6); Mr. Abhishek K. Singh & Mr. Saksham Chaturvedi (D-7); Mr. Vaarish Sawlani & Ms. Rithika Mathur (D-8); Mr. Nikhil Gupta & Mr. Arjun Mookerjee (D-9); Ms. Nidhi Raman (CGSC) & Ms. Nikita Singh (D-15 & 16)"
+    },
+    "summary": "The Joint Registrar allowed two applications under Order I Rule 10 CPC to implead additional rogue websites and their domain name registrars as defendant nos. 27 to 36, subject to existing interim orders. Fresh notices/summons were directed to be issued to various defendants via email and other permissible modes, subject to filing of PF, and the matter was listed for completion of pleadings on 15.12.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-17T06:04:18.884Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1186/2024",
+    "_orderDate": "2026-10-07"
   }
 }
