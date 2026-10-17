@@ -7611,5 +7611,29 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1186/2024",
     "_orderDate": "2026-10-07"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1792244585_0ab2cf8dd57c0d4c_687_1082025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Matter adjourned and listed on 19.01.2027 at the request of the Plaintiff's counsel, with no objection from the Defendants."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Yatinder Garg, Ms. Disha Sharma & Ms. Ishi Singh",
+      "defendant": "Mr. Avish Sharma & Ms. Mehak Thappa (for D-1, 3, 4 & 36)"
+    },
+    "summary": "The Plaintiff's counsel circulated an adjournment slip, which the Defendants did not oppose. The Court accordingly adjourned the matter and listed it for 19.01.2027. No substantive relief or directions were passed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-17T14:04:13.411Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/108/2025",
+    "_orderDate": "2026-10-16"
   }
 }

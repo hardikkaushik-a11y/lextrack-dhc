@@ -8,10 +8,41 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-09-25",
-    "nextDate": "2026-12-08",
+    "lastDate": "2026-10-16",
+    "nextDate": "2027-01-19",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-10-16",
+        "event": "Court Order",
+        "detail": "Learned Counsel for the Plaintiff has circulated an adjournment slip with no objection on behalf of the Defendants.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1792244585_0ab2cf8dd57c0d4c_687_1082025.pdf/2026",
+        "orderText": "$~4 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010057752025 +CS(COMM) 108/2025, IA Nos.3363/2025, 3364/2025, 16685/2025, 16713/2025, 16716/2025, 16718/2025, 16720/2025 & 22682/2025 JIO STAR INDIA PVT LTD.....Plaintiff Through:Mr. Yatinder Garg, Ms. Disha Sharma & Ms. Ishi Singh, Advocates. Versus IPTV SMARTER PRO & ORS.....Defendants Through:Mr. Avish Sharma & Ms. Mehak Thappa, Advocates for D-1,3,4&36. CORAM: HON'BLE MR. JUSTICE TEJAS KARIA O R D E R %16.10.2026 1.Learned Counsel for the Plaintiff has circulated an adjournment slip with no objection on behalf of the Defendants. 2.Accordingly, at the request of learned Counsel for the Plaintiff, list on 19.01.2027. TEJAS KARIA, J OCTOBER 16, 2026 ‘gsr’ This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 17/10/2026 at 19:31:26",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Matter adjourned and listed on 19.01.2027 at the request of the Plaintiff's counsel, with no objection from the Defendants."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Yatinder Garg, Ms. Disha Sharma & Ms. Ishi Singh",
+            "defendant": "Mr. Avish Sharma & Ms. Mehak Thappa (for D-1, 3, 4 & 36)"
+          },
+          "summary": "The Plaintiff's counsel circulated an adjournment slip, which the Defendants did not oppose. The Court accordingly adjourned the matter and listed it for 19.01.2027. No substantive relief or directions were passed.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-10-17T14:04:13.411Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/108/2025",
+          "_orderDate": "2026-10-16"
+        }
+      },
       {
         "date": "2026-09-25",
         "event": "Court Order",
@@ -1561,6 +1592,16 @@
           "orderDate": "2026-09-25",
           "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1790830236_e1dc5b439584015f_765_1082025.pdf/2026"
         }
+      },
+      {
+        "date": "2027-01-19",
+        "before": "jr",
+        "firstSeenAt": "2026-10-17T14:01:26.794Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-10-16",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1792244585_0ab2cf8dd57c0d4c_687_1082025.pdf/2026"
+        }
       }
     ],
     "tasks": [],
@@ -1825,7 +1866,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:01:27.955Z",
+    "lastScraped": "2026-10-17T14:01:26.807Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2251,7 +2292,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:01:35.961Z",
+    "lastScraped": "2026-10-17T14:01:36.811Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2626,7 +2667,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:01:43.522Z",
+    "lastScraped": "2026-10-17T14:01:44.218Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2968,7 +3009,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:01:51.320Z",
+    "lastScraped": "2026-10-17T14:01:51.632Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3214,7 +3255,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:01:59.229Z",
+    "lastScraped": "2026-10-17T14:01:59.249Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3503,7 +3544,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:02:08.320Z",
+    "lastScraped": "2026-10-17T14:02:07.788Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4034,7 +4075,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:02:16.189Z",
+    "lastScraped": "2026-10-17T14:02:15.222Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5039,7 +5080,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:02:24.193Z",
+    "lastScraped": "2026-10-17T14:02:29.306Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5321,7 +5362,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:02:32.079Z",
+    "lastScraped": "2026-10-17T14:02:36.779Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5774,7 +5815,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:02:39.986Z",
+    "lastScraped": "2026-10-17T14:02:44.355Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6037,7 +6078,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:02:47.949Z",
+    "lastScraped": "2026-10-17T14:02:51.880Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6855,7 +6896,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:02:55.905Z",
+    "lastScraped": "2026-10-17T14:02:59.314Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7638,7 +7679,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:03:03.920Z",
+    "lastScraped": "2026-10-17T14:03:06.832Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7969,7 +8010,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:03:11.550Z",
+    "lastScraped": "2026-10-17T14:03:14.263Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8427,7 +8468,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:03:19.482Z",
+    "lastScraped": "2026-10-17T14:03:24.670Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8702,7 +8743,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:03:27.431Z",
+    "lastScraped": "2026-10-17T14:03:32.150Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9538,7 +9579,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:03:35.393Z",
+    "lastScraped": "2026-10-17T14:03:39.731Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9692,7 +9733,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:03:49.449Z",
+    "lastScraped": "2026-10-17T14:03:47.209Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10121,7 +10162,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:03:57.335Z",
+    "lastScraped": "2026-10-17T14:03:54.661Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11099,7 +11140,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:04:05.343Z",
+    "lastScraped": "2026-10-17T14:04:02.213Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11614,7 +11655,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-10-17T13:04:13.269Z",
+    "lastScraped": "2026-10-17T14:04:09.652Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
