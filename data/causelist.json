@@ -1,11 +1,19 @@
 {
-  "scraped_at": "2026-10-22T07:01:09Z",
+  "scraped_at": "2026-10-22T08:01:16Z",
   "for_dates": [
     "2026-10-22",
     "2026-10-23"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
-  "sources": [],
+  "sources": [
+    {
+      "file": "vk_sup_2_for_22.10.2026.pdf",
+      "date": "2026-10-22",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    }
+  ],
   "entries": []
 }
