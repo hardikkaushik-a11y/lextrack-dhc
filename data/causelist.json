@@ -1,36 +1,22 @@
 {
-  "scraped_at": "2026-10-23T18:01:20Z",
+  "scraped_at": "2026-10-23T19:01:11Z",
   "for_dates": [
-    "2026-10-23",
-    "2026-10-24"
+    "2026-10-24",
+    "2026-10-25"
   ],
   "tracked_cases": 21,
   "matched_cases": 0,
   "sources": [
     {
+      "file": "nla_25.10.2026.pdf",
+      "date": "2026-10-25",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "c_24102026.pdf",
       "date": "2026-10-24",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_for_today_23.10.pdf",
-      "date": "2026-10-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vac_list_for_23.10.2026.pdf",
-      "date": "2026-10-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_23102026.pdf",
-      "date": "2026-10-23",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
