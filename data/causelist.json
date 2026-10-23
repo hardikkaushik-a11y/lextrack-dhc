@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-23T06:01:08Z",
+  "scraped_at": "2026-10-23T07:01:10Z",
   "for_dates": [
     "2026-10-23",
     "2026-10-24"
@@ -10,6 +10,13 @@
     {
       "file": "c_24102026.pdf",
       "date": "2026-10-24",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vac_list_for_23.10.2026.pdf",
+      "date": "2026-10-23",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
