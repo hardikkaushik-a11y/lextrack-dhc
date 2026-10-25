@@ -1,26 +1,89 @@
 {
-  "scraped_at": "2026-10-25T18:01:11Z",
+  "scraped_at": "2026-10-25T19:01:49Z",
   "for_dates": [
-    "2026-10-25",
-    "2026-10-26"
+    "2026-10-26",
+    "2026-10-27"
   ],
   "tracked_cases": 21,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
     {
-      "file": "sup_nla_25.10.2026.pdf",
-      "date": "2026-10-25",
+      "file": "note_27102026.pdf",
+      "date": "2026-10-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "nla_25.10.2026.pdf",
-      "date": "2026-10-25",
+      "file": "combined_pro_27.10.2026.pdf",
+      "date": "2026-10-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_27.10.2026.pdf",
+      "date": "2026-10-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_27.10.2026.pdf",
+      "date": "2026-10-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_27.10.2026.pdf",
+      "date": "2026-10-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_27.10.2026.pdf",
+      "date": "2026-10-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl27102026.pdf",
+      "date": "2026-10-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_27.10.2026.pdf",
+      "date": "2026-10-27",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_27.10.2026.pdf",
+      "date": "2026-10-27",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "21",
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 455,
+      "context": "21      CS(COMM)-       JIOSTAR INDIA PRIVATE          R MAYA, BINSY\n             1203/2025       LIMITED                        SUSAN BABY,",
+      "caseNo": "CS(COMM)/1203/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-       JIOSTAR INDIA PRIVATE          R MAYA, BINSY\n             1203/2",
+      "date": "2026-10-27",
+      "source_pdf": "combined_cause_list_27.10.2026.pdf"
+    }
+  ]
 }
