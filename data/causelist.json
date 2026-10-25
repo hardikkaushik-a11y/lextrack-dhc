@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-25T21:01:48Z",
+  "scraped_at": "2026-10-25T22:01:39Z",
   "for_dates": [
     "2026-10-26",
     "2026-10-27"
@@ -59,9 +59,7 @@
     {
       "file": "combined_cause_list_27.10.2026.pdf",
       "date": "2026-10-27",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(10564982 bytes read, 9852692 more expected)', IncompleteRead(10564982 bytes read, 9852692 more expected))"
     },
     {
       "file": "combined_adv_list_27.10.2026.pdf",
@@ -77,13 +75,13 @@
       "court": "JR",
       "judge": "EKTA GAUBA MANN (JR)",
       "time": null,
-      "page": 455,
+      "page": 323,
       "context": "21      CS(COMM)-       JIOSTAR INDIA PRIVATE          R MAYA, BINSY\n             1203/2025       LIMITED                        SUSAN BABY,",
       "caseNo": "CS(COMM)/1203/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-       JIOSTAR INDIA PRIVATE          R MAYA, BINSY\n             1203/2",
       "date": "2026-10-27",
-      "source_pdf": "combined_cause_list_27.10.2026.pdf"
+      "source_pdf": "combined_adv_list_27.10.2026.pdf"
     }
   ]
 }
