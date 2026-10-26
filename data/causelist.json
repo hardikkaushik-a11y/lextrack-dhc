@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-10-26T18:01:47Z",
+  "scraped_at": "2026-10-26T19:02:20Z",
   "for_dates": [
-    "2026-10-26",
-    "2026-10-27"
+    "2026-10-27",
+    "2026-10-28"
   ],
   "tracked_cases": 23,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_advance_28102026.pdf",
+      "date": "2026-10-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "note_27102026.pdf",
       "date": "2026-10-27",
