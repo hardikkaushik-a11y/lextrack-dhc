@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-10-26T16:02:00Z",
+  "scraped_at": "2026-10-26T16:55:26Z",
   "for_dates": [
     "2026-10-26",
     "2026-10-27"
   ],
-  "tracked_cases": 21,
-  "matched_cases": 1,
+  "tracked_cases": 23,
+  "matched_cases": 2,
   "sources": [
     {
       "file": "note_27102026.pdf",
@@ -24,7 +24,9 @@
     {
       "file": "combined_sup_1_27.10.2026.pdf",
       "date": "2026-10-27",
-      "error": "download: ('Connection broken: IncompleteRead(1301400 bytes read, 642906 more expected)', IncompleteRead(1301400 bytes read, 642906 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "deletion_note_27.10.2026.pdf",
@@ -57,15 +59,15 @@
     {
       "file": "combined_cause_list_27.10.2026.pdf",
       "date": "2026-10-27",
-      "matched": 1,
-      "regex_matches": 1,
+      "matched": 2,
+      "regex_matches": 2,
       "norm_matches": 0
     },
     {
       "file": "combined_adv_list_27.10.2026.pdf",
       "date": "2026-10-27",
-      "matched": 1,
-      "regex_matches": 1,
+      "matched": 2,
+      "regex_matches": 2,
       "norm_matches": 0
     }
   ],
@@ -80,6 +82,19 @@
       "caseNo": "CS(COMM)/1203/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-       JIOSTAR INDIA PRIVATE          R MAYA, BINSY\n             1203/2",
+      "date": "2026-10-27",
+      "source_pdf": "combined_cause_list_27.10.2026.pdf"
+    },
+    {
+      "item": "40",
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 458,
+      "context": "40      CS(COMM)-       JIOSTAR INDIA PRIVATE         R MAYA, ISHI\n             1084/2026       LIMITED                       SINGH",
+      "caseNo": "CS(COMM)/1084/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-       JIOSTAR INDIA PRIVATE         R MAYA, ISHI\n             1084/202",
       "date": "2026-10-27",
       "source_pdf": "combined_cause_list_27.10.2026.pdf"
     }

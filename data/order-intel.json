@@ -7635,5 +7635,73 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/108/2025",
     "_orderDate": "2026-10-16"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790860196_6cdc85f214442a80_596_10832026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff exempted from prior notice under Section 80 CPC to defendant nos. 10, 11, 13 and 15.",
+      "Additional documents sought to be placed on record be taken on record.",
+      "Plaintiff exempted from attempting pre-litigation mediation under Section 12A of Commercial Courts Act, 2015.",
+      "Permission granted to file redacted copies of documents; court fees to be paid within 2 days.",
+      "Summons issued to remaining defendants by all permissible modes; written statements within 30 days with affidavits of admission/denial; list before Joint Registrar (Judicial) on 27.10.2026."
+    ],
+    "citations": [
+      "Section 80, Code of Civil Procedure 1908",
+      "Section 12A, Commercial Courts Act 2015",
+      "Section 151, Code of Civil Procedure 1908",
+      "Order XXXIX Rule 1 & 2, Code of Civil Procedure 1908",
+      "Order XXXIX Rule 3, Code of Civil Procedure 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Sidharth Chopra, Mr. Yatinder Garg, Mr. Akshay, Mr. Priyansh, Mr. Manish, Mr. Vinayak",
+      "defendant": "Mr. Satya Ranjan Swain, CGSC with Mr. Naveen Dedha, GP, Mr. Sanskar, Mr. Tushar"
+    },
+    "summary": "The Court allowed several procedural applications by the plaintiff, including exemption from Section 80 CPC notice to defendant nos. 10, 11, 13 and 15, exemption from pre-litigation mediation, leave to file additional documents, permission for redacted documents, and extension for filing court fees. The plaint was registered as a suit, summons were issued to the remaining defendants, and the matter was listed before the Joint Registrar (Judicial) on 27.10.2026. The injunction applications under Order XXXIX Rules 1, 2 and 3 remain to be addressed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-26T16:58:49.116Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1083/2026",
+    "_orderDate": "2026-10-01"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1790860198_2cd32bbc9b7edb0c_596_10842026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": "Exemption from prior Section 80 CPC notice to Defendant Nos. 6, 7, 9 and 11, and exemption from pre-litigation mediation under Section 12A of the Commercial Courts Act, 2015.",
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff exempted from effecting prior notice under Section 80 CPC upon Defendant Nos. 6, 7, 9 and 11.",
+      "Additional documents sought to be placed on record be taken on record.",
+      "Requisite Court fees to be paid within 2 days from today.",
+      "Summons issued to remaining defendants by all permissible modes on filing of process fee; affidavit of service within two weeks.",
+      "List before the Joint Registrar (Judicial) on 27.10.2026 for further proceedings."
+    ],
+    "citations": [
+      "Section 80, Code of Civil Procedure 1908",
+      "Section 12A, Commercial Courts Act 2015",
+      "Section 151, Code of Civil Procedure 1908",
+      "Order XXXIX Rule 1 & 2, Code of Civil Procedure 1908",
+      "Order XXXIX Rule 3, Code of Civil Procedure 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Sidharth Chopra, Mr. Yatinder Garg, Mr. Akshay, Mr. Priyansh, Mr. Manish, Mr. Vinayak",
+      "defendant": "Mr. Satya Ranjan Swain, CGSC with Mr. Naveen Dedha, GP, Mr. Sanskar, Mr. Tushar"
+    },
+    "summary": "The Court allowed the plaintiff's applications for exemption from prior Section 80 CPC notice to Defendant Nos. 6, 7, 9 and 11, leave to file additional documents, exemption from pre-litigation mediation under Section 12A, and extension of time to file court fees. The plaint was registered as a suit, summons were issued to the remaining defendants, and the matter was listed before the Joint Registrar (Judicial) on 27.10.2026. Notice was also issued on the interim injunction applications under Order XXXIX Rules 1, 2 and 3 CPC.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-10-26T16:58:49.116Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1084/2026",
+    "_orderDate": "2026-10-01"
   }
 }
