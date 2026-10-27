@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-27T03:02:01Z",
+  "scraped_at": "2026-10-27T04:02:02Z",
   "for_dates": [
     "2026-10-27",
     "2026-10-28"
@@ -38,9 +38,7 @@
     {
       "file": "deletion_note_27.10.2026.pdf",
       "date": "2026-10-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "combined_targetted_27.10.2026.pdf",
