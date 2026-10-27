@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-27T14:01:53Z",
+  "scraped_at": "2026-10-27T15:01:59Z",
   "for_dates": [
     "2026-10-27",
     "2026-10-28"
@@ -38,7 +38,9 @@
     {
       "file": "j_28102026.pdf",
       "date": "2026-10-28",
-      "error": "download: ('Connection broken: IncompleteRead(653994 bytes read, 315679 more expected)', IncompleteRead(653994 bytes read, 315679 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "rl28102026_0.pdf",
@@ -64,7 +66,9 @@
     {
       "file": "combined_advance_28102026.pdf",
       "date": "2026-10-28",
-      "error": "download: ('Connection broken: IncompleteRead(1518048 bytes read, 6334741 more expected)', IncompleteRead(1518048 bytes read, 6334741 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "vk_sup_9_for_27.10.2026.pdf",
