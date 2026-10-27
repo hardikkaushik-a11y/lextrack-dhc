@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-27T09:02:06Z",
+  "scraped_at": "2026-10-27T10:02:11Z",
   "for_dates": [
     "2026-10-27",
     "2026-10-28"
@@ -10,6 +10,20 @@
     {
       "file": "combined_advance_28102026.pdf",
       "date": "2026-10-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_9_for_27.10.2026.pdf",
+      "date": "2026-10-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_for_27.10.pdf",
+      "date": "2026-10-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
