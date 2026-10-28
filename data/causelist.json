@@ -1,18 +1,16 @@
 {
-  "scraped_at": "2026-10-28T11:02:08Z",
+  "scraped_at": "2026-10-28T12:01:51Z",
   "for_dates": [
     "2026-10-28",
     "2026-10-29"
   ],
   "tracked_cases": 23,
-  "matched_cases": 2,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "combined_adv_list_29.10.2026.pdf",
       "date": "2026-10-29",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(7455295 bytes read, 337998 more expected)', IncompleteRead(7455295 bytes read, 337998 more expected))"
     },
     {
       "file": "suppl_hmj_manmeet_singh_arora_28.10.2026.pdf",
@@ -80,9 +78,7 @@
     {
       "file": "j_28102026.pdf",
       "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(782169 bytes read, 187504 more expected)', IncompleteRead(782169 bytes read, 187504 more expected))"
     },
     {
       "file": "rl28102026_0.pdf",
@@ -94,9 +90,7 @@
     {
       "file": "c_28102026.pdf",
       "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(14699189 bytes read, 6802256 more expected)', IncompleteRead(14699189 bytes read, 6802256 more expected))"
     },
     {
       "file": "finals_28.10.2026.pdf",
@@ -113,32 +107,5 @@
       "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "5",
-      "court": "50",
-      "judge": "VIKAS MAHAJAN",
-      "time": null,
-      "page": 332,
-      "context": "5        CS(COMM)-149/2025    CENTRAL RETAIL     RISHI AGRAWALA,",
-      "caseNo": "CS(COMM)/149/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-149/2025",
-      "date": "2026-10-29",
-      "source_pdf": "combined_adv_list_29.10.2026.pdf"
-    },
-    {
-      "item": "17",
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 408,
-      "context": "17        CS(COMM)-        STAR INDIA PVT LTD        SWATI AGARWAL,\n             331/2025         V/s DEVRAJ & ORS.         MAYANK MIKHAIL",
-      "caseNo": "CS(COMM)/331/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-        STAR INDIA PVT LTD        SWATI AGARWAL,\n             331/2025",
-      "date": "2026-10-29",
-      "source_pdf": "combined_adv_list_29.10.2026.pdf"
-    }
-  ]
+  "entries": []
 }
