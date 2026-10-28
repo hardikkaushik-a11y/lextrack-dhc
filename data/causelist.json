@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-28T13:02:22Z",
+  "scraped_at": "2026-10-28T14:02:14Z",
   "for_dates": [
     "2026-10-28",
     "2026-10-29"
@@ -7,6 +7,41 @@
   "tracked_cases": 23,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_targetted_29.10.2026.pdf",
+      "date": "2026-10-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_29.10.2026.pdf",
+      "date": "2026-10-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_29.10.2026.pdf",
+      "date": "2026-10-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "3rd_supplementary_list_29.10.2026.pdf",
+      "date": "2026-10-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_29.10.2026.pdf",
+      "date": "2026-10-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_sup_1_29.10.2026.pdf",
       "date": "2026-10-29",
@@ -72,48 +107,6 @@
     },
     {
       "file": "new_jud_28102026.pdf",
-      "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_28.10.2026.pdf",
-      "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_28102026.pdf",
-      "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_28102026.pdf",
-      "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl28102026_0.pdf",
-      "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_28102026.pdf",
-      "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_28.10.2026.pdf",
       "date": "2026-10-28",
       "matched": 0,
       "regex_matches": 0,
