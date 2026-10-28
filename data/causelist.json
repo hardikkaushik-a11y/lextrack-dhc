@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-28T05:02:04Z",
+  "scraped_at": "2026-10-28T06:01:44Z",
   "for_dates": [
     "2026-10-28",
     "2026-10-29"
@@ -12,6 +12,20 @@
       "date": "2026-10-29",
       "matched": 2,
       "regex_matches": 2,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_madhu_jain_28.10.2026.pdf",
+      "date": "2026-10-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_hmj_girish_k_28.10.2026.pdf",
+      "date": "2026-10-28",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -59,9 +73,7 @@
     {
       "file": "c_28102026.pdf",
       "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(7567806 bytes read, 13933639 more expected)', IncompleteRead(7567806 bytes read, 13933639 more expected))"
     },
     {
       "file": "finals_28.10.2026.pdf",
