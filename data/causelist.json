@@ -1,18 +1,16 @@
 {
-  "scraped_at": "2026-10-28T03:02:00Z",
+  "scraped_at": "2026-10-28T04:01:46Z",
   "for_dates": [
     "2026-10-28",
     "2026-10-29"
   ],
   "tracked_cases": 23,
-  "matched_cases": 2,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "combined_adv_list_29.10.2026.pdf",
       "date": "2026-10-29",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(6916120 bytes read, 877173 more expected)', IncompleteRead(6916120 bytes read, 877173 more expected))"
     },
     {
       "file": "combined_targetted_28102026.pdf",
@@ -66,44 +64,13 @@
     {
       "file": "finals_28.10.2026.pdf",
       "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "combined_advance_28102026.pdf",
       "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(655263 bytes read, 7197526 more expected)', IncompleteRead(655263 bytes read, 7197526 more expected))"
     }
   ],
-  "entries": [
-    {
-      "item": "5",
-      "court": "50",
-      "judge": "VIKAS MAHAJAN",
-      "time": null,
-      "page": 332,
-      "context": "5        CS(COMM)-149/2025    CENTRAL RETAIL     RISHI AGRAWALA,",
-      "caseNo": "CS(COMM)/149/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-149/2025",
-      "date": "2026-10-29",
-      "source_pdf": "combined_adv_list_29.10.2026.pdf"
-    },
-    {
-      "item": "17",
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 408,
-      "context": "17        CS(COMM)-        STAR INDIA PVT LTD        SWATI AGARWAL,\n             331/2025         V/s DEVRAJ & ORS.         MAYANK MIKHAIL",
-      "caseNo": "CS(COMM)/331/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-        STAR INDIA PVT LTD        SWATI AGARWAL,\n             331/2025",
-      "date": "2026-10-29",
-      "source_pdf": "combined_adv_list_29.10.2026.pdf"
-    }
-  ]
+  "entries": []
 }
