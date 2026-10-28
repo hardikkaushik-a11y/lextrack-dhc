@@ -1,16 +1,32 @@
 {
-  "scraped_at": "2026-10-28T12:01:51Z",
+  "scraped_at": "2026-10-28T13:02:22Z",
   "for_dates": [
     "2026-10-28",
     "2026-10-29"
   ],
   "tracked_cases": 23,
-  "matched_cases": 0,
+  "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_sup_1_29.10.2026.pdf",
+      "date": "2026-10-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_29.10.2026.pdf",
+      "date": "2026-10-29",
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
+    },
     {
       "file": "combined_adv_list_29.10.2026.pdf",
       "date": "2026-10-29",
-      "error": "download: ('Connection broken: IncompleteRead(7455295 bytes read, 337998 more expected)', IncompleteRead(7455295 bytes read, 337998 more expected))"
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
     },
     {
       "file": "suppl_hmj_manmeet_singh_arora_28.10.2026.pdf",
@@ -78,7 +94,9 @@
     {
       "file": "j_28102026.pdf",
       "date": "2026-10-28",
-      "error": "download: ('Connection broken: IncompleteRead(782169 bytes read, 187504 more expected)', IncompleteRead(782169 bytes read, 187504 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "rl28102026_0.pdf",
@@ -90,7 +108,9 @@
     {
       "file": "c_28102026.pdf",
       "date": "2026-10-28",
-      "error": "download: ('Connection broken: IncompleteRead(14699189 bytes read, 6802256 more expected)', IncompleteRead(14699189 bytes read, 6802256 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_28.10.2026.pdf",
@@ -98,14 +118,34 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_28102026.pdf",
-      "date": "2026-10-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "5",
+      "court": "50",
+      "judge": "VIKAS MAHAJAN",
+      "time": null,
+      "page": 464,
+      "context": "5        CS(COMM)-149/2025    CENTRAL RETAIL     RISHI AGRAWALA,",
+      "caseNo": "CS(COMM)/149/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-149/2025",
+      "date": "2026-10-29",
+      "source_pdf": "combined_cause_list_29.10.2026.pdf"
+    },
+    {
+      "item": "17",
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 540,
+      "context": "17        CS(COMM)-        STAR INDIA PVT LTD        SWATI AGARWAL,\n             331/2025         V/s DEVRAJ & ORS.         MAYANK MIKHAIL",
+      "caseNo": "CS(COMM)/331/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-        STAR INDIA PVT LTD        SWATI AGARWAL,\n             331/2025",
+      "date": "2026-10-29",
+      "source_pdf": "combined_cause_list_29.10.2026.pdf"
+    }
+  ]
 }
