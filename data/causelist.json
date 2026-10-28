@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-28T16:02:02Z",
+  "scraped_at": "2026-10-28T17:01:50Z",
   "for_dates": [
     "2026-10-28",
     "2026-10-29"
@@ -66,9 +66,7 @@
     {
       "file": "combined_adv_list_29.10.2026.pdf",
       "date": "2026-10-29",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(6492887 bytes read, 1300406 more expected)', IncompleteRead(6492887 bytes read, 1300406 more expected))"
     },
     {
       "file": "suppl_hmj_manmeet_singh_arora_28.10.2026.pdf",
