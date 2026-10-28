@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-28T09:02:07Z",
+  "scraped_at": "2026-10-28T10:02:23Z",
   "for_dates": [
     "2026-10-28",
     "2026-10-29"
@@ -17,7 +17,9 @@
     {
       "file": "suppl_hmj_manmeet_singh_arora_28.10.2026.pdf",
       "date": "2026-10-28",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "vk_sup_full_db_for_28.10.2026.pdf",
@@ -106,7 +108,9 @@
     {
       "file": "combined_advance_28102026.pdf",
       "date": "2026-10-28",
-      "error": "download: ('Connection broken: IncompleteRead(6697576 bytes read, 1155213 more expected)', IncompleteRead(6697576 bytes read, 1155213 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": [
