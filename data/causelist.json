@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-10-29T18:01:51Z",
+  "scraped_at": "2026-10-29T19:01:31Z",
   "for_dates": [
-    "2026-10-29",
-    "2026-10-30"
+    "2026-10-30",
+    "2026-10-31"
   ],
   "tracked_cases": 23,
   "matched_cases": 0,
@@ -66,48 +66,11 @@
     {
       "file": "c_30102026.pdf",
       "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(12524014 bytes read, 7350433 more expected)', IncompleteRead(12524014 bytes read, 7350433 more expected))"
     },
     {
       "file": "combined_adv_list_30.10.2026.pdf",
       "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_15_for_29.10.2026.pdf",
-      "date": "2026-10-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_13_14_for_29.10.2026.pdf",
-      "date": "2026-10-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_suppl_13_29.10.2026.pdf",
-      "date": "2026-10-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_11_trf_matter_for_29.10.2026.pdf",
-      "date": "2026-10-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_10_for_29.10.2026.pdf",
-      "date": "2026-10-29",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
