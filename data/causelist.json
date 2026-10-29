@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-10-29T02:01:55Z",
+  "scraped_at": "2026-10-29T03:01:34Z",
   "for_dates": [
     "2026-10-29",
     "2026-10-30"
   ],
   "tracked_cases": 23,
-  "matched_cases": 2,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "combined_adv_list_30.10.2026.pdf",
@@ -66,44 +66,13 @@
     {
       "file": "combined_cause_list_29.10.2026.pdf",
       "date": "2026-10-29",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(12146838 bytes read, 8786566 more expected)', IncompleteRead(12146838 bytes read, 8786566 more expected))"
     },
     {
       "file": "combined_adv_list_29.10.2026.pdf",
       "date": "2026-10-29",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(339863 bytes read, 7453430 more expected)', IncompleteRead(339863 bytes read, 7453430 more expected))"
     }
   ],
-  "entries": [
-    {
-      "item": "5",
-      "court": "50",
-      "judge": "VIKAS MAHAJAN",
-      "time": null,
-      "page": 464,
-      "context": "5        CS(COMM)-149/2025    CENTRAL RETAIL     RISHI AGRAWALA,",
-      "caseNo": "CS(COMM)/149/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-149/2025",
-      "date": "2026-10-29",
-      "source_pdf": "combined_cause_list_29.10.2026.pdf"
-    },
-    {
-      "item": "17",
-      "court": "JR",
-      "judge": "EKTA GAUBA MANN (JR)",
-      "time": null,
-      "page": 540,
-      "context": "17        CS(COMM)-        STAR INDIA PVT LTD        SWATI AGARWAL,\n             331/2025         V/s DEVRAJ & ORS.         MAYANK MIKHAIL",
-      "caseNo": "CS(COMM)/331/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-        STAR INDIA PVT LTD        SWATI AGARWAL,\n             331/2025",
-      "date": "2026-10-29",
-      "source_pdf": "combined_cause_list_29.10.2026.pdf"
-    }
-  ]
+  "entries": []
 }
