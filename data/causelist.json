@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-29T12:01:31Z",
+  "scraped_at": "2026-10-29T13:01:43Z",
   "for_dates": [
     "2026-10-29",
     "2026-10-30"
@@ -7,6 +7,34 @@
   "tracked_cases": 23,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "new_c_30102026.pdf",
+      "date": "2026-10-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_30.10.2026.pdf",
+      "date": "2026-10-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl30102026.pdf",
+      "date": "2026-10-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_30102026.pdf",
+      "date": "2026-10-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_adv_list_30.10.2026.pdf",
       "date": "2026-10-30",
@@ -72,34 +100,6 @@
     },
     {
       "file": "deletion_note_29.10.2026.pdf",
-      "date": "2026-10-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_29.10.2026.pdf",
-      "date": "2026-10-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "3rd_supplementary_list_29.10.2026.pdf",
-      "date": "2026-10-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_29.10.2026.pdf",
-      "date": "2026-10-29",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_sup_1_29.10.2026.pdf",
       "date": "2026-10-29",
       "matched": 0,
       "regex_matches": 0,
