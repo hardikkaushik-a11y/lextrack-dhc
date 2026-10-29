@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-29T09:02:00Z",
+  "scraped_at": "2026-10-29T10:01:49Z",
   "for_dates": [
     "2026-10-29",
     "2026-10-30"
@@ -10,6 +10,20 @@
     {
       "file": "combined_adv_list_30.10.2026.pdf",
       "date": "2026-10-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_13_14_for_29.10.2026.pdf",
+      "date": "2026-10-29",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_suppl_13_29.10.2026.pdf",
+      "date": "2026-10-29",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
@@ -86,13 +100,6 @@
     },
     {
       "file": "combined_cause_list_29.10.2026.pdf",
-      "date": "2026-10-29",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_29.10.2026.pdf",
       "date": "2026-10-29",
       "matched": 2,
       "regex_matches": 2,
