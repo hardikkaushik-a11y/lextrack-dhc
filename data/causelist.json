@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-30T13:01:24Z",
+  "scraped_at": "2026-10-30T14:01:23Z",
   "for_dates": [
     "2026-10-30",
     "2026-10-31"
@@ -45,9 +45,7 @@
     {
       "file": "registrar_supply_list_30.10.2026_1.pdf",
       "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "pro._30.10.2026.pdf",
@@ -73,7 +71,9 @@
     {
       "file": "today_jr_supp._judicial_30102026t.pdf",
       "date": "2026-10-30",
-      "error": "download: ('Connection broken: IncompleteRead(257946 bytes read, 471633 more expected)', IncompleteRead(257946 bytes read, 471633 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "sup_3-30102026.pdf",
