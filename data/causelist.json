@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-30T07:01:40Z",
+  "scraped_at": "2026-10-30T08:01:42Z",
   "for_dates": [
     "2026-10-30",
     "2026-10-31"
@@ -7,6 +7,20 @@
   "tracked_cases": 23,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "pro._30.10.2026.pdf",
+      "date": "2026-10-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "suppl_11_30.10.2026.pdf",
+      "date": "2026-10-30",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "date_fixed_suppl_hmj_prateek_jalan_30.10.2026.pdf",
       "date": "2026-10-30",
