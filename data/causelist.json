@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-30T15:01:43Z",
+  "scraped_at": "2026-10-30T16:01:13Z",
   "for_dates": [
     "2026-10-30",
     "2026-10-31"
@@ -31,7 +31,9 @@
     {
       "file": "c_31102026.pdf",
       "date": "2026-10-31",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "pro._30.10.2026_0.pdf",
@@ -43,7 +45,9 @@
     {
       "file": "registrar_supply_list_30.10.2026_1.pdf",
       "date": "2026-10-30",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "pro._30.10.2026.pdf",
@@ -55,7 +59,9 @@
     {
       "file": "suppl_11_30.10.2026.pdf",
       "date": "2026-10-30",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "date_fixed_suppl_hmj_prateek_jalan_30.10.2026.pdf",
