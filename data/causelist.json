@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-30T11:01:36Z",
+  "scraped_at": "2026-10-30T12:01:15Z",
   "for_dates": [
     "2026-10-30",
     "2026-10-31"
@@ -7,6 +7,27 @@
   "tracked_cases": 23,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "c_revised_31102026.pdf",
+      "date": "2026-10-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro._31.10.2026.pdf",
+      "date": "2026-10-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_31102026.pdf",
+      "date": "2026-10-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "pro._30.10.2026_0.pdf",
       "date": "2026-10-30",
@@ -86,27 +107,6 @@
     },
     {
       "file": "new_c_30102026.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_30.10.2026.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl30102026.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_30102026.pdf",
       "date": "2026-10-30",
       "matched": 0,
       "regex_matches": 0,
