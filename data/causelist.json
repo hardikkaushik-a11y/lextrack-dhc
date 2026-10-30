@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-10-30T12:01:15Z",
+  "scraped_at": "2026-10-30T13:01:24Z",
   "for_dates": [
     "2026-10-30",
     "2026-10-31"
@@ -7,6 +7,13 @@
   "tracked_cases": 23,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "sup-1-31102026.pdf",
+      "date": "2026-10-31",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "c_revised_31102026.pdf",
       "date": "2026-10-31",
@@ -66,9 +73,7 @@
     {
       "file": "today_jr_supp._judicial_30102026t.pdf",
       "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(257946 bytes read, 471633 more expected)', IncompleteRead(257946 bytes read, 471633 more expected))"
     },
     {
       "file": "sup_3-30102026.pdf",
@@ -100,13 +105,6 @@
     },
     {
       "file": "dh_fnl_1_30.10.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_30102026.pdf",
       "date": "2026-10-30",
       "matched": 0,
       "regex_matches": 0,
