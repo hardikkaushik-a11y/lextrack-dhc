@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-10-30T18:01:12Z",
+  "scraped_at": "2026-10-30T19:01:05Z",
   "for_dates": [
-    "2026-10-30",
-    "2026-10-31"
+    "2026-10-31",
+    "2026-11-01"
   ],
   "tracked_cases": 23,
   "matched_cases": 0,
@@ -31,83 +31,6 @@
     {
       "file": "c_31102026.pdf",
       "date": "2026-10-31",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._30.10.2026_0.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_30.10.2026_1.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._30.10.2026.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_11_30.10.2026.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "date_fixed_suppl_hmj_prateek_jalan_30.10.2026.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_supp._judicial_30102026t.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_3-30102026.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_30102026.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_jud_30102026.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_30.10.2026.pdf",
-      "date": "2026-10-30",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "dh_fnl_1_30.10.pdf",
-      "date": "2026-10-30",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
