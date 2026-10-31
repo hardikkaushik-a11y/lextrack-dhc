@@ -1,40 +1,89 @@
 {
-  "scraped_at": "2026-10-31T18:01:02Z",
+  "scraped_at": "2026-10-31T19:01:39Z",
   "for_dates": [
-    "2026-10-31",
-    "2026-11-01"
+    "2026-11-01",
+    "2026-11-02"
   ],
   "tracked_cases": 23,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
     {
-      "file": "sup-1-31102026.pdf",
-      "date": "2026-10-31",
+      "file": "vk_sup_2nd_fnl_for_02.11.26.pdf",
+      "date": "2026-11-02",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "c_revised_31102026.pdf",
-      "date": "2026-10-31",
+      "file": "deletion_note_02.11.2026.pdf",
+      "date": "2026-11-02",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "pro._31.10.2026.pdf",
-      "date": "2026-10-31",
+      "file": "combined_pro_02.11.2026.pdf",
+      "date": "2026-11-02",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "c_31102026.pdf",
-      "date": "2026-10-31",
+      "file": "pla_02.11.2026.pdf",
+      "date": "2026-11-02",
       "matched": 0,
       "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_02.11.2026.pdf",
+      "date": "2026-11-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_02.11.2026_0.pdf",
+      "date": "2026-11-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl02112026.pdf",
+      "date": "2026-11-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combinbed_cause_list_02.11.2026.pdf",
+      "date": "2026-11-02",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_advance_02112026.pdf",
+      "date": "2026-11-02",
+      "matched": 1,
+      "regex_matches": 1,
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "39",
+      "court": "JR",
+      "judge": "EKTA GAUBA MANN (JR)",
+      "time": null,
+      "page": 482,
+      "context": "39       CS(COMM)-         DAZN LIMITED & ANR.       R MAYA, BINSY\n             1152/2025         V/s 9GOALS.IO & ORS.      SUSAN BABY,",
+      "caseNo": "CS(COMM)/1152/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         DAZN LIMITED & ANR.       R MAYA, BINSY\n             1152/2025",
+      "date": "2026-11-02",
+      "source_pdf": "combinbed_cause_list_02.11.2026.pdf"
+    }
+  ]
 }
