@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-11-01T18:01:34Z",
+  "scraped_at": "2026-11-01T19:01:49Z",
   "for_dates": [
-    "2026-11-01",
-    "2026-11-02"
+    "2026-11-02",
+    "2026-11-03"
   ],
   "tracked_cases": 23,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "combinbed_adv_list_03.11.2026.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "vk_sup_2nd_fnl_for_02.11.26.pdf",
       "date": "2026-11-02",
