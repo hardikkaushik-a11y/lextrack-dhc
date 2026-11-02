@@ -1,12 +1,26 @@
 {
-  "scraped_at": "2026-11-02T14:01:25Z",
+  "scraped_at": "2026-11-02T15:01:53Z",
   "for_dates": [
     "2026-11-02",
     "2026-11-03"
   ],
   "tracked_cases": 23,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_targetted_03.11.2026.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "last_final_supplementary_list_03.11.2026.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_03.11.2026_0.pdf",
       "date": "2026-11-03",
@@ -66,7 +80,9 @@
     {
       "file": "comnbined_cause_list_03.11.2026.pdf",
       "date": "2026-11-03",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combinbed_adv_list_03.11.2026.pdf",
@@ -116,14 +132,21 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_7to9_for_02.11.2026.pdf",
-      "date": "2026-11-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "27",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 722,
+      "context": "In CS(COMM)-    LIMITED              SANDEEP\n        256/2026        V/s MOHALLA TECH     DEVASHISH DAS",
+      "caseNo": "CS(COMM)/256/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-    LIMITED              SANDEEP\n        256/2026",
+      "date": "2026-11-03",
+      "source_pdf": "comnbined_cause_list_03.11.2026.pdf"
+    }
+  ]
 }
