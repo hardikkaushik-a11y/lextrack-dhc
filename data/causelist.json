@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-02T00:01:42Z",
+  "scraped_at": "2026-11-02T01:01:56Z",
   "for_dates": [
     "2026-11-02",
     "2026-11-03"
@@ -10,12 +10,16 @@
     {
       "file": "combinbed_adv_list_03.11.2026.pdf",
       "date": "2026-11-03",
-      "error": "download: ('Connection broken: IncompleteRead(5895952 bytes read, 1483457 more expected)', IncompleteRead(5895952 bytes read, 1483457 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "vk_sup_2nd_fnl_for_02.11.26.pdf",
       "date": "2026-11-02",
-      "error": "download: ('Connection broken: IncompleteRead(701713 bytes read, 283272 more expected)', IncompleteRead(701713 bytes read, 283272 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "deletion_note_02.11.2026.pdf",
