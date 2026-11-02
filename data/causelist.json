@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-11-02T21:01:42Z",
+  "scraped_at": "2026-11-02T22:01:52Z",
   "for_dates": [
     "2026-11-03",
     "2026-11-04"
   ],
   "tracked_cases": 23,
-  "matched_cases": 1,
+  "matched_cases": 2,
   "sources": [
     {
       "file": "combined_adv_list_04.11.2026.pdf",
@@ -94,7 +94,9 @@
     {
       "file": "comnbined_cause_list_03.11.2026.pdf",
       "date": "2026-11-03",
-      "error": "download: ('Connection broken: IncompleteRead(4495806 bytes read, 15523776 more expected)', IncompleteRead(4495806 bytes read, 15523776 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combinbed_adv_list_03.11.2026.pdf",
@@ -117,6 +119,19 @@
       "matched_on": "CS(COMM)-         SONY PICTURES     ISHI SINGH\n             672/2026",
       "date": "2026-11-04",
       "source_pdf": "combined_adv_list_04.11.2026.pdf"
+    },
+    {
+      "item": "27",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 722,
+      "context": "In CS(COMM)-    LIMITED              SANDEEP\n        256/2026        V/s MOHALLA TECH     DEVASHISH DAS",
+      "caseNo": "CS(COMM)/256/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-    LIMITED              SANDEEP\n        256/2026",
+      "date": "2026-11-03",
+      "source_pdf": "comnbined_cause_list_03.11.2026.pdf"
     }
   ]
 }
