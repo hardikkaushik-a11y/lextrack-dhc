@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-02T13:01:40Z",
+  "scraped_at": "2026-11-02T14:01:25Z",
   "for_dates": [
     "2026-11-02",
     "2026-11-03"
@@ -7,6 +7,48 @@
   "tracked_cases": 23,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "deletion_note_03.11.2026_0.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_supplementary_list_03.11.2026.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_03.11.2026.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_03.11.2026.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_03.11.2026.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combinbed_sup_1_03.11.2026.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "rl03112026.pdf",
       "date": "2026-11-03",
@@ -24,7 +66,7 @@
     {
       "file": "comnbined_cause_list_03.11.2026.pdf",
       "date": "2026-11-03",
-      "error": "download: ('Connection broken: IncompleteRead(16259374 bytes read, 3760208 more expected)', IncompleteRead(16259374 bytes read, 3760208 more expected))"
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "combinbed_adv_list_03.11.2026.pdf",
@@ -50,7 +92,9 @@
     {
       "file": "registrar_supply_deletion_02.11.2026.pdf",
       "date": "2026-11-02",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "today_jr_suppl._judicial_02112026.pdf",
@@ -75,48 +119,6 @@
     },
     {
       "file": "vk_sup_7to9_for_02.11.2026.pdf",
-      "date": "2026-11-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_2nd_fnl_for_02.11.26.pdf",
-      "date": "2026-11-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_02.11.2026.pdf",
-      "date": "2026-11-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_02.11.2026.pdf",
-      "date": "2026-11-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_02.11.2026.pdf",
-      "date": "2026-11-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_02.11.2026.pdf",
-      "date": "2026-11-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_02.11.2026_0.pdf",
       "date": "2026-11-02",
       "matched": 0,
       "regex_matches": 0,
