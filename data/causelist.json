@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-02T16:02:24Z",
+  "scraped_at": "2026-11-02T17:01:54Z",
   "for_dates": [
     "2026-11-02",
     "2026-11-03"
@@ -7,6 +7,13 @@
   "tracked_cases": 23,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "03112026.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_targetted_03.11.2026.pdf",
       "date": "2026-11-03",
@@ -121,13 +128,6 @@
     },
     {
       "file": "jud_c-230_02112026.pdf",
-      "date": "2026-11-02",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_9a_for_02.11.2026.pdf",
       "date": "2026-11-02",
       "matched": 0,
       "regex_matches": 0,
