@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-02T05:01:48Z",
+  "scraped_at": "2026-11-02T06:02:04Z",
   "for_dates": [
     "2026-11-02",
     "2026-11-03"
@@ -15,9 +15,25 @@
       "norm_matches": 0
     },
     {
+      "file": "vk_sup_9a_for_02.11.2026.pdf",
+      "date": "2026-11-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_7to9_for_02.11.2026.pdf",
+      "date": "2026-11-02",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "vk_sup_2nd_fnl_for_02.11.26.pdf",
       "date": "2026-11-02",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "deletion_note_02.11.2026.pdf",
