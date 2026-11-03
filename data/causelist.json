@@ -1,16 +1,18 @@
 {
-  "scraped_at": "2026-11-03T20:02:00Z",
+  "scraped_at": "2026-11-03T21:02:01Z",
   "for_dates": [
     "2026-11-04",
     "2026-11-05"
   ],
   "tracked_cases": 23,
-  "matched_cases": 1,
+  "matched_cases": 2,
   "sources": [
     {
       "file": "combined_advance_05112026.pdf",
       "date": "2026-11-05",
-      "error": "download: ('Connection broken: IncompleteRead(1363024 bytes read, 6191339 more expected)', IncompleteRead(1363024 bytes read, 6191339 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "pronouncement_for_04.11.2026_0.pdf",
@@ -91,6 +93,19 @@
     }
   ],
   "entries": [
+    {
+      "item": "7",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 361,
+      "context": "7        CS(COMM)-         JIOSTAR INDIA PRIVATE       GAURAV SARKAR,\n             756/2025          LIMITED                     SHASHANK",
+      "caseNo": "CS(COMM)/756/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE       GAURAV SARKAR,\n             756/20",
+      "date": "2026-11-05",
+      "source_pdf": "combined_advance_05112026.pdf"
+    },
     {
       "item": "10",
       "court": "JR",
