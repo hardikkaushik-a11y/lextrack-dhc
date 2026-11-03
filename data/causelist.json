@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-03T13:01:51Z",
+  "scraped_at": "2026-11-03T14:01:48Z",
   "for_dates": [
     "2026-11-03",
     "2026-11-04"
@@ -7,6 +7,48 @@
   "tracked_cases": 23,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "pronouncement_for_04.11.2026_0.pdf",
+      "date": "2026-11-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pronouncement_for_04.11.2026.pdf",
+      "date": "2026-11-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targettede_04112026.pdf",
+      "date": "2026-11-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_fnl_for_04.11.26.pdf",
+      "date": "2026-11-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_04.11.2026.pdf",
+      "date": "2026-11-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_04112026.pdf",
+      "date": "2026-11-04",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "rl04112026.pdf",
       "date": "2026-11-04",
@@ -38,14 +80,14 @@
     {
       "file": "combined_adv_list_04.11.2026.pdf",
       "date": "2026-11-04",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "today_jr_suppl._judicial_03112026.pdf",
       "date": "2026-11-03",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "vk_sup_14_15_for_03.11.2026.pdf",
@@ -84,48 +126,6 @@
     },
     {
       "file": "deletion_note_03.11.2026_0.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_supplementary_list_03.11.2026.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_03.11.2026.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_03.11.2026.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_03.11.2026.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combinbed_sup_1_03.11.2026.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl03112026.pdf",
       "date": "2026-11-03",
       "matched": 0,
       "regex_matches": 0,
