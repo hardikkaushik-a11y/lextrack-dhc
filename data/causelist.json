@@ -1,12 +1,17 @@
 {
-  "scraped_at": "2026-11-03T18:02:24Z",
+  "scraped_at": "2026-11-03T19:02:06Z",
   "for_dates": [
-    "2026-11-03",
-    "2026-11-04"
+    "2026-11-04",
+    "2026-11-05"
   ],
   "tracked_cases": 23,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_advance_05112026.pdf",
+      "date": "2026-11-05",
+      "error": "download: ('Connection broken: IncompleteRead(815032 bytes read, 6739331 more expected)', IncompleteRead(815032 bytes read, 6739331 more expected))"
+    },
     {
       "file": "pronouncement_for_04.11.2026_0.pdf",
       "date": "2026-11-04",
@@ -82,55 +87,6 @@
       "date": "2026-11-04",
       "matched": 1,
       "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_suppl._judicial_03112026.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_14_15_for_03.11.2026.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_13_for_03.11.2026.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "03112026.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_03.11.2026.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "last_final_supplementary_list_03.11.2026.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_03.11.2026_0.pdf",
-      "date": "2026-11-03",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
