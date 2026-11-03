@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-03T19:02:06Z",
+  "scraped_at": "2026-11-03T20:02:00Z",
   "for_dates": [
     "2026-11-04",
     "2026-11-05"
@@ -10,7 +10,7 @@
     {
       "file": "combined_advance_05112026.pdf",
       "date": "2026-11-05",
-      "error": "download: ('Connection broken: IncompleteRead(815032 bytes read, 6739331 more expected)', IncompleteRead(815032 bytes read, 6739331 more expected))"
+      "error": "download: ('Connection broken: IncompleteRead(1363024 bytes read, 6191339 more expected)', IncompleteRead(1363024 bytes read, 6191339 more expected))"
     },
     {
       "file": "pronouncement_for_04.11.2026_0.pdf",
