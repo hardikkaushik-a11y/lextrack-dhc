@@ -1,17 +1,29 @@
 {
-  "scraped_at": "2026-11-03T09:01:57Z",
+  "scraped_at": "2026-11-03T10:01:57Z",
   "for_dates": [
     "2026-11-03",
     "2026-11-04"
   ],
   "tracked_cases": 23,
-  "matched_cases": 2,
+  "matched_cases": 1,
   "sources": [
     {
       "file": "combined_adv_list_04.11.2026.pdf",
       "date": "2026-11-04",
-      "matched": 1,
-      "regex_matches": 1,
+      "error": "download: ('Connection broken: IncompleteRead(6155264 bytes read, 1299403 more expected)', IncompleteRead(6155264 bytes read, 1299403 more expected))"
+    },
+    {
+      "file": "vk_sup_14_15_for_03.11.2026.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_13_for_03.11.2026.pdf",
+      "date": "2026-11-03",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -31,7 +43,9 @@
     {
       "file": "last_final_supplementary_list_03.11.2026.pdf",
       "date": "2026-11-03",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "deletion_note_03.11.2026_0.pdf",
@@ -105,19 +119,6 @@
     }
   ],
   "entries": [
-    {
-      "item": "10",
-      "court": "JR",
-      "judge": "SWATI KATIYAR (JR)",
-      "time": null,
-      "page": 380,
-      "context": "10      CS(COMM)-         SONY PICTURES     ISHI SINGH\n             672/2026          NETWORKS INDIA",
-      "caseNo": "CS(COMM)/672/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         SONY PICTURES     ISHI SINGH\n             672/2026",
-      "date": "2026-11-04",
-      "source_pdf": "combined_adv_list_04.11.2026.pdf"
-    },
     {
       "item": "27",
       "court": "JR",
