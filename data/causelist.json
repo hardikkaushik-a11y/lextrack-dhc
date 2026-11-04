@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-11-04T18:01:49Z",
+  "scraped_at": "2026-11-04T19:03:14Z",
   "for_dates": [
-    "2026-11-04",
-    "2026-11-05"
+    "2026-11-05",
+    "2026-11-06"
   ],
   "tracked_cases": 23,
-  "matched_cases": 1,
+  "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_adv_06.11.2026.pdf",
+      "date": "2026-11-06",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "combined_targetted_05.11.2026.pdf",
       "date": "2026-11-05",
@@ -76,51 +83,22 @@
       "matched": 1,
       "regex_matches": 1,
       "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_12_for_04.11.2026.pdf",
-      "date": "2026-11-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_13_trf_matter_for_04.11.26.pdf",
-      "date": "2026-11-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_suppl._judicial_04112026.pdf",
-      "date": "2026-11-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._04.11.2026.pdf",
-      "date": "2026-11-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pronouncement_for_04.11.2026_0.pdf",
-      "date": "2026-11-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pronouncement_for_04.11.2026.pdf",
-      "date": "2026-11-04",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
+    {
+      "item": "16",
+      "court": "50",
+      "judge": "VIKAS MAHAJAN",
+      "time": null,
+      "page": 180,
+      "context": "16        CS(COMM)-810/2025    JIOSTAR INDIA     GEETANJALI",
+      "caseNo": "CS(COMM)/810/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-810/2025",
+      "date": "2026-11-06",
+      "source_pdf": "combined_adv_06.11.2026.pdf"
+    },
     {
       "item": "7",
       "court": "JR",
