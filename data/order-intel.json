@@ -7736,5 +7736,87 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/149/2025",
     "_orderDate": "2026-10-29"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1793785565_cb96bb9064c74c84_765_12032025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Written statement of defendant nos. 1 to 18 remains closed per order dated 08.07.2026.",
+      "Defendant nos. 20 to 29 and 31, served on 07.08.2026 via email, may file written statements as per law within the prescribed time.",
+      "Replication to be filed in accordance with law after filing of written statement.",
+      "Matter listed for completion of pleadings on 08.01.2027."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Shudhata Sudhir & Ms. Ishi Singh",
+      "defendant": "Ms. Binsy Susan, Ms. Palak Kaushal & Ms. Khushbu Turki (for D-6); Mr. Yogesh Singh & Mr. Aditya Dash (for D-30)"
+    },
+    "summary": "The Joint Registrar (Judicial) noted that the right of defendant nos. 1 to 18 to file a written statement was already closed by order dated 08.07.2026, and that defendant nos. 20 to 29 and 31 were duly served via email on 07.08.2026. Since the time to file written statements has not expired, those defendants may file them as per law, followed by replication, and the matter is listed for completion of pleadings on 08.01.2027.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-04T10:05:20.535Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1203/2025",
+    "_orderDate": "2026-10-27"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1793785553_1245d50b68390297_765_10832026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Compliance-affidavit under Order 39 Rule 3 filed by plaintiff to be taken on record.",
+      "Plaintiff to file fresh service-affidavit in tabulated form before the next date of hearing.",
+      "Matter listed for completion of pleadings on 18.01.2027."
+    ],
+    "citations": [
+      "Order 39 Rule 3, Code of Civil Procedure"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Shudhata Sudhir & Ms. Ishi Singh",
+      "defendant": "Mr. Satya R. Swain (CGSC) & Mr. Naveen D. (GP) for D-10 to 11; Ms. Binsy Susan, Mr. Vishal Bahlani & Ms. Khushbu Turki for D-28; Mr. Parth Rishik for RJIL"
+    },
+    "summary": "The Joint Registrar (Judicial) noted that defendants 1-9 are rogue websites, 12-20 are ISPs/TSPs, 21-29 are DNRs, and defendant 30 is John Doe. The plaintiff's compliance-affidavit under Order 39 Rule 3 was taken on record, and the plaintiff was directed to file a fresh service-affidavit in tabulated form. The matter was listed for completion of pleadings on 18.01.2027.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-04T10:05:20.535Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1083/2026",
+    "_orderDate": "2026-10-27"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1793785555_8e05d4bd7defb885_765_10842026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff permitted to file a fresh compliance-affidavit correcting the typographical error.",
+      "Plaintiff directed to file a fresh service-affidavit in tabulated form before the next date of hearing.",
+      "Submissions of defendant nos. 21 and 24 regarding compliance with the order dated 01.10.2026 to be taken on record.",
+      "Matter listed for completion of pleadings on 18.01.2027."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Shudhata Sudhir & Ms. Ishi Singh",
+      "defendant": "Mr. Satya R. Swain (CGSC) & Mr. Naveen (GP) for D-9 & 10; Mr. Moazzam Khan, Ms. Muskan Sharma, Mr. Prince Kumar & Mr. Shaurya Vardhan Singh for D-21; Mr. Nikhil Gupta, Mr. Yogesh Singh & Mr. Aditya Dash for D-24; Mr. Parth Rishik for RJIL"
+    },
+    "summary": "The Joint Registrar (Judicial) heard the matter where defendant nos. 6 and 7 had accepted summons and the plaintiff sought leave to file a fresh compliance-affidavit due to a typographical error. Counsel for defendant nos. 21 and 24 submitted they had complied with the earlier order of 01.10.2026, and the plaintiff was directed to file a fresh service-affidavit in tabulated form. The matter was listed for completion of pleadings on 18.01.2027.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-04T10:05:20.535Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1084/2026",
+    "_orderDate": "2026-10-27"
   }
 }
