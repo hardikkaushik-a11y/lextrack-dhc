@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-04T05:01:39Z",
+  "scraped_at": "2026-11-04T06:02:00Z",
   "for_dates": [
     "2026-11-04",
     "2026-11-05"
@@ -87,7 +87,9 @@
     {
       "file": "c_04112026.pdf",
       "date": "2026-11-04",
-      "error": "download: ('Connection broken: IncompleteRead(15625862 bytes read, 4496369 more expected)', IncompleteRead(15625862 bytes read, 4496369 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combined_adv_list_04.11.2026.pdf",
@@ -116,13 +118,13 @@
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 380,
+      "page": 514,
       "context": "10      CS(COMM)-         SONY PICTURES     ISHI SINGH\n             672/2026          NETWORKS INDIA",
       "caseNo": "CS(COMM)/672/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         SONY PICTURES     ISHI SINGH\n             672/2026",
       "date": "2026-11-04",
-      "source_pdf": "combined_adv_list_04.11.2026.pdf"
+      "source_pdf": "c_04112026.pdf"
     }
   ]
 }
