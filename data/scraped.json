@@ -1866,7 +1866,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:02:19.571Z",
+    "lastScraped": "2026-11-04T07:02:11.106Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2292,7 +2292,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:02:27.025Z",
+    "lastScraped": "2026-11-04T07:02:19.011Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2667,7 +2667,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:02:34.748Z",
+    "lastScraped": "2026-11-04T07:02:26.932Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3009,7 +3009,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:02:42.449Z",
+    "lastScraped": "2026-11-04T07:02:34.834Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3255,7 +3255,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:02:50.087Z",
+    "lastScraped": "2026-11-04T07:02:42.560Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3544,7 +3544,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:02:57.637Z",
+    "lastScraped": "2026-11-04T07:02:50.409Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4075,7 +4075,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:03:05.372Z",
+    "lastScraped": "2026-11-04T07:02:58.314Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5080,7 +5080,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:03:13.035Z",
+    "lastScraped": "2026-11-04T07:03:06.405Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5362,7 +5362,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:03:20.503Z",
+    "lastScraped": "2026-11-04T07:03:14.063Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5815,7 +5815,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:03:28.123Z",
+    "lastScraped": "2026-11-04T07:03:21.975Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6078,7 +6078,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:03:35.836Z",
+    "lastScraped": "2026-11-04T07:03:29.925Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6896,7 +6896,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:03:43.674Z",
+    "lastScraped": "2026-11-04T07:03:39.183Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7679,7 +7679,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:03:51.260Z",
+    "lastScraped": "2026-11-04T07:03:46.675Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8010,7 +8010,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:04:05.485Z",
+    "lastScraped": "2026-11-04T07:03:54.606Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8468,7 +8468,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:04:13.253Z",
+    "lastScraped": "2026-11-04T07:04:02.298Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8732,7 +8732,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:04:20.950Z",
+    "lastScraped": "2026-11-04T07:04:10.362Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8744,10 +8744,50 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-09-22",
+    "lastDate": "2026-10-29",
     "nextDate": "2027-01-12",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-10-29",
+        "event": "Court Order",
+        "detail": "I.A. 18673/2025(under Order I Rule 10 read with Order XXII Rule 10 and Sections 146 and 151 CPC by the plaintiffs) 1.This is an application filed by the plaintiffs to implead propo…",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1793775398_5262cfdd695e3181_593_1492025.pdf/2026",
+        "orderText": "$~5 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010081932025 +CS(COMM) 149/2025, I.A. 13124/2026, I.A. 23030/2026, I.A. 24596/2026 & I.A. 25431/2026 CENTRAL RETAIL CORPORATION PUBLIC COMPANY LTD. & ANR.....Plaintiffs Through:Mr. Abhishek Malhotra, Sr. Adv. with Ms. Vaishali Mittal and Ms. Pallavi Bhatnagar, Advs. versus FUTURE BRANDS LTD & ANR.....Defendant Through:Ms. Harshita Malik, Adv. for D-4. CORAM: HON'BLE MR. JUSTICE VIKAS MAHAJAN O R D E R %29.10.2026 I.A. 18673/2025(under Order I Rule 10 read with Order XXII Rule 10 and Sections 146 and 151 CPC by the plaintiffs) 1.This is an application filed by the plaintiffs to implead proposed defendant nos.3, 4, 5 and 6 as mentioned in the prayer. 2.Mr. Abhishek Malhotra, learned senior counsel appearing on behalf of the plaintiffs submits that insofar as defendant nos.5 and 6 are concerned, they have already filed an affidavit dated 15.10.2026 statinginter aliaas under:- “6. Without prejudice to the aforesaid, and in order to place the factual position on record, it is stated and confirmed that Proposed Defendant Nos. 5 and 6, i.e., Reliance Retail Ventures Limited (\"RRVL\") and Reliance Retail and Fashion Lifestyle Limited (\"RRFLL\"), have never used, do not use, and have no intention whatsoever to use the mark \"CENTRAL\", whether as a trademark, trade name, domain name or in any other manner, in the past, present or future, which forms the subject matter of the present suit. This factual position has also been communicated to the Plaintiffs.” This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/11/2026 at 12:34:19 3.Likewise, the proposed defendant no.4 has also filed an affidavit dated 22.08.2026 wherein they have also deposed as under:- “9. That, accordingly, Proposed Defendant No. 4 never became the proprietor of, and never acquired any right, title or interest in, the mark \"CENTRAL\" pursuant to the Composite Scheme or the Competition Commission of India order dated 20 November 2020. The said order did not, by itself, result in any transfer or vesting of the mark \"CENTRAL\" in Proposed Defendant No. 4. 10. That, consequently, Proposed Defendant No. 4 did not transfer any right, title or interest in the mark \"CENTRAL\" to Reliance Retail and Fashion Lifestyle Limited or any other Reliance Group entity. 11. That Proposed Defendant No. 4 does not presently hold or claim any right, title or interest in the mark \"CENTRAL\". As stated above, as per the information received from the erstwhile management, the rights and interests in the mark \"CENTRAL\" are vested in FLFL. 12. That, as on date, Proposed Defendant No. 4 is not using the mark \"CENTRAL\". It is further stated that Proposed Defendant No. 4 does not intend to use the mark \"CENTRAL\" during the subsistence of the corporate insolvency resolution process, being the period during which the management and affairs of Proposed Defendant No. 4 remain vested in and are conducted by the Resolution Professional in accordance with the provisions of the Insolvency and Bankruptcy Code, 2016.” 4.He submits that in view of the statements made by the proposed defendant nos. 4, 5 and 6, the plaintiff does not intend to press the present applicationquathem. Ordered accordingly. 5.Insofar as defendant no.3 is concerned, notice was issued to the This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/11/2026 at 12:34:19 Liquidator appointed for the said proposed defendant no.3videorder dated 22.09.2026. 6.Mr. Malhotra submits that the Liquidator (Mr. Sanjay Gupta) has been served through e-mail (email ID: sanjay@sgaindia.in) and an affidavit to that effect has been filed. The Court deems it appropriate that the Liquidator should be represented in the present matter, therefore, issue fresh notice to the proposed defendant nos.3 by all permissible modes. 7.Let postal address of the Liquidator namely, Mr. Sanjay Gupta, be also furnished to the Registry, where the notice could be sent. 8.None appears on behalf of the defendant nos.1 and 2. It is informed that the counsels who were representing defendant nos.1 and 2 had sought discharge, but it appears that the procedure as prescribed under Chapter V Rule 5 of the Delhi High Court (Original Side) Rules, 2018 has not been complied with, by them. 9.In that view of the matter, let counsels for defendant nos.1 and 2 remain physically present on the next date of hearing. 10.The Registry is directed to communicate this order to the counsels for defendant nos.1 and 2. 11.Re-notify on 12.01.2027. VIKAS MAHAJAN, J OCTOBER 29, 2026 nsa/ss This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/11/2026 at 12:34:19",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Plaintiffs' application I.A. 18673/2025 is not pressed qua proposed defendant nos. 4, 5 and 6, and is disposed of accordingly.",
+            "Issue fresh notice to proposed defendant no. 3 by all permissible modes, to be served on the Liquidator Mr. Sanjay Gupta.",
+            "Plaintiffs to furnish the postal address of the Liquidator, Mr. Sanjay Gupta, to the Registry for service of notice.",
+            "Counsels for defendant nos. 1 and 2 to remain physically present on the next date of hearing.",
+            "Registry to communicate this order to the counsels for defendant nos. 1 and 2; matter re-notified on 12.01.2027."
+          ],
+          "citations": [
+            "Order I Rule 10, Code of Civil Procedure",
+            "Order XXII Rule 10, Code of Civil Procedure",
+            "Sections 146 and 151, Code of Civil Procedure",
+            "Chapter V Rule 5, Delhi High Court (Original Side) Rules, 2018"
+          ],
+          "counsel": {
+            "plaintiff": "Mr. Abhishek Malhotra, Sr. Adv. with Ms. Vaishali Mittal and Ms. Pallavi Bhatnagar",
+            "defendant": "Ms. Harshita Malik (for D-4)"
+          },
+          "summary": "The plaintiffs sought to implead proposed defendant nos. 3 to 6. In view of affidavits by proposed defendant nos. 4, 5 and 6 disclaiming any use or rights in the mark 'CENTRAL', the plaintiffs did not press the application qua them. The Court issued fresh notice to proposed defendant no. 3 through its Liquidator, directed counsels for defendant nos. 1 and 2 to appear physically, and re-notified the matter for 12.01.2027.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-11-04T07:05:12.447Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/149/2025",
+          "_orderDate": "2026-10-29"
+        }
+      },
       {
         "date": "2026-09-22",
         "event": "Court Order",
@@ -9455,7 +9495,18 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2027-01-12",
+        "before": "jr",
+        "firstSeenAt": "2026-11-04T07:04:19.619Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-10-29",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1793775398_5262cfdd695e3181_593_1492025.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -9557,7 +9608,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:04:28.941Z",
+    "lastScraped": "2026-11-04T07:04:19.623Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9711,7 +9762,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:04:36.384Z",
+    "lastScraped": "2026-11-04T07:04:27.351Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10140,7 +10191,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:04:50.616Z",
+    "lastScraped": "2026-11-04T07:04:35.232Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11118,7 +11169,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:04:58.525Z",
+    "lastScraped": "2026-11-04T07:04:43.297Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11622,7 +11673,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:05:06.131Z",
+    "lastScraped": "2026-11-04T07:04:51.188Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11691,7 +11742,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:05:13.799Z",
+    "lastScraped": "2026-11-04T07:04:59.152Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11760,7 +11811,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T06:05:21.414Z",
+    "lastScraped": "2026-11-04T07:05:06.922Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

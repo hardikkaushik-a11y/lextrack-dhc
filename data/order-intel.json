@@ -7703,5 +7703,38 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1084/2026",
     "_orderDate": "2026-10-01"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1793775398_5262cfdd695e3181_593_1492025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiffs' application I.A. 18673/2025 is not pressed qua proposed defendant nos. 4, 5 and 6, and is disposed of accordingly.",
+      "Issue fresh notice to proposed defendant no. 3 by all permissible modes, to be served on the Liquidator Mr. Sanjay Gupta.",
+      "Plaintiffs to furnish the postal address of the Liquidator, Mr. Sanjay Gupta, to the Registry for service of notice.",
+      "Counsels for defendant nos. 1 and 2 to remain physically present on the next date of hearing.",
+      "Registry to communicate this order to the counsels for defendant nos. 1 and 2; matter re-notified on 12.01.2027."
+    ],
+    "citations": [
+      "Order I Rule 10, Code of Civil Procedure",
+      "Order XXII Rule 10, Code of Civil Procedure",
+      "Sections 146 and 151, Code of Civil Procedure",
+      "Chapter V Rule 5, Delhi High Court (Original Side) Rules, 2018"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Abhishek Malhotra, Sr. Adv. with Ms. Vaishali Mittal and Ms. Pallavi Bhatnagar",
+      "defendant": "Ms. Harshita Malik (for D-4)"
+    },
+    "summary": "The plaintiffs sought to implead proposed defendant nos. 3 to 6. In view of affidavits by proposed defendant nos. 4, 5 and 6 disclaiming any use or rights in the mark 'CENTRAL', the plaintiffs did not press the application qua them. The Court issued fresh notice to proposed defendant no. 3 through its Liquidator, directed counsels for defendant nos. 1 and 2 to appear physically, and re-notified the matter for 12.01.2027.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-04T07:05:12.447Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/149/2025",
+    "_orderDate": "2026-10-29"
   }
 }
