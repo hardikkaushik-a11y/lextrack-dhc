@@ -1,12 +1,33 @@
 {
-  "scraped_at": "2026-11-04T12:01:54Z",
+  "scraped_at": "2026-11-04T13:01:52Z",
   "for_dates": [
     "2026-11-04",
     "2026-11-05"
   ],
   "tracked_cases": 23,
-  "matched_cases": 2,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "rl05112026.pdf",
+      "date": "2026-11-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_05.11.2026.pdf",
+      "date": "2026-11-05",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_05.11.2026.pdf",
+      "date": "2026-11-05",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "combined_advance_05112026.pdf",
       "date": "2026-11-05",
@@ -73,7 +94,9 @@
     {
       "file": "deletion_note_04.11.2026.pdf",
       "date": "2026-11-04",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "j_04112026.pdf",
@@ -102,20 +125,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "c_04112026.pdf",
-      "date": "2026-11-04",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_04.11.2026.pdf",
-      "date": "2026-11-04",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -124,26 +133,13 @@
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 361,
+      "page": 494,
       "context": "7        CS(COMM)-         JIOSTAR INDIA PRIVATE       GAURAV SARKAR,\n             756/2025          LIMITED                     SHASHANK",
       "caseNo": "CS(COMM)/756/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE       GAURAV SARKAR,\n             756/20",
       "date": "2026-11-05",
-      "source_pdf": "combined_advance_05112026.pdf"
-    },
-    {
-      "item": "10",
-      "court": "JR",
-      "judge": "SWATI KATIYAR (JR)",
-      "time": null,
-      "page": 514,
-      "context": "10      CS(COMM)-         SONY PICTURES     ISHI SINGH\n             672/2026          NETWORKS INDIA",
-      "caseNo": "CS(COMM)/672/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         SONY PICTURES     ISHI SINGH\n             672/2026",
-      "date": "2026-11-04",
-      "source_pdf": "c_04112026.pdf"
+      "source_pdf": "combined_cause_list_05.11.2026.pdf"
     }
   ]
 }
