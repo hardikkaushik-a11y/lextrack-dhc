@@ -7818,5 +7818,83 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1084/2026",
     "_orderDate": "2026-10-27"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1793787285_d1571a1236180966_765_3312025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter for the purpose fixed on 18.12.2026 as the Ld. P.O. is on leave today."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Ishi Singh",
+      "defendant": "Ms. Harshitha Rathod (for D-24)"
+    },
+    "summary": "The Joint Registrar (Judicial) noted that the Ld. P.O. was on leave on 29.10.2026. The matter was accordingly adjourned and listed for the purpose fixed on 18.12.2026. No substantive relief or directions were issued.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-04T11:05:33.877Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/331/2025",
+    "_orderDate": "2026-10-29"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1793787121_d7eae8f960f05e39_762_6722026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendants granted one further opportunity to file reply to I.A. 16275/2026 within three weeks with advance copy to plaintiff.",
+      "Plaintiff may file rejoinder, if any, within two weeks thereafter.",
+      "Written statement, if any, to be filed by defendants as per rules.",
+      "Matter listed for completion of pleadings on 29.01.2027."
+    ],
+    "citations": [
+      "Order XXXIX Rules 1 and 2, Code of Civil Procedure 1908",
+      "Section 151, Code of Civil Procedure 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Manish Singh",
+      "defendant": "Mr. Manish Rawat (GP), Mr. Mohit Bokoriya, Ms. Radhika Bishwajit Dubey (CGSC), Ms. Gurleen Kaur, Mr. Kritarth Upadhyay, Mr. Amulya Dev Mishra"
+    },
+    "summary": "The Joint Registrar (Judicial) noted that no defendant had filed a reply to I.A. 16275/2026 and granted one further opportunity to file reply within three weeks, with rejoinder thereafter within two weeks. The order also recorded that two compliance affidavits on behalf of defendant no.17 are on record and that no written statement has been filed, directing filing as per rules, with the matter listed for completion of pleadings on 29.01.2027.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-04T11:05:33.877Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/672/2026",
+    "_orderDate": "2026-11-04"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1793786808_ded440c81f4e2ea8_762_2562026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Put up the matter for the purpose fixed on 08.12.2026."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ishi Singh",
+      "defendant": "Tanishq Juneja, Sandeep Devanshish Das and Kanak Malik"
+    },
+    "summary": "The matter was listed before the Joint Registrar (Judicial). As the Ld. Presiding Officer was on leave, no substantive proceedings took place and the matter was adjourned. It is now listed for the purpose fixed on 08.12.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-04T11:05:33.877Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/256/2026",
+    "_orderDate": "2026-11-03"
   }
 }

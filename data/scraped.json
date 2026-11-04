@@ -1866,7 +1866,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:02:16.790Z",
+    "lastScraped": "2026-11-04T11:02:28.879Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -1878,10 +1878,41 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-08-12",
+    "lastDate": "2026-10-29",
     "nextDate": "2026-12-18",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-10-29",
+        "event": "Court Order",
+        "detail": "Presiding Officer on leave — adjourned to 18.12.2026.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1793787285_d1571a1236180966_765_3312025.pdf/2026",
+        "orderText": "$~17 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010198952025 + CS(COMM) 331/2025 STAR INDIA PVT LTD .....Plaintiff Through: Mr. Ishi Singh, Adv. (through VC) versus DEVRAJ & ORS. .....Defendant Through: Ms. Harshitha Rathod, Adv. for D-24. CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 29.10.2026 Ld. P.O. is on leave today. List the matter for the purpose fixed on 18.12.2026. Reader a/w EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) OCTOBER 29, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/11/2026 at 16:32:37",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List the matter for the purpose fixed on 18.12.2026 as the Ld. P.O. is on leave today."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Ishi Singh",
+            "defendant": "Ms. Harshitha Rathod (for D-24)"
+          },
+          "summary": "The Joint Registrar (Judicial) noted that the Ld. P.O. was on leave on 29.10.2026. The matter was accordingly adjourned and listed for the purpose fixed on 18.12.2026. No substantive relief or directions were issued.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-11-04T11:05:33.877Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/331/2025",
+          "_orderDate": "2026-10-29"
+        }
+      },
       {
         "date": "2026-08-12",
         "event": "Court Order",
@@ -2232,7 +2263,18 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-12-18",
+        "before": "jr",
+        "firstSeenAt": "2026-11-04T11:02:37.754Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-10-29",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1793787285_d1571a1236180966_765_3312025.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -2292,7 +2334,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:02:24.772Z",
+    "lastScraped": "2026-11-04T11:02:37.756Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2667,7 +2709,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:02:32.636Z",
+    "lastScraped": "2026-11-04T11:02:45.925Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3009,7 +3051,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:02:40.577Z",
+    "lastScraped": "2026-11-04T11:02:55.101Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3255,7 +3297,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:02:48.247Z",
+    "lastScraped": "2026-11-04T11:03:09.118Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3544,7 +3586,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:02:56.231Z",
+    "lastScraped": "2026-11-04T11:03:16.846Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4075,7 +4117,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:03:04.005Z",
+    "lastScraped": "2026-11-04T11:03:24.411Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5080,7 +5122,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:03:12.005Z",
+    "lastScraped": "2026-11-04T11:03:32.084Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5362,7 +5404,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:03:20.024Z",
+    "lastScraped": "2026-11-04T11:03:39.726Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5815,7 +5857,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:03:29.495Z",
+    "lastScraped": "2026-11-04T11:03:47.391Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6078,7 +6120,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:03:37.534Z",
+    "lastScraped": "2026-11-04T11:03:55.079Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6896,7 +6938,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:03:45.333Z",
+    "lastScraped": "2026-11-04T11:04:02.696Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7679,7 +7721,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:03:53.333Z",
+    "lastScraped": "2026-11-04T11:04:10.362Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8010,7 +8052,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:04:01.209Z",
+    "lastScraped": "2026-11-04T11:04:18.100Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8468,7 +8510,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:04:09.233Z",
+    "lastScraped": "2026-11-04T11:04:25.832Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8487,7 +8529,7 @@
       {
         "date": "2026-10-27",
         "event": "Court Order",
-        "detail": "The right of defendant no.",
+        "detail": "The Joint Registrar (Judicial) noted that the right of defendant nos. 1 to 18 to file a written statement was already closed by order dated 08.07.2026, and that defendant nos. 20 to 29 and 31 were duly served via email on 07.08.2026. Since the time to file written statements has not expired, those defendants may file them as per law, followed by replication, and the matter is listed for completion of pleadings on 08.01.2027.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1793785565_cb96bb9064c74c84_765_12032025.pdf/2026",
         "orderText": "$~21 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010878782025 + CS(COMM) 1203/2025 JIOSTAR INDIA PRIVATE LIMITED.....Plaintiff Through: Ms. Shudhata Sudhir & Ms. Ishi Singh, Advs. (through VC) versus CRICFY TV & ORS......Defendant Through: Ms. Binsy Susan, Ms. Palak Kaushal & Ms. Khushbu Turki, Advs. for D-6 (through VC) Mr. Yogesh Singh & Mr. Aditya Dash, Advs. for D-30. CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 27.10.2026 The right of defendant no. 1 to 18 to file the written statement had been closed, vide order dated 08.07.2026. The defendant no. 19 is John Doe. Service-affidavit has been filed by the plaintiff, vide diary no. 344134/2026 and as per same, defendant no. 20 to 29 & 31 have been served on 07.08.2026 through emails. The defendant no. 20 to 29 & 31 have been duly served. The prescribed time period to file the written statement has not expired, therefore upon filing of written statement as per law, then replication be filed in accordance with law. List the matter for the completion of pleadings on 08.01.2027. EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) OCTOBER 27, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/11/2026 at 15:34:17",
         "intelligence": {
@@ -8777,7 +8819,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:04:18.114Z",
+    "lastScraped": "2026-11-04T11:04:33.574Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9653,7 +9695,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:04:26.100Z",
+    "lastScraped": "2026-11-04T11:04:41.375Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9665,10 +9707,47 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-10-09",
+    "lastDate": "2026-11-04",
     "nextDate": "2027-02-05",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-11-04",
+        "event": "Court Order",
+        "detail": "I.A. 16275/2026 (u/O XXXIX Rules 1 and 2 r/w Section 151 CPC). 1. Reply has not been filed by any defendants till date. In the interest of justice, one further opportunity is grant…",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1793787121_d7eae8f960f05e39_762_6722026.pdf/2026",
+        "orderText": "$~10 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010268752026 + CS(COMM) 672/2026 SONY PICTURES NETWORKS INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Manish Singh, Adv (VC). versus CRICFREE.CYOU & ORS. .....Defendants Through: Mr. Manish Rawat, GP alongwith Mr. Mohit Bokoriya, Advs for D-23. Ms. Radhika Bishwajit Dubey, CGSC, Ms. Gurleen Kaur, Mr. Kritarth Upadhyay, Mr. Amulya Dev Mishra, Advs for D-23 and 24. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 04.11.2026 I.A. 16275/2026 (u/O XXXIX Rules 1 and 2 r/w Section 151 CPC). 1. Reply has not been filed by any defendants till date. In the interest of justice, one further opportunity is granted to the defendants to file reply. 2. Reply, if any be filed within three weeks with advance copy to the plaintiff and thereafter rejoinder, if any be filed within further two weeks. 3. Put up for completion of pleadings on 29.01.2027. This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/11/2026 at 16:34:49 CS(COMM) 672/2026. 4. Two compliance affidavits filed on behalf of defendant no.17 are on record. 5. Written statement has not been filed by any defendants. Written statement, if any be filed as per rules. 6. Put up for completion of pleadings on 29.01.2027. MS. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) NOVEMBER 4, 2026/BK This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/11/2026 at 16:34:49",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Defendants granted one further opportunity to file reply to I.A. 16275/2026 within three weeks with advance copy to plaintiff.",
+            "Plaintiff may file rejoinder, if any, within two weeks thereafter.",
+            "Written statement, if any, to be filed by defendants as per rules.",
+            "Matter listed for completion of pleadings on 29.01.2027."
+          ],
+          "citations": [
+            "Order XXXIX Rules 1 and 2, Code of Civil Procedure 1908",
+            "Section 151, Code of Civil Procedure 1908"
+          ],
+          "counsel": {
+            "plaintiff": "Mr. Manish Singh",
+            "defendant": "Mr. Manish Rawat (GP), Mr. Mohit Bokoriya, Ms. Radhika Bishwajit Dubey (CGSC), Ms. Gurleen Kaur, Mr. Kritarth Upadhyay, Mr. Amulya Dev Mishra"
+          },
+          "summary": "The Joint Registrar (Judicial) noted that no defendant had filed a reply to I.A. 16275/2026 and granted one further opportunity to file reply within three weeks, with rejoinder thereafter within two weeks. The order also recorded that two compliance affidavits on behalf of defendant no.17 are on record and that no written statement has been filed, directing filing as per rules, with the matter listed for completion of pleadings on 29.01.2027.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-11-04T11:05:33.877Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/672/2026",
+          "_orderDate": "2026-11-04"
+        }
+      },
       {
         "date": "2026-10-09",
         "event": "Court Order",
@@ -9787,6 +9866,16 @@
         }
       },
       {
+        "date": "2027-01-29",
+        "before": "jr",
+        "firstSeenAt": "2026-11-04T11:04:50.066Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-11-04",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1793787121_d7eae8f960f05e39_762_6722026.pdf/2026"
+        }
+      },
+      {
         "date": "2027-02-05",
         "before": "court",
         "firstSeenAt": "2000-01-01T00:00:00Z",
@@ -9807,7 +9896,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:04:33.806Z",
+    "lastScraped": "2026-11-04T11:04:50.068Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9819,10 +9908,41 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-09-24",
+    "lastDate": "2026-11-03",
     "nextDate": "2026-12-08",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-11-03",
+        "event": "Court Order",
+        "detail": "Ld. Presiding Officer is on leave today. Put up for purpose fixed on 08.12.2026. Reader, a/w MS. SWATI KATIYAR, Ld. JOINT REGISTRAR (JUDICIAL) NOVEMBER 3, 2026/BK This is a digital…",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1793786808_ded440c81f4e2ea8_762_2562026.pdf/2026",
+        "orderText": "$~27 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010100182026 + CS(COMM) 256/2026 KUKU TECHNOLOGIES LIMITED .....Plaintiff Through: Ms. Ishi Singh, Adv (VC). versus MOHALLA TECH PRIVATE LIMITED & ANR. .....Defendants Through: Mr. Tanishq Juneja, Mr. Sandeep Devanshish Das and Ms. Kanak Malik, Advs for D-1 (VC). CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 03.11.2026 Ld. Presiding Officer is on leave today. Put up for purpose fixed on 08.12.2026. Reader, a/w MS. SWATI KATIYAR, Ld. JOINT REGISTRAR (JUDICIAL) NOVEMBER 3, 2026/BK This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/11/2026 at 16:34:58",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Put up the matter for the purpose fixed on 08.12.2026."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ishi Singh",
+            "defendant": "Tanishq Juneja, Sandeep Devanshish Das and Kanak Malik"
+          },
+          "summary": "The matter was listed before the Joint Registrar (Judicial). As the Ld. Presiding Officer was on leave, no substantive proceedings took place and the matter was adjourned. It is now listed for the purpose fixed on 08.12.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-11-04T11:05:33.877Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/256/2026",
+          "_orderDate": "2026-11-03"
+        }
+      },
       {
         "date": "2026-09-24",
         "event": "Court Order",
@@ -9999,37 +10119,6 @@
       {
         "date": "2026-07-21",
         "event": "Court Order",
-        "detail": "The court disposed of an IA seeking leave to file videos on a pen drive. The matter was listed for further proceedings on 15.09.2026.",
-        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1784794192_25b8615ff8cbd531_762_2562026.pdf/2026",
-        "orderText": "$~30 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 256/2026 KUKU TECHNOLOGIES PRIVATE LIMITED (FORMERLY KNOWN AS MEBIGO LABS PRIVATE LIMITED) .....Plaintiff Through: Ms. Ishi Singh, Adv. versus MOHALLA TECH PRIVATE LIMITED & ANR. .....Defendant Through: Mr. Sandeep Das, Ms. Kanak Malik and Mr. Tejasvi Mahajan, Advs. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 21.07.2026 Fresh I.A. 18795/2026on behalf of plaintiff seeking leave to file videos in a pen drive, along with supporting affidavits. 1. Ld counsels for plaintiff and defendant submit that this IA was listed before the Hon’ble Court today and has been disposed off. 2. In view of the submissions made, matter be listed for further proceedings on date fixed i.e. 15.09.2026. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) JULY 21, 2026/bk This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 23/07/2026 at 14:35:09",
-        "intelligence": {
-          "classification": "procedural",
-          "reliefGranted": null,
-          "costsAwarded": null,
-          "directions": [
-            "List matter for further proceedings on 15.09.2026"
-          ],
-          "citations": [],
-          "counsel": {
-            "plaintiff": "Ms. Ishi Singh",
-            "defendant": "Mr. Sandeep Das, Ms. Kanak Malik and Mr. Tejasvi Mahajan"
-          },
-          "summary": "The court disposed of an IA seeking leave to file videos on a pen drive. The matter was listed for further proceedings on 15.09.2026.",
-          "confidence": {
-            "reliefGranted": "high",
-            "directions": "high",
-            "citations": "high"
-          },
-          "_extractedAt": "2026-07-23T09:05:24.739Z",
-          "_model": "deepseek-chat",
-          "_schema": "v1",
-          "_caseNo": "CS(COMM)/256/2026",
-          "_orderDate": "2026-07-21"
-        }
-      },
-      {
-        "date": "2026-07-21",
-        "event": "Court Order",
         "detail": "The court allowed the plaintiff's application to file videos on a pen drive and granted time to bring additional documents on record. The matter was adjourned to 06.08.2026.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1784705450_df9198db378e3ed7_jis_2562026.pdf/2026",
         "orderText": "CS(COMM) 256/2026 Page 1 of 2 $~46 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 256/2026 KUKU TECHNOLOGIES PRIVATE LIMITED (FORMERLY KNOWN AS MEBIGO LABS PRIVATE LIMITED) .....Plaintiff Through: Mr. Siddharth Chopra, Mr. Yatinder Garg, Ms. Disha Sharma and Ms. Ishi Singh, Advocates. versus MOHALLA TECH PRIVATE LIMITED & ANR. .....Defendants Through: Mr. Darpan Wadhwa, Senior Advocate with Mr. Sandeep Das, Ms. Kanak Malik, Ms. Tejasvi Mahajan and Mr. Tanishq Juneja, Advocates for D-1. CORAM: HON'BLE MS. JUSTICE JYOTI SINGH O R D E R % 21.07.2026 I.A. 18795/2026 1. This application is filed on behalf of the Plaintiff under Section 151 CPC seeking leave to file videos in a pen drive. 2. Issue notice. 3. Mr. Sandeep Das, learned counsel accepts notice on behalf of Defendant No. 1. 4. For the reasons stated in the application, the same is allowed granting leave to the Plaintiff to file videos in a pen drive. 5. Application stands disposed of. I.A. 18834/2026 This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 22/07/2026 at 13:34:36 CS(COMM) 256/2026 Page 2 of 2 6. This application is filed on behalf of the Plaintiff under Section 151 CPC for directions. 7. Issue notice. 8. Mr. Sandeep Das, learned counsel accepts notice on behalf of Defendant No. 1. 9. Learned counsel for the Plaintiff submits that the additional documents have not been brought on record and seeks time to bring the same on record. 10. At request, list on 06.08.2026. JYOTI SINGH, J JULY 21, 2026 S.Sharma This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 22/07/2026 at 13:34:36",
@@ -10055,6 +10144,37 @@
             "citations": "high"
           },
           "_extractedAt": "2026-07-22T08:04:50.128Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/256/2026",
+          "_orderDate": "2026-07-21"
+        }
+      },
+      {
+        "date": "2026-07-21",
+        "event": "Court Order",
+        "detail": "The court disposed of an IA seeking leave to file videos on a pen drive. The matter was listed for further proceedings on 15.09.2026.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1784794192_25b8615ff8cbd531_762_2562026.pdf/2026",
+        "orderText": "$~30 * IN THE HIGH COURT OF DELHI AT NEW DELHI + CS(COMM) 256/2026 KUKU TECHNOLOGIES PRIVATE LIMITED (FORMERLY KNOWN AS MEBIGO LABS PRIVATE LIMITED) .....Plaintiff Through: Ms. Ishi Singh, Adv. versus MOHALLA TECH PRIVATE LIMITED & ANR. .....Defendant Through: Mr. Sandeep Das, Ms. Kanak Malik and Mr. Tejasvi Mahajan, Advs. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 21.07.2026 Fresh I.A. 18795/2026on behalf of plaintiff seeking leave to file videos in a pen drive, along with supporting affidavits. 1. Ld counsels for plaintiff and defendant submit that this IA was listed before the Hon’ble Court today and has been disposed off. 2. In view of the submissions made, matter be listed for further proceedings on date fixed i.e. 15.09.2026. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) JULY 21, 2026/bk This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 23/07/2026 at 14:35:09",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List matter for further proceedings on 15.09.2026"
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Mr. Sandeep Das, Ms. Kanak Malik and Mr. Tejasvi Mahajan"
+          },
+          "summary": "The court disposed of an IA seeking leave to file videos on a pen drive. The matter was listed for further proceedings on 15.09.2026.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-07-23T09:05:24.739Z",
           "_model": "deepseek-chat",
           "_schema": "v1",
           "_caseNo": "CS(COMM)/256/2026",
@@ -10236,7 +10356,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:04:41.818Z",
+    "lastScraped": "2026-11-04T11:04:58.742Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11214,7 +11334,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:04:49.828Z",
+    "lastScraped": "2026-11-04T11:05:06.471Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11718,7 +11838,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:04:57.809Z",
+    "lastScraped": "2026-11-04T11:05:14.021Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11737,7 +11857,7 @@
       {
         "date": "2026-10-27",
         "event": "Court Order",
-        "detail": "The defendant no.",
+        "detail": "The Joint Registrar (Judicial) noted that defendants 1-9 are rogue websites, 12-20 are ISPs/TSPs, 21-29 are DNRs, and defendant 30 is John Doe. The plaintiff's compliance-affidavit under Order 39 Rule 3 was taken on record, and the plaintiff was directed to file a fresh service-affidavit in tabulated form. The matter was listed for completion of pleadings on 18.01.2027.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1793785553_1245d50b68390297_765_10832026.pdf/2026",
         "orderText": "$~39 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010475182026 + CS(COMM) 1083/2026 DIGITAL18 MEDIA PRIVATE LIMITED.....Plaintiff Through: Ms. Shudhata Sudhir & Ms. Ishi Singh, Advs. (through VC) versus SSRMOVIES.STYLE & ORS......Defendant Through: Mr. Satya R. Swain (CGSC) & Mr. Naveen D. (GP), Advs. for D-10 to 11. Ms. Binsy Susan, Mr. Vishal Bahlani& Ms. Khushbu Turki, Advs. for D-28. (through VC) Mr. Parth Rishik, Adv. for RJIL (through VC) CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 27.10.2026 The defendant no. 1 to 9 are rogue websites, defendant no. 12 to 20 are ISPs/TSPs & defendant no. 21 to 29 are DNRs. Compliance-affidavit u/O 39 Rule 3 has been filed by the plaintiff, same be taken on record. Service-affidavit has been filed by the plaintiff, vide diary no. 453001/2026. Plaintiff is directed to file fresh service-affidavit in a tabulated form, same be filed before the next date of hearing. The defendant no. 30 is John Doe. List the matter for the completion of pleadings on 18.01.2027. EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) OCTOBER 27, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/11/2026 at 15:35:06",
         "intelligence": {
@@ -11833,7 +11953,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:05:06.918Z",
+    "lastScraped": "2026-11-04T11:05:21.705Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11852,7 +11972,7 @@
       {
         "date": "2026-10-27",
         "event": "Court Order",
-        "detail": "Summons were accepted on behalf of defendant no.",
+        "detail": "The Joint Registrar (Judicial) heard the matter where defendant nos. 6 and 7 had accepted summons and the plaintiff sought leave to file a fresh compliance-affidavit due to a typographical error. Counsel for defendant nos. 21 and 24 submitted they had complied with the earlier order of 01.10.2026, and the plaintiff was directed to file a fresh service-affidavit in tabulated form. The matter was listed for completion of pleadings on 18.01.2027.",
         "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1793785555_8e05d4bd7defb885_765_10842026.pdf/2026",
         "orderText": "$~40 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010475192026 + CS(COMM) 1084/2026 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Ms. Shudhata Sudhir & Ms. Ishi Singh, Advs. (through VC) versus PLAYZ TV & ORS. .....Defendant Through: Mr. Satya R. Swain (CGSC) & Mr. Naveen (GP), Advs. for D-9 & 10. Mr. Moazzam Khan, Ms. Muskan Sharma, Mr. Prince Kumar & Mr. Shaurya Vardhan Singh, Advs. for D-21. Mr. Nikhil Gupta, Mr. Yogesh Singh & Mr. Aditya Dash, Advs. for D-24. Mr. Parth Rishik, Adv. for RJIL (through VC) CORAM: JOINT REGISTRAR (JUDICIAL), EKTA GAUBA MANN (DHJS) O R D E R % 27.10.2026 Summons were accepted on behalf of defendant no. 6 & 7 before the Hon'ble Court on 01.10.2026. The defendant no. 1 to 5 are rogue websites, defendant no. 6 to 7 are DOT & MeitY, defendant no. 8 to 17are ISPs/TSPs & defendant no. 18 to 24 are DNRs. Compliance-affidavit u/O 39 Rule 3 has been filed by the plaintiff. Ld. counsel for the plaintiff requests that there is This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/11/2026 at 15:35:15 typographical error in the compliance-affidavit and she may be permitted to file a fresh compliance-affidavit. The plaintiff is at liberty to file a fresh compliance-affidavit, if any. Ld. counsels for the defendant no. 21 & 24 submits they have complied with the order of the Hon'ble Court dated 01.10.2026. Submissions be taken on record. Service-affidavit has been filed by the plaintiff, vide diary no. 453011/2026. Plaintiff is directed to fresh service-affidavit in a tabulated form, same be filed before the next date of hearing. The defendant no. 25 is John Doe. List the matter for the completion of pleadings on 18.01.2027. EKTA GAUBA MANN (DHJS) JOINT REGISTRAR (JUDICIAL) OCTOBER 27, 2026/jr Click here to check corrigendum, if any This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 04/11/2026 at 15:35:15",
         "intelligence": {
@@ -11947,7 +12067,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-04T10:05:15.816Z",
+    "lastScraped": "2026-11-04T11:05:29.427Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
