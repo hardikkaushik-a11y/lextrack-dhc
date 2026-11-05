@@ -1,23 +1,37 @@
 {
-  "scraped_at": "2026-11-05T12:01:47Z",
+  "scraped_at": "2026-11-05T13:02:02Z",
   "for_dates": [
     "2026-11-05",
     "2026-11-06"
   ],
   "tracked_cases": 23,
-  "matched_cases": 2,
+  "matched_cases": 3,
   "sources": [
+    {
+      "file": "rl06112026.pdf",
+      "date": "2026-11-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_06112026.pdf",
+      "date": "2026-11-06",
+      "matched": 2,
+      "regex_matches": 2,
+      "norm_matches": 0
+    },
     {
       "file": "combined_adv_06.11.2026.pdf",
       "date": "2026-11-06",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(4072495 bytes read, 1358117 more expected)', IncompleteRead(4072495 bytes read, 1358117 more expected))"
     },
     {
       "file": "vk_sup_14_trf_matter_for_05.11.26.pdf",
       "date": "2026-11-05",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "vk_sup_13_trf_matter_for_05.11.26.pdf",
@@ -109,13 +123,6 @@
       "matched": 1,
       "regex_matches": 1,
       "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_05112026.pdf",
-      "date": "2026-11-05",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -124,13 +131,26 @@
       "court": "50",
       "judge": "VIKAS MAHAJAN",
       "time": null,
-      "page": 180,
+      "page": 313,
       "context": "16        CS(COMM)-810/2025    JIOSTAR INDIA     GEETANJALI",
       "caseNo": "CS(COMM)/810/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-810/2025",
       "date": "2026-11-06",
-      "source_pdf": "combined_adv_06.11.2026.pdf"
+      "source_pdf": "c_06112026.pdf"
+    },
+    {
+      "item": "31",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 584,
+      "context": "In CS(COMM)-         V/s ABBONAMENTOIPTVIT KHAITAN & CO., ANUJ\n             1306/2025            ALIA.COM & ORS.        BERRY, GEETANJALI",
+      "caseNo": "CS(COMM)/1306/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-         V/s ABBONAMENTOIPTVIT KHAITAN & CO., ANUJ\n             1306/20",
+      "date": "2026-11-06",
+      "source_pdf": "c_06112026.pdf"
     },
     {
       "item": "7",
