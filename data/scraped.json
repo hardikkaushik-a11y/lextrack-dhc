@@ -1866,7 +1866,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:02:09.568Z",
+    "lastScraped": "2026-11-05T17:01:53.745Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2334,7 +2334,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:02:17.216Z",
+    "lastScraped": "2026-11-05T17:02:01.242Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2709,7 +2709,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:02:24.949Z",
+    "lastScraped": "2026-11-05T17:02:08.793Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3051,7 +3051,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:02:32.939Z",
+    "lastScraped": "2026-11-05T17:02:16.501Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3297,7 +3297,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:02:40.703Z",
+    "lastScraped": "2026-11-05T17:02:24.595Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3586,7 +3586,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:02:48.444Z",
+    "lastScraped": "2026-11-05T17:02:32.102Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4117,7 +4117,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:02:56.141Z",
+    "lastScraped": "2026-11-05T17:02:39.510Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5122,7 +5122,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:03:03.954Z",
+    "lastScraped": "2026-11-05T17:02:47.032Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5404,7 +5404,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:03:11.536Z",
+    "lastScraped": "2026-11-05T17:02:54.493Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5857,7 +5857,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:03:19.418Z",
+    "lastScraped": "2026-11-05T17:03:02.072Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6120,7 +6120,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:03:27.271Z",
+    "lastScraped": "2026-11-05T17:03:09.692Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6938,7 +6938,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:03:35.044Z",
+    "lastScraped": "2026-11-05T17:03:17.161Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7721,14 +7721,14 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:03:43.436Z",
+    "lastScraped": "2026-11-05T17:03:32.340Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
     "id": "m_CSCOMM_977_2025",
     "caseNo": "CS(COMM)/977/2025",
     "title": "JIOSTAR INDIA PRIVATE LIMITED VS. VEGAMOVIES.YACHTS & ORS.Advocate: PRIYANSH KOHLI",
-    "type": "other",
+    "type": "copyright",
     "stage": "filed",
     "status": "PENDING",
     "judge": null,
@@ -8002,7 +8002,18 @@
         }
       }
     ],
-    "additionalDates": [],
+    "additionalDates": [
+      {
+        "date": "2026-12-07",
+        "before": "jr",
+        "firstSeenAt": "2026-11-05T17:03:39.924Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-10-08",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1791469761_a6a93117f8384b0d_593_9772025.pdf/2026"
+        }
+      }
+    ],
     "tasks": [],
     "docs": [
       {
@@ -8041,7 +8052,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:04:35.937Z",
+    "lastScraped": "2026-11-05T17:03:39.925Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8499,7 +8510,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:04:44.286Z",
+    "lastScraped": "2026-11-05T17:03:47.558Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8808,7 +8819,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:04:59.582Z",
+    "lastScraped": "2026-11-05T17:03:55.171Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9684,7 +9695,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:05:07.807Z",
+    "lastScraped": "2026-11-05T17:04:02.785Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9875,7 +9886,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:05:16.070Z",
+    "lastScraped": "2026-11-05T17:04:10.383Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10335,7 +10346,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:05:24.077Z",
+    "lastScraped": "2026-11-05T17:04:17.911Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11313,7 +11324,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:05:32.047Z",
+    "lastScraped": "2026-11-05T17:04:25.540Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11850,7 +11861,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:05:39.898Z",
+    "lastScraped": "2026-11-05T17:04:33.111Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11965,7 +11976,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:05:47.734Z",
+    "lastScraped": "2026-11-05T17:04:40.669Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -12079,7 +12090,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-05T16:05:55.758Z",
+    "lastScraped": "2026-11-05T17:04:48.224Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
