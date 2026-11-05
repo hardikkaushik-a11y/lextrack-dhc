@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-05T11:01:48Z",
+  "scraped_at": "2026-11-05T12:01:47Z",
   "for_dates": [
     "2026-11-05",
     "2026-11-06"
@@ -17,9 +17,7 @@
     {
       "file": "vk_sup_14_trf_matter_for_05.11.26.pdf",
       "date": "2026-11-05",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "vk_sup_13_trf_matter_for_05.11.26.pdf",
