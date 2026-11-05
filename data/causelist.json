@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-05T04:01:31Z",
+  "scraped_at": "2026-11-05T05:01:49Z",
   "for_dates": [
     "2026-11-05",
     "2026-11-06"
@@ -73,7 +73,9 @@
     {
       "file": "combined_cause_list_05.11.2026.pdf",
       "date": "2026-11-05",
-      "error": "download: ('Connection broken: IncompleteRead(1559342 bytes read, 18550004 more expected)', IncompleteRead(1559342 bytes read, 18550004 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combined_advance_05112026.pdf",
@@ -102,13 +104,13 @@
       "court": "JR",
       "judge": "SWATI KATIYAR (JR)",
       "time": null,
-      "page": 361,
+      "page": 494,
       "context": "7        CS(COMM)-         JIOSTAR INDIA PRIVATE       GAURAV SARKAR,\n             756/2025          LIMITED                     SHASHANK",
       "caseNo": "CS(COMM)/756/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         JIOSTAR INDIA PRIVATE       GAURAV SARKAR,\n             756/20",
       "date": "2026-11-05",
-      "source_pdf": "combined_advance_05112026.pdf"
+      "source_pdf": "combined_cause_list_05.11.2026.pdf"
     }
   ]
 }
