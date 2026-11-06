@@ -1866,7 +1866,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:03:24.852Z",
+    "lastScraped": "2026-11-06T06:01:48.720Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2334,7 +2334,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:03:32.665Z",
+    "lastScraped": "2026-11-06T06:01:56.215Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2709,7 +2709,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:03:48.447Z",
+    "lastScraped": "2026-11-06T06:02:03.767Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3051,7 +3051,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:03:56.247Z",
+    "lastScraped": "2026-11-06T06:02:11.301Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3297,7 +3297,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:04:04.089Z",
+    "lastScraped": "2026-11-06T06:02:18.897Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3586,7 +3586,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:04:11.881Z",
+    "lastScraped": "2026-11-06T06:02:26.464Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3598,10 +3598,43 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-08-13",
+    "lastDate": "2026-11-05",
     "nextDate": "2026-11-17",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-11-05",
+        "event": "Court Order",
+        "detail": "Written statement filed/taken on record.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1793942753_c8cf14d412849c63_762_7562025.pdf/2026",
+        "orderText": "$~7 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010508622025 + CS(COMM) 756/2025 JIOSTAR INDIA PRIVATE LIMITED .....Plaintiff Through: Mr. Ishi Singh, Advocate. (VC) versus HTTPS//IPTVWORLD.IN & ORS. .....Defendants Through: Mr. Ujjwal Singh, Adv. for D-7. Mr. Namecheap, Ms. Binsy Susan, Ms. Palak Kaushal, Ms. Khushbu Turki, Advocates for D-71. (VC) Ms. Sana Banyal, Mr. Ranvir Batra, Advs. For D-86. CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 05.11.2026 1. Matter is listed for completion of pleadings. 2. The matter is already stands decreed qua defendant no. 1. 3. Summons have been issued only to defendant no. 2 by the Hon’ble Court. Ld counsel for plaintiff submits that summons were issued to other defendants as well as and some time may granted for inspecting the record. 4. Written statement filed on behalf of defendant no. 2 & 6 is on record, however replication thereto has not been filed. and plaintiff does not wish to file replication to the same. 5. Written statement filed on behalf of Defendant no. 86 is under objections. 6. Learned counsel for defendant no. 86 submits that they have This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 06/11/2026 at 11:32:34 already complied with the directions of Hon’ble Court and their compliance affidavit is also on record. Hence, defendant no. 86 may be exempted from further appearance. Ld counsel for plaintiff submits that they have no objection to the prayer made on behalf of defendant no. 86 subject to the condition that defendant no. 86 complies with any further directions passed by the Court. 7. In view of submissions made, defendant no. 86 stands exempted from further appearance subject to the condition that defendant no. 86 shall appear before the court as and when directed to do so and shall also comply with any further directions passed by the Hon’ble Court. 8. Put up for completion of pleadings on 29.01.2027. MS. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) NOVEMBER 5, 2026/NI This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 06/11/2026 at 11:32:34",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Defendant No. 86 is exempted from further appearance, subject to appearing as and when directed and complying with further directions of the Court.",
+            "Plaintiff does not wish to file replication to the written statement of Defendant Nos. 2 and 6.",
+            "Matter adjourned for completion of pleadings on 29.01.2027."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Ishi Singh",
+            "defendant": "Mr. Ujjwal Singh (D-7); Mr. Namecheap, Ms. Binsy Susan, Ms. Palak Kaushal, Ms. Khushbu Turki (D-71); Ms. Sana Banyal, Mr. Ranvir Batra (D-86)"
+          },
+          "summary": "The matter was listed for completion of pleadings. The suit already stands decreed qua Defendant No. 1, written statements of Defendant Nos. 2 and 6 are on record with no replication to be filed, and Defendant No. 86 was exempted from further appearance after submitting its compliance affidavit, with no objection from the plaintiff. The matter was adjourned to 29.01.2027 for completion of pleadings.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-11-06T06:04:47.037Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/756/2025",
+          "_orderDate": "2026-11-05"
+        }
+      },
       {
         "date": "2026-08-13",
         "event": "Court Order",
@@ -4032,6 +4065,16 @@
           "orderDate": "2026-07-15",
           "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1784194637_99f772bf12c806c4_jis_7562025.pdf/2026"
         }
+      },
+      {
+        "date": "2027-01-29",
+        "before": "jr",
+        "firstSeenAt": "2026-11-06T06:02:35.244Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-11-05",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1793942753_c8cf14d412849c63_762_7562025.pdf/2026"
+        }
       }
     ],
     "tasks": [],
@@ -4107,7 +4150,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:04:19.715Z",
+    "lastScraped": "2026-11-06T06:02:35.246Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5112,7 +5155,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:04:27.654Z",
+    "lastScraped": "2026-11-06T06:02:49.440Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5394,7 +5437,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:04:35.452Z",
+    "lastScraped": "2026-11-06T06:02:56.927Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5847,7 +5890,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:04:43.234Z",
+    "lastScraped": "2026-11-06T06:03:04.481Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6110,7 +6153,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:04:51.085Z",
+    "lastScraped": "2026-11-06T06:03:12.033Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6928,7 +6971,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:04:58.903Z",
+    "lastScraped": "2026-11-06T06:03:19.664Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7711,7 +7754,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:05:06.679Z",
+    "lastScraped": "2026-11-06T06:03:27.127Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8042,7 +8085,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:05:14.480Z",
+    "lastScraped": "2026-11-06T06:03:34.680Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8500,7 +8543,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:05:22.326Z",
+    "lastScraped": "2026-11-06T06:03:42.260Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8809,7 +8852,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:05:30.159Z",
+    "lastScraped": "2026-11-06T06:03:49.864Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9685,7 +9728,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:05:38.049Z",
+    "lastScraped": "2026-11-06T06:03:57.493Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9876,7 +9919,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:05:45.935Z",
+    "lastScraped": "2026-11-06T06:04:04.943Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10336,7 +10379,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:06:00.141Z",
+    "lastScraped": "2026-11-06T06:04:12.441Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11314,7 +11357,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:06:08.064Z",
+    "lastScraped": "2026-11-06T06:04:20.095Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11851,7 +11894,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:06:15.941Z",
+    "lastScraped": "2026-11-06T06:04:27.613Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11966,7 +12009,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:06:23.760Z",
+    "lastScraped": "2026-11-06T06:04:35.206Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -12080,7 +12123,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T05:06:31.555Z",
+    "lastScraped": "2026-11-06T06:04:42.723Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

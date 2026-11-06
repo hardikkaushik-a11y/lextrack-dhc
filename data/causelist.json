@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-11-06T05:03:04Z",
+  "scraped_at": "2026-11-06T06:01:29Z",
   "for_dates": [
     "2026-11-06",
     "2026-11-07"
   ],
   "tracked_cases": 23,
-  "matched_cases": 2,
+  "matched_cases": 1,
   "sources": [
     {
       "file": "suppl_09_06.11.2026.pdf",
@@ -87,9 +87,7 @@
     {
       "file": "c_06112026.pdf",
       "date": "2026-11-06",
-      "matched": 2,
-      "regex_matches": 2,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(16662550 bytes read, 1775662 more expected)', IncompleteRead(16662550 bytes read, 1775662 more expected))"
     },
     {
       "file": "combined_adv_06.11.2026.pdf",
@@ -105,26 +103,13 @@
       "court": "50",
       "judge": "VIKAS MAHAJAN",
       "time": null,
-      "page": 313,
+      "page": 180,
       "context": "16        CS(COMM)-810/2025    JIOSTAR INDIA     GEETANJALI",
       "caseNo": "CS(COMM)/810/2025",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-810/2025",
       "date": "2026-11-06",
-      "source_pdf": "c_06112026.pdf"
-    },
-    {
-      "item": "31",
-      "court": "JR",
-      "judge": "SWATI KATIYAR (JR)",
-      "time": null,
-      "page": 584,
-      "context": "In CS(COMM)-         V/s ABBONAMENTOIPTVIT KHAITAN & CO., ANUJ\n             1306/2025            ALIA.COM & ORS.        BERRY, GEETANJALI",
-      "caseNo": "CS(COMM)/1306/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-         V/s ABBONAMENTOIPTVIT KHAITAN & CO., ANUJ\n             1306/20",
-      "date": "2026-11-06",
-      "source_pdf": "c_06112026.pdf"
+      "source_pdf": "combined_adv_06.11.2026.pdf"
     }
   ]
 }

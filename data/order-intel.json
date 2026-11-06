@@ -7922,5 +7922,31 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1152/2025",
     "_orderDate": "2026-11-02"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1793942753_c8cf14d412849c63_762_7562025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Defendant No. 86 is exempted from further appearance, subject to appearing as and when directed and complying with further directions of the Court.",
+      "Plaintiff does not wish to file replication to the written statement of Defendant Nos. 2 and 6.",
+      "Matter adjourned for completion of pleadings on 29.01.2027."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Ishi Singh",
+      "defendant": "Mr. Ujjwal Singh (D-7); Mr. Namecheap, Ms. Binsy Susan, Ms. Palak Kaushal, Ms. Khushbu Turki (D-71); Ms. Sana Banyal, Mr. Ranvir Batra (D-86)"
+    },
+    "summary": "The matter was listed for completion of pleadings. The suit already stands decreed qua Defendant No. 1, written statements of Defendant Nos. 2 and 6 are on record with no replication to be filed, and Defendant No. 86 was exempted from further appearance after submitting its compliance affidavit, with no objection from the plaintiff. The matter was adjourned to 29.01.2027 for completion of pleadings.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-06T06:04:47.037Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/756/2025",
+    "_orderDate": "2026-11-05"
   }
 }
