@@ -1,12 +1,47 @@
 {
-  "scraped_at": "2026-11-06T06:01:29Z",
+  "scraped_at": "2026-11-06T07:01:10Z",
   "for_dates": [
     "2026-11-06",
     "2026-11-07"
   ],
   "tracked_cases": 23,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
+    {
+      "file": "jr_supply_06.11.pdf",
+      "date": "2026-11-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_10_11_trf_matter_for_06.11.26.pdf",
+      "date": "2026-11-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "jud_1_for_06.11.2026.pdf",
+      "date": "2026-11-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pro._06.11.2026_0.pdf",
+      "date": "2026-11-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_06.11.2026.pdf",
+      "date": "2026-11-06",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "suppl_09_06.11.2026.pdf",
       "date": "2026-11-06",
@@ -83,33 +118,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "c_06112026.pdf",
-      "date": "2026-11-06",
-      "error": "download: ('Connection broken: IncompleteRead(16662550 bytes read, 1775662 more expected)', IncompleteRead(16662550 bytes read, 1775662 more expected))"
-    },
-    {
-      "file": "combined_adv_06.11.2026.pdf",
-      "date": "2026-11-06",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "16",
-      "court": "50",
-      "judge": "VIKAS MAHAJAN",
-      "time": null,
-      "page": 180,
-      "context": "16        CS(COMM)-810/2025    JIOSTAR INDIA     GEETANJALI",
-      "caseNo": "CS(COMM)/810/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-810/2025",
-      "date": "2026-11-06",
-      "source_pdf": "combined_adv_06.11.2026.pdf"
-    }
-  ]
+  "entries": []
 }
