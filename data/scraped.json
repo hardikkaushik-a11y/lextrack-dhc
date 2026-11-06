@@ -1866,7 +1866,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:01:26.906Z",
+    "lastScraped": "2026-11-06T11:01:31.300Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2334,7 +2334,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:01:34.520Z",
+    "lastScraped": "2026-11-06T11:01:45.546Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2709,7 +2709,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:01:42.052Z",
+    "lastScraped": "2026-11-06T11:01:53.163Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3051,7 +3051,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:01:49.572Z",
+    "lastScraped": "2026-11-06T11:02:00.697Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3297,7 +3297,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:01:57.054Z",
+    "lastScraped": "2026-11-06T11:02:08.329Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3586,7 +3586,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:02:04.657Z",
+    "lastScraped": "2026-11-06T11:02:15.861Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4150,7 +4150,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:02:12.334Z",
+    "lastScraped": "2026-11-06T11:02:23.462Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5155,7 +5155,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:02:19.989Z",
+    "lastScraped": "2026-11-06T11:02:31.148Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5437,7 +5437,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:02:27.501Z",
+    "lastScraped": "2026-11-06T11:02:38.698Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5890,7 +5890,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:02:35.116Z",
+    "lastScraped": "2026-11-06T11:02:46.293Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5902,10 +5902,43 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-09-22",
+    "lastDate": "2026-11-06",
     "nextDate": "2027-01-19",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-11-06",
+        "event": "Court Order",
+        "detail": "Fresh I.A. 31120/2026 on behalf of the plaintiffs seeking impleadment of additional IPTV service providers and their associated domains/urls/uis engaged in infringing activities as…",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1793962888_50d4b88d9ddc6d81_762_13062025.pdf/2026",
+        "orderText": "$~31 * IN THE HIGH COURT OF DELHI AT NEW DELHI # CNR No. DLHC010984962025 + CS(COMM) 1306/2025 DAZN LIMITED & ANR. .....Plaintiffs Through: Mr. Yadinder Garg, Mr. Manish Singh & Ms. Ishi Singh, Advs. versus ABBONAMENTOIPTVITALIA.COM & ORS. .....Defendants Through: Mr. Vikrant Nilesh Goyal, Mr. Inderpreet Singh, Mr. Kunal Dixit, Advocates for Defendant No. 36. (VC) CORAM: JOINT REGISTRAR (JUDICIAL) MS. SWATI KATIYAR O R D E R % 06.11.2026 Fresh I.A. 31120/2026 on behalf of the plaintiffs seeking impleadment of additional IPTV service providers and their associated domains/urls/uis engaged in infringing activities as the defendant no. 39 to 128. 1. The plaintiff is seeking to implead additional IPTV Service providers/ Rogue Domains/ URLs/ UIs as defendant nos. 39 to 128 because they have been found to be indulging in illegally broadcasting and making available the plaintiff’s work without any due authorization from the plaintiffs. The plaintiff has relied upon order dated 08.12.2025 of Hon’ble Court, whereby the Hon’ble Court has issued dynamic injunction order in favour of the plaintiffs. The application is supported by the required affidavit. Keeping in view the contents of This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 06/11/2026 at 16:32:54 the suit and the application, the same is allowed. The proposed defendants are impleaded as defendant nos. 39 to 128. 2. The amended memo filed alongwith this IA is taken on record. Steps be taken to serve the newly impleaded defendants with summons within a week through the electronic mode only returnable on 05.02.2027. 3. IA is allowed and disposed of accordingly. MS. SWATI KATIYAR, JOINT REGISTRAR (JUDICIAL) NOVEMBER 6, 2026/NI This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 06/11/2026 at 16:32:54",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Implead the proposed additional IPTV service providers and associated domains/URLs/UIs as defendant nos. 39 to 128.",
+            "Take the amended memo filed with I.A. 31120/2026 on record.",
+            "Serve summons on the newly impleaded defendants within one week through electronic mode only, returnable on 05.02.2027."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Yadinder Garg, Mr. Manish Singh & Ms. Ishi Singh",
+            "defendant": "Mr. Vikrant Nilesh Goyal, Mr. Inderpreet Singh, Mr. Kunal Dixit (for Defendant No. 36)"
+          },
+          "summary": "The plaintiffs filed I.A. 31120/2026 seeking to implead additional IPTV service providers and their associated domains/URLs/UIs as defendant nos. 39 to 128, relying on a prior dynamic injunction order dated 08.12.2025. The Joint Registrar (Judicial) allowed the application, impleaded the proposed defendants, took the amended memo on record, and directed service of summons electronically, returnable on 05.02.2027.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-11-06T11:04:42.943Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/1306/2025",
+          "_orderDate": "2026-11-06"
+        }
+      },
       {
         "date": "2026-09-22",
         "event": "Court Order",
@@ -6134,6 +6167,16 @@
           "orderDate": "2026-09-22",
           "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1790249001_68653c8c135e5adc_593_13062025.pdf/2026"
         }
+      },
+      {
+        "date": "2027-02-05",
+        "before": "jr",
+        "firstSeenAt": "2026-11-06T11:02:55.224Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-11-06",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1793962888_50d4b88d9ddc6d81_762_13062025.pdf/2026"
+        }
       }
     ],
     "tasks": [],
@@ -6153,7 +6196,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:02:42.764Z",
+    "lastScraped": "2026-11-06T11:02:55.225Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6971,7 +7014,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:02:50.417Z",
+    "lastScraped": "2026-11-06T11:03:03.409Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7754,7 +7797,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:02:57.881Z",
+    "lastScraped": "2026-11-06T11:03:10.932Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8085,7 +8128,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:03:05.466Z",
+    "lastScraped": "2026-11-06T11:03:18.627Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8543,7 +8586,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:03:13.073Z",
+    "lastScraped": "2026-11-06T11:03:26.374Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8852,7 +8895,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:03:20.669Z",
+    "lastScraped": "2026-11-06T11:03:34.307Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9728,7 +9771,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:03:30.186Z",
+    "lastScraped": "2026-11-06T11:03:41.942Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9919,7 +9962,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:03:37.530Z",
+    "lastScraped": "2026-11-06T11:04:00.476Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10379,7 +10422,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:03:44.996Z",
+    "lastScraped": "2026-11-06T11:04:08.106Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11357,7 +11400,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:03:52.752Z",
+    "lastScraped": "2026-11-06T11:04:15.951Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11894,7 +11937,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:04:00.295Z",
+    "lastScraped": "2026-11-06T11:04:23.506Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -12009,7 +12052,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:04:07.862Z",
+    "lastScraped": "2026-11-06T11:04:31.157Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -12123,7 +12166,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T10:04:15.710Z",
+    "lastScraped": "2026-11-06T11:04:38.755Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

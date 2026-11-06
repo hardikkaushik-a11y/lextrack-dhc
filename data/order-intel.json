@@ -7948,5 +7948,31 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/756/2025",
     "_orderDate": "2026-11-05"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1793962888_50d4b88d9ddc6d81_762_13062025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Implead the proposed additional IPTV service providers and associated domains/URLs/UIs as defendant nos. 39 to 128.",
+      "Take the amended memo filed with I.A. 31120/2026 on record.",
+      "Serve summons on the newly impleaded defendants within one week through electronic mode only, returnable on 05.02.2027."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Yadinder Garg, Mr. Manish Singh & Ms. Ishi Singh",
+      "defendant": "Mr. Vikrant Nilesh Goyal, Mr. Inderpreet Singh, Mr. Kunal Dixit (for Defendant No. 36)"
+    },
+    "summary": "The plaintiffs filed I.A. 31120/2026 seeking to implead additional IPTV service providers and their associated domains/URLs/UIs as defendant nos. 39 to 128, relying on a prior dynamic injunction order dated 08.12.2025. The Joint Registrar (Judicial) allowed the application, impleaded the proposed defendants, took the amended memo on record, and directed service of summons electronically, returnable on 05.02.2027.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-06T11:04:42.943Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1306/2025",
+    "_orderDate": "2026-11-06"
   }
 }
