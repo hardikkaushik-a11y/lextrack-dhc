@@ -7974,5 +7974,29 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1306/2025",
     "_orderDate": "2026-11-06"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1793979607_1292c1be1994bad6_593_8102025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Matter adjourned and listed on 09.02.2027 as it could not be taken up today due to a Special Bench in the post-lunch session."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Priyansh Kohli, Mr. Manish Singh and Ms. Shudhata Sudhir",
+      "defendant": "Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Arjun Mookerjee, Mr. Nikhil Gupta, Mr. Yogesh Singh and Mr. Aditya Dash (for D-39); Ms. Kruttika Vijay (for D-40 & 140); Ms. Aditi Singh, GP (for D-57 & 58); Mr. Abhishek Saket, Mr. Manish Madhukar, Ms. Shahana Farah, Mr. Abhigyan, Ms. Reya Paul and Mr. Sourav Thakur (for D-1735)"
+    },
+    "summary": "The Delhi High Court could not take up CS(COMM) 810/2025 today because a Special Bench occupied the post-lunch session. The matter was accordingly adjourned and listed for 09.02.2027. No substantive relief or directions were passed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-06T16:04:46.025Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/810/2025",
+    "_orderDate": "2026-11-06"
   }
 }

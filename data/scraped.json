@@ -1866,7 +1866,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:03:16.982Z",
+    "lastScraped": "2026-11-06T16:01:33.075Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2334,7 +2334,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:03:24.467Z",
+    "lastScraped": "2026-11-06T16:01:40.780Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2709,7 +2709,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:03:32.023Z",
+    "lastScraped": "2026-11-06T16:01:48.732Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3051,7 +3051,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:03:39.665Z",
+    "lastScraped": "2026-11-06T16:01:56.358Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3297,7 +3297,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:03:47.217Z",
+    "lastScraped": "2026-11-06T16:02:04.298Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3586,7 +3586,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:03:54.689Z",
+    "lastScraped": "2026-11-06T16:02:12.228Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4150,7 +4150,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:04:08.967Z",
+    "lastScraped": "2026-11-06T16:02:19.899Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -4162,10 +4162,41 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-10-15",
+    "lastDate": "2026-11-06",
     "nextDate": "2027-01-28",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-11-06",
+        "event": "Court Order",
+        "detail": "It is not possible to take up the matter today on account of a Special Bench in the post-lunch session.",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1793979607_1292c1be1994bad6_593_8102025.pdf/2026",
+        "orderText": "$~16 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010550302025 +CS(COMM) 810/2025 and I.A. 19337/2025 and I.A. 9756/2026 JIOSTAR INDIA PRIVATE LIMITED.....Plaintiff Through:Mr. Priyansh Kohli, Mr. Manish Singh and Ms. Shudhata Sudhir, Advs. versus SERIALMAZA.MY & ORS......Defendants Through:Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Arjun Mookerjee, Mr. Nikhil Gupta, Mr. Yogesh Singh and Mr. Aditya Dash, Advs. for D-39. Ms. Kruttika Vijay, Adv. for D-40 & 140. Ms. Aditi Singh, GP for D-57 & 58. Mr. Abhishek Saket, Mr. Manish Madhukar, Ms. Shahana Farah, Mr. Abhigyan, Ms. Reya Paul and Mr. Sourav Thakur, Advs. for D-1735. CORAM: HON'BLE MR. JUSTICE VIKAS MAHAJAN O R D E R %06.11.2026 It is not possible to take up the matter today on account of a Special Bench in the post-lunch session. List on 09.02.2027. VIKAS MAHAJAN, J NOVEMBER 6, 2026 aj This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 06/11/2026 at 21:32:28",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "Matter adjourned and listed on 09.02.2027 as it could not be taken up today due to a Special Bench in the post-lunch session."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Mr. Priyansh Kohli, Mr. Manish Singh and Ms. Shudhata Sudhir",
+            "defendant": "Mr. Mrinal Ojha, Mr. Debarshi Dutta, Mr. Arjun Mookerjee, Mr. Nikhil Gupta, Mr. Yogesh Singh and Mr. Aditya Dash (for D-39); Ms. Kruttika Vijay (for D-40 & 140); Ms. Aditi Singh, GP (for D-57 & 58); Mr. Abhishek Saket, Mr. Manish Madhukar, Ms. Shahana Farah, Mr. Abhigyan, Ms. Reya Paul and Mr. Sourav Thakur (for D-1735)"
+          },
+          "summary": "The Delhi High Court could not take up CS(COMM) 810/2025 today because a Special Bench occupied the post-lunch session. The matter was accordingly adjourned and listed for 09.02.2027. No substantive relief or directions were passed.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-11-06T16:04:46.025Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/810/2025",
+          "_orderDate": "2026-11-06"
+        }
+      },
       {
         "date": "2026-10-15",
         "event": "Court Order",
@@ -5024,6 +5055,16 @@
           "orderDate": "2026-10-15",
           "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1792062153_19244f1bc2971021_762_8102025.pdf/2026"
         }
+      },
+      {
+        "date": "2027-02-09",
+        "before": "jr",
+        "firstSeenAt": "2026-11-06T16:02:29.210Z",
+        "source": {
+          "kind": "order-pdf",
+          "orderDate": "2026-11-06",
+          "orderUrl": "https://delhihighcourt.nic.in/app/showlogo/1793979607_1292c1be1994bad6_593_8102025.pdf/2026"
+        }
       }
     ],
     "tasks": [],
@@ -5155,7 +5196,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:04:23.062Z",
+    "lastScraped": "2026-11-06T16:02:29.220Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5437,7 +5478,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:04:30.482Z",
+    "lastScraped": "2026-11-06T16:02:37.198Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5890,7 +5931,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:04:37.933Z",
+    "lastScraped": "2026-11-06T16:02:45.103Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6196,7 +6237,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:04:45.485Z",
+    "lastScraped": "2026-11-06T16:02:53.063Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7014,7 +7055,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:04:52.967Z",
+    "lastScraped": "2026-11-06T16:03:01.062Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7797,7 +7838,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:05:07.188Z",
+    "lastScraped": "2026-11-06T16:03:15.393Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8128,7 +8169,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:05:14.780Z",
+    "lastScraped": "2026-11-06T16:03:23.274Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8586,7 +8627,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:05:22.299Z",
+    "lastScraped": "2026-11-06T16:03:31.309Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8895,7 +8936,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:05:30.051Z",
+    "lastScraped": "2026-11-06T16:03:39.191Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9771,7 +9812,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:05:37.556Z",
+    "lastScraped": "2026-11-06T16:03:47.216Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9962,7 +10003,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:05:45.178Z",
+    "lastScraped": "2026-11-06T16:03:56.112Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10422,7 +10463,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:05:52.662Z",
+    "lastScraped": "2026-11-06T16:04:03.513Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11400,7 +11441,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:06:00.452Z",
+    "lastScraped": "2026-11-06T16:04:11.533Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11937,7 +11978,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:06:08.279Z",
+    "lastScraped": "2026-11-06T16:04:19.467Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -12052,7 +12093,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:06:16.080Z",
+    "lastScraped": "2026-11-06T16:04:27.172Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -12166,7 +12207,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-06T15:06:23.578Z",
+    "lastScraped": "2026-11-06T16:04:41.540Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]
