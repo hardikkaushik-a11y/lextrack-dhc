@@ -1,26 +1,11 @@
 {
-  "scraped_at": "2026-11-10T18:01:02Z",
+  "scraped_at": "2026-11-10T19:01:04Z",
   "for_dates": [
-    "2026-11-10",
-    "2026-11-11"
+    "2026-11-11",
+    "2026-11-12"
   ],
   "tracked_cases": 23,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "vac_list_for_10.11.2026.pdf",
-      "date": "2026-11-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_cause_list_for_10.11.26.pdf",
-      "date": "2026-11-10",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
