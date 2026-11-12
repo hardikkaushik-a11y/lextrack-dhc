@@ -1,11 +1,19 @@
 {
-  "scraped_at": "2026-11-12T07:01:03Z",
+  "scraped_at": "2026-11-12T08:01:04Z",
   "for_dates": [
     "2026-11-12",
     "2026-11-13"
   ],
   "tracked_cases": 23,
   "matched_cases": 0,
-  "sources": [],
+  "sources": [
+    {
+      "file": "suple_list_for_12112026.pdf",
+      "date": "2026-11-12",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    }
+  ],
   "entries": []
 }
