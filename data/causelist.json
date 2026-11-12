@@ -1,26 +1,11 @@
 {
-  "scraped_at": "2026-11-12T18:01:06Z",
+  "scraped_at": "2026-11-12T19:01:03Z",
   "for_dates": [
-    "2026-11-12",
-    "2026-11-13"
+    "2026-11-13",
+    "2026-11-14"
   ],
   "tracked_cases": 23,
   "matched_cases": 0,
-  "sources": [
-    {
-      "file": "sup_org_12112026_0.pdf",
-      "date": "2026-11-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suple_list_for_12112026_0.pdf",
-      "date": "2026-11-12",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    }
-  ],
+  "sources": [],
   "entries": []
 }
