@@ -1,11 +1,19 @@
 {
-  "scraped_at": "2026-11-13T07:01:04Z",
+  "scraped_at": "2026-11-13T08:01:03Z",
   "for_dates": [
     "2026-11-13",
     "2026-11-14"
   ],
   "tracked_cases": 23,
   "matched_cases": 0,
-  "sources": [],
+  "sources": [
+    {
+      "file": "vk_cause_list-1_for_13.11.26.pdf",
+      "date": "2026-11-13",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    }
+  ],
   "entries": []
 }
