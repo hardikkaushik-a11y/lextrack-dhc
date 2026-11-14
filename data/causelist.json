@@ -1,11 +1,82 @@
 {
-  "scraped_at": "2026-11-14T18:01:00Z",
+  "scraped_at": "2026-11-14T19:01:40Z",
   "for_dates": [
-    "2026-11-14",
-    "2026-11-15"
+    "2026-11-15",
+    "2026-11-16"
   ],
   "tracked_cases": 23,
   "matched_cases": 0,
-  "sources": [],
+  "sources": [
+    {
+      "file": "last_sup_for_16.11.26.pdf",
+      "date": "2026-11-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_16.11.2026.pdf",
+      "date": "2026-11-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_16.11.2026.pdf",
+      "date": "2026-11-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "j_16112026.pdf",
+      "date": "2026-11-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_16112026.pdf",
+      "date": "2026-11-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_16112026.pdf",
+      "date": "2026-11-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_16.11.2026.pdf",
+      "date": "2026-11-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl16112026.pdf",
+      "date": "2026-11-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_16112026.pdf",
+      "date": "2026-11-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_16.11.2026.pdf",
+      "date": "2026-11-16",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    }
+  ],
   "entries": []
 }
