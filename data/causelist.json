@@ -1,12 +1,68 @@
 {
-  "scraped_at": "2026-11-15T18:02:02Z",
+  "scraped_at": "2026-11-15T19:01:55Z",
   "for_dates": [
-    "2026-11-15",
-    "2026-11-16"
+    "2026-11-16",
+    "2026-11-17"
   ],
   "tracked_cases": 23,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "jud_17112026.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "mediation_17112026m.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "company_list_17112026.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "cause_list_for_17.11.2026.pdf",
+      "date": "2026-11-17",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_17.11.2026.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_original_17.11.2026.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl17112026.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_advance_17112026.pdf",
+      "date": "2026-11-17",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "last_sup_for_16.11.26.pdf",
       "date": "2026-11-16",
@@ -66,9 +122,7 @@
     {
       "file": "c_16112026.pdf",
       "date": "2026-11-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(3511598 bytes read, 15070014 more expected)', IncompleteRead(3511598 bytes read, 15070014 more expected))"
     },
     {
       "file": "combined_adv_list_16.11.2026.pdf",
@@ -78,5 +132,19 @@
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "18",
+      "court": "50",
+      "judge": "VIKAS MAHAJAN",
+      "time": null,
+      "page": 333,
+      "context": "In CS(COMM)-      V/s HTTPS//IPTVWORL VARUN PATHAK,\n             756/2025          D.IN & ORS.         SUBHASHISH KUMAR,",
+      "caseNo": "CS(COMM)/756/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-      V/s HTTPS//IPTVWORL VARUN PATHAK,\n             756/2025",
+      "date": "2026-11-17",
+      "source_pdf": "cause_list_for_17.11.2026.pdf"
+    }
+  ]
 }
