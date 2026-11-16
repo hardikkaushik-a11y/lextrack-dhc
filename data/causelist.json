@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-16T08:02:05Z",
+  "scraped_at": "2026-11-16T09:01:32Z",
   "for_dates": [
     "2026-11-16",
     "2026-11-17"
@@ -7,6 +7,13 @@
   "tracked_cases": 23,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "jud_c-230_17112026.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "jud_17112026.pdf",
       "date": "2026-11-17",
@@ -114,20 +121,6 @@
     },
     {
       "file": "rl16112026.pdf",
-      "date": "2026-11-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_16112026.pdf",
-      "date": "2026-11-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_16.11.2026.pdf",
       "date": "2026-11-16",
       "matched": 0,
       "regex_matches": 0,
