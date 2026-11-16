@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-11-16T18:01:39Z",
+  "scraped_at": "2026-11-16T19:01:29Z",
   "for_dates": [
-    "2026-11-16",
-    "2026-11-17"
+    "2026-11-17",
+    "2026-11-18"
   ],
   "tracked_cases": 23,
   "matched_cases": 1,
@@ -73,7 +73,9 @@
     {
       "file": "deletion_note_17.11.2026.pdf",
       "date": "2026-11-17",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_original_17.11.2026.pdf",
@@ -94,34 +96,6 @@
       "date": "2026-11-17",
       "matched": 1,
       "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "last_sup_for_16.11.26.pdf",
-      "date": "2026-11-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_16.11.2026.pdf",
-      "date": "2026-11-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_16.11.2026.pdf",
-      "date": "2026-11-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_16112026.pdf",
-      "date": "2026-11-16",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
