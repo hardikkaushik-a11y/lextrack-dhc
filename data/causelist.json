@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-16T02:01:49Z",
+  "scraped_at": "2026-11-16T03:01:55Z",
   "for_dates": [
     "2026-11-16",
     "2026-11-17"
@@ -101,7 +101,9 @@
     {
       "file": "new_c_16112026.pdf",
       "date": "2026-11-16",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "finals_16.11.2026.pdf",
@@ -120,9 +122,7 @@
     {
       "file": "c_16112026.pdf",
       "date": "2026-11-16",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(5710622 bytes read, 12870990 more expected)', IncompleteRead(5710622 bytes read, 12870990 more expected))"
     },
     {
       "file": "combined_adv_list_16.11.2026.pdf",
