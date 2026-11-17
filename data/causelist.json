@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-17T12:01:22Z",
+  "scraped_at": "2026-11-17T13:01:26Z",
   "for_dates": [
     "2026-11-17",
     "2026-11-18"
@@ -8,10 +8,22 @@
   "matched_cases": 1,
   "sources": [
     {
+      "file": "combined_cause_list_18.11.2026.pdf",
+      "date": "2026-11-18",
+      "error": "download: ('Connection broken: IncompleteRead(345430 bytes read, 18557135 more expected)', IncompleteRead(345430 bytes read, 18557135 more expected))"
+    },
+    {
       "file": "combined_adv_list_18.11.2026.pdf",
       "date": "2026-11-18",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_11_for_17.11.26.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -58,20 +70,6 @@
     },
     {
       "file": "deletion_note_17.11.2026_0.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_jud_c-230_17112026.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_17.11.2026.pdf",
       "date": "2026-11-17",
       "matched": 0,
       "regex_matches": 0,
