@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-17T13:01:26Z",
+  "scraped_at": "2026-11-17T14:01:46Z",
   "for_dates": [
     "2026-11-17",
     "2026-11-18"
@@ -8,9 +8,60 @@
   "matched_cases": 1,
   "sources": [
     {
+      "file": "deletion_note_18.11.2026.pdf",
+      "date": "2026-11-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_fnl_for_18.11.26.pdf",
+      "date": "2026-11-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "db_parcha_for_pronouncement_for_18.11.2026_hmj_subramonium.pdf",
+      "date": "2026-11-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_18.11.2026.pdf",
+      "date": "2026-11-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_18.11.2026.pdf",
+      "date": "2026-11-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl18112026.pdf",
+      "date": "2026-11-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combibned_sup_1_18.11.2026.pdf",
+      "date": "2026-11-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
       "file": "combined_cause_list_18.11.2026.pdf",
       "date": "2026-11-18",
-      "error": "download: ('Connection broken: IncompleteRead(345430 bytes read, 18557135 more expected)', IncompleteRead(345430 bytes read, 18557135 more expected))"
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
     },
     {
       "file": "combined_adv_list_18.11.2026.pdf",
@@ -53,27 +104,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_17.11.2026.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._17.11.2026.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_17.11.2026_0.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -82,13 +112,13 @@
       "court": "51",
       "judge": "TEJAS KARIA",
       "time": null,
-      "page": 316,
+      "page": 448,
       "context": "18        CS(COMM)-         SONY PICTURES       MANISH SINGH\n             753/2026          NETWORKS INDIA",
       "caseNo": "CS(COMM)/753/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         SONY PICTURES       MANISH SINGH\n             753/2026",
       "date": "2026-11-18",
-      "source_pdf": "combined_adv_list_18.11.2026.pdf"
+      "source_pdf": "combined_cause_list_18.11.2026.pdf"
     }
   ]
 }
