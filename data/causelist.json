@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-11-17T18:01:42Z",
+  "scraped_at": "2026-11-17T19:01:55Z",
   "for_dates": [
-    "2026-11-17",
-    "2026-11-18"
+    "2026-11-18",
+    "2026-11-19"
   ],
   "tracked_cases": 24,
   "matched_cases": 1,
@@ -75,41 +75,6 @@
       "date": "2026-11-18",
       "matched": 1,
       "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_11_for_17.11.26.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deleteion_86_17.11.2026.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_9_10_for_17.11.26.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_suppl._judicial_17112026.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_17.11.2026_1.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
       "norm_matches": 0
     }
   ],
