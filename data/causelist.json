@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-17T08:01:24Z",
+  "scraped_at": "2026-11-17T09:01:31Z",
   "for_dates": [
     "2026-11-17",
     "2026-11-18"
@@ -12,6 +12,13 @@
       "date": "2026-11-18",
       "matched": 1,
       "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "deleteion_86_17.11.2026.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
       "norm_matches": 0
     },
     {
@@ -65,13 +72,6 @@
     },
     {
       "file": "pla_17.11.2026.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_jud_17112026_c-274.pdf",
       "date": "2026-11-17",
       "matched": 0,
       "regex_matches": 0,
