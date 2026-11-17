@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-17T06:01:27Z",
+  "scraped_at": "2026-11-17T07:01:58Z",
   "for_dates": [
     "2026-11-17",
     "2026-11-18"
@@ -7,6 +7,27 @@
   "tracked_cases": 24,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "combined_adv_list_18.11.2026.pdf",
+      "date": "2026-11-18",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "today_jr_suppl._judicial_17112026.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_list_17.11.2026_1.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "registrar_supply_list_17.11.2026.pdf",
       "date": "2026-11-17",
@@ -69,61 +90,21 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "company_list_17112026.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "cause_list_for_17.11.2026.pdf",
-      "date": "2026-11-17",
-      "error": "download: ('Connection broken: IncompleteRead(4939392 bytes read, 3398611 more expected)', IncompleteRead(4939392 bytes read, 3398611 more expected))"
-    },
-    {
-      "file": "deletion_note_17.11.2026.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_original_17.11.2026.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl17112026.pdf",
-      "date": "2026-11-17",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_17112026.pdf",
-      "date": "2026-11-17",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
   "entries": [
     {
       "item": "18",
-      "court": "50",
-      "judge": "VIKAS MAHAJAN",
+      "court": "51",
+      "judge": "TEJAS KARIA",
       "time": null,
-      "page": 333,
-      "context": "In CS(COMM)-      V/s HTTPS//IPTVWORL VARUN PATHAK,\n             756/2025          D.IN & ORS.         SUBHASHISH KUMAR,",
-      "caseNo": "CS(COMM)/756/2025",
+      "page": 316,
+      "context": "18        CS(COMM)-         SONY PICTURES       MANISH SINGH\n             753/2026          NETWORKS INDIA",
+      "caseNo": "CS(COMM)/753/2026",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-      V/s HTTPS//IPTVWORL VARUN PATHAK,\n             756/2025",
-      "date": "2026-11-17",
-      "source_pdf": "combined_advance_17112026.pdf"
+      "matched_on": "CS(COMM)-         SONY PICTURES       MANISH SINGH\n             753/2026",
+      "date": "2026-11-18",
+      "source_pdf": "combined_adv_list_18.11.2026.pdf"
     }
   ]
 }
