@@ -7998,5 +7998,66 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/810/2025",
     "_orderDate": "2026-11-06"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1786356253_85e00609a686c93b_762_7532026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Written statements / replications to be filed as per rules.",
+      "Matter put up for completion of pleadings on 08.12.2026."
+    ],
+    "citations": [
+      "Order 39 Rule 3, Code of Civil Procedure 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Ms. Deasha Mehta",
+      "defendant": null
+    },
+    "summary": "The matter was listed for completion of pleadings. The court noted service on several defendants through ordinary mode and via email on defendants 1 to 36, with defendant no. 37 being John Doe, and an affidavit of compliance under Order 39 Rule 3 CPC on record. The court directed filing of written statements/replications as per rules and adjourned the matter to 08.12.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "medium"
+    },
+    "_extractedAt": "2026-11-17T05:48:40.088Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/753/2026",
+    "_orderDate": "2026-08-10"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1784657081_6699190b4bb42039_jis_7532026.pdf/2026": {
+    "classification": "interim",
+    "reliefGranted": "Exemption granted from pre-institution mediation, from serving Section 80 CPC notices on Defendants 27, 30, 35 and 36, and time allowed to file additional documents and deposit court fee; notice issued on the interim injunction application, returnable 18.11.2026.",
+    "costsAwarded": null,
+    "directions": [
+      "Issue summons to the Defendants through all permissible modes, returnable before the learned Joint Registrar on 10.08.2026.",
+      "Defendants to file written statements within 30 days of receipt of summons along with affidavit of admission/denial of the Plaintiff's documents.",
+      "Plaintiff may file replications within 30 days of receipt of written statements along with affidavits of admission/denial of the Defendants' documents.",
+      "Parties seeking inspection of documents to do so within the timeline prescribed in the Delhi High Court (Original Side) Rules, 2018.",
+      "Issue notice on I.A. 18673/2026 to the Defendants through all permissible modes, returnable before Court on 18.11.2026."
+    ],
+    "citations": [
+      "Section 12A(1), Commercial Courts Act 2015",
+      "Section 80, Code of Civil Procedure 1908",
+      "Order XI Rule 1(4), Code of Civil Procedure 1908",
+      "Section 149, Code of Civil Procedure 1908",
+      "Order XXXIX Rules 1 and 2, Code of Civil Procedure 1908"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Sidharth Chopra, Mr. Yatinder Garg, Mr. Akshay Maloo, Ms. Ishi Singh and Mr. Manish Singh",
+      "defendant": null
+    },
+    "summary": "The Court allowed the Plaintiff's applications for exemption from pre-institution mediation, from serving Section 80 CPC notices on certain government/telecom defendants, for time to file additional documents, and for time to deposit court fee. The plaint was registered as a suit, summons were issued to the Defendants returnable before the Joint Registrar on 10.08.2026, and notice was issued on the application for ex parte ad interim injunction returnable on 18.11.2026.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-17T05:48:40.088Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/753/2026",
+    "_orderDate": "2026-07-20"
   }
 }

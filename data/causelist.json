@@ -1,12 +1,19 @@
 {
-  "scraped_at": "2026-11-17T05:01:40Z",
+  "scraped_at": "2026-11-17T05:45:00Z",
   "for_dates": [
     "2026-11-17",
     "2026-11-18"
   ],
-  "tracked_cases": 23,
+  "tracked_cases": 24,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "pro._17.11.2026.pdf",
+      "date": "2026-11-17",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_17.11.2026_0.pdf",
       "date": "2026-11-17",
