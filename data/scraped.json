@@ -1866,7 +1866,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:03:40.446Z",
+    "lastScraped": "2026-11-18T12:02:05.653Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2334,7 +2334,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:03:48.290Z",
+    "lastScraped": "2026-11-18T12:02:13.191Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -2709,7 +2709,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:03:56.037Z",
+    "lastScraped": "2026-11-18T12:02:20.794Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3051,7 +3051,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:04:03.829Z",
+    "lastScraped": "2026-11-18T12:02:28.625Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3297,7 +3297,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:04:12.457Z",
+    "lastScraped": "2026-11-18T12:02:36.379Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3586,7 +3586,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:04:21.442Z",
+    "lastScraped": "2026-11-18T12:02:43.939Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -3598,10 +3598,41 @@
     "status": "PENDING",
     "judge": null,
     "client": null,
-    "lastDate": "2026-11-05",
+    "lastDate": "2026-11-17",
     "nextDate": "2027-01-29",
     "notes": null,
     "timeline": [
+      {
+        "date": "2026-11-17",
+        "event": "Court Order",
+        "detail": "I.A. 17944/2025 and I.A. 22889/2025 1.Ms. Ishi Singh, learned counsel for the plaintiff, submits that pleadings in the matter are yet to be completed. 2.Accordingly, prayer is made…",
+        "orderLink": "https://delhihighcourt.nic.in/app/showlogo/1795000056_13f32008d3b9b1e8_593_7562025.pdf/2026",
+        "orderText": "$~18 *IN THE HIGH COURT OF DELHI AT NEW DELHI #CNR No. DLHC010508622025 +CS(COMM) 756/2025 JIOSTAR INDIA PRIVATE LIMITED.....Plaintiff Through:Ms. Ishi Singh, Advocate. versus HTTPS//IPTVWORLD.IN & ORS......Defendants Through:Mr. Avish Sharma and Ms. Mehak Thappa, Advocates for D2. Mr.MayankMikhilMukherjee, Advocate for D7. Ms. Binsy Susan, Ms. Palak Kaushal and Ms. Khushbu Turki, Advocates for D71. CORAM: HON'BLE MR. JUSTICE VIKAS MAHAJAN O R D E R %17.11.2026 I.A. 17944/2025 and I.A. 22889/2025 1.Ms. Ishi Singh, learned counsel for the plaintiff, submits that pleadings in the matter are yet to be completed. 2.Accordingly, prayer is made to list the matter before the learned Joint Registrar on the date already fixed. 3.In view of the above, list before the learned Joint Registrar on 29.01.2027, the date already fixed. VIKAS MAHAJAN, J NOVEMBER 17, 2026/jg/sj This is a digitally signed order. The authenticity of the order can be re-verified from Delhi High Court Order Portal by scanning the QR code shown above. The Order is downloaded from the DHC Server on 18/11/2026 at 17:32:52",
+        "intelligence": {
+          "classification": "procedural",
+          "reliefGranted": null,
+          "costsAwarded": null,
+          "directions": [
+            "List the matter before the learned Joint Registrar on 29.01.2027, the date already fixed."
+          ],
+          "citations": [],
+          "counsel": {
+            "plaintiff": "Ms. Ishi Singh",
+            "defendant": "Mr. Avish Sharma, Ms. Mehak Thappa (for D2); Mr. Mayank Mikhil Mukherjee (for D7); Ms. Binsy Susan, Ms. Palak Kaushal, Ms. Khushbu Turki (for D71)"
+          },
+          "summary": "Counsel for the plaintiff submitted that pleadings in the matter are yet to be completed and sought listing before the learned Joint Registrar on the date already fixed. The Court accordingly directed the matter to be listed before the learned Joint Registrar on 29.01.2027. No relief or costs were awarded.",
+          "confidence": {
+            "reliefGranted": "high",
+            "directions": "high",
+            "citations": "high"
+          },
+          "_extractedAt": "2026-11-18T12:05:07.848Z",
+          "_model": "deepseek-chat",
+          "_schema": "v1",
+          "_caseNo": "CS(COMM)/756/2025",
+          "_orderDate": "2026-11-17"
+        }
+      },
       {
         "date": "2026-11-05",
         "event": "Court Order",
@@ -4140,7 +4171,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:04:29.226Z",
+    "lastScraped": "2026-11-18T12:02:52.865Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5176,7 +5207,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:04:37.088Z",
+    "lastScraped": "2026-11-18T12:03:01.038Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5458,7 +5489,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:04:44.926Z",
+    "lastScraped": "2026-11-18T12:03:08.620Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -5922,7 +5953,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:04:52.686Z",
+    "lastScraped": "2026-11-18T12:03:16.177Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -6228,7 +6259,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:05:00.485Z",
+    "lastScraped": "2026-11-18T12:03:23.825Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7046,7 +7077,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:05:08.275Z",
+    "lastScraped": "2026-11-18T12:03:33.106Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -7829,7 +7860,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:05:16.069Z",
+    "lastScraped": "2026-11-18T12:03:40.587Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8160,7 +8191,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:05:23.873Z",
+    "lastScraped": "2026-11-18T12:03:48.123Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8618,7 +8649,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:05:31.722Z",
+    "lastScraped": "2026-11-18T12:03:55.692Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -8927,7 +8958,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:05:39.598Z",
+    "lastScraped": "2026-11-18T12:04:03.306Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9803,7 +9834,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:05:47.456Z",
+    "lastScraped": "2026-11-18T12:04:10.905Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -9994,7 +10025,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:05:55.298Z",
+    "lastScraped": "2026-11-18T12:04:18.289Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -10464,7 +10495,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:06:03.098Z",
+    "lastScraped": "2026-11-18T12:04:25.846Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11442,7 +11473,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:06:10.984Z",
+    "lastScraped": "2026-11-18T12:04:33.612Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -11979,7 +12010,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:06:18.838Z",
+    "lastScraped": "2026-11-18T12:04:41.105Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -12094,7 +12125,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:06:26.650Z",
+    "lastScraped": "2026-11-18T12:04:48.701Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -12208,7 +12239,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:06:36.066Z",
+    "lastScraped": "2026-11-18T12:04:56.348Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   },
   {
@@ -12339,7 +12370,7 @@
         "size": "—"
       }
     ],
-    "lastScraped": "2026-11-18T11:06:43.862Z",
+    "lastScraped": "2026-11-18T12:05:03.971Z",
     "_scraperVersion": "v11-jr-default-2026-05-14"
   }
 ]

@@ -8059,5 +8059,29 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/753/2026",
     "_orderDate": "2026-07-20"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1795000056_13f32008d3b9b1e8_593_7562025.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter before the learned Joint Registrar on 29.01.2027, the date already fixed."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Mr. Avish Sharma, Ms. Mehak Thappa (for D2); Mr. Mayank Mikhil Mukherjee (for D7); Ms. Binsy Susan, Ms. Palak Kaushal, Ms. Khushbu Turki (for D71)"
+    },
+    "summary": "Counsel for the plaintiff submitted that pleadings in the matter are yet to be completed and sought listing before the learned Joint Registrar on the date already fixed. The Court accordingly directed the matter to be listed before the learned Joint Registrar on 29.01.2027. No relief or costs were awarded.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-18T12:05:07.848Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/756/2025",
+    "_orderDate": "2026-11-17"
   }
 }
