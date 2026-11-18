@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-18T06:01:48Z",
+  "scraped_at": "2026-11-18T07:01:40Z",
   "for_dates": [
     "2026-11-18",
     "2026-11-19"
@@ -7,6 +7,20 @@
   "tracked_cases": 24,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "registrar_supply_list_18.11.2026_1.pdf",
+      "date": "2026-11-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "sup_jud_18112026_0.pdf",
+      "date": "2026-11-18",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_targeeted_18.11.2026.pdf",
       "date": "2026-11-18",
