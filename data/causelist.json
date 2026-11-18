@@ -1,12 +1,40 @@
 {
-  "scraped_at": "2026-11-18T14:01:56Z",
+  "scraped_at": "2026-11-18T15:01:50Z",
   "for_dates": [
     "2026-11-18",
     "2026-11-19"
   ],
   "tracked_cases": 24,
-  "matched_cases": 1,
+  "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_targetted_19112026.pdf",
+      "date": "2026-11-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_19112026.pdf",
+      "date": "2026-11-19",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_19.11.2026.pdf",
+      "date": "2026-11-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_19112026.pdf",
+      "date": "2026-11-19",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
     {
       "file": "j_19112026.pdf",
       "date": "2026-11-19",
@@ -90,49 +118,34 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "rl18112026.pdf",
-      "date": "2026-11-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combibned_sup_1_18.11.2026.pdf",
-      "date": "2026-11-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_18.11.2026.pdf",
-      "date": "2026-11-18",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_18.11.2026.pdf",
-      "date": "2026-11-18",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
     }
   ],
   "entries": [
     {
-      "item": "18",
-      "court": "51",
-      "judge": "TEJAS KARIA",
+      "item": "39",
+      "court": "50",
+      "judge": "VIKAS MAHAJAN",
       "time": null,
-      "page": 448,
-      "context": "18        CS(COMM)-         SONY PICTURES       MANISH SINGH\n             753/2026          NETWORKS INDIA",
-      "caseNo": "CS(COMM)/753/2026",
+      "page": 38,
+      "context": "In CS(COMM)-        PRIVATE LIMITED &\n             256/2026            ANR.",
+      "caseNo": "CS(COMM)/256/2026",
       "match_type": "case_no",
-      "matched_on": "CS(COMM)-         SONY PICTURES       MANISH SINGH\n             753/2026",
-      "date": "2026-11-18",
-      "source_pdf": "combined_cause_list_18.11.2026.pdf"
+      "matched_on": "CS(COMM)-        PRIVATE LIMITED &\n             256/2026",
+      "date": "2026-11-19",
+      "source_pdf": "new_c_19112026.pdf"
+    },
+    {
+      "item": "36",
+      "court": "49",
+      "judge": "PURUSHAINDRA KUMAR KAURAV",
+      "time": null,
+      "page": 650,
+      "context": "In CS(COMM)-       PRIVATE LIMITED     VIJAY, ISHI SINGH,\n             1083/2026          V/s SSRMOVIES.STYLE LAKSHMI KRUTTIKA",
+      "caseNo": "CS(COMM)/1083/2026",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)-       PRIVATE LIMITED     VIJAY, ISHI SINGH,\n             1083/2026",
+      "date": "2026-11-19",
+      "source_pdf": "c_19112026.pdf"
     }
   ]
 }
