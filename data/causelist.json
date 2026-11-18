@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-11-18T17:01:51Z",
+  "scraped_at": "2026-11-18T18:01:36Z",
   "for_dates": [
     "2026-11-18",
     "2026-11-19"
   ],
   "tracked_cases": 24,
-  "matched_cases": 2,
+  "matched_cases": 1,
   "sources": [
     {
       "file": "combined_targetted_19112026.pdf",
@@ -31,9 +31,7 @@
     {
       "file": "c_19112026.pdf",
       "date": "2026-11-19",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(12895190 bytes read, 6451102 more expected)', IncompleteRead(12895190 bytes read, 6451102 more expected))"
     },
     {
       "file": "j_19112026.pdf",
@@ -133,19 +131,6 @@
       "matched_on": "CS(COMM)-        PRIVATE LIMITED &\n             256/2026",
       "date": "2026-11-19",
       "source_pdf": "new_c_19112026.pdf"
-    },
-    {
-      "item": "36",
-      "court": "49",
-      "judge": "PURUSHAINDRA KUMAR KAURAV",
-      "time": null,
-      "page": 650,
-      "context": "In CS(COMM)-       PRIVATE LIMITED     VIJAY, ISHI SINGH,\n             1083/2026          V/s SSRMOVIES.STYLE LAKSHMI KRUTTIKA",
-      "caseNo": "CS(COMM)/1083/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-       PRIVATE LIMITED     VIJAY, ISHI SINGH,\n             1083/2026",
-      "date": "2026-11-19",
-      "source_pdf": "c_19112026.pdf"
     }
   ]
 }
