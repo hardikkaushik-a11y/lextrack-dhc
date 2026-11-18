@@ -451,13 +451,13 @@ function normaliseTextDate(raw) {
   const s = raw.trim();
   let m;
   // "30 April 2026" / "30th April, 2026" / "30-Apr-2026" / "30 April, 2026"
-  m = s.match(/^(\d{1,2})(?:st|nd|rd|th)?[\s\-,]+([A-Za-z]+)[\s\-,]+(\d{4})$/i);
+  m = s.match(/^(\d{1,2})\s*(?:st|nd|rd|th)?[\s\-,]+([A-Za-z]+)[\s\-,]+(\d{4})$/i);
   if (m) {
     const mo = TEXT_MONTHS[m[2].toLowerCase()];
     if (mo) return `${m[3]}-${String(mo).padStart(2,'0')}-${m[1].padStart(2,'0')}`;
   }
   // "April 30, 2026" / "April 30 2026" / "Apr 30, 2026"
-  m = s.match(/^([A-Za-z]+)[\s,]+(\d{1,2})(?:st|nd|rd|th)?[\s,]+(\d{4})$/i);
+  m = s.match(/^([A-Za-z]+)[\s,]+(\d{1,2})\s*(?:st|nd|rd|th)?[\s,]+(\d{4})$/i);
   if (m) {
     const mo = TEXT_MONTHS[m[1].toLowerCase()];
     if (mo) return `${m[3]}-${String(mo).padStart(2,'0')}-${m[2].padStart(2,'0')}`;
@@ -503,8 +503,11 @@ function extractListingDates(orderText, orderDateISO) {
   // in older or formal orders. Each capture group ends up in m[1].
   const numericDate = String.raw`\d{1,2}[\.\-/]\d{1,2}[\.\-/]\d{4}`;
   const monthName   = String.raw`(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*`;
-  const textDateA   = String.raw`\d{1,2}(?:st|nd|rd|th)?[\s\-,]+` + monthName + String.raw`[\s\-,]+\d{4}`;
-  const textDateB   = monthName + String.raw`[\s,]+\d{1,2}(?:st|nd|rd|th)?[\s,]+\d{4}`;
+  // \s* before the suffix: pdf text extraction renders the superscript as
+  // "19 th November 2026" (space before th). Missing this dropped a real
+  // hearing (CS(COMM)/256/2026, "Re-notify before court on 19 th November").
+  const textDateA   = String.raw`\d{1,2}\s*(?:st|nd|rd|th)?[\s\-,]+` + monthName + String.raw`[\s\-,]+\d{4}`;
+  const textDateB   = monthName + String.raw`[\s,]+\d{1,2}\s*(?:st|nd|rd|th)?[\s,]+\d{4}`;
   const datePat     = String.raw`(${numericDate}|${textDateA}|${textDateB})`;
 
   // Phrases that introduce a forward listing. Indian court orders use
@@ -955,6 +958,22 @@ async function buildCaseObject(parsed, row, history, priorEntry) {
     }
   }
   additionalDates.sort((a, b) => a.date.localeCompare(b.date));
+  // Safety net: any forward date in an order that no pattern captured is a
+  // possibly-missed hearing. Surface it loudly in the sync log (grep
+  // "UNCAPTURED") instead of dropping it silently.
+  {
+    const anyDate = /\b(\d{1,2}\s*(?:st|nd|rd|th)?[\s\-,.\/]+(?:\d{1,2}|(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*)[\s\-,.\/]+\d{4})\b/gi;
+    const have = new Set(additionalDates.map(d => d.date));
+    for (const o of orders) {
+      for (const m of (o.orderText || '').matchAll(anyDate)) {
+        const iso = normaliseDate(m[1].replace(/\s+/g, '')) || normaliseTextDate(m[1]);
+        if (iso && iso >= todayISO && iso > (o.date || '') && !have.has(iso)) {
+          console.warn(`  [listings] UNCAPTURED forward date ${iso} in order ${o.date}: …${(o.orderText || '').slice(Math.max(0, m.index - 70), m.index + 25).replace(/\s+/g, ' ')}`);
+          have.add(iso);
+        }
+      }
+    }
+  }
   if (additionalDates.length) {
     const newToday = additionalDates.filter(d => d.firstSeenAt && d.firstSeenAt.startsWith(todayISO)).length;
     console.log(`  [listings] +${additionalDates.length} (orders:${fromOrders}, history:${fromHistory}, new-today:${newToday}): ${additionalDates.map(d => d.date + '(' + d.before + ')').join(', ')}`);
