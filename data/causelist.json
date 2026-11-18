@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-18T09:02:39Z",
+  "scraped_at": "2026-11-18T10:01:45Z",
   "for_dates": [
     "2026-11-18",
     "2026-11-19"
@@ -31,9 +31,7 @@
     {
       "file": "deletion_note_18.11.2026.pdf",
       "date": "2026-11-18",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(245634 bytes read, 75532 more expected)', IncompleteRead(245634 bytes read, 75532 more expected))"
     },
     {
       "file": "vk_sup_fnl_for_18.11.26.pdf",
