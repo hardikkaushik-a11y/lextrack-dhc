@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-18T02:01:36Z",
+  "scraped_at": "2026-11-18T03:01:33Z",
   "for_dates": [
     "2026-11-18",
     "2026-11-19"
@@ -66,9 +66,7 @@
     {
       "file": "combined_cause_list_18.11.2026.pdf",
       "date": "2026-11-18",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(17531382 bytes read, 1371183 more expected)', IncompleteRead(17531382 bytes read, 1371183 more expected))"
     },
     {
       "file": "combined_adv_list_18.11.2026.pdf",
@@ -84,13 +82,13 @@
       "court": "51",
       "judge": "TEJAS KARIA",
       "time": null,
-      "page": 448,
+      "page": 316,
       "context": "18        CS(COMM)-         SONY PICTURES       MANISH SINGH\n             753/2026          NETWORKS INDIA",
       "caseNo": "CS(COMM)/753/2026",
       "match_type": "case_no",
       "matched_on": "CS(COMM)-         SONY PICTURES       MANISH SINGH\n             753/2026",
       "date": "2026-11-18",
-      "source_pdf": "combined_cause_list_18.11.2026.pdf"
+      "source_pdf": "combined_adv_list_18.11.2026.pdf"
     }
   ]
 }
