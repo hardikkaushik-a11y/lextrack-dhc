@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-18T13:01:53Z",
+  "scraped_at": "2026-11-18T14:01:56Z",
   "for_dates": [
     "2026-11-18",
     "2026-11-19"
@@ -7,6 +7,34 @@
   "tracked_cases": 24,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "j_19112026.pdf",
+      "date": "2026-11-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_19.11.2026.pdf",
+      "date": "2026-11-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl19112026.pdf",
+      "date": "2026-11-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_advance_19112026.pdf",
+      "date": "2026-11-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "registrar_supply_list_18.11.2026_1.pdf",
       "date": "2026-11-18",
