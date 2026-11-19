@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-19T11:01:51Z",
+  "scraped_at": "2026-11-19T12:05:53Z",
   "for_dates": [
     "2026-11-19",
     "2026-11-20"
@@ -7,6 +7,13 @@
   "tracked_cases": 24,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "combined_adv_list_20.11.2026.pdf",
+      "date": "2026-11-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "registrar_supply_list_19112026_1.pdf",
       "date": "2026-11-19",
