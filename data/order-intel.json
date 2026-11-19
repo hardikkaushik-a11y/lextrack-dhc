@@ -8083,5 +8083,29 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/756/2025",
     "_orderDate": "2026-11-17"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1795084338_18629b68ce2c5cb7_687_7532026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "List the matter before the learned Joint Registrar on 08.12.2026 for completion of service as well as pleadings."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Ms. Ishi Singh",
+      "defendant": "Ms. Radhika Bishwajit Dubey, CGSC with Ms. Gurleen Kaur Waraich, Mr. Kritarth Upadyay, Mr. Amulya Dev Mishra and Mr. Saksham Sharma (for D-35 and D-36)"
+    },
+    "summary": "The plaintiff's counsel informed the Court that pleadings are yet to be completed and the next hearing before the learned Joint Registrar is scheduled for 08.12.2026. The Court accordingly directed the matter to be listed before the learned Joint Registrar on 08.12.2026 for completion of service and pleadings. No substantive relief was granted in this order.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-19T11:05:19.313Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/753/2026",
+    "_orderDate": "2026-11-18"
   }
 }
