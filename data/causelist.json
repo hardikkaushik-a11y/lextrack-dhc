@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-19T05:03:02Z",
+  "scraped_at": "2026-11-19T06:01:45Z",
   "for_dates": [
     "2026-11-19",
     "2026-11-20"
@@ -7,6 +7,13 @@
   "tracked_cases": 24,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "suppl_for_19.11.2026.pdf",
+      "date": "2026-11-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "combined_targetted_19112026.pdf",
       "date": "2026-11-19",
