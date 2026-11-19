@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-11-19T18:01:43Z",
+  "scraped_at": "2026-11-19T19:03:39Z",
   "for_dates": [
-    "2026-11-19",
-    "2026-11-20"
+    "2026-11-20",
+    "2026-11-21"
   ],
   "tracked_cases": 24,
   "matched_cases": 0,
@@ -73,48 +73,6 @@
     {
       "file": "combined_adv_list_20.11.2026.pdf",
       "date": "2026-11-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "registrar_supply_list_19112026_1.pdf",
-      "date": "2026-11-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_19.11.2026.pdf",
-      "date": "2026-11-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "suppl_for_19.11.2026_11_12.pdf",
-      "date": "2026-11-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_10_for_19.11.26.pdf",
-      "date": "2026-11-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_8_for_19.11.26.pdf",
-      "date": "2026-11-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "today_jr_suppl._judicial_19112026.pdf",
-      "date": "2026-11-19",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
