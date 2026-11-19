@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-19T09:01:48Z",
+  "scraped_at": "2026-11-19T10:01:56Z",
   "for_dates": [
     "2026-11-19",
     "2026-11-20"
@@ -7,6 +7,20 @@
   "tracked_cases": 24,
   "matched_cases": 2,
   "sources": [
+    {
+      "file": "pla_19.11.2026.pdf",
+      "date": "2026-11-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "suppl_for_19.11.2026_11_12.pdf",
+      "date": "2026-11-19",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "vk_sup_10_for_19.11.26.pdf",
       "date": "2026-11-19",
