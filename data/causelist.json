@@ -1,12 +1,52 @@
 {
-  "scraped_at": "2026-11-19T12:05:53Z",
+  "scraped_at": "2026-11-19T13:01:34Z",
   "for_dates": [
     "2026-11-19",
     "2026-11-20"
   ],
   "tracked_cases": 24,
-  "matched_cases": 2,
+  "matched_cases": 1,
   "sources": [
+    {
+      "file": "deletion_note_20.11.2026.pdf",
+      "date": "2026-11-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_20.11.2026.pdf",
+      "date": "2026-11-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_20.11.2026.pdf",
+      "date": "2026-11-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_20.11.2026.pdf",
+      "date": "2026-11-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl20112026.pdf",
+      "date": "2026-11-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_cause_list_20.11.2026.pdf",
+      "date": "2026-11-20",
+      "error": "download: ('Connection broken: IncompleteRead(4687069 bytes read, 14041928 more expected)', IncompleteRead(4687069 bytes read, 14041928 more expected))"
+    },
     {
       "file": "combined_adv_list_20.11.2026.pdf",
       "date": "2026-11-20",
@@ -76,48 +116,6 @@
       "matched": 1,
       "regex_matches": 1,
       "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_19.11.2026.pdf",
-      "date": "2026-11-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_19112026.pdf",
-      "date": "2026-11-19",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_19112026.pdf",
-      "date": "2026-11-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_19.11.2026.pdf",
-      "date": "2026-11-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl19112026.pdf",
-      "date": "2026-11-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_19112026.pdf",
-      "date": "2026-11-19",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
   "entries": [
@@ -133,19 +131,6 @@
       "matched_on": "CS(COMM)-        PRIVATE LIMITED &\n             256/2026",
       "date": "2026-11-19",
       "source_pdf": "new_c_19112026.pdf"
-    },
-    {
-      "item": "36",
-      "court": "49",
-      "judge": "PURUSHAINDRA KUMAR KAURAV",
-      "time": null,
-      "page": 650,
-      "context": "In CS(COMM)-       PRIVATE LIMITED     VIJAY, ISHI SINGH,\n             1083/2026          V/s SSRMOVIES.STYLE LAKSHMI KRUTTIKA",
-      "caseNo": "CS(COMM)/1083/2026",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)-       PRIVATE LIMITED     VIJAY, ISHI SINGH,\n             1083/2026",
-      "date": "2026-11-19",
-      "source_pdf": "c_19112026.pdf"
     }
   ]
 }
