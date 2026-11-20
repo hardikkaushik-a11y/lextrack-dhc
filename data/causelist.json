@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-20T07:02:09Z",
+  "scraped_at": "2026-11-20T08:01:48Z",
   "for_dates": [
     "2026-11-20",
     "2026-11-21"
@@ -7,6 +7,20 @@
   "tracked_cases": 24,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "vk_sup_15_for_20.11.26.pdf",
+      "date": "2026-11-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "registrar_supply_deletion_20.11.2026.pdf",
+      "date": "2026-11-20",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "vk_sup_11_for_20.11.26.pdf",
       "date": "2026-11-20",
@@ -80,9 +94,7 @@
     {
       "file": "combined_cause_list_20.11.2026.pdf",
       "date": "2026-11-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(17420958 bytes read, 1308039 more expected)', IncompleteRead(17420958 bytes read, 1308039 more expected))"
     },
     {
       "file": "combined_adv_list_20.11.2026.pdf",
