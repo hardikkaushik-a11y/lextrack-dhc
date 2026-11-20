@@ -8107,5 +8107,30 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/753/2026",
     "_orderDate": "2026-11-18"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1795170644_c7bdf7db56aec611_596_10832026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Plaintiff's counsel to file reply to I.A. 31491/2026 within seven days from today.",
+      "Matter listed on 03.12.2026, the date already fixed."
+    ],
+    "citations": [],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatinder Garg, Mr. Akshay Maloo, Ms. Ishi Singh, Ms. Shudhata Sudhir and Mr. Vinayak Trivedi",
+      "defendant": "Mr. Jagdish Chandra, CGSC with Ms. Aishwarya Sinha, Ms. Maanya Saxena, Ms. Sanskriti Sharma and Ms. Vinita Solanki; Mr. Satya Ranjan Swain, CGSC with Mr. Naveen, G.P., Mr. Sanskar Gupta and Mr. Tushar Hazrati (for D-10 & 11); Ms. Kruttika Vijay, Mr. Jaskaran Singh and Mr. Ayush Hoonka (for intervenors/applicant); Ms. Binsy Susan, Mr. Vishal Hablani and Ms. Khushbu Turki (for D-24)"
+    },
+    "summary": "The Court took up I.A. 31491/2026, an application seeking clarification/modification of direction in para 7(iv) of the order dated 01.10.2026. Notice was issued and accepted by the plaintiff's counsel, who was directed to file a reply within seven days. The matter was listed on 03.12.2026, the date already fixed.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-20T11:04:47.563Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/1083/2026",
+    "_orderDate": "2026-11-19"
   }
 }

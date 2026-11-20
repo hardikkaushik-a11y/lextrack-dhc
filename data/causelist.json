@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-20T10:01:35Z",
+  "scraped_at": "2026-11-20T11:01:18Z",
   "for_dates": [
     "2026-11-20",
     "2026-11-21"
@@ -10,7 +10,9 @@
     {
       "file": "sup_hmj_manmeet_p_singh_20.11.2026.pdf",
       "date": "2026-11-20",
-      "error": "download: ('Connection broken: IncompleteRead(395954 bytes read, 19773 more expected)', IncompleteRead(395954 bytes read, 19773 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "vk_sup_16_for_20.11.26.pdf",
@@ -84,13 +86,6 @@
     },
     {
       "file": "combined_pro_20.11.2026.pdf",
-      "date": "2026-11-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_20.11.2026.pdf",
       "date": "2026-11-20",
       "matched": 0,
       "regex_matches": 0,
