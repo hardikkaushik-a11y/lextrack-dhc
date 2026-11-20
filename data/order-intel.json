@@ -8132,5 +8132,36 @@
     "_schema": "v1",
     "_caseNo": "CS(COMM)/1083/2026",
     "_orderDate": "2026-11-19"
+  },
+  "https://delhihighcourt.nic.in/app/showlogo/1795181646_83687218779b6be6_593_2562026.pdf/2026": {
+    "classification": "procedural",
+    "reliefGranted": null,
+    "costsAwarded": null,
+    "directions": [
+      "Issue notice on I.A. 31505/2026 (Order VII Rule 10 r/w Section 151 CPC by D-1); counsel for plaintiff accepts notice.",
+      "Reply, if any, to be filed within six weeks; rejoinder before the next date.",
+      "Re-notify I.A. 31505/2026 on 05.02.2027.",
+      "List I.A. 6856/2026 and I.A. 18834/2026 before the learned Joint Registrar on 08.12.2026, the date already fixed."
+    ],
+    "citations": [
+      "Order VII Rule 10, Code of Civil Procedure",
+      "Section 151, Code of Civil Procedure",
+      "Order XXXIX Rules 1 & 2, Code of Civil Procedure"
+    ],
+    "counsel": {
+      "plaintiff": "Mr. Siddharth Chopra, Mr. Yatendar Garg, Ms. Disha Sharma and Ms. Ishi Singh",
+      "defendant": "Ms. Kanak Malik and Mr. Tanishq Juneja (for D-1)"
+    },
+    "summary": "The Court issued notice on defendant no.1's application under Order VII Rule 10 read with Section 151 CPC seeking return of the plaint, with reply to be filed within six weeks and the matter re-notified on 05.02.2027. The plaintiff's applications seeking ad-interim injunction and further directions against defendant no.1 were listed before the learned Joint Registrar on 08.12.2026. No relief was granted or denied at this stage.",
+    "confidence": {
+      "reliefGranted": "high",
+      "directions": "high",
+      "citations": "high"
+    },
+    "_extractedAt": "2026-11-20T14:04:47.488Z",
+    "_model": "deepseek-chat",
+    "_schema": "v1",
+    "_caseNo": "CS(COMM)/256/2026",
+    "_orderDate": "2026-11-19"
   }
 }
