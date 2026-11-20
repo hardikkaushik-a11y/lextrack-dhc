@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-20T11:01:18Z",
+  "scraped_at": "2026-11-20T12:01:16Z",
   "for_dates": [
     "2026-11-20",
     "2026-11-21"
@@ -7,6 +7,13 @@
   "tracked_cases": 24,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_cause_list_21.11.2026.pdf",
+      "date": "2026-11-21",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_hmj_manmeet_p_singh_20.11.2026.pdf",
       "date": "2026-11-20",
@@ -72,20 +79,6 @@
     },
     {
       "file": "deletion_note_20.11.2026.pdf",
-      "date": "2026-11-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_sup_1_20.11.2026.pdf",
-      "date": "2026-11-20",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_20.11.2026.pdf",
       "date": "2026-11-20",
       "matched": 0,
       "regex_matches": 0,
