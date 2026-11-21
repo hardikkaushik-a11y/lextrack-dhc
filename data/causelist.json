@@ -1,40 +1,89 @@
 {
-  "scraped_at": "2026-11-21T18:01:12Z",
+  "scraped_at": "2026-11-21T19:01:37Z",
   "for_dates": [
-    "2026-11-21",
-    "2026-11-22"
+    "2026-11-22",
+    "2026-11-23"
   ],
   "tracked_cases": 24,
-  "matched_cases": 0,
+  "matched_cases": 1,
   "sources": [
     {
-      "file": "sup_21112026.pdf",
-      "date": "2026-11-21",
+      "file": "deletion_note_23.11.2026.pdf",
+      "date": "2026-11-23",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "vk_sup_8_for_21.11.26.pdf",
-      "date": "2026-11-21",
+      "file": "j_23112026.pdf",
+      "date": "2026-11-23",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "combined_cause_list_1_21.11.2026.pdf",
-      "date": "2026-11-21",
+      "file": "new_c_23112026.pdf",
+      "date": "2026-11-23",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     },
     {
-      "file": "combined_cause_list_21.11.2026.pdf",
-      "date": "2026-11-21",
+      "file": "combined_targetted_23112026.pdf",
+      "date": "2026-11-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_23.11.2026.pdf",
+      "date": "2026-11-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_23.11.2026.pdf",
+      "date": "2026-11-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl23112026.pdf",
+      "date": "2026-11-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_23112026.pdf",
+      "date": "2026-11-23",
+      "matched": 1,
+      "regex_matches": 1,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_lis_23.11.2026.pdf",
+      "date": "2026-11-23",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "item": "29",
+      "court": "JR",
+      "judge": "SWATI KATIYAR (JR)",
+      "time": null,
+      "page": 674,
+      "context": "In CS(COMM)- V/s ABBONAMENTOIPTVITAL KHAITAN & CO., ANUJ\n             1306/2025       IA.COM & ORS.        BERRY, GEETANJALI",
+      "caseNo": "CS(COMM)/1306/2025",
+      "match_type": "case_no",
+      "matched_on": "CS(COMM)- V/s ABBONAMENTOIPTVITAL KHAITAN & CO., ANUJ\n             1306/2025",
+      "date": "2026-11-23",
+      "source_pdf": "c_23112026.pdf"
+    }
+  ]
 }
