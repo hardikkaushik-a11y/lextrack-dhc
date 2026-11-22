@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-22T14:01:49Z",
+  "scraped_at": "2026-11-22T15:01:28Z",
   "for_dates": [
     "2026-11-22",
     "2026-11-23"
@@ -66,9 +66,7 @@
     {
       "file": "combined_adv_lis_23.11.2026.pdf",
       "date": "2026-11-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": [
