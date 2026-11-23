@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-23T13:02:12Z",
+  "scraped_at": "2026-11-23T14:01:06Z",
   "for_dates": [
     "2026-11-23",
     "2026-11-24"
@@ -37,34 +37,6 @@
     },
     {
       "file": "vk_sup_10_trf_matter_for_23.11.26.pdf",
-      "date": "2026-11-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_23.11.2026.pdf",
-      "date": "2026-11-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_23112026.pdf",
-      "date": "2026-11-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_23112026.pdf",
-      "date": "2026-11-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_23112026.pdf",
       "date": "2026-11-23",
       "matched": 0,
       "regex_matches": 0,
