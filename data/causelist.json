@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-23T06:01:40Z",
+  "scraped_at": "2026-11-23T07:01:36Z",
   "for_dates": [
     "2026-11-23",
     "2026-11-24"
@@ -7,6 +7,27 @@
   "tracked_cases": 24,
   "matched_cases": 1,
   "sources": [
+    {
+      "file": "vk_sup_12_trf_matter_for_23.11.26.pdf",
+      "date": "2026-11-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rohit_suppl_transferred_for_23.11.2026.pdf",
+      "date": "2026-11-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "vk_sup_10_trf_matter_for_23.11.26.pdf",
+      "date": "2026-11-23",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "deletion_note_23.11.2026.pdf",
       "date": "2026-11-23",
