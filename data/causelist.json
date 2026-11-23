@@ -1,11 +1,11 @@
 {
-  "scraped_at": "2026-11-23T12:01:49Z",
+  "scraped_at": "2026-11-23T13:02:12Z",
   "for_dates": [
     "2026-11-23",
     "2026-11-24"
   ],
   "tracked_cases": 24,
-  "matched_cases": 1,
+  "matched_cases": 0,
   "sources": [
     {
       "file": "sup_hmj_sachin_datta_23.11.2026.pdf",
@@ -69,56 +69,7 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "pla_23.11.2026.pdf",
-      "date": "2026-11-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_23.11.2026.pdf",
-      "date": "2026-11-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl23112026.pdf",
-      "date": "2026-11-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_23112026.pdf",
-      "date": "2026-11-23",
-      "matched": 1,
-      "regex_matches": 1,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_lis_23.11.2026.pdf",
-      "date": "2026-11-23",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
     }
   ],
-  "entries": [
-    {
-      "item": "29",
-      "court": "JR",
-      "judge": "SWATI KATIYAR (JR)",
-      "time": null,
-      "page": 674,
-      "context": "In CS(COMM)- V/s ABBONAMENTOIPTVITAL KHAITAN & CO., ANUJ\n             1306/2025       IA.COM & ORS.        BERRY, GEETANJALI",
-      "caseNo": "CS(COMM)/1306/2025",
-      "match_type": "case_no",
-      "matched_on": "CS(COMM)- V/s ABBONAMENTOIPTVITAL KHAITAN & CO., ANUJ\n             1306/2025",
-      "date": "2026-11-23",
-      "source_pdf": "c_23112026.pdf"
-    }
-  ]
+  "entries": []
 }
