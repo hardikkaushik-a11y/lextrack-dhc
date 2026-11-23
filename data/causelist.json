@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-23T10:01:44Z",
+  "scraped_at": "2026-11-23T11:01:57Z",
   "for_dates": [
     "2026-11-23",
     "2026-11-24"
@@ -101,7 +101,9 @@
     {
       "file": "combined_adv_lis_23.11.2026.pdf",
       "date": "2026-11-23",
-      "error": "download: ('Connection broken: IncompleteRead(262047 bytes read, 6560530 more expected)', IncompleteRead(262047 bytes read, 6560530 more expected))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     }
   ],
   "entries": [
