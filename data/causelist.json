@@ -1,12 +1,17 @@
 {
-  "scraped_at": "2026-11-24T18:01:45Z",
+  "scraped_at": "2026-11-24T19:01:46Z",
   "for_dates": [
-    "2026-11-24",
-    "2026-11-25"
+    "2026-11-25",
+    "2026-11-26"
   ],
   "tracked_cases": 24,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "combined_advance_26112026.pdf",
+      "date": "2026-11-26",
+      "error": "download: ('Connection broken: IncompleteRead(1699928 bytes read, 5353483 more expected)', IncompleteRead(1699928 bytes read, 5353483 more expected))"
+    },
     {
       "file": "25-11-2026-supply.pdf",
       "date": "2026-11-25",
