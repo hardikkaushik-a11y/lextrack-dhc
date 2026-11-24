@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-24T16:01:46Z",
+  "scraped_at": "2026-11-24T17:01:16Z",
   "for_dates": [
     "2026-11-24",
     "2026-11-25"
@@ -55,25 +55,6 @@
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
-    },
-    {
-      "file": "finals_25.11.2026.pdf",
-      "date": "2026-11-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_25112026.pdf",
-      "date": "2026-11-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_25112026.pdf",
-      "date": "2026-11-25",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     }
   ],
   "entries": []
