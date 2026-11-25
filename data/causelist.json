@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-25T13:01:55Z",
+  "scraped_at": "2026-11-25T14:02:01Z",
   "for_dates": [
     "2026-11-25",
     "2026-11-26"
@@ -7,6 +7,55 @@
   "tracked_cases": 24,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "pla_26.11.2026.pdf",
+      "date": "2026-11-26",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_26.11.2026.pdf",
+      "date": "2026-11-26",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_26.11.2026.pdf",
+      "date": "2026-11-26",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "final_supplementary_list_26.11.2026.pdf",
+      "date": "2026-11-26",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "finals_26.11.2026.pdf",
+      "date": "2026-11-26",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_pro_26.11.2026.pdf",
+      "date": "2026-11-26",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_sup_1_26.11.2026.pdf",
+      "date": "2026-11-26",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "rl26112026.pdf",
       "date": "2026-11-26",
@@ -44,48 +93,6 @@
     },
     {
       "file": "25-11-2026-supply.pdf",
-      "date": "2026-11-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pronouncement_for_25.11.2026.pdf",
-      "date": "2026-11-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_25112026.pdf",
-      "date": "2026-11-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_25.11.2026.pdf",
-      "date": "2026-11-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_fnl_list_for_25.11.26.pdf",
-      "date": "2026-11-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_25112026.pdf",
-      "date": "2026-11-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl25112026.pdf",
       "date": "2026-11-25",
       "matched": 0,
       "regex_matches": 0,
