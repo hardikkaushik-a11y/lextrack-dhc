@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-25T03:01:52Z",
+  "scraped_at": "2026-11-25T04:02:01Z",
   "for_dates": [
     "2026-11-25",
     "2026-11-26"
@@ -31,9 +31,7 @@
     {
       "file": "combined_targetted_25112026.pdf",
       "date": "2026-11-25",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
+      "error": "download: ('Connection broken: IncompleteRead(508000 bytes read, 626045 more expected)', IncompleteRead(508000 bytes read, 626045 more expected))"
     },
     {
       "file": "deletion_note_25.11.2026.pdf",
