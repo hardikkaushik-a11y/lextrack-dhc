@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-26T13:01:40Z",
+  "scraped_at": "2026-11-26T14:01:41Z",
   "for_dates": [
     "2026-11-26",
     "2026-11-27"
@@ -7,6 +7,41 @@
   "tracked_cases": 24,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "corrigendulm_27112026.pdf",
+      "date": "2026-11-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "deletion_note_27.11.2026.pdf",
+      "date": "2026-11-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_targetted_27112026.pdf",
+      "date": "2026-11-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "pla_27112026.pdf",
+      "date": "2026-11-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "new_c_27112026.pdf",
+      "date": "2026-11-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "j_27112026.pdf",
       "date": "2026-11-27",
@@ -38,7 +73,9 @@
     {
       "file": "combined_adv_list_27.11.2026.pdf",
       "date": "2026-11-27",
-      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
     },
     {
       "file": "vk_sup_10_for_26.11.26.pdf",
@@ -84,41 +121,6 @@
     },
     {
       "file": "deletion_note_26.11.2026.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "final_supplementary_list_26.11.2026.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_26.11.2026.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_pro_26.11.2026.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_sup_1_26.11.2026.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl26112026.pdf",
       "date": "2026-11-26",
       "matched": 0,
       "regex_matches": 0,
