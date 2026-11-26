@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-26T12:01:55Z",
+  "scraped_at": "2026-11-26T13:01:40Z",
   "for_dates": [
     "2026-11-26",
     "2026-11-27"
@@ -8,11 +8,37 @@
   "matched_cases": 0,
   "sources": [
     {
-      "file": "combined_adv_list_27.11.2026.pdf",
+      "file": "j_27112026.pdf",
       "date": "2026-11-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
+    },
+    {
+      "file": "finals_27.11.2026.pdf",
+      "date": "2026-11-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "rl27112026.pdf",
+      "date": "2026-11-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_27112026.pdf",
+      "date": "2026-11-27",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "combined_adv_list_27.11.2026.pdf",
+      "date": "2026-11-27",
+      "error": "download: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
     },
     {
       "file": "vk_sup_10_for_26.11.26.pdf",
@@ -93,20 +119,6 @@
     },
     {
       "file": "rl26112026.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_cause_list_26.11.2026.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_advance_26112026.pdf",
       "date": "2026-11-26",
       "matched": 0,
       "regex_matches": 0,
