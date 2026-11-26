@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-11-26T18:02:17Z",
+  "scraped_at": "2026-11-26T19:01:48Z",
   "for_dates": [
-    "2026-11-26",
-    "2026-11-27"
+    "2026-11-27",
+    "2026-11-28"
   ],
   "tracked_cases": 24,
   "matched_cases": 0,
@@ -73,55 +73,6 @@
     {
       "file": "combined_adv_list_27.11.2026.pdf",
       "date": "2026-11-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_10_for_26.11.26.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "vk_sup_9_for_26.11.26.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rohit_suppl_for_26.11.2026.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pro._26.11.2026.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_26.11.2026.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_26.11.2026.pdf",
-      "date": "2026-11-26",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_26.11.2026.pdf",
-      "date": "2026-11-26",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
