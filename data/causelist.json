@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-11-27T18:01:56Z",
+  "scraped_at": "2026-11-27T19:01:13Z",
   "for_dates": [
-    "2026-11-27",
-    "2026-11-28"
+    "2026-11-28",
+    "2026-11-29"
   ],
   "tracked_cases": 24,
   "matched_cases": 0,
@@ -17,83 +17,6 @@
     {
       "file": "c_28112026.pdf",
       "date": "2026-11-28",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "sup_hmj_sachin_datta_27.11.2026.pdf",
-      "date": "2026-11-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "corrigendulm_27112026.pdf",
-      "date": "2026-11-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "deletion_note_27.11.2026.pdf",
-      "date": "2026-11-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_targetted_27112026.pdf",
-      "date": "2026-11-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "pla_27112026.pdf",
-      "date": "2026-11-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "new_c_27112026.pdf",
-      "date": "2026-11-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "j_27112026.pdf",
-      "date": "2026-11-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "finals_27.11.2026.pdf",
-      "date": "2026-11-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "rl27112026.pdf",
-      "date": "2026-11-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "c_27112026.pdf",
-      "date": "2026-11-27",
-      "matched": 0,
-      "regex_matches": 0,
-      "norm_matches": 0
-    },
-    {
-      "file": "combined_adv_list_27.11.2026.pdf",
-      "date": "2026-11-27",
       "matched": 0,
       "regex_matches": 0,
       "norm_matches": 0
