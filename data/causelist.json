@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-11-27T12:01:41Z",
+  "scraped_at": "2026-11-27T13:01:50Z",
   "for_dates": [
     "2026-11-27",
     "2026-11-28"
@@ -7,6 +7,20 @@
   "tracked_cases": 24,
   "matched_cases": 0,
   "sources": [
+    {
+      "file": "supp-1_28.11.2026_1.pdf",
+      "date": "2026-11-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
+    {
+      "file": "c_28112026.pdf",
+      "date": "2026-11-28",
+      "matched": 0,
+      "regex_matches": 0,
+      "norm_matches": 0
+    },
     {
       "file": "sup_hmj_sachin_datta_27.11.2026.pdf",
       "date": "2026-11-27",
